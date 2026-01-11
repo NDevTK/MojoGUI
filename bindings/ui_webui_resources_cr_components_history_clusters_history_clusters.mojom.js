@@ -252,22 +252,22 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordVisitAction_ParamsSpec, 'history_clusters.mojom.PageHandler_RecordVisitAction_Params', [
-      mojo.internal.StructField('arg_visit_action', 0, 0, mojo.internal.bindings.mojo.internal.bindings.history_clusters.mojom.VisitActionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visit_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.history_clusters.mojom.VisitTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visit_action', 0, 0, mojo.internal.bindings.history_clusters.mojom.VisitActionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visit_type', 8, 0, mojo.internal.bindings.history_clusters.mojom.VisitTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_visit_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordRelatedSearchAction_ParamsSpec, 'history_clusters.mojom.PageHandler_RecordRelatedSearchAction_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.mojo.internal.bindings.history_clusters.mojom.RelatedSearchActionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.history_clusters.mojom.RelatedSearchActionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_visit_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordClusterAction_ParamsSpec, 'history_clusters.mojom.PageHandler_RecordClusterAction_Params', [
-      mojo.internal.StructField('arg_cluster_action', 0, 0, mojo.internal.bindings.mojo.internal.bindings.history_clusters.mojom.ClusterActionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cluster_action', 0, 0, mojo.internal.bindings.history_clusters.mojom.ClusterActionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_cluster_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -937,7 +937,7 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerRequest = mojo.internal
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.history_clusters.mojom.Page_OnClustersQueryResult_ParamsSpec, 'history_clusters.mojom.Page_OnClustersQueryResult_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.history_clusters.mojom.QueryResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.history_clusters.mojom.QueryResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

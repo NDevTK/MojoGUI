@@ -96,7 +96,7 @@ mojo.internal.bindings.service_manager.mojom.InstanceState = {
 mojo.internal.Struct(
     mojo.internal.bindings.service_manager.mojom.RunningServiceInfoSpec, 'service_manager.mojom.RunningServiceInfo', [
       mojo.internal.StructField('arg_identity', 0, 0, mojo.internal.bindings.service_manager.mojom.IdentitySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.mojo.internal.bindings.service_manager.mojom.InstanceStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.service_manager.mojom.InstanceStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_pid', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -104,13 +104,13 @@ mojo.internal.Struct(
 // Interface: ServiceManagerListener
 mojo.internal.Struct(
     mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec, 'service_manager.mojom.ServiceManagerListener_OnInit_Params', [
-      mojo.internal.StructField('arg_running_services', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.service_manager.mojom.RunningServiceInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_running_services', 0, 0, mojo.internal.Array(mojo.internal.bindings.service_manager.mojom.RunningServiceInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec, 'service_manager.mojom.ServiceManagerListener_OnServiceCreated_Params', [
-      mojo.internal.StructField('arg_service', 0, 0, mojo.internal.bindings.mojo.internal.bindings.service_manager.mojom.RunningServiceInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_service', 0, 0, mojo.internal.bindings.service_manager.mojom.RunningServiceInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

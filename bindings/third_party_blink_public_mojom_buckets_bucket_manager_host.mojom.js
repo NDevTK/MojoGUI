@@ -774,14 +774,14 @@ mojo.internal.bindings.blink.mojom.BucketHostRequest = mojo.internal.bindings.bl
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ParamsSpec, 'blink.mojom.BucketManagerHost_OpenBucket_Params', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_policy', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.BucketPoliciesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_policy', 8, 0, mojo.internal.bindings.blink.mojom.BucketPoliciesSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec, 'blink.mojom.BucketManagerHost_OpenBucket_ResponseParams', [
       mojo.internal.StructField('arg_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BucketHostSpec), null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.BucketErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.BucketErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

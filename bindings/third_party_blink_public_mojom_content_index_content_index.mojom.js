@@ -123,8 +123,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_description', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_category', 24, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ContentCategorySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icons', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ContentIconDefinitionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_category', 24, 0, mojo.internal.bindings.blink.mojom.ContentCategorySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icons', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ContentIconDefinitionSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_launch_url', 40, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 56]]);
@@ -132,7 +132,7 @@ mojo.internal.Struct(
 // Interface: ContentIndexService
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec, 'blink.mojom.ContentIndexService_GetIconSizes_Params', [
-      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ContentCategorySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.blink.mojom.ContentCategorySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -145,7 +145,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ParamsSpec, 'blink.mojom.ContentIndexService_Add_Params', [
       mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_description', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ContentDescriptionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 8, 0, mojo.internal.bindings.blink.mojom.ContentDescriptionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_icon', 16, 0, mojo.internal.Array(mojo.internal.bindings.skia.mojom.BitmapN32Spec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_launchUrl', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
@@ -153,7 +153,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ResponseParamsSpec, 'blink.mojom.ContentIndexService_Add_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ContentIndexErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ContentIndexErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -166,7 +166,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ContentIndexService_Delete_ResponseParamsSpec, 'blink.mojom.ContentIndexService_Delete_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ContentIndexErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ContentIndexErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -178,8 +178,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec, 'blink.mojom.ContentIndexService_GetDescriptions_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ContentIndexErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_descriptions', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ContentDescriptionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ContentIndexErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_descriptions', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ContentDescriptionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

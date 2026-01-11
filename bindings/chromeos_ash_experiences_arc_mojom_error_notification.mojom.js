@@ -100,7 +100,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ErrorDetailsSpec, 'arc.mojom.ErrorDetails', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ErrorTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.arc.mojom.ErrorTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_buttonLabels', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
     ],
     [[0, 40]]);
@@ -108,7 +108,7 @@ mojo.internal.Struct(
 // Interface: ErrorNotificationHost
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec, 'arc.mojom.ErrorNotificationHost_SendErrorDetails_Params', [
-      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ErrorDetailsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.bindings.arc.mojom.ErrorDetailsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_action_handler', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);

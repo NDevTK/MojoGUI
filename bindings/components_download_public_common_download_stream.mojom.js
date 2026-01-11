@@ -102,7 +102,7 @@ mojo.internal.Struct(
 // Interface: DownloadStreamClient
 mojo.internal.Struct(
     mojo.internal.bindings.download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec, 'download.mojom.DownloadStreamClient_OnStreamCompleted_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.download.mojom.NetworkRequestStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.download.mojom.NetworkRequestStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

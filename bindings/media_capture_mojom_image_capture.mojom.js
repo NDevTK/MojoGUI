@@ -138,35 +138,35 @@ mojo.internal.Struct(
 // Struct: PhotoState
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.PhotoStateSpec, 'media.mojom.PhotoState', [
-      mojo.internal.StructField('arg_supported_white_balance_modes', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.media.mojom.MeteringModeSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_current_white_balance_mode', 8, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.MeteringModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_supported_exposure_modes', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.media.mojom.MeteringModeSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_current_exposure_mode', 24, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.MeteringModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_supported_focus_modes', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.media.mojom.MeteringModeSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_current_focus_mode', 40, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.MeteringModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_points_of_interest', 48, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.media.mojom.Point2DSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_exposure_compensation', 56, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_exposure_time', 64, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_color_temperature', 72, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_iso', 80, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_brightness', 88, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_contrast', 96, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_saturation', 104, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sharpness', 112, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_focus_distance', 120, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pan', 128, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tilt', 136, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_zoom', 144, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_red_eye_reduction', 152, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.RedEyeReductionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_height', 160, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_width', 168, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fill_light_mode', 176, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.media.mojom.FillLightModeSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_supported_background_blur_modes', 184, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.media.mojom.BackgroundBlurModeSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_background_blur_mode', 192, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.BackgroundBlurModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_supported_face_framing_modes', 200, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.media.mojom.MeteringModeSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_current_face_framing_mode', 208, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.MeteringModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_supported_eye_gaze_correction_modes', 216, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.media.mojom.EyeGazeCorrectionModeSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_current_eye_gaze_correction_mode', 224, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.EyeGazeCorrectionModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_supported_white_balance_modes', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.MeteringModeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_current_white_balance_mode', 8, 0, mojo.internal.bindings.media.mojom.MeteringModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_supported_exposure_modes', 16, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.MeteringModeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_current_exposure_mode', 24, 0, mojo.internal.bindings.media.mojom.MeteringModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_supported_focus_modes', 32, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.MeteringModeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_current_focus_mode', 40, 0, mojo.internal.bindings.media.mojom.MeteringModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_points_of_interest', 48, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.Point2DSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_exposure_compensation', 56, 0, mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_exposure_time', 64, 0, mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_color_temperature', 72, 0, mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_iso', 80, 0, mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_brightness', 88, 0, mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_contrast', 96, 0, mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_saturation', 104, 0, mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sharpness', 112, 0, mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_focus_distance', 120, 0, mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pan', 128, 0, mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tilt', 136, 0, mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_zoom', 144, 0, mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_red_eye_reduction', 152, 0, mojo.internal.bindings.media.mojom.RedEyeReductionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_height', 160, 0, mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_width', 168, 0, mojo.internal.bindings.media.mojom.RangeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fill_light_mode', 176, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.FillLightModeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_supported_background_blur_modes', 184, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.BackgroundBlurModeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_background_blur_mode', 192, 0, mojo.internal.bindings.media.mojom.BackgroundBlurModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_supported_face_framing_modes', 200, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.MeteringModeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_current_face_framing_mode', 208, 0, mojo.internal.bindings.media.mojom.MeteringModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_supported_eye_gaze_correction_modes', 216, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.EyeGazeCorrectionModeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_current_eye_gaze_correction_mode', 224, 0, mojo.internal.bindings.media.mojom.EyeGazeCorrectionModeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_supported_background_segmentation_mask_states', 232, 0, mojo.internal.Array(mojo.internal.Bool, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_supports_torch', 240, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_torch', 240, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -185,10 +185,10 @@ mojo.internal.Struct(
 // Struct: PhotoSettings
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.PhotoSettingsSpec, 'media.mojom.PhotoSettings', [
-      mojo.internal.StructField('arg_white_balance_mode', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.MeteringModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_exposure_mode', 8, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.MeteringModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_focus_mode', 16, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.MeteringModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_points_of_interest', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.media.mojom.Point2DSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_white_balance_mode', 0, 0, mojo.internal.bindings.media.mojom.MeteringModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_exposure_mode', 8, 0, mojo.internal.bindings.media.mojom.MeteringModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_focus_mode', 16, 0, mojo.internal.bindings.media.mojom.MeteringModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_points_of_interest', 24, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.Point2DSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_exposure_compensation', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_exposure_time', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_color_temperature', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
@@ -201,12 +201,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_pan', 104, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_tilt', 112, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_zoom', 120, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_fill_light_mode', 128, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.FillLightModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fill_light_mode', 128, 0, mojo.internal.bindings.media.mojom.FillLightModeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_width', 136, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_height', 144, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_background_blur_mode', 152, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.BackgroundBlurModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_face_framing_mode', 160, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.MeteringModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_eye_gaze_correction_mode', 168, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.EyeGazeCorrectionModeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_background_blur_mode', 152, 0, mojo.internal.bindings.media.mojom.BackgroundBlurModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_face_framing_mode', 160, 0, mojo.internal.bindings.media.mojom.MeteringModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_eye_gaze_correction_mode', 168, 0, mojo.internal.bindings.media.mojom.EyeGazeCorrectionModeSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_has_white_balance_mode', 176, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_has_exposure_mode', 176, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_has_focus_mode', 176, 2, mojo.internal.Bool, false, false, 0, undefined),
@@ -253,14 +253,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec, 'media.mojom.ImageCapture_GetPhotoState_ResponseParams', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.PhotoStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.media.mojom.PhotoStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec, 'media.mojom.ImageCapture_SetPhotoOptions_Params', [
       mojo.internal.StructField('arg_source_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.PhotoSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.media.mojom.PhotoSettingsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -278,7 +278,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec, 'media.mojom.ImageCapture_TakePhoto_ResponseParams', [
-      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.BlobSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.bindings.media.mojom.BlobSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -103,7 +103,7 @@ mojo.internal.bindings.arc.mojom.ClockId = {
 // Struct: CreateTimerRequest
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.CreateTimerRequestSpec, 'arc.mojom.CreateTimerRequest', [
-      mojo.internal.StructField('arg_clock_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ClockIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_clock_id', 0, 0, mojo.internal.bindings.arc.mojom.ClockIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_expiration_fd', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -111,26 +111,26 @@ mojo.internal.Struct(
 // Interface: TimerHost
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.TimerHost_CreateTimers_ParamsSpec, 'arc.mojom.TimerHost_CreateTimers_Params', [
-      mojo.internal.StructField('arg_timer_requests', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.arc.mojom.CreateTimerRequestSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_timer_requests', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.CreateTimerRequestSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.TimerHost_CreateTimers_ResponseParamsSpec, 'arc.mojom.TimerHost_CreateTimers_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ArcTimerResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.ArcTimerResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.TimerHost_StartTimer_ParamsSpec, 'arc.mojom.TimerHost_StartTimer_Params', [
-      mojo.internal.StructField('arg_clock_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ClockIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_clock_id', 0, 0, mojo.internal.bindings.arc.mojom.ClockIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_absolute_expiration_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.TimerHost_StartTimer_ResponseParamsSpec, 'arc.mojom.TimerHost_StartTimer_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ArcTimerResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.ArcTimerResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -142,7 +142,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.TimerHost_SetTime_ResponseParamsSpec, 'arc.mojom.TimerHost_SetTime_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ArcTimerResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.ArcTimerResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

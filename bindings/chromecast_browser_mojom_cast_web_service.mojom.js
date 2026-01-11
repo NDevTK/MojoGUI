@@ -123,12 +123,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_sdk_version', 16, 0, mojo.internal.String, 0, false, 0, undefined),
       mojo.internal.StructField('arg_log_prefix', 24, 0, mojo.internal.String, 0, false, 0, undefined),
       mojo.internal.StructField('arg_shutdown_delay', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_renderer_pool', 40, 0, mojo.internal.bindings.mojo.internal.bindings.chromecast.mojom.RendererPoolSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_renderer_pool', 40, 0, mojo.internal.bindings.chromecast.mojom.RendererPoolSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_prelaunch_url', 48, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_renderer_type', 56, 0, mojo.internal.bindings.mojo.internal.bindings.chromecast.mojom.RendererTypeSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_background_color', 64, 0, mojo.internal.bindings.mojo.internal.bindings.chromecast.mojom.BackgroundColorSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_renderer_type', 56, 0, mojo.internal.bindings.chromecast.mojom.RendererTypeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_background_color', 64, 0, mojo.internal.bindings.chromecast.mojom.BackgroundColorSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_url_filters', 72, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_gesture_priority', 80, 0, mojo.internal.bindings.mojo.internal.bindings.chromecast.mojom.GesturePrioritySpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_gesture_priority', 80, 0, mojo.internal.bindings.chromecast.mojom.GesturePrioritySpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_allow_media_access', 88, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_force_720p_resolution', 88, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_managed', 88, 2, mojo.internal.Bool, true, false, 0, undefined),
@@ -152,7 +152,7 @@ mojo.internal.Struct(
 // Interface: CastWebService
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.CastWebService_CreateWebView_ParamsSpec, 'chromecast.mojom.CastWebService_CreateWebView_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromecast.mojom.CastWebViewParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.chromecast.mojom.CastWebViewParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_web_contents', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.CastWebContentsRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_window', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.CastContentWindowRemote), null, false, 0, undefined),
     ],

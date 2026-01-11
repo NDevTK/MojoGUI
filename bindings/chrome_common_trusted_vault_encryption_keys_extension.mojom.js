@@ -91,7 +91,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec, 'chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_Params', [
       mojo.internal.StructField('arg_gaia_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_encryption_keys', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.chrome.mojom.TrustedVaultKeySpec.$, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_encryption_keys', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.TrustedVaultKeySpec.$, false), false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

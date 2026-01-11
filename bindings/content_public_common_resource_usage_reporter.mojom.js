@@ -92,12 +92,12 @@ mojo.internal.Struct(
 // Struct: ResourceTypeStats
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.ResourceTypeStatsSpec, 'content.mojom.ResourceTypeStats', [
-      mojo.internal.StructField('arg_images', 0, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.ResourceTypeStatSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_css_style_sheets', 8, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.ResourceTypeStatSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scripts', 16, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.ResourceTypeStatSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_xsl_style_sheets', 24, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.ResourceTypeStatSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fonts', 32, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.ResourceTypeStatSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_other', 40, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.ResourceTypeStatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_images', 0, 0, mojo.internal.bindings.content.mojom.ResourceTypeStatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_css_style_sheets', 8, 0, mojo.internal.bindings.content.mojom.ResourceTypeStatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scripts', 16, 0, mojo.internal.bindings.content.mojom.ResourceTypeStatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_xsl_style_sheets', 24, 0, mojo.internal.bindings.content.mojom.ResourceTypeStatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fonts', 32, 0, mojo.internal.bindings.content.mojom.ResourceTypeStatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_other', 40, 0, mojo.internal.bindings.content.mojom.ResourceTypeStatSpec.$, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -106,7 +106,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.ResourceUsageDataSpec, 'content.mojom.ResourceUsageData', [
       mojo.internal.StructField('arg_v8_bytes_allocated', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_v8_bytes_used', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_web_cache_stats', 16, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.ResourceTypeStatsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_web_cache_stats', 16, 0, mojo.internal.bindings.content.mojom.ResourceTypeStatsSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_reports_v8_stats', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -119,7 +119,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec, 'content.mojom.ResourceUsageReporter_GetUsageData_ResponseParams', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.ResourceUsageDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.content.mojom.ResourceUsageDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

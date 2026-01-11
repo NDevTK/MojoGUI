@@ -93,7 +93,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParamsSpec, 'private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParams', [
-      mojo.internal.StructField('arg_private_state_tokens_count', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.private_state_tokens.mojom.IssuerTokenCountSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_private_state_tokens_count', 0, 0, mojo.internal.Array(mojo.internal.bindings.private_state_tokens.mojom.IssuerTokenCountSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

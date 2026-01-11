@@ -193,8 +193,8 @@ mojo.internal.Struct(
 // Struct: Theme
 mojo.internal.Struct(
     mojo.internal.bindings.side_panel.mojom.ThemeSpec, 'side_panel.mojom.Theme', [
-      mojo.internal.StructField('arg_background_image', 0, 0, mojo.internal.bindings.mojo.internal.bindings.side_panel.mojom.BackgroundImageSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_third_party_theme_info', 8, 0, mojo.internal.bindings.mojo.internal.bindings.side_panel.mojom.ThirdPartyThemeInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_background_image', 0, 0, mojo.internal.bindings.side_panel.mojom.BackgroundImageSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_third_party_theme_info', 8, 0, mojo.internal.bindings.side_panel.mojom.ThirdPartyThemeInfoSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_background_color', 16, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_foreground_color', 24, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_background_managed_by_policy', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -417,7 +417,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ResponseParamsSpec, 'side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ResponseParams', [
-      mojo.internal.StructField('arg_collections', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.side_panel.mojom.BackgroundCollectionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_collections', 0, 0, mojo.internal.Array(mojo.internal.bindings.side_panel.mojom.BackgroundCollectionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -441,7 +441,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ResponseParamsSpec, 'side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ResponseParams', [
-      mojo.internal.StructField('arg_images', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.side_panel.mojom.CollectionImageSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_images', 0, 0, mojo.internal.Array(mojo.internal.bindings.side_panel.mojom.CollectionImageSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -523,13 +523,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCategoryPage_ParamsSpec, 'side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCategoryPage_Params', [
-      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.mojo.internal.bindings.side_panel.mojom.ChromeWebStoreCategorySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.side_panel.mojom.ChromeWebStoreCategorySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCollectionPage_ParamsSpec, 'side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCollectionPage_Params', [
-      mojo.internal.StructField('arg_collection', 0, 0, mojo.internal.bindings.mojo.internal.bindings.side_panel.mojom.ChromeWebStoreCollectionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_collection', 0, 0, mojo.internal.bindings.side_panel.mojom.ChromeWebStoreCollectionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1663,7 +1663,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRequest = mojo
 // Interface: CustomizeChromePage
 mojo.internal.Struct(
     mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_SetModulesSettings_ParamsSpec, 'side_panel.mojom.CustomizeChromePage_SetModulesSettings_Params', [
-      mojo.internal.StructField('arg_modules_settings', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.side_panel.mojom.ModuleSettingsSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_modules_settings', 0, 0, mojo.internal.Array(mojo.internal.bindings.side_panel.mojom.ModuleSettingsSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_managed', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_visible', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -1686,7 +1686,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_SetFooterSettings_ParamsSpec, 'side_panel.mojom.CustomizeChromePage_SetFooterSettings_Params', [
-      mojo.internal.StructField('arg_management_notice_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.side_panel.mojom.ManagementNoticeStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_management_notice_state', 0, 0, mojo.internal.bindings.side_panel.mojom.ManagementNoticeStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_visible', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_extension_policy_enabled', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -1694,7 +1694,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_SetTheme_ParamsSpec, 'side_panel.mojom.CustomizeChromePage_SetTheme_Params', [
-      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.mojo.internal.bindings.side_panel.mojom.ThemeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.side_panel.mojom.ThemeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1712,7 +1712,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_AttachedTabStateUpdated_ParamsSpec, 'side_panel.mojom.CustomizeChromePage_AttachedTabStateUpdated_Params', [
-      mojo.internal.StructField('arg_ntp_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.side_panel.mojom.NewTabPageTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ntp_type', 0, 0, mojo.internal.bindings.side_panel.mojom.NewTabPageTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

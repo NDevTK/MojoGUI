@@ -104,7 +104,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.prefs.mojom.TrackedPersistentPrefStoreConfigurationSpec, 'prefs.mojom.TrackedPersistentPrefStoreConfiguration', [
       mojo.internal.StructField('arg_unprotected_pref_filename', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_protected_pref_filename', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tracking_configuration', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.prefs.mojom.TrackedPreferenceMetadataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tracking_configuration', 16, 0, mojo.internal.Array(mojo.internal.bindings.prefs.mojom.TrackedPreferenceMetadataSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_reporting_ids_count', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_seed', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_registry_seed', 40, 0, mojo.internal.String, null, false, 0, undefined),

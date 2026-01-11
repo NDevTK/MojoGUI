@@ -133,7 +133,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.ModelStateType = {
 // Struct: ModelState
 mojo.internal.Struct(
     mojo.internal.bindings.ash.recorder_app.mojom.ModelStateSpec, 'ash.recorder_app.mojom.ModelState', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.recorder_app.mojom.ModelStateTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.recorder_app.mojom.ModelStateTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_progress_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_progress_$value', originalFieldName: 'arg_progress' }),
       mojo.internal.StructField('arg_progress_$value', 9, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_progress_$flag', originalFieldName: 'arg_progress' }),
     ],
@@ -169,7 +169,7 @@ mojo.internal.Struct(
 // Interface: ModelStateMonitor
 mojo.internal.Struct(
     mojo.internal.bindings.ash.recorder_app.mojom.ModelStateMonitor_Update_ParamsSpec, 'ash.recorder_app.mojom.ModelStateMonitor_Update_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.recorder_app.mojom.ModelStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.recorder_app.mojom.ModelStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -477,7 +477,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParamsSpec, 'ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParams', [
-      mojo.internal.StructField('arg_model_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.recorder_app.mojom.ModelInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_model_info', 0, 0, mojo.internal.bindings.ash.recorder_app.mojom.ModelInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -531,7 +531,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec, 'ash.recorder_app.mojom.PageHandler_AddModelMonitor_ResponseParams', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.recorder_app.mojom.ModelStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.recorder_app.mojom.ModelStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -542,7 +542,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ResponseParamsSpec, 'ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ResponseParams', [
-      mojo.internal.StructField('arg_lang_packs', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.recorder_app.mojom.LangPackInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_lang_packs', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.recorder_app.mojom.LangPackInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -566,7 +566,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec, 'ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ResponseParams', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.recorder_app.mojom.ModelStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.recorder_app.mojom.ModelStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -609,7 +609,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec, 'ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.recorder_app.mojom.MicrophoneInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.ash.recorder_app.mojom.MicrophoneInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

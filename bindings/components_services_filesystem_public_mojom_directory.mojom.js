@@ -150,13 +150,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.filesystem.mojom.Directory_OpenFileHandles_ParamsSpec, 'filesystem.mojom.Directory_OpenFileHandles_Params', [
-      mojo.internal.StructField('arg_files', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.filesystem.mojom.FileOpenDetailsSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_files', 0, 0, mojo.internal.Array(mojo.internal.bindings.filesystem.mojom.FileOpenDetailsSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.filesystem.mojom.Directory_OpenFileHandles_ResponseParamsSpec, 'filesystem.mojom.Directory_OpenFileHandles_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.filesystem.mojom.FileOpenResultSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.filesystem.mojom.FileOpenResultSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

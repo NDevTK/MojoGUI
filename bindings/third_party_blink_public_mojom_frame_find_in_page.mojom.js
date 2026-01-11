@@ -120,14 +120,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FindInPage_Find_ParamsSpec, 'blink.mojom.FindInPage_Find_Params', [
       mojo.internal.StructField('arg_search_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FindOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.blink.mojom.FindOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_request_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FindInPage_StopFinding_ParamsSpec, 'blink.mojom.FindInPage_StopFinding_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.StopFindActionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.blink.mojom.StopFindActionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -530,7 +530,7 @@ mojo.internal.bindings.blink.mojom.FindInPageRequest = mojo.internal.bindings.bl
 // Interface: FindInPageClient
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec, 'blink.mojom.FindInPageClient_SetNumberOfMatches_Params', [
-      mojo.internal.StructField('arg_update_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FindMatchUpdateTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_update_type', 0, 0, mojo.internal.bindings.blink.mojom.FindMatchUpdateTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_request_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_number_of_matches', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
@@ -539,7 +539,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec, 'blink.mojom.FindInPageClient_SetActiveMatch_Params', [
       mojo.internal.StructField('arg_active_match_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_update_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FindMatchUpdateTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_update_type', 8, 0, mojo.internal.bindings.blink.mojom.FindMatchUpdateTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_request_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_active_match_ordinal', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],

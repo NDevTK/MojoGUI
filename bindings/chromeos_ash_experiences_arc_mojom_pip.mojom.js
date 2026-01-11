@@ -90,7 +90,7 @@ mojo.internal.bindings.arc.mojom.ArcPipEvent = {
 // Interface: PipHost
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PipHost_OnPipEvent_ParamsSpec, 'arc.mojom.PipHost_OnPipEvent_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ArcPipEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.arc.mojom.ArcPipEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

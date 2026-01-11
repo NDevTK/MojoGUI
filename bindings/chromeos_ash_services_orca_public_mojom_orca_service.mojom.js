@@ -173,12 +173,12 @@ mojo.internal.Union(
     mojo.internal.bindings.ash.orca.mojom.TextQueryResponseSpec, 'ash.orca.mojom.TextQueryResponse', {
       'arg_results': {
         'ordinal': 0,
-        'type': mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.orca.mojom.TextQueryResultSpec.$, false),
+        'type': mojo.internal.Array(mojo.internal.bindings.ash.orca.mojom.TextQueryResultSpec.$, false),
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.orca.mojom.TextQueryErrorSpec.$,
+        'type': mojo.internal.bindings.ash.orca.mojom.TextQueryErrorSpec.$,
         'nullable': false,
       },
     });
@@ -189,7 +189,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_description', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 24, 0, mojo.internal.bindings.mojo.internal.bindings.ash.orca.mojom.PresetTextQueryTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 24, 0, mojo.internal.bindings.ash.orca.mojom.PresetTextQueryTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -213,7 +213,7 @@ mojo.internal.Struct(
 // Struct: TextQueryError
 mojo.internal.Struct(
     mojo.internal.bindings.ash.orca.mojom.TextQueryErrorSpec, 'ash.orca.mojom.TextQueryError', [
-      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.orca.mojom.TextQueryErrorCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.ash.orca.mojom.TextQueryErrorCodeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -229,14 +229,14 @@ mojo.internal.Struct(
 // Struct: Context
 mojo.internal.Struct(
     mojo.internal.bindings.ash.orca.mojom.ContextSpec, 'ash.orca.mojom.Context', [
-      mojo.internal.StructField('arg_surrounding_text', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.orca.mojom.SurroundingTextSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_surrounding_text', 0, 0, mojo.internal.bindings.ash.orca.mojom.SurroundingTextSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: EditorConfig
 mojo.internal.Struct(
     mojo.internal.bindings.ash.orca.mojom.EditorConfigSpec, 'ash.orca.mojom.EditorConfig', [
-      mojo.internal.StructField('arg_allowed_query_types', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.orca.mojom.PresetTextQueryTypeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_allowed_query_types', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.orca.mojom.PresetTextQueryTypeSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_language_code', 8, 0, mojo.internal.String, null, true, 12, undefined),
     ],
     [[0, 16], [12, 24]]);
@@ -244,7 +244,7 @@ mojo.internal.Struct(
 // Struct: TriggerContext
 mojo.internal.Struct(
     mojo.internal.bindings.ash.orca.mojom.TriggerContextSpec, 'ash.orca.mojom.TriggerContext', [
-      mojo.internal.StructField('arg_preset_type_selected', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.orca.mojom.PresetTextQueryTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_preset_type_selected', 0, 0, mojo.internal.bindings.ash.orca.mojom.PresetTextQueryTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_freeform_selected', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -257,7 +257,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec, 'ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParams', [
-      mojo.internal.StructField('arg_text_queries', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.orca.mojom.PresetTextQuerySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_queries', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.orca.mojom.PresetTextQuerySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -363,13 +363,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.orca.mojom.EditorClient_OnTrigger_ParamsSpec, 'ash.orca.mojom.EditorClient_OnTrigger_Params', [
-      mojo.internal.StructField('arg_trigger_context', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.orca.mojom.TriggerContextSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_trigger_context', 0, 0, mojo.internal.bindings.ash.orca.mojom.TriggerContextSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.orca.mojom.EditorClient_EmitMetricEvent_ParamsSpec, 'ash.orca.mojom.EditorClient_EmitMetricEvent_Params', [
-      mojo.internal.StructField('arg_metric_event', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.orca.mojom.MetricEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_metric_event', 0, 0, mojo.internal.bindings.ash.orca.mojom.MetricEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1191,7 +1191,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientConnectorRequest = mojo.intern
 // Interface: EditorEventSink
 mojo.internal.Struct(
     mojo.internal.bindings.ash.orca.mojom.EditorEventSink_OnContextUpdated_ParamsSpec, 'ash.orca.mojom.EditorEventSink_OnContextUpdated_Params', [
-      mojo.internal.StructField('arg_context', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.orca.mojom.ContextSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_context', 0, 0, mojo.internal.bindings.ash.orca.mojom.ContextSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1380,13 +1380,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.orca.mojom.SystemActuator_OnTrigger_ParamsSpec, 'ash.orca.mojom.SystemActuator_OnTrigger_Params', [
-      mojo.internal.StructField('arg_trigger_context', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.orca.mojom.TriggerContextSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_trigger_context', 0, 0, mojo.internal.bindings.ash.orca.mojom.TriggerContextSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.orca.mojom.SystemActuator_EmitMetricEvent_ParamsSpec, 'ash.orca.mojom.SystemActuator_EmitMetricEvent_Params', [
-      mojo.internal.StructField('arg_metric_event', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.orca.mojom.MetricEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_metric_event', 0, 0, mojo.internal.bindings.ash.orca.mojom.MetricEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1793,7 +1793,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorRequest = mojo.internal.bind
 // Interface: TextQueryProvider
 mojo.internal.Struct(
     mojo.internal.bindings.ash.orca.mojom.TextQueryProvider_Process_ParamsSpec, 'ash.orca.mojom.TextQueryProvider_Process_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.orca.mojom.TextQueryRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.ash.orca.mojom.TextQueryRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1962,7 +1962,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_text_query_provider', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ash.orca.mojom.TextQueryProviderSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_client_connector', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.ash.orca.mojom.EditorClientConnectorSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_event_sink', 24, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.ash.orca.mojom.EditorEventSinkSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_editor_config', 32, 0, mojo.internal.bindings.mojo.internal.bindings.ash.orca.mojom.EditorConfigSpec.$, null, true, 9, undefined),
+      mojo.internal.StructField('arg_editor_config', 32, 0, mojo.internal.bindings.ash.orca.mojom.EditorConfigSpec.$, null, true, 9, undefined),
     ],
     [[0, 40], [9, 48]]);
 

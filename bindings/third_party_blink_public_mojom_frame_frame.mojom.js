@@ -387,7 +387,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.GetSavableResourceLinksReplySpec, 'blink.mojom.GetSavableResourceLinksReply', [
       mojo.internal.StructField('arg_resources_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_referrer', 8, 0, mojo.internal.bindings.blink.mojom.ReferrerSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_subframes', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SavableSubframeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_subframes', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SavableSubframeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -665,7 +665,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LocalFrameHost_HandleAccessibilityFindInPageResult_ParamsSpec, 'blink.mojom.LocalFrameHost_HandleAccessibilityFindInPageResult_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FindInPageResultAXParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.blink.mojom.FindInPageResultAXParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -750,7 +750,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LocalFrameHost_DownloadURL_ParamsSpec, 'blink.mojom.LocalFrameHost_DownloadURL_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.DownloadURLParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.blink.mojom.DownloadURLParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -831,7 +831,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LocalFrameHost_DidChangeIframeAttributes_ParamsSpec, 'blink.mojom.LocalFrameHost_DidChangeIframeAttributes_Params', [
       mojo.internal.StructField('arg_child_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.FrameTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_attributes', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.IframeAttributesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_attributes', 8, 0, mojo.internal.bindings.blink.mojom.IframeAttributesSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -934,7 +934,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LocalFrameHost_SendLegacyTechEvent_ParamsSpec, 'blink.mojom.LocalFrameHost_SendLegacyTechEvent_Params', [
       mojo.internal.StructField('arg_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_code_location', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.LegacyTechEventCodeLocationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_code_location', 8, 0, mojo.internal.bindings.blink.mojom.LegacyTechEventCodeLocationSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -971,7 +971,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LocalFrameHost_OnViewTransitionOptInChanged_ParamsSpec, 'blink.mojom.LocalFrameHost_OnViewTransitionOptInChanged_Params', [
-      mojo.internal.StructField('arg_view_transition_opt_in', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ViewTransitionSameOriginOptInSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_view_transition_opt_in', 0, 0, mojo.internal.bindings.blink.mojom.ViewTransitionSameOriginOptInSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -994,7 +994,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LocalFrameHost_NotifyStorageAccessed_ParamsSpec, 'blink.mojom.LocalFrameHost_NotifyStorageAccessed_Params', [
-      mojo.internal.StructField('arg_storageType', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.StorageTypeAccessedSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_storageType', 0, 0, mojo.internal.bindings.blink.mojom.StorageTypeAccessedSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_blocked', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -1002,7 +1002,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LocalFrameHost_RecordWindowProxyUsageMetrics_ParamsSpec, 'blink.mojom.LocalFrameHost_RecordWindowProxyUsageMetrics_Params', [
       mojo.internal.StructField('arg_target_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.FrameTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_access_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.WindowProxyAccessTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_access_type', 8, 0, mojo.internal.bindings.blink.mojom.WindowProxyAccessTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -4185,7 +4185,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LocalFrame_JavaScriptExecuteRequestForTests_ResponseParamsSpec, 'blink.mojom.LocalFrame_JavaScriptExecuteRequestForTests_ResponseParams', [
-      mojo.internal.StructField('arg_result_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.JavaScriptExecutionResultTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result_type', 0, 0, mojo.internal.bindings.blink.mojom.JavaScriptExecutionResultTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -4248,7 +4248,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LocalFrame_GetSavableResourceLinks_ResponseParamsSpec, 'blink.mojom.LocalFrame_GetSavableResourceLinks_ResponseParams', [
-      mojo.internal.StructField('arg_reply', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.GetSavableResourceLinksReplySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_reply', 0, 0, mojo.internal.bindings.blink.mojom.GetSavableResourceLinksReplySpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -4316,7 +4316,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LocalFrame_SetNavigationApiHistoryEntriesForRestore_ParamsSpec, 'blink.mojom.LocalFrame_SetNavigationApiHistoryEntriesForRestore_Params', [
       mojo.internal.StructField('arg_entry_arrays', 0, 0, mojo.internal.bindings.blink.mojom.NavigationApiHistoryEntryArraysSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_restore_reason', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.NavigationApiEntryRestoreReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_restore_reason', 8, 0, mojo.internal.bindings.blink.mojom.NavigationApiEntryRestoreReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -4340,7 +4340,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LocalFrame_TraverseCancelled_ParamsSpec, 'blink.mojom.LocalFrame_TraverseCancelled_Params', [
       mojo.internal.StructField('arg_navigation_api_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.TraverseCancelledReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.bindings.blink.mojom.TraverseCancelledReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

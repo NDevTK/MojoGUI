@@ -243,7 +243,7 @@ mojo.internal.bindings.chromecast.media.mojom.MediaCapsRequest = mojo.internal.b
 // Interface: MediaCapsObserver
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpec, 'chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_Params', [
-      mojo.internal.StructField('arg_codec_profile_level', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromecast.media.mojom.CodecProfileLevelSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_codec_profile_level', 0, 0, mojo.internal.bindings.chromecast.media.mojom.CodecProfileLevelSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

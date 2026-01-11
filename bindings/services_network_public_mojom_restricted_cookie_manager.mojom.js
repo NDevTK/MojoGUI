@@ -112,7 +112,7 @@ mojo.internal.bindings.network.mojom.RestrictedCookieManagerRole = {
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CookieManagerGetOptionsSpec, 'network.mojom.CookieManagerGetOptions', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_match_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.CookieMatchTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_match_type', 8, 0, mojo.internal.bindings.network.mojom.CookieMatchTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -132,7 +132,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_site_for_cookies', 8, 0, mojo.internal.bindings.network.mojom.SiteForCookiesSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_top_frame_origin', 16, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_storage_access_api_status', 24, 0, mojo.internal.bindings.network.mojom.StorageAccessApiStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 32, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.CookieManagerGetOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 32, 0, mojo.internal.bindings.network.mojom.CookieManagerGetOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_ad_tagged', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_apply_devtools_overrides', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_force_disable_third_party_cookies', 40, 2, mojo.internal.Bool, false, false, 0, undefined),
@@ -194,7 +194,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParamsSpec, 'network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.CookiesResponseSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.network.mojom.CookiesResponseSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

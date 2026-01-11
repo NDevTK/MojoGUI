@@ -90,7 +90,7 @@ mojo.internal.Struct(
 // Struct: NavigationDownloadPolicy
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.NavigationDownloadPolicySpec, 'blink.mojom.NavigationDownloadPolicy', [
-      mojo.internal.StructField('arg_observed_types', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.NavigationDownloadTypesSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_disallowed_types', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.NavigationDownloadTypesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_observed_types', 0, 0, mojo.internal.bindings.blink.mojom.NavigationDownloadTypesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_disallowed_types', 8, 0, mojo.internal.bindings.blink.mojom.NavigationDownloadTypesSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

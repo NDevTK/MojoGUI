@@ -94,7 +94,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.foo.mojom.FooHandler_GetData_ResponseParamsSpec, 'foo.mojom.FooHandler_GetData_ResponseParams', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.foo.mojom.FooDataItemSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.foo.mojom.FooDataItemSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

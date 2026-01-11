@@ -157,9 +157,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_date_relative_day', 80, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_readableTimestamp', 88, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_snippet', 96, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_host_filtering_behavior', 104, 0, mojo.internal.bindings.mojo.internal.bindings.history.mojom.FilteringBehaviorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_filtering_behavior', 104, 0, mojo.internal.bindings.history.mojom.FilteringBehaviorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_remote_icon_url_for_uma', 112, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_debug', 120, 0, mojo.internal.bindings.mojo.internal.bindings.history.mojom.DebugInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_debug', 120, 0, mojo.internal.bindings.history.mojom.DebugInfoSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_selected', 128, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_starred', 128, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_blocked_visit', 128, 2, mojo.internal.Bool, false, false, 0, undefined),
@@ -171,8 +171,8 @@ mojo.internal.Struct(
 // Struct: QueryResult
 mojo.internal.Struct(
     mojo.internal.bindings.history.mojom.QueryResultSpec, 'history.mojom.QueryResult', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.history.mojom.HistoryQuerySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.history.mojom.HistoryEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.history.mojom.HistoryQuerySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.Array(mojo.internal.bindings.history.mojom.HistoryEntrySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -211,7 +211,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.history.mojom.PageHandler_QueryHistory_ResponseParamsSpec, 'history.mojom.PageHandler_QueryHistory_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.mojo.internal.bindings.history.mojom.QueryResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.history.mojom.QueryResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -222,13 +222,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.history.mojom.PageHandler_QueryHistoryContinuation_ResponseParamsSpec, 'history.mojom.PageHandler_QueryHistoryContinuation_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.mojo.internal.bindings.history.mojom.QueryResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.history.mojom.QueryResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.history.mojom.PageHandler_RemoveVisits_ParamsSpec, 'history.mojom.PageHandler_RemoveVisits_Params', [
-      mojo.internal.StructField('arg_items', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.history.mojom.RemovalItemSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_items', 0, 0, mojo.internal.Array(mojo.internal.bindings.history.mojom.RemovalItemSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -266,7 +266,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.history.mojom.PageHandler_RequestAccountInfo_ResponseParamsSpec, 'history.mojom.PageHandler_RequestAccountInfo_ResponseParams', [
-      mojo.internal.StructField('arg_account_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.history.mojom.AccountInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_account_info', 0, 0, mojo.internal.bindings.history.mojom.AccountInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -878,7 +878,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.history.mojom.Page_SendAccountInfo_ParamsSpec, 'history.mojom.Page_SendAccountInfo_Params', [
-      mojo.internal.StructField('arg_account_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.history.mojom.AccountInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_account_info', 0, 0, mojo.internal.bindings.history.mojom.AccountInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -110,8 +110,8 @@ mojo.internal.bindings.reading_list.mojom.CurrentPageActionButtonState = {
 // Struct: ReadLaterEntriesByStatus
 mojo.internal.Struct(
     mojo.internal.bindings.reading_list.mojom.ReadLaterEntriesByStatusSpec, 'reading_list.mojom.ReadLaterEntriesByStatus', [
-      mojo.internal.StructField('arg_unread_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.reading_list.mojom.ReadLaterEntrySpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_read_entries', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.reading_list.mojom.ReadLaterEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_unread_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.reading_list.mojom.ReadLaterEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_read_entries', 8, 0, mojo.internal.Array(mojo.internal.bindings.reading_list.mojom.ReadLaterEntrySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -295,7 +295,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec, 'reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParams', [
-      mojo.internal.StructField('arg_entries', 0, 0, mojo.internal.bindings.mojo.internal.bindings.reading_list.mojom.ReadLaterEntriesByStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_entries', 0, 0, mojo.internal.bindings.reading_list.mojom.ReadLaterEntriesByStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -360,7 +360,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec, 'reading_list.mojom.PageHandler_GetWindowData_ResponseParams', [
-      mojo.internal.StructField('arg_windows', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.reading_list.mojom.WindowSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_windows', 0, 0, mojo.internal.Array(mojo.internal.bindings.reading_list.mojom.WindowSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -847,13 +847,13 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerRequest = mojo.internal.bin
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.reading_list.mojom.Page_ItemsChanged_ParamsSpec, 'reading_list.mojom.Page_ItemsChanged_Params', [
-      mojo.internal.StructField('arg_entries', 0, 0, mojo.internal.bindings.mojo.internal.bindings.reading_list.mojom.ReadLaterEntriesByStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_entries', 0, 0, mojo.internal.bindings.reading_list.mojom.ReadLaterEntriesByStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec, 'reading_list.mojom.Page_CurrentPageActionButtonStateChanged_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.reading_list.mojom.CurrentPageActionButtonStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.reading_list.mojom.CurrentPageActionButtonStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

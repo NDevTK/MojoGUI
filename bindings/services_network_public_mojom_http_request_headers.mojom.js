@@ -86,6 +86,6 @@ mojo.internal.Struct(
 // Struct: HttpRequestHeaders
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec, 'network.mojom.HttpRequestHeaders', [
-      mojo.internal.StructField('arg_headers', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.network.mojom.HttpRequestHeaderKeyValuePairSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_headers', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.HttpRequestHeaderKeyValuePairSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

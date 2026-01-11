@@ -91,7 +91,7 @@ mojo.internal.Struct(
 // Interface: CastMessageChannel
 mojo.internal.Struct(
     mojo.internal.bindings.mirroring.mojom.CastMessageChannel_OnMessage_ParamsSpec, 'mirroring.mojom.CastMessageChannel_OnMessage_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mirroring.mojom.CastMessageSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.mirroring.mojom.CastMessageSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

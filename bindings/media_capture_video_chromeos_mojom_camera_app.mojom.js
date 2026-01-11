@@ -177,7 +177,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParamsSpec, 'cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.GetCameraAppDeviceStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.cros.mojom.GetCameraAppDeviceStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_device', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CameraAppDeviceSpec), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -446,7 +446,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParamsSpec, 'cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.GetCameraAppDeviceStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.cros.mojom.GetCameraAppDeviceStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_device', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CameraAppDeviceSpec), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -796,7 +796,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCaptureIntent_ParamsSpec, 'cros.mojom.CameraAppDevice_SetCaptureIntent_Params', [
-      mojo.internal.StructField('arg_intent', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.CaptureIntentSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_intent', 0, 0, mojo.internal.bindings.cros.mojom.CaptureIntentSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -808,7 +808,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraAppDevice_AddResultMetadataObserver_ParamsSpec, 'cros.mojom.CameraAppDevice_AddResultMetadataObserver_Params', [
       mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.ResultMetadataObserverSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_stream_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.StreamTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stream_type', 8, 0, mojo.internal.bindings.cros.mojom.StreamTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -2143,7 +2143,7 @@ mojo.internal.bindings.cros.mojom.CameraInfoObserverRequest = mojo.internal.bind
 // Interface: StillCaptureResultObserver
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_ParamsSpec, 'cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_Params', [
-      mojo.internal.StructField('arg_effect', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.EffectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_effect', 0, 0, mojo.internal.bindings.cros.mojom.EffectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_blob', 8, 0, mojo.internal.bindings.media.mojom.BlobSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_status', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],

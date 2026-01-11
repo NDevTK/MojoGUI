@@ -110,7 +110,7 @@ mojo.internal.bindings.storage.mojom.WriteBlobToFileResult = {
 // Struct: BlobDataItem
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.BlobDataItemSpec, 'storage.mojom.BlobDataItem', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.storage.mojom.BlobDataItemTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.storage.mojom.BlobDataItemTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_side_data_size', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_content_type', 24, 0, mojo.internal.String, null, false, 0, undefined),
@@ -342,7 +342,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec, 'storage.mojom.BlobStorageContext_RegisterFromDataItem_Params', [
       mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_uuid', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_item', 16, 0, mojo.internal.bindings.mojo.internal.bindings.storage.mojom.BlobDataItemSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_item', 16, 0, mojo.internal.bindings.storage.mojom.BlobDataItemSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -365,7 +365,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec, 'storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.storage.mojom.WriteBlobToFileResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.storage.mojom.WriteBlobToFileResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

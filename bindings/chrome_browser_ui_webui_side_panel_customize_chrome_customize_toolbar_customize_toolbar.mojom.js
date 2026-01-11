@@ -135,9 +135,9 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CategoryId = {
 // Struct: Action
 mojo.internal.Struct(
     mojo.internal.bindings.side_panel.customize_chrome.mojom.ActionSpec, 'side_panel.customize_chrome.mojom.Action', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.side_panel.customize_chrome.mojom.ActionIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.side_panel.customize_chrome.mojom.ActionIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_category', 16, 0, mojo.internal.bindings.mojo.internal.bindings.side_panel.customize_chrome.mojom.CategoryIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_category', 16, 0, mojo.internal.bindings.side_panel.customize_chrome.mojom.CategoryIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_icon_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_pinned', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_has_enterprise_controlled_pinned_state', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -147,7 +147,7 @@ mojo.internal.Struct(
 // Struct: Category
 mojo.internal.Struct(
     mojo.internal.bindings.side_panel.customize_chrome.mojom.CategorySpec, 'side_panel.customize_chrome.mojom.Category', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.side_panel.customize_chrome.mojom.CategoryIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.side_panel.customize_chrome.mojom.CategoryIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -312,7 +312,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponseParamsSpec, 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponseParams', [
-      mojo.internal.StructField('arg_actions', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.side_panel.customize_chrome.mojom.ActionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_actions', 0, 0, mojo.internal.Array(mojo.internal.bindings.side_panel.customize_chrome.mojom.ActionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -323,13 +323,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ResponseParamsSpec, 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ResponseParams', [
-      mojo.internal.StructField('arg_categories', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.side_panel.customize_chrome.mojom.CategorySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_categories', 0, 0, mojo.internal.Array(mojo.internal.bindings.side_panel.customize_chrome.mojom.CategorySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec, 'side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_Params', [
-      mojo.internal.StructField('arg_action_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.side_panel.customize_chrome.mojom.ActionIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action_id', 0, 0, mojo.internal.bindings.side_panel.customize_chrome.mojom.ActionIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_pinned', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -649,7 +649,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarHandler
 // Interface: CustomizeToolbarClient
 mojo.internal.Struct(
     mojo.internal.bindings.side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsSpec, 'side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_Params', [
-      mojo.internal.StructField('arg_action_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.side_panel.customize_chrome.mojom.ActionIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action_id', 0, 0, mojo.internal.bindings.side_panel.customize_chrome.mojom.ActionIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_pinned', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);

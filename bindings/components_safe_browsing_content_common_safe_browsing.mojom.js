@@ -182,7 +182,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_parent', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_children', 24, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_child_node_ids', 32, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_attributes', 40, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.safe_browsing.mojom.AttributeNameValueSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_attributes', 40, 0, mojo.internal.Array(mojo.internal.bindings.safe_browsing.mojom.AttributeNameValueSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_child_frame_token', 48, 0, mojo.internal.bindings.blink.mojom.FrameTokenSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_inner_html', 56, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_node_id', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -409,7 +409,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec, 'safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParams', [
-      mojo.internal.StructField('arg_nodes', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.safe_browsing.mojom.ThreatDOMDetailsNodeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_nodes', 0, 0, mojo.internal.Array(mojo.internal.bindings.safe_browsing.mojom.ThreatDOMDetailsNodeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -569,13 +569,13 @@ mojo.internal.bindings.safe_browsing.mojom.ThreatReporterRequest = mojo.internal
 mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec, 'safe_browsing.mojom.PhishingDetector_StartPhishingDetection_Params', [
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.safe_browsing.mojom.ClientSideDetectionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_type', 8, 0, mojo.internal.bindings.safe_browsing.mojom.ClientSideDetectionTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec, 'safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_request', 8, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -1209,7 +1209,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec, 'safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbeddingResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbeddingResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_image_embedding_request', 8, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -1371,8 +1371,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec, 'safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_Params', [
       mojo.internal.StructField('arg_origin_extension_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_telemetry_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_protocol_type', 16, 0, mojo.internal.bindings.mojo.internal.bindings.safe_browsing.mojom.WebRequestProtocolTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_contact_initiator_type', 24, 0, mojo.internal.bindings.mojo.internal.bindings.safe_browsing.mojom.WebRequestContactInitiatorTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_protocol_type', 16, 0, mojo.internal.bindings.safe_browsing.mojom.WebRequestProtocolTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_contact_initiator_type', 24, 0, mojo.internal.bindings.safe_browsing.mojom.WebRequestContactInitiatorTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

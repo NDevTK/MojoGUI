@@ -95,8 +95,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_create_stream_delay', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_connected_callback_delay', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_initialize_stream_delay', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_source', 24, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.SessionSourceSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_advertised_alt_svc_state', 32, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.AdvertisedAltSvcStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_source', 24, 0, mojo.internal.bindings.network.mojom.SessionSourceSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_advertised_alt_svc_state', 32, 0, mojo.internal.bindings.network.mojom.AdvertisedAltSvcStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_http_network_session_quic_enabled', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);

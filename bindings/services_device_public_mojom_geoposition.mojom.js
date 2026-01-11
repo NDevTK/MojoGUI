@@ -103,12 +103,12 @@ mojo.internal.Union(
     mojo.internal.bindings.device.mojom.GeopositionResultSpec, 'device.mojom.GeopositionResult', {
       'arg_position': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.device.mojom.GeopositionSpec.$,
+        'type': mojo.internal.bindings.device.mojom.GeopositionSpec.$,
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.device.mojom.GeopositionErrorSpec.$,
+        'type': mojo.internal.bindings.device.mojom.GeopositionErrorSpec.$,
         'nullable': false,
       },
     });
@@ -131,7 +131,7 @@ mojo.internal.Struct(
 // Struct: GeopositionError
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.GeopositionErrorSpec, 'device.mojom.GeopositionError', [
-      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.GeopositionErrorCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.bindings.device.mojom.GeopositionErrorCodeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_error_technical', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],

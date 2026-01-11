@@ -231,13 +231,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebTransport_GetStats_ResponseParamsSpec, 'network.mojom.WebTransport_GetStats_ResponseParams', [
-      mojo.internal.StructField('arg_stats', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.WebTransportStatsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_stats', 0, 0, mojo.internal.bindings.network.mojom.WebTransportStatsSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebTransport_Close_ParamsSpec, 'network.mojom.WebTransport_Close_Params', [
-      mojo.internal.StructField('arg_close_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.WebTransportCloseInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_close_info', 0, 0, mojo.internal.bindings.network.mojom.WebTransportCloseInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -749,8 +749,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebTransportClient_OnClosed_ParamsSpec, 'network.mojom.WebTransportClient_OnClosed_Params', [
-      mojo.internal.StructField('arg_close_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.WebTransportCloseInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_final_stats', 8, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.WebTransportStatsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_close_info', 0, 0, mojo.internal.bindings.network.mojom.WebTransportCloseInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_final_stats', 8, 0, mojo.internal.bindings.network.mojom.WebTransportStatsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1071,13 +1071,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.WebTransportClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_response_headers', 16, 0, mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_selected_application_protocol', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_initial_stats', 32, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.WebTransportStatsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_initial_stats', 32, 0, mojo.internal.bindings.network.mojom.WebTransportStatsSpec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec, 'network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.WebTransportErrorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.network.mojom.WebTransportErrorSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

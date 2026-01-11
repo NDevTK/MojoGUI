@@ -263,7 +263,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec, 'metrics.mojom.ChildHistogramFetcher_Ping_Params', [
-      mojo.internal.StructField('arg_call_source', 0, 0, mojo.internal.bindings.mojo.internal.bindings.metrics.mojom.UmaPingCallSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_call_source', 0, 0, mojo.internal.bindings.metrics.mojom.UmaPingCallSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -95,7 +95,7 @@ mojo.internal.bindings.infobar_internals.mojom.InfoBarType = {
 // Struct: InfoBarEntry
 mojo.internal.Struct(
     mojo.internal.bindings.infobar_internals.mojom.InfoBarEntrySpec, 'infobar_internals.mojom.InfoBarEntry', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.infobar_internals.mojom.InfoBarTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.infobar_internals.mojom.InfoBarTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_description', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
@@ -222,13 +222,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec, 'infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParams', [
-      mojo.internal.StructField('arg_infobars', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.infobar_internals.mojom.InfoBarEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_infobars', 0, 0, mojo.internal.Array(mojo.internal.bindings.infobar_internals.mojom.InfoBarEntrySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec, 'infobar_internals.mojom.PageHandler_TriggerInfoBar_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.infobar_internals.mojom.InfoBarTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.infobar_internals.mojom.InfoBarTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

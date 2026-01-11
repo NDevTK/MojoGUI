@@ -107,7 +107,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_root_background_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColor4fSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_root_scroll_offset', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_selection', 16, 0, mojo.internal.bindings.viz.mojom.SelectionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_delegated_ink_metadata', 24, 0, mojo.internal.bindings.mojo.internal.bindings.cc.mojom.DelegatedInkBrowserMetadataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_delegated_ink_metadata', 24, 0, mojo.internal.bindings.cc.mojom.DelegatedInkBrowserMetadataSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_viewport_size_in_pixels', 32, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_local_surface_id', 40, 0, mojo.internal.bindings.viz.mojom.LocalSurfaceIdSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_new_vertical_scroll_direction', 48, 0, mojo.internal.bindings.viz.mojom.VerticalScrollDirectionSpec.$, null, false, 0, undefined),
@@ -135,7 +135,7 @@ mojo.internal.Struct(
 // Interface: RenderFrameMetadataObserver
 mojo.internal.Struct(
     mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec, 'cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_Params', [
-      mojo.internal.StructField('arg_frequency', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cc.mojom.RootScrollOffsetUpdateFrequencySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frequency', 0, 0, mojo.internal.bindings.cc.mojom.RootScrollOffsetUpdateFrequencySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -324,7 +324,7 @@ mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverRequest = mojo.intern
 // Interface: RenderFrameMetadataObserverClient
 mojo.internal.Struct(
     mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec, 'cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_Params', [
-      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cc.mojom.RenderFrameMetadataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.cc.mojom.RenderFrameMetadataSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_frame_token', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

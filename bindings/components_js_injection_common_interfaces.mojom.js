@@ -107,7 +107,7 @@ mojo.internal.Union(
       },
       'arg_array_buffer_value': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.js_injection.mojom.JsWebMessageArrayBufferValueSpec.$,
+        'type': mojo.internal.bindings.js_injection.mojom.JsWebMessageArrayBufferValueSpec.$,
         'nullable': false,
       },
     });

@@ -87,6 +87,6 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.os_crypt_async.mojom.EncryptorSpec, 'os_crypt_async.mojom.Encryptor', [
       mojo.internal.StructField('arg_provider_for_encryption', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_entries', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.mojo.internal.bindings.os_crypt_async.mojom.KeySpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_key_entries', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.os_crypt_async.mojom.KeySpec.$, false), null, true, 0, undefined),
     ],
     [[0, 24]]);

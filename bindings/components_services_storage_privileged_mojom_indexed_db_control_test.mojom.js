@@ -120,8 +120,8 @@ mojo.internal.bindings.storage.mojom.FailMethod = {
 // Interface: MockFailureInjector
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.MockFailureInjector_FailOperation_ParamsSpec, 'storage.mojom.MockFailureInjector_FailOperation_Params', [
-      mojo.internal.StructField('arg_failure_class', 0, 0, mojo.internal.bindings.mojo.internal.bindings.storage.mojom.FailClassSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_failure_method', 8, 0, mojo.internal.bindings.mojo.internal.bindings.storage.mojom.FailMethodSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_failure_class', 0, 0, mojo.internal.bindings.storage.mojom.FailClassSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_failure_method', 8, 0, mojo.internal.bindings.storage.mojom.FailMethodSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_instance_num', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_call_num', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],

@@ -102,13 +102,13 @@ mojo.internal.Struct(
 // Interface: PasspointEventsListener
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec, 'chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_Params', [
-      mojo.internal.StructField('arg_subscription', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.connectivity.mojom.PasspointSubscriptionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_subscription', 0, 0, mojo.internal.bindings.chromeos.connectivity.mojom.PasspointSubscriptionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec, 'chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_Params', [
-      mojo.internal.StructField('arg_subscription', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.connectivity.mojom.PasspointSubscriptionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_subscription', 0, 0, mojo.internal.bindings.chromeos.connectivity.mojom.PasspointSubscriptionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -297,7 +297,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec, 'chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.connectivity.mojom.PasspointSubscriptionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.connectivity.mojom.PasspointSubscriptionSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -308,7 +308,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec, 'chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.chromeos.connectivity.mojom.PasspointSubscriptionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.connectivity.mojom.PasspointSubscriptionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

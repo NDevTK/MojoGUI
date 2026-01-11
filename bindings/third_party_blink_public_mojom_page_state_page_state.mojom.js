@@ -106,12 +106,12 @@ mojo.internal.Union(
       },
       'arg_file': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FileSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.FileSpec.$,
         'nullable': false,
       },
       'arg_DEPRECATED_file_system_file': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.DEPRECATED_FileSystemFileSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.DEPRECATED_FileSystemFileSpec.$,
         'nullable': false,
       },
     });
@@ -149,7 +149,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.HttpBodySpec, 'blink.mojom.HttpBody', [
       mojo.internal.StructField('arg_http_content_type', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_request_body', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.RequestBodySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_request_body', 8, 0, mojo.internal.bindings.blink.mojom.RequestBodySpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_contains_passwords', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -174,13 +174,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_target', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_state_object', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_document_state', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec.$, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_scroll_restoration_type', 40, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ScrollRestorationTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_view_state', 48, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ViewStateSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_scroll_restoration_type', 40, 0, mojo.internal.bindings.blink.mojom.ScrollRestorationTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_view_state', 48, 0, mojo.internal.bindings.blink.mojom.ViewStateSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_item_sequence_number', 56, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_document_sequence_number', 64, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_referrer_policy', 72, 0, mojo.internal.bindings.network.mojom.ReferrerPolicySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_http_body', 80, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.HttpBodySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_children', 88, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FrameStateSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_http_body', 80, 0, mojo.internal.bindings.blink.mojom.HttpBodySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_children', 88, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.FrameStateSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_initiator_origin', 96, 0, mojo.internal.String, null, true, 2, undefined),
       mojo.internal.StructField('arg_navigation_api_key', 104, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 3, undefined),
       mojo.internal.StructField('arg_navigation_api_id', 112, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 3, undefined),
@@ -194,6 +194,6 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PageStateSpec, 'blink.mojom.PageState', [
       mojo.internal.StructField('arg_referenced_files', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec.$, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_top', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FrameStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_top', 8, 0, mojo.internal.bindings.blink.mojom.FrameStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

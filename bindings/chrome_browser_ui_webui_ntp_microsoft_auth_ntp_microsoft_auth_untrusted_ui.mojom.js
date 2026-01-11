@@ -295,7 +295,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_Params', [
-      mojo.internal.StructField('arg_access_token', 0, 0, mojo.internal.bindings.mojo.internal.bindings.new_tab_page.mojom.AccessTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_access_token', 0, 0, mojo.internal.bindings.new_tab_page.mojom.AccessTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

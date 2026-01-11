@@ -163,27 +163,27 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.PermissionDescriptorExtensionSpec, 'blink.mojom.PermissionDescriptorExtension', {
       'arg_midi': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.MidiPermissionDescriptorSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.MidiPermissionDescriptorSpec.$,
         'nullable': false,
       },
       'arg_clipboard': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ClipboardPermissionDescriptorSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.ClipboardPermissionDescriptorSpec.$,
         'nullable': false,
       },
       'arg_camera_device': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CameraDevicePermissionDescriptorSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.CameraDevicePermissionDescriptorSpec.$,
         'nullable': false,
       },
       'arg_top_level_storage_access': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.TopLevelStorageAccessPermissionDescriptorSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.TopLevelStorageAccessPermissionDescriptorSpec.$,
         'nullable': false,
       },
       'arg_fullscreen': {
         'ordinal': 4,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FullscreenPermissionDescriptorSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.FullscreenPermissionDescriptorSpec.$,
         'nullable': false,
       },
     });
@@ -227,7 +227,7 @@ mojo.internal.Struct(
 // Struct: PermissionDescriptor
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec, 'blink.mojom.PermissionDescriptor', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.PermissionNameSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.blink.mojom.PermissionNameSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_extension', 8, 0, mojo.internal.bindings.blink.mojom.PermissionDescriptorExtensionSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -243,7 +243,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.EmbeddedPermissionRequestDescriptorSpec, 'blink.mojom.EmbeddedPermissionRequestDescriptor', [
       mojo.internal.StructField('arg_element_position', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_geolocation', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.GeolocationEmbeddedPermissionRequestDescriptorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_geolocation', 8, 0, mojo.internal.bindings.blink.mojom.GeolocationEmbeddedPermissionRequestDescriptorSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -553,7 +553,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClientRequest = mojo
 // Interface: PermissionService
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ParamsSpec, 'blink.mojom.PermissionService_HasPermission_Params', [
-      mojo.internal.StructField('arg_permission', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_permission', 0, 0, mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -565,28 +565,28 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec, 'blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_Params', [
-      mojo.internal.StructField('arg_permissions', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_descriptor', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.EmbeddedPermissionRequestDescriptorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_permissions', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_descriptor', 8, 0, mojo.internal.bindings.blink.mojom.EmbeddedPermissionRequestDescriptorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClientSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec, 'blink.mojom.PermissionService_RequestPageEmbeddedPermission_Params', [
-      mojo.internal.StructField('arg_permissions', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_descriptor', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.EmbeddedPermissionRequestDescriptorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_permissions', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_descriptor', 8, 0, mojo.internal.bindings.blink.mojom.EmbeddedPermissionRequestDescriptorSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec, 'blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PermissionService_RequestPermission_ParamsSpec, 'blink.mojom.PermissionService_RequestPermission_Params', [
-      mojo.internal.StructField('arg_permission', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_permission', 0, 0, mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_user_gesture', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -599,7 +599,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PermissionService_RequestPermissions_ParamsSpec, 'blink.mojom.PermissionService_RequestPermissions_Params', [
-      mojo.internal.StructField('arg_permission', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_permission', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_user_gesture', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -612,7 +612,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PermissionService_RevokePermission_ParamsSpec, 'blink.mojom.PermissionService_RevokePermission_Params', [
-      mojo.internal.StructField('arg_permission', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_permission', 0, 0, mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -624,7 +624,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec, 'blink.mojom.PermissionService_AddPermissionObserver_Params', [
-      mojo.internal.StructField('arg_permission', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_permission', 0, 0, mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_last_known_status', 8, 0, mojo.internal.bindings.blink.mojom.PermissionStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PermissionObserverSpec), null, false, 0, undefined),
     ],
@@ -632,7 +632,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec, 'blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_Params', [
-      mojo.internal.StructField('arg_permission', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_permission', 0, 0, mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_last_known_status', 8, 0, mojo.internal.bindings.blink.mojom.PermissionStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PermissionObserverSpec), null, false, 0, undefined),
     ],
@@ -640,7 +640,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PermissionService_NotifyEventListener_ParamsSpec, 'blink.mojom.PermissionService_NotifyEventListener_Params', [
-      mojo.internal.StructField('arg_permission', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_permission', 0, 0, mojo.internal.bindings.blink.mojom.PermissionDescriptorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_event_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_added', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],

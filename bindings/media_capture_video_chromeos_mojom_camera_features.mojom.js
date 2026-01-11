@@ -94,7 +94,7 @@ mojo.internal.Union(
       },
       'arg_portrait_mode_config': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.cros.mojom.PortraitModeConfigSpec.$,
+        'type': mojo.internal.bindings.cros.mojom.PortraitModeConfigSpec.$,
         'nullable': false,
       },
     });

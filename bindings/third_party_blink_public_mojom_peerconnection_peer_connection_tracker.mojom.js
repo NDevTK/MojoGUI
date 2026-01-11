@@ -128,7 +128,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PeerConnectionManager_OnThermalStateChange_ParamsSpec, 'blink.mojom.PeerConnectionManager_OnThermalStateChange_Params', [
-      mojo.internal.StructField('arg_thermal_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.DeviceThermalStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_thermal_state', 0, 0, mojo.internal.bindings.blink.mojom.DeviceThermalStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -538,7 +538,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionManagerRequest = mojo.internal.
 // Interface: PeerConnectionTrackerHost
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_ParamsSpec, 'blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_Params', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.PeerConnectionInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.blink.mojom.PeerConnectionInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

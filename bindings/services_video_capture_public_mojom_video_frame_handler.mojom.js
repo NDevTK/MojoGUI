@@ -273,7 +273,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec, 'video_capture.mojom.VideoFrameHandler_OnFrameReadyInBuffer_Params', [
-      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.mojo.internal.bindings.video_capture.mojom.ReadyFrameInBufferSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.video_capture.mojom.ReadyFrameInBufferSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

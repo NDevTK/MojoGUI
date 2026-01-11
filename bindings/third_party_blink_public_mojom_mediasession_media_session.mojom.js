@@ -112,12 +112,12 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.MediaSessionActionDetailsSpec, 'blink.mojom.MediaSessionActionDetails', {
       'arg_seek_to': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.MediaSessionSeekToDetailsSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.MediaSessionSeekToDetailsSpec.$,
         'nullable': false,
       },
       'arg_enter_picture_in_picture': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec.$,
         'nullable': false,
       },
     });
@@ -133,7 +133,7 @@ mojo.internal.Struct(
 // Struct: MediaSessionEnterPictureInPictureDetails
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec, 'blink.mojom.MediaSessionEnterPictureInPictureDetails', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -309,7 +309,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec, 'blink.mojom.MediaSessionService_SetPlaybackState_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.MediaSessionPlaybackStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.blink.mojom.MediaSessionPlaybackStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -321,7 +321,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaSessionService_SetMetadata_ParamsSpec, 'blink.mojom.MediaSessionService_SetMetadata_Params', [
-      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SpecMediaMetadataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.blink.mojom.SpecMediaMetadataSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

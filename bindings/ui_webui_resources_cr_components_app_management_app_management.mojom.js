@@ -205,7 +205,7 @@ mojo.internal.Union(
       },
       'arg_tristate_value': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.app_management.mojom.TriStateSpec.$,
+        'type': mojo.internal.bindings.app_management.mojom.TriStateSpec.$,
         'nullable': false,
       },
     });
@@ -213,7 +213,7 @@ mojo.internal.Union(
 // Struct: Permission
 mojo.internal.Struct(
     mojo.internal.bindings.app_management.mojom.PermissionSpec, 'app_management.mojom.Permission', [
-      mojo.internal.StructField('arg_permission_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.app_management.mojom.PermissionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_permission_type', 0, 0, mojo.internal.bindings.app_management.mojom.PermissionTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.app_management.mojom.PermissionValueSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_details', 16, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_is_managed', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -223,7 +223,7 @@ mojo.internal.Struct(
 // Struct: RunOnOsLogin
 mojo.internal.Struct(
     mojo.internal.bindings.app_management.mojom.RunOnOsLoginSpec, 'app_management.mojom.RunOnOsLogin', [
-      mojo.internal.StructField('arg_login_mode', 0, 0, mojo.internal.bindings.mojo.internal.bindings.app_management.mojom.RunOnOsLoginModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_login_mode', 0, 0, mojo.internal.bindings.app_management.mojom.RunOnOsLoginModeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_managed', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -241,25 +241,25 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.app_management.mojom.AppSpec, 'app_management.mojom.App', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.app_management.mojom.AppTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.app_management.mojom.AppTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_title', 16, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_description', 24, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_version', 32, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_size', 40, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_permissions', 48, 0, mojo.internal.Map(mojo.internal.bindings.mojo.internal.bindings.app_management.mojom.PermissionTypeSpec.$, mojo.internal.bindings.mojo.internal.bindings.app_management.mojom.PermissionSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_install_reason', 56, 0, mojo.internal.bindings.mojo.internal.bindings.app_management.mojom.InstallReasonSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_install_source', 64, 0, mojo.internal.bindings.mojo.internal.bindings.app_management.mojom.InstallSourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_window_mode', 72, 0, mojo.internal.bindings.mojo.internal.bindings.app_management.mojom.WindowModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_permissions', 48, 0, mojo.internal.Map(mojo.internal.bindings.app_management.mojom.PermissionTypeSpec.$, mojo.internal.bindings.app_management.mojom.PermissionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_install_reason', 56, 0, mojo.internal.bindings.app_management.mojom.InstallReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_install_source', 64, 0, mojo.internal.bindings.app_management.mojom.InstallSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_window_mode', 72, 0, mojo.internal.bindings.app_management.mojom.WindowModeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_supported_links', 80, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_run_on_os_login', 88, 0, mojo.internal.bindings.mojo.internal.bindings.app_management.mojom.RunOnOsLoginSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_file_handling_state', 96, 0, mojo.internal.bindings.mojo.internal.bindings.app_management.mojom.FileHandlingStateSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_run_on_os_login', 88, 0, mojo.internal.bindings.app_management.mojom.RunOnOsLoginSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_file_handling_state', 96, 0, mojo.internal.bindings.app_management.mojom.FileHandlingStateSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_app_size', 104, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_data_size', 112, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_publisher_id', 120, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_formatted_origin', 128, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_scope_extensions', 136, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_supported_locales', 144, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.app_management.mojom.LocaleSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_selected_locale', 152, 0, mojo.internal.bindings.mojo.internal.bindings.app_management.mojom.LocaleSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_supported_locales', 144, 0, mojo.internal.Array(mojo.internal.bindings.app_management.mojom.LocaleSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_selected_locale', 152, 0, mojo.internal.bindings.app_management.mojom.LocaleSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_is_pinned_$flag', 160, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_is_pinned_$value', originalFieldName: 'arg_is_pinned' }),
       mojo.internal.StructField('arg_is_pinned_$value', 160, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_is_pinned_$flag', originalFieldName: 'arg_is_pinned' }),
       mojo.internal.StructField('arg_is_policy_pinned_$flag', 160, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_is_policy_pinned_$value', originalFieldName: 'arg_is_policy_pinned' }),
@@ -455,7 +455,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.app_management.mojom.PageHandler_GetApps_ResponseParamsSpec, 'app_management.mojom.PageHandler_GetApps_ResponseParams', [
-      mojo.internal.StructField('arg_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.app_management.mojom.AppSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.app_management.mojom.AppSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -467,7 +467,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.app_management.mojom.PageHandler_GetApp_ResponseParamsSpec, 'app_management.mojom.PageHandler_GetApp_ResponseParams', [
-      mojo.internal.StructField('arg_app', 0, 0, mojo.internal.bindings.mojo.internal.bindings.app_management.mojom.AppSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_app', 0, 0, mojo.internal.bindings.app_management.mojom.AppSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -490,7 +490,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ResponseParamsSpec, 'app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ResponseParams', [
-      mojo.internal.StructField('arg_messages', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.app_management.mojom.ExtensionAppPermissionMessageSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_messages', 0, 0, mojo.internal.Array(mojo.internal.bindings.app_management.mojom.ExtensionAppPermissionMessageSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -504,7 +504,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.app_management.mojom.PageHandler_SetPermission_ParamsSpec, 'app_management.mojom.PageHandler_SetPermission_Params', [
       mojo.internal.StructField('arg_app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_permission', 8, 0, mojo.internal.bindings.mojo.internal.bindings.app_management.mojom.PermissionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_permission', 8, 0, mojo.internal.bindings.app_management.mojom.PermissionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -555,14 +555,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.app_management.mojom.PageHandler_SetWindowMode_ParamsSpec, 'app_management.mojom.PageHandler_SetWindowMode_Params', [
       mojo.internal.StructField('arg_app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_window_mode', 8, 0, mojo.internal.bindings.mojo.internal.bindings.app_management.mojom.WindowModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_window_mode', 8, 0, mojo.internal.bindings.app_management.mojom.WindowModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.app_management.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec, 'app_management.mojom.PageHandler_SetRunOnOsLoginMode_Params', [
       mojo.internal.StructField('arg_app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_run_on_os_login_mode', 8, 0, mojo.internal.bindings.mojo.internal.bindings.app_management.mojom.RunOnOsLoginModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_run_on_os_login_mode', 8, 0, mojo.internal.bindings.app_management.mojom.RunOnOsLoginModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1360,13 +1360,13 @@ mojo.internal.bindings.app_management.mojom.PageHandlerRequest = mojo.internal.b
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.app_management.mojom.Page_OnAppAdded_ParamsSpec, 'app_management.mojom.Page_OnAppAdded_Params', [
-      mojo.internal.StructField('arg_app', 0, 0, mojo.internal.bindings.mojo.internal.bindings.app_management.mojom.AppSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_app', 0, 0, mojo.internal.bindings.app_management.mojom.AppSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.app_management.mojom.Page_OnAppChanged_ParamsSpec, 'app_management.mojom.Page_OnAppChanged_Params', [
-      mojo.internal.StructField('arg_update', 0, 0, mojo.internal.bindings.mojo.internal.bindings.app_management.mojom.AppSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_update', 0, 0, mojo.internal.bindings.app_management.mojom.AppSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

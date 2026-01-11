@@ -98,14 +98,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_minimum', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_maximum', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_step', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_suggestions', 40, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.DateTimeSuggestionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestions', 40, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.DateTimeSuggestionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 56]]);
 
 // Interface: DateTimeChooser
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec, 'blink.mojom.DateTimeChooser_OpenDateTimeDialog_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.DateTimeDialogValueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.blink.mojom.DateTimeDialogValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

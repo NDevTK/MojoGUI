@@ -98,6 +98,6 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AdDescriptorSpec, 'blink.mojom.AdDescriptor', [
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AdSizeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.bindings.blink.mojom.AdSizeSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);

@@ -96,8 +96,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.CompositorFrameTransitionDirectiveSpec, 'viz.mojom.CompositorFrameTransitionDirective', [
       mojo.internal.StructField('arg_transition_token', 0, 0, mojo.internal.bindings.blink.mojom.ViewTransitionTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.viz.mojom.CompositorFrameTransitionDirectiveTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shared_elements', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.viz.mojom.CompositorFrameTransitionDirectiveSharedElementSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.viz.mojom.CompositorFrameTransitionDirectiveTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shared_elements', 16, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.CompositorFrameTransitionDirectiveSharedElementSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_display_color_spaces', 24, 0, mojo.internal.bindings.gfx.mojom.DisplayColorSpacesSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_sequence_id', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_maybe_cross_frame_sink', 36, 0, mojo.internal.Bool, false, false, 0, undefined),

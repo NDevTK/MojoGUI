@@ -160,7 +160,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec, 'webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParams', [
-      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.webxr.mojom.DeviceInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.webxr.mojom.DeviceInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -171,7 +171,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec, 'webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParams', [
-      mojo.internal.StructField('arg_active_runtimes', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.webxr.mojom.RuntimeInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_active_runtimes', 0, 0, mojo.internal.Array(mojo.internal.bindings.webxr.mojom.RuntimeInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -408,31 +408,31 @@ mojo.internal.bindings.webxr.mojom.WebXrInternalsHandlerRequest = mojo.internal.
 // Interface: XRInternalsSessionListener
 mojo.internal.Struct(
     mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec, 'webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_Params', [
-      mojo.internal.StructField('arg_session_requested_record', 0, 0, mojo.internal.bindings.mojo.internal.bindings.webxr.mojom.SessionRequestedRecordSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_requested_record', 0, 0, mojo.internal.bindings.webxr.mojom.SessionRequestedRecordSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec, 'webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_Params', [
-      mojo.internal.StructField('arg_session_rejected_record', 0, 0, mojo.internal.bindings.mojo.internal.bindings.webxr.mojom.SessionRejectedRecordSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_rejected_record', 0, 0, mojo.internal.bindings.webxr.mojom.SessionRejectedRecordSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec, 'webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_Params', [
-      mojo.internal.StructField('arg_session_started_record', 0, 0, mojo.internal.bindings.mojo.internal.bindings.webxr.mojom.SessionStartedRecordSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_started_record', 0, 0, mojo.internal.bindings.webxr.mojom.SessionStartedRecordSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec, 'webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_Params', [
-      mojo.internal.StructField('arg_session_stopped_record', 0, 0, mojo.internal.bindings.mojo.internal.bindings.webxr.mojom.SessionStoppedRecordSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_stopped_record', 0, 0, mojo.internal.bindings.webxr.mojom.SessionStoppedRecordSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec, 'webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_Params', [
-      mojo.internal.StructField('arg_runtime_added_record', 0, 0, mojo.internal.bindings.mojo.internal.bindings.webxr.mojom.RuntimeInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_runtime_added_record', 0, 0, mojo.internal.bindings.webxr.mojom.RuntimeInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

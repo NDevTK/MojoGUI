@@ -94,12 +94,12 @@ mojo.internal.Union(
     mojo.internal.bindings.mojo.interface_control.RunInputSpec, 'mojo.interface_control.RunInput', {
       'arg_query_version': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.mojo.interface_control.QueryVersionSpec.$,
+        'type': mojo.internal.bindings.mojo.interface_control.QueryVersionSpec.$,
         'nullable': false,
       },
       'arg_flush_for_testing': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.mojo.interface_control.FlushForTestingSpec.$,
+        'type': mojo.internal.bindings.mojo.interface_control.FlushForTestingSpec.$,
         'nullable': false,
       },
     });
@@ -109,7 +109,7 @@ mojo.internal.Union(
     mojo.internal.bindings.mojo.interface_control.RunOutputSpec, 'mojo.interface_control.RunOutput', {
       'arg_query_version_result': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.mojo.interface_control.QueryVersionResultSpec.$,
+        'type': mojo.internal.bindings.mojo.interface_control.QueryVersionResultSpec.$,
         'nullable': false,
       },
     });
@@ -119,22 +119,22 @@ mojo.internal.Union(
     mojo.internal.bindings.mojo.interface_control.RunOrClosePipeInputSpec, 'mojo.interface_control.RunOrClosePipeInput', {
       'arg_require_version': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.mojo.interface_control.RequireVersionSpec.$,
+        'type': mojo.internal.bindings.mojo.interface_control.RequireVersionSpec.$,
         'nullable': false,
       },
       'arg_enable_idle_tracking': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.mojo.interface_control.EnableIdleTrackingSpec.$,
+        'type': mojo.internal.bindings.mojo.interface_control.EnableIdleTrackingSpec.$,
         'nullable': false,
       },
       'arg_message_ack': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.mojo.interface_control.MessageAckSpec.$,
+        'type': mojo.internal.bindings.mojo.interface_control.MessageAckSpec.$,
         'nullable': false,
       },
       'arg_notify_idle': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.mojo.internal.bindings.mojo.interface_control.NotifyIdleSpec.$,
+        'type': mojo.internal.bindings.mojo.interface_control.NotifyIdleSpec.$,
         'nullable': false,
       },
     });

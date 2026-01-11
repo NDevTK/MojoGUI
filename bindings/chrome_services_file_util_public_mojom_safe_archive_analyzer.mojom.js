@@ -159,7 +159,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_Params', [
       mojo.internal.StructField('arg_zip_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_password', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_header_data', 16, 0, mojo.internal.bindings.mojo.internal.bindings.chrome.mojom.ObfuscatedFileUtilHeaderDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_header_data', 16, 0, mojo.internal.bindings.chrome.mojom.ObfuscatedFileUtilHeaderDataSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_temp_file_getter', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.TemporaryFileGetterSpec), null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -174,7 +174,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_Params', [
       mojo.internal.StructField('arg_rar_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_password', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_header_data', 16, 0, mojo.internal.bindings.mojo.internal.bindings.chrome.mojom.ObfuscatedFileUtilHeaderDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_header_data', 16, 0, mojo.internal.bindings.chrome.mojom.ObfuscatedFileUtilHeaderDataSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_temp_file_getter', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.TemporaryFileGetterSpec), null, false, 0, undefined),
     ],
     [[0, 40]]);

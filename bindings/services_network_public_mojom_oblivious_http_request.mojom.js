@@ -97,7 +97,7 @@ mojo.internal.Union(
       },
       'arg_inner_response': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.network.mojom.ObliviousHttpResponseSpec.$,
+        'type': mojo.internal.bindings.network.mojom.ObliviousHttpResponseSpec.$,
         'nullable': false,
       },
     });
@@ -137,9 +137,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_key_config', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_resource_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_method', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_body', 48, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ObliviousHttpRequestBodySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_request_body', 48, 0, mojo.internal.bindings.network.mojom.ObliviousHttpRequestBodySpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_trust_token_params', 56, 0, mojo.internal.bindings.network.mojom.TrustTokenParamsSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_padding_params', 64, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ObliviousHttpPaddingParametersSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_padding_params', 64, 0, mojo.internal.bindings.network.mojom.ObliviousHttpPaddingParametersSpec.$, null, true, 0, undefined),
     ],
     [[0, 80]]);
 

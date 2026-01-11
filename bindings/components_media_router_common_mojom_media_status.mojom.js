@@ -108,7 +108,7 @@ mojo.internal.Struct(
 // Interface: MediaStatusObserver
 mojo.internal.Struct(
     mojo.internal.bindings.media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec, 'media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media_router.mojom.MediaStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media_router.mojom.MediaStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

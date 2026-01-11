@@ -129,20 +129,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SerialService_GetPorts_ResponseParamsSpec, 'blink.mojom.SerialService_GetPorts_ResponseParams', [
-      mojo.internal.StructField('arg_ports', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SerialPortInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_ports', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SerialPortInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ParamsSpec, 'blink.mojom.SerialService_RequestPort_Params', [
-      mojo.internal.StructField('arg_filters', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SerialPortFilterSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_filters', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SerialPortFilterSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_allowed_bluetooth_service_class_ids', 8, 0, mojo.internal.Array(mojo.internal.bindings.bluetooth.mojom.UUIDSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ResponseParamsSpec, 'blink.mojom.SerialService_RequestPort_ResponseParams', [
-      mojo.internal.StructField('arg_port', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SerialPortInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_port', 0, 0, mojo.internal.bindings.blink.mojom.SerialPortInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -478,7 +478,7 @@ mojo.internal.bindings.blink.mojom.SerialServiceRequest = mojo.internal.bindings
 // Interface: SerialServiceClient
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec, 'blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_Params', [
-      mojo.internal.StructField('arg_port_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SerialPortInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_port_info', 0, 0, mojo.internal.bindings.blink.mojom.SerialPortInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -147,8 +147,8 @@ mojo.internal.Struct(
 // Struct: ViewData
 mojo.internal.Struct(
     mojo.internal.bindings.device_test.mojom.ViewDataSpec, 'device_test.mojom.ViewData', [
-      mojo.internal.StructField('arg_color', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device_test.mojom.ColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_eye', 8, 0, mojo.internal.bindings.mojo.internal.bindings.device_test.mojom.EyeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_color', 0, 0, mojo.internal.bindings.device_test.mojom.ColorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_eye', 8, 0, mojo.internal.bindings.device_test.mojom.EyeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_viewport', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -175,9 +175,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_buttons_pressed', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_buttons_touched', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_supported_buttons', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_axis_data', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.device_test.mojom.ControllerAxisDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_axis_data', 24, 0, mojo.internal.Array(mojo.internal.bindings.device_test.mojom.ControllerAxisDataSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_pose_data', 32, 0, mojo.internal.bindings.gfx.mojom.TransformSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_role', 40, 0, mojo.internal.bindings.mojo.internal.bindings.device_test.mojom.ControllerRoleSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_role', 40, 0, mojo.internal.bindings.device_test.mojom.ControllerRoleSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_hand_data', 48, 0, mojo.internal.bindings.device.mojom.XRHandTrackingDataSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_packet_number', 56, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_is_valid', 60, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -187,7 +187,7 @@ mojo.internal.Struct(
 // Struct: EventData
 mojo.internal.Struct(
     mojo.internal.bindings.device_test.mojom.EventDataSpec, 'device_test.mojom.EventData', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device_test.mojom.EventTypeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device_test.mojom.EventTypeSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_interaction_profile', 8, 0, mojo.internal.bindings.device.mojom.OpenXrInteractionProfileTypeSpec.$, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -203,7 +203,7 @@ mojo.internal.Struct(
 // Interface: XRTestHook
 mojo.internal.Struct(
     mojo.internal.bindings.device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec, 'device_test.mojom.XRTestHook_OnFrameSubmitted_Params', [
-      mojo.internal.StructField('arg_frame_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.device_test.mojom.ViewDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.device_test.mojom.ViewDataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -219,7 +219,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec, 'device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParams', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device_test.mojom.DeviceConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.device_test.mojom.DeviceConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -253,7 +253,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec, 'device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParams', [
-      mojo.internal.StructField('arg_role', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device_test.mojom.ControllerRoleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_role', 0, 0, mojo.internal.bindings.device_test.mojom.ControllerRoleSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -265,7 +265,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec, 'device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParams', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device_test.mojom.ControllerFrameDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.device_test.mojom.ControllerFrameDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -276,7 +276,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec, 'device_test.mojom.XRTestHook_WaitGetEventData_ResponseParams', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device_test.mojom.EventDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.device_test.mojom.EventDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -299,7 +299,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec, 'device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParams', [
-      mojo.internal.StructField('arg_mask', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device_test.mojom.XRVisibilityMaskSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_mask', 0, 0, mojo.internal.bindings.device_test.mojom.XRVisibilityMaskSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

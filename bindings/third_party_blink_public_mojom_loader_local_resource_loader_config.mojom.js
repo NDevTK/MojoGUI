@@ -105,6 +105,6 @@ mojo.internal.Struct(
 // Struct: LocalResourceLoaderConfig
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LocalResourceLoaderConfigSpec, 'blink.mojom.LocalResourceLoaderConfig', [
-      mojo.internal.StructField('arg_sources', 0, 0, mojo.internal.Map(mojo.internal.bindings.url.mojom.OriginSpec.$, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.LocalResourceSourceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_sources', 0, 0, mojo.internal.Map(mojo.internal.bindings.url.mojom.OriginSpec.$, mojo.internal.bindings.blink.mojom.LocalResourceSourceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

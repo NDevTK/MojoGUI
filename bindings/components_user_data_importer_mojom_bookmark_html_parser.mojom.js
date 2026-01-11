@@ -117,10 +117,10 @@ mojo.internal.Struct(
 // Struct: ParsedBookmarks
 mojo.internal.Struct(
     mojo.internal.bindings.user_data_importer.mojom.ParsedBookmarksSpec, 'user_data_importer.mojom.ParsedBookmarks', [
-      mojo.internal.StructField('arg_bookmarks', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.user_data_importer.mojom.ImportedBookmarkEntrySpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_reading_list', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.user_data_importer.mojom.ImportedBookmarkEntrySpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_search_engines', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.user_data_importer.mojom.SearchEngineInfoSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_favicons', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.user_data_importer.mojom.FaviconUsageDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_bookmarks', 0, 0, mojo.internal.Array(mojo.internal.bindings.user_data_importer.mojom.ImportedBookmarkEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_reading_list', 8, 0, mojo.internal.Array(mojo.internal.bindings.user_data_importer.mojom.ImportedBookmarkEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_search_engines', 16, 0, mojo.internal.Array(mojo.internal.bindings.user_data_importer.mojom.SearchEngineInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_favicons', 24, 0, mojo.internal.Array(mojo.internal.bindings.user_data_importer.mojom.FaviconUsageDataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -133,7 +133,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec, 'user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.user_data_importer.mojom.ParsedBookmarksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.user_data_importer.mojom.ParsedBookmarksSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

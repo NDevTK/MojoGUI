@@ -130,7 +130,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.ScoredURLUserActionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.ScoredURLUserActionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_url_key', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_visit_request_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],

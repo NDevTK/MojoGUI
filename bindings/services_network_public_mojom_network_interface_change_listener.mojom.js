@@ -94,7 +94,7 @@ mojo.internal.Struct(
 // Struct: AddressMap
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.AddressMapSpec, 'network.mojom.AddressMap', [
-      mojo.internal.StructField('arg_address_map', 0, 0, mojo.internal.Map(mojo.internal.bindings.network.mojom.IPAddressSpec.$, mojo.internal.bindings.mojo.internal.bindings.network.mojom.IfAddrMsgSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_address_map', 0, 0, mojo.internal.Map(mojo.internal.bindings.network.mojom.IPAddressSpec.$, mojo.internal.bindings.network.mojom.IfAddrMsgSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -108,15 +108,15 @@ mojo.internal.Struct(
 // Struct: InitialAddressMap
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.InitialAddressMapSpec, 'network.mojom.InitialAddressMap', [
-      mojo.internal.StructField('arg_address_map', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.AddressMapSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_online_links', 8, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.OnlineLinksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_address_map', 0, 0, mojo.internal.bindings.network.mojom.AddressMapSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_online_links', 8, 0, mojo.internal.bindings.network.mojom.OnlineLinksSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: NetworkInterfaceChangeParams
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkInterfaceChangeParamsSpec, 'network.mojom.NetworkInterfaceChangeParams', [
-      mojo.internal.StructField('arg_address_map', 0, 0, mojo.internal.Map(mojo.internal.bindings.network.mojom.IPAddressSpec.$, mojo.internal.bindings.mojo.internal.bindings.network.mojom.IfAddrMsgSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_address_map', 0, 0, mojo.internal.Map(mojo.internal.bindings.network.mojom.IPAddressSpec.$, mojo.internal.bindings.network.mojom.IfAddrMsgSpec.$, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_online_links', 8, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.Bool, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -124,7 +124,7 @@ mojo.internal.Struct(
 // Interface: NetworkInterfaceChangeListener
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSpec, 'network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.NetworkInterfaceChangeParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.network.mojom.NetworkInterfaceChangeParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

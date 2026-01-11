@@ -102,7 +102,7 @@ mojo.internal.Struct(
 // Struct: FramePoolInitializationParameters
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.FramePoolInitializationParametersSpec, 'media.mojom.FramePoolInitializationParameters', [
-      mojo.internal.StructField('arg_frame_textures', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.media.mojom.FrameTextureInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_textures', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.FrameTextureInfoSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_texture_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

@@ -119,13 +119,13 @@ mojo.internal.Struct(
 // Struct: WebUIAggregatableReport
 mojo.internal.Struct(
     mojo.internal.bindings.private_aggregation_internals.mojom.WebUIAggregatableReportSpec, 'private_aggregation_internals.mojom.WebUIAggregatableReport', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableReportRequestIDSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableReportRequestIDSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_report_time', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_api_identifier', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_api_version', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_report_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_contributions', 40, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableHistogramContributionSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 48, 0, mojo.internal.bindings.mojo.internal.bindings.private_aggregation_internals.mojom.ReportStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_contributions', 40, 0, mojo.internal.Array(mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableHistogramContributionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 48, 0, mojo.internal.bindings.private_aggregation_internals.mojom.ReportStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_report_body', 56, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 72]]);
@@ -138,7 +138,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec, 'private_aggregation_internals.mojom.Observer_OnReportHandled_Params', [
-      mojo.internal.StructField('arg_report', 0, 0, mojo.internal.bindings.mojo.internal.bindings.private_aggregation_internals.mojom.WebUIAggregatableReportSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_report', 0, 0, mojo.internal.bindings.private_aggregation_internals.mojom.WebUIAggregatableReportSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -326,13 +326,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec, 'private_aggregation_internals.mojom.Handler_GetReports_ResponseParams', [
-      mojo.internal.StructField('arg_reports', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.private_aggregation_internals.mojom.WebUIAggregatableReportSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_reports', 0, 0, mojo.internal.Array(mojo.internal.bindings.private_aggregation_internals.mojom.WebUIAggregatableReportSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec, 'private_aggregation_internals.mojom.Handler_SendReports_Params', [
-      mojo.internal.StructField('arg_ids', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableReportRequestIDSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_ids', 0, 0, mojo.internal.Array(mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableReportRequestIDSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -142,7 +142,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.CdmKeyInformationSpec, 'media.mojom.CdmKeyInformation', [
       mojo.internal.StructField('arg_key_id', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.CdmKeyStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.media.mojom.CdmKeyStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_system_code', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -171,7 +171,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec, 'media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.CdmPromiseResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.media.mojom.CdmPromiseResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -183,8 +183,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec, 'media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.CdmPromiseResultSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_status', 8, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.CdmKeyStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.media.mojom.CdmPromiseResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_status', 8, 0, mojo.internal.bindings.media.mojom.CdmKeyStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -198,7 +198,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec, 'media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.CdmPromiseResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.media.mojom.CdmPromiseResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -212,7 +212,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec, 'media.mojom.ContentDecryptionModule_LoadSession_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.CdmPromiseResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.media.mojom.CdmPromiseResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -226,7 +226,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec, 'media.mojom.ContentDecryptionModule_UpdateSession_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.CdmPromiseResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.media.mojom.CdmPromiseResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -238,7 +238,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec, 'media.mojom.ContentDecryptionModule_CloseSession_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.CdmPromiseResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.media.mojom.CdmPromiseResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -250,7 +250,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec, 'media.mojom.ContentDecryptionModule_RemoveSession_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.CdmPromiseResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.media.mojom.CdmPromiseResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -697,7 +697,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec, 'media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_Params', [
       mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_keys_info', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.media.mojom.CdmKeyInformationSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_keys_info', 8, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.CdmKeyInformationSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_has_additional_usable_key', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -952,14 +952,14 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleClientRequest = mojo.i
 // Interface: CdmFactory
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.CdmFactory_CreateCdm_ParamsSpec, 'media.mojom.CdmFactory_CreateCdm_Params', [
-      mojo.internal.StructField('arg_cdm_config', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.CdmConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cdm_config', 0, 0, mojo.internal.bindings.media.mojom.CdmConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec, 'media.mojom.CdmFactory_CreateCdm_ResponseParams', [
       mojo.internal.StructField('arg_cdm', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.ContentDecryptionModuleSpec), null, true, 0, undefined),
-      mojo.internal.StructField('arg_cdm_context', 8, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.CdmContextSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_cdm_context', 8, 0, mojo.internal.bindings.media.mojom.CdmContextSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_status', 16, 0, mojo.internal.bindings.media.mojom.CreateCdmStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);

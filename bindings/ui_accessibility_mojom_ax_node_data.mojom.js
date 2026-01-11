@@ -95,7 +95,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_html_attributes', 56, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_child_ids', 64, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_relative_bounds', 72, 0, mojo.internal.bindings.ax.mojom.AXRelativeBoundsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bool_attributes_data', 80, 0, mojo.internal.bindings.mojo.internal.bindings.ax.mojom.AXBitsetDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_bool_attributes_data', 80, 0, mojo.internal.bindings.ax.mojom.AXBitsetDataSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_id', 88, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_state', 92, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],

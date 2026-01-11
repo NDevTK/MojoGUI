@@ -266,7 +266,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.search_engine_choice.mojom.PageHandler_RecordScrollState_ParamsSpec, 'search_engine_choice.mojom.PageHandler_RecordScrollState_Params', [
-      mojo.internal.StructField('arg_scroll_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.search_engine_choice.mojom.ScrollStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scroll_state', 0, 0, mojo.internal.bindings.search_engine_choice.mojom.ScrollStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

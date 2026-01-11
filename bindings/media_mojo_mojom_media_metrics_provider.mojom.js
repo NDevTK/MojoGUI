@@ -121,7 +121,7 @@ mojo.internal.bindings.media.mojom.MediaURLScheme = {
 // Interface: MediaMetricsProvider
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaMetricsProvider_Initialize_ParamsSpec, 'media.mojom.MediaMetricsProvider_Initialize_Params', [
-      mojo.internal.StructField('arg_url_scheme', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.MediaURLSchemeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url_scheme', 0, 0, mojo.internal.bindings.media.mojom.MediaURLSchemeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_stream_type', 8, 0, mojo.internal.bindings.media.mojom.MediaStreamTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_mse', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],

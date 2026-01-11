@@ -110,7 +110,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_socket_address', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_timestamp', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ecn', 24, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.EcnMarkingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ecn', 24, 0, mojo.internal.bindings.network.mojom.EcnMarkingSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -535,7 +535,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.P2PSocket_SendBatch_ParamsSpec, 'network.mojom.P2PSocket_SendBatch_Params', [
-      mojo.internal.StructField('arg_packet_batch', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.network.mojom.P2PSendPacketSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_packet_batch', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.P2PSendPacketSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -776,7 +776,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.P2PSocketClient_DataReceived_ParamsSpec, 'network.mojom.P2PSocketClient_DataReceived_Params', [
-      mojo.internal.StructField('arg_packets', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.network.mojom.P2PReceivedPacketSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_packets', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.P2PReceivedPacketSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

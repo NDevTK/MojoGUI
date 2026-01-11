@@ -100,7 +100,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec, 'device.mojom.GeolocationContext_OnPermissionUpdated_Params', [
       mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_permission_level', 8, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.GeolocationPermissionLevelSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_permission_level', 8, 0, mojo.internal.bindings.device.mojom.GeolocationPermissionLevelSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

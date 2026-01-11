@@ -103,7 +103,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionResultSpec, 'shape_detection.mojom.BarcodeDetectionResult', [
       mojo.internal.StructField('arg_raw_value', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_bounding_box', 8, 0, mojo.internal.bindings.gfx.mojom.RectFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_format', 16, 0, mojo.internal.bindings.mojo.internal.bindings.shape_detection.mojom.BarcodeFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_format', 16, 0, mojo.internal.bindings.shape_detection.mojom.BarcodeFormatSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_corner_points', 24, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.PointFSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -117,7 +117,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.shape_detection.mojom.BarcodeDetection_Detect_ResponseParamsSpec, 'shape_detection.mojom.BarcodeDetection_Detect_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionResultSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionResultSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

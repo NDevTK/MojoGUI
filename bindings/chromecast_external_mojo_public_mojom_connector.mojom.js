@@ -259,7 +259,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalServiceRequest = m
 // Interface: ExternalConnector
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec, 'chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_Params', [
-      mojo.internal.StructField('arg_instances_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.chromecast.external_mojo.mojom.ServiceInstanceInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_instances_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromecast.external_mojo.mojom.ServiceInstanceInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -290,7 +290,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec, 'chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParams', [
-      mojo.internal.StructField('arg_services', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalServiceInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_services', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalServiceInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

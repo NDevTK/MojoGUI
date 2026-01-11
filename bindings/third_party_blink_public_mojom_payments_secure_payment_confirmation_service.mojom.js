@@ -106,7 +106,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec, 'payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParams', [
-      mojo.internal.StructField('arg_availability', 0, 0, mojo.internal.bindings.mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationAvailabilityEnumSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_availability', 0, 0, mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationAvailabilityEnumSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -120,7 +120,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec, 'payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.payments.mojom.PaymentCredentialStorageStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.payments.mojom.PaymentCredentialStorageStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

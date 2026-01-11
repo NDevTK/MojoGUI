@@ -111,7 +111,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ResponseParamsSpec, 'ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.cros_safety.mojom.GetOnDeviceSafetySessionResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.GetOnDeviceSafetySessionResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -123,7 +123,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParamsSpec, 'ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.cros_safety.mojom.GetCloudSafetySessionResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.GetCloudSafetySessionResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -107,7 +107,7 @@ mojo.internal.Struct(
 // Interface: SingularUkmInterface
 mojo.internal.Struct(
     mojo.internal.bindings.ukm.mojom.SingularUkmInterface_Submit_ParamsSpec, 'ukm.mojom.SingularUkmInterface_Submit_Params', [
-      mojo.internal.StructField('arg_entry', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ukm.mojom.UkmEntrySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_entry', 0, 0, mojo.internal.bindings.ukm.mojom.UkmEntrySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -258,7 +258,7 @@ mojo.internal.bindings.ukm.mojom.SingularUkmInterfaceRequest = mojo.internal.bin
 // Interface: UkmRecorderClientInterface
 mojo.internal.Struct(
     mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec, 'ukm.mojom.UkmRecorderClientInterface_SetParameters_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ukm.mojom.UkmRecorderParametersSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.ukm.mojom.UkmRecorderParametersSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -409,7 +409,7 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterfaceRequest = mojo.intern
 // Interface: UkmRecorderInterface
 mojo.internal.Struct(
     mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec, 'ukm.mojom.UkmRecorderInterface_AddEntry_Params', [
-      mojo.internal.StructField('arg_entry', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ukm.mojom.UkmEntrySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_entry', 0, 0, mojo.internal.bindings.ukm.mojom.UkmEntrySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

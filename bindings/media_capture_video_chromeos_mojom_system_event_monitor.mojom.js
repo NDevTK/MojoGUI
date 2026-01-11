@@ -118,7 +118,7 @@ mojo.internal.bindings.cros.mojom.ClockwiseRotation = {
 // Interface: CrosDisplayObserver
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec, 'cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_Params', [
-      mojo.internal.StructField('arg_rotation', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.ClockwiseRotationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rotation', 0, 0, mojo.internal.bindings.cros.mojom.ClockwiseRotationSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -269,7 +269,7 @@ mojo.internal.bindings.cros.mojom.CrosDisplayObserverRequest = mojo.internal.bin
 // Interface: CrosLidObserver
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec, 'cros.mojom.CrosLidObserver_OnLidStateChanged_Params', [
-      mojo.internal.StructField('arg_new_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.LidStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_state', 0, 0, mojo.internal.bindings.cros.mojom.LidStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -639,7 +639,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec, 'cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.DeviceTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.cros.mojom.DeviceTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

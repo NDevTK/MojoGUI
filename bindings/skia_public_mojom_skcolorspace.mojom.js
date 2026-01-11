@@ -98,7 +98,7 @@ mojo.internal.Struct(
 // Struct: SkColorSpace
 mojo.internal.Struct(
     mojo.internal.bindings.skia.mojom.SkColorSpaceSpec, 'skia.mojom.SkColorSpace', [
-      mojo.internal.StructField('arg_to_linear', 0, 0, mojo.internal.bindings.mojo.internal.bindings.skia.mojom.SkcmsTransferFunctionSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_to_xyzd50', 8, 0, mojo.internal.bindings.mojo.internal.bindings.skia.mojom.SkcmsMatrix3x3Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_to_linear', 0, 0, mojo.internal.bindings.skia.mojom.SkcmsTransferFunctionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_to_xyzd50', 8, 0, mojo.internal.bindings.skia.mojom.SkcmsMatrix3x3Spec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);

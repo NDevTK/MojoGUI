@@ -125,9 +125,9 @@ mojo.internal.bindings.media.mojom.RemotingSinkVideoCapability = {
 // Struct: RemotingSinkMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.RemotingSinkMetadataSpec, 'media.mojom.RemotingSinkMetadata', [
-      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.media.mojom.RemotingSinkFeatureSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_audio_capabilities', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.media.mojom.RemotingSinkAudioCapabilitySpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_video_capabilities', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.media.mojom.RemotingSinkVideoCapabilitySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.RemotingSinkFeatureSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_capabilities', 8, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.RemotingSinkAudioCapabilitySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_video_capabilities', 16, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.RemotingSinkVideoCapabilitySpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_friendly_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);

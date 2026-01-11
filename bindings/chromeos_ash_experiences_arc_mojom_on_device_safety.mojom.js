@@ -267,7 +267,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParamsSpec, 'arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.GetArcSafetySessionResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.GetArcSafetySessionResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -101,7 +101,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec, 'blink.mojom.AppBannerController_BannerPromptRequest_ResponseParams', [
-      mojo.internal.StructField('arg_reply', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AppBannerPromptReplySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reply', 0, 0, mojo.internal.bindings.blink.mojom.AppBannerPromptReplySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

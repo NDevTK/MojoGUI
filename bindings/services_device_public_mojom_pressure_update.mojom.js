@@ -95,8 +95,8 @@ mojo.internal.bindings.device.mojom.PressureState = {
 // Struct: PressureUpdate
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.PressureUpdateSpec, 'device.mojom.PressureUpdate', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.PressureSourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.PressureDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.device.mojom.PressureSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.device.mojom.PressureDataSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_timestamp', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);

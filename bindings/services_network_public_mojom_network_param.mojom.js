@@ -124,15 +124,15 @@ mojo.internal.Struct(
 // Struct: ProxyServer
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ProxyServerSpec, 'network.mojom.ProxyServer', [
-      mojo.internal.StructField('arg_scheme', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ProxySchemeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_host_and_port', 8, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.HostPortPairSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_scheme', 0, 0, mojo.internal.bindings.network.mojom.ProxySchemeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_and_port', 8, 0, mojo.internal.bindings.network.mojom.HostPortPairSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ProxyChain
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ProxyChainSpec, 'network.mojom.ProxyChain', [
-      mojo.internal.StructField('arg_proxy_servers', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.network.mojom.ProxyServerSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_proxy_servers', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ProxyServerSpec.$, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_ip_protection_chain_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -148,7 +148,7 @@ mojo.internal.Struct(
 // Struct: SSLCertRequestInfo
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SSLCertRequestInfoSpec, 'network.mojom.SSLCertRequestInfo', [
-      mojo.internal.StructField('arg_host_and_port', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.HostPortPairSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_and_port', 0, 0, mojo.internal.bindings.network.mojom.HostPortPairSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_cert_authorities', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_signature_algorithms', 16, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_is_proxy', 24, 0, mojo.internal.Bool, false, false, 0, undefined),

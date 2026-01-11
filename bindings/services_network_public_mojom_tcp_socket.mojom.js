@@ -112,7 +112,7 @@ mojo.internal.Struct(
 // Struct: TCPConnectedSocketOptions
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TCPConnectedSocketOptionsSpec, 'network.mojom.TCPConnectedSocketOptions', [
-      mojo.internal.StructField('arg_keep_alive_options', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.TCPKeepAliveOptionsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_keep_alive_options', 0, 0, mojo.internal.bindings.network.mojom.TCPKeepAliveOptionsSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_send_buffer_size', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_receive_buffer_size', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_no_delay', 16, 0, mojo.internal.Bool, true, false, 0, undefined),
@@ -146,7 +146,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TCPBoundSocket_Connect_ParamsSpec, 'network.mojom.TCPBoundSocket_Connect_Params', [
       mojo.internal.StructField('arg_remote_addr_list', 0, 0, mojo.internal.bindings.network.mojom.AddressListSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tcp_connected_socket_options', 8, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.TCPConnectedSocketOptionsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_tcp_connected_socket_options', 8, 0, mojo.internal.bindings.network.mojom.TCPConnectedSocketOptionsSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_socket', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TCPConnectedSocketSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_observer', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SocketObserverSpec), null, true, 0, undefined),
     ],

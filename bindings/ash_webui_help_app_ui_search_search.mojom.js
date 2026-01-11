@@ -271,13 +271,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Search_ResponseParamsSpec, 'ash.help_app.mojom.SearchHandler_Search_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.help_app.mojom.SearchResultSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.help_app.mojom.SearchResultSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Update_ParamsSpec, 'ash.help_app.mojom.SearchHandler_Update_Params', [
-      mojo.internal.StructField('arg_concepts', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.help_app.mojom.SearchConceptSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_concepts', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.help_app.mojom.SearchConceptSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

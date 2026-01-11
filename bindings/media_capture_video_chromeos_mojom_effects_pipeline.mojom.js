@@ -126,21 +126,21 @@ mojo.internal.bindings.cros.mojom.InferenceBackend = {
 // Struct: EffectsConfig
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.EffectsConfigSpec, 'cros.mojom.EffectsConfig', [
-      mojo.internal.StructField('arg_effect', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.CameraEffectSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_blur_level', 8, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.BlurLevelSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_segmentation_gpu_api', 16, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.GpuApiSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_effect', 0, 0, mojo.internal.bindings.cros.mojom.CameraEffectSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_blur_level', 8, 0, mojo.internal.bindings.cros.mojom.BlurLevelSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_segmentation_gpu_api', 16, 0, mojo.internal.bindings.cros.mojom.GpuApiSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_graph_max_frames_in_flight', 24, 0, mojo.internal.Uint16, 2, false, 0, undefined),
       mojo.internal.StructField('arg_blur_enabled', 26, 0, mojo.internal.Bool, false, false, 1, undefined),
       mojo.internal.StructField('arg_replace_enabled', 26, 1, mojo.internal.Bool, false, false, 1, undefined),
       mojo.internal.StructField('arg_relight_enabled', 26, 2, mojo.internal.Bool, false, false, 1, undefined),
-      mojo.internal.StructField('arg_segmentation_model', 32, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.SegmentationModelSpec.$, null, false, 2, undefined),
+      mojo.internal.StructField('arg_segmentation_model', 32, 0, mojo.internal.bindings.cros.mojom.SegmentationModelSpec.$, null, false, 2, undefined),
       mojo.internal.StructField('arg_background_filepath', 40, 0, mojo.internal.bindings.mojo_base.mojom.RelativeFilePathSpec.$, null, true, 3, undefined),
       mojo.internal.StructField('arg_light_intensity_$value', 48, 0, mojo.internal.Float, 0, false, 4, { isPrimary: false, linkedValueFieldName: 'arg_light_intensity_$flag', originalFieldName: 'arg_light_intensity' }),
       mojo.internal.StructField('arg_light_intensity_$flag', 52, 0, mojo.internal.Bool, false, false, 4, { isPrimary: true, linkedValueFieldName: 'arg_light_intensity_$value', originalFieldName: 'arg_light_intensity' }),
-      mojo.internal.StructField('arg_segmentation_inference_backend', 56, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.InferenceBackendSpec.$, null, false, 5, undefined),
-      mojo.internal.StructField('arg_relighting_inference_backend', 64, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.InferenceBackendSpec.$, null, false, 5, undefined),
+      mojo.internal.StructField('arg_segmentation_inference_backend', 56, 0, mojo.internal.bindings.cros.mojom.InferenceBackendSpec.$, null, false, 5, undefined),
+      mojo.internal.StructField('arg_relighting_inference_backend', 64, 0, mojo.internal.bindings.cros.mojom.InferenceBackendSpec.$, null, false, 5, undefined),
       mojo.internal.StructField('arg_retouch_enabled', 72, 0, mojo.internal.Bool, false, false, 6, undefined),
       mojo.internal.StructField('arg_studio_look_enabled', 72, 1, mojo.internal.Bool, true, false, 6, undefined),
-      mojo.internal.StructField('arg_retouch_inference_backend', 80, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.InferenceBackendSpec.$, null, false, 7, undefined),
+      mojo.internal.StructField('arg_retouch_inference_backend', 80, 0, mojo.internal.bindings.cros.mojom.InferenceBackendSpec.$, null, false, 7, undefined),
     ],
     [[0, 40], [1, 40], [2, 48], [3, 56], [4, 64], [5, 80], [6, 88], [7, 96]]);

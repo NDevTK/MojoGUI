@@ -162,7 +162,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_Params', [
-      mojo.internal.StructField('arg_icon', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.mojom.status_area_internals.BatteryIconSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon', 0, 0, mojo.internal.bindings.ash.mojom.status_area_internals.BatteryIconSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

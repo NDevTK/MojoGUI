@@ -95,7 +95,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentHandlerModifierSpec, 'payments.mojom.PaymentHandlerModifier', [
       mojo.internal.StructField('arg_total', 0, 0, mojo.internal.bindings.payments.mojom.PaymentCurrencyAmountSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_method_data', 8, 0, mojo.internal.bindings.mojo.internal.bindings.payments.mojom.PaymentHandlerMethodDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_method_data', 8, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerMethodDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -104,7 +104,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentRequestDetailsUpdateSpec, 'payments.mojom.PaymentRequestDetailsUpdate', [
       mojo.internal.StructField('arg_total', 0, 0, mojo.internal.bindings.payments.mojom.PaymentCurrencyAmountSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_shipping_options', 8, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentShippingOptionSpec.$, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_modifiers', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.payments.mojom.PaymentHandlerModifierSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_modifiers', 16, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentHandlerModifierSpec.$, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_error', 24, 0, mojo.internal.String, 0, false, 0, undefined),
       mojo.internal.StructField('arg_stringified_payment_method_errors', 32, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_shipping_address_errors', 40, 0, mojo.internal.bindings.payments.mojom.AddressErrorsSpec.$, null, true, 0, undefined),
@@ -114,13 +114,13 @@ mojo.internal.Struct(
 // Interface: PaymentHandlerHost
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec, 'payments.mojom.PaymentHandlerHost_ChangePaymentMethod_Params', [
-      mojo.internal.StructField('arg_method_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.payments.mojom.PaymentHandlerMethodDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_method_data', 0, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerMethodDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec, 'payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParams', [
-      mojo.internal.StructField('arg_response_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.payments.mojom.PaymentRequestDetailsUpdateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response_data', 0, 0, mojo.internal.bindings.payments.mojom.PaymentRequestDetailsUpdateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -132,7 +132,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec, 'payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParams', [
-      mojo.internal.StructField('arg_response_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.payments.mojom.PaymentRequestDetailsUpdateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response_data', 0, 0, mojo.internal.bindings.payments.mojom.PaymentRequestDetailsUpdateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -144,7 +144,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec, 'payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParams', [
-      mojo.internal.StructField('arg_response_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.payments.mojom.PaymentRequestDetailsUpdateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response_data', 0, 0, mojo.internal.bindings.payments.mojom.PaymentRequestDetailsUpdateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

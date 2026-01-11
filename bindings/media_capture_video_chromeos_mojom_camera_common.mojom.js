@@ -159,11 +159,11 @@ mojo.internal.Struct(
 // Struct: CameraInfo
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraInfoSpec, 'cros.mojom.CameraInfo', [
-      mojo.internal.StructField('arg_facing', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.CameraFacingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_facing', 0, 0, mojo.internal.bindings.cros.mojom.CameraFacingSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_static_camera_characteristics', 8, 0, mojo.internal.bindings.cros.mojom.CameraMetadataSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_orientation', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_device_version', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_resource_cost', 24, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.CameraResourceCostSpec.$, null, true, 1, undefined),
+      mojo.internal.StructField('arg_resource_cost', 24, 0, mojo.internal.bindings.cros.mojom.CameraResourceCostSpec.$, null, true, 1, undefined),
       mojo.internal.StructField('arg_conflicting_devices', 32, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 1, undefined),
     ],
     [[0, 32], [1, 48]]);
@@ -171,14 +171,14 @@ mojo.internal.Struct(
 // Interface: CameraModuleCallbacks
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraModuleCallbacks_CameraDeviceStatusChange_ParamsSpec, 'cros.mojom.CameraModuleCallbacks_CameraDeviceStatusChange_Params', [
-      mojo.internal.StructField('arg_new_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.CameraDeviceStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_status', 0, 0, mojo.internal.bindings.cros.mojom.CameraDeviceStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_camera_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraModuleCallbacks_TorchModeStatusChange_ParamsSpec, 'cros.mojom.CameraModuleCallbacks_TorchModeStatusChange_Params', [
-      mojo.internal.StructField('arg_new_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.TorchModeStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_status', 0, 0, mojo.internal.bindings.cros.mojom.TorchModeStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_camera_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -763,7 +763,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraModule_GetCameraInfo_ResponseParamsSpec, 'cros.mojom.CameraModule_GetCameraInfo_ResponseParams', [
-      mojo.internal.StructField('arg_camera_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.CameraInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_camera_info', 0, 0, mojo.internal.bindings.cros.mojom.CameraInfoSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_result', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

@@ -144,7 +144,7 @@ mojo.internal.Union(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedPromiseParam_ParamsSpec, 'blink.mojom.AbortableAdAuction_ResolvedPromiseParam_Params', [
       mojo.internal.StructField('arg_auction', 0, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigAuctionIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_field', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AuctionAdConfigFieldSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_field', 8, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigFieldSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_json_value', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 32]]);
@@ -167,7 +167,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedBuyerTimeoutsPromise_ParamsSpec, 'blink.mojom.AbortableAdAuction_ResolvedBuyerTimeoutsPromise_Params', [
       mojo.internal.StructField('arg_auction', 0, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigAuctionIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_field', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerTimeoutFieldSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_field', 8, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerTimeoutFieldSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_buyer_timeouts', 16, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerTimeoutsSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);

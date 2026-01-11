@@ -144,7 +144,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.StylusWritingFocusResultSpec, 'blink.mojom.StylusWritingFocusResult', [
       mojo.internal.StructField('arg_focused_edit_bounds', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_caret_bounds', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_proximate_bounds', 16, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ProximateCharacterRangeBoundsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_proximate_bounds', 16, 0, mojo.internal.bindings.blink.mojom.ProximateCharacterRangeBoundsSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -229,7 +229,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FrameWidget_OnStartStylusWriting_ResponseParamsSpec, 'blink.mojom.FrameWidget_OnStartStylusWriting_ResponseParams', [
-      mojo.internal.StructField('arg_focus_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.StylusWritingFocusResultSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_focus_result', 0, 0, mojo.internal.bindings.blink.mojom.StylusWritingFocusResultSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -293,7 +293,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FrameWidget_EnableDeviceEmulation_ParamsSpec, 'blink.mojom.FrameWidget_EnableDeviceEmulation_Params', [
       mojo.internal.StructField('arg_parameters', 0, 0, mojo.internal.bindings.blink.mojom.DeviceEmulationParamsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cache_behavior', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.DeviceEmulationCacheBehaviorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cache_behavior', 8, 0, mojo.internal.bindings.blink.mojom.DeviceEmulationCacheBehaviorSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

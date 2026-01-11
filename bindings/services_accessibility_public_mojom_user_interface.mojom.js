@@ -103,11 +103,11 @@ mojo.internal.bindings.ax.mojom.FocusRingStackingOrder = {
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.FocusRingInfoSpec, 'ax.mojom.FocusRingInfo', [
       mojo.internal.StructField('arg_rects', 0, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.RectSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ax.mojom.FocusTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.ax.mojom.FocusTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_color', 16, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_secondary_color', 24, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_background_color', 32, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_stacking_order', 40, 0, mojo.internal.bindings.mojo.internal.bindings.ax.mojom.FocusRingStackingOrderSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_stacking_order', 40, 0, mojo.internal.bindings.ax.mojom.FocusRingStackingOrderSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_id', 48, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 64]]);
@@ -141,7 +141,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.UserInterface_SetFocusRings_ParamsSpec, 'ax.mojom.UserInterface_SetFocusRings_Params', [
-      mojo.internal.StructField('arg_focus_rings', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ax.mojom.FocusRingInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_focus_rings', 0, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.FocusRingInfoSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_at_type', 8, 0, mojo.internal.bindings.ax.mojom.AssistiveTechnologyTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

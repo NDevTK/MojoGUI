@@ -112,10 +112,10 @@ mojo.internal.Struct(
 // Struct: SiteDataValue
 mojo.internal.Struct(
     mojo.internal.bindings.discards.mojom.SiteDataValueSpec, 'discards.mojom.SiteDataValue', [
-      mojo.internal.StructField('arg_updates_favicon_in_background', 0, 0, mojo.internal.bindings.mojo.internal.bindings.discards.mojom.SiteDataFeatureSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_updates_title_in_background', 8, 0, mojo.internal.bindings.mojo.internal.bindings.discards.mojom.SiteDataFeatureSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_uses_audio_in_background', 16, 0, mojo.internal.bindings.mojo.internal.bindings.discards.mojom.SiteDataFeatureSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_load_time_estimates', 24, 0, mojo.internal.bindings.mojo.internal.bindings.discards.mojom.SiteDataPerformanceMeasurementSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_updates_favicon_in_background', 0, 0, mojo.internal.bindings.discards.mojom.SiteDataFeatureSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_updates_title_in_background', 8, 0, mojo.internal.bindings.discards.mojom.SiteDataFeatureSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_uses_audio_in_background', 16, 0, mojo.internal.bindings.discards.mojom.SiteDataFeatureSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_load_time_estimates', 24, 0, mojo.internal.bindings.discards.mojom.SiteDataPerformanceMeasurementSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_last_loaded', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
@@ -124,7 +124,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.discards.mojom.SiteDataEntrySpec, 'discards.mojom.SiteDataEntry', [
       mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.mojo.internal.bindings.discards.mojom.SiteDataValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.discards.mojom.SiteDataValueSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_is_dirty', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -132,7 +132,7 @@ mojo.internal.Struct(
 // Struct: SiteDataArray
 mojo.internal.Struct(
     mojo.internal.bindings.discards.mojom.SiteDataArraySpec, 'discards.mojom.SiteDataArray', [
-      mojo.internal.StructField('arg_db_rows', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.discards.mojom.SiteDataEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_db_rows', 0, 0, mojo.internal.Array(mojo.internal.bindings.discards.mojom.SiteDataEntrySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -145,7 +145,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec, 'discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.discards.mojom.SiteDataArraySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.discards.mojom.SiteDataArraySpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -156,7 +156,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec, 'discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParams', [
-      mojo.internal.StructField('arg_db_size', 0, 0, mojo.internal.bindings.mojo.internal.bindings.discards.mojom.SiteDataDatabaseSizeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_db_size', 0, 0, mojo.internal.bindings.discards.mojom.SiteDataDatabaseSizeSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

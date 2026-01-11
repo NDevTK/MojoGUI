@@ -151,32 +151,32 @@ mojo.internal.Union(
     mojo.internal.bindings.sharing.mojom.V1FrameSpec, 'sharing.mojom.V1Frame', {
       'arg_introduction': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.sharing.mojom.IntroductionFrameSpec.$,
+        'type': mojo.internal.bindings.sharing.mojom.IntroductionFrameSpec.$,
         'nullable': false,
       },
       'arg_connection_response': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.sharing.mojom.ConnectionResponseFrameSpec.$,
+        'type': mojo.internal.bindings.sharing.mojom.ConnectionResponseFrameSpec.$,
         'nullable': false,
       },
       'arg_paired_key_encryption': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.sharing.mojom.PairedKeyEncryptionFrameSpec.$,
+        'type': mojo.internal.bindings.sharing.mojom.PairedKeyEncryptionFrameSpec.$,
         'nullable': false,
       },
       'arg_paired_key_result': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.mojo.internal.bindings.sharing.mojom.PairedKeyResultFrameSpec.$,
+        'type': mojo.internal.bindings.sharing.mojom.PairedKeyResultFrameSpec.$,
         'nullable': false,
       },
       'arg_certificate_info': {
         'ordinal': 4,
-        'type': mojo.internal.bindings.mojo.internal.bindings.sharing.mojom.CertificateInfoFrameSpec.$,
+        'type': mojo.internal.bindings.sharing.mojom.CertificateInfoFrameSpec.$,
         'nullable': false,
       },
       'arg_cancel_frame': {
         'ordinal': 5,
-        'type': mojo.internal.bindings.mojo.internal.bindings.sharing.mojom.CancelFrameSpec.$,
+        'type': mojo.internal.bindings.sharing.mojom.CancelFrameSpec.$,
         'nullable': false,
       },
     });
@@ -194,10 +194,10 @@ mojo.internal.Struct(
 // Struct: IntroductionFrame
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.IntroductionFrameSpec, 'sharing.mojom.IntroductionFrame', [
-      mojo.internal.StructField('arg_file_metadata', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.sharing.mojom.FileMetadataSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_metadata', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.sharing.mojom.TextMetadataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_metadata', 0, 0, mojo.internal.Array(mojo.internal.bindings.sharing.mojom.FileMetadataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_metadata', 8, 0, mojo.internal.Array(mojo.internal.bindings.sharing.mojom.TextMetadataSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_required_package', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_wifi_credentials_metadata', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.sharing.mojom.WifiCredentialsMetadataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_wifi_credentials_metadata', 24, 0, mojo.internal.Array(mojo.internal.bindings.sharing.mojom.WifiCredentialsMetadataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -267,7 +267,7 @@ mojo.internal.Struct(
 // Struct: CertificateInfoFrame
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.CertificateInfoFrameSpec, 'sharing.mojom.CertificateInfoFrame', [
-      mojo.internal.StructField('arg_public_certificate', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.sharing.mojom.PublicCertificateSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_public_certificate', 0, 0, mojo.internal.Array(mojo.internal.bindings.sharing.mojom.PublicCertificateSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -110,7 +110,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.app_notification.mojom.AppSpec, 'ash.settings.app_notification.mojom.App', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_readiness', 16, 0, mojo.internal.bindings.mojo.internal.bindings.ash.settings.app_notification.mojom.ReadinessSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_readiness', 16, 0, mojo.internal.bindings.ash.settings.app_notification.mojom.ReadinessSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_notification_permission', 24, 0, mojo.internal.bindings.app_management.mojom.PermissionSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -142,7 +142,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec, 'ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParams', [
-      mojo.internal.StructField('arg_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.settings.app_notification.mojom.AppSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.settings.app_notification.mojom.AppSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -485,7 +485,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandl
 // Interface: AppNotificationsObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec, 'ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_Params', [
-      mojo.internal.StructField('arg_app', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.settings.app_notification.mojom.AppSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_app', 0, 0, mojo.internal.bindings.ash.settings.app_notification.mojom.AppSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

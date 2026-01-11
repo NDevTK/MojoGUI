@@ -87,6 +87,6 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationOptionsSpec, 'blink.mojom.ServiceWorkerRegistrationOptions', [
       mojo.internal.StructField('arg_scope', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.blink.mojom.ScriptTypeSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_update_via_cache', 16, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ServiceWorkerUpdateViaCacheSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_update_via_cache', 16, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerUpdateViaCacheSpec.$, 0, false, 0, undefined),
     ],
     [[0, 32]]);

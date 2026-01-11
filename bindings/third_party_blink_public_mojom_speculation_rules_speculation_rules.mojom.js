@@ -118,12 +118,12 @@ mojo.internal.bindings.blink.mojom.SpeculationInjectionType = {
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SpeculationCandidateSpec, 'blink.mojom.SpeculationCandidate', [
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_action', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SpeculationActionSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 8, 0, mojo.internal.bindings.blink.mojom.SpeculationActionSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_referrer', 16, 0, mojo.internal.bindings.blink.mojom.ReferrerSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_target_browsing_context_name_hint', 24, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SpeculationTargetHintSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_eagerness', 32, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SpeculationEagernessSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_target_browsing_context_name_hint', 24, 0, mojo.internal.bindings.blink.mojom.SpeculationTargetHintSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_eagerness', 32, 0, mojo.internal.bindings.blink.mojom.SpeculationEagernessSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_no_vary_search_hint', 40, 0, mojo.internal.bindings.network.mojom.NoVarySearchSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_injection_type', 48, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SpeculationInjectionTypeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_injection_type', 48, 0, mojo.internal.bindings.blink.mojom.SpeculationInjectionTypeSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_tags', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_requires_anonymous_client_ip_when_cross_origin', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_form_submission', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -133,7 +133,7 @@ mojo.internal.Struct(
 // Interface: SpeculationHost
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec, 'blink.mojom.SpeculationHost_UpdateSpeculationCandidates_Params', [
-      mojo.internal.StructField('arg_candidates', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SpeculationCandidateSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_candidates', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SpeculationCandidateSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_enable_cross_origin_prerender_iframes', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);

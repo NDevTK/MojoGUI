@@ -93,7 +93,7 @@ mojo.internal.Union(
     mojo.internal.bindings.viz.mojom.BundledFrameSubmissionDataSpec, 'viz.mojom.BundledFrameSubmissionData', {
       'arg_frame': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.viz.mojom.BundledCompositorFrameSpec.$,
+        'type': mojo.internal.bindings.viz.mojom.BundledCompositorFrameSpec.$,
         'nullable': false,
       },
       'arg_did_not_produce_frame': {
@@ -149,7 +149,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FrameSinkBundle_Submit_ParamsSpec, 'viz.mojom.FrameSinkBundle_Submit_Params', [
-      mojo.internal.StructField('arg_submissions', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.viz.mojom.BundledFrameSubmissionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_submissions', 0, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.BundledFrameSubmissionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -371,9 +371,9 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleRequest = mojo.internal.bindings
 // Interface: FrameSinkBundleClient
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec, 'viz.mojom.FrameSinkBundleClient_FlushNotifications_Params', [
-      mojo.internal.StructField('arg_acks', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.viz.mojom.BundledReturnedResourcesSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_begin_frames', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.viz.mojom.BeginFrameInfoSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_reclaimed_resources', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.viz.mojom.BundledReturnedResourcesSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_acks', 0, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.BundledReturnedResourcesSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_begin_frames', 8, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.BeginFrameInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_reclaimed_resources', 16, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.BundledReturnedResourcesSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

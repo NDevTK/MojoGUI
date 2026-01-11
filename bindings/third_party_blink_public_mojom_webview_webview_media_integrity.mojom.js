@@ -98,7 +98,7 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityTokenResponseSpec, 'blink.mojom.WebViewMediaIntegrityTokenResponse', {
       'arg_error_code': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityErrorCodeSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityErrorCodeSpec.$,
         'nullable': false,
       },
       'arg_token': {
@@ -118,7 +118,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec, 'blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityErrorCodeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityErrorCodeSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

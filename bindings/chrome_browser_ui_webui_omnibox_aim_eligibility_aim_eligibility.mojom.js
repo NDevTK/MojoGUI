@@ -105,7 +105,7 @@ mojo.internal.Struct(
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec, 'aim_eligibility.mojom.Page_OnEligibilityStateChanged_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.aim_eligibility.mojom.EligibilityStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.aim_eligibility.mojom.EligibilityStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -261,7 +261,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec, 'aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParams', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.aim_eligibility.mojom.EligibilityStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.aim_eligibility.mojom.EligibilityStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

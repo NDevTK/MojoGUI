@@ -166,12 +166,12 @@ mojo.internal.Union(
     mojo.internal.bindings.crosapi.mojom.AccessTokenResultSpec, 'crosapi.mojom.AccessTokenResult', {
       'arg_access_token_info': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.AccessTokenInfoSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.AccessTokenInfoSpec.$,
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.GoogleServiceAuthErrorSpec.$,
+        'type': mojo.internal.bindings.crosapi.mojom.GoogleServiceAuthErrorSpec.$,
         'nullable': false,
       },
     });
@@ -180,14 +180,14 @@ mojo.internal.Union(
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.AccountKeySpec, 'crosapi.mojom.AccountKey', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_account_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.AccountTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_account_type', 8, 0, mojo.internal.bindings.crosapi.mojom.AccountTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: Account
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.AccountSpec, 'crosapi.mojom.Account', [
-      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.AccountKeySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountKeySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_raw_email', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -240,20 +240,20 @@ mojo.internal.Struct(
 // Interface: AccountManagerObserver
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnTokenUpserted_ParamsSpec, 'crosapi.mojom.AccountManagerObserver_OnTokenUpserted_Params', [
-      mojo.internal.StructField('arg_account', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.AccountSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_account', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnAccountRemoved_ParamsSpec, 'crosapi.mojom.AccountManagerObserver_OnAccountRemoved_Params', [
-      mojo.internal.StructField('arg_account', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.AccountSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_account', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnAuthErrorChanged_ParamsSpec, 'crosapi.mojom.AccountManagerObserver_OnAuthErrorChanged_Params', [
-      mojo.internal.StructField('arg_account', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.AccountKeySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.GoogleServiceAuthErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_account', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountKeySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.crosapi.mojom.GoogleServiceAuthErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -532,19 +532,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.AccountManager_GetAccounts_ResponseParamsSpec, 'crosapi.mojom.AccountManager_GetAccounts_ResponseParams', [
-      mojo.internal.StructField('arg_accounts', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.AccountSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_accounts', 0, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.AccountSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.AccountManager_ShowAddAccountDialog_ParamsSpec, 'crosapi.mojom.AccountManager_ShowAddAccountDialog_Params', [
-      mojo.internal.StructField('arg_add_account_options', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.AccountAdditionOptionsSpec.$, null, true, 8, undefined),
+      mojo.internal.StructField('arg_add_account_options', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountAdditionOptionsSpec.$, null, true, 8, undefined),
     ],
     [[0, 8], [8, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.AccountManager_ShowAddAccountDialog_ResponseParamsSpec, 'crosapi.mojom.AccountManager_ShowAddAccountDialog_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.AccountUpsertionResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountUpsertionResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -556,7 +556,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.AccountManager_ShowReauthAccountDialog_ResponseParamsSpec, 'crosapi.mojom.AccountManager_ShowReauthAccountDialog_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.AccountUpsertionResultSpec.$, null, true, 13, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountUpsertionResultSpec.$, null, true, 13, undefined),
     ],
     [[0, 8], [13, 16]]);
 
@@ -567,19 +567,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ParamsSpec, 'crosapi.mojom.AccountManager_GetPersistentErrorForAccount_Params', [
-      mojo.internal.StructField('arg_account', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.AccountKeySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_account', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountKeySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ResponseParamsSpec, 'crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.GoogleServiceAuthErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.crosapi.mojom.GoogleServiceAuthErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ParamsSpec, 'crosapi.mojom.AccountManager_CreateAccessTokenFetcher_Params', [
-      mojo.internal.StructField('arg_account_key', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.AccountKeySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_account_key', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountKeySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_oauth_consumer_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -592,8 +592,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.AccountManager_ReportAuthError_ParamsSpec, 'crosapi.mojom.AccountManager_ReportAuthError_Params', [
-      mojo.internal.StructField('arg_account', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.AccountKeySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.GoogleServiceAuthErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_account', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountKeySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.crosapi.mojom.GoogleServiceAuthErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

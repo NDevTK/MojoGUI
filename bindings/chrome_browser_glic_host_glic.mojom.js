@@ -610,7 +610,7 @@ mojo.internal.Union(
       },
       'arg_tab_context': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.glic.mojom.TabContextSpec.$,
+        'type': mojo.internal.bindings.glic.mojom.TabContextSpec.$,
         'nullable': false,
       },
     });
@@ -620,12 +620,12 @@ mojo.internal.Union(
     mojo.internal.bindings.glic.mojom.CaptureScreenshotResultSpec, 'glic.mojom.CaptureScreenshotResult', {
       'arg_error_reason': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.glic.mojom.CaptureScreenshotErrorReasonSpec.$,
+        'type': mojo.internal.bindings.glic.mojom.CaptureScreenshotErrorReasonSpec.$,
         'nullable': false,
       },
       'arg_screenshot': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ScreenshotSpec.$,
+        'type': mojo.internal.bindings.glic.mojom.ScreenshotSpec.$,
         'nullable': false,
       },
     });
@@ -635,17 +635,17 @@ mojo.internal.Union(
     mojo.internal.bindings.glic.mojom.ScrollToSelectorSpec, 'glic.mojom.ScrollToSelector', {
       'arg_exact_text_selector': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ScrollToTextSelectorSpec.$,
+        'type': mojo.internal.bindings.glic.mojom.ScrollToTextSelectorSpec.$,
         'nullable': false,
       },
       'arg_text_fragment_selector': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ScrollToTextFragmentSelectorSpec.$,
+        'type': mojo.internal.bindings.glic.mojom.ScrollToTextFragmentSelectorSpec.$,
         'nullable': false,
       },
       'arg_node_selector': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ScrollToNodeSelectorSpec.$,
+        'type': mojo.internal.bindings.glic.mojom.ScrollToNodeSelectorSpec.$,
         'nullable': false,
       },
     });
@@ -655,32 +655,32 @@ mojo.internal.Union(
     mojo.internal.bindings.glic.mojom.AdditionalContextPartSpec, 'glic.mojom.AdditionalContextPart', {
       'arg_data': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ContextDataSpec.$,
+        'type': mojo.internal.bindings.glic.mojom.ContextDataSpec.$,
         'nullable': false,
       },
       'arg_screenshot': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ScreenshotSpec.$,
+        'type': mojo.internal.bindings.glic.mojom.ScreenshotSpec.$,
         'nullable': false,
       },
       'arg_web_page_data': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.glic.mojom.WebPageDataSpec.$,
+        'type': mojo.internal.bindings.glic.mojom.WebPageDataSpec.$,
         'nullable': false,
       },
       'arg_annotated_page_data': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.mojo.internal.bindings.glic.mojom.AnnotatedPageDataSpec.$,
+        'type': mojo.internal.bindings.glic.mojom.AnnotatedPageDataSpec.$,
         'nullable': false,
       },
       'arg_pdf_document_data': {
         'ordinal': 4,
-        'type': mojo.internal.bindings.mojo.internal.bindings.glic.mojom.PdfDocumentDataSpec.$,
+        'type': mojo.internal.bindings.glic.mojom.PdfDocumentDataSpec.$,
         'nullable': false,
       },
       'arg_tab_context': {
         'ordinal': 5,
-        'type': mojo.internal.bindings.mojo.internal.bindings.glic.mojom.TabContextSpec.$,
+        'type': mojo.internal.bindings.glic.mojom.TabContextSpec.$,
         'nullable': false,
       },
       'arg_region': {
@@ -695,12 +695,12 @@ mojo.internal.Union(
     mojo.internal.bindings.glic.mojom.FocusedTabDataSpec, 'glic.mojom.FocusedTabData', {
       'arg_focused_tab': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.glic.mojom.TabDataSpec.$,
+        'type': mojo.internal.bindings.glic.mojom.TabDataSpec.$,
         'nullable': false,
       },
       'arg_no_focused_tab_data': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.glic.mojom.NoFocusedTabDataSpec.$,
+        'type': mojo.internal.bindings.glic.mojom.NoFocusedTabDataSpec.$,
         'nullable': false,
       },
     });
@@ -720,12 +720,12 @@ mojo.internal.Union(
     mojo.internal.bindings.glic.mojom.ViewChangeRequestDetailsSpec, 'glic.mojom.ViewChangeRequestDetails', {
       'arg_actuation': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ViewChangeRequestActuationSpec.$,
+        'type': mojo.internal.bindings.glic.mojom.ViewChangeRequestActuationSpec.$,
         'nullable': false,
       },
       'arg_conversation': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ViewChangeRequestConversationSpec.$,
+        'type': mojo.internal.bindings.glic.mojom.ViewChangeRequestConversationSpec.$,
         'nullable': false,
       },
     });
@@ -768,13 +768,13 @@ mojo.internal.Struct(
 // Struct: WebClientInitialState
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientInitialStateSpec, 'glic.mojom.WebClientInitialState', [
-      mojo.internal.StructField('arg_panel_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.PanelStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_panel_state', 0, 0, mojo.internal.bindings.glic.mojom.PanelStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_focused_tab_data', 8, 0, mojo.internal.bindings.glic.mojom.FocusedTabDataSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_hotkey', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_chrome_version', 24, 0, mojo.internal.bindings.mojo_base.mojom.VersionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_platform', 32, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.PlatformSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_host_capabilities', 40, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.glic.mojom.HostCapabilitySpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_skill_previews', 48, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.glic.mojom.SkillPreviewSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_platform', 32, 0, mojo.internal.bindings.glic.mojom.PlatformSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_capabilities', 40, 0, mojo.internal.Array(mojo.internal.bindings.glic.mojom.HostCapabilitySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_skill_previews', 48, 0, mojo.internal.Array(mojo.internal.bindings.glic.mojom.SkillPreviewSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_microphone_permission_enabled', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_location_permission_enabled', 56, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_tab_context_permission_enabled', 56, 2, mojo.internal.Bool, false, false, 0, undefined),
@@ -881,14 +881,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_icon', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 24, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.SkillSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 24, 0, mojo.internal.bindings.glic.mojom.SkillSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: Skill
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.SkillSpec, 'glic.mojom.Skill', [
-      mojo.internal.StructField('arg_preview', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.SkillPreviewSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_preview', 0, 0, mojo.internal.bindings.glic.mojom.SkillPreviewSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_prompt', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -910,7 +910,7 @@ mojo.internal.Struct(
 // Struct: ZeroStateSuggestions
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsSpec, 'glic.mojom.ZeroStateSuggestions', [
-      mojo.internal.StructField('arg_suggestions', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.glic.mojom.SuggestionContentSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestions', 0, 0, mojo.internal.Array(mojo.internal.bindings.glic.mojom.SuggestionContentSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_tab_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_tab_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -919,7 +919,7 @@ mojo.internal.Struct(
 // Struct: ZeroStateSuggestionsV2
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsV2Spec, 'glic.mojom.ZeroStateSuggestionsV2', [
-      mojo.internal.StructField('arg_suggestions', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.glic.mojom.SuggestionContentSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestions', 0, 0, mojo.internal.Array(mojo.internal.bindings.glic.mojom.SuggestionContentSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_is_pending', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -935,21 +935,21 @@ mojo.internal.Struct(
 // Struct: PinCandidate
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.PinCandidateSpec, 'glic.mojom.PinCandidate', [
-      mojo.internal.StructField('arg_tab_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.TabDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tab_data', 0, 0, mojo.internal.bindings.glic.mojom.TabDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: PinTabsOptions
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.PinTabsOptionsSpec, 'glic.mojom.PinTabsOptions', [
-      mojo.internal.StructField('arg_pin_trigger', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.PinTriggerSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pin_trigger', 0, 0, mojo.internal.bindings.glic.mojom.PinTriggerSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: UnpinTabsOptions
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.UnpinTabsOptionsSpec, 'glic.mojom.UnpinTabsOptions', [
-      mojo.internal.StructField('arg_unpin_trigger', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.UnpinTriggerSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_unpin_trigger', 0, 0, mojo.internal.bindings.glic.mojom.UnpinTriggerSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -965,19 +965,19 @@ mojo.internal.Struct(
 // Struct: PanelOpeningData
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.PanelOpeningDataSpec, 'glic.mojom.PanelOpeningData', [
-      mojo.internal.StructField('arg_panel_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.PanelStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_invocation_source', 8, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.InvocationSourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_panel_state', 0, 0, mojo.internal.bindings.glic.mojom.PanelStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_invocation_source', 8, 0, mojo.internal.bindings.glic.mojom.InvocationSourceSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_prompt_suggestion', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_skill_to_invoke', 24, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.SkillSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_recently_active_conversations', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ConversationInfoSpec.$, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_conversation_info', 40, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ConversationInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_skill_to_invoke', 24, 0, mojo.internal.bindings.glic.mojom.SkillSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_recently_active_conversations', 32, 0, mojo.internal.Array(mojo.internal.bindings.glic.mojom.ConversationInfoSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_conversation_info', 40, 0, mojo.internal.bindings.glic.mojom.ConversationInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
 // Struct: PanelState
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.PanelStateSpec, 'glic.mojom.PanelState', [
-      mojo.internal.StructField('arg_kind', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.PanelStateKindSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_kind', 0, 0, mojo.internal.bindings.glic.mojom.PanelStateKindSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_window_id_$value', 8, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_window_id_$flag', originalFieldName: 'arg_window_id' }),
       mojo.internal.StructField('arg_window_id_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_window_id_$value', originalFieldName: 'arg_window_id' }),
     ],
@@ -986,14 +986,14 @@ mojo.internal.Struct(
 // Struct: OnResponseStoppedDetails
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.OnResponseStoppedDetailsSpec, 'glic.mojom.OnResponseStoppedDetails', [
-      mojo.internal.StructField('arg_cause', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ResponseStopCauseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cause', 0, 0, mojo.internal.bindings.glic.mojom.ResponseStopCauseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: OpenPanelInfo
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.OpenPanelInfoSpec, 'glic.mojom.OpenPanelInfo', [
-      mojo.internal.StructField('arg_web_client_mode', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.WebClientModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_web_client_mode', 0, 0, mojo.internal.bindings.glic.mojom.WebClientModeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_panelSize', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_resizeDuration', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_can_user_resize', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -1023,18 +1023,18 @@ mojo.internal.Struct(
 // Struct: TabContext
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.TabContextSpec, 'glic.mojom.TabContext', [
-      mojo.internal.StructField('arg_tab_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.TabDataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_web_page_data', 8, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.WebPageDataSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_viewport_screenshot', 16, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ScreenshotSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_pdf_document_data', 24, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.PdfDocumentDataSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_annotated_page_data', 32, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.AnnotatedPageDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_tab_data', 0, 0, mojo.internal.bindings.glic.mojom.TabDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_web_page_data', 8, 0, mojo.internal.bindings.glic.mojom.WebPageDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_viewport_screenshot', 16, 0, mojo.internal.bindings.glic.mojom.ScreenshotSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_pdf_document_data', 24, 0, mojo.internal.bindings.glic.mojom.PdfDocumentDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_annotated_page_data', 32, 0, mojo.internal.bindings.glic.mojom.AnnotatedPageDataSpec.$, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: WebPageData
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebPageDataSpec, 'glic.mojom.WebPageData', [
-      mojo.internal.StructField('arg_main_document', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.DocumentDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_main_document', 0, 0, mojo.internal.bindings.glic.mojom.DocumentDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1082,7 +1082,7 @@ mojo.internal.Struct(
 // Struct: NoFocusedTabData
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.NoFocusedTabDataSpec, 'glic.mojom.NoFocusedTabData', [
-      mojo.internal.StructField('arg_active_tab_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.TabDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_active_tab_data', 0, 0, mojo.internal.bindings.glic.mojom.TabDataSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_no_focus_reason', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -1121,7 +1121,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.ScreenshotSpec, 'glic.mojom.Screenshot', [
       mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_mime_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_origin_annotations', 16, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ImageOriginAnnotationsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin_annotations', 16, 0, mojo.internal.bindings.glic.mojom.ImageOriginAnnotationsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_width_pixels', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_height_pixels', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
@@ -1130,7 +1130,7 @@ mojo.internal.Struct(
 // Struct: OpenSettingsOptions
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.OpenSettingsOptionsSpec, 'glic.mojom.OpenSettingsOptions', [
-      mojo.internal.StructField('arg_highlightField', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.SettingsPageFieldSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_highlightField', 0, 0, mojo.internal.bindings.glic.mojom.SettingsPageFieldSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1156,14 +1156,14 @@ mojo.internal.Struct(
 // Struct: ViewChangedNotification
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.ViewChangedNotificationSpec, 'glic.mojom.ViewChangedNotification', [
-      mojo.internal.StructField('arg_current_view', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.CurrentViewSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_current_view', 0, 0, mojo.internal.bindings.glic.mojom.CurrentViewSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Interface: PreloadPage
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.PreloadPage_SetProfileReadyState_ParamsSpec, 'glic.mojom.PreloadPage_SetProfileReadyState_Params', [
-      mojo.internal.StructField('arg_ready_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ProfileReadyStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ready_state', 0, 0, mojo.internal.bindings.glic.mojom.ProfileReadyStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1319,13 +1319,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.Page_SetProfileReadyState_ParamsSpec, 'glic.mojom.Page_SetProfileReadyState_Params', [
-      mojo.internal.StructField('arg_ready_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ProfileReadyStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ready_state', 0, 0, mojo.internal.bindings.glic.mojom.ProfileReadyStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.Page_UpdatePageState_ParamsSpec, 'glic.mojom.Page_UpdatePageState_Params', [
-      mojo.internal.StructField('arg_panelStateKind', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.PanelStateKindSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_panelStateKind', 0, 0, mojo.internal.bindings.glic.mojom.PanelStateKindSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1545,7 +1545,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.GlicPreloadHandler_PrepareForClient_ResponseParamsSpec, 'glic.mojom.GlicPreloadHandler_PrepareForClient_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.PrepareForClientResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.glic.mojom.PrepareForClientResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2019,7 +2019,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.PageHandler_PrepareForClient_ResponseParamsSpec, 'glic.mojom.PageHandler_PrepareForClient_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.PrepareForClientResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.glic.mojom.PrepareForClientResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2074,7 +2074,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.PageHandler_WebUiStateChanged_ParamsSpec, 'glic.mojom.PageHandler_WebUiStateChanged_Params', [
-      mojo.internal.StructField('arg_new_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.WebUiStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_state', 0, 0, mojo.internal.bindings.glic.mojom.WebUiStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2085,7 +2085,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.PageHandler_GetProfileEnablement_ResponseParamsSpec, 'glic.mojom.PageHandler_GetProfileEnablement_ResponseParams', [
-      mojo.internal.StructField('arg_enablement', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ProfileEnablementSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_enablement', 0, 0, mojo.internal.bindings.glic.mojom.ProfileEnablementSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2588,7 +2588,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerRequest = mojo.internal.bindings.gl
 // Interface: PinCandidatesObserver
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.PinCandidatesObserver_OnPinCandidatesChanged_ParamsSpec, 'glic.mojom.PinCandidatesObserver_OnPinCandidatesChanged_Params', [
-      mojo.internal.StructField('arg_candidates', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.glic.mojom.PinCandidateSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_candidates', 0, 0, mojo.internal.Array(mojo.internal.bindings.glic.mojom.PinCandidateSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2745,7 +2745,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_WebClientCreated_ResponseParamsSpec, 'glic.mojom.WebClientHandler_WebClientCreated_ResponseParams', [
-      mojo.internal.StructField('arg_initial_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.WebClientInitialStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_initial_state', 0, 0, mojo.internal.bindings.glic.mojom.WebClientInitialStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2770,7 +2770,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_CreateTab_ResponseParamsSpec, 'glic.mojom.WebClientHandler_CreateTab_ResponseParams', [
-      mojo.internal.StructField('arg_tab_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.TabDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_tab_data', 0, 0, mojo.internal.bindings.glic.mojom.TabDataSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2784,7 +2784,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_OpenGlicSettingsPage_ParamsSpec, 'glic.mojom.WebClientHandler_OpenGlicSettingsPage_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.OpenSettingsOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.glic.mojom.OpenSettingsOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2815,7 +2815,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_OnModeChange_ParamsSpec, 'glic.mojom.WebClientHandler_OnModeChange_Params', [
-      mojo.internal.StructField('arg_new_mode', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.WebClientModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_mode', 0, 0, mojo.internal.bindings.glic.mojom.WebClientModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2837,7 +2837,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_GetContextFromFocusedTab_ParamsSpec, 'glic.mojom.WebClientHandler_GetContextFromFocusedTab_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.GetTabContextOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.glic.mojom.GetTabContextOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2849,7 +2849,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_GetContextFromTab_ParamsSpec, 'glic.mojom.WebClientHandler_GetContextFromTab_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.GetTabContextOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.glic.mojom.GetTabContextOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_tab_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -2862,7 +2862,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_GetContextForActorFromTab_ParamsSpec, 'glic.mojom.WebClientHandler_GetContextForActorFromTab_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.GetTabContextOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.glic.mojom.GetTabContextOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_tab_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -2888,7 +2888,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_PinTabs_ParamsSpec, 'glic.mojom.WebClientHandler_PinTabs_Params', [
       mojo.internal.StructField('arg_tab_ids', 0, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.PinTabsOptionsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.glic.mojom.PinTabsOptionsSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -2901,7 +2901,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_UnpinTabs_ParamsSpec, 'glic.mojom.WebClientHandler_UnpinTabs_Params', [
       mojo.internal.StructField('arg_tab_ids', 0, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.UnpinTabsOptionsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.glic.mojom.UnpinTabsOptionsSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -2913,13 +2913,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_UnpinAllTabs_ParamsSpec, 'glic.mojom.WebClientHandler_UnpinAllTabs_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.UnpinTabsOptionsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.glic.mojom.UnpinTabsOptionsSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_CreateSkill_ParamsSpec, 'glic.mojom.WebClientHandler_CreateSkill_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.CreateSkillRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.glic.mojom.CreateSkillRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2931,7 +2931,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_UpdateSkill_ParamsSpec, 'glic.mojom.WebClientHandler_UpdateSkill_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.UpdateSkillRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.glic.mojom.UpdateSkillRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2949,13 +2949,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_GetSkill_ResponseParamsSpec, 'glic.mojom.WebClientHandler_GetSkill_ResponseParams', [
-      mojo.internal.StructField('arg_skill', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.SkillSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_skill', 0, 0, mojo.internal.bindings.glic.mojom.SkillSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToPinCandidates_ParamsSpec, 'glic.mojom.WebClientHandler_SubscribeToPinCandidates_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.GetPinCandidatesOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.glic.mojom.GetPinCandidatesOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.glic.mojom.PinCandidatesObserverSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -2980,20 +2980,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_CancelActions_ResponseParamsSpec, 'glic.mojom.WebClientHandler_CancelActions_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.CancelActionsResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.glic.mojom.CancelActionsResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_StopActorTask_ParamsSpec, 'glic.mojom.WebClientHandler_StopActorTask_Params', [
-      mojo.internal.StructField('arg_stop_reason', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ActorTaskStopReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stop_reason', 0, 0, mojo.internal.bindings.glic.mojom.ActorTaskStopReasonSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_task_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_PauseActorTask_ParamsSpec, 'glic.mojom.WebClientHandler_PauseActorTask_Params', [
-      mojo.internal.StructField('arg_pause_reason', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ActorTaskPauseReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pause_reason', 0, 0, mojo.internal.bindings.glic.mojom.ActorTaskPauseReasonSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_task_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_tab_id_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_tab_id_$flag', originalFieldName: 'arg_tab_id' }),
       mojo.internal.StructField('arg_tab_id_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_tab_id_$value', originalFieldName: 'arg_tab_id' }),
@@ -3002,14 +3002,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_ResumeActorTask_ParamsSpec, 'glic.mojom.WebClientHandler_ResumeActorTask_Params', [
-      mojo.internal.StructField('arg_context_options', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.GetTabContextOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_context_options', 0, 0, mojo.internal.bindings.glic.mojom.GetTabContextOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_task_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_ResumeActorTask_ResponseParamsSpec, 'glic.mojom.WebClientHandler_ResumeActorTask_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.GetContextResultWithActionResultCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.glic.mojom.GetContextResultWithActionResultCodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3038,7 +3038,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_CreateActorTab_ResponseParamsSpec, 'glic.mojom.WebClientHandler_CreateActorTab_ResponseParams', [
-      mojo.internal.StructField('arg_tab_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.TabDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_tab_data', 0, 0, mojo.internal.bindings.glic.mojom.TabDataSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3196,7 +3196,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_GetUserProfileInfo_ResponseParamsSpec, 'glic.mojom.WebClientHandler_GetUserProfileInfo_ResponseParams', [
-      mojo.internal.StructField('arg_profile_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.UserProfileInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_profile_info', 0, 0, mojo.internal.bindings.glic.mojom.UserProfileInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3248,7 +3248,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_JournalSnapshot_ResponseParamsSpec, 'glic.mojom.WebClientHandler_JournalSnapshot_ResponseParams', [
-      mojo.internal.StructField('arg_journal', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.JournalSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_journal', 0, 0, mojo.internal.bindings.glic.mojom.JournalSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3273,7 +3273,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_OnUserInputSubmitted_ParamsSpec, 'glic.mojom.WebClientHandler_OnUserInputSubmitted_Params', [
-      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.WebClientModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.glic.mojom.WebClientModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3289,7 +3289,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_OnReaction_ParamsSpec, 'glic.mojom.WebClientHandler_OnReaction_Params', [
-      mojo.internal.StructField('arg_reactionType', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.MetricUserInputReactionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reactionType', 0, 0, mojo.internal.bindings.glic.mojom.MetricUserInputReactionTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3300,7 +3300,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_OnResponseStopped_ParamsSpec, 'glic.mojom.WebClientHandler_OnResponseStopped_Params', [
-      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.OnResponseStoppedDetailsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.bindings.glic.mojom.OnResponseStoppedDetailsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3311,14 +3311,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_OnTurnCompleted_ParamsSpec, 'glic.mojom.WebClientHandler_OnTurnCompleted_Params', [
-      mojo.internal.StructField('arg_model', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.WebClientModelSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_model', 0, 0, mojo.internal.bindings.glic.mojom.WebClientModelSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_duration', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_OnModelChanged_ParamsSpec, 'glic.mojom.WebClientHandler_OnModelChanged_Params', [
-      mojo.internal.StructField('arg_model', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.WebClientModelSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_model', 0, 0, mojo.internal.bindings.glic.mojom.WebClientModelSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3341,13 +3341,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_ScrollTo_ParamsSpec, 'glic.mojom.WebClientHandler_ScrollTo_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ScrollToParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.glic.mojom.ScrollToParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_ScrollTo_ResponseParamsSpec, 'glic.mojom.WebClientHandler_ScrollTo_ResponseParams', [
-      mojo.internal.StructField('arg_error_reason', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ScrollToErrorReasonSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error_reason', 0, 0, mojo.internal.bindings.glic.mojom.ScrollToErrorReasonSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3382,14 +3382,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec, 'glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_live', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ResponseParamsSpec, 'glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ResponseParams', [
-      mojo.internal.StructField('arg_zero_state_suggestions', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsV2Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_zero_state_suggestions', 0, 0, mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsV2Spec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3402,7 +3402,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ResponseParamsSpec, 'glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ResponseParams', [
-      mojo.internal.StructField('arg_suggestions', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_suggestions', 0, 0, mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3424,7 +3424,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_OnViewChanged_ParamsSpec, 'glic.mojom.WebClientHandler_OnViewChanged_Params', [
-      mojo.internal.StructField('arg_notification', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ViewChangedNotificationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_notification', 0, 0, mojo.internal.bindings.glic.mojom.ViewChangedNotificationSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3443,25 +3443,25 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_SwitchConversation_ParamsSpec, 'glic.mojom.WebClientHandler_SwitchConversation_Params', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ConversationInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.glic.mojom.ConversationInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_SwitchConversation_ResponseParamsSpec, 'glic.mojom.WebClientHandler_SwitchConversation_ResponseParams', [
-      mojo.internal.StructField('arg_error_reason', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.SwitchConversationErrorReasonSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error_reason', 0, 0, mojo.internal.bindings.glic.mojom.SwitchConversationErrorReasonSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_RegisterConversation_ParamsSpec, 'glic.mojom.WebClientHandler_RegisterConversation_Params', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ConversationInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.glic.mojom.ConversationInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_RegisterConversation_ResponseParamsSpec, 'glic.mojom.WebClientHandler_RegisterConversation_ResponseParams', [
-      mojo.internal.StructField('arg_error_reason', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.RegisterConversationErrorReasonSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error_reason', 0, 0, mojo.internal.bindings.glic.mojom.RegisterConversationErrorReasonSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -6640,7 +6640,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRequest = mojo.internal.bindin
 // Interface: TabDataHandler
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.TabDataHandler_OnTabDataChanged_ParamsSpec, 'glic.mojom.TabDataHandler_OnTabDataChanged_Params', [
-      mojo.internal.StructField('arg_tab_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.TabDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tab_data', 0, 0, mojo.internal.bindings.glic.mojom.TabDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -6791,13 +6791,13 @@ mojo.internal.bindings.glic.mojom.TabDataHandlerRequest = mojo.internal.bindings
 // Interface: WebClient
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelWillOpen_ParamsSpec, 'glic.mojom.WebClient_NotifyPanelWillOpen_Params', [
-      mojo.internal.StructField('arg_panel_opening_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.PanelOpeningDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_panel_opening_data', 0, 0, mojo.internal.bindings.glic.mojom.PanelOpeningDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelWillOpen_ResponseParamsSpec, 'glic.mojom.WebClient_NotifyPanelWillOpen_ResponseParams', [
-      mojo.internal.StructField('arg_openPanelInfo', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.OpenPanelInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_openPanelInfo', 0, 0, mojo.internal.bindings.glic.mojom.OpenPanelInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -6813,7 +6813,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelStateChange_ParamsSpec, 'glic.mojom.WebClient_NotifyPanelStateChange_Params', [
-      mojo.internal.StructField('arg_panel_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.PanelStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_panel_state', 0, 0, mojo.internal.bindings.glic.mojom.PanelStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -6891,51 +6891,51 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClient_NotifyPinnedTabsChanged_ParamsSpec, 'glic.mojom.WebClient_NotifyPinnedTabsChanged_Params', [
-      mojo.internal.StructField('arg_tab_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.glic.mojom.TabDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tab_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.glic.mojom.TabDataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClient_NotifyPinnedTabDataChanged_ParamsSpec, 'glic.mojom.WebClient_NotifyPinnedTabDataChanged_Params', [
-      mojo.internal.StructField('arg_tab_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.TabDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tab_data', 0, 0, mojo.internal.bindings.glic.mojom.TabDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClient_NotifySkillPreviewsChanged_ParamsSpec, 'glic.mojom.WebClient_NotifySkillPreviewsChanged_Params', [
-      mojo.internal.StructField('arg_skill_previews', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.glic.mojom.SkillPreviewSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_skill_previews', 0, 0, mojo.internal.Array(mojo.internal.bindings.glic.mojom.SkillPreviewSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClient_NotifySkillPreviewChanged_ParamsSpec, 'glic.mojom.WebClient_NotifySkillPreviewChanged_Params', [
-      mojo.internal.StructField('arg_skill_preview', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.SkillPreviewSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_skill_preview', 0, 0, mojo.internal.bindings.glic.mojom.SkillPreviewSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClient_NotifySkillToInvokeChanged_ParamsSpec, 'glic.mojom.WebClient_NotifySkillToInvokeChanged_Params', [
-      mojo.internal.StructField('arg_skill', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.SkillSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_skill', 0, 0, mojo.internal.bindings.glic.mojom.SkillSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClient_NotifyZeroStateSuggestionsChanged_ParamsSpec, 'glic.mojom.WebClient_NotifyZeroStateSuggestionsChanged_Params', [
-      mojo.internal.StructField('arg_suggestions', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsV2Spec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestions', 0, 0, mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsV2Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClient_NotifyActorTaskStateChanged_ParamsSpec, 'glic.mojom.WebClient_NotifyActorTaskStateChanged_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ActorTaskStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.glic.mojom.ActorTaskStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_task_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClient_RequestViewChange_ParamsSpec, 'glic.mojom.WebClient_RequestViewChange_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.ViewChangeRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.glic.mojom.ViewChangeRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -7002,7 +7002,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClient_NotifyAdditionalContext_ParamsSpec, 'glic.mojom.WebClient_NotifyAdditionalContext_Params', [
-      mojo.internal.StructField('arg_context', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.AdditionalContextSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_context', 0, 0, mojo.internal.bindings.glic.mojom.AdditionalContextSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -8243,8 +8243,8 @@ mojo.internal.bindings.glic.mojom.WebClientRequest = mojo.internal.bindings.glic
 // Interface: CaptureRegionObserver
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.CaptureRegionObserver_OnUpdate_ParamsSpec, 'glic.mojom.CaptureRegionObserver_OnUpdate_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.CaptureRegionResultSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.CaptureRegionErrorReasonSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.glic.mojom.CaptureRegionResultSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.bindings.glic.mojom.CaptureRegionErrorReasonSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

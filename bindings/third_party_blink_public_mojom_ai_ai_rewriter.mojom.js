@@ -106,9 +106,9 @@ mojo.internal.bindings.blink.mojom.AIRewriterLength = {
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIRewriterCreateOptionsSpec, 'blink.mojom.AIRewriterCreateOptions', [
       mojo.internal.StructField('arg_shared_context', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_tone', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AIRewriterToneSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_format', 16, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AIRewriterFormatSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_length', 24, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AIRewriterLengthSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tone', 8, 0, mojo.internal.bindings.blink.mojom.AIRewriterToneSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_format', 16, 0, mojo.internal.bindings.blink.mojom.AIRewriterFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_length', 24, 0, mojo.internal.bindings.blink.mojom.AIRewriterLengthSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_expected_input_languages', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_expected_context_languages', 40, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_output_language', 48, 0, mojo.internal.bindings.blink.mojom.AILanguageCodeSpec.$, null, false, 0, undefined),

@@ -91,7 +91,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_jelly_colors', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_deprecated_trackpad_scroll_touchscreen_emulation', 0, 2, mojo.internal.Bool, false, false, 2, undefined),
       mojo.internal.StructField('arg_touchscreen_emulation', 0, 3, mojo.internal.Bool, true, false, 2, undefined),
-      mojo.internal.StructField('arg_rounded_window_compat_strategy', 8, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.RoundedWindowCompatStrategySpec.$, null, false, 3, undefined),
+      mojo.internal.StructField('arg_rounded_window_compat_strategy', 8, 0, mojo.internal.bindings.arc.mojom.RoundedWindowCompatStrategySpec.$, null, false, 3, undefined),
       mojo.internal.StructField('arg_rounded_window_radius', 16, 0, mojo.internal.Int32, 0, false, 3, undefined),
       mojo.internal.StructField('arg_xdg_mode', 20, 0, mojo.internal.Bool, false, false, 4, undefined),
       mojo.internal.StructField('arg_enable_pip_double_tap', 20, 1, mojo.internal.Bool, false, false, 5, undefined),
@@ -110,7 +110,7 @@ mojo.internal.Struct(
 // Interface: ChromeFeatureFlagsInstance
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_ParamsSpec, 'arc.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_Params', [
-      mojo.internal.StructField('arg_flags', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.FeatureFlagsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_flags', 0, 0, mojo.internal.bindings.arc.mojom.FeatureFlagsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

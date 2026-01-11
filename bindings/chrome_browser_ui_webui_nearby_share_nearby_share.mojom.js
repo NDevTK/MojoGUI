@@ -200,7 +200,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.nearby_share.mojom.ShareTargetTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_image_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_payload_preview', 32, 0, mojo.internal.bindings.mojo.internal.bindings.nearby_share.mojom.PayloadPreviewSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_payload_preview', 32, 0, mojo.internal.bindings.nearby_share.mojom.PayloadPreviewSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_for_self_share', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);
@@ -208,7 +208,7 @@ mojo.internal.Struct(
 // Struct: TransferMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.TransferMetadataSpec, 'nearby_share.mojom.TransferMetadata', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.nearby_share.mojom.TransferStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby_share.mojom.TransferStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_token', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_progress', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_is_original', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -219,13 +219,13 @@ mojo.internal.Struct(
 // Interface: ShareTargetListener
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec, 'nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_Params', [
-      mojo.internal.StructField('arg_share_target', 0, 0, mojo.internal.bindings.mojo.internal.bindings.nearby_share.mojom.ShareTargetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_share_target', 0, 0, mojo.internal.bindings.nearby_share.mojom.ShareTargetSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec, 'nearby_share.mojom.ShareTargetListener_OnShareTargetLost_Params', [
-      mojo.internal.StructField('arg_share_target', 0, 0, mojo.internal.bindings.mojo.internal.bindings.nearby_share.mojom.ShareTargetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_share_target', 0, 0, mojo.internal.bindings.nearby_share.mojom.ShareTargetSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -408,7 +408,7 @@ mojo.internal.bindings.nearby_share.mojom.ShareTargetListenerRequest = mojo.inte
 // Interface: TransferUpdateListener
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec, 'nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.nearby_share.mojom.TransferStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby_share.mojom.TransferStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_token', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -760,7 +760,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec, 'nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.nearby_share.mojom.StartDiscoveryResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.nearby_share.mojom.StartDiscoveryResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -782,7 +782,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec, 'nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.nearby_share.mojom.SelectShareTargetResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.nearby_share.mojom.SelectShareTargetResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_transfer_update_listener', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.nearby_share.mojom.TransferUpdateListenerSpec), null, true, 0, undefined),
       mojo.internal.StructField('arg_confirmation_manager', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerSpec), null, true, 0, undefined),
     ],
@@ -795,7 +795,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec, 'nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParams', [
-      mojo.internal.StructField('arg_payload_preview', 0, 0, mojo.internal.bindings.mojo.internal.bindings.nearby_share.mojom.PayloadPreviewSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_payload_preview', 0, 0, mojo.internal.bindings.nearby_share.mojom.PayloadPreviewSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1378,8 +1378,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec, 'nearby_share.mojom.ReceiveObserver_OnTransferUpdate_Params', [
-      mojo.internal.StructField('arg_share_target', 0, 0, mojo.internal.bindings.mojo.internal.bindings.nearby_share.mojom.ShareTargetSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_metadata', 8, 0, mojo.internal.bindings.mojo.internal.bindings.nearby_share.mojom.TransferMetadataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_share_target', 0, 0, mojo.internal.bindings.nearby_share.mojom.ShareTargetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 8, 0, mojo.internal.bindings.nearby_share.mojom.TransferMetadataSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -1658,7 +1658,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec, 'nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.nearby_share.mojom.RegisterReceiveSurfaceResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.nearby_share.mojom.RegisterReceiveSurfaceResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -89,7 +89,7 @@ mojo.internal.Struct(
 // Struct: MotionEventAndroidCachedPointer
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.MotionEventAndroidCachedPointerSpec, 'ui.mojom.MotionEventAndroidCachedPointer', [
-      mojo.internal.StructField('arg_pointer_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ui.mojom.PointerCoordinatesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pointer_data', 0, 0, mojo.internal.bindings.ui.mojom.PointerCoordinatesSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_touch_minor', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_pressure', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
@@ -103,7 +103,7 @@ mojo.internal.Struct(
 // Struct: HistoricalCachedPointer
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.HistoricalCachedPointerSpec, 'ui.mojom.HistoricalCachedPointer', [
-      mojo.internal.StructField('arg_pointers', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ui.mojom.PointerCoordinatesSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_pointers', 0, 0, mojo.internal.Array(mojo.internal.bindings.ui.mojom.PointerCoordinatesSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_event_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -114,8 +114,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_latest_event_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_down_time_ms', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_raw_position_offset', 16, 0, mojo.internal.bindings.gfx.mojom.Vector2dFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pointers', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ui.mojom.MotionEventAndroidCachedPointerSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_historical_events', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ui.mojom.HistoricalCachedPointerSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_pointers', 24, 0, mojo.internal.Array(mojo.internal.bindings.ui.mojom.MotionEventAndroidCachedPointerSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_historical_events', 32, 0, mojo.internal.Array(mojo.internal.bindings.ui.mojom.HistoricalCachedPointerSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_pix_to_dip', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_ticks_x', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_ticks_y', 48, 0, mojo.internal.Float, 0, false, 0, undefined),

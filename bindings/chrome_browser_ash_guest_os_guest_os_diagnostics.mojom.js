@@ -104,7 +104,7 @@ mojo.internal.Struct(
 // Struct: Diagnostics
 mojo.internal.Struct(
     mojo.internal.bindings.guest_os.mojom.DiagnosticsSpec, 'guest_os.mojom.Diagnostics', [
-      mojo.internal.StructField('arg_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.guest_os.mojom.DiagnosticEntrySpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_top_error', 8, 0, mojo.internal.bindings.mojo.internal.bindings.guest_os.mojom.DiagnosticMessageSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.guest_os.mojom.DiagnosticEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_top_error', 8, 0, mojo.internal.bindings.guest_os.mojom.DiagnosticMessageSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);

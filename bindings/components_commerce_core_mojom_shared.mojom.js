@@ -98,7 +98,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.commerce.shared.mojom.BookmarkProductInfoSpec, 'commerce.shared.mojom.BookmarkProductInfo', [
       mojo.internal.StructField('arg_bookmark_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_info', 8, 0, mojo.internal.bindings.mojo.internal.bindings.commerce.shared.mojom.ProductInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 8, 0, mojo.internal.bindings.commerce.shared.mojom.ProductInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

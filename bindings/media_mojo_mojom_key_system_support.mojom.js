@@ -112,7 +112,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.CdmCapabilitySpec, 'media.mojom.CdmCapability', [
       mojo.internal.StructField('arg_audio_codecs', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.AudioCodecSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_video_codecs', 8, 0, mojo.internal.Map(mojo.internal.bindings.media.mojom.VideoCodecSpec.$, mojo.internal.bindings.mojo.internal.bindings.media.mojom.VideoCodecInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_video_codecs', 8, 0, mojo.internal.Map(mojo.internal.bindings.media.mojom.VideoCodecSpec.$, mojo.internal.bindings.media.mojom.VideoCodecInfoSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_encryption_schemes', 16, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.EncryptionSchemeSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_session_types', 24, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.CdmSessionTypeSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_version', 32, 0, mojo.internal.bindings.mojo_base.mojom.VersionSpec.$, null, false, 0, undefined),
@@ -122,17 +122,17 @@ mojo.internal.Struct(
 // Struct: KeySystemCapability
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.KeySystemCapabilitySpec, 'media.mojom.KeySystemCapability', [
-      mojo.internal.StructField('arg_sw_secure_capability', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.CdmCapabilitySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_hw_secure_capability', 8, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.CdmCapabilitySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_sw_secure_capability_query_status', 16, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.CdmCapabilityQueryStatusSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_hw_secure_capability_query_status', 24, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.CdmCapabilityQueryStatusSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_sw_secure_capability', 0, 0, mojo.internal.bindings.media.mojom.CdmCapabilitySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_hw_secure_capability', 8, 0, mojo.internal.bindings.media.mojom.CdmCapabilitySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_sw_secure_capability_query_status', 16, 0, mojo.internal.bindings.media.mojom.CdmCapabilityQueryStatusSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_hw_secure_capability_query_status', 24, 0, mojo.internal.bindings.media.mojom.CdmCapabilityQueryStatusSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
 // Interface: KeySystemSupportObserver
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec, 'media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_Params', [
-      mojo.internal.StructField('arg_key_systems', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.mojo.internal.bindings.media.mojom.KeySystemCapabilitySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_systems', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.media.mojom.KeySystemCapabilitySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

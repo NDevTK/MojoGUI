@@ -208,7 +208,7 @@ mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderClientInterfaceRequest = moj
 // Interface: DwaRecorderInterface
 mojo.internal.Struct(
     mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec, 'metrics.dwa.mojom.DwaRecorderInterface_AddEntry_Params', [
-      mojo.internal.StructField('arg_entry', 0, 0, mojo.internal.bindings.mojo.internal.bindings.metrics.dwa.mojom.DwaEntrySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_entry', 0, 0, mojo.internal.bindings.metrics.dwa.mojom.DwaEntrySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

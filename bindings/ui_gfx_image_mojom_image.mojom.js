@@ -86,6 +86,6 @@ mojo.internal.Struct(
 // Struct: ImageSkia
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.ImageSkiaSpec, 'gfx.mojom.ImageSkia', [
-      mojo.internal.StructField('arg_image_reps', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.gfx.mojom.ImageSkiaRepSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_reps', 0, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.ImageSkiaRepSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

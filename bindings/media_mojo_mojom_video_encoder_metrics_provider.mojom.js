@@ -92,7 +92,7 @@ mojo.internal.bindings.media.mojom.VideoEncoderUseCase = {
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider_Initialize_ParamsSpec, 'media.mojom.VideoEncoderMetricsProvider_Initialize_Params', [
       mojo.internal.StructField('arg_encoder_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_encoder_use_case', 8, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.VideoEncoderUseCaseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_encoder_use_case', 8, 0, mojo.internal.bindings.media.mojom.VideoEncoderUseCaseSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_profile', 16, 0, mojo.internal.bindings.media.mojom.VideoCodecProfileSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_encode_size', 24, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_svc_mode', 32, 0, mojo.internal.bindings.media.mojom.SVCScalabilityModeSpec.$, null, false, 0, undefined),

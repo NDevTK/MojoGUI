@@ -96,7 +96,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CookieStore_AddSubscriptions_ParamsSpec, 'blink.mojom.CookieStore_AddSubscriptions_Params', [
       mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_subscription', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CookieChangeSubscriptionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_subscription', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.CookieChangeSubscriptionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -109,7 +109,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CookieStore_RemoveSubscriptions_ParamsSpec, 'blink.mojom.CookieStore_RemoveSubscriptions_Params', [
       mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_subscription', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CookieChangeSubscriptionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_subscription', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.CookieChangeSubscriptionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -127,7 +127,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec, 'blink.mojom.CookieStore_GetSubscriptions_ResponseParams', [
-      mojo.internal.StructField('arg_subscriptions', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CookieChangeSubscriptionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_subscriptions', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.CookieChangeSubscriptionSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);

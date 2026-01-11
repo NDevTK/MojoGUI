@@ -232,12 +232,12 @@ mojo.internal.Union(
     mojo.internal.bindings.read_anything.mojom.VoicePackInstallationStateSpec, 'read_anything.mojom.VoicePackInstallationState', {
       'arg_installation_state': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.read_anything.mojom.InstallationStateSpec.$,
+        'type': mojo.internal.bindings.read_anything.mojom.InstallationStateSpec.$,
         'nullable': false,
       },
       'arg_error_code': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.read_anything.mojom.ErrorCodeSpec.$,
+        'type': mojo.internal.bindings.read_anything.mojom.ErrorCodeSpec.$,
         'nullable': false,
       },
     });
@@ -1792,13 +1792,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnGetPresentationState_ParamsSpec, 'read_anything.mojom.UntrustedPage_OnGetPresentationState_Params', [
-      mojo.internal.StructField('arg_presentation_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.read_anything.mojom.ReadAnythingPresentationStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_presentation_state', 0, 0, mojo.internal.bindings.read_anything.mojom.ReadAnythingPresentationStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnGetVoicePackInfo_ParamsSpec, 'read_anything.mojom.UntrustedPage_OnGetVoicePackInfo_Params', [
-      mojo.internal.StructField('arg_voice_pack_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.read_anything.mojom.VoicePackInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_voice_pack_info', 0, 0, mojo.internal.bindings.read_anything.mojom.VoicePackInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

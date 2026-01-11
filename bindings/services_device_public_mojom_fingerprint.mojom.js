@@ -147,12 +147,12 @@ mojo.internal.Union(
     mojo.internal.bindings.device.mojom.FingerprintMessageSpec, 'device.mojom.FingerprintMessage', {
       'arg_fingerprint_error': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.device.mojom.FingerprintErrorSpec.$,
+        'type': mojo.internal.bindings.device.mojom.FingerprintErrorSpec.$,
         'nullable': false,
       },
       'arg_scan_result': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.device.mojom.ScanResultSpec.$,
+        'type': mojo.internal.bindings.device.mojom.ScanResultSpec.$,
         'nullable': false,
       },
     });
@@ -165,13 +165,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.FingerprintObserver_OnStatusChanged_ParamsSpec, 'device.mojom.FingerprintObserver_OnStatusChanged_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.BiometricsManagerStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.device.mojom.BiometricsManagerStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.FingerprintObserver_OnEnrollScanDone_ParamsSpec, 'device.mojom.FingerprintObserver_OnEnrollScanDone_Params', [
-      mojo.internal.StructField('arg_scan_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.ScanResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scan_result', 0, 0, mojo.internal.bindings.device.mojom.ScanResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_percent_complete', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_is_complete', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -570,7 +570,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.Fingerprint_RequestType_ResponseParamsSpec, 'device.mojom.Fingerprint_RequestType_ResponseParams', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.BiometricTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.BiometricTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

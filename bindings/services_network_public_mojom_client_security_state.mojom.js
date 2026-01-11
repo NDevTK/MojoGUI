@@ -88,7 +88,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ClientSecurityStateSpec, 'network.mojom.ClientSecurityState', [
       mojo.internal.StructField('arg_cross_origin_embedder_policy', 0, 0, mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_ip_address_space', 8, 0, mojo.internal.bindings.network.mojom.IPAddressSpaceSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_private_network_request_policy', 16, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.PrivateNetworkRequestPolicySpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_private_network_request_policy', 16, 0, mojo.internal.bindings.network.mojom.PrivateNetworkRequestPolicySpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_document_isolation_policy', 24, 0, mojo.internal.bindings.network.mojom.DocumentIsolationPolicySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_web_secure_context', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],

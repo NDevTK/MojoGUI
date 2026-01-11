@@ -89,7 +89,7 @@ mojo.internal.Union(
     mojo.internal.bindings.webnn.mojom.CreateTensorResultSpec, 'webnn.mojom.CreateTensorResult', {
       'arg_success': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.webnn.mojom.CreateTensorSuccessSpec.$,
+        'type': mojo.internal.bindings.webnn.mojom.CreateTensorSuccessSpec.$,
         'nullable': false,
       },
       'arg_error': {

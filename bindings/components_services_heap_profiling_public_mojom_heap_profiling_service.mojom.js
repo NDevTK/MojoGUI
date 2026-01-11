@@ -94,7 +94,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.heap_profiling.mojom.ProfilingService_AddProfilingClient_ParamsSpec, 'heap_profiling.mojom.ProfilingService_AddProfilingClient_Params', [
       mojo.internal.StructField('arg_pid', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProcessIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.heap_profiling.mojom.ProfilingClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_process_type', 16, 0, mojo.internal.bindings.mojo.internal.bindings.heap_profiling.mojom.ProcessTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_process_type', 16, 0, mojo.internal.bindings.heap_profiling.mojom.ProcessTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_params', 24, 0, mojo.internal.bindings.heap_profiling.mojom.ProfilingParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);

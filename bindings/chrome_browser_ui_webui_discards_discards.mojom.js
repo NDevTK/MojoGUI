@@ -133,11 +133,11 @@ mojo.internal.Struct(
     mojo.internal.bindings.discards.mojom.TabDiscardsInfoSpec, 'discards.mojom.TabDiscardsInfo', [
       mojo.internal.StructField('arg_tab_url', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visibility', 16, 0, mojo.internal.bindings.mojo.internal.bindings.discards.mojom.LifecycleUnitVisibilitySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visibility', 16, 0, mojo.internal.bindings.discards.mojom.LifecycleUnitVisibilitySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_loading_state', 24, 0, mojo.internal.bindings.mojom.LifecycleUnitLoadingStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_state', 32, 0, mojo.internal.bindings.mojom.LifecycleUnitStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_cannot_discard_reasons', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_can_freeze', 48, 0, mojo.internal.bindings.mojo.internal.bindings.discards.mojom.CanFreezeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_can_freeze', 48, 0, mojo.internal.bindings.discards.mojom.CanFreezeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_cannot_freeze_reasons', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_discard_reason', 64, 0, mojo.internal.bindings.mojom.LifecycleUnitDiscardReasonSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_site_engagement_score', 72, 0, mojo.internal.Double, 0, false, 0, undefined),
@@ -214,7 +214,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec, 'discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParams', [
-      mojo.internal.StructField('arg_infos', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.discards.mojom.TabDiscardsInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_infos', 0, 0, mojo.internal.Array(mojo.internal.bindings.discards.mojom.TabDiscardsInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -677,55 +677,55 @@ mojo.internal.bindings.discards.mojom.DetailsProviderRequest = mojo.internal.bin
 // Interface: GraphChangeStream
 mojo.internal.Struct(
     mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec, 'discards.mojom.GraphChangeStream_FrameCreated_Params', [
-      mojo.internal.StructField('arg_frame', 0, 0, mojo.internal.bindings.mojo.internal.bindings.discards.mojom.FrameInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame', 0, 0, mojo.internal.bindings.discards.mojom.FrameInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.discards.mojom.GraphChangeStream_PageCreated_ParamsSpec, 'discards.mojom.GraphChangeStream_PageCreated_Params', [
-      mojo.internal.StructField('arg_pages', 0, 0, mojo.internal.bindings.mojo.internal.bindings.discards.mojom.PageInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pages', 0, 0, mojo.internal.bindings.discards.mojom.PageInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec, 'discards.mojom.GraphChangeStream_ProcessCreated_Params', [
-      mojo.internal.StructField('arg_process', 0, 0, mojo.internal.bindings.mojo.internal.bindings.discards.mojom.ProcessInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_process', 0, 0, mojo.internal.bindings.discards.mojom.ProcessInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec, 'discards.mojom.GraphChangeStream_WorkerCreated_Params', [
-      mojo.internal.StructField('arg_worker', 0, 0, mojo.internal.bindings.mojo.internal.bindings.discards.mojom.WorkerInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_worker', 0, 0, mojo.internal.bindings.discards.mojom.WorkerInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec, 'discards.mojom.GraphChangeStream_FrameChanged_Params', [
-      mojo.internal.StructField('arg_frame', 0, 0, mojo.internal.bindings.mojo.internal.bindings.discards.mojom.FrameInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame', 0, 0, mojo.internal.bindings.discards.mojom.FrameInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.discards.mojom.GraphChangeStream_PageChanged_ParamsSpec, 'discards.mojom.GraphChangeStream_PageChanged_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.bindings.mojo.internal.bindings.discards.mojom.PageInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.bindings.discards.mojom.PageInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec, 'discards.mojom.GraphChangeStream_ProcessChanged_Params', [
-      mojo.internal.StructField('arg_process', 0, 0, mojo.internal.bindings.mojo.internal.bindings.discards.mojom.ProcessInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_process', 0, 0, mojo.internal.bindings.discards.mojom.ProcessInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec, 'discards.mojom.GraphChangeStream_WorkerChanged_Params', [
-      mojo.internal.StructField('arg_worker', 0, 0, mojo.internal.bindings.mojo.internal.bindings.discards.mojom.WorkerInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_worker', 0, 0, mojo.internal.bindings.discards.mojom.WorkerInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec, 'discards.mojom.GraphChangeStream_FavIconDataAvailable_Params', [
-      mojo.internal.StructField('arg_favicon', 0, 0, mojo.internal.bindings.mojo.internal.bindings.discards.mojom.FavIconInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_favicon', 0, 0, mojo.internal.bindings.discards.mojom.FavIconInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -91,7 +91,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_decoded_body_length', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_cors_error_status', 32, 0, mojo.internal.bindings.network.mojom.CorsErrorStatusSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_ssl_info', 40, 0, mojo.internal.bindings.network.mojom.SSLInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_blocked_by_response_reason', 48, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.BlockedByResponseReasonWrapperSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_blocked_by_response_reason', 48, 0, mojo.internal.bindings.network.mojom.BlockedByResponseReasonWrapperSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_resolve_error_info', 56, 0, mojo.internal.bindings.network.mojom.ResolveErrorInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_error_code', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_extended_error_code', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),

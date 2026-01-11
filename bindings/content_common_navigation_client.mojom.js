@@ -185,14 +185,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_policy_container', 128, 0, mojo.internal.bindings.blink.mojom.PolicyContainerSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_code_cache_host', 136, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.CodeCacheHostRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_code_cache_host_for_background', 144, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.CodeCacheHostRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_cookie_manager_info', 152, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.CookieManagerInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_storage_info', 160, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.StorageInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_cookie_manager_info', 152, 0, mojo.internal.bindings.content.mojom.CookieManagerInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_storage_info', 160, 0, mojo.internal.bindings.content.mojom.StorageInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 176]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec, 'content.mojom.NavigationClient_CommitNavigation_ResponseParams', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_interface_params', 8, 0, mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadInterfaceParamsSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -216,7 +216,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec, 'content.mojom.NavigationClient_CommitFailedNavigation_ResponseParams', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_interface_params', 8, 0, mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadInterfaceParamsSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);

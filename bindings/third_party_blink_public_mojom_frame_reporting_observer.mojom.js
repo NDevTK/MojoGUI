@@ -90,7 +90,7 @@ mojo.internal.Struct(
 // Struct: ReportBody
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ReportBodySpec, 'blink.mojom.ReportBody', [
-      mojo.internal.StructField('arg_body', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ReportBodyElementSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_body', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ReportBodyElementSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -99,14 +99,14 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ReportSpec, 'blink.mojom.Report', [
       mojo.internal.StructField('arg_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_body', 16, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ReportBodySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_body', 16, 0, mojo.internal.bindings.blink.mojom.ReportBodySpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 // Interface: ReportingObserver
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ReportingObserver_Notify_ParamsSpec, 'blink.mojom.ReportingObserver_Notify_Params', [
-      mojo.internal.StructField('arg_report', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ReportSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_report', 0, 0, mojo.internal.bindings.blink.mojom.ReportSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

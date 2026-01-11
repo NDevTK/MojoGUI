@@ -155,7 +155,7 @@ mojo.internal.Union(
     mojo.internal.bindings.ash.projector.mojom.GetVideoResultSpec, 'ash.projector.mojom.GetVideoResult', {
       'arg_video': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.projector.mojom.VideoInfoSpec.$,
+        'type': mojo.internal.bindings.ash.projector.mojom.VideoInfoSpec.$,
         'nullable': false,
       },
       'arg_error_message': {
@@ -168,8 +168,8 @@ mojo.internal.Union(
 // Struct: NewScreencastPrecondition
 mojo.internal.Struct(
     mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionSpec, 'ash.projector.mojom.NewScreencastPrecondition', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reasons', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionReasonSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reasons', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionReasonSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -187,8 +187,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.projector.mojom.XhrResponseSpec, 'ash.projector.mojom.XhrResponse', [
       mojo.internal.StructField('arg_response', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_response_code', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.projector.mojom.XhrResponseCodeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_net_error_code', 16, 0, mojo.internal.bindings.mojo.internal.bindings.ash.projector.mojom.JsNetErrorCodeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_response_code', 8, 0, mojo.internal.bindings.ash.projector.mojom.XhrResponseCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_net_error_code', 16, 0, mojo.internal.bindings.ash.projector.mojom.JsNetErrorCodeSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 

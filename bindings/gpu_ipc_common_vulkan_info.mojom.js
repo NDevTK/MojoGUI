@@ -92,7 +92,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_instance_extensions', 0, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.VkExtensionPropertiesSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_enabled_instance_extensions', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_instance_layers', 16, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.VkLayerPropertiesSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_physical_devices', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.VulkanPhysicalDeviceInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_physical_devices', 24, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.VulkanPhysicalDeviceInfoSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_api_version', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_used_api_version', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],

@@ -101,12 +101,12 @@ mojo.internal.Union(
     mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsResponseSpec, 'ash.enhanced_network_tts.mojom.TtsResponse', {
       'arg_error_code': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsRequestErrorSpec.$,
+        'type': mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsRequestErrorSpec.$,
         'nullable': false,
       },
       'arg_data': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsDataSpec.$,
+        'type': mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsDataSpec.$,
         'nullable': false,
       },
     });
@@ -135,7 +135,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsDataSpec, 'ash.enhanced_network_tts.mojom.TtsData', [
       mojo.internal.StructField('arg_audio', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_time_info', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.enhanced_network_tts.mojom.TimingInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_time_info', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.enhanced_network_tts.mojom.TimingInfoSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_last_data', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -143,7 +143,7 @@ mojo.internal.Struct(
 // Interface: EnhancedNetworkTts
 mojo.internal.Struct(
     mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec, 'ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

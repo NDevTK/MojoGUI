@@ -192,9 +192,9 @@ mojo.internal.Struct(
 // Struct: VideoFrameLayout
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoFrameLayoutSpec, 'arc.mojom.VideoFrameLayout', [
-      mojo.internal.StructField('arg_format', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.VideoPixelFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_format', 0, 0, mojo.internal.bindings.arc.mojom.VideoPixelFormatSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_coded_size', 8, 0, mojo.internal.bindings.arc.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_planes', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ColorPlaneLayoutSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_planes', 16, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.ColorPlaneLayoutSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_modifier', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_buffer_addr_align', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_is_multi_planar', 36, 0, mojo.internal.Bool, false, false, 0, undefined),

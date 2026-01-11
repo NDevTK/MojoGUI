@@ -1734,7 +1734,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ResponseParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ResponseParams', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.settings.mojom.ActionChoiceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.settings.mojom.ActionChoiceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1745,7 +1745,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ResponseParamsSpec, 'ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ResponseParams', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.settings.mojom.ActionChoiceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.settings.mojom.ActionChoiceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

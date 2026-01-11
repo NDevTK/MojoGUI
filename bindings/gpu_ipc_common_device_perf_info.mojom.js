@@ -101,8 +101,8 @@ mojo.internal.bindings.gpu.mojom.HasDiscreteGpu = {
 // Struct: DevicePerfInfo
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.DevicePerfInfoSpec, 'gpu.mojom.DevicePerfInfo', [
-      mojo.internal.StructField('arg_d3d11_feature_level', 0, 0, mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.Direct3DFeatureLevelSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_has_discrete_gpu', 8, 0, mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.HasDiscreteGpuSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_d3d11_feature_level', 0, 0, mojo.internal.bindings.gpu.mojom.Direct3DFeatureLevelSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_has_discrete_gpu', 8, 0, mojo.internal.bindings.gpu.mojom.HasDiscreteGpuSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_total_physical_memory_mb', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_total_disk_space_mb', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_hardware_concurrency', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),

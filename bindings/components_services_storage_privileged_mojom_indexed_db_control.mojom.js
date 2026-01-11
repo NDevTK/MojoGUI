@@ -307,7 +307,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ParamsSpec, 'storage.mojom.IndexedDBControl_ForceClose_Params', [
       mojo.internal.StructField('arg_bucket_id', 0, 0, mojo.internal.bindings.storage.mojom.BucketIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.bindings.mojo.internal.bindings.storage.mojom.ForceCloseReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.bindings.storage.mojom.ForceCloseReasonSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

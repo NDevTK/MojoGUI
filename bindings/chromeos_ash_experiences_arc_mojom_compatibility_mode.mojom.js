@@ -91,7 +91,7 @@ mojo.internal.bindings.arc.mojom.ArcResizeLockState = {
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_SetResizeLockState_ParamsSpec, 'arc.mojom.CompatibilityModeInstance_SetResizeLockState_Params', [
       mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ArcResizeLockStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.arc.mojom.ArcResizeLockStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

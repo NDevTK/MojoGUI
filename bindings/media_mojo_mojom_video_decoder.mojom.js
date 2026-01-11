@@ -293,7 +293,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoDecoder_GetSupportedConfigs_ResponseParamsSpec, 'media.mojom.VideoDecoder_GetSupportedConfigs_ResponseParams', [
-      mojo.internal.StructField('arg_supported_configs', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.media.mojom.SupportedVideoDecoderConfigSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_supported_configs', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.SupportedVideoDecoderConfigSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_decoder_type', 8, 0, mojo.internal.bindings.media.mojom.VideoDecoderTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -304,7 +304,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_media_log', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.MediaLogRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_video_frame_handle_releaser', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoFrameHandleReleaserSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_decoder_buffer_pipe', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_command_buffer_id', 32, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.CommandBufferIdSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_command_buffer_id', 32, 0, mojo.internal.bindings.media.mojom.CommandBufferIdSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_target_color_space', 40, 0, mojo.internal.bindings.gfx.mojom.ColorSpaceSpec.$, null, false, 0, undefined),
     ],
     [[0, 56]]);

@@ -104,20 +104,20 @@ mojo.internal.Struct(
 // Interface: InSessionAuth
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec, 'chromeos.auth.mojom.InSessionAuth_RequestToken_Params', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.auth.mojom.ReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.chromeos.auth.mojom.ReasonSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_prompt', 8, 0, mojo.internal.String, null, true, 1, undefined),
     ],
     [[0, 16], [1, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec, 'chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParams', [
-      mojo.internal.StructField('arg_reply', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.auth.mojom.RequestTokenReplySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_reply', 0, 0, mojo.internal.bindings.chromeos.auth.mojom.RequestTokenReplySpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec, 'chromeos.auth.mojom.InSessionAuth_CheckToken_Params', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.auth.mojom.ReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.chromeos.auth.mojom.ReasonSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);

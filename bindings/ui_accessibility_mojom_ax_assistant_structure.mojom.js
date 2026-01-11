@@ -82,7 +82,7 @@ mojo.internal.bindings.ax.mojom.AssistantStructureSpec = { $: {} };
 // Struct: AssistantTree
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AssistantTreeSpec, 'ax.mojom.AssistantTree', [
-      mojo.internal.StructField('arg_nodes', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ax.mojom.AssistantNodeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_nodes', 0, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AssistantNodeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -117,7 +117,7 @@ mojo.internal.Struct(
 // Struct: AssistantStructure
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AssistantStructureSpec, 'ax.mojom.AssistantStructure', [
-      mojo.internal.StructField('arg_assistant_tree', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ax.mojom.AssistantTreeSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_assistant_extra', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ax.mojom.AssistantExtraSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_assistant_tree', 0, 0, mojo.internal.bindings.ax.mojom.AssistantTreeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_assistant_extra', 8, 0, mojo.internal.bindings.ax.mojom.AssistantExtraSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);

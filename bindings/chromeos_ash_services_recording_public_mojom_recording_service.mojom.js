@@ -276,7 +276,7 @@ mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegateRequest = mojo.intern
 // Interface: RecordingServiceClient
 mojo.internal.Struct(
     mojo.internal.bindings.recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec, 'recording.mojom.RecordingServiceClient_OnRecordingEnded_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.recording.mojom.RecordingStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.recording.mojom.RecordingStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_thumbnail', 8, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);

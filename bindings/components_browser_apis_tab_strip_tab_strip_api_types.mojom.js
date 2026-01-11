@@ -94,7 +94,7 @@ mojo.internal.Struct(
 // Struct: Position
 mojo.internal.Struct(
     mojo.internal.bindings.tabs_api.mojom.PositionSpec, 'tabs_api.mojom.Position', [
-      mojo.internal.StructField('arg_parent_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tabs_api.mojom.NodeIdSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_parent_id', 0, 0, mojo.internal.bindings.tabs_api.mojom.NodeIdSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

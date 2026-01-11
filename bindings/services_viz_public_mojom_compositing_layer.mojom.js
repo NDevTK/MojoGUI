@@ -102,52 +102,52 @@ mojo.internal.Union(
     mojo.internal.bindings.viz.mojom.LayerExtraSpec, 'viz.mojom.LayerExtra', {
       'arg_mirror_layer_extra': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.viz.mojom.MirrorLayerExtraSpec.$,
+        'type': mojo.internal.bindings.viz.mojom.MirrorLayerExtraSpec.$,
         'nullable': false,
       },
       'arg_nine_patch_thumb_scrollbar_layer_extra': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.viz.mojom.NinePatchThumbScrollbarLayerExtraSpec.$,
+        'type': mojo.internal.bindings.viz.mojom.NinePatchThumbScrollbarLayerExtraSpec.$,
         'nullable': false,
       },
       'arg_painted_scrollbar_layer_extra': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.viz.mojom.PaintedScrollbarLayerExtraSpec.$,
+        'type': mojo.internal.bindings.viz.mojom.PaintedScrollbarLayerExtraSpec.$,
         'nullable': false,
       },
       'arg_solid_color_scrollbar_layer_extra': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.mojo.internal.bindings.viz.mojom.SolidColorScrollbarLayerExtraSpec.$,
+        'type': mojo.internal.bindings.viz.mojom.SolidColorScrollbarLayerExtraSpec.$,
         'nullable': false,
       },
       'arg_surface_layer_extra': {
         'ordinal': 4,
-        'type': mojo.internal.bindings.mojo.internal.bindings.viz.mojom.SurfaceLayerExtraSpec.$,
+        'type': mojo.internal.bindings.viz.mojom.SurfaceLayerExtraSpec.$,
         'nullable': false,
       },
       'arg_texture_layer_extra': {
         'ordinal': 5,
-        'type': mojo.internal.bindings.mojo.internal.bindings.viz.mojom.TextureLayerExtraSpec.$,
+        'type': mojo.internal.bindings.viz.mojom.TextureLayerExtraSpec.$,
         'nullable': false,
       },
       'arg_ui_resource_layer_extra': {
         'ordinal': 6,
-        'type': mojo.internal.bindings.mojo.internal.bindings.viz.mojom.UIResourceLayerExtraSpec.$,
+        'type': mojo.internal.bindings.viz.mojom.UIResourceLayerExtraSpec.$,
         'nullable': false,
       },
       'arg_tile_display_layer_extra': {
         'ordinal': 7,
-        'type': mojo.internal.bindings.mojo.internal.bindings.viz.mojom.TileDisplayLayerExtraSpec.$,
+        'type': mojo.internal.bindings.viz.mojom.TileDisplayLayerExtraSpec.$,
         'nullable': false,
       },
       'arg_view_transition_content_layer_extra': {
         'ordinal': 8,
-        'type': mojo.internal.bindings.mojo.internal.bindings.viz.mojom.ViewTransitionContentLayerExtraSpec.$,
+        'type': mojo.internal.bindings.viz.mojom.ViewTransitionContentLayerExtraSpec.$,
         'nullable': false,
       },
       'arg_nine_patch_layer_extra': {
         'ordinal': 9,
-        'type': mojo.internal.bindings.mojo.internal.bindings.viz.mojom.NinePatchLayerExtraSpec.$,
+        'type': mojo.internal.bindings.viz.mojom.NinePatchLayerExtraSpec.$,
         'nullable': false,
       },
     });
@@ -238,7 +238,7 @@ mojo.internal.Struct(
 // Struct: NinePatchThumbScrollbarLayerExtra
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.NinePatchThumbScrollbarLayerExtraSpec, 'viz.mojom.NinePatchThumbScrollbarLayerExtra', [
-      mojo.internal.StructField('arg_scrollbar_base_extra', 0, 0, mojo.internal.bindings.mojo.internal.bindings.viz.mojom.ScrollbarLayerBaseExtraSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scrollbar_base_extra', 0, 0, mojo.internal.bindings.viz.mojom.ScrollbarLayerBaseExtraSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_image_bounds', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_aperture', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_thumb_ui_resource_id', 24, 0, mojo.internal.bindings.cc.mojom.UIResourceIdSpec.$, null, false, 0, undefined),
@@ -253,7 +253,7 @@ mojo.internal.Struct(
 // Struct: PaintedScrollbarLayerExtra
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.PaintedScrollbarLayerExtraSpec, 'viz.mojom.PaintedScrollbarLayerExtra', [
-      mojo.internal.StructField('arg_scrollbar_base_extra', 0, 0, mojo.internal.bindings.mojo.internal.bindings.viz.mojom.ScrollbarLayerBaseExtraSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scrollbar_base_extra', 0, 0, mojo.internal.bindings.viz.mojom.ScrollbarLayerBaseExtraSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_internal_content_bounds', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_back_button_rect', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_forward_button_rect', 24, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
@@ -276,7 +276,7 @@ mojo.internal.Struct(
 // Struct: SolidColorScrollbarLayerExtra
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.SolidColorScrollbarLayerExtraSpec, 'viz.mojom.SolidColorScrollbarLayerExtra', [
-      mojo.internal.StructField('arg_scrollbar_base_extra', 0, 0, mojo.internal.bindings.mojo.internal.bindings.viz.mojom.ScrollbarLayerBaseExtraSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scrollbar_base_extra', 0, 0, mojo.internal.bindings.viz.mojom.ScrollbarLayerBaseExtraSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_color', 8, 0, mojo.internal.bindings.skia.mojom.SkColor4fSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_thumb_thickness', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_track_start', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -318,7 +318,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_element_id', 48, 0, mojo.internal.bindings.cc.mojom.ElementIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_update_rect', 56, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_offset_to_transform_parent', 64, 0, mojo.internal.bindings.gfx.mojom.Vector2dFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_rare_properties', 72, 0, mojo.internal.bindings.mojo.internal.bindings.viz.mojom.RarePropertiesSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_rare_properties', 72, 0, mojo.internal.bindings.viz.mojom.RarePropertiesSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_layer_extra', 80, 0, mojo.internal.bindings.viz.mojom.LayerExtraSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_transform_tree_index', 88, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_clip_tree_index', 92, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -371,8 +371,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.TransformTreeUpdateSpec, 'viz.mojom.TransformTreeUpdate', [
       mojo.internal.StructField('arg_nodes_affected_by_outer_viewport_bounds_delta', 0, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_nodes_affected_by_safe_area_bottom', 8, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_sticky_position_data', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.viz.mojom.StickyPositionNodeDataSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_anchor_position_scroll_data', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.viz.mojom.AnchorPositionScrollDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_sticky_position_data', 16, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.StickyPositionNodeDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_anchor_position_scroll_data', 24, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.AnchorPositionScrollDataSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_drawn_elastic_overscroll', 32, 0, mojo.internal.Map(mojo.internal.bindings.cc.mojom.ElementIdSpec.$, mojo.internal.bindings.gfx.mojom.Vector2dFSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_page_scale_factor', 40, 0, mojo.internal.Float, 1.0, false, 0, undefined),
       mojo.internal.StructField('arg_device_scale_factor', 44, 0, mojo.internal.Float, 1.0, false, 0, undefined),

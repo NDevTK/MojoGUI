@@ -95,8 +95,8 @@ mojo.internal.bindings.blink.mojom.StylusWritingGestureGranularity = {
 // Struct: StylusWritingGestureData
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.StylusWritingGestureDataSpec, 'blink.mojom.StylusWritingGestureData', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.StylusWritingGestureActionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_granularity', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.StylusWritingGestureGranularitySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.blink.mojom.StylusWritingGestureActionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_granularity', 8, 0, mojo.internal.bindings.blink.mojom.StylusWritingGestureGranularitySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_start_rect', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_end_rect', 24, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_text_alternative', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),

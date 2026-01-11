@@ -114,20 +114,20 @@ mojo.internal.bindings.ash.cros_safety.mojom.SafetyRuleset = {
 // Interface: CloudSafetySession
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec, 'ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_Params', [
-      mojo.internal.StructField('arg_rules', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.cros_safety.mojom.SafetyRulesetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rules', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.SafetyRulesetSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec, 'ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParams', [
-      mojo.internal.StructField('arg_verdict', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.cros_safety.mojom.SafetyClassifierVerdictSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_verdict', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.SafetyClassifierVerdictSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec, 'ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_Params', [
-      mojo.internal.StructField('arg_rules', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.cros_safety.mojom.SafetyRulesetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rules', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.SafetyRulesetSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_prompt', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_image', 16, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
     ],
@@ -135,7 +135,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec, 'ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParams', [
-      mojo.internal.StructField('arg_verdict', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.cros_safety.mojom.SafetyClassifierVerdictSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_verdict', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.SafetyClassifierVerdictSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -334,27 +334,27 @@ mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionRequest = mojo.in
 // Interface: OnDeviceSafetySession
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec, 'ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_Params', [
-      mojo.internal.StructField('arg_rules', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.cros_safety.mojom.SafetyRulesetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rules', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.SafetyRulesetSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec, 'ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParams', [
-      mojo.internal.StructField('arg_verdict', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.cros_safety.mojom.SafetyClassifierVerdictSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_verdict', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.SafetyClassifierVerdictSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec, 'ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_Params', [
-      mojo.internal.StructField('arg_rules', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.cros_safety.mojom.SafetyRulesetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rules', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.SafetyRulesetSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_image', 8, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec, 'ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParams', [
-      mojo.internal.StructField('arg_verdict', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.cros_safety.mojom.SafetyClassifierVerdictSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_verdict', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.SafetyClassifierVerdictSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

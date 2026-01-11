@@ -138,8 +138,8 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepResult = {
 // Interface: NearbyConnectionStateListener
 mojo.internal.Struct(
     mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_ParamsSpec, 'ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_Params', [
-      mojo.internal.StructField('arg_step', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_step', 0, 0, mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

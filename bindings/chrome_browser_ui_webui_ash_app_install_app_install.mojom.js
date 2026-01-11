@@ -101,12 +101,12 @@ mojo.internal.Union(
     mojo.internal.bindings.ash.app_install.mojom.DialogArgsSpec, 'ash.app_install.mojom.DialogArgs', {
       'arg_app_info_args': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.app_install.mojom.AppInfoArgsSpec.$,
+        'type': mojo.internal.bindings.ash.app_install.mojom.AppInfoArgsSpec.$,
         'nullable': false,
       },
       'arg_no_app_error_args': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.app_install.mojom.NoAppErrorArgsSpec.$,
+        'type': mojo.internal.bindings.ash.app_install.mojom.NoAppErrorArgsSpec.$,
         'nullable': false,
       },
       'arg_connection_error_actions': {
@@ -119,7 +119,7 @@ mojo.internal.Union(
 // Struct: AppInfoArgs
 mojo.internal.Struct(
     mojo.internal.bindings.ash.app_install.mojom.AppInfoArgsSpec, 'ash.app_install.mojom.AppInfoArgs', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.app_install.mojom.AppInfoDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.ash.app_install.mojom.AppInfoDataSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_actions', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -131,7 +131,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_description', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_icon_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_screenshots', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.app_install.mojom.ScreenshotSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_screenshots', 32, 0, mojo.internal.Array(mojo.internal.bindings.ash.app_install.mojom.ScreenshotSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_is_already_installed', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);

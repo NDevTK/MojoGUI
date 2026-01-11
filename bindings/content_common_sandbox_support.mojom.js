@@ -154,7 +154,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ParamsSpec, 'content.mojom.SandboxSupport_LocaleString_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.LcTypeStringSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.content.mojom.LcTypeStringSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_lcid', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_defaults', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -168,7 +168,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ParamsSpec, 'content.mojom.SandboxSupport_LocaleStrings_Params', [
-      mojo.internal.StructField('arg_collection', 0, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.LcTypeStringsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_collection', 0, 0, mojo.internal.bindings.content.mojom.LcTypeStringsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_lcid', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_defaults', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],

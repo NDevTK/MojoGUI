@@ -108,7 +108,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_caret_x', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_caret_y', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_marked_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_suggestions', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SpellCheckSuggestionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestions', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SpellCheckSuggestionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -117,7 +117,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_caret_x', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_caret_y', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_marked_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_suggestions', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.TextSuggestionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestions', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.TextSuggestionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 

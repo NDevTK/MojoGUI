@@ -426,7 +426,7 @@ mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRequ
 // Interface: ArcVmDataMigrationPage
 mojo.internal.Struct(
     mojo.internal.bindings.ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec, 'ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.screens_login.mojom.ArcVmUIStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.screens_login.mojom.ArcVmUIStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1066,7 +1066,7 @@ mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPageHandlerReq
 // Interface: EncryptionMigrationPage
 mojo.internal.Struct(
     mojo.internal.bindings.ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec, 'ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.screens_login.mojom.UIStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.screens_login.mojom.UIStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

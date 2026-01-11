@@ -101,7 +101,7 @@ mojo.internal.bindings.blink.mojom.GetKeyboardLayoutMapStatus = {
 // Struct: GetKeyboardLayoutMapResult
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.GetKeyboardLayoutMapResultSpec, 'blink.mojom.GetKeyboardLayoutMapResult', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.GetKeyboardLayoutMapStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.GetKeyboardLayoutMapStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_layout_map', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -115,7 +115,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec, 'blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.KeyboardLockRequestResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.KeyboardLockRequestResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -131,7 +131,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec, 'blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.GetKeyboardLayoutMapResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.GetKeyboardLayoutMapResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

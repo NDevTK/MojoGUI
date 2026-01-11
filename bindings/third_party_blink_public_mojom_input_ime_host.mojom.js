@@ -99,8 +99,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.InputCursorAnchorInfoSpec, 'blink.mojom.InputCursorAnchorInfo', [
       mojo.internal.StructField('arg_character_bounds', 0, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.RectSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_editor_bounds_info', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.EditorBoundsInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_appearance_info', 16, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.TextAppearanceInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_editor_bounds_info', 8, 0, mojo.internal.bindings.blink.mojom.EditorBoundsInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_appearance_info', 16, 0, mojo.internal.bindings.blink.mojom.TextAppearanceInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_visible_line_bounds', 24, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.RectSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_insertion_marker', 32, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_requested', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -110,7 +110,7 @@ mojo.internal.Struct(
 // Interface: ImeRenderWidgetHost
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec, 'blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_Params', [
-      mojo.internal.StructField('arg_cursor_anchor_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.InputCursorAnchorInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cursor_anchor_info', 0, 0, mojo.internal.bindings.blink.mojom.InputCursorAnchorInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

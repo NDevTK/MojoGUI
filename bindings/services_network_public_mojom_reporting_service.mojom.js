@@ -99,7 +99,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_type', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_timestamp', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_body', 40, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 48, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ReportingApiReportStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 48, 0, mojo.internal.bindings.network.mojom.ReportingApiReportStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_depth', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_attempts', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -125,19 +125,19 @@ mojo.internal.Struct(
 // Interface: ReportingApiObserver
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec, 'network.mojom.ReportingApiObserver_OnReportAdded_Params', [
-      mojo.internal.StructField('arg_report', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ReportingApiReportSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_report', 0, 0, mojo.internal.bindings.network.mojom.ReportingApiReportSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec, 'network.mojom.ReportingApiObserver_OnReportUpdated_Params', [
-      mojo.internal.StructField('arg_report', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ReportingApiReportSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_report', 0, 0, mojo.internal.bindings.network.mojom.ReportingApiReportSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec, 'network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_Params', [
-      mojo.internal.StructField('arg_endpoints', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.network.mojom.ReportingApiEndpointSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_endpoints', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ReportingApiEndpointSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

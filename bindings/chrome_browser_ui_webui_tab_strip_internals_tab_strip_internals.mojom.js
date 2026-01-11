@@ -131,32 +131,32 @@ mojo.internal.Union(
     mojo.internal.bindings.tab_strip_internals.mojom.DataSpec, 'tab_strip_internals.mojom.Data', {
       'arg_tab': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabSpec.$,
+        'type': mojo.internal.bindings.tab_strip_internals.mojom.TabSpec.$,
         'nullable': false,
       },
       'arg_tab_strip_collection': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabStripCollectionSpec.$,
+        'type': mojo.internal.bindings.tab_strip_internals.mojom.TabStripCollectionSpec.$,
         'nullable': false,
       },
       'arg_pinned_tab_collection': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.PinnedCollectionSpec.$,
+        'type': mojo.internal.bindings.tab_strip_internals.mojom.PinnedCollectionSpec.$,
         'nullable': false,
       },
       'arg_unpinned_tab_collection': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.UnpinnedCollectionSpec.$,
+        'type': mojo.internal.bindings.tab_strip_internals.mojom.UnpinnedCollectionSpec.$,
         'nullable': false,
       },
       'arg_tab_group_collection': {
         'ordinal': 4,
-        'type': mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.GroupCollectionSpec.$,
+        'type': mojo.internal.bindings.tab_strip_internals.mojom.GroupCollectionSpec.$,
         'nullable': false,
       },
       'arg_split_tab_collection': {
         'ordinal': 5,
-        'type': mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.SplitCollectionSpec.$,
+        'type': mojo.internal.bindings.tab_strip_internals.mojom.SplitCollectionSpec.$,
         'nullable': false,
       },
     });
@@ -166,17 +166,17 @@ mojo.internal.Union(
     mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreEntrySpec, 'tab_strip_internals.mojom.TabRestoreEntry', {
       'arg_tab': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreTabSpec.$,
+        'type': mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreTabSpec.$,
         'nullable': false,
       },
       'arg_window': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreWindowSpec.$,
+        'type': mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreWindowSpec.$,
         'nullable': false,
       },
       'arg_group': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreGroupSpec.$,
+        'type': mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreGroupSpec.$,
         'nullable': false,
       },
     });
@@ -184,24 +184,24 @@ mojo.internal.Union(
 // Struct: Container
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip_internals.mojom.ContainerSpec, 'tab_strip_internals.mojom.Container', [
-      mojo.internal.StructField('arg_tabstrip_tree', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabStripTreeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tab_restore', 8, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tabstrip_tree', 0, 0, mojo.internal.bindings.tab_strip_internals.mojom.TabStripTreeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tab_restore', 8, 0, mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: TabStripTree
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip_internals.mojom.TabStripTreeSpec, 'tab_strip_internals.mojom.TabStripTree', [
-      mojo.internal.StructField('arg_windows', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.WindowNodeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_windows', 0, 0, mojo.internal.Array(mojo.internal.bindings.tab_strip_internals.mojom.WindowNodeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: WindowNode
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip_internals.mojom.WindowNodeSpec, 'tab_strip_internals.mojom.WindowNode', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tabstrip_model', 8, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabStripModelSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_selection_model', 16, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.SelectionModelSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tabstrip_model', 8, 0, mojo.internal.bindings.tab_strip_internals.mojom.TabStripModelSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_selection_model', 16, 0, mojo.internal.bindings.tab_strip_internals.mojom.SelectionModelSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -220,7 +220,7 @@ mojo.internal.Struct(
 // Struct: TabStripModel
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip_internals.mojom.TabStripModelSpec, 'tab_strip_internals.mojom.TabStripModel', [
-      mojo.internal.StructField('arg_root', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.NodeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_root', 0, 0, mojo.internal.bindings.tab_strip_internals.mojom.NodeSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -228,14 +228,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip_internals.mojom.NodeSpec, 'tab_strip_internals.mojom.Node', [
       mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.tab_strip_internals.mojom.DataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_children', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.NodeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_children', 8, 0, mojo.internal.Array(mojo.internal.bindings.tab_strip_internals.mojom.NodeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: Tab
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip_internals.mojom.TabSpec, 'tab_strip_internals.mojom.Tab', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_alert_states', 24, 0, mojo.internal.Array(mojo.internal.bindings.tabs.mojom.TabAlertStateSpec.$, false), null, false, 0, undefined),
@@ -250,29 +250,29 @@ mojo.internal.Struct(
 // Struct: TabStripCollection
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip_internals.mojom.TabStripCollectionSpec, 'tab_strip_internals.mojom.TabStripCollection', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: PinnedCollection
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip_internals.mojom.PinnedCollectionSpec, 'tab_strip_internals.mojom.PinnedCollection', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: UnpinnedCollection
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip_internals.mojom.UnpinnedCollectionSpec, 'tab_strip_internals.mojom.UnpinnedCollection', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: GroupCollection
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip_internals.mojom.GroupCollectionSpec, 'tab_strip_internals.mojom.GroupCollection', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visualData', 8, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabGroupVisualDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visualData', 8, 0, mojo.internal.bindings.tab_strip_internals.mojom.TabGroupVisualDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -288,8 +288,8 @@ mojo.internal.Struct(
 // Struct: SplitCollection
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip_internals.mojom.SplitCollectionSpec, 'tab_strip_internals.mojom.SplitCollection', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visualData', 8, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.SplitTabVisualDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visualData', 8, 0, mojo.internal.bindings.tab_strip_internals.mojom.SplitTabVisualDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -328,10 +328,10 @@ mojo.internal.Struct(
 // Struct: TabRestoreTab
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreTabSpec, 'tab_strip_internals.mojom.TabRestoreTab', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_restore_entry', 8, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreEntryBaseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_restore_entry', 8, 0, mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreEntryBaseSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_group_id', 16, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_group_visual_data', 24, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabGroupVisualDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_group_visual_data', 24, 0, mojo.internal.bindings.tab_strip_internals.mojom.TabGroupVisualDataSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_title', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_url', 40, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_browser_id', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -343,11 +343,11 @@ mojo.internal.Struct(
 // Struct: TabRestoreGroup
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreGroupSpec, 'tab_strip_internals.mojom.TabRestoreGroup', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_restore_entry', 8, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreEntryBaseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_restore_entry', 8, 0, mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreEntryBaseSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_group_id', 16, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visual_data', 24, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabGroupVisualDataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tabs', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreTabSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_visual_data', 24, 0, mojo.internal.bindings.tab_strip_internals.mojom.TabGroupVisualDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tabs', 32, 0, mojo.internal.Array(mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreTabSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_browser_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 56]]);
@@ -355,9 +355,9 @@ mojo.internal.Struct(
 // Struct: TabRestoreWindow
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreWindowSpec, 'tab_strip_internals.mojom.TabRestoreWindow', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_restore_entry', 8, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreEntryBaseSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tabs', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreTabSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_restore_entry', 8, 0, mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreEntryBaseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tabs', 16, 0, mojo.internal.Array(mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreTabSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_selected_tab_index', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -522,7 +522,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec, 'tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParams', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.ContainerSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.tab_strip_internals.mojom.ContainerSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -681,7 +681,7 @@ mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerRequest = mojo.inter
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec, 'tab_strip_internals.mojom.Page_OnTabStripUpdated_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.ContainerSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.tab_strip_internals.mojom.ContainerSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

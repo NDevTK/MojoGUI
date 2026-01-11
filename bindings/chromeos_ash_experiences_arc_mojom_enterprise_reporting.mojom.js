@@ -105,7 +105,7 @@ mojo.internal.bindings.arc.mojom.TimedCloudDpcOp = {
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec, 'arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_Params', [
       mojo.internal.StructField('arg_time_ms', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_op', 8, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.TimedCloudDpcOpSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_op', 8, 0, mojo.internal.bindings.arc.mojom.TimedCloudDpcOpSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_success', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);

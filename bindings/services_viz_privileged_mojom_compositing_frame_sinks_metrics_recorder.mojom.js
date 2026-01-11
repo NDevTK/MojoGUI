@@ -97,7 +97,7 @@ mojo.internal.Struct(
 // Struct: FrameCountingData
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FrameCountingDataSpec, 'viz.mojom.FrameCountingData', [
-      mojo.internal.StructField('arg_per_sink_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.viz.mojom.FrameCountingPerSinkDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_per_sink_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.FrameCountingPerSinkDataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -123,7 +123,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParams', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.viz.mojom.FrameCountingDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.viz.mojom.FrameCountingDataSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -142,7 +142,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParams', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.viz.mojom.OverdrawDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.viz.mojom.OverdrawDataSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

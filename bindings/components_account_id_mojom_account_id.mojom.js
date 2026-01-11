@@ -83,7 +83,7 @@ mojo.internal.bindings.signin.mojom.AccountType = {
 // Struct: AccountId
 mojo.internal.Struct(
     mojo.internal.bindings.signin.mojom.AccountIdSpec, 'signin.mojom.AccountId', [
-      mojo.internal.StructField('arg_account_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.signin.mojom.AccountTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_account_type', 0, 0, mojo.internal.bindings.signin.mojom.AccountTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_user_email', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],

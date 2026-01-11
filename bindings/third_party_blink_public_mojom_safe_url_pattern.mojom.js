@@ -92,17 +92,17 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.PatternTemplateSpec, 'blink.mojom.PatternTemplate', {
       'arg_fixed': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FixedPatternSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.FixedPatternSpec.$,
         'nullable': false,
       },
       'arg_full_wildcard': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.WildcardPatternSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.WildcardPatternSpec.$,
         'nullable': false,
       },
       'arg_segment_wildcard': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.WildcardPatternSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.WildcardPatternSpec.$,
         'nullable': false,
       },
     });
@@ -110,15 +110,15 @@ mojo.internal.Union(
 // Struct: SafeUrlPattern
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SafeUrlPatternSpec, 'blink.mojom.SafeUrlPattern', [
-      mojo.internal.StructField('arg_protocol', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SafeUrlPatternPartSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_username', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SafeUrlPatternPartSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_password', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SafeUrlPatternPartSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_hostname', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SafeUrlPatternPartSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_port', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SafeUrlPatternPartSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_pathname', 40, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SafeUrlPatternPartSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_search', 48, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SafeUrlPatternPartSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_hash', 56, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SafeUrlPatternPartSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 64, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SafeUrlPatternOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_protocol', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SafeUrlPatternPartSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_username', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SafeUrlPatternPartSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_password', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SafeUrlPatternPartSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_hostname', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SafeUrlPatternPartSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_port', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SafeUrlPatternPartSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_pathname', 40, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SafeUrlPatternPartSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_search', 48, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SafeUrlPatternPartSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_hash', 56, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SafeUrlPatternPartSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 64, 0, mojo.internal.bindings.blink.mojom.SafeUrlPatternOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 80]]);
 
@@ -143,7 +143,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SafeUrlPatternPartSpec, 'blink.mojom.SafeUrlPatternPart', [
       mojo.internal.StructField('arg_pattern', 0, 0, mojo.internal.bindings.blink.mojom.PatternTemplateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_modifier', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ModifierSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_modifier', 8, 0, mojo.internal.bindings.blink.mojom.ModifierSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

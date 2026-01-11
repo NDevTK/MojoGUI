@@ -90,7 +90,7 @@ mojo.internal.Union(
       },
       'arg_accelerated_image': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AcceleratedStaticBitmapImageSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.AcceleratedStaticBitmapImageSpec.$,
         'nullable': false,
       },
     });

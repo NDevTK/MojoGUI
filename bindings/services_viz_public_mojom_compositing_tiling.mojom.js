@@ -89,7 +89,7 @@ mojo.internal.Union(
       },
       'arg_resource': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.viz.mojom.TileResourceSpec.$,
+        'type': mojo.internal.bindings.viz.mojom.TileResourceSpec.$,
         'nullable': false,
       },
       'arg_solid_color': {
@@ -125,7 +125,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_raster_scale', 16, 0, mojo.internal.bindings.gfx.mojom.Vector2dFSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_tile_size', 24, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_tiling_rect', 32, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tiles', 40, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.viz.mojom.TileSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tiles', 40, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.TileSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_scale_key', 48, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_is_deleted', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],

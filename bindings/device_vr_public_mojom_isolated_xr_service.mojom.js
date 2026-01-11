@@ -497,13 +497,13 @@ mojo.internal.bindings.device.mojom.XRRuntimeEventListenerRequest = mojo.interna
 // Interface: XRRuntime
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRRuntime_RequestSession_ParamsSpec, 'device.mojom.XRRuntime_RequestSession_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.XRRuntimeSessionOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.device.mojom.XRRuntimeSessionOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRRuntime_RequestSession_ResponseParamsSpec, 'device.mojom.XRRuntime_RequestSession_ResponseParams', [
-      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.XRRuntimeSessionResultSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.bindings.device.mojom.XRRuntimeSessionResultSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1060,7 +1060,7 @@ mojo.internal.bindings.device.mojom.ImmersiveOverlayRequest = mojo.internal.bind
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_ParamsSpec, 'device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_Params', [
       mojo.internal.StructField('arg_runtime', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.XRRuntimeSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_data', 8, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.XRDeviceDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_data', 8, 0, mojo.internal.bindings.device.mojom.XRDeviceDataSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_device_id', 16, 0, mojo.internal.bindings.device.mojom.XRDeviceIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);

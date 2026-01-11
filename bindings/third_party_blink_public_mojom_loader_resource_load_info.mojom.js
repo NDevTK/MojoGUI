@@ -117,7 +117,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RedirectInfoSpec, 'blink.mojom.RedirectInfo', [
       mojo.internal.StructField('arg_origin_of_new_url', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_network_info', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CommonNetworkInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_network_info', 8, 0, mojo.internal.bindings.blink.mojom.CommonNetworkInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -132,12 +132,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_request_destination', 40, 0, mojo.internal.bindings.network.mojom.RequestDestinationSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_request_priority', 48, 0, mojo.internal.bindings.network.mojom.RequestPrioritySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_mime_type', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_network_info', 64, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CommonNetworkInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_network_info', 64, 0, mojo.internal.bindings.blink.mojom.CommonNetworkInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_proxy_chain', 72, 0, mojo.internal.bindings.network.mojom.ProxyChainSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_load_timing_info', 80, 0, mojo.internal.bindings.network.mojom.LoadTimingInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_raw_body_bytes', 88, 0, mojo.internal.bindings.mojo_base.mojom.ByteCountSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_total_received_bytes', 96, 0, mojo.internal.bindings.mojo_base.mojom.ByteCountSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_redirect_info_chain', 104, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.RedirectInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_redirect_info_chain', 104, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.RedirectInfoSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_net_error', 112, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_http_status_code', 116, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_was_cached', 120, 0, mojo.internal.Bool, false, false, 0, undefined),

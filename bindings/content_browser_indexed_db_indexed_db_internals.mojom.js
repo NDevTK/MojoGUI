@@ -105,7 +105,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ResponseParamsSpec, 'storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ResponseParams', [
       mojo.internal.StructField('arg_error', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_partitions', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.storage.mojom.IdbPartitionMetadataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_partitions', 8, 0, mojo.internal.Array(mojo.internal.bindings.storage.mojom.IdbPartitionMetadataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -102,7 +102,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec, 'content_settings.mojom.ContentSettingsManager_AllowStorageAccess_Params', [
       mojo.internal.StructField('arg_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_storage_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.content_settings.mojom.StorageTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_storage_type', 8, 0, mojo.internal.bindings.content_settings.mojom.StorageTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_origin', 16, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_site_for_cookies', 24, 0, mojo.internal.bindings.network.mojom.SiteForCookiesSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_top_frame_origin', 32, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),

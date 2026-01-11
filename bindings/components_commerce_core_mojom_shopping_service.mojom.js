@@ -177,21 +177,21 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.shopping_service.mojom.ProductSpecificationsDescriptionTextSpec, 'shopping_service.mojom.ProductSpecificationsDescriptionText', [
       mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_urls', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.shopping_service.mojom.UrlInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_urls', 8, 0, mojo.internal.Array(mojo.internal.bindings.shopping_service.mojom.UrlInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ProductSpecificationsOption
 mojo.internal.Struct(
     mojo.internal.bindings.shopping_service.mojom.ProductSpecificationsOptionSpec, 'shopping_service.mojom.ProductSpecificationsOption', [
-      mojo.internal.StructField('arg_descriptions', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.shopping_service.mojom.ProductSpecificationsDescriptionTextSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_descriptions', 0, 0, mojo.internal.Array(mojo.internal.bindings.shopping_service.mojom.ProductSpecificationsDescriptionTextSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: ProductSpecificationsDescription
 mojo.internal.Struct(
     mojo.internal.bindings.shopping_service.mojom.ProductSpecificationsDescriptionSpec, 'shopping_service.mojom.ProductSpecificationsDescription', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.shopping_service.mojom.ProductSpecificationsOptionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.Array(mojo.internal.bindings.shopping_service.mojom.ProductSpecificationsOptionSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_alt_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
@@ -200,8 +200,8 @@ mojo.internal.Struct(
 // Struct: ProductSpecificationsValue
 mojo.internal.Struct(
     mojo.internal.bindings.shopping_service.mojom.ProductSpecificationsValueSpec, 'shopping_service.mojom.ProductSpecificationsValue', [
-      mojo.internal.StructField('arg_specification_descriptions', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.shopping_service.mojom.ProductSpecificationsDescriptionSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_summary', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.shopping_service.mojom.ProductSpecificationsDescriptionTextSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_specification_descriptions', 0, 0, mojo.internal.Array(mojo.internal.bindings.shopping_service.mojom.ProductSpecificationsDescriptionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_summary', 8, 0, mojo.internal.Array(mojo.internal.bindings.shopping_service.mojom.ProductSpecificationsDescriptionTextSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -211,8 +211,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_product_cluster_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_image_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_product_dimension_values', 24, 0, mojo.internal.Map(mojo.internal.Uint64, mojo.internal.bindings.mojo.internal.bindings.shopping_service.mojom.ProductSpecificationsValueSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_summary', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.shopping_service.mojom.ProductSpecificationsDescriptionTextSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_product_dimension_values', 24, 0, mojo.internal.Map(mojo.internal.Uint64, mojo.internal.bindings.shopping_service.mojom.ProductSpecificationsValueSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_summary', 32, 0, mojo.internal.Array(mojo.internal.bindings.shopping_service.mojom.ProductSpecificationsDescriptionTextSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_buying_options_url', 40, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 56]]);
@@ -234,7 +234,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.shopping_service.mojom.ProductSpecificationsSpec, 'shopping_service.mojom.ProductSpecifications', [
       mojo.internal.StructField('arg_product_dimension_map', 0, 0, mojo.internal.Map(mojo.internal.Uint64, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_products', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.shopping_service.mojom.ProductSpecificationsProductSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_products', 8, 0, mojo.internal.Array(mojo.internal.bindings.shopping_service.mojom.ProductSpecificationsProductSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -433,7 +433,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForCurrentUrl_ResponseParamsSpec, 'shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForCurrentUrl_ResponseParams', [
-      mojo.internal.StructField('arg_priceInsightsInfo', 0, 0, mojo.internal.bindings.mojo.internal.bindings.shopping_service.mojom.PriceInsightsInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_priceInsightsInfo', 0, 0, mojo.internal.bindings.shopping_service.mojom.PriceInsightsInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -446,7 +446,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForUrl_ResponseParamsSpec, 'shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForUrl_ResponseParams', [
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_priceInsightsInfo', 8, 0, mojo.internal.bindings.mojo.internal.bindings.shopping_service.mojom.PriceInsightsInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_priceInsightsInfo', 8, 0, mojo.internal.bindings.shopping_service.mojom.PriceInsightsInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -458,7 +458,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsForUrls_ResponseParamsSpec, 'shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsForUrls_ResponseParams', [
-      mojo.internal.StructField('arg_productSpecs', 0, 0, mojo.internal.bindings.mojo.internal.bindings.shopping_service.mojom.ProductSpecificationsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_productSpecs', 0, 0, mojo.internal.bindings.shopping_service.mojom.ProductSpecificationsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -469,7 +469,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForProductTabs_ResponseParamsSpec, 'shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForProductTabs_ResponseParams', [
-      mojo.internal.StructField('arg_url_infos', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.shopping_service.mojom.UrlInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_url_infos', 0, 0, mojo.internal.Array(mojo.internal.bindings.shopping_service.mojom.UrlInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -480,7 +480,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForRecentlyViewedTabs_ResponseParamsSpec, 'shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForRecentlyViewedTabs_ResponseParams', [
-      mojo.internal.StructField('arg_url_infos', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.shopping_service.mojom.UrlInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_url_infos', 0, 0, mojo.internal.Array(mojo.internal.bindings.shopping_service.mojom.UrlInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -588,7 +588,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_SetProductSpecificationsUserFeedback_ParamsSpec, 'shopping_service.mojom.ShoppingServiceHandler_SetProductSpecificationsUserFeedback_Params', [
-      mojo.internal.StructField('arg_feedback', 0, 0, mojo.internal.bindings.mojo.internal.bindings.shopping_service.mojom.UserFeedbackSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_feedback', 0, 0, mojo.internal.bindings.shopping_service.mojom.UserFeedbackSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -599,7 +599,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsFeatureState_ResponseParamsSpec, 'shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsFeatureState_ResponseParams', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.shopping_service.mojom.ProductSpecificationsFeatureStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.shopping_service.mojom.ProductSpecificationsFeatureStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

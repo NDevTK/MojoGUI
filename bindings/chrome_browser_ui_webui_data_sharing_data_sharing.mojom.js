@@ -133,7 +133,7 @@ mojo.internal.bindings.data_sharing.mojom.GroupActionProgress = {
 // Struct: ReadGroupsParams
 mojo.internal.Struct(
     mojo.internal.bindings.data_sharing.mojom.ReadGroupsParamsSpec, 'data_sharing.mojom.ReadGroupsParams', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.data_sharing.mojom.ReadGroupParamsSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.Array(mojo.internal.bindings.data_sharing.mojom.ReadGroupParamsSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -181,7 +181,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.data_sharing.mojom.GroupPreviewSpec, 'data_sharing.mojom.GroupPreview', [
       mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shared_tabs', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.data_sharing.mojom.SharedTabSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_shared_tabs', 8, 0, mojo.internal.Array(mojo.internal.bindings.data_sharing.mojom.SharedTabSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_status_code', 16, 0, mojo.internal.bindings.mojo_base.mojom.AbslStatusCodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -391,7 +391,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec, 'data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParams', [
-      mojo.internal.StructField('arg_group_preview', 0, 0, mojo.internal.bindings.mojo.internal.bindings.data_sharing.mojom.GroupPreviewSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_group_preview', 0, 0, mojo.internal.bindings.data_sharing.mojom.GroupPreviewSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -415,8 +415,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.data_sharing.mojom.PageHandler_OnGroupAction_ParamsSpec, 'data_sharing.mojom.PageHandler_OnGroupAction_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.mojo.internal.bindings.data_sharing.mojom.GroupActionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_progress', 8, 0, mojo.internal.bindings.mojo.internal.bindings.data_sharing.mojom.GroupActionProgressSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.data_sharing.mojom.GroupActionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_progress', 8, 0, mojo.internal.bindings.data_sharing.mojom.GroupActionProgressSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -885,25 +885,25 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.data_sharing.mojom.Page_ReadGroups_ParamsSpec, 'data_sharing.mojom.Page_ReadGroups_Params', [
-      mojo.internal.StructField('arg_read_groups_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.data_sharing.mojom.ReadGroupsParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_read_groups_params', 0, 0, mojo.internal.bindings.data_sharing.mojom.ReadGroupsParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.data_sharing.mojom.Page_ReadGroups_ResponseParamsSpec, 'data_sharing.mojom.Page_ReadGroups_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.data_sharing.mojom.ReadGroupsResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.data_sharing.mojom.ReadGroupsResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.data_sharing.mojom.Page_ReadGroupWithToken_ParamsSpec, 'data_sharing.mojom.Page_ReadGroupWithToken_Params', [
-      mojo.internal.StructField('arg_param', 0, 0, mojo.internal.bindings.mojo.internal.bindings.data_sharing.mojom.ReadGroupWithTokenParamSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_param', 0, 0, mojo.internal.bindings.data_sharing.mojom.ReadGroupWithTokenParamSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.data_sharing.mojom.Page_ReadGroupWithToken_ResponseParamsSpec, 'data_sharing.mojom.Page_ReadGroupWithToken_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.data_sharing.mojom.ReadGroupWithTokenResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.data_sharing.mojom.ReadGroupWithTokenResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

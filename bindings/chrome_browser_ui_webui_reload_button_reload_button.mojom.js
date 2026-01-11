@@ -246,7 +246,7 @@ mojo.internal.bindings.reload_button.mojom.PageHandlerFactoryRequest = mojo.inte
 // Interface: PageHandler
 mojo.internal.Struct(
     mojo.internal.bindings.reload_button.mojom.PageHandler_Reload_ParamsSpec, 'reload_button.mojom.PageHandler_Reload_Params', [
-      mojo.internal.StructField('arg_flags', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.reload_button.mojom.ClickDispositionFlagSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_flags', 0, 0, mojo.internal.Array(mojo.internal.bindings.reload_button.mojom.ClickDispositionFlagSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_ignore_cache', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);

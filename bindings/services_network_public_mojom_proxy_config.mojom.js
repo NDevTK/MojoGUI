@@ -120,13 +120,13 @@ mojo.internal.Struct(
 // Struct: ProxyRules
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ProxyRulesSpec, 'network.mojom.ProxyRules', [
-      mojo.internal.StructField('arg_bypass_rules', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ProxyHostMatchingRulesSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ProxyRulesTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_single_proxies', 16, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ProxyListSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_proxies_for_http', 24, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ProxyListSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_proxies_for_https', 32, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ProxyListSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_proxies_for_ftp', 40, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ProxyListSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fallback_proxies', 48, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ProxyListSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bypass_rules', 0, 0, mojo.internal.bindings.network.mojom.ProxyHostMatchingRulesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.network.mojom.ProxyRulesTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_single_proxies', 16, 0, mojo.internal.bindings.network.mojom.ProxyListSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_proxies_for_http', 24, 0, mojo.internal.bindings.network.mojom.ProxyListSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_proxies_for_https', 32, 0, mojo.internal.bindings.network.mojom.ProxyListSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_proxies_for_ftp', 40, 0, mojo.internal.bindings.network.mojom.ProxyListSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fallback_proxies', 48, 0, mojo.internal.bindings.network.mojom.ProxyListSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_reverse_bypass', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 72]]);
@@ -135,26 +135,26 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.DnsProbeConditionSpec, 'network.mojom.DnsProbeCondition', [
       mojo.internal.StructField('arg_host', 0, 0, mojo.internal.bindings.url.mojom.SchemeHostPortSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ProxyOverrideRuleResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.network.mojom.ProxyOverrideRuleResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ProxyOverrideRule
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ProxyOverrideRuleSpec, 'network.mojom.ProxyOverrideRule', [
-      mojo.internal.StructField('arg_destination_matchers', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ProxyHostMatchingRulesSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_exclude_destination_matchers', 8, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ProxyHostMatchingRulesSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dns_conditions', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.network.mojom.DnsProbeConditionSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_proxy_list', 24, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ProxyListSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_destination_matchers', 0, 0, mojo.internal.bindings.network.mojom.ProxyHostMatchingRulesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_exclude_destination_matchers', 8, 0, mojo.internal.bindings.network.mojom.ProxyHostMatchingRulesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dns_conditions', 16, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.DnsProbeConditionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_proxy_list', 24, 0, mojo.internal.bindings.network.mojom.ProxyListSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: ProxyConfig
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ProxyConfigSpec, 'network.mojom.ProxyConfig', [
-      mojo.internal.StructField('arg_proxy_override_rules', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.network.mojom.ProxyOverrideRuleSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_proxy_override_rules', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ProxyOverrideRuleSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_pac_url', 8, 0, mojo.internal.bindings.mojo_base.mojom.BigStringSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_proxy_rules', 16, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ProxyRulesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_proxy_rules', 16, 0, mojo.internal.bindings.network.mojom.ProxyRulesSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_auto_detect', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_from_system', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_pac_mandatory', 24, 2, mojo.internal.Bool, false, false, 0, undefined),

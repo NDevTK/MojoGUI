@@ -85,7 +85,7 @@ mojo.internal.bindings.blink.mojom.EmulatedScreenType = {
 // Struct: DeviceEmulationParams
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DeviceEmulationParamsSpec, 'blink.mojom.DeviceEmulationParams', [
-      mojo.internal.StructField('arg_screen_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.EmulatedScreenTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_screen_type', 0, 0, mojo.internal.bindings.blink.mojom.EmulatedScreenTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_screen_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_view_position', 16, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_view_size', 24, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),

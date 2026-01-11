@@ -198,7 +198,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnFastInitiationNotificationStateChanged_ParamsSpec, 'nearby_share.mojom.NearbyShareSettingsObserver_OnFastInitiationNotificationStateChanged_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.nearby_share.mojom.FastInitiationNotificationStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.nearby_share.mojom.FastInitiationNotificationStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -216,13 +216,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnDataUsageChanged_ParamsSpec, 'nearby_share.mojom.NearbyShareSettingsObserver_OnDataUsageChanged_Params', [
-      mojo.internal.StructField('arg_data_usage', 0, 0, mojo.internal.bindings.mojo.internal.bindings.nearby_share.mojom.DataUsageSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data_usage', 0, 0, mojo.internal.bindings.nearby_share.mojom.DataUsageSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsObserver_OnVisibilityChanged_ParamsSpec, 'nearby_share.mojom.NearbyShareSettingsObserver_OnVisibilityChanged_Params', [
-      mojo.internal.StructField('arg_visibility', 0, 0, mojo.internal.bindings.mojo.internal.bindings.nearby_share.mojom.VisibilitySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visibility', 0, 0, mojo.internal.bindings.nearby_share.mojom.VisibilitySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -654,13 +654,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_ResponseParamsSpec, 'nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_ResponseParams', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.nearby_share.mojom.FastInitiationNotificationStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.nearby_share.mojom.FastInitiationNotificationStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetFastInitiationNotificationState_ParamsSpec, 'nearby_share.mojom.NearbyShareSettings_SetFastInitiationNotificationState_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.nearby_share.mojom.FastInitiationNotificationStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.nearby_share.mojom.FastInitiationNotificationStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -694,7 +694,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ResponseParamsSpec, 'nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.nearby_share.mojom.DeviceNameValidationResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.nearby_share.mojom.DeviceNameValidationResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -706,7 +706,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetDeviceName_ResponseParamsSpec, 'nearby_share.mojom.NearbyShareSettings_SetDeviceName_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.nearby_share.mojom.DeviceNameValidationResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.nearby_share.mojom.DeviceNameValidationResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -717,13 +717,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetDataUsage_ResponseParamsSpec, 'nearby_share.mojom.NearbyShareSettings_GetDataUsage_ResponseParams', [
-      mojo.internal.StructField('arg_data_usage', 0, 0, mojo.internal.bindings.mojo.internal.bindings.nearby_share.mojom.DataUsageSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data_usage', 0, 0, mojo.internal.bindings.nearby_share.mojom.DataUsageSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetDataUsage_ParamsSpec, 'nearby_share.mojom.NearbyShareSettings_SetDataUsage_Params', [
-      mojo.internal.StructField('arg_data_usage', 0, 0, mojo.internal.bindings.mojo.internal.bindings.nearby_share.mojom.DataUsageSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data_usage', 0, 0, mojo.internal.bindings.nearby_share.mojom.DataUsageSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -734,13 +734,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_GetVisibility_ResponseParamsSpec, 'nearby_share.mojom.NearbyShareSettings_GetVisibility_ResponseParams', [
-      mojo.internal.StructField('arg_visibility', 0, 0, mojo.internal.bindings.mojo.internal.bindings.nearby_share.mojom.VisibilitySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visibility', 0, 0, mojo.internal.bindings.nearby_share.mojom.VisibilitySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.NearbyShareSettings_SetVisibility_ParamsSpec, 'nearby_share.mojom.NearbyShareSettings_SetVisibility_Params', [
-      mojo.internal.StructField('arg_visibility', 0, 0, mojo.internal.bindings.mojo.internal.bindings.nearby_share.mojom.VisibilitySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visibility', 0, 0, mojo.internal.bindings.nearby_share.mojom.VisibilitySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1501,7 +1501,7 @@ mojo.internal.bindings.nearby_share.mojom.NearbyShareSettingsRequest = mojo.inte
 mojo.internal.Struct(
     mojo.internal.bindings.nearby_share.mojom.DownloadContactsObserver_OnContactsDownloaded_ParamsSpec, 'nearby_share.mojom.DownloadContactsObserver_OnContactsDownloaded_Params', [
       mojo.internal.StructField('arg_allowed_contacts', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_contacts', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.nearby_share.mojom.ContactRecordSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_contacts', 8, 0, mojo.internal.Array(mojo.internal.bindings.nearby_share.mojom.ContactRecordSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_num_unreachable_contacts_filtered_out', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);

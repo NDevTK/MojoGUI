@@ -85,17 +85,17 @@ mojo.internal.Union(
     mojo.internal.bindings.mojo.pipe_control.RunOrClosePipeInputSpec, 'mojo.pipe_control.RunOrClosePipeInput', {
       'arg_peer_associated_endpoint_closed_event': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.mojo.pipe_control.PeerAssociatedEndpointClosedEventSpec.$,
+        'type': mojo.internal.bindings.mojo.pipe_control.PeerAssociatedEndpointClosedEventSpec.$,
         'nullable': false,
       },
       'arg_pause_until_flush_completes': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.mojo.pipe_control.PauseUntilFlushCompletesSpec.$,
+        'type': mojo.internal.bindings.mojo.pipe_control.PauseUntilFlushCompletesSpec.$,
         'nullable': false,
       },
       'arg_flush_async': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.mojo.pipe_control.FlushAsyncSpec.$,
+        'type': mojo.internal.bindings.mojo.pipe_control.FlushAsyncSpec.$,
         'nullable': false,
       },
     });
@@ -118,7 +118,7 @@ mojo.internal.Struct(
 // Struct: PeerAssociatedEndpointClosedEvent
 mojo.internal.Struct(
     mojo.internal.bindings.mojo.pipe_control.PeerAssociatedEndpointClosedEventSpec, 'mojo.pipe_control.PeerAssociatedEndpointClosedEvent', [
-      mojo.internal.StructField('arg_disconnect_reason', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mojo.pipe_control.DisconnectReasonSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_disconnect_reason', 0, 0, mojo.internal.bindings.mojo.pipe_control.DisconnectReasonSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

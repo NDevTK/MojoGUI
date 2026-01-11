@@ -127,12 +127,12 @@ mojo.internal.Union(
     mojo.internal.bindings.arc.mojom.BitrateSpec, 'arc.mojom.Bitrate', {
       'arg_constant': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ConstantBitrateSpec.$,
+        'type': mojo.internal.bindings.arc.mojom.ConstantBitrateSpec.$,
         'nullable': false,
       },
       'arg_variable': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.arc.mojom.VariableBitrateSpec.$,
+        'type': mojo.internal.bindings.arc.mojom.VariableBitrateSpec.$,
         'nullable': false,
       },
     });
@@ -173,7 +173,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_has_initial_framerate_deprecated', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_h264_output_level', 33, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('arg_has_h264_output_level', 34, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_storage_type', 40, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.VideoFrameStorageTypeSpec.$, null, false, 1, undefined),
+      mojo.internal.StructField('arg_storage_type', 40, 0, mojo.internal.bindings.arc.mojom.VideoFrameStorageTypeSpec.$, null, false, 1, undefined),
       mojo.internal.StructField('arg_bitrate', 48, 0, mojo.internal.bindings.arc.mojom.BitrateSpec.$, null, true, 5, undefined),
     ],
     [[0, 48], [1, 56], [5, 64]]);
@@ -186,20 +186,20 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ResponseParamsSpec, 'arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ResponseParams', [
-      mojo.internal.StructField('arg_profiles', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.arc.mojom.VideoEncodeProfileSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_profiles', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.VideoEncodeProfileSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec, 'arc.mojom.VideoEncodeAccelerator_Initialize_Params', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorConfigSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.VideoEncodeClientSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_Initialize_ResponseParamsSpec, 'arc.mojom.VideoEncodeAccelerator_Initialize_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.ResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

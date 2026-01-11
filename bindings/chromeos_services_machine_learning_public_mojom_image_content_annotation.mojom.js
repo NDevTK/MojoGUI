@@ -130,7 +130,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ResponseParamsSpec, 'chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotationResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotationResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -142,7 +142,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ResponseParamsSpec, 'chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotationResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotationResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -157,10 +157,10 @@ mojo.internal.bindings.ash.scanning.mojom.ScanResult = {
 // Struct: ScanSource
 mojo.internal.Struct(
     mojo.internal.bindings.ash.scanning.mojom.ScanSourceSpec, 'ash.scanning.mojom.ScanSource', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.SourceTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.scanning.mojom.SourceTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_page_sizes', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.PageSizeSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_color_modes', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.ColorModeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_sizes', 16, 0, mojo.internal.Array(mojo.internal.bindings.ash.scanning.mojom.PageSizeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_color_modes', 24, 0, mojo.internal.Array(mojo.internal.bindings.ash.scanning.mojom.ColorModeSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_resolutions', 32, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
     ],
     [[0, 48]]);
@@ -168,7 +168,7 @@ mojo.internal.Struct(
 // Struct: ScannerCapabilities
 mojo.internal.Struct(
     mojo.internal.bindings.ash.scanning.mojom.ScannerCapabilitiesSpec, 'ash.scanning.mojom.ScannerCapabilities', [
-      mojo.internal.StructField('arg_sources', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.ScanSourceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_sources', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.scanning.mojom.ScanSourceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -177,9 +177,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.scanning.mojom.ScanSettingsSpec, 'ash.scanning.mojom.ScanSettings', [
       mojo.internal.StructField('arg_source_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_scan_to_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_type', 16, 0, mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.FileTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_color_mode', 24, 0, mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.ColorModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_page_size', 32, 0, mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.PageSizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_type', 16, 0, mojo.internal.bindings.ash.scanning.mojom.FileTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_color_mode', 24, 0, mojo.internal.bindings.ash.scanning.mojom.ColorModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_size', 32, 0, mojo.internal.bindings.ash.scanning.mojom.PageSizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_resolution_dpi', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 56]]);
@@ -209,7 +209,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec, 'ash.scanning.mojom.ScanJobObserver_OnScanComplete_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.ScanResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.scanning.mojom.ScanResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_scanned_file_paths', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -222,7 +222,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec, 'ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.ScanResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.scanning.mojom.ScanResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -506,7 +506,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec, 'ash.scanning.mojom.ScanService_GetScanners_ResponseParams', [
-      mojo.internal.StructField('arg_scanners', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.ScannerSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_scanners', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.scanning.mojom.ScannerSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -518,14 +518,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec, 'ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParams', [
-      mojo.internal.StructField('arg_capabilities', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.ScannerCapabilitiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_capabilities', 0, 0, mojo.internal.bindings.ash.scanning.mojom.ScannerCapabilitiesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ParamsSpec, 'ash.scanning.mojom.ScanService_StartScan_Params', [
       mojo.internal.StructField('arg_scanner_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.ScanSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.ash.scanning.mojom.ScanSettingsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -539,7 +539,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec, 'ash.scanning.mojom.ScanService_StartMultiPageScan_Params', [
       mojo.internal.StructField('arg_scanner_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.ScanSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.ash.scanning.mojom.ScanSettingsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -863,7 +863,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanServiceRequest = mojo.internal.bin
 mojo.internal.Struct(
     mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec, 'ash.scanning.mojom.MultiPageScanController_ScanNextPage_Params', [
       mojo.internal.StructField('arg_scanner_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.ScanSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.ash.scanning.mojom.ScanSettingsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -882,7 +882,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec, 'ash.scanning.mojom.MultiPageScanController_RescanPage_Params', [
       mojo.internal.StructField('arg_scanner_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.ScanSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.ash.scanning.mojom.ScanSettingsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_page_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);

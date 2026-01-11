@@ -120,7 +120,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_display_transform_hint', 96, 0, mojo.internal.bindings.gfx.mojom.OverlayTransformSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_browser_controls_params', 104, 0, mojo.internal.bindings.cc.mojom.BrowserControlsParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_browser_controls_offset_tag_modifications', 112, 0, mojo.internal.bindings.cc.mojom.BrowserControlsOffsetTagModificationsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ui_resource_requests', 120, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.viz.mojom.TransferableUIResourceRequestSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_ui_resource_requests', 120, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.TransferableUIResourceRequestSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_layers', 128, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.LayerSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_layer_order', 136, 0, mojo.internal.Array(mojo.internal.Int32, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_transform_tree_update', 144, 0, mojo.internal.bindings.viz.mojom.TransformTreeUpdateSpec.$, null, true, 0, undefined),
@@ -182,7 +182,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec, 'viz.mojom.LayerContext_UpdateDisplayTree_Params', [
-      mojo.internal.StructField('arg_update', 0, 0, mojo.internal.bindings.mojo.internal.bindings.viz.mojom.LayerTreeUpdateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_update', 0, 0, mojo.internal.bindings.viz.mojom.LayerTreeUpdateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

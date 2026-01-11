@@ -173,7 +173,7 @@ mojo.internal.bindings.remote_cocoa.mojom.ToolbarVisibilityStyle = {
 // Struct: CreateWindowParams
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.CreateWindowParamsSpec, 'remote_cocoa.mojom.CreateWindowParams', [
-      mojo.internal.StructField('arg_window_class', 0, 0, mojo.internal.bindings.mojo.internal.bindings.remote_cocoa.mojom.WindowClassSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_window_class', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.WindowClassSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_style_mask', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_titlebar_appears_transparent', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_window_title_hidden', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -196,7 +196,7 @@ mojo.internal.Struct(
 // Interface: NativeWidgetNSWindow
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_CreateWindow_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_CreateWindow_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.remote_cocoa.mojom.CreateWindowParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.CreateWindowParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -236,7 +236,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_InitWindow_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_InitWindow_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowInitParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowInitParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -306,7 +306,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetVisibilityState_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_SetVisibilityState_Params', [
-      mojo.internal.StructField('arg_new_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.remote_cocoa.mojom.WindowVisibilityStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_state', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.WindowVisibilityStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -318,7 +318,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_SetTransitionsToAnimate_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_SetTransitionsToAnimate_Params', [
-      mojo.internal.StructField('arg_transitions', 0, 0, mojo.internal.bindings.mojo.internal.bindings.remote_cocoa.mojom.VisibilityTransitionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_transitions', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.VisibilityTransitionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -472,7 +472,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindow_UpdateToolbarVisibility_ParamsSpec, 'remote_cocoa.mojom.NativeWidgetNSWindow_UpdateToolbarVisibility_Params', [
-      mojo.internal.StructField('arg_style', 0, 0, mojo.internal.bindings.mojo.internal.bindings.remote_cocoa.mojom.ToolbarVisibilityStyleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_style', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.ToolbarVisibilityStyleSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -89,7 +89,7 @@ mojo.internal.Struct(
 // Struct: APIPermissionSet
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.APIPermissionSetSpec, 'extensions.mojom.APIPermissionSet', [
-      mojo.internal.StructField('arg_permission_map', 0, 0, mojo.internal.Map(mojo.internal.bindings.extensions.mojom.APIPermissionIDSpec.$, mojo.internal.bindings.mojo.internal.bindings.extensions.mojom.APIPermissionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_permission_map', 0, 0, mojo.internal.Map(mojo.internal.bindings.extensions.mojom.APIPermissionIDSpec.$, mojo.internal.bindings.extensions.mojom.APIPermissionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -104,15 +104,15 @@ mojo.internal.Struct(
 // Struct: ManifestPermissionSet
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.ManifestPermissionSetSpec, 'extensions.mojom.ManifestPermissionSet', [
-      mojo.internal.StructField('arg_permission_map', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.mojo.internal.bindings.extensions.mojom.ManifestPermissionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_permission_map', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.extensions.mojom.ManifestPermissionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: PermissionSet
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.PermissionSetSpec, 'extensions.mojom.PermissionSet', [
-      mojo.internal.StructField('arg_apis', 0, 0, mojo.internal.bindings.mojo.internal.bindings.extensions.mojom.APIPermissionSetSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_manifest_permissions', 8, 0, mojo.internal.bindings.mojo.internal.bindings.extensions.mojom.ManifestPermissionSetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_apis', 0, 0, mojo.internal.bindings.extensions.mojom.APIPermissionSetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_manifest_permissions', 8, 0, mojo.internal.bindings.extensions.mojom.ManifestPermissionSetSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_hosts', 16, 0, mojo.internal.bindings.extensions.mojom.URLPatternSetSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_user_script_hosts', 24, 0, mojo.internal.bindings.extensions.mojom.URLPatternSetSpec.$, null, false, 0, undefined),
     ],

@@ -107,9 +107,9 @@ mojo.internal.bindings.on_device_internals.mojom.Page_OnDownloadProgressUpdate_P
 // Struct: PageData
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_internals.mojom.PageDataSpec, 'on_device_internals.mojom.PageData', [
-      mojo.internal.StructField('arg_base_model', 0, 0, mojo.internal.bindings.mojo.internal.bindings.on_device_internals.mojom.BaseModelStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_supp_models', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.on_device_internals.mojom.SupplementaryModelInfoSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_feature_adaptations', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.on_device_internals.mojom.FeatureAdaptationInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_base_model', 0, 0, mojo.internal.bindings.on_device_internals.mojom.BaseModelStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_supp_models', 8, 0, mojo.internal.Array(mojo.internal.bindings.on_device_internals.mojom.SupplementaryModelInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_feature_adaptations', 16, 0, mojo.internal.Array(mojo.internal.bindings.on_device_internals.mojom.FeatureAdaptationInfoSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_performance_info', 24, 0, mojo.internal.bindings.on_device_model.mojom.DevicePerformanceInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_min_vram_mb', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_model_crash_count', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -122,7 +122,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.on_device_internals.mojom.BaseModelStateSpec, 'on_device_internals.mojom.BaseModelState', [
       mojo.internal.StructField('arg_state', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_registration_criteria', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_info', 16, 0, mojo.internal.bindings.mojo.internal.bindings.on_device_internals.mojom.BaseModelInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_info', 16, 0, mojo.internal.bindings.on_device_internals.mojom.BaseModelInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -372,7 +372,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec, 'on_device_internals.mojom.PageHandler_GetPageData_ResponseParams', [
-      mojo.internal.StructField('arg_page_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.on_device_internals.mojom.PageDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_data', 0, 0, mojo.internal.bindings.on_device_internals.mojom.PageDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

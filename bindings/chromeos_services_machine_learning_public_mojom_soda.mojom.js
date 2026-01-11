@@ -152,32 +152,32 @@ mojo.internal.Union(
     mojo.internal.bindings.chromeos.machine_learning.mojom.SpeechRecognizerEventSpec, 'chromeos.machine_learning.mojom.SpeechRecognizerEvent', {
       'arg_audio_event': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.AudioLevelEventSpec.$,
+        'type': mojo.internal.bindings.chromeos.machine_learning.mojom.AudioLevelEventSpec.$,
         'nullable': false,
       },
       'arg_partial_result': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.PartialResultSpec.$,
+        'type': mojo.internal.bindings.chromeos.machine_learning.mojom.PartialResultSpec.$,
         'nullable': false,
       },
       'arg_endpointer_event': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.EndpointerEventSpec.$,
+        'type': mojo.internal.bindings.chromeos.machine_learning.mojom.EndpointerEventSpec.$,
         'nullable': false,
       },
       'arg_final_result': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.FinalResultSpec.$,
+        'type': mojo.internal.bindings.chromeos.machine_learning.mojom.FinalResultSpec.$,
         'nullable': false,
       },
       'arg_langid_event': {
         'ordinal': 4,
-        'type': mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.LangIdEventSpec.$,
+        'type': mojo.internal.bindings.chromeos.machine_learning.mojom.LangIdEventSpec.$,
         'nullable': false,
       },
       'arg_label_correction_event': {
         'ordinal': 5,
-        'type': mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.LabelCorrectionEventSpec.$,
+        'type': mojo.internal.bindings.chromeos.machine_learning.mojom.LabelCorrectionEventSpec.$,
         'nullable': false,
       },
     });
@@ -198,12 +198,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_language_dlc_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_channel_count', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_sample_rate', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_formatting', 32, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.OptionalBoolSpec.$, 0, false, 2, undefined),
-      mojo.internal.StructField('arg_recognition_mode', 40, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognitionModeSpec.$, 0, false, 3, undefined),
+      mojo.internal.StructField('arg_enable_formatting', 32, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.OptionalBoolSpec.$, 0, false, 2, undefined),
+      mojo.internal.StructField('arg_recognition_mode', 40, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognitionModeSpec.$, 0, false, 3, undefined),
       mojo.internal.StructField('arg_mask_offensive_words', 48, 0, mojo.internal.Bool, false, false, 4, undefined),
       mojo.internal.StructField('arg_speaker_change_detection', 48, 1, mojo.internal.Bool, false, false, 5, undefined),
       mojo.internal.StructField('arg_include_logging_output', 48, 2, mojo.internal.Bool, false, false, 6, undefined),
-      mojo.internal.StructField('arg_multi_lang_config', 56, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.SodaMultilangConfigSpec.$, null, true, 7, undefined),
+      mojo.internal.StructField('arg_multi_lang_config', 56, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.SodaMultilangConfigSpec.$, null, true, 7, undefined),
       mojo.internal.StructField('arg_kSpeakerDiarizationModeOffDefault', 64, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.SpeakerDiarizationMode speaker_diarization_mode =Spec.$, 0, false, 9, undefined),
       mojo.internal.StructField('arg_max_speaker_count', 72, 0, mojo.internal.Uint32, 2, false, 9, undefined),
     ],
@@ -225,8 +225,8 @@ mojo.internal.Struct(
 // Struct: EndpointerEvent
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.EndpointerEventSpec, 'chromeos.machine_learning.mojom.EndpointerEvent', [
-      mojo.internal.StructField('arg_endpointer_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.EndpointerTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_timing_event', 8, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.TimingInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_endpointer_type', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.EndpointerTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timing_event', 8, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.TimingInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -246,8 +246,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.PartialResultSpec, 'chromeos.machine_learning.mojom.PartialResult', [
       mojo.internal.StructField('arg_partial_text', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_timing_event', 8, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.TimingInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_hypothesis_part', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.HypothesisPartInResultSpec.$, false), null, true, 9, undefined),
+      mojo.internal.StructField('arg_timing_event', 8, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.TimingInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_hypothesis_part', 16, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.HypothesisPartInResultSpec.$, false), null, true, 9, undefined),
     ],
     [[0, 24], [9, 32]]);
 
@@ -255,9 +255,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.FinalResultSpec, 'chromeos.machine_learning.mojom.FinalResult', [
       mojo.internal.StructField('arg_final_hypotheses', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_endpoint_reason', 8, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.EndpointReasonSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_timing_event', 16, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.TimingInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_hypothesis_part', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.HypothesisPartInResultSpec.$, false), null, true, 1, undefined),
+      mojo.internal.StructField('arg_endpoint_reason', 8, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.EndpointReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timing_event', 16, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.TimingInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_hypothesis_part', 24, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.HypothesisPartInResultSpec.$, false), null, true, 1, undefined),
     ],
     [[0, 32], [1, 40]]);
 
@@ -273,7 +273,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.LangIdEventSpec, 'chromeos.machine_learning.mojom.LangIdEvent', [
       mojo.internal.StructField('arg_language', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_asr_switch_result', 8, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.AsrSwitchResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_asr_switch_result', 8, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.AsrSwitchResultSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_confidence_level', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -281,7 +281,7 @@ mojo.internal.Struct(
 // Struct: LabelCorrectionEvent
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.LabelCorrectionEventSpec, 'chromeos.machine_learning.mojom.LabelCorrectionEvent', [
-      mojo.internal.StructField('arg_hypothesis_parts', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.HypothesisPartInResultSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_hypothesis_parts', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.HypothesisPartInResultSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

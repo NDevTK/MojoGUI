@@ -284,7 +284,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParams', [
-      mojo.internal.StructField('arg_colors', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.theme_color_picker.mojom.ChromeColorSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_colors', 0, 0, mojo.internal.Array(mojo.internal.bindings.theme_color_picker.mojom.ChromeColorSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -668,7 +668,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerRequest =
 // Interface: ThemeColorPickerClient
 mojo.internal.Struct(
     mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_Params', [
-      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.mojo.internal.bindings.theme_color_picker.mojom.ThemeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.theme_color_picker.mojom.ThemeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

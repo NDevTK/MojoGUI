@@ -147,27 +147,27 @@ mojo.internal.Union(
     mojo.internal.bindings.ash.cloud_upload.mojom.DialogSpecificArgsSpec, 'ash.cloud_upload.mojom.DialogSpecificArgs', {
       'arg_file_handler_dialog_args': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cloud_upload.mojom.FileHandlerDialogArgsSpec.$,
+        'type': mojo.internal.bindings.ash.cloud_upload.mojom.FileHandlerDialogArgsSpec.$,
         'nullable': false,
       },
       'arg_one_drive_setup_dialog_args': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cloud_upload.mojom.OneDriveSetupDialogArgsSpec.$,
+        'type': mojo.internal.bindings.ash.cloud_upload.mojom.OneDriveSetupDialogArgsSpec.$,
         'nullable': false,
       },
       'arg_move_confirmation_one_drive_dialog_args': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cloud_upload.mojom.MoveConfirmationOneDriveDialogArgsSpec.$,
+        'type': mojo.internal.bindings.ash.cloud_upload.mojom.MoveConfirmationOneDriveDialogArgsSpec.$,
         'nullable': false,
       },
       'arg_move_confirmation_google_drive_dialog_args': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cloud_upload.mojom.MoveConfirmationGoogleDriveDialogArgsSpec.$,
+        'type': mojo.internal.bindings.ash.cloud_upload.mojom.MoveConfirmationGoogleDriveDialogArgsSpec.$,
         'nullable': false,
       },
       'arg_connect_to_one_drive_dialog_args': {
         'ordinal': 4,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cloud_upload.mojom.ConnectToOneDriveDialogArgsSpec.$,
+        'type': mojo.internal.bindings.ash.cloud_upload.mojom.ConnectToOneDriveDialogArgsSpec.$,
         'nullable': false,
       },
     });
@@ -192,14 +192,14 @@ mojo.internal.Struct(
 // Struct: MoveConfirmationOneDriveDialogArgs
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cloud_upload.mojom.MoveConfirmationOneDriveDialogArgsSpec, 'ash.cloud_upload.mojom.MoveConfirmationOneDriveDialogArgs', [
-      mojo.internal.StructField('arg_operation_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.cloud_upload.mojom.OperationTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_operation_type', 0, 0, mojo.internal.bindings.ash.cloud_upload.mojom.OperationTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: MoveConfirmationGoogleDriveDialogArgs
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cloud_upload.mojom.MoveConfirmationGoogleDriveDialogArgsSpec, 'ash.cloud_upload.mojom.MoveConfirmationGoogleDriveDialogArgs', [
-      mojo.internal.StructField('arg_operation_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.cloud_upload.mojom.OperationTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_operation_type', 0, 0, mojo.internal.bindings.ash.cloud_upload.mojom.OperationTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -212,7 +212,7 @@ mojo.internal.Struct(
 // Struct: FileHandlerDialogArgs
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cloud_upload.mojom.FileHandlerDialogArgsSpec, 'ash.cloud_upload.mojom.FileHandlerDialogArgs', [
-      mojo.internal.StructField('arg_local_tasks', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.cloud_upload.mojom.DialogTaskSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_local_tasks', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.cloud_upload.mojom.DialogTaskSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_show_google_workspace_task', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_show_microsoft_office_task', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -385,7 +385,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ResponseParams', [
-      mojo.internal.StructField('arg_args', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.cloud_upload.mojom.DialogArgsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_args', 0, 0, mojo.internal.bindings.ash.cloud_upload.mojom.DialogArgsSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -435,7 +435,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_RespondWithUserActionAndClose_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_RespondWithUserActionAndClose_Params', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.cloud_upload.mojom.UserActionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cloud_upload.mojom.UserActionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -508,7 +508,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_RecordCancel_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_RecordCancel_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.cloud_upload.mojom.MetricsRecordedSetupPageSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.bindings.ash.cloud_upload.mojom.MetricsRecordedSetupPageSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -187,7 +187,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceDisconnectReason = {
 // Interface: SensorService
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec, 'chromeos.sensors.mojom.SensorService_GetDeviceIds_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.sensors.mojom.DeviceTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.chromeos.sensors.mojom.DeviceTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -204,7 +204,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec, 'chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParams', [
-      mojo.internal.StructField('arg_iio_device_ids_types', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.chromeos.sensors.mojom.DeviceTypeSpec.$, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_iio_device_ids_types', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.Array(mojo.internal.bindings.chromeos.sensors.mojom.DeviceTypeSpec.$, false), false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -934,7 +934,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec, 'chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.sensors.mojom.ObserverErrorTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.chromeos.sensors.mojom.ObserverErrorTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1117,7 +1117,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserverRequest
 // Interface: SensorServiceNewDevicesObserver
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec, 'chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_Params', [
-      mojo.internal.StructField('arg_types', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.chromeos.sensors.mojom.DeviceTypeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_types', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.sensors.mojom.DeviceTypeSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_iio_device_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

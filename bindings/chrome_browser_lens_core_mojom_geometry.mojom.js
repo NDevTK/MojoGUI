@@ -97,7 +97,7 @@ mojo.internal.Struct(
 // Struct: Geometry
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.GeometrySpec, 'lens.mojom.Geometry', [
-      mojo.internal.StructField('arg_bounding_box', 0, 0, mojo.internal.bindings.mojo.internal.bindings.lens.mojom.CenterRotatedBoxSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bounding_box', 0, 0, mojo.internal.bindings.lens.mojom.CenterRotatedBoxSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_segmentation_polygon', 8, 0, mojo.internal.Array(mojo.internal.bindings.lens.mojom.PolygonSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);

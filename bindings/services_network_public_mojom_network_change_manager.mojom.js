@@ -147,13 +147,13 @@ mojo.internal.bindings.network.mojom.IPAddressChangeType = {
 // Interface: NetworkChangeManagerClient
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec, 'network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ConnectionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.network.mojom.ConnectionTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec, 'network.mojom.NetworkChangeManagerClient_OnNetworkChanged_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ConnectionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.network.mojom.ConnectionTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -342,9 +342,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec, 'network.mojom.NetworkChangeManager_OnNetworkChanged_Params', [
-      mojo.internal.StructField('arg_ip_address_change_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.IPAddressChangeTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_new_connection_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ConnectionTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_new_connection_subtype', 16, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ConnectionSubtypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ip_address_change_type', 0, 0, mojo.internal.bindings.network.mojom.IPAddressChangeTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_connection_type', 8, 0, mojo.internal.bindings.network.mojom.ConnectionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_connection_subtype', 16, 0, mojo.internal.bindings.network.mojom.ConnectionSubtypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_dns_changed', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_connection_type_changed', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_connection_subtype_changed', 24, 2, mojo.internal.Bool, false, false, 0, undefined),

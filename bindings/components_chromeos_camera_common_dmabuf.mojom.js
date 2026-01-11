@@ -89,7 +89,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos_camera.mojom.DmaBufVideoFrameSpec, 'chromeos_camera.mojom.DmaBufVideoFrame', [
       mojo.internal.StructField('arg_format', 0, 0, mojo.internal.bindings.media.mojom.VideoPixelFormatSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_planes', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.chromeos_camera.mojom.DmaBufPlaneSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_planes', 8, 0, mojo.internal.Array(mojo.internal.bindings.chromeos_camera.mojom.DmaBufPlaneSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_coded_width', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_coded_height', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_modifier', 24, 0, mojo.internal.Uint64, 0, false, 1, undefined),

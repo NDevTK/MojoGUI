@@ -101,7 +101,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_process_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_renderer_type', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_titles', 32, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_extension_info', 40, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.chromeos.cfm.mojom.ExtensionDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_extension_info', 40, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.cfm.mojom.ExtensionDataSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_pid', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_num_processes', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_num_open_fds', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -115,7 +115,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.chromeos.cfm.mojom.ProcessDataSpec, 'chromeos.cfm.mojom.ProcessData', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_process_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_processes', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.chromeos.cfm.mojom.ProcessMemoryInformationSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_processes', 16, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.cfm.mojom.ProcessMemoryInformationSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -141,7 +141,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec, 'chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParams', [
-      mojo.internal.StructField('arg_process_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.chromeos.cfm.mojom.ProcessDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_process_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.cfm.mojom.ProcessDataSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_gpu_memory_size', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 24]]);

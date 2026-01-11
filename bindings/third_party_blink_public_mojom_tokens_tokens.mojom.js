@@ -102,12 +102,12 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.FrameTokenSpec, 'blink.mojom.FrameToken', {
       'arg_local_frame_token': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec.$,
         'nullable': false,
       },
       'arg_remote_frame_token': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.RemoteFrameTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.RemoteFrameTokenSpec.$,
         'nullable': false,
       },
     });
@@ -117,17 +117,17 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.WorkerTokenSpec, 'blink.mojom.WorkerToken', {
       'arg_dedicated_worker_token': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.DedicatedWorkerTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.DedicatedWorkerTokenSpec.$,
         'nullable': false,
       },
       'arg_service_worker_token': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ServiceWorkerTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.ServiceWorkerTokenSpec.$,
         'nullable': false,
       },
       'arg_shared_worker_token': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SharedWorkerTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.SharedWorkerTokenSpec.$,
         'nullable': false,
       },
     });
@@ -137,27 +137,27 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.WorkletTokenSpec, 'blink.mojom.WorkletToken', {
       'arg_animation_worklet_token': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AnimationWorkletTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.AnimationWorkletTokenSpec.$,
         'nullable': false,
       },
       'arg_audio_worklet_token': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AudioWorkletTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.AudioWorkletTokenSpec.$,
         'nullable': false,
       },
       'arg_layout_worklet_token': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.LayoutWorkletTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.LayoutWorkletTokenSpec.$,
         'nullable': false,
       },
       'arg_paint_worklet_token': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.PaintWorkletTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.PaintWorkletTokenSpec.$,
         'nullable': false,
       },
       'arg_shared_storage_worklet_token': {
         'ordinal': 4,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SharedStorageWorkletTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.SharedStorageWorkletTokenSpec.$,
         'nullable': false,
       },
     });
@@ -167,52 +167,52 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.ExecutionContextTokenSpec, 'blink.mojom.ExecutionContextToken', {
       'arg_local_frame_token': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec.$,
         'nullable': false,
       },
       'arg_dedicated_worker_token': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.DedicatedWorkerTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.DedicatedWorkerTokenSpec.$,
         'nullable': false,
       },
       'arg_service_worker_token': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ServiceWorkerTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.ServiceWorkerTokenSpec.$,
         'nullable': false,
       },
       'arg_shared_worker_token': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SharedWorkerTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.SharedWorkerTokenSpec.$,
         'nullable': false,
       },
       'arg_animation_worklet_token': {
         'ordinal': 4,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AnimationWorkletTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.AnimationWorkletTokenSpec.$,
         'nullable': false,
       },
       'arg_audio_worklet_token': {
         'ordinal': 5,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AudioWorkletTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.AudioWorkletTokenSpec.$,
         'nullable': false,
       },
       'arg_layout_worklet_token': {
         'ordinal': 6,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.LayoutWorkletTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.LayoutWorkletTokenSpec.$,
         'nullable': false,
       },
       'arg_paint_worklet_token': {
         'ordinal': 7,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.PaintWorkletTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.PaintWorkletTokenSpec.$,
         'nullable': false,
       },
       'arg_shared_storage_worklet_token': {
         'ordinal': 8,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SharedStorageWorkletTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.SharedStorageWorkletTokenSpec.$,
         'nullable': false,
       },
       'arg_shadow_realm_token': {
         'ordinal': 9,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ShadowRealmTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.ShadowRealmTokenSpec.$,
         'nullable': false,
       },
     });
@@ -222,22 +222,22 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.WebGPUExecutionContextTokenSpec, 'blink.mojom.WebGPUExecutionContextToken', {
       'arg_document_token': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.DocumentTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.DocumentTokenSpec.$,
         'nullable': false,
       },
       'arg_dedicated_worker_token': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.DedicatedWorkerTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.DedicatedWorkerTokenSpec.$,
         'nullable': false,
       },
       'arg_shared_worker_token': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SharedWorkerTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.SharedWorkerTokenSpec.$,
         'nullable': false,
       },
       'arg_service_worker_token': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ServiceWorkerTokenSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.ServiceWorkerTokenSpec.$,
         'nullable': false,
       },
     });

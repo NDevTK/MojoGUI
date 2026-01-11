@@ -135,17 +135,17 @@ mojo.internal.Union(
     mojo.internal.bindings.web_package.mojom.SignatureInfoSpec, 'web_package.mojom.SignatureInfo', {
       'arg_unknown': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.web_package.mojom.SignatureInfoUnknownSpec.$,
+        'type': mojo.internal.bindings.web_package.mojom.SignatureInfoUnknownSpec.$,
         'nullable': false,
       },
       'arg_ed25519': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.web_package.mojom.SignatureInfoEd25519Spec.$,
+        'type': mojo.internal.bindings.web_package.mojom.SignatureInfoEd25519Spec.$,
         'nullable': false,
       },
       'arg_ecdsa_p256_sha256': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.web_package.mojom.SignatureInfoEcdsaP256SHA256Spec.$,
+        'type': mojo.internal.bindings.web_package.mojom.SignatureInfoEcdsaP256SHA256Spec.$,
         'nullable': false,
       },
     });
@@ -153,7 +153,7 @@ mojo.internal.Union(
 // Struct: BundleIntegrityBlockParseError
 mojo.internal.Struct(
     mojo.internal.bindings.web_package.mojom.BundleIntegrityBlockParseErrorSpec, 'web_package.mojom.BundleIntegrityBlockParseError', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.web_package.mojom.BundleParseErrorTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.web_package.mojom.BundleParseErrorTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -161,7 +161,7 @@ mojo.internal.Struct(
 // Struct: BundleMetadataParseError
 mojo.internal.Struct(
     mojo.internal.bindings.web_package.mojom.BundleMetadataParseErrorSpec, 'web_package.mojom.BundleMetadataParseError', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.web_package.mojom.BundleParseErrorTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.web_package.mojom.BundleParseErrorTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -169,7 +169,7 @@ mojo.internal.Struct(
 // Struct: BundleResponseParseError
 mojo.internal.Struct(
     mojo.internal.bindings.web_package.mojom.BundleResponseParseErrorSpec, 'web_package.mojom.BundleResponseParseError', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.web_package.mojom.BundleParseErrorTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.web_package.mojom.BundleParseErrorTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -186,8 +186,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.web_package.mojom.BundleIntegrityBlockSpec, 'web_package.mojom.BundleIntegrityBlock', [
       mojo.internal.StructField('arg_size', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_signature_stack', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.web_package.mojom.BundleIntegrityBlockSignatureStackEntrySpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_attributes', 16, 0, mojo.internal.bindings.mojo.internal.bindings.web_package.mojom.BundleIntegrityBlockAttributesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_signature_stack', 8, 0, mojo.internal.Array(mojo.internal.bindings.web_package.mojom.BundleIntegrityBlockSignatureStackEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_attributes', 16, 0, mojo.internal.bindings.web_package.mojom.BundleIntegrityBlockAttributesSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -208,8 +208,8 @@ mojo.internal.Struct(
 // Struct: SignatureInfoEd25519
 mojo.internal.Struct(
     mojo.internal.bindings.web_package.mojom.SignatureInfoEd25519Spec, 'web_package.mojom.SignatureInfoEd25519', [
-      mojo.internal.StructField('arg_public_key', 0, 0, mojo.internal.bindings.mojo.internal.bindings.web_package.mojom.Ed25519PublicKeySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_signature', 8, 0, mojo.internal.bindings.mojo.internal.bindings.web_package.mojom.Ed25519SignatureSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_public_key', 0, 0, mojo.internal.bindings.web_package.mojom.Ed25519PublicKeySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_signature', 8, 0, mojo.internal.bindings.web_package.mojom.Ed25519SignatureSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -230,8 +230,8 @@ mojo.internal.Struct(
 // Struct: SignatureInfoEcdsaP256SHA256
 mojo.internal.Struct(
     mojo.internal.bindings.web_package.mojom.SignatureInfoEcdsaP256SHA256Spec, 'web_package.mojom.SignatureInfoEcdsaP256SHA256', [
-      mojo.internal.StructField('arg_public_key', 0, 0, mojo.internal.bindings.mojo.internal.bindings.web_package.mojom.EcdsaP256PublicKeySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_signature', 8, 0, mojo.internal.bindings.mojo.internal.bindings.web_package.mojom.EcdsaP256SHA256SignatureSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_public_key', 0, 0, mojo.internal.bindings.web_package.mojom.EcdsaP256PublicKeySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_signature', 8, 0, mojo.internal.bindings.web_package.mojom.EcdsaP256SHA256SignatureSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -252,9 +252,9 @@ mojo.internal.Struct(
 // Struct: BundleMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.web_package.mojom.BundleMetadataSpec, 'web_package.mojom.BundleMetadata', [
-      mojo.internal.StructField('arg_version', 0, 0, mojo.internal.bindings.mojo.internal.bindings.web_package.mojom.BundleFormatVersionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_version', 0, 0, mojo.internal.bindings.web_package.mojom.BundleFormatVersionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_primary_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_requests', 16, 0, mojo.internal.Map(mojo.internal.bindings.url.mojom.UrlSpec.$, mojo.internal.bindings.mojo.internal.bindings.web_package.mojom.BundleResponseLocationSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_requests', 16, 0, mojo.internal.Map(mojo.internal.bindings.url.mojom.UrlSpec.$, mojo.internal.bindings.web_package.mojom.BundleResponseLocationSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -476,8 +476,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec, 'web_package.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParams', [
-      mojo.internal.StructField('arg_Result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.web_package.mojom.BundleIntegrityBlockSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.mojo.internal.bindings.web_package.mojom.BundleIntegrityBlockParseErrorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_Result', 0, 0, mojo.internal.bindings.web_package.mojom.BundleIntegrityBlockSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.web_package.mojom.BundleIntegrityBlockParseErrorSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -490,8 +490,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseMetadata_ResponseParamsSpec, 'web_package.mojom.WebBundleParser_ParseMetadata_ResponseParams', [
-      mojo.internal.StructField('arg_Result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.web_package.mojom.BundleMetadataSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.mojo.internal.bindings.web_package.mojom.BundleMetadataParseErrorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_Result', 0, 0, mojo.internal.bindings.web_package.mojom.BundleMetadataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.web_package.mojom.BundleMetadataParseErrorSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -504,8 +504,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseResponse_ResponseParamsSpec, 'web_package.mojom.WebBundleParser_ParseResponse_ResponseParams', [
-      mojo.internal.StructField('arg_Result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.web_package.mojom.BundleResponseSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.mojo.internal.bindings.web_package.mojom.BundleResponseParseErrorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_Result', 0, 0, mojo.internal.bindings.web_package.mojom.BundleResponseSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.web_package.mojom.BundleResponseParseErrorSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

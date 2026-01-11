@@ -249,7 +249,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.launcher_internals.mojom.Page_UpdateResults_ParamsSpec, 'launcher_internals.mojom.Page_UpdateResults_Params', [
       mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_keywords', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_results', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.launcher_internals.mojom.ResultSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 16, 0, mojo.internal.Array(mojo.internal.bindings.launcher_internals.mojom.ResultSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

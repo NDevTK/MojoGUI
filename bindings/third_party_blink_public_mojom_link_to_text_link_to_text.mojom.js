@@ -127,8 +127,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec, 'blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParams', [
       mojo.internal.StructField('arg_selector', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.LinkGenerationErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ready_status', 16, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.LinkGenerationReadyStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.blink.mojom.LinkGenerationErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ready_status', 16, 0, mojo.internal.bindings.blink.mojom.LinkGenerationReadyStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

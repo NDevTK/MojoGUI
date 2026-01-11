@@ -92,7 +92,7 @@ mojo.internal.Union(
     mojo.internal.bindings.remoting.mojom.WebAuthnCreateResponseSpec, 'remoting.mojom.WebAuthnCreateResponse', {
       'arg_error_details': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.remoting.mojom.WebAuthnExceptionDetailsSpec.$,
+        'type': mojo.internal.bindings.remoting.mojom.WebAuthnExceptionDetailsSpec.$,
         'nullable': false,
       },
       'arg_response_data': {
@@ -107,7 +107,7 @@ mojo.internal.Union(
     mojo.internal.bindings.remoting.mojom.WebAuthnGetResponseSpec, 'remoting.mojom.WebAuthnGetResponse', {
       'arg_error_details': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.remoting.mojom.WebAuthnExceptionDetailsSpec.$,
+        'type': mojo.internal.bindings.remoting.mojom.WebAuthnExceptionDetailsSpec.$,
         'nullable': false,
       },
       'arg_response_data': {

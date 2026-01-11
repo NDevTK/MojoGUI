@@ -99,7 +99,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_description', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_application_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_title', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icons', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.webapps.mojom.WebPageIconInfoSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_mobile_capable', 40, 0, mojo.internal.bindings.mojo.internal.bindings.webapps.mojom.WebPageMobileCapableSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_icons', 32, 0, mojo.internal.Array(mojo.internal.bindings.webapps.mojom.WebPageIconInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_mobile_capable', 40, 0, mojo.internal.bindings.webapps.mojom.WebPageMobileCapableSpec.$, 0, false, 0, undefined),
     ],
     [[0, 56]]);

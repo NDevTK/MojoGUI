@@ -103,7 +103,7 @@ mojo.internal.bindings.gl.mojom.ANGLEImplementation = {
 // Struct: GLImplementationParts
 mojo.internal.Struct(
     mojo.internal.bindings.gl.mojom.GLImplementationPartsSpec, 'gl.mojom.GLImplementationParts', [
-      mojo.internal.StructField('arg_gl', 0, 0, mojo.internal.bindings.mojo.internal.bindings.gl.mojom.GLImplementationSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_angle', 8, 0, mojo.internal.bindings.mojo.internal.bindings.gl.mojom.ANGLEImplementationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gl', 0, 0, mojo.internal.bindings.gl.mojom.GLImplementationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_angle', 8, 0, mojo.internal.bindings.gl.mojom.ANGLEImplementationSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

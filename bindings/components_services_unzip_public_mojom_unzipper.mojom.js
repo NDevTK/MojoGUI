@@ -433,7 +433,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ParamsSpec, 'unzip.mojom.Unzipper_Unzip_Params', [
       mojo.internal.StructField('arg_zip_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_output_dir', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.storage.mojom.DirectoryRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 16, 0, mojo.internal.bindings.mojo.internal.bindings.unzip.mojom.UnzipOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 16, 0, mojo.internal.bindings.unzip.mojom.UnzipOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_filter', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.unzip.mojom.UnzipFilterSpec), null, true, 0, undefined),
       mojo.internal.StructField('arg_listener', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.unzip.mojom.UnzipListenerSpec), null, true, 0, undefined),
     ],
@@ -465,7 +465,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec, 'unzip.mojom.Unzipper_GetExtractedInfo_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.unzip.mojom.InfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.unzip.mojom.InfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -123,7 +123,7 @@ mojo.internal.Union(
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CreateTranslatorErrorSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.CreateTranslatorErrorSpec.$,
         'nullable': false,
       },
     });
@@ -138,8 +138,8 @@ mojo.internal.Struct(
 // Struct: TranslatorCreateOptions
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.TranslatorCreateOptionsSpec, 'blink.mojom.TranslatorCreateOptions', [
-      mojo.internal.StructField('arg_source_lang', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.TranslatorLanguageCodeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_target_lang', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.TranslatorLanguageCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_lang', 0, 0, mojo.internal.bindings.blink.mojom.TranslatorLanguageCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_target_lang', 8, 0, mojo.internal.bindings.blink.mojom.TranslatorLanguageCodeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_observer_remote', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserverRemote), null, true, 0, undefined),
     ],
     [[0, 32]]);
@@ -148,8 +148,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec, 'blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_Params', [
       mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.CreateTranslatorResultSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_lang', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.TranslatorLanguageCodeSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_target_lang', 16, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.TranslatorLanguageCodeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_source_lang', 8, 0, mojo.internal.bindings.blink.mojom.TranslatorLanguageCodeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_target_lang', 16, 0, mojo.internal.bindings.blink.mojom.TranslatorLanguageCodeSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -301,20 +301,20 @@ mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClientReque
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.TranslationManager_CreateTranslator_ParamsSpec, 'blink.mojom.TranslationManager_CreateTranslator_Params', [
       mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClientSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.TranslatorCreateOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.blink.mojom.TranslatorCreateOptionsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec, 'blink.mojom.TranslationManager_TranslationAvailable_Params', [
-      mojo.internal.StructField('arg_source_lang', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.TranslatorLanguageCodeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_target_lang', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.TranslatorLanguageCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_lang', 0, 0, mojo.internal.bindings.blink.mojom.TranslatorLanguageCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_target_lang', 8, 0, mojo.internal.bindings.blink.mojom.TranslatorLanguageCodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec, 'blink.mojom.TranslationManager_TranslationAvailable_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CanCreateTranslatorResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.CanCreateTranslatorResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

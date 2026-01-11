@@ -90,7 +90,7 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletFunction = {
 mojo.internal.Struct(
     mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec, 'auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_Params', [
       mojo.internal.StructField('arg_method_with_options', 0, 0, mojo.internal.bindings.network.mojom.SharedStorageModifierMethodWithOptionsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_auction_worklet_function', 8, 0, mojo.internal.bindings.mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletFunctionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_auction_worklet_function', 8, 0, mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletFunctionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -98,7 +98,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSpec, 'auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_Params', [
       mojo.internal.StructField('arg_methods_with_options', 0, 0, mojo.internal.bindings.network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_with_lock', 8, 0, mojo.internal.bindings.network.mojom.LockNameSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_source_auction_worklet_function', 16, 0, mojo.internal.bindings.mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletFunctionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_auction_worklet_function', 16, 0, mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletFunctionSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

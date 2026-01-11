@@ -403,7 +403,7 @@ mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerRequest = mojo.
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec, 'new_tab_page_third_party.mojom.Page_SetTheme_Params', [
-      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.mojo.internal.bindings.new_tab_page_third_party.mojom.ThemeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.new_tab_page_third_party.mojom.ThemeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

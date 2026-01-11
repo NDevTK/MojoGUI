@@ -179,7 +179,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ResponseParamsSpec, 'arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ResponseParams', [
-      mojo.internal.StructField('arg_quota_spaces', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.QuotaSpacesSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_quota_spaces', 0, 0, mojo.internal.bindings.arc.mojom.QuotaSpacesSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -190,7 +190,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParamsSpec, 'arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParams', [
-      mojo.internal.StructField('arg_free_space', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.DiskSpaceSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_free_space', 0, 0, mojo.internal.bindings.arc.mojom.DiskSpaceSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -565,7 +565,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParamsSpec, 'arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParams', [
-      mojo.internal.StructField('arg_applications_size', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ApplicationsSizeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_applications_size', 0, 0, mojo.internal.bindings.arc.mojom.ApplicationsSizeSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_succeeded', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);

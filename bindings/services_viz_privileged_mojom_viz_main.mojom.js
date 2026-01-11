@@ -110,7 +110,7 @@ mojo.internal.Struct(
 // Interface: VizMain
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec, 'viz.mojom.VizMain_CreateFrameSinkManager_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.viz.mojom.FrameSinkManagerParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkManagerParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -121,7 +121,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_gpu_logging', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.GpuLoggingRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_discardable_memory_manager', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_use_shader_cache_shm_count', 32, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_params', 40, 0, mojo.internal.bindings.mojo.internal.bindings.viz.mojom.GpuServiceCreationParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 40, 0, mojo.internal.bindings.viz.mojom.GpuServiceCreationParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 56]]);
 

@@ -146,7 +146,7 @@ mojo.internal.bindings.ash.audio_config.mojom.AudioEffectType = {
 // Struct: VoiceIsolationUIAppearance
 mojo.internal.Struct(
     mojo.internal.bindings.ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec, 'ash.audio_config.mojom.VoiceIsolationUIAppearance', [
-      mojo.internal.StructField('arg_toggle_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.audio_config.mojom.AudioEffectTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_toggle_type', 0, 0, mojo.internal.bindings.ash.audio_config.mojom.AudioEffectTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_effect_mode_options', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_show_effect_fallback_message', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -157,12 +157,12 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceSpec, 'ash.audio_config.mojom.AudioDevice', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_type', 16, 0, mojo.internal.bindings.mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_noise_cancellation_state', 24, 0, mojo.internal.bindings.mojo.internal.bindings.ash.audio_config.mojom.AudioEffectStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_style_transfer_state', 32, 0, mojo.internal.bindings.mojo.internal.bindings.ash.audio_config.mojom.AudioEffectStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_force_respect_ui_gains_state', 40, 0, mojo.internal.bindings.mojo.internal.bindings.ash.audio_config.mojom.AudioEffectStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_hfp_mic_sr_state', 48, 0, mojo.internal.bindings.mojo.internal.bindings.ash.audio_config.mojom.AudioEffectStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_spatial_audio_state', 56, 0, mojo.internal.bindings.mojo.internal.bindings.ash.audio_config.mojom.AudioEffectStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_type', 16, 0, mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_noise_cancellation_state', 24, 0, mojo.internal.bindings.ash.audio_config.mojom.AudioEffectStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_style_transfer_state', 32, 0, mojo.internal.bindings.ash.audio_config.mojom.AudioEffectStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_force_respect_ui_gains_state', 40, 0, mojo.internal.bindings.ash.audio_config.mojom.AudioEffectStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_hfp_mic_sr_state', 48, 0, mojo.internal.bindings.ash.audio_config.mojom.AudioEffectStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_spatial_audio_state', 56, 0, mojo.internal.bindings.ash.audio_config.mojom.AudioEffectStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_active', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 80]]);
@@ -170,11 +170,11 @@ mojo.internal.Struct(
 // Struct: AudioSystemProperties
 mojo.internal.Struct(
     mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesSpec, 'ash.audio_config.mojom.AudioSystemProperties', [
-      mojo.internal.StructField('arg_output_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_mute_state', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.audio_config.mojom.MuteStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_input_devices', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_input_mute_state', 24, 0, mojo.internal.bindings.mojo.internal.bindings.ash.audio_config.mojom.MuteStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_voice_isolation_ui_appearance', 32, 0, mojo.internal.bindings.mojo.internal.bindings.ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_mute_state', 8, 0, mojo.internal.bindings.ash.audio_config.mojom.MuteStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_devices', 16, 0, mojo.internal.Array(mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_mute_state', 24, 0, mojo.internal.bindings.ash.audio_config.mojom.MuteStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_voice_isolation_ui_appearance', 32, 0, mojo.internal.bindings.ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_output_volume_percent', 40, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('arg_input_gain_percent', 41, 0, mojo.internal.Uint8, 0, false, 0, undefined),
     ],
@@ -183,7 +183,7 @@ mojo.internal.Struct(
 // Interface: AudioSystemPropertiesObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec, 'ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_Params', [
-      mojo.internal.StructField('arg_properties', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_properties', 0, 0, mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -375,7 +375,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_Params', [
-      mojo.internal.StructField('arg_preferred_effect', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.audio_config.mojom.AudioEffectTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_preferred_effect', 0, 0, mojo.internal.bindings.ash.audio_config.mojom.AudioEffectTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

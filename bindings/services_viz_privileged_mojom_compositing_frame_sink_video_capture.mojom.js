@@ -672,7 +672,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec, 'viz.mojom.FrameSinkVideoCapturer_ChangeTarget_Params', [
-      mojo.internal.StructField('arg_target', 0, 0, mojo.internal.bindings.mojo.internal.bindings.viz.mojom.VideoCaptureTargetSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_target', 0, 0, mojo.internal.bindings.viz.mojom.VideoCaptureTargetSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_sub_capture_version', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -680,7 +680,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec, 'viz.mojom.FrameSinkVideoCapturer_Start_Params', [
       mojo.internal.StructField('arg_consumer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_format_preference', 8, 0, mojo.internal.bindings.mojo.internal.bindings.viz.mojom.BufferFormatPreferenceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_format_preference', 8, 0, mojo.internal.bindings.viz.mojom.BufferFormatPreferenceSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -94,7 +94,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParamsSpec, 'media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParams', [
-      mojo.internal.StructField('arg_cast_application_media_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.CastApplicationMediaInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cast_application_media_info', 0, 0, mojo.internal.bindings.media.mojom.CastApplicationMediaInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

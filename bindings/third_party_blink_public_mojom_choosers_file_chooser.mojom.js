@@ -100,12 +100,12 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.FileChooserFileInfoSpec, 'blink.mojom.FileChooserFileInfo', {
       'arg_native_file': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.NativeFileInfoSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.NativeFileInfoSpec.$,
         'nullable': false,
       },
       'arg_file_system': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FileSystemFileInfoSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.FileSystemFileInfoSpec.$,
         'nullable': false,
       },
     });
@@ -150,13 +150,13 @@ mojo.internal.Struct(
 // Interface: FileChooser
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ParamsSpec, 'blink.mojom.FileChooser_OpenFileChooser_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FileChooserParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.blink.mojom.FileChooserParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec, 'blink.mojom.FileChooser_OpenFileChooser_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FileChooserResultSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileChooserResultSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -168,7 +168,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec, 'blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FileChooserResultSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileChooserResultSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

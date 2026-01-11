@@ -102,7 +102,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PurchaseDetailsSpec, 'arc.mojom.PurchaseDetails', [
       mojo.internal.StructField('arg_item_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_purchase_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_purchase_state', 16, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.PurchaseStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_purchase_state', 16, 0, mojo.internal.bindings.arc.mojom.PurchaseStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_purchase_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_acknowledged', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_will_auto_renew', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -150,7 +150,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParamsSpec, 'arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParams', [
       mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_purchase_details_list', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.arc.mojom.PurchaseDetailsSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_purchase_details_list', 8, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.PurchaseDetailsSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

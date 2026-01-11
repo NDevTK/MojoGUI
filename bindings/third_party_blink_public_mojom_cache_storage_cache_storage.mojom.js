@@ -134,7 +134,7 @@ mojo.internal.Union(
       },
       'arg_eager_response': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.EagerResponseSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.EagerResponseSpec.$,
         'nullable': false,
       },
     });
@@ -142,7 +142,7 @@ mojo.internal.Union(
 // Struct: CacheStorageVerboseError
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CacheStorageVerboseErrorSpec, 'blink.mojom.CacheStorageVerboseError', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CacheStorageErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.blink.mojom.CacheStorageErrorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -159,7 +159,7 @@ mojo.internal.Struct(
 // Struct: MultiCacheQueryOptions
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MultiCacheQueryOptionsSpec, 'blink.mojom.MultiCacheQueryOptions', [
-      mojo.internal.StructField('arg_query_options', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CacheQueryOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_query_options', 0, 0, mojo.internal.bindings.blink.mojom.CacheQueryOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_cache_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -167,10 +167,10 @@ mojo.internal.Struct(
 // Struct: BatchOperation
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BatchOperationSpec, 'blink.mojom.BatchOperation', [
-      mojo.internal.StructField('arg_operation_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.OperationTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_operation_type', 0, 0, mojo.internal.bindings.blink.mojom.OperationTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_request', 8, 0, mojo.internal.bindings.blink.mojom.FetchAPIRequestSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_response', 16, 0, mojo.internal.bindings.blink.mojom.FetchAPIResponseSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_match_options', 24, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CacheQueryOptionsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_match_options', 24, 0, mojo.internal.bindings.blink.mojom.CacheQueryOptionsSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -195,7 +195,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CacheStorageCache_Match_ParamsSpec, 'blink.mojom.CacheStorageCache_Match_Params', [
       mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.blink.mojom.FetchAPIRequestSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_query_options', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CacheQueryOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_query_options', 8, 0, mojo.internal.bindings.blink.mojom.CacheQueryOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_trace_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_in_related_fetch_event', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_in_range_fetch_event', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -205,7 +205,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CacheStorageCache_MatchAll_ParamsSpec, 'blink.mojom.CacheStorageCache_MatchAll_Params', [
       mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.blink.mojom.FetchAPIRequestSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_query_options', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CacheQueryOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_query_options', 8, 0, mojo.internal.bindings.blink.mojom.CacheQueryOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_trace_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -213,7 +213,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec, 'blink.mojom.CacheStorageCache_GetAllMatchedEntries_Params', [
       mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.blink.mojom.FetchAPIRequestSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_query_options', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CacheQueryOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_query_options', 8, 0, mojo.internal.bindings.blink.mojom.CacheQueryOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_trace_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -221,21 +221,21 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CacheStorageCache_Keys_ParamsSpec, 'blink.mojom.CacheStorageCache_Keys_Params', [
       mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.blink.mojom.FetchAPIRequestSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_query_options', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CacheQueryOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_query_options', 8, 0, mojo.internal.bindings.blink.mojom.CacheQueryOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_trace_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CacheStorageCache_Batch_ParamsSpec, 'blink.mojom.CacheStorageCache_Batch_Params', [
-      mojo.internal.StructField('arg_batch_operations', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.BatchOperationSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_batch_operations', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.BatchOperationSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_trace_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec, 'blink.mojom.CacheStorageCache_Batch_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CacheStorageVerboseErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.CacheStorageVerboseErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -250,7 +250,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec, 'blink.mojom.CacheStorageCache_WriteSideData_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CacheStorageErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.CacheStorageErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -584,7 +584,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CacheStorage_Has_ResponseParamsSpec, 'blink.mojom.CacheStorage_Has_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CacheStorageErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.CacheStorageErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -597,7 +597,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CacheStorage_Delete_ResponseParamsSpec, 'blink.mojom.CacheStorage_Delete_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CacheStorageErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.CacheStorageErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -616,7 +616,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CacheStorage_Match_ParamsSpec, 'blink.mojom.CacheStorage_Match_Params', [
       mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.blink.mojom.FetchAPIRequestSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_match_options', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.MultiCacheQueryOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_match_options', 8, 0, mojo.internal.bindings.blink.mojom.MultiCacheQueryOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_trace_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_in_related_fetch_event', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_in_range_fetch_event', 24, 1, mojo.internal.Bool, false, false, 0, undefined),

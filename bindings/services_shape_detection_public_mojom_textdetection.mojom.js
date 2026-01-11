@@ -97,7 +97,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.shape_detection.mojom.TextDetection_Detect_ResponseParamsSpec, 'shape_detection.mojom.TextDetection_Detect_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.shape_detection.mojom.TextDetectionResultSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.shape_detection.mojom.TextDetectionResultSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -284,17 +284,17 @@ mojo.internal.Union(
       },
       'arg_button_event': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.TouchpadButtonEventSpec.$,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.TouchpadButtonEventSpec.$,
         'nullable': false,
       },
       'arg_touch_event': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.TouchpadTouchEventSpec.$,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.TouchpadTouchEventSpec.$,
         'nullable': false,
       },
       'arg_connected_event': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.TouchpadConnectedEventSpec.$,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.TouchpadConnectedEventSpec.$,
         'nullable': false,
       },
     });
@@ -309,12 +309,12 @@ mojo.internal.Union(
       },
       'arg_touch_event': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.TouchscreenTouchEventSpec.$,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.TouchscreenTouchEventSpec.$,
         'nullable': false,
       },
       'arg_connected_event': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.TouchscreenConnectedEventSpec.$,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.TouchscreenConnectedEventSpec.$,
         'nullable': false,
       },
     });
@@ -329,12 +329,12 @@ mojo.internal.Union(
       },
       'arg_touch_event': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.StylusTouchEventSpec.$,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.StylusTouchEventSpec.$,
         'nullable': false,
       },
       'arg_connected_event': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.StylusConnectedEventSpec.$,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.StylusConnectedEventSpec.$,
         'nullable': false,
       },
     });
@@ -349,42 +349,42 @@ mojo.internal.Union(
       },
       'arg_usb_event_info': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.UsbEventInfoSpec.$,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.UsbEventInfoSpec.$,
         'nullable': false,
       },
       'arg_thunderbolt_event_info': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.ThunderboltEventInfoSpec.$,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.ThunderboltEventInfoSpec.$,
         'nullable': false,
       },
       'arg_lid_event_info': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.LidEventInfoSpec.$,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.LidEventInfoSpec.$,
         'nullable': false,
       },
       'arg_bluetooth_event_info': {
         'ordinal': 4,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.BluetoothEventInfoSpec.$,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.BluetoothEventInfoSpec.$,
         'nullable': false,
       },
       'arg_power_event_info': {
         'ordinal': 5,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.PowerEventInfoSpec.$,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.PowerEventInfoSpec.$,
         'nullable': false,
       },
       'arg_audio_event_info': {
         'ordinal': 6,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.AudioEventInfoSpec.$,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.AudioEventInfoSpec.$,
         'nullable': false,
       },
       'arg_audio_jack_event_info': {
         'ordinal': 7,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.AudioJackEventInfoSpec.$,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.AudioJackEventInfoSpec.$,
         'nullable': false,
       },
       'arg_sd_card_event_info': {
         'ordinal': 8,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.SdCardEventInfoSpec.$,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.SdCardEventInfoSpec.$,
         'nullable': false,
       },
       'arg_keyboard_diagnostic_event_info': {
@@ -399,7 +399,7 @@ mojo.internal.Union(
       },
       'arg_external_display_event_info': {
         'ordinal': 11,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.ExternalDisplayEventInfoSpec.$,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.ExternalDisplayEventInfoSpec.$,
         'nullable': false,
       },
       'arg_touchscreen_event_info': {
@@ -409,7 +409,7 @@ mojo.internal.Union(
       },
       'arg_stylus_garage_event_info': {
         'ordinal': 13,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.StylusGarageEventInfoSpec.$,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.StylusGarageEventInfoSpec.$,
         'nullable': false,
       },
       'arg_stylus_event_info': {
@@ -419,7 +419,7 @@ mojo.internal.Union(
       },
       'arg_crash_event_info': {
         'ordinal': 15,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.CrashEventInfoSpec.$,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.CrashEventInfoSpec.$,
         'nullable': false,
       },
     });
@@ -512,7 +512,7 @@ mojo.internal.Struct(
 // Struct: TouchpadButtonEvent
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.TouchpadButtonEventSpec, 'ash.cros_healthd.mojom.TouchpadButtonEvent', [
-      mojo.internal.StructField('arg_button', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.InputTouchButtonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_button', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.InputTouchButtonSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_pressed', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -532,14 +532,14 @@ mojo.internal.Struct(
 // Struct: TouchpadTouchEvent
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.TouchpadTouchEventSpec, 'ash.cros_healthd.mojom.TouchpadTouchEvent', [
-      mojo.internal.StructField('arg_touch_points', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.TouchPointInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_touch_points', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.mojom.TouchPointInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: TouchpadConnectedEvent
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.TouchpadConnectedEventSpec, 'ash.cros_healthd.mojom.TouchpadConnectedEvent', [
-      mojo.internal.StructField('arg_buttons', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.InputTouchButtonSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_buttons', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.mojom.InputTouchButtonSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_max_x', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_max_y', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_max_pressure', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
@@ -558,7 +558,7 @@ mojo.internal.Struct(
 // Struct: TouchscreenTouchEvent
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.TouchscreenTouchEventSpec, 'ash.cros_healthd.mojom.TouchscreenTouchEvent', [
-      mojo.internal.StructField('arg_touch_points', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.TouchPointInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_touch_points', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.mojom.TouchPointInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -592,7 +592,7 @@ mojo.internal.Struct(
 // Struct: StylusTouchEvent
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.StylusTouchEventSpec, 'ash.cros_healthd.mojom.StylusTouchEvent', [
-      mojo.internal.StructField('arg_touch_point', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.StylusTouchPointInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_touch_point', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.StylusTouchPointInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1858,13 +1858,13 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRequ
 // Interface: CrosHealthdUsbObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_Params', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.UsbEventInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.UsbEventInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_Params', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.UsbEventInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.UsbEventInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

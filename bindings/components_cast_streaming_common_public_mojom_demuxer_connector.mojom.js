@@ -101,7 +101,7 @@ mojo.internal.Union(
     mojo.internal.bindings.cast_streaming.mojom.GetAudioBufferResponseSpec, 'cast_streaming.mojom.GetAudioBufferResponse', {
       'arg_stream_info': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.cast_streaming.mojom.AudioStreamInfoSpec.$,
+        'type': mojo.internal.bindings.cast_streaming.mojom.AudioStreamInfoSpec.$,
         'nullable': false,
       },
       'arg_buffer': {
@@ -116,7 +116,7 @@ mojo.internal.Union(
     mojo.internal.bindings.cast_streaming.mojom.GetVideoBufferResponseSpec, 'cast_streaming.mojom.GetVideoBufferResponse', {
       'arg_stream_info': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.cast_streaming.mojom.VideoStreamInfoSpec.$,
+        'type': mojo.internal.bindings.cast_streaming.mojom.VideoStreamInfoSpec.$,
         'nullable': false,
       },
       'arg_buffer': {
@@ -146,7 +146,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.cast_streaming.mojom.AudioStreamInitializationInfoSpec, 'cast_streaming.mojom.AudioStreamInitializationInfo', [
       mojo.internal.StructField('arg_buffer_requester', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequesterSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_stream_initialization_info', 8, 0, mojo.internal.bindings.mojo.internal.bindings.cast_streaming.mojom.AudioStreamInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stream_initialization_info', 8, 0, mojo.internal.bindings.cast_streaming.mojom.AudioStreamInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -154,7 +154,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.cast_streaming.mojom.VideoStreamInitializationInfoSpec, 'cast_streaming.mojom.VideoStreamInitializationInfo', [
       mojo.internal.StructField('arg_buffer_requester', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequesterSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_stream_initialization_info', 8, 0, mojo.internal.bindings.mojo.internal.bindings.cast_streaming.mojom.VideoStreamInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stream_initialization_info', 8, 0, mojo.internal.bindings.cast_streaming.mojom.VideoStreamInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -601,8 +601,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec, 'cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_Params', [
-      mojo.internal.StructField('arg_audio_buffer_requester', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cast_streaming.mojom.AudioStreamInitializationInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_video_buffer_requester', 8, 0, mojo.internal.bindings.mojo.internal.bindings.cast_streaming.mojom.VideoStreamInitializationInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_audio_buffer_requester', 0, 0, mojo.internal.bindings.cast_streaming.mojom.AudioStreamInitializationInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_video_buffer_requester', 8, 0, mojo.internal.bindings.cast_streaming.mojom.VideoStreamInitializationInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

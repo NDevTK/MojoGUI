@@ -384,7 +384,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec, 'content.mojom.ChildProcess_ReinitializeLogging_Params', [
-      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.LoggingSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.content.mojom.LoggingSettingsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

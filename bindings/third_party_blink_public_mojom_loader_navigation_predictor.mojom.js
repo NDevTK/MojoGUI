@@ -180,7 +180,7 @@ mojo.internal.Struct(
 // Struct: AnchorElementPointerEventForMLModel
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AnchorElementPointerEventForMLModelSpec, 'blink.mojom.AnchorElementPointerEventForMLModel', [
-      mojo.internal.StructField('arg_user_interaction_event_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AnchorElementUserInteractionEventForMLModelTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_user_interaction_event_type', 0, 0, mojo.internal.bindings.blink.mojom.AnchorElementUserInteractionEventForMLModelTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_anchor_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_is_mouse', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -207,62 +207,62 @@ mojo.internal.Struct(
 // Interface: AnchorElementMetricsHost
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_Params', [
-      mojo.internal.StructField('arg_clicked', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AnchorElementClickSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_clicked', 0, 0, mojo.internal.bindings.blink.mojom.AnchorElementClickSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_Params', [
-      mojo.internal.StructField('arg_metrics', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AnchorElementMetricsSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_metrics', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AnchorElementMetricsSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_removed_elements', 8, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_Params', [
-      mojo.internal.StructField('arg_elements', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AnchorElementEnteredViewportSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_elements', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AnchorElementEnteredViewportSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_Params', [
-      mojo.internal.StructField('arg_elements', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AnchorElementLeftViewportSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_elements', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AnchorElementLeftViewportSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_Params', [
-      mojo.internal.StructField('arg_elements', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AnchorElementPositionUpdateSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_elements', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AnchorElementPositionUpdateSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_Params', [
-      mojo.internal.StructField('arg_pointer_over_event', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AnchorElementPointerOverSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pointer_over_event', 0, 0, mojo.internal.bindings.blink.mojom.AnchorElementPointerOverSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_Params', [
-      mojo.internal.StructField('arg_hover_event', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AnchorElementPointerOutSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_hover_event', 0, 0, mojo.internal.bindings.blink.mojom.AnchorElementPointerOutSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_Params', [
-      mojo.internal.StructField('arg_pointer_down_event', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AnchorElementPointerDownSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pointer_down_event', 0, 0, mojo.internal.bindings.blink.mojom.AnchorElementPointerDownSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_Params', [
-      mojo.internal.StructField('arg_pointer_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AnchorElementPointerDataOnHoverTimerFiredSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pointer_data', 0, 0, mojo.internal.bindings.blink.mojom.AnchorElementPointerDataOnHoverTimerFiredSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_Params', [
-      mojo.internal.StructField('arg_pointer_event', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AnchorElementPointerEventForMLModelSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pointer_event', 0, 0, mojo.internal.bindings.blink.mojom.AnchorElementPointerEventForMLModelSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

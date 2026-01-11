@@ -227,12 +227,12 @@ mojo.internal.Union(
     mojo.internal.bindings.ash.cros_healthd.mojom.RoutineUpdateUnionSpec, 'ash.cros_healthd.mojom.RoutineUpdateUnion', {
       'arg_interactive_update': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.InteractiveRoutineUpdateSpec.$,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.InteractiveRoutineUpdateSpec.$,
         'nullable': false,
       },
       'arg_noninteractive_update': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.NonInteractiveRoutineUpdateSpec.$,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.NonInteractiveRoutineUpdateSpec.$,
         'nullable': false,
       },
     });
@@ -240,7 +240,7 @@ mojo.internal.Union(
 // Struct: RunRoutineResponse
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, 'ash.cros_healthd.mojom.RunRoutineResponse', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineStatusEnumSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineStatusEnumSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -248,14 +248,14 @@ mojo.internal.Struct(
 // Struct: InteractiveRoutineUpdate
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.InteractiveRoutineUpdateSpec, 'ash.cros_healthd.mojom.InteractiveRoutineUpdate', [
-      mojo.internal.StructField('arg_user_message', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineUserMessageEnumSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_user_message', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineUserMessageEnumSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: NonInteractiveRoutineUpdate
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.NonInteractiveRoutineUpdateSpec, 'ash.cros_healthd.mojom.NonInteractiveRoutineUpdate', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineStatusEnumSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineStatusEnumSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_status_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);

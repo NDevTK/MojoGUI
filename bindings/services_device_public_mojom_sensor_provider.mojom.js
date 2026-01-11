@@ -124,12 +124,12 @@ mojo.internal.Union(
     mojo.internal.bindings.device.mojom.GetVirtualSensorInformationResultSpec, 'device.mojom.GetVirtualSensorInformationResult', {
       'arg_info': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.device.mojom.VirtualSensorInformationSpec.$,
+        'type': mojo.internal.bindings.device.mojom.VirtualSensorInformationSpec.$,
         'nullable': false,
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.device.mojom.GetVirtualSensorInformationErrorSpec.$,
+        'type': mojo.internal.bindings.device.mojom.GetVirtualSensorInformationErrorSpec.$,
         'nullable': false,
       },
     });
@@ -177,21 +177,21 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ResponseParamsSpec, 'device.mojom.SensorProvider_GetSensor_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.SensorCreationResultSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_init_params', 8, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.SensorInitParamsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SensorCreationResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_init_params', 8, 0, mojo.internal.bindings.device.mojom.SensorInitParamsSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec, 'device.mojom.SensorProvider_CreateVirtualSensor_Params', [
       mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.SensorTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_metadata', 8, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.VirtualSensorMetadataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 8, 0, mojo.internal.bindings.device.mojom.VirtualSensorMetadataSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec, 'device.mojom.SensorProvider_CreateVirtualSensor_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.CreateVirtualSensorResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.CreateVirtualSensorResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -204,7 +204,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec, 'device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.UpdateVirtualSensorResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.UpdateVirtualSensorResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

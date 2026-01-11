@@ -266,7 +266,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.FrePageHandler_DismissFre_ParamsSpec, 'glic.mojom.FrePageHandler_DismissFre_Params', [
-      mojo.internal.StructField('arg_panel', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.FreWebUiStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_panel', 0, 0, mojo.internal.bindings.glic.mojom.FreWebUiStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -294,7 +294,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec, 'glic.mojom.FrePageHandler_WebUiStateChanged_Params', [
-      mojo.internal.StructField('arg_new_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.glic.mojom.FreWebUiStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_state', 0, 0, mojo.internal.bindings.glic.mojom.FreWebUiStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

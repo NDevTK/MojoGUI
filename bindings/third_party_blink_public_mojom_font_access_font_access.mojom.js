@@ -107,7 +107,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParamsSpec, 'blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParams', [
-      mojo.internal.StructField('arg_enumeration_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FontEnumerationStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_enumeration_status', 0, 0, mojo.internal.bindings.blink.mojom.FontEnumerationStatusSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_enumeration_table', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);

@@ -120,7 +120,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.UDPSocket_Bind_ParamsSpec, 'network.mojom.UDPSocket_Bind_Params', [
       mojo.internal.StructField('arg_local_addr', 0, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_socket_options', 8, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.UDPSocketOptionsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_socket_options', 8, 0, mojo.internal.bindings.network.mojom.UDPSocketOptionsSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -134,7 +134,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.UDPSocket_Connect_ParamsSpec, 'network.mojom.UDPSocket_Connect_Params', [
       mojo.internal.StructField('arg_remote_addr', 0, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_socket_options', 8, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.UDPSocketOptionsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_socket_options', 8, 0, mojo.internal.bindings.network.mojom.UDPSocketOptionsSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -115,7 +115,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ShowSetDisposition 
 // Interface: ProductSpecificationsHandler
 mojo.internal.Struct(
     mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDisclosureVersion_ParamsSpec, 'commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDisclosureVersion_Params', [
-      mojo.internal.StructField('arg_version', 0, 0, mojo.internal.bindings.mojo.internal.bindings.commerce.product_specifications.mojom.DisclosureVersionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_version', 0, 0, mojo.internal.bindings.commerce.product_specifications.mojom.DisclosureVersionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -165,7 +165,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetsForUuids_ParamsSpec, 'commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetsForUuids_Params', [
       mojo.internal.StructField('arg_uuids', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.UuidSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_disposition', 8, 0, mojo.internal.bindings.mojo.internal.bindings.commerce.product_specifications.mojom.ShowSetDispositionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_disposition', 8, 0, mojo.internal.bindings.commerce.product_specifications.mojom.ShowSetDispositionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

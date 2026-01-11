@@ -89,7 +89,7 @@ mojo.internal.Struct(
 // Struct: LayerSelection
 mojo.internal.Struct(
     mojo.internal.bindings.cc.mojom.LayerSelectionSpec, 'cc.mojom.LayerSelection', [
-      mojo.internal.StructField('arg_start', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cc.mojom.LayerSelectionBoundSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_end', 8, 0, mojo.internal.bindings.mojo.internal.bindings.cc.mojom.LayerSelectionBoundSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_start', 0, 0, mojo.internal.bindings.cc.mojom.LayerSelectionBoundSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_end', 8, 0, mojo.internal.bindings.cc.mojom.LayerSelectionBoundSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

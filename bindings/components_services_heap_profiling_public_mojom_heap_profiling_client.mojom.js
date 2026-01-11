@@ -98,7 +98,7 @@ mojo.internal.bindings.heap_profiling.mojom.AllocatorType = {
 // Struct: ProfilingParams
 mojo.internal.Struct(
     mojo.internal.bindings.heap_profiling.mojom.ProfilingParamsSpec, 'heap_profiling.mojom.ProfilingParams', [
-      mojo.internal.StructField('arg_stack_mode', 0, 0, mojo.internal.bindings.mojo.internal.bindings.heap_profiling.mojom.StackModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stack_mode', 0, 0, mojo.internal.bindings.heap_profiling.mojom.StackModeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_sampling_rate', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -106,7 +106,7 @@ mojo.internal.Struct(
 // Struct: HeapProfileSample
 mojo.internal.Struct(
     mojo.internal.bindings.heap_profiling.mojom.HeapProfileSampleSpec, 'heap_profiling.mojom.HeapProfileSample', [
-      mojo.internal.StructField('arg_allocator', 0, 0, mojo.internal.bindings.mojo.internal.bindings.heap_profiling.mojom.AllocatorTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_allocator', 0, 0, mojo.internal.bindings.heap_profiling.mojom.AllocatorTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_total', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_context_id', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
@@ -117,7 +117,7 @@ mojo.internal.Struct(
 // Struct: HeapProfile
 mojo.internal.Struct(
     mojo.internal.bindings.heap_profiling.mojom.HeapProfileSpec, 'heap_profiling.mojom.HeapProfile', [
-      mojo.internal.StructField('arg_samples', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.heap_profiling.mojom.HeapProfileSampleSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_samples', 0, 0, mojo.internal.Array(mojo.internal.bindings.heap_profiling.mojom.HeapProfileSampleSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_strings', 8, 0, mojo.internal.Map(mojo.internal.Uint64, mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -125,7 +125,7 @@ mojo.internal.Struct(
 // Interface: ProfilingClient
 mojo.internal.Struct(
     mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec, 'heap_profiling.mojom.ProfilingClient_StartProfiling_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.heap_profiling.mojom.ProfilingParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.heap_profiling.mojom.ProfilingParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -141,7 +141,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec, 'heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParams', [
-      mojo.internal.StructField('arg_profile', 0, 0, mojo.internal.bindings.mojo.internal.bindings.heap_profiling.mojom.HeapProfileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_profile', 0, 0, mojo.internal.bindings.heap_profiling.mojom.HeapProfileSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

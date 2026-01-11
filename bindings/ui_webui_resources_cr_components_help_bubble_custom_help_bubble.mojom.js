@@ -241,7 +241,7 @@ mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryRe
 // Interface: CustomHelpBubbleHandler
 mojo.internal.Struct(
     mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec, 'custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleUserActionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleUserActionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

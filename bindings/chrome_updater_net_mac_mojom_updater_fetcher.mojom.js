@@ -571,7 +571,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_post_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_content_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_additional_headers', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.updater.mojom.HttpHeaderSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_additional_headers', 24, 0, mojo.internal.Array(mojo.internal.bindings.updater.mojom.HttpHeaderSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 

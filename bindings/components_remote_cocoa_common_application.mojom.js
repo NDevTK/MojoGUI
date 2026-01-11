@@ -245,7 +245,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec, 'remote_cocoa.mojom.Application_ForwardCutCopyPaste_Params', [
-      mojo.internal.StructField('arg_command', 0, 0, mojo.internal.bindings.mojo.internal.bindings.remote_cocoa.mojom.CutCopyPasteCommandSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_command', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.CutCopyPasteCommandSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

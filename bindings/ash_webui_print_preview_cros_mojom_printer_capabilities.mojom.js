@@ -120,7 +120,7 @@ mojo.internal.bindings.ash.printing.print_preview.mojom.PageOrientation = {
 // Struct: ColorOption
 mojo.internal.Struct(
     mojo.internal.bindings.ash.printing.print_preview.mojom.ColorOptionSpec, 'ash.printing.print_preview.mojom.ColorOption', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.printing.print_preview.mojom.ColorTypeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.printing.print_preview.mojom.ColorTypeSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_vendor_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_custom_display_name', 16, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_is_default_$flag', 24, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_is_default_$value', originalFieldName: 'arg_is_default' }),
@@ -131,7 +131,7 @@ mojo.internal.Struct(
 // Struct: ColorCapability
 mojo.internal.Struct(
     mojo.internal.bindings.ash.printing.print_preview.mojom.ColorCapabilitySpec, 'ash.printing.print_preview.mojom.ColorCapability', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.printing.print_preview.mojom.ColorOptionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.printing.print_preview.mojom.ColorOptionSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_reset_to_default_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_reset_to_default_$value', originalFieldName: 'arg_reset_to_default' }),
       mojo.internal.StructField('arg_reset_to_default_$value', 8, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_reset_to_default_$flag', originalFieldName: 'arg_reset_to_default' }),
     ],
@@ -155,7 +155,7 @@ mojo.internal.Struct(
 // Struct: DuplexOption
 mojo.internal.Struct(
     mojo.internal.bindings.ash.printing.print_preview.mojom.DuplexOptionSpec, 'ash.printing.print_preview.mojom.DuplexOption', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.printing.print_preview.mojom.DuplexTypeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.printing.print_preview.mojom.DuplexTypeSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_is_default_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_is_default_$value', originalFieldName: 'arg_is_default' }),
       mojo.internal.StructField('arg_is_default_$value', 8, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_is_default_$flag', originalFieldName: 'arg_is_default' }),
     ],
@@ -164,14 +164,14 @@ mojo.internal.Struct(
 // Struct: DuplexCapability
 mojo.internal.Struct(
     mojo.internal.bindings.ash.printing.print_preview.mojom.DuplexCapabilitySpec, 'ash.printing.print_preview.mojom.DuplexCapability', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.printing.print_preview.mojom.DuplexOptionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.printing.print_preview.mojom.DuplexOptionSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: PageOrientationOption
 mojo.internal.Struct(
     mojo.internal.bindings.ash.printing.print_preview.mojom.PageOrientationOptionSpec, 'ash.printing.print_preview.mojom.PageOrientationOption', [
-      mojo.internal.StructField('arg_option', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.printing.print_preview.mojom.PageOrientationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_option', 0, 0, mojo.internal.bindings.ash.printing.print_preview.mojom.PageOrientationSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_default_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_is_default_$value', originalFieldName: 'arg_is_default' }),
       mojo.internal.StructField('arg_is_default_$value', 8, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_is_default_$flag', originalFieldName: 'arg_is_default' }),
     ],
@@ -180,7 +180,7 @@ mojo.internal.Struct(
 // Struct: PageOrientationCapability
 mojo.internal.Struct(
     mojo.internal.bindings.ash.printing.print_preview.mojom.PageOrientationCapabilitySpec, 'ash.printing.print_preview.mojom.PageOrientationCapability', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.printing.print_preview.mojom.PageOrientationOptionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.printing.print_preview.mojom.PageOrientationOptionSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_reset_to_default_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_reset_to_default_$value', originalFieldName: 'arg_reset_to_default' }),
       mojo.internal.StructField('arg_reset_to_default_$value', 8, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_reset_to_default_$flag', originalFieldName: 'arg_reset_to_default' }),
     ],
@@ -199,7 +199,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.printing.print_preview.mojom.MediaSizeOptionSpec, 'ash.printing.print_preview.mojom.MediaSizeOption', [
       mojo.internal.StructField('arg_vendor_id', 0, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_custom_display_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_custom_display_name_localized', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.printing.print_preview.mojom.LocalizedStringSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_custom_display_name_localized', 16, 0, mojo.internal.Array(mojo.internal.bindings.ash.printing.print_preview.mojom.LocalizedStringSpec.$, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_height_microns', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_width_microns', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
@@ -221,7 +221,7 @@ mojo.internal.Struct(
 // Struct: MediaSizeCapability
 mojo.internal.Struct(
     mojo.internal.bindings.ash.printing.print_preview.mojom.MediaSizeCapabilitySpec, 'ash.printing.print_preview.mojom.MediaSizeCapability', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.printing.print_preview.mojom.MediaSizeOptionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.printing.print_preview.mojom.MediaSizeOptionSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_reset_to_default_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_reset_to_default_$value', originalFieldName: 'arg_reset_to_default' }),
       mojo.internal.StructField('arg_reset_to_default_$value', 8, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_reset_to_default_$flag', originalFieldName: 'arg_reset_to_default' }),
     ],
@@ -232,7 +232,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.printing.print_preview.mojom.MediaTypeOptionSpec, 'ash.printing.print_preview.mojom.MediaTypeOption', [
       mojo.internal.StructField('arg_vendor_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_custom_display_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_custom_display_name_localized', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.printing.print_preview.mojom.LocalizedStringSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_custom_display_name_localized', 16, 0, mojo.internal.Array(mojo.internal.bindings.ash.printing.print_preview.mojom.LocalizedStringSpec.$, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_is_default_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_is_default_$value', originalFieldName: 'arg_is_default' }),
       mojo.internal.StructField('arg_is_default_$value', 32, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_is_default_$flag', originalFieldName: 'arg_is_default' }),
@@ -242,7 +242,7 @@ mojo.internal.Struct(
 // Struct: MediaTypeCapability
 mojo.internal.Struct(
     mojo.internal.bindings.ash.printing.print_preview.mojom.MediaTypeCapabilitySpec, 'ash.printing.print_preview.mojom.MediaTypeCapability', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.printing.print_preview.mojom.MediaTypeOptionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.printing.print_preview.mojom.MediaTypeOptionSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_reset_to_default_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_reset_to_default_$value', originalFieldName: 'arg_reset_to_default' }),
       mojo.internal.StructField('arg_reset_to_default_$value', 8, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_reset_to_default_$flag', originalFieldName: 'arg_reset_to_default' }),
     ],
@@ -262,7 +262,7 @@ mojo.internal.Struct(
 // Struct: DpiCapability
 mojo.internal.Struct(
     mojo.internal.bindings.ash.printing.print_preview.mojom.DpiCapabilitySpec, 'ash.printing.print_preview.mojom.DpiCapability', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.printing.print_preview.mojom.DpiOptionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.printing.print_preview.mojom.DpiOptionSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_reset_to_default_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_reset_to_default_$value', originalFieldName: 'arg_reset_to_default' }),
       mojo.internal.StructField('arg_reset_to_default_$value', 8, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_reset_to_default_$flag', originalFieldName: 'arg_reset_to_default' }),
     ],
@@ -280,14 +280,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.printing.print_preview.mojom.CapabilitiesSpec, 'ash.printing.print_preview.mojom.Capabilities', [
       mojo.internal.StructField('arg_destination_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_collate', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.printing.print_preview.mojom.CollateCapabilitySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_color', 16, 0, mojo.internal.bindings.mojo.internal.bindings.ash.printing.print_preview.mojom.ColorCapabilitySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_copies', 24, 0, mojo.internal.bindings.mojo.internal.bindings.ash.printing.print_preview.mojom.CopiesCapabilitySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_duplex', 32, 0, mojo.internal.bindings.mojo.internal.bindings.ash.printing.print_preview.mojom.DuplexCapabilitySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_page_orientation', 40, 0, mojo.internal.bindings.mojo.internal.bindings.ash.printing.print_preview.mojom.PageOrientationCapabilitySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_media_size', 48, 0, mojo.internal.bindings.mojo.internal.bindings.ash.printing.print_preview.mojom.MediaSizeCapabilitySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_media_type', 56, 0, mojo.internal.bindings.mojo.internal.bindings.ash.printing.print_preview.mojom.MediaTypeCapabilitySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_dpi', 64, 0, mojo.internal.bindings.mojo.internal.bindings.ash.printing.print_preview.mojom.DpiCapabilitySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_pin', 72, 0, mojo.internal.bindings.mojo.internal.bindings.ash.printing.print_preview.mojom.PinCapabilitySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_collate', 8, 0, mojo.internal.bindings.ash.printing.print_preview.mojom.CollateCapabilitySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_color', 16, 0, mojo.internal.bindings.ash.printing.print_preview.mojom.ColorCapabilitySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_copies', 24, 0, mojo.internal.bindings.ash.printing.print_preview.mojom.CopiesCapabilitySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_duplex', 32, 0, mojo.internal.bindings.ash.printing.print_preview.mojom.DuplexCapabilitySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_page_orientation', 40, 0, mojo.internal.bindings.ash.printing.print_preview.mojom.PageOrientationCapabilitySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_media_size', 48, 0, mojo.internal.bindings.ash.printing.print_preview.mojom.MediaSizeCapabilitySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_media_type', 56, 0, mojo.internal.bindings.ash.printing.print_preview.mojom.MediaTypeCapabilitySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_dpi', 64, 0, mojo.internal.bindings.ash.printing.print_preview.mojom.DpiCapabilitySpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_pin', 72, 0, mojo.internal.bindings.ash.printing.print_preview.mojom.PinCapabilitySpec.$, null, true, 0, undefined),
     ],
     [[0, 88]]);

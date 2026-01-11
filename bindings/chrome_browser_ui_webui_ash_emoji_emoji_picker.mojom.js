@@ -330,7 +330,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParamsSpec, 'emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParams', [
-      mojo.internal.StructField('arg_feature_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.emoji_picker.mojom.FeatureSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_feature_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.emoji_picker.mojom.FeatureSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -398,7 +398,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec, 'emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParams', [
-      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.mojo.internal.bindings.emoji_picker.mojom.CategorySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.emoji_picker.mojom.CategorySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -415,26 +415,26 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec, 'emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_Params', [
-      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.mojo.internal.bindings.emoji_picker.mojom.CategorySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_history', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.emoji_picker.mojom.HistoryItemSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.emoji_picker.mojom.CategorySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_history', 8, 0, mojo.internal.Array(mojo.internal.bindings.emoji_picker.mojom.HistoryItemSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec, 'emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_Params', [
-      mojo.internal.StructField('arg_preferred_variants', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.emoji_picker.mojom.EmojiVariantSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_preferred_variants', 0, 0, mojo.internal.Array(mojo.internal.bindings.emoji_picker.mojom.EmojiVariantSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec, 'emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_Params', [
-      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.mojo.internal.bindings.emoji_picker.mojom.CategorySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.emoji_picker.mojom.CategorySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec, 'emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParams', [
-      mojo.internal.StructField('arg_history', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.emoji_picker.mojom.HistoryItemSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_history', 0, 0, mojo.internal.Array(mojo.internal.bindings.emoji_picker.mojom.HistoryItemSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

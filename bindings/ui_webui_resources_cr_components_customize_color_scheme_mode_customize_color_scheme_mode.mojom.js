@@ -245,7 +245,7 @@ mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeMod
 // Interface: CustomizeColorSchemeModeHandler
 mojo.internal.Struct(
     mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_ParamsSpec, 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_Params', [
-      mojo.internal.StructField('arg_colorSchemeMode', 0, 0, mojo.internal.bindings.mojo.internal.bindings.customize_color_scheme_mode.mojom.ColorSchemeModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_colorSchemeMode', 0, 0, mojo.internal.bindings.customize_color_scheme_mode.mojom.ColorSchemeModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -433,7 +433,7 @@ mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeMod
 // Interface: CustomizeColorSchemeModeClient
 mojo.internal.Struct(
     mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_ParamsSpec, 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_Params', [
-      mojo.internal.StructField('arg_colorSchemeMode', 0, 0, mojo.internal.bindings.mojo.internal.bindings.customize_color_scheme_mode.mojom.ColorSchemeModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_colorSchemeMode', 0, 0, mojo.internal.bindings.customize_color_scheme_mode.mojom.ColorSchemeModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

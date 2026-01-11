@@ -91,7 +91,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ParsedPermissionsPolicyDeclarationSpec, 'network.mojom.ParsedPermissionsPolicyDeclaration', [
       mojo.internal.StructField('arg_feature', 0, 0, mojo.internal.bindings.network.mojom.PermissionsPolicyFeatureSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_allowed_origins', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.network.mojom.OriginWithPossibleWildcardsSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_allowed_origins', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.OriginWithPossibleWildcardsSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_self_if_matches', 16, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_reporting_endpoint', 24, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_matches_all_origins', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -103,7 +103,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.PermissionsPolicySpec, 'network.mojom.PermissionsPolicy', [
       mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_declarations', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.network.mojom.ParsedPermissionsPolicyDeclarationSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_declarations', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ParsedPermissionsPolicyDeclarationSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_inherited_policies', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_headerless', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],

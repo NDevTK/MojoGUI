@@ -132,15 +132,15 @@ mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.PrintSettingsSpec, 'crosapi.mojom.PrintSettings', [
       mojo.internal.StructField('arg_printer_type', 0, 0, mojo.internal.bindings.printing.mojom.PrinterTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_margin_type', 8, 0, mojo.internal.bindings.printing.mojom.MarginTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scaling_type', 16, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.ScalingTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scaling_type', 16, 0, mojo.internal.bindings.crosapi.mojom.ScalingTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_color', 24, 0, mojo.internal.bindings.printing.mojom.ColorModelSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_duplex', 32, 0, mojo.internal.bindings.printing.mojom.DuplexModeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_device_name', 40, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_margins_custom', 48, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.MarginsCustomSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_margins_custom', 48, 0, mojo.internal.bindings.crosapi.mojom.MarginsCustomSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_page_range', 56, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_title', 64, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_url', 72, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_media_size', 80, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.MediaSizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_media_size', 80, 0, mojo.internal.bindings.crosapi.mojom.MediaSizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_advanced_settings', 88, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.mojo_base.mojom.ValueSpec.$, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_media_type', 96, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_user_name', 104, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
@@ -406,7 +406,7 @@ mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegateRequest = mojo.inte
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ParamsSpec, 'crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_Params', [
       mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.PrintSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.crosapi.mojom.PrintSettingsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

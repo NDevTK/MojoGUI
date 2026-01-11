@@ -137,12 +137,12 @@ mojo.internal.bindings.chromecast.media.mojom.EncryptionScheme = {
 // Struct: AudioConfig
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.media.mojom.AudioConfigSpec, 'chromecast.media.mojom.AudioConfig', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromecast.media.mojom.StreamIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_codec', 8, 0, mojo.internal.bindings.mojo.internal.bindings.chromecast.media.mojom.AudioCodecSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_channel_layout', 16, 0, mojo.internal.bindings.mojo.internal.bindings.chromecast.media.mojom.ChannelLayoutSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sample_format', 24, 0, mojo.internal.bindings.mojo.internal.bindings.chromecast.media.mojom.SampleFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.chromecast.media.mojom.StreamIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_codec', 8, 0, mojo.internal.bindings.chromecast.media.mojom.AudioCodecSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_channel_layout', 16, 0, mojo.internal.bindings.chromecast.media.mojom.ChannelLayoutSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sample_format', 24, 0, mojo.internal.bindings.chromecast.media.mojom.SampleFormatSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_extra_data', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_encryption_scheme', 40, 0, mojo.internal.bindings.mojo.internal.bindings.chromecast.media.mojom.EncryptionSchemeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_encryption_scheme', 40, 0, mojo.internal.bindings.chromecast.media.mojom.EncryptionSchemeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_bytes_per_channel', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_channel_number', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_samples_per_second', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),

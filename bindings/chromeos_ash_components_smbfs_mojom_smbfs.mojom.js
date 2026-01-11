@@ -161,11 +161,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_resolved_host', 8, 0, mojo.internal.bindings.smbfs.mojom.IPAddressSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_username', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_workgroup', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_password', 32, 0, mojo.internal.bindings.mojo.internal.bindings.smbfs.mojom.PasswordSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_kerberos_config', 40, 0, mojo.internal.bindings.mojo.internal.bindings.smbfs.mojom.KerberosConfigSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_password', 32, 0, mojo.internal.bindings.smbfs.mojom.PasswordSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_kerberos_config', 40, 0, mojo.internal.bindings.smbfs.mojom.KerberosConfigSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_allow_ntlm', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_skip_connect', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_credential_storage_options', 56, 0, mojo.internal.bindings.mojo.internal.bindings.smbfs.mojom.CredentialStorageOptionsSpec.$, null, true, 1, undefined),
+      mojo.internal.StructField('arg_credential_storage_options', 56, 0, mojo.internal.bindings.smbfs.mojom.CredentialStorageOptionsSpec.$, null, true, 1, undefined),
     ],
     [[0, 64], [1, 72]]);
 
@@ -174,21 +174,21 @@ mojo.internal.Struct(
     mojo.internal.bindings.smbfs.mojom.CredentialsSpec, 'smbfs.mojom.Credentials', [
       mojo.internal.StructField('arg_username', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_workgroup', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_password', 16, 0, mojo.internal.bindings.mojo.internal.bindings.smbfs.mojom.PasswordSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_password', 16, 0, mojo.internal.bindings.smbfs.mojom.PasswordSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 // Interface: SmbFsBootstrap
 mojo.internal.Struct(
     mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec, 'smbfs.mojom.SmbFsBootstrap_MountShare_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.mojo.internal.bindings.smbfs.mojom.MountOptionsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.smbfs.mojom.MountOptionsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_delegate', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.smbfs.mojom.SmbFsDelegateSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec, 'smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo.internal.bindings.smbfs.mojom.MountErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.smbfs.mojom.MountErrorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_smbfs', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.smbfs.mojom.SmbFsSpec), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -365,7 +365,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec, 'smbfs.mojom.SmbFs_DeleteRecursively_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo.internal.bindings.smbfs.mojom.DeleteRecursivelyErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.smbfs.mojom.DeleteRecursivelyErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -569,7 +569,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec, 'smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParams', [
-      mojo.internal.StructField('arg_credentials', 0, 0, mojo.internal.bindings.mojo.internal.bindings.smbfs.mojom.CredentialsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_credentials', 0, 0, mojo.internal.bindings.smbfs.mojom.CredentialsSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

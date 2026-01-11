@@ -103,7 +103,7 @@ mojo.internal.bindings.lens.mojom.Alignment = {
 // Struct: Text
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.TextSpec, 'lens.mojom.Text', [
-      mojo.internal.StructField('arg_text_layout', 0, 0, mojo.internal.bindings.mojo.internal.bindings.lens.mojom.TextLayoutSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_text_layout', 0, 0, mojo.internal.bindings.lens.mojom.TextLayoutSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_content_language', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -111,7 +111,7 @@ mojo.internal.Struct(
 // Struct: TextLayout
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.TextLayoutSpec, 'lens.mojom.TextLayout', [
-      mojo.internal.StructField('arg_paragraphs', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.lens.mojom.ParagraphSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_paragraphs', 0, 0, mojo.internal.Array(mojo.internal.bindings.lens.mojom.ParagraphSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -121,15 +121,15 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_plain_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_text_separator', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_geometry', 16, 0, mojo.internal.bindings.lens.mojom.GeometrySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_writing_direction', 24, 0, mojo.internal.bindings.mojo.internal.bindings.lens.mojom.WritingDirectionSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_formula_metadata', 32, 0, mojo.internal.bindings.mojo.internal.bindings.lens.mojom.FormulaMetadataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_writing_direction', 24, 0, mojo.internal.bindings.lens.mojom.WritingDirectionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_formula_metadata', 32, 0, mojo.internal.bindings.lens.mojom.FormulaMetadataSpec.$, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: Line
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LineSpec, 'lens.mojom.Line', [
-      mojo.internal.StructField('arg_words', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.lens.mojom.WordSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_words', 0, 0, mojo.internal.Array(mojo.internal.bindings.lens.mojom.WordSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_geometry', 8, 0, mojo.internal.bindings.lens.mojom.GeometrySpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -148,11 +148,11 @@ mojo.internal.Struct(
 // Struct: TranslatedLine
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.TranslatedLineSpec, 'lens.mojom.TranslatedLine', [
-      mojo.internal.StructField('arg_words', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.lens.mojom.WordSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_words', 0, 0, mojo.internal.Array(mojo.internal.bindings.lens.mojom.WordSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_translation', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_text_color', 16, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_background_primary_color', 24, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_background_image_data', 32, 0, mojo.internal.bindings.mojo.internal.bindings.lens.mojom.BackgroundImageDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_background_image_data', 32, 0, mojo.internal.bindings.lens.mojom.BackgroundImageDataSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_geometry', 40, 0, mojo.internal.bindings.lens.mojom.GeometrySpec.$, null, true, 0, undefined),
     ],
     [[0, 56]]);
@@ -160,10 +160,10 @@ mojo.internal.Struct(
 // Struct: TranslatedParagraph
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.TranslatedParagraphSpec, 'lens.mojom.TranslatedParagraph', [
-      mojo.internal.StructField('arg_lines', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.lens.mojom.TranslatedLineSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_lines', 0, 0, mojo.internal.Array(mojo.internal.bindings.lens.mojom.TranslatedLineSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_resized_bitmap_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_alignment', 16, 0, mojo.internal.bindings.mojo.internal.bindings.lens.mojom.AlignmentSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_writing_direction', 24, 0, mojo.internal.bindings.mojo.internal.bindings.lens.mojom.WritingDirectionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_alignment', 16, 0, mojo.internal.bindings.lens.mojom.AlignmentSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_writing_direction', 24, 0, mojo.internal.bindings.lens.mojom.WritingDirectionSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_content_language', 32, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 48]]);
@@ -171,10 +171,10 @@ mojo.internal.Struct(
 // Struct: Paragraph
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.ParagraphSpec, 'lens.mojom.Paragraph', [
-      mojo.internal.StructField('arg_lines', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.lens.mojom.LineSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_translation', 8, 0, mojo.internal.bindings.mojo.internal.bindings.lens.mojom.TranslatedParagraphSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_lines', 0, 0, mojo.internal.Array(mojo.internal.bindings.lens.mojom.LineSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_translation', 8, 0, mojo.internal.bindings.lens.mojom.TranslatedParagraphSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_geometry', 16, 0, mojo.internal.bindings.lens.mojom.GeometrySpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_writing_direction', 24, 0, mojo.internal.bindings.mojo.internal.bindings.lens.mojom.WritingDirectionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_writing_direction', 24, 0, mojo.internal.bindings.lens.mojom.WritingDirectionSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_content_language', 32, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 48]]);

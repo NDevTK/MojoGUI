@@ -156,7 +156,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.InputConnection_RequestTextInputState_ResponseParamsSpec, 'arc.mojom.InputConnection_RequestTextInputState_ResponseParams', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.TextInputStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.arc.mojom.TextInputStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -577,7 +577,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.InputMethodManagerHost_OnImeInfoChanged_ParamsSpec, 'arc.mojom.InputMethodManagerHost_OnImeInfoChanged_Params', [
-      mojo.internal.StructField('arg_ime_infos', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ImeInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_ime_infos', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.ImeInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -829,13 +829,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.InputMethodManagerInstance_Focus_ParamsSpec, 'arc.mojom.InputMethodManagerInstance_Focus_Params', [
       mojo.internal.StructField('arg_connection', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.InputConnectionSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_initial_state', 8, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.TextInputStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_initial_state', 8, 0, mojo.internal.bindings.arc.mojom.TextInputStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.InputMethodManagerInstance_UpdateTextInputState_ParamsSpec, 'arc.mojom.InputMethodManagerInstance_UpdateTextInputState_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.TextInputStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.arc.mojom.TextInputStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

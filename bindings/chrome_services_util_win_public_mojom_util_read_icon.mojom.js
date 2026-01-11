@@ -91,7 +91,7 @@ mojo.internal.bindings.chrome.mojom.IconSize = {
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec, 'chrome.mojom.UtilReadIcon_ReadIcon_Params', [
       mojo.internal.StructField('arg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.bindings.mojo.internal.bindings.chrome.mojom.IconSizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.bindings.chrome.mojom.IconSizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_scale', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 32]]);

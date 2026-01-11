@@ -85,7 +85,7 @@ mojo.internal.Union(
     mojo.internal.bindings.chromeos.payments.mojom.IsPaymentImplementedResultSpec, 'chromeos.payments.mojom.IsPaymentImplementedResult', {
       'arg_valid': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.chromeos.payments.mojom.IsPaymentImplementedValidResultSpec.$,
+        'type': mojo.internal.bindings.chromeos.payments.mojom.IsPaymentImplementedValidResultSpec.$,
         'nullable': false,
       },
       'arg_error': {
@@ -115,7 +115,7 @@ mojo.internal.Union(
     mojo.internal.bindings.chromeos.payments.mojom.InvokePaymentAppResultSpec, 'chromeos.payments.mojom.InvokePaymentAppResult', {
       'arg_valid': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.chromeos.payments.mojom.InvokePaymentAppValidResultSpec.$,
+        'type': mojo.internal.bindings.chromeos.payments.mojom.InvokePaymentAppValidResultSpec.$,
         'nullable': false,
       },
       'arg_error': {

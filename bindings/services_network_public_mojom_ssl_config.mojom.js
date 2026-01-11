@@ -93,11 +93,11 @@ mojo.internal.bindings.network.mojom.SSLNamedGroupsPreset = {
 // Struct: SSLConfig
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SSLConfigSpec, 'network.mojom.SSLConfig', [
-      mojo.internal.StructField('arg_version_min', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.SSLVersionSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_version_max', 8, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.SSLVersionSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_version_min', 0, 0, mojo.internal.bindings.network.mojom.SSLVersionSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_version_max', 8, 0, mojo.internal.bindings.network.mojom.SSLVersionSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_disabled_cipher_suites', 16, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_client_cert_pooling_policy', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_named_groups_preset', 32, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.SSLNamedGroupsPresetSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_named_groups_preset', 32, 0, mojo.internal.bindings.network.mojom.SSLNamedGroupsPresetSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_trust_anchor_ids', 40, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
       mojo.internal.StructField('arg_mtc_trust_anchor_ids', 48, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
       mojo.internal.StructField('arg_rev_checking_enabled', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -112,7 +112,7 @@ mojo.internal.Struct(
 // Interface: SSLConfigClient
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec, 'network.mojom.SSLConfigClient_OnSSLConfigUpdated_Params', [
-      mojo.internal.StructField('arg_ssl_config', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.SSLConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ssl_config', 0, 0, mojo.internal.bindings.network.mojom.SSLConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

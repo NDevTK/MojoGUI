@@ -123,7 +123,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_status_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon', 24, 0, mojo.internal.bindings.mojo.internal.bindings.global_media_controls.mojom.IconTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon', 24, 0, mojo.internal.bindings.global_media_controls.mojom.IconTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -281,7 +281,7 @@ mojo.internal.bindings.global_media_controls.mojom.DeviceListHostRequest = mojo.
 // Interface: DeviceListClient
 mojo.internal.Struct(
     mojo.internal.bindings.global_media_controls.mojom.DeviceListClient_OnDevicesUpdated_ParamsSpec, 'global_media_controls.mojom.DeviceListClient_OnDevicesUpdated_Params', [
-      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.global_media_controls.mojom.DeviceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.global_media_controls.mojom.DeviceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

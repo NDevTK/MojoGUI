@@ -128,13 +128,13 @@ mojo.internal.Struct(
     mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec, 'chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStreamSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_stream_factory', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_desired_audio_parameters', 16, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.tts.mojom.AudioParametersSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_desired_audio_parameters', 16, 0, mojo.internal.bindings.chromeos.tts.mojom.AudioParametersSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec, 'chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParams', [
-      mojo.internal.StructField('arg_audio_parameters', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.tts.mojom.AudioParametersSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_parameters', 0, 0, mojo.internal.bindings.chromeos.tts.mojom.AudioParametersSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

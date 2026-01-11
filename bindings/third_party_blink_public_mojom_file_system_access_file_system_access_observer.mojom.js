@@ -89,32 +89,32 @@ mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeSpec, 'blink.mojom.FileSystemAccessChangeType', {
       'arg_appeared': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeAppearedSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeAppearedSpec.$,
         'nullable': false,
       },
       'arg_disappeared': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeDisappearedSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeDisappearedSpec.$,
         'nullable': false,
       },
       'arg_errored': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeErroredSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeErroredSpec.$,
         'nullable': false,
       },
       'arg_modified': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeModifiedSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeModifiedSpec.$,
         'nullable': false,
       },
       'arg_moved': {
         'ordinal': 4,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeMovedSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeMovedSpec.$,
         'nullable': false,
       },
       'arg_unknown': {
         'ordinal': 5,
-        'type': mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeUnknownSpec.$,
+        'type': mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeUnknownSpec.$,
         'nullable': false,
       },
     });
@@ -168,7 +168,7 @@ mojo.internal.Struct(
 // Struct: FileSystemAccessChange
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessChangeSpec, 'blink.mojom.FileSystemAccessChange', [
-      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FileSystemAccessChangeMetadataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessChangeMetadataSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -176,7 +176,7 @@ mojo.internal.Struct(
 // Interface: FileSystemAccessObserver
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec, 'blink.mojom.FileSystemAccessObserver_OnFileChanges_Params', [
-      mojo.internal.StructField('arg_changes', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FileSystemAccessChangeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_changes', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.FileSystemAccessChangeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

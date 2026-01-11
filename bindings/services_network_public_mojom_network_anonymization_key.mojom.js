@@ -81,12 +81,12 @@ mojo.internal.Union(
     mojo.internal.bindings.network.mojom.NetworkAnonymizationKeySpec, 'network.mojom.NetworkAnonymizationKey', {
       'arg_empty': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.network.mojom.EmptyNetworkAnonymizationKeySpec.$,
+        'type': mojo.internal.bindings.network.mojom.EmptyNetworkAnonymizationKeySpec.$,
         'nullable': false,
       },
       'arg_non_empty': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.network.mojom.NonEmptyNetworkAnonymizationKeySpec.$,
+        'type': mojo.internal.bindings.network.mojom.NonEmptyNetworkAnonymizationKeySpec.$,
         'nullable': false,
       },
     });

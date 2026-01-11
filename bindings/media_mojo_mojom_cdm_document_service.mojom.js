@@ -143,7 +143,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec, 'media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParams', [
-      mojo.internal.StructField('arg_cdm_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.MediaFoundationCdmDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cdm_data', 0, 0, mojo.internal.bindings.media.mojom.MediaFoundationCdmDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

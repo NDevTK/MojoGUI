@@ -159,12 +159,12 @@ mojo.internal.Union(
     mojo.internal.bindings.media_router.mojom.MediaSinkExtraDataSpec, 'media_router.mojom.MediaSinkExtraData', {
       'arg_dial_media_sink': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.media_router.mojom.DialMediaSinkSpec.$,
+        'type': mojo.internal.bindings.media_router.mojom.DialMediaSinkSpec.$,
         'nullable': false,
       },
       'arg_cast_media_sink': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.media_router.mojom.CastMediaSinkSpec.$,
+        'type': mojo.internal.bindings.media_router.mojom.CastMediaSinkSpec.$,
         'nullable': false,
       },
     });
@@ -174,7 +174,7 @@ mojo.internal.Union(
     mojo.internal.bindings.media_router.mojom.ProviderStateSpec, 'media_router.mojom.ProviderState', {
       'arg_cast_provider_state': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.media_router.mojom.CastProviderStateSpec.$,
+        'type': mojo.internal.bindings.media_router.mojom.CastProviderStateSpec.$,
         'nullable': false,
       },
     });
@@ -184,7 +184,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.media_router.mojom.MediaSinkSpec, 'media_router.mojom.MediaSink', [
       mojo.internal.StructField('arg_sink_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon_type', 16, 0, mojo.internal.bindings.mojo.internal.bindings.media_router.mojom.SinkIconTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon_type', 16, 0, mojo.internal.bindings.media_router.mojom.SinkIconTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_provider_id', 24, 0, mojo.internal.bindings.media_router.mojom.MediaRouteProviderIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_extra_data', 32, 0, mojo.internal.bindings.media_router.mojom.MediaSinkExtraDataSpec.$, null, true, 0, undefined),
     ],
@@ -218,7 +218,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_media_sink_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_media_sink_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_description', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_controller_type', 48, 0, mojo.internal.bindings.mojo.internal.bindings.media_router.mojom.RouteControllerTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_controller_type', 48, 0, mojo.internal.bindings.media_router.mojom.RouteControllerTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_local', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_local_presentation', 56, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_connecting', 56, 2, mojo.internal.Bool, false, false, 0, undefined),
@@ -262,7 +262,7 @@ mojo.internal.Struct(
 // Struct: CastProviderState
 mojo.internal.Struct(
     mojo.internal.bindings.media_router.mojom.CastProviderStateSpec, 'media_router.mojom.CastProviderState', [
-      mojo.internal.StructField('arg_session_state', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.media_router.mojom.CastSessionStateSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_state', 0, 0, mojo.internal.Array(mojo.internal.bindings.media_router.mojom.CastSessionStateSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -280,8 +280,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParamsSpec, 'media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParams', [
-      mojo.internal.StructField('arg_route', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media_router.mojom.MediaRouteSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_connection', 8, 0, mojo.internal.bindings.mojo.internal.bindings.media_router.mojom.RoutePresentationConnectionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_route', 0, 0, mojo.internal.bindings.media_router.mojom.MediaRouteSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_connection', 8, 0, mojo.internal.bindings.media_router.mojom.RoutePresentationConnectionSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_error_text', 16, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_result_code', 24, 0, mojo.internal.bindings.media_router.mojom.RouteRequestResultCodeSpec.$, null, false, 0, undefined),
     ],
@@ -299,8 +299,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media_router.mojom.MediaRouteProvider_JoinRoute_ResponseParamsSpec, 'media_router.mojom.MediaRouteProvider_JoinRoute_ResponseParams', [
-      mojo.internal.StructField('arg_route', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media_router.mojom.MediaRouteSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_connection', 8, 0, mojo.internal.bindings.mojo.internal.bindings.media_router.mojom.RoutePresentationConnectionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_route', 0, 0, mojo.internal.bindings.media_router.mojom.MediaRouteSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_connection', 8, 0, mojo.internal.bindings.media_router.mojom.RoutePresentationConnectionSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_error_text', 16, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_result_code', 24, 0, mojo.internal.bindings.media_router.mojom.RouteRequestResultCodeSpec.$, null, false, 0, undefined),
     ],
@@ -934,14 +934,14 @@ mojo.internal.Struct(
     mojo.internal.bindings.media_router.mojom.MediaRouter_OnSinksReceived_ParamsSpec, 'media_router.mojom.MediaRouter_OnSinksReceived_Params', [
       mojo.internal.StructField('arg_provider_id', 0, 0, mojo.internal.bindings.media_router.mojom.MediaRouteProviderIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_media_source', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sinks', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.media_router.mojom.MediaSinkSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_sinks', 16, 0, mojo.internal.Array(mojo.internal.bindings.media_router.mojom.MediaSinkSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_origins', 24, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.OriginSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media_router.mojom.MediaRouter_OnIssue_ParamsSpec, 'media_router.mojom.MediaRouter_OnIssue_Params', [
-      mojo.internal.StructField('arg_issue', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media_router.mojom.IssueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_issue', 0, 0, mojo.internal.bindings.media_router.mojom.IssueSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -954,7 +954,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media_router.mojom.MediaRouter_OnRoutesUpdated_ParamsSpec, 'media_router.mojom.MediaRouter_OnRoutesUpdated_Params', [
       mojo.internal.StructField('arg_provider_id', 0, 0, mojo.internal.bindings.media_router.mojom.MediaRouteProviderIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_routes', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.media_router.mojom.MediaRouteSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_routes', 8, 0, mojo.internal.Array(mojo.internal.bindings.media_router.mojom.MediaRouteSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -976,7 +976,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media_router.mojom.MediaRouter_OnRouteMessagesReceived_ParamsSpec, 'media_router.mojom.MediaRouter_OnRouteMessagesReceived_Params', [
       mojo.internal.StructField('arg_route_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_messages', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.media_router.mojom.RouteMessageSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_messages', 8, 0, mojo.internal.Array(mojo.internal.bindings.media_router.mojom.RouteMessageSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

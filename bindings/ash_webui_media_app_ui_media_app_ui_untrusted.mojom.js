@@ -448,7 +448,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactoryRequest = m
 // Interface: OcrUntrustedService
 mojo.internal.Struct(
     mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedService_PageMetadataUpdated_ParamsSpec, 'ash.media_app_ui.mojom.OcrUntrustedService_PageMetadataUpdated_Params', [
-      mojo.internal.StructField('arg_page_metadata', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.media_app_ui.mojom.PageMetadataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_metadata', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.media_app_ui.mojom.PageMetadataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

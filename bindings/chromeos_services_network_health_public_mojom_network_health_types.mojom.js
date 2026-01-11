@@ -111,15 +111,15 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_health.mojom.NetworkSpec, 'chromeos.network_health.mojom.Network', [
       mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.chromeos.network_config.mojom.NetworkTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.network_health.mojom.NetworkStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.chromeos.network_health.mojom.NetworkStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_guid', 16, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_mac_address', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_signal_strength', 40, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.network_health.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_signal_strength', 40, 0, mojo.internal.bindings.chromeos.network_health.mojom.UInt32ValueSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_ipv4_address', 48, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_ipv6_addresses', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_portal_state', 64, 0, mojo.internal.bindings.chromeos.network_config.mojom.PortalStateSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_signal_strength_stats', 72, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.network_health.mojom.SignalStrengthStatsSpec.$, null, true, 1, undefined),
+      mojo.internal.StructField('arg_signal_strength_stats', 72, 0, mojo.internal.bindings.chromeos.network_health.mojom.SignalStrengthStatsSpec.$, null, true, 1, undefined),
       mojo.internal.StructField('arg_portal_probe_url', 80, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 3, undefined),
     ],
     [[0, 80], [1, 88], [3, 96]]);
@@ -127,6 +127,6 @@ mojo.internal.Struct(
 // Struct: NetworkHealthState
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthStateSpec, 'chromeos.network_health.mojom.NetworkHealthState', [
-      mojo.internal.StructField('arg_networks', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.chromeos.network_health.mojom.NetworkSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_networks', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.network_health.mojom.NetworkSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);

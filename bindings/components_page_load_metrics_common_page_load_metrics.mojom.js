@@ -134,7 +134,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_largest_image_paint_size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_largest_text_paint', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_largest_text_paint_size', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_resource_load_timings', 32, 0, mojo.internal.bindings.mojo.internal.bindings.page_load_metrics.mojom.LcpResourceLoadTimingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_resource_load_timings', 32, 0, mojo.internal.bindings.page_load_metrics.mojom.LcpResourceLoadTimingsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_type', 40, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_image_bpp', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_image_request_priority_value', 56, 0, mojo.internal.bindings.network.mojom.RequestPrioritySpec.$, null, false, 0, undefined),
@@ -149,8 +149,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_first_image_paint', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_first_contentful_paint', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_first_meaningful_paint', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_largest_contentful_paint', 32, 0, mojo.internal.bindings.mojo.internal.bindings.page_load_metrics.mojom.LargestContentfulPaintTimingSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_experimental_largest_contentful_paint', 40, 0, mojo.internal.bindings.mojo.internal.bindings.page_load_metrics.mojom.LargestContentfulPaintTimingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_largest_contentful_paint', 32, 0, mojo.internal.bindings.page_load_metrics.mojom.LargestContentfulPaintTimingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_experimental_largest_contentful_paint', 40, 0, mojo.internal.bindings.page_load_metrics.mojom.LargestContentfulPaintTimingSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_first_eligible_to_paint', 48, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_first_input_or_scroll_notified_timestamp', 56, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
     ],
@@ -209,18 +209,18 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_connect_start', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_connect_end', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_response_start', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_document_timing', 32, 0, mojo.internal.bindings.mojo.internal.bindings.page_load_metrics.mojom.DocumentTimingSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_interactive_timing', 40, 0, mojo.internal.bindings.mojo.internal.bindings.page_load_metrics.mojom.InteractiveTimingSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_paint_timing', 48, 0, mojo.internal.bindings.mojo.internal.bindings.page_load_metrics.mojom.PaintTimingSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_parse_timing', 56, 0, mojo.internal.bindings.mojo.internal.bindings.page_load_metrics.mojom.ParseTimingSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_domain_lookup_timing', 64, 0, mojo.internal.bindings.mojo.internal.bindings.page_load_metrics.mojom.DomainLookupTimingSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_back_forward_cache_timings', 72, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.page_load_metrics.mojom.BackForwardCacheTimingSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_document_timing', 32, 0, mojo.internal.bindings.page_load_metrics.mojom.DocumentTimingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_interactive_timing', 40, 0, mojo.internal.bindings.page_load_metrics.mojom.InteractiveTimingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_paint_timing', 48, 0, mojo.internal.bindings.page_load_metrics.mojom.PaintTimingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_parse_timing', 56, 0, mojo.internal.bindings.page_load_metrics.mojom.ParseTimingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_domain_lookup_timing', 64, 0, mojo.internal.bindings.page_load_metrics.mojom.DomainLookupTimingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_back_forward_cache_timings', 72, 0, mojo.internal.Array(mojo.internal.bindings.page_load_metrics.mojom.BackForwardCacheTimingSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_activation_start', 80, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_input_to_navigation_start', 88, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_user_timing_mark_fully_loaded', 96, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_user_timing_mark_fully_visible', 104, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_user_timing_mark_interactive', 112, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_monotonic_paint_timing', 120, 0, mojo.internal.bindings.mojo.internal.bindings.page_load_metrics.mojom.MonotonicPaintTimingSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_monotonic_paint_timing', 120, 0, mojo.internal.bindings.page_load_metrics.mojom.MonotonicPaintTimingSpec.$, null, true, 0, undefined),
     ],
     [[0, 136]]);
 
@@ -238,7 +238,7 @@ mojo.internal.Struct(
 // Struct: SubresourceLoadMetrics
 mojo.internal.Struct(
     mojo.internal.bindings.page_load_metrics.mojom.SubresourceLoadMetricsSpec, 'page_load_metrics.mojom.SubresourceLoadMetrics', [
-      mojo.internal.StructField('arg_service_worker_subresource_load_metrics', 0, 0, mojo.internal.bindings.mojo.internal.bindings.page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetricsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_service_worker_subresource_load_metrics', 0, 0, mojo.internal.bindings.page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetricsSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_number_of_subresources_loaded', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_number_of_subresource_loads_handled_by_service_worker', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
@@ -294,7 +294,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_received_data_length', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteCountSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_encoded_body_length', 16, 0, mojo.internal.bindings.mojo_base.mojom.ByteCountSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_decoded_body_length', 24, 0, mojo.internal.bindings.mojo_base.mojom.ByteCountSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cache_type', 32, 0, mojo.internal.bindings.mojo.internal.bindings.page_load_metrics.mojom.CacheTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cache_type', 32, 0, mojo.internal.bindings.page_load_metrics.mojom.CacheTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_mime_type', 40, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_request_id', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_is_complete', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -317,7 +317,7 @@ mojo.internal.Struct(
 // Struct: FrameRenderDataUpdate
 mojo.internal.Struct(
     mojo.internal.bindings.page_load_metrics.mojom.FrameRenderDataUpdateSpec, 'page_load_metrics.mojom.FrameRenderDataUpdate', [
-      mojo.internal.StructField('arg_new_layout_shifts', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.page_load_metrics.mojom.LayoutShiftSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_layout_shifts', 0, 0, mojo.internal.Array(mojo.internal.bindings.page_load_metrics.mojom.LayoutShiftSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_layout_shift_delta', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_layout_shift_delta_before_input_or_scroll', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
@@ -333,7 +333,7 @@ mojo.internal.Struct(
 // Struct: InputTiming
 mojo.internal.Struct(
     mojo.internal.bindings.page_load_metrics.mojom.InputTimingSpec, 'page_load_metrics.mojom.InputTiming', [
-      mojo.internal.StructField('arg_user_interaction_latencies', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.page_load_metrics.mojom.UserInteractionLatencySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_user_interaction_latencies', 0, 0, mojo.internal.Array(mojo.internal.bindings.page_load_metrics.mojom.UserInteractionLatencySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -361,7 +361,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_count', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_start_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_same_document_metrics_token', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_largest_contentful_paint', 24, 0, mojo.internal.bindings.mojo.internal.bindings.page_load_metrics.mojom.LargestContentfulPaintTimingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_largest_contentful_paint', 24, 0, mojo.internal.bindings.page_load_metrics.mojom.LargestContentfulPaintTimingSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_navigation_id', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
@@ -369,15 +369,15 @@ mojo.internal.Struct(
 // Interface: PageLoadMetrics
 mojo.internal.Struct(
     mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec, 'page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_Params', [
-      mojo.internal.StructField('arg_page_load_timing', 0, 0, mojo.internal.bindings.mojo.internal.bindings.page_load_metrics.mojom.PageLoadTimingSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_metadata', 8, 0, mojo.internal.bindings.mojo.internal.bindings.page_load_metrics.mojom.FrameMetadataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_load_timing', 0, 0, mojo.internal.bindings.page_load_metrics.mojom.PageLoadTimingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_metadata', 8, 0, mojo.internal.bindings.page_load_metrics.mojom.FrameMetadataSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_new_features', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.UseCounterFeatureSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_resources', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.page_load_metrics.mojom.ResourceDataUpdateSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_render_data', 32, 0, mojo.internal.bindings.mojo.internal.bindings.page_load_metrics.mojom.FrameRenderDataUpdateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cpu_load_timing', 40, 0, mojo.internal.bindings.mojo.internal.bindings.page_load_metrics.mojom.CpuTimingSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_input_timing_delta', 48, 0, mojo.internal.bindings.mojo.internal.bindings.page_load_metrics.mojom.InputTimingSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_subresource_load_metrics', 56, 0, mojo.internal.bindings.mojo.internal.bindings.page_load_metrics.mojom.SubresourceLoadMetricsSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_soft_navigation_metrics', 64, 0, mojo.internal.bindings.mojo.internal.bindings.page_load_metrics.mojom.SoftNavigationMetricsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_resources', 24, 0, mojo.internal.Array(mojo.internal.bindings.page_load_metrics.mojom.ResourceDataUpdateSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_render_data', 32, 0, mojo.internal.bindings.page_load_metrics.mojom.FrameRenderDataUpdateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cpu_load_timing', 40, 0, mojo.internal.bindings.page_load_metrics.mojom.CpuTimingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_timing_delta', 48, 0, mojo.internal.bindings.page_load_metrics.mojom.InputTimingSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_subresource_load_metrics', 56, 0, mojo.internal.bindings.page_load_metrics.mojom.SubresourceLoadMetricsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_soft_navigation_metrics', 64, 0, mojo.internal.bindings.page_load_metrics.mojom.SoftNavigationMetricsSpec.$, null, false, 0, undefined),
     ],
     [[0, 80]]);
 
@@ -389,7 +389,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec, 'page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_Params', [
-      mojo.internal.StructField('arg_custom_user_timing', 0, 0, mojo.internal.bindings.mojo.internal.bindings.page_load_metrics.mojom.CustomUserTimingMarkSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_custom_user_timing', 0, 0, mojo.internal.bindings.page_load_metrics.mojom.CustomUserTimingMarkSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

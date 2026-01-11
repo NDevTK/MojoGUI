@@ -249,42 +249,42 @@ mojo.internal.Union(
     mojo.internal.bindings.actor.mojom.ToolActionSpec, 'actor.mojom.ToolAction', {
       'arg_click': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.actor.mojom.ClickActionSpec.$,
+        'type': mojo.internal.bindings.actor.mojom.ClickActionSpec.$,
         'nullable': false,
       },
       'arg_drag_and_release': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.actor.mojom.DragAndReleaseActionSpec.$,
+        'type': mojo.internal.bindings.actor.mojom.DragAndReleaseActionSpec.$,
         'nullable': false,
       },
       'arg_mouse_move': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.actor.mojom.MouseMoveActionSpec.$,
+        'type': mojo.internal.bindings.actor.mojom.MouseMoveActionSpec.$,
         'nullable': false,
       },
       'arg_scroll': {
         'ordinal': 3,
-        'type': mojo.internal.bindings.mojo.internal.bindings.actor.mojom.ScrollActionSpec.$,
+        'type': mojo.internal.bindings.actor.mojom.ScrollActionSpec.$,
         'nullable': false,
       },
       'arg_select': {
         'ordinal': 4,
-        'type': mojo.internal.bindings.mojo.internal.bindings.actor.mojom.SelectActionSpec.$,
+        'type': mojo.internal.bindings.actor.mojom.SelectActionSpec.$,
         'nullable': false,
       },
       'arg_type': {
         'ordinal': 5,
-        'type': mojo.internal.bindings.mojo.internal.bindings.actor.mojom.TypeActionSpec.$,
+        'type': mojo.internal.bindings.actor.mojom.TypeActionSpec.$,
         'nullable': false,
       },
       'arg_script_tool': {
         'ordinal': 6,
-        'type': mojo.internal.bindings.mojo.internal.bindings.actor.mojom.ScriptToolActionSpec.$,
+        'type': mojo.internal.bindings.actor.mojom.ScriptToolActionSpec.$,
         'nullable': false,
       },
       'arg_scroll_to': {
         'ordinal': 7,
-        'type': mojo.internal.bindings.mojo.internal.bindings.actor.mojom.ScrollToActionSpec.$,
+        'type': mojo.internal.bindings.actor.mojom.ScrollToActionSpec.$,
         'nullable': false,
       },
     });
@@ -367,17 +367,17 @@ mojo.internal.Struct(
 // Struct: ToolInvocation
 mojo.internal.Struct(
     mojo.internal.bindings.actor.mojom.ToolInvocationSpec, 'actor.mojom.ToolInvocation', [
-      mojo.internal.StructField('arg_task_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.actor.mojom.TaskIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_task_id', 0, 0, mojo.internal.bindings.actor.mojom.TaskIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_action', 8, 0, mojo.internal.bindings.actor.mojom.ToolActionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_target', 16, 0, mojo.internal.bindings.actor.mojom.ToolTargetSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_observed_target', 24, 0, mojo.internal.bindings.mojo.internal.bindings.actor.mojom.ObservedToolTargetSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_observed_target', 24, 0, mojo.internal.bindings.actor.mojom.ObservedToolTargetSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: ActionResult
 mojo.internal.Struct(
     mojo.internal.bindings.actor.mojom.ActionResultSpec, 'actor.mojom.ActionResult', [
-      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.mojo.internal.bindings.actor.mojom.ActionResultCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.actor.mojom.ActionResultCodeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_script_tool_response', 16, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_execution_end_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, true, 0, undefined),
@@ -396,19 +396,19 @@ mojo.internal.Struct(
 // Struct: JournalEntry
 mojo.internal.Struct(
     mojo.internal.bindings.actor.mojom.JournalEntrySpec, 'actor.mojom.JournalEntry', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.actor.mojom.JournalEntryTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_task_id', 8, 0, mojo.internal.bindings.mojo.internal.bindings.actor.mojom.TaskIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.actor.mojom.JournalEntryTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_task_id', 8, 0, mojo.internal.bindings.actor.mojom.TaskIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_timestamp', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_event', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_track_uuid', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_details', 40, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.actor.mojom.JournalDetailsSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 40, 0, mojo.internal.Array(mojo.internal.bindings.actor.mojom.JournalDetailsSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 56]]);
 
 // Interface: JournalClient
 mojo.internal.Struct(
     mojo.internal.bindings.actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec, 'actor.mojom.JournalClient_AddEntriesToJournal_Params', [
-      mojo.internal.StructField('arg_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.actor.mojom.JournalEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.actor.mojom.JournalEntrySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -126,7 +126,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ResponseParamsSpec, 'chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.LoadModelResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.LoadModelResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -139,7 +139,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ResponseParamsSpec, 'chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.LoadModelResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.LoadModelResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -151,7 +151,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ResponseParamsSpec, 'chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.LoadModelResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.LoadModelResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -178,7 +178,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ResponseParamsSpec, 'chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.LoadModelResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.LoadModelResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -190,7 +190,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ResponseParamsSpec, 'chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.LoadModelResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.LoadModelResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -203,7 +203,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ResponseParamsSpec, 'chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.LoadModelResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.LoadModelResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -229,7 +229,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ResponseParamsSpec, 'chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.LoadModelResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.LoadModelResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -242,7 +242,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ResponseParamsSpec, 'chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.LoadModelResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.LoadModelResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -268,7 +268,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ResponseParamsSpec, 'chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.LoadModelResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.LoadModelResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

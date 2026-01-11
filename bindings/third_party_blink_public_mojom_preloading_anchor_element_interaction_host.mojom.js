@@ -100,14 +100,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec, 'blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_Params', [
       mojo.internal.StructField('arg_target', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mouse_data', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AnchorElementPointerDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mouse_data', 8, 0, mojo.internal.bindings.blink.mojom.AnchorElementPointerDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec, 'blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_Params', [
       mojo.internal.StructField('arg_target', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mouse_data', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AnchorElementPointerDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mouse_data', 8, 0, mojo.internal.bindings.blink.mojom.AnchorElementPointerDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

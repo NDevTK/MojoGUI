@@ -86,7 +86,7 @@ mojo.internal.Struct(
 // Interface: ActivityUrlFilterConfiguration
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec, 'chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_Params', [
-      mojo.internal.StructField('arg_filter', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterCriteriaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_filter', 0, 0, mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterCriteriaSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

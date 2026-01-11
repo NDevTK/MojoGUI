@@ -117,7 +117,7 @@ mojo.internal.Struct(
 // Struct: OnDeviceTranslationServiceConfig
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationServiceConfigSpec, 'on_device_translation.mojom.OnDeviceTranslationServiceConfig', [
-      mojo.internal.StructField('arg_packages', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationLanguagePackageSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_packages', 0, 0, mojo.internal.Array(mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationLanguagePackageSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_file_operation_proxy', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.on_device_translation.mojom.FileOperationProxySpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -345,7 +345,7 @@ mojo.internal.bindings.on_device_translation.mojom.FileOperationProxyRequest = m
 // Interface: OnDeviceTranslationService
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_SetServiceConfig_ParamsSpec, 'on_device_translation.mojom.OnDeviceTranslationService_SetServiceConfig_Params', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationServiceConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationServiceConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -359,7 +359,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ResponseParamsSpec, 'on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.on_device_translation.mojom.CreateTranslatorResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.on_device_translation.mojom.CreateTranslatorResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -95,8 +95,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.display.mojom.DisplayPlacementSpec, 'display.mojom.DisplayPlacement', [
       mojo.internal.StructField('arg_display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_parent_display_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_position', 16, 0, mojo.internal.bindings.mojo.internal.bindings.display.mojom.PositionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_offset_reference', 24, 0, mojo.internal.bindings.mojo.internal.bindings.display.mojom.OffsetReferenceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_position', 16, 0, mojo.internal.bindings.display.mojom.PositionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_offset_reference', 24, 0, mojo.internal.bindings.display.mojom.OffsetReferenceSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_offset', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
@@ -105,7 +105,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.display.mojom.DisplayLayoutSpec, 'display.mojom.DisplayLayout', [
       mojo.internal.StructField('arg_primary_display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_placement_list', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.display.mojom.DisplayPlacementSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_placement_list', 8, 0, mojo.internal.Array(mojo.internal.bindings.display.mojom.DisplayPlacementSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_default_unified', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);

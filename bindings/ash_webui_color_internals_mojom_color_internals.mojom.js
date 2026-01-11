@@ -92,7 +92,7 @@ mojo.internal.Struct(
 // Interface: WallpaperColorsObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_ParamsSpec, 'ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_Params', [
-      mojo.internal.StructField('arg_colors', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.color_internals.mojom.WallpaperCalculatedColorsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_colors', 0, 0, mojo.internal.bindings.ash.color_internals.mojom.WallpaperCalculatedColorsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

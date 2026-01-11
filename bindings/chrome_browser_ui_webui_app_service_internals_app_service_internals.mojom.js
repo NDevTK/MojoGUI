@@ -118,10 +118,10 @@ mojo.internal.Struct(
 // Struct: DebugInfo
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.app_service_internals.DebugInfoSpec, 'mojom.app_service_internals.DebugInfo', [
-      mojo.internal.StructField('arg_app_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.mojom.app_service_internals.AppInfoSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_preferred_app_list', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.mojom.app_service_internals.PreferredAppInfoSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_promise_app_list', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.mojom.app_service_internals.PromiseAppInfoSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_app_capability_list', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.mojom.app_service_internals.AppCapabilityInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_app_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojom.app_service_internals.AppInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_preferred_app_list', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojom.app_service_internals.PreferredAppInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_promise_app_list', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojom.app_service_internals.PromiseAppInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_app_capability_list', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojom.app_service_internals.AppCapabilityInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -133,7 +133,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec, 'mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParams', [
-      mojo.internal.StructField('arg_debug_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mojom.app_service_internals.DebugInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_debug_info', 0, 0, mojo.internal.bindings.mojom.app_service_internals.DebugInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

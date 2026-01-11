@@ -174,7 +174,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec, 'content.mojom.Renderer_UpdateScrollbarTheme_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.UpdateScrollbarThemeParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.content.mojom.UpdateScrollbarThemeParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -186,7 +186,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec, 'content.mojom.Renderer_UpdateSystemColorInfo_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.UpdateSystemColorInfoParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.content.mojom.UpdateSystemColorInfoParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -208,7 +208,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.Renderer_SetProcessState_ParamsSpec, 'content.mojom.Renderer_SetProcessState_Params', [
       mojo.internal.StructField('arg_process_priority', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProcessPrioritySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visible_state', 8, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.RenderProcessVisibleStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visible_state', 8, 0, mojo.internal.bindings.content.mojom.RenderProcessVisibleStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

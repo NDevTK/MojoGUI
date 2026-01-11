@@ -89,17 +89,17 @@ mojo.internal.Union(
     mojo.internal.bindings.gpu.mojom.GpuDiskCacheHandleSpec, 'gpu.mojom.GpuDiskCacheHandle', {
       'arg_gl_shader_handle': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.GpuDiskCacheGlShaderHandleSpec.$,
+        'type': mojo.internal.bindings.gpu.mojom.GpuDiskCacheGlShaderHandleSpec.$,
         'nullable': false,
       },
       'arg_dawn_webgpu_handle': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.GpuDiskCacheDawnWebGPUHandleSpec.$,
+        'type': mojo.internal.bindings.gpu.mojom.GpuDiskCacheDawnWebGPUHandleSpec.$,
         'nullable': false,
       },
       'arg_dawn_graphite_handle': {
         'ordinal': 2,
-        'type': mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.GpuDiskCacheDawnGraphiteHandleSpec.$,
+        'type': mojo.internal.bindings.gpu.mojom.GpuDiskCacheDawnGraphiteHandleSpec.$,
         'nullable': false,
       },
     });

@@ -99,7 +99,7 @@ mojo.internal.bindings.ash.cros_healthd.internal.mojom.ConnectionType = {
 // Struct: TouchscreenDevice
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.internal.mojom.TouchscreenDeviceSpec, 'ash.cros_healthd.internal.mojom.TouchscreenDevice', [
-      mojo.internal.StructField('arg_input_device', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.internal.mojom.InputDeviceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_device', 0, 0, mojo.internal.bindings.ash.cros_healthd.internal.mojom.InputDeviceSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_touch_points', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_has_stylus', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_has_stylus_garage_switch', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -126,7 +126,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ResponseParamsSpec, 'ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ResponseParams', [
-      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.internal.mojom.TouchscreenDeviceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.internal.mojom.TouchscreenDeviceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

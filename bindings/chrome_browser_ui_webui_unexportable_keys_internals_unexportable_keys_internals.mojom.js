@@ -96,7 +96,7 @@ mojo.internal.Struct(
 // Struct: UnexportableKeyInfo
 mojo.internal.Struct(
     mojo.internal.bindings.unexportable_keys_internals.mojom.UnexportableKeyInfoSpec, 'unexportable_keys_internals.mojom.UnexportableKeyInfo', [
-      mojo.internal.StructField('arg_key_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.unexportable_keys_internals.mojom.UnexportableKeyIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_id', 0, 0, mojo.internal.bindings.unexportable_keys_internals.mojom.UnexportableKeyIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_wrapped_key', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_algorithm', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_key_tag', 24, 0, mojo.internal.String, null, false, 0, undefined),
@@ -264,13 +264,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec, 'unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParams', [
-      mojo.internal.StructField('arg_keys', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.unexportable_keys_internals.mojom.UnexportableKeyInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_keys', 0, 0, mojo.internal.Array(mojo.internal.bindings.unexportable_keys_internals.mojom.UnexportableKeyInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec, 'unexportable_keys_internals.mojom.PageHandler_DeleteKey_Params', [
-      mojo.internal.StructField('arg_key_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.unexportable_keys_internals.mojom.UnexportableKeyIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_id', 0, 0, mojo.internal.bindings.unexportable_keys_internals.mojom.UnexportableKeyIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -482,7 +482,7 @@ mojo.internal.bindings.extensions_bar.mojom.PageHandlerRequest = mojo.internal.b
 // Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec, 'extensions_bar.mojom.Page_ActionsAddedOrUpdated_Params', [
-      mojo.internal.StructField('arg_actions', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.extensions_bar.mojom.ExtensionActionInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_actions', 0, 0, mojo.internal.Array(mojo.internal.bindings.extensions_bar.mojom.ExtensionActionInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

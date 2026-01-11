@@ -108,12 +108,12 @@ mojo.internal.Union(
     mojo.internal.bindings.network.mojom.NoVarySearchWithParseErrorSpec, 'network.mojom.NoVarySearchWithParseError', {
       'arg_no_vary_search': {
         'ordinal': 0,
-        'type': mojo.internal.bindings.mojo.internal.bindings.network.mojom.NoVarySearchSpec.$,
+        'type': mojo.internal.bindings.network.mojom.NoVarySearchSpec.$,
         'nullable': false,
       },
       'arg_parse_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo.internal.bindings.network.mojom.NoVarySearchParseErrorSpec.$,
+        'type': mojo.internal.bindings.network.mojom.NoVarySearchParseErrorSpec.$,
         'nullable': false,
       },
     });

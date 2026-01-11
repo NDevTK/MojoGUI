@@ -104,7 +104,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_mime_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_extras', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_files', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.arc.mojom.FileInfoSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_files', 24, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.FileInfoSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -374,7 +374,7 @@ mojo.internal.bindings.arc.mojom.NearbyShareSessionInstanceRequest = mojo.intern
 // Interface: NearbyShareHost
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec, 'arc.mojom.NearbyShareHost_StartNearbyShare_Params', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ShareIntentInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.arc.mojom.ShareIntentInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_instance', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.NearbyShareSessionInstanceSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_task_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],

@@ -137,14 +137,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.mac_notifications.mojom.NotificationIdentifierSpec, 'mac_notifications.mojom.NotificationIdentifier', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_profile', 8, 0, mojo.internal.bindings.mojo.internal.bindings.mac_notifications.mojom.ProfileIdentifierSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_profile', 8, 0, mojo.internal.bindings.mac_notifications.mojom.ProfileIdentifierSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: NotificationMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.mac_notifications.mojom.NotificationMetadataSpec, 'mac_notifications.mojom.NotificationMetadata', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mac_notifications.mojom.NotificationIdentifierSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mac_notifications.mojom.NotificationIdentifierSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_origin_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_user_data_dir', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_type', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -154,8 +154,8 @@ mojo.internal.Struct(
 // Struct: NotificationActionInfo
 mojo.internal.Struct(
     mojo.internal.bindings.mac_notifications.mojom.NotificationActionInfoSpec, 'mac_notifications.mojom.NotificationActionInfo', [
-      mojo.internal.StructField('arg_meta', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mac_notifications.mojom.NotificationMetadataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_operation', 8, 0, mojo.internal.bindings.mojo.internal.bindings.mac_notifications.mojom.NotificationOperationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_meta', 0, 0, mojo.internal.bindings.mac_notifications.mojom.NotificationMetadataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_operation', 8, 0, mojo.internal.bindings.mac_notifications.mojom.NotificationOperationSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_reply', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_button_index', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -172,11 +172,11 @@ mojo.internal.Struct(
 // Struct: Notification
 mojo.internal.Struct(
     mojo.internal.bindings.mac_notifications.mojom.NotificationSpec, 'mac_notifications.mojom.Notification', [
-      mojo.internal.StructField('arg_meta', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mac_notifications.mojom.NotificationMetadataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_meta', 0, 0, mojo.internal.bindings.mac_notifications.mojom.NotificationMetadataSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_title', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_subtitle', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_body', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buttons', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.mac_notifications.mojom.NotificationActionButtonSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_buttons', 32, 0, mojo.internal.Array(mojo.internal.bindings.mac_notifications.mojom.NotificationActionButtonSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_icon', 40, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_renotify', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_show_settings_button', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -186,32 +186,32 @@ mojo.internal.Struct(
 // Interface: MacNotificationService
 mojo.internal.Struct(
     mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec, 'mac_notifications.mojom.MacNotificationService_DisplayNotification_Params', [
-      mojo.internal.StructField('arg_notification', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mac_notifications.mojom.NotificationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_notification', 0, 0, mojo.internal.bindings.mac_notifications.mojom.NotificationSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec, 'mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_Params', [
-      mojo.internal.StructField('arg_profile', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mac_notifications.mojom.ProfileIdentifierSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_profile', 0, 0, mojo.internal.bindings.mac_notifications.mojom.ProfileIdentifierSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_origin', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec, 'mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParams', [
-      mojo.internal.StructField('arg_notifications', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.mac_notifications.mojom.NotificationIdentifierSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_notifications', 0, 0, mojo.internal.Array(mojo.internal.bindings.mac_notifications.mojom.NotificationIdentifierSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec, 'mac_notifications.mojom.MacNotificationService_CloseNotification_Params', [
-      mojo.internal.StructField('arg_identifier', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mac_notifications.mojom.NotificationIdentifierSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_identifier', 0, 0, mojo.internal.bindings.mac_notifications.mojom.NotificationIdentifierSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec, 'mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_Params', [
-      mojo.internal.StructField('arg_profile', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mac_notifications.mojom.ProfileIdentifierSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_profile', 0, 0, mojo.internal.bindings.mac_notifications.mojom.ProfileIdentifierSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -554,7 +554,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceRequest = m
 // Interface: MacNotificationActionHandler
 mojo.internal.Struct(
     mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec, 'mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_Params', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mac_notifications.mojom.NotificationActionInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.mac_notifications.mojom.NotificationActionInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

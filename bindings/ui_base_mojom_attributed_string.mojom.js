@@ -89,6 +89,6 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.AttributedStringSpec, 'ui.mojom.AttributedString', [
       mojo.internal.StructField('arg_string', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_attributes', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ui.mojom.FontAttributeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_attributes', 8, 0, mojo.internal.Array(mojo.internal.bindings.ui.mojom.FontAttributeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);

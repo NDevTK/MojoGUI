@@ -116,13 +116,13 @@ mojo.internal.Struct(
 // Interface: MidisClient
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec, 'arc.mojom.MidisClient_OnDeviceAdded_Params', [
-      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.MidisDeviceInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.arc.mojom.MidisDeviceInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec, 'arc.mojom.MidisClient_OnDeviceRemoved_Params', [
-      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.MidisDeviceInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.arc.mojom.MidisDeviceInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -310,13 +310,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ResponseParamsSpec, 'arc.mojom.MidisServer_ListDevices_ResponseParams', [
-      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.arc.mojom.MidisDeviceInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.MidisDeviceInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ParamsSpec, 'arc.mojom.MidisServer_RequestPort_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.MidisRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.arc.mojom.MidisRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -328,7 +328,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MidisServer_CloseDevice_ParamsSpec, 'arc.mojom.MidisServer_CloseDevice_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.MidisRequestSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.arc.mojom.MidisRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

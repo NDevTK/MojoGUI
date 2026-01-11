@@ -105,8 +105,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentValidationErrorsSpec, 'payments.mojom.PaymentValidationErrors', [
       mojo.internal.StructField('arg_error', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_payer', 8, 0, mojo.internal.bindings.mojo.internal.bindings.payments.mojom.PayerErrorsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shipping_address', 16, 0, mojo.internal.bindings.mojo.internal.bindings.payments.mojom.AddressErrorsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_payer', 8, 0, mojo.internal.bindings.payments.mojom.PayerErrorsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shipping_address', 16, 0, mojo.internal.bindings.payments.mojom.AddressErrorsSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
