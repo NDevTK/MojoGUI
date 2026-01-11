@@ -2,6 +2,66 @@
 // Source: chromium_src/chromeos/ash/experiences/arc/mojom/oemcrypto.mojom
 // Module: arc.mojom
 
+'use strict';
+(function() {
+  const SHA256 = (s) => {
+    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    const m = new TextEncoder().encode(s);
+    const l = m.length;
+    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+    b[b.length - 1] = l * 8;
+    for (let i = 0; i < b.length; i += 16) {
+      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+      const w = new Uint32Array(64);
+      for (let j = 0; j < 64; j++) {
+        if (j < 16) w[j] = b[i + j];
+        else {
+          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+        }
+        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+    }
+    return h[0];
+  };
+  window.mojoScrambler = window.mojoScrambler || {
+    getOrdinals: (ifaceName, methodSpecs) => {
+      const params = new URLSearchParams(window.location.search);
+      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+      
+      const seen = new Set();
+      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+      let i = 0;
+      return methodSpecs.map((ms, idx) => {
+        if (ms.explicit !== null) return ms.explicit;
+        if (forceNoScramble) return idx;
+
+        const p = window.mojoVersion.split('.');
+        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+        
+        while (true) {
+          i++;
+          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+          if (!seen.has(ord)) {
+            seen.add(ord);
+            return ord;
+          }
+        }
+      });
+    }
+  };
+})();
+
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
@@ -2619,1503 +2679,2056 @@ arc.mojom.OemCryptoServiceReceiver = class {
       { explicit: 76 },
     ]);
     ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx);
-      this.ordinalMap.set(idx, idx);
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    if (this.router_.onConnectionError) {
-      this.router_.onConnectionError.addListener(() => {
-         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-      });
-    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
         const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = { header: args[1], payload: payload, handles: args[3] || [] };
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: InitializeDeprecated
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_InitializeDeprecated_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeDeprecated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
+        // Try Method 1: Initialize
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_Initialize_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Initialize (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
+        // Try Method 2: Terminate
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_Terminate_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Terminate (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
+           }
         }
+        // Try Method 3: OpenSession
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_OpenSession_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenSession (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
+           }
         }
+        // Try Method 4: CloseSession
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_CloseSession_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseSession (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
+           }
         }
+        // Try Method 5: GenerateDerivedKeys
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_GenerateDerivedKeys_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateDerivedKeys (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 5 failed:', e);
+           }
         }
+        // Try Method 6: GenerateNonce
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_GenerateNonce_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateNonce (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 6 failed:', e);
+           }
         }
+        // Try Method 7: GenerateSignature
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_GenerateSignature_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateSignature (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 7 failed:', e);
+           }
         }
+        // Try Method 8: LoadKeysV11OrV12
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadKeysV11OrV12_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadKeysV11OrV12 (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 8 failed:', e);
+           }
         }
+        // Try Method 9: RefreshKeysV14
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_RefreshKeysV14_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RefreshKeysV14 (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 9 failed:', e);
+           }
         }
+        // Try Method 10: QueryKeyControl
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_QueryKeyControl_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueryKeyControl (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 10 failed:', e);
+           }
         }
+        // Try Method 11: SelectKeyV13
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_SelectKeyV13_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectKeyV13 (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 11 failed:', e);
+           }
         }
+        // Try Method 12: DecryptCencV15
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_DecryptCencV15_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DecryptCencV15 (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 12 failed:', e);
+           }
         }
+        // Try Method 13: GenericEncrypt
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_GenericEncrypt_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenericEncrypt (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 13 failed:', e);
+           }
         }
+        // Try Method 14: GenericDecrypt
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_GenericDecrypt_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenericDecrypt (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 14 failed:', e);
+           }
         }
+        // Try Method 15: GenericSign
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_GenericSign_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenericSign (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 15 failed:', e);
+           }
         }
+        // Try Method 16: GenericVerify
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_GenericVerify_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenericVerify (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 16 failed:', e);
+           }
         }
+        // Try Method 17: CopyBufferV14
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_CopyBufferV14_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CopyBufferV14 (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 17 failed:', e);
+           }
         }
+        // Try Method 18: LoadTestKeyboxV13
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadTestKeyboxV13_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadTestKeyboxV13 (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 18 failed:', e);
+           }
         }
+        // Try Method 19: IsRootKeyCertificateValid
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_IsRootKeyCertificateValid_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsRootKeyCertificateValid (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 19 failed:', e);
+           }
         }
+        // Try Method 20: GetDeviceId
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_GetDeviceId_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceId (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 20 failed:', e);
+           }
         }
+        // Try Method 21: GetKeyData
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_GetKeyData_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetKeyData (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 21 failed:', e);
+           }
         }
+        // Try Method 22: GetRandom
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_GetRandom_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRandom (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 22 failed:', e);
+           }
         }
+        // Try Method 23: GetNumberOfOpenSessions
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_GetNumberOfOpenSessions_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNumberOfOpenSessions (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 23 failed:', e);
+           }
         }
+        // Try Method 24: GetMaxNumberOfSessions
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_GetMaxNumberOfSessions_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMaxNumberOfSessions (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 24 failed:', e);
+           }
         }
+        // Try Method 25: RewrapDeviceRsaKey
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_RewrapDeviceRsaKey_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RewrapDeviceRsaKey (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 25 failed:', e);
+           }
         }
+        // Try Method 26: LoadDeviceRsaKey
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadDeviceRsaKey_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadDeviceRsaKey (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 26 failed:', e);
+           }
         }
+        // Try Method 27: GenerateRsaSignature
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_GenerateRsaSignature_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateRsaSignature (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 27 failed:', e);
+           }
         }
+        // Try Method 28: DeriveKeysFromSessionKey
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_DeriveKeysFromSessionKey_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeriveKeysFromSessionKey (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 28 failed:', e);
+           }
         }
+        // Try Method 29: SecurityPatchLevel
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_SecurityPatchLevel_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SecurityPatchLevel (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 29 failed:', e);
+           }
         }
+        // Try Method 30: GetHdcpCapability
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_GetHdcpCapability_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHdcpCapability (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 30 failed:', e);
+           }
         }
+        // Try Method 31: UpdateUsageTable
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_UpdateUsageTable_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateUsageTable (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 31 failed:', e);
+           }
         }
+        // Try Method 32: DeactivateUsageEntryV12
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_DeactivateUsageEntryV12_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeactivateUsageEntryV12 (32)');
              this.mapOrdinal(header.ordinal, 32);
              dispatchId = 32;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 32 failed:', e);
+           }
         }
+        // Try Method 33: ReportUsage
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_ReportUsage_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReportUsage (33)');
              this.mapOrdinal(header.ordinal, 33);
              dispatchId = 33;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 33 failed:', e);
+           }
         }
+        // Try Method 34: DeleteUsageEntry
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_DeleteUsageEntry_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteUsageEntry (34)');
              this.mapOrdinal(header.ordinal, 34);
              dispatchId = 34;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 34 failed:', e);
+           }
         }
+        // Try Method 35: ForceDeleteUsageEntry
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_ForceDeleteUsageEntry_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceDeleteUsageEntry (35)');
              this.mapOrdinal(header.ordinal, 35);
              dispatchId = 35;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 35 failed:', e);
+           }
         }
+        // Try Method 36: DeleteOldUsageTable
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_DeleteOldUsageTable_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteOldUsageTable (36)');
              this.mapOrdinal(header.ordinal, 36);
              dispatchId = 36;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 36 failed:', e);
+           }
         }
+        // Try Method 37: GetProvisioningMethod
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_GetProvisioningMethod_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetProvisioningMethod (37)');
              this.mapOrdinal(header.ordinal, 37);
              dispatchId = 37;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 37 failed:', e);
+           }
         }
+        // Try Method 38: SupportedCertificates
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_SupportedCertificates_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SupportedCertificates (38)');
              this.mapOrdinal(header.ordinal, 38);
              dispatchId = 38;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 38 failed:', e);
+           }
         }
+        // Try Method 39: IsSrmUpdateSupported
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_IsSrmUpdateSupported_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsSrmUpdateSupported (39)');
              this.mapOrdinal(header.ordinal, 39);
              dispatchId = 39;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 39 failed:', e);
+           }
         }
+        // Try Method 40: GetCurrentSrmVersion
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_GetCurrentSrmVersion_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCurrentSrmVersion (40)');
              this.mapOrdinal(header.ordinal, 40);
              dispatchId = 40;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 40 failed:', e);
+           }
         }
+        // Try Method 41: LoadSrm
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadSrm_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadSrm (41)');
              this.mapOrdinal(header.ordinal, 41);
              dispatchId = 41;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 41 failed:', e);
+           }
         }
+        // Try Method 42: RemoveSrm
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_RemoveSrm_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveSrm (42)');
              this.mapOrdinal(header.ordinal, 42);
              dispatchId = 42;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 42 failed:', e);
+           }
         }
+        // Try Method 43: CreateUsageTableHeader
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_CreateUsageTableHeader_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateUsageTableHeader (43)');
              this.mapOrdinal(header.ordinal, 43);
              dispatchId = 43;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 43 failed:', e);
+           }
         }
+        // Try Method 44: LoadUsageTableHeader
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadUsageTableHeader_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadUsageTableHeader (44)');
              this.mapOrdinal(header.ordinal, 44);
              dispatchId = 44;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 44 failed:', e);
+           }
         }
+        // Try Method 45: CreateNewUsageEntry
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_CreateNewUsageEntry_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateNewUsageEntry (45)');
              this.mapOrdinal(header.ordinal, 45);
              dispatchId = 45;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 45 failed:', e);
+           }
         }
+        // Try Method 46: LoadUsageEntry
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadUsageEntry_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadUsageEntry (46)');
              this.mapOrdinal(header.ordinal, 46);
              dispatchId = 46;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 46 failed:', e);
+           }
         }
+        // Try Method 47: UpdateUsageEntry
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_UpdateUsageEntry_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateUsageEntry (47)');
              this.mapOrdinal(header.ordinal, 47);
              dispatchId = 47;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 47 failed:', e);
+           }
         }
+        // Try Method 48: DeactivateUsageEntry
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_DeactivateUsageEntry_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeactivateUsageEntry (48)');
              this.mapOrdinal(header.ordinal, 48);
              dispatchId = 48;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 48 failed:', e);
+           }
         }
+        // Try Method 49: ShrinkUsageTableHeader
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_ShrinkUsageTableHeader_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShrinkUsageTableHeader (49)');
              this.mapOrdinal(header.ordinal, 49);
              dispatchId = 49;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 49 failed:', e);
+           }
         }
+        // Try Method 50: MoveEntry
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_MoveEntry_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MoveEntry (50)');
              this.mapOrdinal(header.ordinal, 50);
              dispatchId = 50;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 50 failed:', e);
+           }
         }
+        // Try Method 51: CopyOldUsageEntry
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_CopyOldUsageEntry_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CopyOldUsageEntry (51)');
              this.mapOrdinal(header.ordinal, 51);
              dispatchId = 51;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 51 failed:', e);
+           }
         }
+        // Try Method 52: CreateOldUsageEntry
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_CreateOldUsageEntry_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateOldUsageEntry (52)');
              this.mapOrdinal(header.ordinal, 52);
              dispatchId = 52;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 52 failed:', e);
+           }
         }
+        // Try Method 53: GetAnalogOutputFlags
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_GetAnalogOutputFlags_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAnalogOutputFlags (53)');
              this.mapOrdinal(header.ordinal, 53);
              dispatchId = 53;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 53 failed:', e);
+           }
         }
+        // Try Method 54: LoadTestKeybox
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadTestKeybox_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadTestKeybox (54)');
              this.mapOrdinal(header.ordinal, 54);
              dispatchId = 54;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 54 failed:', e);
+           }
         }
+        // Try Method 55: LoadEntitledContentKeysV14
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadEntitledContentKeysV14_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadEntitledContentKeysV14 (55)');
              this.mapOrdinal(header.ordinal, 55);
              dispatchId = 55;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 55 failed:', e);
+           }
         }
+        // Try Method 56: SelectKey
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_SelectKey_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectKey (56)');
              this.mapOrdinal(header.ordinal, 56);
              dispatchId = 56;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 56 failed:', e);
+           }
         }
+        // Try Method 57: LoadKeysV14
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadKeysV14_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadKeysV14 (57)');
              this.mapOrdinal(header.ordinal, 57);
              dispatchId = 57;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 57 failed:', e);
+           }
         }
+        // Try Method 58: LoadKeys
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadKeys_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadKeys (58)');
              this.mapOrdinal(header.ordinal, 58);
              dispatchId = 58;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 58 failed:', e);
+           }
         }
+        // Try Method 59: ResourceRatingTier
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_ResourceRatingTier_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResourceRatingTier (59)');
              this.mapOrdinal(header.ordinal, 59);
              dispatchId = 59;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 59 failed:', e);
+           }
         }
+        // Try Method 60: BuildInformation
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_BuildInformation_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BuildInformation (60)');
              this.mapOrdinal(header.ordinal, 60);
              dispatchId = 60;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 60 failed:', e);
+           }
         }
+        // Try Method 61: RefreshKeys
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_RefreshKeys_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RefreshKeys (61)');
              this.mapOrdinal(header.ordinal, 61);
              dispatchId = 61;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 61 failed:', e);
+           }
         }
+        // Try Method 62: LoadEntitledContentKeys
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadEntitledContentKeys_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadEntitledContentKeys (62)');
              this.mapOrdinal(header.ordinal, 62);
              dispatchId = 62;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 62 failed:', e);
+           }
         }
+        // Try Method 63: GetOemPublicCertificate
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_GetOemPublicCertificate_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetOemPublicCertificate (63)');
              this.mapOrdinal(header.ordinal, 63);
              dispatchId = 63;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 63 failed:', e);
+           }
         }
+        // Try Method 64: MaximumUsageTableHeaderSize
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_MaximumUsageTableHeaderSize_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MaximumUsageTableHeaderSize (64)');
              this.mapOrdinal(header.ordinal, 64);
              dispatchId = 64;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 64 failed:', e);
+           }
         }
+        // Try Method 65: IsAntiRollbackHwPresent
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_IsAntiRollbackHwPresent_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsAntiRollbackHwPresent (65)');
              this.mapOrdinal(header.ordinal, 65);
              dispatchId = 65;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 65 failed:', e);
+           }
         }
+        // Try Method 66: MinorApiVersion
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_MinorApiVersion_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MinorApiVersion (66)');
              this.mapOrdinal(header.ordinal, 66);
              dispatchId = 66;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 66 failed:', e);
+           }
         }
+        // Try Method 67: PrepAndSignLicenseRequest
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_PrepAndSignLicenseRequest_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrepAndSignLicenseRequest (67)');
              this.mapOrdinal(header.ordinal, 67);
              dispatchId = 67;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 67 failed:', e);
+           }
         }
+        // Try Method 68: PrepAndSignRenewalRequest
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_PrepAndSignRenewalRequest_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrepAndSignRenewalRequest (68)');
              this.mapOrdinal(header.ordinal, 68);
              dispatchId = 68;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 68 failed:', e);
+           }
         }
+        // Try Method 69: PrepAndSignProvisioningRequest
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrepAndSignProvisioningRequest (69)');
              this.mapOrdinal(header.ordinal, 69);
              dispatchId = 69;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 69 failed:', e);
+           }
         }
+        // Try Method 70: LoadLicense
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadLicense_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadLicense (70)');
              this.mapOrdinal(header.ordinal, 70);
              dispatchId = 70;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 70 failed:', e);
+           }
         }
+        // Try Method 71: LoadRenewal
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadRenewal_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadRenewal (71)');
              this.mapOrdinal(header.ordinal, 71);
              dispatchId = 71;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 71 failed:', e);
+           }
         }
+        // Try Method 72: LoadProvisioning
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadProvisioning_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadProvisioning (72)');
              this.mapOrdinal(header.ordinal, 72);
              dispatchId = 72;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 72 failed:', e);
+           }
         }
+        // Try Method 73: LoadOemPrivateKey
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadOemPrivateKey_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadOemPrivateKey (73)');
              this.mapOrdinal(header.ordinal, 73);
              dispatchId = 73;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 73 failed:', e);
+           }
         }
+        // Try Method 74: LoadDrmPrivateKey
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadDrmPrivateKey_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadDrmPrivateKey (74)');
              this.mapOrdinal(header.ordinal, 74);
              dispatchId = 74;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 74 failed:', e);
+           }
         }
+        // Try Method 75: DecryptCenc
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_DecryptCenc_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DecryptCenc (75)');
              this.mapOrdinal(header.ordinal, 75);
              dispatchId = 75;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 75 failed:', e);
+           }
         }
+        // Try Method 76: CopyBuffer
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoService_CopyBuffer_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CopyBuffer (76)');
              this.mapOrdinal(header.ordinal, 76);
              dispatchId = 76;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 76 failed:', e);
+           }
         }
-        if (dispatchId === undefined) return;
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
       }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_InitializeDeprecated_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.initializeDeprecated');
           const result = this.impl.initializeDeprecated();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_InitializeDeprecated_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_InitializeDeprecated_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] InitializeDeprecated FAILED:', e));
           }
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_Initialize_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.oemcrypto_version);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_Initialize_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_Initialize_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] Initialize FAILED:', e));
           }
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_Terminate_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.terminate');
           const result = this.impl.terminate();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_Terminate_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_Terminate_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] Terminate FAILED:', e));
           }
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_OpenSession_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.openSession');
           const result = this.impl.openSession();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_OpenSession_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_OpenSession_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] OpenSession FAILED:', e));
           }
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_CloseSession_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.closeSession');
           const result = this.impl.closeSession(params.session);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_CloseSession_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_CloseSession_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] CloseSession FAILED:', e));
           }
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_GenerateDerivedKeys_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.generateDerivedKeys');
           const result = this.impl.generateDerivedKeys(params.session, params.mac_key_context, params.enc_key_context);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenerateDerivedKeys_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenerateDerivedKeys_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GenerateDerivedKeys FAILED:', e));
           }
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_GenerateNonce_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.generateNonce');
           const result = this.impl.generateNonce(params.session);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenerateNonce_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenerateNonce_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GenerateNonce FAILED:', e));
           }
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_GenerateSignature_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.generateSignature');
           const result = this.impl.generateSignature(params.session, params.message);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenerateSignature_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenerateSignature_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GenerateSignature FAILED:', e));
           }
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadKeysV11OrV12_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.loadKeysV11OrV12');
           const result = this.impl.loadKeysV11OrV12(params.session, params.message, params.signature, params.has_enc_mac_keys, params.enc_mac_keys_iv_offset, params.enc_mac_keys_offset, params.key_array, params.pst_offset, params.pst_length);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadKeysV11OrV12_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadKeysV11OrV12_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] LoadKeysV11OrV12 FAILED:', e));
           }
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_RefreshKeysV14_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.refreshKeysV14');
           const result = this.impl.refreshKeysV14(params.session, params.message, params.signature, params.key_array);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_RefreshKeysV14_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_RefreshKeysV14_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] RefreshKeysV14 FAILED:', e));
           }
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_QueryKeyControl_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.queryKeyControl');
           const result = this.impl.queryKeyControl(params.session, params.key_id);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_QueryKeyControl_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_QueryKeyControl_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] QueryKeyControl FAILED:', e));
           }
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_SelectKeyV13_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.selectKeyV13');
           const result = this.impl.selectKeyV13(params.session, params.key_id);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_SelectKeyV13_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_SelectKeyV13_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] SelectKeyV13 FAILED:', e));
           }
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_DecryptCencV15_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.decryptCencV15');
           const result = this.impl.decryptCencV15(params.session, params.data, params.is_encrypted, params.iv, params.block_offset, params.secure_buffer, params.pattern);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_DecryptCencV15_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_DecryptCencV15_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] DecryptCencV15 FAILED:', e));
           }
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_GenericEncrypt_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.genericEncrypt');
           const result = this.impl.genericEncrypt(params.session, params.data, params.iv, params.algorithm);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenericEncrypt_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenericEncrypt_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GenericEncrypt FAILED:', e));
           }
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_GenericDecrypt_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.genericDecrypt');
           const result = this.impl.genericDecrypt(params.session, params.data, params.iv, params.algorithm);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenericDecrypt_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenericDecrypt_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GenericDecrypt FAILED:', e));
           }
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_GenericSign_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.genericSign');
           const result = this.impl.genericSign(params.session, params.data, params.algorithm);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenericSign_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenericSign_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GenericSign FAILED:', e));
           }
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_GenericVerify_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.genericVerify');
           const result = this.impl.genericVerify(params.session, params.data, params.algorithm, params.signature);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenericVerify_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenericVerify_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GenericVerify FAILED:', e));
           }
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_CopyBufferV14_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.copyBufferV14');
           const result = this.impl.copyBufferV14(params.data, params.out_buffer);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_CopyBufferV14_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_CopyBufferV14_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] CopyBufferV14 FAILED:', e));
           }
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadTestKeyboxV13_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.loadTestKeyboxV13');
           const result = this.impl.loadTestKeyboxV13();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadTestKeyboxV13_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadTestKeyboxV13_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] LoadTestKeyboxV13 FAILED:', e));
           }
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_IsRootKeyCertificateValid_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.isRootKeyCertificateValid');
           const result = this.impl.isRootKeyCertificateValid();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_IsRootKeyCertificateValid_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_IsRootKeyCertificateValid_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] IsRootKeyCertificateValid FAILED:', e));
           }
           break;
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_GetDeviceId_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getDeviceId');
           const result = this.impl.getDeviceId();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetDeviceId_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetDeviceId_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GetDeviceId FAILED:', e));
           }
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_GetKeyData_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getKeyData');
           const result = this.impl.getKeyData();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetKeyData_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetKeyData_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GetKeyData FAILED:', e));
           }
           break;
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_GetRandom_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getRandom');
           const result = this.impl.getRandom(params.length);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetRandom_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetRandom_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GetRandom FAILED:', e));
           }
           break;
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_GetNumberOfOpenSessions_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getNumberOfOpenSessions');
           const result = this.impl.getNumberOfOpenSessions();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetNumberOfOpenSessions_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetNumberOfOpenSessions_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GetNumberOfOpenSessions FAILED:', e));
           }
           break;
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_GetMaxNumberOfSessions_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getMaxNumberOfSessions');
           const result = this.impl.getMaxNumberOfSessions();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetMaxNumberOfSessions_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetMaxNumberOfSessions_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GetMaxNumberOfSessions FAILED:', e));
           }
           break;
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_RewrapDeviceRsaKey_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.rewrapDeviceRsaKey');
           const result = this.impl.rewrapDeviceRsaKey(params.session, params.message, params.signature, params.nonce_offset, params.enc_rsa_key_offset, params.enc_rsa_key_length, params.enc_rsa_key_iv_offset);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_RewrapDeviceRsaKey_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_RewrapDeviceRsaKey_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] RewrapDeviceRsaKey FAILED:', e));
           }
           break;
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadDeviceRsaKey_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.loadDeviceRsaKey');
           const result = this.impl.loadDeviceRsaKey(params.session, params.wrapped_rsa_key);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadDeviceRsaKey_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadDeviceRsaKey_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] LoadDeviceRsaKey FAILED:', e));
           }
           break;
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_GenerateRsaSignature_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.generateRsaSignature');
           const result = this.impl.generateRsaSignature(params.session, params.message, params.padding_scheme);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenerateRsaSignature_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenerateRsaSignature_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GenerateRsaSignature FAILED:', e));
           }
           break;
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_DeriveKeysFromSessionKey_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.deriveKeysFromSessionKey');
           const result = this.impl.deriveKeysFromSessionKey(params.session, params.enc_session_key, params.mac_key_context, params.enc_key_context);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_DeriveKeysFromSessionKey_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_DeriveKeysFromSessionKey_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] DeriveKeysFromSessionKey FAILED:', e));
           }
           break;
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_SecurityPatchLevel_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.securityPatchLevel');
           const result = this.impl.securityPatchLevel();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_SecurityPatchLevel_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_SecurityPatchLevel_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] SecurityPatchLevel FAILED:', e));
           }
           break;
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_GetHdcpCapability_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getHdcpCapability');
           const result = this.impl.getHdcpCapability();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetHdcpCapability_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetHdcpCapability_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GetHdcpCapability FAILED:', e));
           }
           break;
         }
         case 31: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_UpdateUsageTable_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.updateUsageTable');
           const result = this.impl.updateUsageTable();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_UpdateUsageTable_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_UpdateUsageTable_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] UpdateUsageTable FAILED:', e));
           }
           break;
         }
         case 32: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_DeactivateUsageEntryV12_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.deactivateUsageEntryV12');
           const result = this.impl.deactivateUsageEntryV12(params.pst);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_DeactivateUsageEntryV12_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_DeactivateUsageEntryV12_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] DeactivateUsageEntryV12 FAILED:', e));
           }
           break;
         }
         case 33: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_ReportUsage_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.reportUsage');
           const result = this.impl.reportUsage(params.session, params.pst);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_ReportUsage_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_ReportUsage_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] ReportUsage FAILED:', e));
           }
           break;
         }
         case 34: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_DeleteUsageEntry_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.deleteUsageEntry');
           const result = this.impl.deleteUsageEntry(params.session, params.pst_offset, params.pst_length, params.message, params.signature);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_DeleteUsageEntry_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_DeleteUsageEntry_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] DeleteUsageEntry FAILED:', e));
           }
           break;
         }
         case 35: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_ForceDeleteUsageEntry_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.forceDeleteUsageEntry');
           const result = this.impl.forceDeleteUsageEntry(params.pst);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_ForceDeleteUsageEntry_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_ForceDeleteUsageEntry_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] ForceDeleteUsageEntry FAILED:', e));
           }
           break;
         }
         case 36: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_DeleteOldUsageTable_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.deleteOldUsageTable');
           const result = this.impl.deleteOldUsageTable();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_DeleteOldUsageTable_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_DeleteOldUsageTable_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] DeleteOldUsageTable FAILED:', e));
           }
           break;
         }
         case 37: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_GetProvisioningMethod_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getProvisioningMethod');
           const result = this.impl.getProvisioningMethod();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetProvisioningMethod_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetProvisioningMethod_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GetProvisioningMethod FAILED:', e));
           }
           break;
         }
         case 38: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_SupportedCertificates_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.supportedCertificates');
           const result = this.impl.supportedCertificates();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_SupportedCertificates_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_SupportedCertificates_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] SupportedCertificates FAILED:', e));
           }
           break;
         }
         case 39: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_IsSrmUpdateSupported_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.isSrmUpdateSupported');
           const result = this.impl.isSrmUpdateSupported();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_IsSrmUpdateSupported_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_IsSrmUpdateSupported_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] IsSrmUpdateSupported FAILED:', e));
           }
           break;
         }
         case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_GetCurrentSrmVersion_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getCurrentSrmVersion');
           const result = this.impl.getCurrentSrmVersion();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetCurrentSrmVersion_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetCurrentSrmVersion_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GetCurrentSrmVersion FAILED:', e));
           }
           break;
         }
         case 41: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadSrm_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.loadSrm');
           const result = this.impl.loadSrm(params.buffer);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadSrm_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadSrm_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] LoadSrm FAILED:', e));
           }
           break;
         }
         case 42: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_RemoveSrm_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.removeSrm');
           const result = this.impl.removeSrm();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_RemoveSrm_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_RemoveSrm_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] RemoveSrm FAILED:', e));
           }
           break;
         }
         case 43: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_CreateUsageTableHeader_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.createUsageTableHeader');
           const result = this.impl.createUsageTableHeader(params.avail_header_length);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_CreateUsageTableHeader_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_CreateUsageTableHeader_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] CreateUsageTableHeader FAILED:', e));
           }
           break;
         }
         case 44: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadUsageTableHeader_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.loadUsageTableHeader');
           const result = this.impl.loadUsageTableHeader(params.buffer);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadUsageTableHeader_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadUsageTableHeader_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] LoadUsageTableHeader FAILED:', e));
           }
           break;
         }
         case 45: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_CreateNewUsageEntry_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.createNewUsageEntry');
           const result = this.impl.createNewUsageEntry(params.session);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_CreateNewUsageEntry_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_CreateNewUsageEntry_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] CreateNewUsageEntry FAILED:', e));
           }
           break;
         }
         case 46: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadUsageEntry_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.loadUsageEntry');
           const result = this.impl.loadUsageEntry(params.session, params.index, params.buffer);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadUsageEntry_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadUsageEntry_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] LoadUsageEntry FAILED:', e));
           }
           break;
         }
         case 47: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_UpdateUsageEntry_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.updateUsageEntry');
           const result = this.impl.updateUsageEntry(params.session, params.avail_header_length, params.avail_entry_length);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_UpdateUsageEntry_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_UpdateUsageEntry_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] UpdateUsageEntry FAILED:', e));
           }
           break;
         }
         case 48: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_DeactivateUsageEntry_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.deactivateUsageEntry');
           const result = this.impl.deactivateUsageEntry(params.session, params.pst);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_DeactivateUsageEntry_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_DeactivateUsageEntry_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] DeactivateUsageEntry FAILED:', e));
           }
           break;
         }
         case 49: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_ShrinkUsageTableHeader_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.shrinkUsageTableHeader');
           const result = this.impl.shrinkUsageTableHeader(params.new_entry_count, params.avail_header_length);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_ShrinkUsageTableHeader_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_ShrinkUsageTableHeader_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] ShrinkUsageTableHeader FAILED:', e));
           }
           break;
         }
         case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_MoveEntry_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.moveEntry');
           const result = this.impl.moveEntry(params.session, params.new_index);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_MoveEntry_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_MoveEntry_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] MoveEntry FAILED:', e));
           }
           break;
         }
         case 51: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_CopyOldUsageEntry_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.copyOldUsageEntry');
           const result = this.impl.copyOldUsageEntry(params.session, params.pst);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_CopyOldUsageEntry_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_CopyOldUsageEntry_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] CopyOldUsageEntry FAILED:', e));
           }
           break;
         }
         case 52: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_CreateOldUsageEntry_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.createOldUsageEntry');
           const result = this.impl.createOldUsageEntry(params.time_since_license_received, params.time_since_first_decrypt, params.time_since_last_decrypt, params.status, params.server_mac_key, params.client_mac_key, params.pst);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_CreateOldUsageEntry_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_CreateOldUsageEntry_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] CreateOldUsageEntry FAILED:', e));
           }
           break;
         }
         case 53: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_GetAnalogOutputFlags_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getAnalogOutputFlags');
           const result = this.impl.getAnalogOutputFlags();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetAnalogOutputFlags_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetAnalogOutputFlags_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GetAnalogOutputFlags FAILED:', e));
           }
           break;
         }
         case 54: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadTestKeybox_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.loadTestKeybox');
           const result = this.impl.loadTestKeybox(params.buffer);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadTestKeybox_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadTestKeybox_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] LoadTestKeybox FAILED:', e));
           }
           break;
         }
         case 55: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadEntitledContentKeysV14_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.loadEntitledContentKeysV14');
           const result = this.impl.loadEntitledContentKeysV14(params.session, params.key_array);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadEntitledContentKeysV14_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadEntitledContentKeysV14_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] LoadEntitledContentKeysV14 FAILED:', e));
           }
           break;
         }
         case 56: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_SelectKey_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.selectKey');
           const result = this.impl.selectKey(params.session, params.content_key_id, params.cipher_mode);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_SelectKey_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_SelectKey_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] SelectKey FAILED:', e));
           }
           break;
         }
         case 57: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadKeysV14_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.loadKeysV14');
           const result = this.impl.loadKeysV14(params.session, params.message, params.signature, params.has_enc_mac_keys, params.enc_mac_keys_iv_offset, params.enc_mac_keys_offset, params.key_array, params.pst_offset, params.pst_length, params.srm_requirement, params.license_type);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadKeysV14_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadKeysV14_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] LoadKeysV14 FAILED:', e));
           }
           break;
         }
         case 58: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadKeys_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.loadKeys');
           const result = this.impl.loadKeys(params.session, params.message, params.signature, params.enc_mac_keys_iv, params.enc_mac_keys, params.key_array, params.pst, params.srm_restriction_data, params.license_type);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadKeys_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadKeys_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] LoadKeys FAILED:', e));
           }
           break;
         }
         case 59: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_ResourceRatingTier_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.resourceRatingTier');
           const result = this.impl.resourceRatingTier();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_ResourceRatingTier_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_ResourceRatingTier_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] ResourceRatingTier FAILED:', e));
           }
           break;
         }
         case 60: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_BuildInformation_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.buildInformation');
           const result = this.impl.buildInformation();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_BuildInformation_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_BuildInformation_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] BuildInformation FAILED:', e));
           }
           break;
         }
         case 61: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_RefreshKeys_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.refreshKeys');
           const result = this.impl.refreshKeys(params.session, params.message, params.signature, params.key_array);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_RefreshKeys_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_RefreshKeys_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] RefreshKeys FAILED:', e));
           }
           break;
         }
         case 62: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadEntitledContentKeys_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.loadEntitledContentKeys');
           const result = this.impl.loadEntitledContentKeys(params.session, params.message, params.key_array);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadEntitledContentKeys_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadEntitledContentKeys_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] LoadEntitledContentKeys FAILED:', e));
           }
           break;
         }
         case 63: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_GetOemPublicCertificate_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getOemPublicCertificate');
           const result = this.impl.getOemPublicCertificate();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetOemPublicCertificate_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetOemPublicCertificate_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GetOemPublicCertificate FAILED:', e));
           }
           break;
         }
         case 64: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_MaximumUsageTableHeaderSize_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.maximumUsageTableHeaderSize');
           const result = this.impl.maximumUsageTableHeaderSize();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_MaximumUsageTableHeaderSize_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_MaximumUsageTableHeaderSize_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] MaximumUsageTableHeaderSize FAILED:', e));
           }
           break;
         }
         case 65: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_IsAntiRollbackHwPresent_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.isAntiRollbackHwPresent');
           const result = this.impl.isAntiRollbackHwPresent();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_IsAntiRollbackHwPresent_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_IsAntiRollbackHwPresent_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] IsAntiRollbackHwPresent FAILED:', e));
           }
           break;
         }
         case 66: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_MinorApiVersion_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.minorApiVersion');
           const result = this.impl.minorApiVersion();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_MinorApiVersion_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_MinorApiVersion_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] MinorApiVersion FAILED:', e));
           }
           break;
         }
         case 67: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_PrepAndSignLicenseRequest_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.prepAndSignLicenseRequest');
           const result = this.impl.prepAndSignLicenseRequest(params.session, params.message, params.core_message_size, params.avail_signature_size);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_PrepAndSignLicenseRequest_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_PrepAndSignLicenseRequest_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] PrepAndSignLicenseRequest FAILED:', e));
           }
           break;
         }
         case 68: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_PrepAndSignRenewalRequest_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.prepAndSignRenewalRequest');
           const result = this.impl.prepAndSignRenewalRequest(params.session, params.message, params.core_message_size, params.avail_signature_size);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_PrepAndSignRenewalRequest_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_PrepAndSignRenewalRequest_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] PrepAndSignRenewalRequest FAILED:', e));
           }
           break;
         }
         case 69: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.prepAndSignProvisioningRequest');
           const result = this.impl.prepAndSignProvisioningRequest(params.session, params.message, params.core_message_size, params.avail_signature_size);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] PrepAndSignProvisioningRequest FAILED:', e));
           }
           break;
         }
         case 70: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadLicense_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.loadLicense');
           const result = this.impl.loadLicense(params.session, params.message, params.core_message_length, params.signature);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadLicense_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadLicense_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] LoadLicense FAILED:', e));
           }
           break;
         }
         case 71: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadRenewal_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.loadRenewal');
           const result = this.impl.loadRenewal(params.session, params.message, params.core_message_length, params.signature);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadRenewal_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadRenewal_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] LoadRenewal FAILED:', e));
           }
           break;
         }
         case 72: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadProvisioning_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.loadProvisioning');
           const result = this.impl.loadProvisioning(params.session, params.message, params.core_message_length, params.signature, params.avail_wrapped_private_key_size);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadProvisioning_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadProvisioning_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] LoadProvisioning FAILED:', e));
           }
           break;
         }
         case 73: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadOemPrivateKey_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.loadOemPrivateKey');
           const result = this.impl.loadOemPrivateKey(params.session);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadOemPrivateKey_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadOemPrivateKey_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] LoadOemPrivateKey FAILED:', e));
           }
           break;
         }
         case 74: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_LoadDrmPrivateKey_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.loadDrmPrivateKey');
           const result = this.impl.loadDrmPrivateKey(params.session, params.key_type, params.wrapped_private_key);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadDrmPrivateKey_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadDrmPrivateKey_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] LoadDrmPrivateKey FAILED:', e));
           }
           break;
         }
         case 75: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_DecryptCenc_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.decryptCenc');
           const result = this.impl.decryptCenc(params.session, params.data, params.iv, params.sub_samples, params.pattern, params.secure_buffer);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_DecryptCenc_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_DecryptCenc_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] DecryptCenc FAILED:', e));
           }
           break;
         }
         case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoService_CopyBuffer_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.copyBuffer');
           const result = this.impl.copyBuffer(params.session, params.data, params.out_buffer, params.subsample_flags);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_CopyBuffer_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoService_CopyBuffer_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] CopyBuffer FAILED:', e));
           }
           break;
         }
       }
-      } catch (err) {}
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
     }});
   }
 };
@@ -4129,7 +4742,7 @@ arc.mojom.OemCryptoServiceRequest = arc.mojom.OemCryptoServicePendingReceiver;
 // Interface: OemCryptoHost
 mojo.internal.Struct(
     arc.mojom.OemCryptoHost_Connect_ParamsSpec, 'arc.mojom.OemCryptoHost_Connect_Params', [
-      mojo.internal.StructField('oemcryptor', 0, 0, mojo.internal.InterfaceRequest(arc.mojom.OemCryptoServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('oemcryptor', 0, 0, mojo.internal.InterfaceRequest(arc.mojom.OemCryptoServiceSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -4201,53 +4814,72 @@ arc.mojom.OemCryptoHostReceiver = class {
       { explicit: 0 },
     ]);
     ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx);
-      this.ordinalMap.set(idx, idx);
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    if (this.router_.onConnectionError) {
-      this.router_.onConnectionError.addListener(() => {
-         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-      });
-    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
         const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = { header: args[1], payload: payload, handles: args[3] || [] };
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Connect
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoHost_Connect_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Connect (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
-        if (dispatchId === undefined) return;
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
       }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoHost_Connect_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.connect');
           const result = this.impl.connect(params.oemcryptor);
           break;
         }
       }
-      } catch (err) {}
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
     }});
   }
 };
@@ -4261,7 +4893,7 @@ arc.mojom.OemCryptoHostRequest = arc.mojom.OemCryptoHostPendingReceiver;
 // Interface: OemCryptoInstance
 mojo.internal.Struct(
     arc.mojom.OemCryptoInstance_Init_ParamsSpec, 'arc.mojom.OemCryptoInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.OemCryptoHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.OemCryptoHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -4338,59 +4970,80 @@ arc.mojom.OemCryptoInstanceReceiver = class {
       { explicit: 1 },
     ]);
     ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx);
-      this.ordinalMap.set(idx, idx);
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    if (this.router_.onConnectionError) {
-      this.router_.onConnectionError.addListener(() => {
-         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-      });
-    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
         const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = { header: args[1], payload: payload, handles: args[3] || [] };
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(arc.mojom.OemCryptoInstance_Init_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
-        if (dispatchId === undefined) return;
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
       }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(arc.mojom.OemCryptoInstance_Init_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoInstance_Init_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.OemCryptoInstance_Init_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
           }
           break;
         }
       }
-      } catch (err) {}
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
     }});
   }
 };

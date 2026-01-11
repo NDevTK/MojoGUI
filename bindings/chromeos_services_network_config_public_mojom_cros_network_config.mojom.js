@@ -2,6 +2,66 @@
 // Source: chromium_src/chromeos/services/network_config/public/mojom/cros_network_config.mojom
 // Module: chromeos.network_config.mojom
 
+'use strict';
+(function() {
+  const SHA256 = (s) => {
+    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    const m = new TextEncoder().encode(s);
+    const l = m.length;
+    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+    b[b.length - 1] = l * 8;
+    for (let i = 0; i < b.length; i += 16) {
+      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+      const w = new Uint32Array(64);
+      for (let j = 0; j < 64; j++) {
+        if (j < 16) w[j] = b[i + j];
+        else {
+          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+        }
+        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+    }
+    return h[0];
+  };
+  window.mojoScrambler = window.mojoScrambler || {
+    getOrdinals: (ifaceName, methodSpecs) => {
+      const params = new URLSearchParams(window.location.search);
+      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+      
+      const seen = new Set();
+      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+      let i = 0;
+      return methodSpecs.map((ms, idx) => {
+        if (ms.explicit !== null) return ms.explicit;
+        if (forceNoScramble) return idx;
+
+        const p = window.mojoVersion.split('.');
+        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+        
+        while (true) {
+          i++;
+          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+          if (!seen.has(ord)) {
+            seen.add(ord);
+            return ord;
+          }
+        }
+      });
+    }
+  };
+})();
+
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.network_config = chromeos.network_config || {};
@@ -1277,7 +1337,7 @@ mojo.internal.Struct(
 // Interface: CrosNetworkConfig
 mojo.internal.Struct(
     chromeos.network_config.mojom.CrosNetworkConfig_AddObserver_ParamsSpec, 'chromeos.network_config.mojom.CrosNetworkConfig_AddObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromeos.network_config.mojom.CrosNetworkConfigObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromeos.network_config.mojom.CrosNetworkConfigObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2022,530 +2082,726 @@ chromeos.network_config.mojom.CrosNetworkConfigReceiver = class {
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx);
-      this.ordinalMap.set(idx, idx);
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    if (this.router_.onConnectionError) {
-      this.router_.onConnectionError.addListener(() => {
-         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-      });
-    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
         const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = { header: args[1], payload: payload, handles: args[3] || [] };
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: AddObserver
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_AddObserver_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
+        // Try Method 1: GetNetworkState
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNetworkState (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
+        // Try Method 2: GetNetworkStateList
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNetworkStateList (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
+           }
         }
+        // Try Method 3: GetDeviceStateList
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceStateList (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
+           }
         }
+        // Try Method 4: GetManagedProperties
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetManagedProperties (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
+           }
         }
+        // Try Method 5: SetProperties
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetProperties (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 5 failed:', e);
+           }
         }
+        // Try Method 6: ConfigureNetwork
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConfigureNetwork (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 6 failed:', e);
+           }
         }
+        // Try Method 7: ForgetNetwork
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForgetNetwork (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 7 failed:', e);
+           }
         }
+        // Try Method 8: SetNetworkTypeEnabledState
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNetworkTypeEnabledState (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 8 failed:', e);
+           }
         }
+        // Try Method 9: SetCellularSimState
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCellularSimState (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 9 failed:', e);
+           }
         }
+        // Try Method 10: SelectCellularMobileNetwork
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectCellularMobileNetwork (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 10 failed:', e);
+           }
         }
+        // Try Method 11: RequestNetworkScan
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_RequestNetworkScan_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestNetworkScan (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 11 failed:', e);
+           }
         }
+        // Try Method 12: GetGlobalPolicy
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetGlobalPolicy (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 12 failed:', e);
+           }
         }
+        // Try Method 13: StartConnect
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartConnect (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 13 failed:', e);
+           }
         }
+        // Try Method 14: StartDisconnect
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartDisconnect (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 14 failed:', e);
+           }
         }
+        // Try Method 15: SetVpnProviders
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_SetVpnProviders_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVpnProviders (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 15 failed:', e);
+           }
         }
+        // Try Method 16: GetVpnProviders
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVpnProviders (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 16 failed:', e);
+           }
         }
+        // Try Method 17: GetNetworkCertificates
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNetworkCertificates (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 17 failed:', e);
+           }
         }
+        // Try Method 18: GetAlwaysOnVpn
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAlwaysOnVpn (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 18 failed:', e);
+           }
         }
+        // Try Method 19: SetAlwaysOnVpn
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_SetAlwaysOnVpn_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAlwaysOnVpn (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 19 failed:', e);
+           }
         }
+        // Try Method 20: GetSupportedVpnTypes
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSupportedVpnTypes (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 20 failed:', e);
+           }
         }
+        // Try Method 21: RequestTrafficCounters
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestTrafficCounters (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 21 failed:', e);
+           }
         }
+        // Try Method 22: ResetTrafficCounters
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_ResetTrafficCounters_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetTrafficCounters (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 22 failed:', e);
+           }
         }
+        // Try Method 23: SetTrafficCountersResetDay
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTrafficCountersResetDay (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 23 failed:', e);
+           }
         }
+        // Try Method 24: CreateCustomApn
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCustomApn (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 24 failed:', e);
+           }
         }
+        // Try Method 25: CreateExclusivelyEnabledCustomApn
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateExclusivelyEnabledCustomApn (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 25 failed:', e);
+           }
         }
+        // Try Method 26: RemoveCustomApn
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_RemoveCustomApn_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveCustomApn (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 26 failed:', e);
+           }
         }
+        // Try Method 27: ModifyCustomApn
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_ModifyCustomApn_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ModifyCustomApn (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 27 failed:', e);
+           }
         }
-        if (dispatchId === undefined) return;
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
       }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_AddObserver_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getNetworkState');
           const result = this.impl.getNetworkState(params.guid);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GetNetworkState FAILED:', e));
           }
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getNetworkStateList');
           const result = this.impl.getNetworkStateList(params.filter);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GetNetworkStateList FAILED:', e));
           }
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getDeviceStateList');
           const result = this.impl.getDeviceStateList();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GetDeviceStateList FAILED:', e));
           }
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getManagedProperties');
           const result = this.impl.getManagedProperties(params.guid);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GetManagedProperties FAILED:', e));
           }
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setProperties');
           const result = this.impl.setProperties(params.guid, params.properties);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] SetProperties FAILED:', e));
           }
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.configureNetwork');
           const result = this.impl.configureNetwork(params.properties, params.shared);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] ConfigureNetwork FAILED:', e));
           }
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.forgetNetwork');
           const result = this.impl.forgetNetwork(params.guid);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] ForgetNetwork FAILED:', e));
           }
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setNetworkTypeEnabledState');
           const result = this.impl.setNetworkTypeEnabledState(params.type, params.enabled);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] SetNetworkTypeEnabledState FAILED:', e));
           }
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setCellularSimState');
           const result = this.impl.setCellularSimState(params.state);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] SetCellularSimState FAILED:', e));
           }
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.selectCellularMobileNetwork');
           const result = this.impl.selectCellularMobileNetwork(params.guid, params.network_id);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] SelectCellularMobileNetwork FAILED:', e));
           }
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_RequestNetworkScan_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.requestNetworkScan');
           const result = this.impl.requestNetworkScan(params.type);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getGlobalPolicy');
           const result = this.impl.getGlobalPolicy();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GetGlobalPolicy FAILED:', e));
           }
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.startConnect');
           const result = this.impl.startConnect(params.guid);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] StartConnect FAILED:', e));
           }
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.startDisconnect');
           const result = this.impl.startDisconnect(params.guid);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] StartDisconnect FAILED:', e));
           }
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_SetVpnProviders_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setVpnProviders');
           const result = this.impl.setVpnProviders(params.providers);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getVpnProviders');
           const result = this.impl.getVpnProviders();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GetVpnProviders FAILED:', e));
           }
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getNetworkCertificates');
           const result = this.impl.getNetworkCertificates();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GetNetworkCertificates FAILED:', e));
           }
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getAlwaysOnVpn');
           const result = this.impl.getAlwaysOnVpn();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GetAlwaysOnVpn FAILED:', e));
           }
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_SetAlwaysOnVpn_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setAlwaysOnVpn');
           const result = this.impl.setAlwaysOnVpn(params.properties);
           break;
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getSupportedVpnTypes');
           const result = this.impl.getSupportedVpnTypes();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GetSupportedVpnTypes FAILED:', e));
           }
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.requestTrafficCounters');
           const result = this.impl.requestTrafficCounters(params.guid);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] RequestTrafficCounters FAILED:', e));
           }
           break;
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_ResetTrafficCounters_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.resetTrafficCounters');
           const result = this.impl.resetTrafficCounters(params.guid);
           break;
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setTrafficCountersResetDay');
           const result = this.impl.setTrafficCountersResetDay(params.guid, params.day);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] SetTrafficCountersResetDay FAILED:', e));
           }
           break;
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.createCustomApn');
           const result = this.impl.createCustomApn(params.network_guid, params.apn);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] CreateCustomApn FAILED:', e));
           }
           break;
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.createExclusivelyEnabledCustomApn');
           const result = this.impl.createExclusivelyEnabledCustomApn(params.network_guid, params.apn);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] CreateExclusivelyEnabledCustomApn FAILED:', e));
           }
           break;
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_RemoveCustomApn_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.removeCustomApn');
           const result = this.impl.removeCustomApn(params.network_guid, params.apn_id);
           break;
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfig_ModifyCustomApn_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.modifyCustomApn');
           const result = this.impl.modifyCustomApn(params.network_guid, params.apn);
           break;
         }
       }
-      } catch (err) {}
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
     }});
   }
 };
@@ -2747,131 +3003,180 @@ chromeos.network_config.mojom.CrosNetworkConfigObserverReceiver = class {
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx);
-      this.ordinalMap.set(idx, idx);
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    if (this.router_.onConnectionError) {
-      this.router_.onConnectionError.addListener(() => {
-         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-      });
-    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
         const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = { header: args[1], payload: payload, handles: args[3] || [] };
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnActiveNetworksChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfigObserver_OnActiveNetworksChanged_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnActiveNetworksChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
+        // Try Method 1: OnNetworkStateChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateChanged_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkStateChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
+        // Try Method 2: OnNetworkStateListChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateListChanged_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkStateListChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
+           }
         }
+        // Try Method 3: OnDeviceStateListChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfigObserver_OnDeviceStateListChanged_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceStateListChanged (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
+           }
         }
+        // Try Method 4: OnVpnProvidersChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfigObserver_OnVpnProvidersChanged_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnVpnProvidersChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
+           }
         }
+        // Try Method 5: OnNetworkCertificatesChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkCertificatesChanged_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkCertificatesChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 5 failed:', e);
+           }
         }
+        // Try Method 6: OnPoliciesApplied
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfigObserver_OnPoliciesApplied_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPoliciesApplied (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 6 failed:', e);
+           }
         }
-        if (dispatchId === undefined) return;
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
       }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfigObserver_OnActiveNetworksChanged_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onActiveNetworksChanged');
           const result = this.impl.onActiveNetworksChanged(params.networks);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateChanged_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onNetworkStateChanged');
           const result = this.impl.onNetworkStateChanged(params.network);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateListChanged_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onNetworkStateListChanged');
           const result = this.impl.onNetworkStateListChanged();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfigObserver_OnDeviceStateListChanged_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onDeviceStateListChanged');
           const result = this.impl.onDeviceStateListChanged();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfigObserver_OnVpnProvidersChanged_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onVpnProvidersChanged');
           const result = this.impl.onVpnProvidersChanged();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkCertificatesChanged_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onNetworkCertificatesChanged');
           const result = this.impl.onNetworkCertificatesChanged();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(chromeos.network_config.mojom.CrosNetworkConfigObserver_OnPoliciesApplied_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onPoliciesApplied');
           const result = this.impl.onPoliciesApplied(params.userhash);
           break;
         }
       }
-      } catch (err) {}
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
     }});
   }
 };

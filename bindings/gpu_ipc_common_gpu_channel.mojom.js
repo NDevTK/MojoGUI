@@ -2,6 +2,66 @@
 // Source: chromium_src/gpu/ipc/common/gpu_channel.mojom
 // Module: gpu.mojom
 
+'use strict';
+(function() {
+  const SHA256 = (s) => {
+    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+    const m = new TextEncoder().encode(s);
+    const l = m.length;
+    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+    b[b.length - 1] = l * 8;
+    for (let i = 0; i < b.length; i += 16) {
+      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+      const w = new Uint32Array(64);
+      for (let j = 0; j < 64; j++) {
+        if (j < 16) w[j] = b[i + j];
+        else {
+          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+        }
+        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+      }
+      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+    }
+    return h[0];
+  };
+  window.mojoScrambler = window.mojoScrambler || {
+    getOrdinals: (ifaceName, methodSpecs) => {
+      const params = new URLSearchParams(window.location.search);
+      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+      
+      const seen = new Set();
+      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+      let i = 0;
+      return methodSpecs.map((ms, idx) => {
+        if (ms.explicit !== null) return ms.explicit;
+        if (forceNoScramble) return idx;
+
+        const p = window.mojoVersion.split('.');
+        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+        
+        while (true) {
+          i++;
+          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+          if (!seen.has(ord)) {
+            seen.add(ord);
+            return ord;
+          }
+        }
+      });
+    }
+  };
+})();
+
 // Module namespace
 var gpu = gpu || {};
 gpu.mojom = gpu.mojom || {};
@@ -534,7 +594,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ParamsSpec, 'gpu.mojom.GpuChannel_RegisterOverlayStateObserver_Params', [
-      mojo.internal.StructField('promotion_hint_observer', 0, 0, mojo.internal.InterfaceProxy(gpu.mojom.OverlayStateObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('promotion_hint_observer', 0, 0, mojo.internal.InterfaceProxy(gpu.mojom.OverlayStateObserverSpec), null, false, 0, undefined),
       mojo.internal.StructField('mailbox', 8, 0, gpu.mojom.MailboxSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -889,320 +949,438 @@ gpu.mojom.GpuChannelReceiver = class {
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx);
-      this.ordinalMap.set(idx, idx);
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    if (this.router_.onConnectionError) {
-      this.router_.onConnectionError.addListener(() => {
-         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-      });
-    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
         const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = { header: args[1], payload: payload, handles: args[3] || [] };
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: CrashForTesting
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.GpuChannel_CrashForTesting_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CrashForTesting (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
+        // Try Method 1: TerminateForTesting
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.GpuChannel_TerminateForTesting_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TerminateForTesting (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
+        // Try Method 2: GetChannelToken
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.GpuChannel_GetChannelToken_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetChannelToken (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
+           }
         }
+        // Try Method 3: Flush
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.GpuChannel_Flush_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Flush (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
+           }
         }
+        // Try Method 4: GetSharedMemoryForFlushId
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSharedMemoryForFlushId (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
+           }
         }
+        // Try Method 5: CreateCommandBuffer
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.GpuChannel_CreateCommandBuffer_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCommandBuffer (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 5 failed:', e);
+           }
         }
+        // Try Method 6: DestroyCommandBuffer
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.GpuChannel_DestroyCommandBuffer_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DestroyCommandBuffer (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 6 failed:', e);
+           }
         }
+        // Try Method 7: FlushDeferredRequests
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.GpuChannel_FlushDeferredRequests_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FlushDeferredRequests (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 7 failed:', e);
+           }
         }
+        // Try Method 8: CreateGpuMemoryBuffer
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateGpuMemoryBuffer (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 8 failed:', e);
+           }
         }
+        // Try Method 9: CreateDCOMPTexture
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateDCOMPTexture (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 9 failed:', e);
+           }
         }
+        // Try Method 10: RegisterOverlayStateObserver
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterOverlayStateObserver (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 10 failed:', e);
+           }
         }
+        // Try Method 11: WaitForTokenInRange
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.GpuChannel_WaitForTokenInRange_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WaitForTokenInRange (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 11 failed:', e);
+           }
         }
+        // Try Method 12: WaitForGetOffsetInRange
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WaitForGetOffsetInRange (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 12 failed:', e);
+           }
         }
+        // Try Method 13: RegisterSysmemBufferCollection
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.GpuChannel_RegisterSysmemBufferCollection_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterSysmemBufferCollection (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 13 failed:', e);
+           }
         }
+        // Try Method 14: CopyToGpuMemoryBufferAsync
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CopyToGpuMemoryBufferAsync (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 14 failed:', e);
+           }
         }
+        // Try Method 15: CopyNativeGmbToSharedMemoryAsync
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CopyNativeGmbToSharedMemoryAsync (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 15 failed:', e);
+           }
         }
-        if (dispatchId === undefined) return;
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
       }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.GpuChannel_CrashForTesting_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.crashForTesting');
           const result = this.impl.crashForTesting();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.GpuChannel_TerminateForTesting_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.terminateForTesting');
           const result = this.impl.terminateForTesting();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.GpuChannel_GetChannelToken_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getChannelToken');
           const result = this.impl.getChannelToken();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.GpuChannel_GetChannelToken_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.GpuChannel_GetChannelToken_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GetChannelToken FAILED:', e));
           }
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.GpuChannel_Flush_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.flush');
           const result = this.impl.flush();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.GpuChannel_Flush_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.GpuChannel_Flush_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] Flush FAILED:', e));
           }
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getSharedMemoryForFlushId');
           const result = this.impl.getSharedMemoryForFlushId();
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GetSharedMemoryForFlushId FAILED:', e));
           }
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.GpuChannel_CreateCommandBuffer_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.createCommandBuffer');
           const result = this.impl.createCommandBuffer(params.params, params.routing_id, params.shared_state, params.receiver, params.client);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.GpuChannel_CreateCommandBuffer_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.GpuChannel_CreateCommandBuffer_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] CreateCommandBuffer FAILED:', e));
           }
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.GpuChannel_DestroyCommandBuffer_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.destroyCommandBuffer');
           const result = this.impl.destroyCommandBuffer(params.routing_id);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.GpuChannel_DestroyCommandBuffer_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.GpuChannel_DestroyCommandBuffer_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] DestroyCommandBuffer FAILED:', e));
           }
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.GpuChannel_FlushDeferredRequests_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.flushDeferredRequests');
           const result = this.impl.flushDeferredRequests(params.requests, params.flushed_deferred_message_id);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.createGpuMemoryBuffer');
           const result = this.impl.createGpuMemoryBuffer(params.size, params.format, params.buffer_usage);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] CreateGpuMemoryBuffer FAILED:', e));
           }
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.createDCOMPTexture');
           const result = this.impl.createDCOMPTexture(params.route_id, params.receiver);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.GpuChannel_CreateDCOMPTexture_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.GpuChannel_CreateDCOMPTexture_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] CreateDCOMPTexture FAILED:', e));
           }
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.registerOverlayStateObserver');
           const result = this.impl.registerOverlayStateObserver(params.promotion_hint_observer, params.mailbox);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] RegisterOverlayStateObserver FAILED:', e));
           }
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.GpuChannel_WaitForTokenInRange_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.waitForTokenInRange');
           const result = this.impl.waitForTokenInRange(params.routing_id, params.start, params.end);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.GpuChannel_WaitForTokenInRange_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.GpuChannel_WaitForTokenInRange_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] WaitForTokenInRange FAILED:', e));
           }
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.waitForGetOffsetInRange');
           const result = this.impl.waitForGetOffsetInRange(params.routing_id, params.set_get_buffer_count, params.start, params.end);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] WaitForGetOffsetInRange FAILED:', e));
           }
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.GpuChannel_RegisterSysmemBufferCollection_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.registerSysmemBufferCollection');
           const result = this.impl.registerSysmemBufferCollection(params.service_handle, params.sysmem_token, params.format, params.usage, params.register_with_image_pipe);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.copyToGpuMemoryBufferAsync');
           const result = this.impl.copyToGpuMemoryBufferAsync(params.mailbox, params.sync_token_dependencies, params.release_count);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] CopyToGpuMemoryBufferAsync FAILED:', e));
           }
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.copyNativeGmbToSharedMemoryAsync');
           const result = this.impl.copyNativeGmbToSharedMemoryAsync(params.buffer_handle, params.shared_memory);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] CopyNativeGmbToSharedMemoryAsync FAILED:', e));
           }
           break;
         }
       }
-      } catch (err) {}
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
     }});
   }
 };
@@ -1398,124 +1576,170 @@ gpu.mojom.CommandBufferReceiver = class {
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx);
-      this.ordinalMap.set(idx, idx);
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    if (this.router_.onConnectionError) {
-      this.router_.onConnectionError.addListener(() => {
-         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-      });
-    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
         const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = { header: args[1], payload: payload, handles: args[3] || [] };
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: SetGetBuffer
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.CommandBuffer_SetGetBuffer_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetGetBuffer (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
+        // Try Method 1: RegisterTransferBuffer
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.CommandBuffer_RegisterTransferBuffer_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterTransferBuffer (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
+        // Try Method 2: CreateGpuFenceFromHandle
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.CommandBuffer_CreateGpuFenceFromHandle_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateGpuFenceFromHandle (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
+           }
         }
+        // Try Method 3: GetGpuFenceHandle
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.CommandBuffer_GetGpuFenceHandle_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetGpuFenceHandle (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
+           }
         }
+        // Try Method 4: SignalSyncToken
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.CommandBuffer_SignalSyncToken_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SignalSyncToken (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
+           }
         }
+        // Try Method 5: SignalQuery
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.CommandBuffer_SignalQuery_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SignalQuery (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 5 failed:', e);
+           }
         }
-        if (dispatchId === undefined) return;
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
       }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.CommandBuffer_SetGetBuffer_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setGetBuffer');
           const result = this.impl.setGetBuffer(params.shm_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.CommandBuffer_RegisterTransferBuffer_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.registerTransferBuffer');
           const result = this.impl.registerTransferBuffer(params.id, params.buffer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.CommandBuffer_CreateGpuFenceFromHandle_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.createGpuFenceFromHandle');
           const result = this.impl.createGpuFenceFromHandle(params.gpu_fence_id, params.fence_handle);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.CommandBuffer_GetGpuFenceHandle_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getGpuFenceHandle');
           const result = this.impl.getGpuFenceHandle(params.id);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.CommandBuffer_GetGpuFenceHandle_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.CommandBuffer_GetGpuFenceHandle_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] GetGpuFenceHandle FAILED:', e));
           }
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.CommandBuffer_SignalSyncToken_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.signalSyncToken');
           const result = this.impl.signalSyncToken(params.sync_token, params.signal_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.CommandBuffer_SignalQuery_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.signalQuery');
           const result = this.impl.signalQuery(params.query, params.signal_id);
           break;
         }
       }
-      } catch (err) {}
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
     }});
   }
 };
@@ -1682,105 +1906,144 @@ gpu.mojom.CommandBufferClientReceiver = class {
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx);
-      this.ordinalMap.set(idx, idx);
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    if (this.router_.onConnectionError) {
-      this.router_.onConnectionError.addListener(() => {
-         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-      });
-    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
         const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = { header: args[1], payload: payload, handles: args[3] || [] };
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnConsoleMessage
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.CommandBufferClient_OnConsoleMessage_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConsoleMessage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
+        // Try Method 1: OnGpuSwitched
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.CommandBufferClient_OnGpuSwitched_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGpuSwitched (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
+        // Try Method 2: OnDestroyed
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.CommandBufferClient_OnDestroyed_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDestroyed (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
+           }
         }
+        // Try Method 3: OnReturnData
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.CommandBufferClient_OnReturnData_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReturnData (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
+           }
         }
+        // Try Method 4: OnSignalAck
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.CommandBufferClient_OnSignalAck_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSignalAck (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
+           }
         }
-        if (dispatchId === undefined) return;
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
       }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.CommandBufferClient_OnConsoleMessage_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onConsoleMessage');
           const result = this.impl.onConsoleMessage(params.message);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.CommandBufferClient_OnGpuSwitched_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onGpuSwitched');
           const result = this.impl.onGpuSwitched();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.CommandBufferClient_OnDestroyed_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onDestroyed');
           const result = this.impl.onDestroyed(params.reason, params.error);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.CommandBufferClient_OnReturnData_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onReturnData');
           const result = this.impl.onReturnData(params.data);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.CommandBufferClient_OnSignalAck_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onSignalAck');
           const result = this.impl.onSignalAck(params.signal_id, params.state);
           break;
         }
       }
-      } catch (err) {}
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
     }});
   }
 };
@@ -1912,85 +2175,116 @@ gpu.mojom.DCOMPTextureReceiver = class {
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx);
-      this.ordinalMap.set(idx, idx);
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    if (this.router_.onConnectionError) {
-      this.router_.onConnectionError.addListener(() => {
-         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-      });
-    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
         const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = { header: args[1], payload: payload, handles: args[3] || [] };
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: StartListening
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.DCOMPTexture_StartListening_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartListening (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
+        // Try Method 1: SetTextureSize
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.DCOMPTexture_SetTextureSize_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTextureSize (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
+        // Try Method 2: SetDCOMPSurfaceHandle
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDCOMPSurfaceHandle (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
+           }
         }
-        if (dispatchId === undefined) return;
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
       }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.DCOMPTexture_StartListening_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.startListening');
           const result = this.impl.startListening(params.client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.DCOMPTexture_SetTextureSize_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setTextureSize');
           const result = this.impl.setTextureSize(params.size);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setDCOMPSurfaceHandle');
           const result = this.impl.setDCOMPSurfaceHandle(params.token);
-          if (header.expectsResponse) {
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ResponseParamsSpec);
+              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ResponseParamsSpec, header, rawHeader);
                responder(response);
-            });
+            }).catch(e => console.error('[GeneratedReceiver] SetDCOMPSurfaceHandle FAILED:', e));
           }
           break;
         }
       }
-      } catch (err) {}
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
     }});
   }
 };
@@ -2096,66 +2390,90 @@ gpu.mojom.DCOMPTextureClientReceiver = class {
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx);
-      this.ordinalMap.set(idx, idx);
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    if (this.router_.onConnectionError) {
-      this.router_.onConnectionError.addListener(() => {
-         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-      });
-    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
         const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = { header: args[1], payload: payload, handles: args[3] || [] };
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnSharedImageMailboxBound
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.DCOMPTextureClient_OnSharedImageMailboxBound_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSharedImageMailboxBound (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
+        // Try Method 1: OnOutputRectChange
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.DCOMPTextureClient_OnOutputRectChange_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOutputRectChange (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
+           }
         }
-        if (dispatchId === undefined) return;
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
       }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.DCOMPTextureClient_OnSharedImageMailboxBound_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onSharedImageMailboxBound');
           const result = this.impl.onSharedImageMailboxBound(params.mailbox);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.DCOMPTextureClient_OnOutputRectChange_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onOutputRectChange');
           const result = this.impl.onOutputRectChange(params.output_rect);
           break;
         }
       }
-      } catch (err) {}
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
     }});
   }
 };
@@ -2241,53 +2559,72 @@ gpu.mojom.OverlayStateObserverReceiver = class {
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx);
-      this.ordinalMap.set(idx, idx);
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
     });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    if (this.router_.onConnectionError) {
-      this.router_.onConnectionError.addListener(() => {
-         console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
-      });
-    }
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
         const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = { header: args[1], payload: payload, handles: args[3] || [] };
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnStateChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(gpu.mojom.OverlayStateObserver_OnStateChanged_ParamsSpec);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) {}
+           } catch (e) {
+             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
+           }
         }
-        if (dispatchId === undefined) return;
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
       }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(gpu.mojom.OverlayStateObserver_OnStateChanged_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onStateChanged');
           const result = this.impl.onStateChanged(params.promoted);
           break;
         }
       }
-      } catch (err) {}
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
     }});
   }
 };
