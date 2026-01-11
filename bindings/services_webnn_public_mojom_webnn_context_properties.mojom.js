@@ -137,8 +137,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.DataTypeLimitsSpec, 'webnn.mojom.DataTypeLimits', [
       mojo.internal.StructField('arg_input', 0, 0, mojo.internal.bindings.webnn.mojom.SupportedTensorsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_constant', 8, 0, mojo.internal.bindings.webnn.mojom.SupportedTensorsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_arg_min_max_input', 16, 0, mojo.internal.bindings.webnn.mojom.SupportedTensorsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_arg_min_max_output', 24, 0, mojo.internal.bindings.webnn.mojom.SupportedTensorsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_min_max_input', 16, 0, mojo.internal.bindings.webnn.mojom.SupportedTensorsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_min_max_output', 24, 0, mojo.internal.bindings.webnn.mojom.SupportedTensorsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_batch_normalization_input', 32, 0, mojo.internal.bindings.webnn.mojom.SupportedTensorsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_batch_normalization_mean', 40, 0, mojo.internal.bindings.webnn.mojom.SupportedTensorsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_cast_input', 48, 0, mojo.internal.bindings.webnn.mojom.SupportedTensorsSpec.$, null, false, 0, undefined),

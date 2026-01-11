@@ -325,7 +325,7 @@ mojo.internal.Union(
 // Union: Operation
 mojo.internal.Union(
     mojo.internal.bindings.webnn.mojom.OperationSpec, 'webnn.mojom.Operation', {
-      'arg_arg_min_max': {
+      'arg_min_max': {
         'ordinal': 0,
         'type': mojo.internal.bindings.webnn.mojom.ArgMinMaxSpec.$,
         'nullable': false,
