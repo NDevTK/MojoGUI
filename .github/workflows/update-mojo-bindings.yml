@@ -184,21 +184,25 @@ jobs:
                       'methods': unique_methods
                   })
 
-              # Extract enums
-              enum_pattern = r'enum\s+(\w+)\s*\{([^}]*)\}'
+              # Extract enums (handle both defined { ... } and native/forward declared ;)
+              enum_pattern = r'enum\s+(\w+)\s*(?:\{([^}]*)\}|;)'
               for match in re.finditer(enum_pattern, content_no_comments, re.DOTALL):
                   enum_name = match.group(1)
                   enum_body = match.group(2)
                   values = []
-                  for line in enum_body.split(','):
-                      line = line.strip()
-                      if line:
-                          # Match name and optional value
-                          val_match = re.search(r'([a-zA-Z_]\w*)(?:\s*=\s*(.*?))?$', line)
-                          if val_match:
-                              v_name = val_match.group(1)
-                              v_val = val_match.group(2).strip() if val_match.group(2) else None
-                              values.append({'name': v_name, 'value': v_val})
+                  
+                  if enum_body:
+                      for line in enum_body.split(','):
+                          line = line.strip()
+                          if line:
+                              # Match name and optional value
+                              val_match = re.search(r'([a-zA-Z_]\w*)(?:\s*=\s*(.*?))?$', line)
+                              if val_match:
+                                  v_name = val_match.group(1)
+                                  v_val = val_match.group(2).strip() if val_match.group(2) else None
+                                  values.append({'name': v_name, 'value': v_val})
+                  
+                  # If native/empty, values is empty list, which is fine (treated as integer/opaque)
                   result['enums'].append({'name': enum_name, 'values': values})
 
               # Extract structs
