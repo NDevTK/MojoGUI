@@ -327,6 +327,18 @@
                                 }
 
                                 if (h) {
+                                    // DEEP EXTRACTION TRIALS
+                                    let rawHandle = h;
+                                    if (typeof h === 'object') {
+                                        if (h.handle !== undefined) rawHandle = h.handle;
+                                        else if (h.router_ && h.router_.connector_ && h.router_.connector_.handle_ !== undefined) rawHandle = h.router_.connector_.handle_;
+                                        else if (h.router_ && h.router_.pipe_ !== undefined) rawHandle = h.router_.pipe_;
+                                        else if (h.router_ && h.router_.reader_ && h.router_.reader_.handle_ !== undefined) rawHandle = h.router_.reader_.handle_;
+                                        else if (h.router_ && h.router_.handle_ !== undefined) rawHandle = h.router_.handle_;
+                                    }
+
+                                    console.log(`[MojoProxy] Arg[${idx}] extracted raw handle:`, rawHandle);
+
                                     // FIX 5.0: GENERIC PIPE BRIDGE
                                     let bridgedHandle = rawHandle;
                                     try {
@@ -494,6 +506,18 @@
                                     // FIX 5.0: GENERIC PIPE BRIDGE
                                     // BAD_MESSAGE is likely due to the browser disliking the reused handle state.
                                     // mitigate this by creating a fresh pipe for the browser and forwarding messages.
+
+                                    // DEEP EXTRACTION TRIALS
+                                    let rawHandle = h;
+                                    if (typeof h === 'object') {
+                                        if (h.handle !== undefined) rawHandle = h.handle;
+                                        else if (h.router_ && h.router_.connector_ && h.router_.connector_.handle_ !== undefined) rawHandle = h.router_.connector_.handle_;
+                                        else if (h.router_ && h.router_.pipe_ !== undefined) rawHandle = h.router_.pipe_;
+                                        else if (h.router_ && h.router_.reader_ && h.router_.reader_.handle_ !== undefined) rawHandle = h.router_.reader_.handle_;
+                                        else if (h.router_ && h.router_.handle_ !== undefined) rawHandle = h.router_.handle_;
+                                    }
+
+                                    console.log(`[MojoProxy] Resume Arg[${idx}] extracted raw handle:`, rawHandle);
 
                                     let bridgedHandle = rawHandle;
                                     try {
