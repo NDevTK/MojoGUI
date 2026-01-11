@@ -152,7 +152,7 @@ chromecast.mojom.SettingsClientReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -190,7 +190,7 @@ chromecast.mojom.SettingsClientReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -312,7 +312,7 @@ chromecast.mojom.SettingsPlatformReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -350,7 +350,7 @@ chromecast.mojom.SettingsPlatformReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

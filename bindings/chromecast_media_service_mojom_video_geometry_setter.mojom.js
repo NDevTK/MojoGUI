@@ -118,7 +118,7 @@ chromecast.media.mojom.VideoGeometryChangeClientReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -143,7 +143,7 @@ chromecast.media.mojom.VideoGeometryChangeClientReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -251,7 +251,7 @@ chromecast.media.mojom.VideoGeometryChangeSubscriberReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -282,7 +282,7 @@ chromecast.media.mojom.VideoGeometryChangeSubscriberReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -386,7 +386,7 @@ chromecast.media.mojom.VideoGeometrySetterReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -411,7 +411,7 @@ chromecast.media.mojom.VideoGeometrySetterReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

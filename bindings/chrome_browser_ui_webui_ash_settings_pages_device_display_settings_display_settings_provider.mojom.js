@@ -186,7 +186,7 @@ ash.settings.mojom.TabletModeObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -211,7 +211,7 @@ ash.settings.mojom.TabletModeObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -312,7 +312,7 @@ ash.settings.mojom.DisplayConfigurationObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -337,7 +337,7 @@ ash.settings.mojom.DisplayConfigurationObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -440,7 +440,7 @@ ash.settings.mojom.DisplayBrightnessSettingsObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -465,7 +465,7 @@ ash.settings.mojom.DisplayBrightnessSettingsObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -567,7 +567,7 @@ ash.settings.mojom.AmbientLightSensorObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -592,7 +592,7 @@ ash.settings.mojom.AmbientLightSensorObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -897,7 +897,7 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -1063,7 +1063,7 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

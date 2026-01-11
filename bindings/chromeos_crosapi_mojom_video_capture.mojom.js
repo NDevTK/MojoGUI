@@ -223,7 +223,7 @@ crosapi.mojom.ScopedAccessPermissionReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -235,7 +235,7 @@ crosapi.mojom.ScopedAccessPermissionReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -614,7 +614,7 @@ crosapi.mojom.VideoFrameHandlerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -821,7 +821,7 @@ crosapi.mojom.VideoFrameHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -1077,7 +1077,7 @@ crosapi.mojom.VideoCaptureDeviceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -1211,7 +1211,7 @@ crosapi.mojom.VideoCaptureDeviceReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -1345,7 +1345,7 @@ crosapi.mojom.VideoCaptureDeviceFactoryReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -1395,7 +1395,7 @@ crosapi.mojom.VideoCaptureDeviceFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

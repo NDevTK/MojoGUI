@@ -256,7 +256,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactoryReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -332,7 +332,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -475,7 +475,7 @@ ash.media_app_ui.mojom.OcrUntrustedServiceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -526,7 +526,7 @@ ash.media_app_ui.mojom.OcrUntrustedServiceReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -674,7 +674,7 @@ ash.media_app_ui.mojom.OcrUntrustedPageReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -731,7 +731,7 @@ ash.media_app_ui.mojom.OcrUntrustedPageReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -892,7 +892,7 @@ ash.media_app_ui.mojom.MahiUntrustedServiceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -956,7 +956,7 @@ ash.media_app_ui.mojom.MahiUntrustedServiceReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -1083,7 +1083,7 @@ ash.media_app_ui.mojom.MahiUntrustedPageReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -1127,7 +1127,7 @@ ash.media_app_ui.mojom.MahiUntrustedPageReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -1373,7 +1373,7 @@ ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -1499,7 +1499,7 @@ ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -1601,7 +1601,7 @@ ash.media_app_ui.mojom.MantisUntrustedPageReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -1626,7 +1626,7 @@ ash.media_app_ui.mojom.MantisUntrustedPageReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

@@ -259,7 +259,7 @@ blink.mojom.BackgroundFetchRegistrationObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -310,7 +310,7 @@ blink.mojom.BackgroundFetchRegistrationObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -504,7 +504,7 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -592,7 +592,7 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -774,7 +774,7 @@ blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -856,7 +856,7 @@ blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

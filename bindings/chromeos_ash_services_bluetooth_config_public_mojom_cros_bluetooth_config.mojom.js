@@ -290,7 +290,7 @@ ash.bluetooth_config.mojom.SystemPropertiesObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -315,7 +315,7 @@ ash.bluetooth_config.mojom.SystemPropertiesObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -457,7 +457,7 @@ ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -508,7 +508,7 @@ ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -610,7 +610,7 @@ ash.bluetooth_config.mojom.DiscoverySessionStatusObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -635,7 +635,7 @@ ash.bluetooth_config.mojom.DiscoverySessionStatusObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -737,7 +737,7 @@ ash.bluetooth_config.mojom.KeyEnteredHandlerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -762,7 +762,7 @@ ash.bluetooth_config.mojom.KeyEnteredHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -987,7 +987,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegateReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -1101,7 +1101,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegateReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -1236,7 +1236,7 @@ ash.bluetooth_config.mojom.DevicePairingHandlerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -1286,7 +1286,7 @@ ash.bluetooth_config.mojom.DevicePairingHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -1427,7 +1427,7 @@ ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -1478,7 +1478,7 @@ ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -1798,7 +1798,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -1971,7 +1971,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

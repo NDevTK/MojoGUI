@@ -185,7 +185,7 @@ device.mojom.WakeLockProviderReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -255,7 +255,7 @@ device.mojom.WakeLockProviderReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -357,7 +357,7 @@ device.mojom.WakeLockObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -382,7 +382,7 @@ device.mojom.WakeLockObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

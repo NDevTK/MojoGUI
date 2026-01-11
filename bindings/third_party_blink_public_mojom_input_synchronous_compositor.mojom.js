@@ -448,7 +448,7 @@ blink.mojom.SynchronousCompositorReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -653,7 +653,7 @@ blink.mojom.SynchronousCompositorReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -814,7 +814,7 @@ blink.mojom.SynchronousCompositorHostReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -878,7 +878,7 @@ blink.mojom.SynchronousCompositorHostReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -1004,7 +1004,7 @@ blink.mojom.SynchronousCompositorControlHostReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -1042,7 +1042,7 @@ blink.mojom.SynchronousCompositorControlHostReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

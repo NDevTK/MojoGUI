@@ -114,7 +114,7 @@ chromecast.mojom.JsChannelReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -139,7 +139,7 @@ chromecast.mojom.JsChannelReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -262,7 +262,7 @@ chromecast.mojom.JsChannelClientReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -300,7 +300,7 @@ chromecast.mojom.JsChannelClientReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -403,7 +403,7 @@ chromecast.mojom.JsChannelBindingProviderReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -428,7 +428,7 @@ chromecast.mojom.JsChannelBindingProviderReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

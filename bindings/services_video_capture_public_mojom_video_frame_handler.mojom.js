@@ -133,7 +133,7 @@ video_capture.mojom.VideoFrameAccessHandlerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -158,7 +158,7 @@ video_capture.mojom.VideoFrameAccessHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -496,7 +496,7 @@ video_capture.mojom.VideoFrameHandlerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -677,7 +677,7 @@ video_capture.mojom.VideoFrameHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

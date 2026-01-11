@@ -189,7 +189,7 @@ viz.mojom.FrameSinkVideoConsumerFrameCallbacksReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -227,7 +227,7 @@ viz.mojom.FrameSinkVideoConsumerFrameCallbacksReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -410,7 +410,7 @@ viz.mojom.FrameSinkVideoConsumerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -487,7 +487,7 @@ viz.mojom.FrameSinkVideoConsumerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -793,7 +793,7 @@ viz.mojom.FrameSinkVideoCapturerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -948,7 +948,7 @@ viz.mojom.FrameSinkVideoCapturerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -1091,7 +1091,7 @@ viz.mojom.FrameSinkVideoCaptureOverlayReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -1142,7 +1142,7 @@ viz.mojom.FrameSinkVideoCaptureOverlayReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

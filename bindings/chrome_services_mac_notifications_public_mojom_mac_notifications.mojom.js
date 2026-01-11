@@ -326,7 +326,7 @@ mac_notifications.mojom.MacNotificationServiceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -428,7 +428,7 @@ mac_notifications.mojom.MacNotificationServiceReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -530,7 +530,7 @@ mac_notifications.mojom.MacNotificationActionHandlerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -555,7 +555,7 @@ mac_notifications.mojom.MacNotificationActionHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -658,7 +658,7 @@ mac_notifications.mojom.MacNotificationProviderReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -683,7 +683,7 @@ mac_notifications.mojom.MacNotificationProviderReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

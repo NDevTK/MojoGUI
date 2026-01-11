@@ -251,7 +251,7 @@ ash.diagnostics.mojom.NetworkListObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -276,7 +276,7 @@ ash.diagnostics.mojom.NetworkListObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -378,7 +378,7 @@ ash.diagnostics.mojom.NetworkStateObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -403,7 +403,7 @@ ash.diagnostics.mojom.NetworkStateObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -526,7 +526,7 @@ ash.diagnostics.mojom.NetworkHealthProviderReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -564,7 +564,7 @@ ash.diagnostics.mojom.NetworkHealthProviderReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

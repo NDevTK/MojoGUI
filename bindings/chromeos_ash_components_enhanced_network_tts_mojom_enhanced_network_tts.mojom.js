@@ -178,7 +178,7 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTtsReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -209,7 +209,7 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTtsReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -311,7 +311,7 @@ ash.enhanced_network_tts.mojom.AudioDataObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -336,7 +336,7 @@ ash.enhanced_network_tts.mojom.AudioDataObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

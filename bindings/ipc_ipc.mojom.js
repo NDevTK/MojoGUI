@@ -141,7 +141,7 @@ IPC.mojom.ChannelReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -179,7 +179,7 @@ IPC.mojom.ChannelReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -261,7 +261,7 @@ IPC.mojom.ChannelBootstrapReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -273,7 +273,7 @@ IPC.mojom.ChannelBootstrapReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

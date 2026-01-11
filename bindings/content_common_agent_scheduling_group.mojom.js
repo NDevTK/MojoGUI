@@ -114,7 +114,7 @@ content.mojom.AgentSchedulingGroupHostReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -139,7 +139,7 @@ content.mojom.AgentSchedulingGroupHostReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -303,7 +303,7 @@ content.mojom.AgentSchedulingGroupReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -367,7 +367,7 @@ content.mojom.AgentSchedulingGroupReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

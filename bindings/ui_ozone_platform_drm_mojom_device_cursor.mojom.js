@@ -136,7 +136,7 @@ ui.ozone.mojom.DeviceCursorReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -174,7 +174,7 @@ ui.ozone.mojom.DeviceCursorReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

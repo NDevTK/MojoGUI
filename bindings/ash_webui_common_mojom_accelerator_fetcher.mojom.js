@@ -115,7 +115,7 @@ ash.common.mojom.AcceleratorFetcherObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -140,7 +140,7 @@ ash.common.mojom.AcceleratorFetcherObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -268,7 +268,7 @@ ash.common.mojom.AcceleratorFetcherReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -312,7 +312,7 @@ ash.common.mojom.AcceleratorFetcherReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

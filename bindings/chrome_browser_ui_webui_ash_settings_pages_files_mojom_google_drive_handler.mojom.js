@@ -135,7 +135,7 @@ ash.settings.google_drive.mojom.PageHandlerFactoryReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -160,7 +160,7 @@ ash.settings.google_drive.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -329,7 +329,7 @@ ash.settings.google_drive.mojom.PageHandlerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -405,7 +405,7 @@ ash.settings.google_drive.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -526,7 +526,7 @@ ash.settings.google_drive.mojom.PageReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -564,7 +564,7 @@ ash.settings.google_drive.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

@@ -178,7 +178,7 @@ content.mojom.GinJavaBridgeReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -229,7 +229,7 @@ content.mojom.GinJavaBridgeReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -390,7 +390,7 @@ content.mojom.GinJavaBridgeRemoteObjectReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -459,7 +459,7 @@ content.mojom.GinJavaBridgeRemoteObjectReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -582,7 +582,7 @@ content.mojom.GinJavaBridgeHostReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -620,7 +620,7 @@ content.mojom.GinJavaBridgeHostReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

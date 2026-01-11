@@ -121,7 +121,7 @@ content.mojom.TestInterfaceForDeferReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -152,7 +152,7 @@ content.mojom.TestInterfaceForDeferReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -234,7 +234,7 @@ content.mojom.TestInterfaceForGrantReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -246,7 +246,7 @@ content.mojom.TestInterfaceForGrantReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -328,7 +328,7 @@ content.mojom.TestInterfaceForCancelReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -340,7 +340,7 @@ content.mojom.TestInterfaceForCancelReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -422,7 +422,7 @@ content.mojom.TestInterfaceForUnexpectedReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -434,7 +434,7 @@ content.mojom.TestInterfaceForUnexpectedReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -535,7 +535,7 @@ content.mojom.MojoContextProviderReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -560,7 +560,7 @@ content.mojom.MojoContextProviderReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

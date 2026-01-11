@@ -144,7 +144,7 @@ lens.mojom.LensSidePanelPageHandlerFactoryReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -169,7 +169,7 @@ lens.mojom.LensSidePanelPageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -374,7 +374,7 @@ lens.mojom.LensSidePanelPageHandlerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -470,7 +470,7 @@ lens.mojom.LensSidePanelPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -829,7 +829,7 @@ lens.mojom.LensSidePanelPageReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -1023,7 +1023,7 @@ lens.mojom.LensSidePanelPageReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

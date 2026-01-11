@@ -135,7 +135,7 @@ network.mojom.P2PTrustedSocketManagerClientReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -173,7 +173,7 @@ network.mojom.P2PTrustedSocketManagerClientReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -335,7 +335,7 @@ network.mojom.P2PTrustedSocketManagerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -399,7 +399,7 @@ network.mojom.P2PTrustedSocketManagerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

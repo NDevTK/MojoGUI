@@ -217,7 +217,7 @@ smbfs.mojom.SmbFsBootstrapReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -248,7 +248,7 @@ smbfs.mojom.SmbFsBootstrapReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -381,7 +381,7 @@ smbfs.mojom.SmbFsReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -431,7 +431,7 @@ smbfs.mojom.SmbFsReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -538,7 +538,7 @@ smbfs.mojom.SmbFsDelegateReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -569,7 +569,7 @@ smbfs.mojom.SmbFsDelegateReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

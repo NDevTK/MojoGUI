@@ -113,7 +113,7 @@ ax.mojom.AutoclickReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -138,7 +138,7 @@ ax.mojom.AutoclickReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -265,7 +265,7 @@ ax.mojom.AutoclickClientReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -309,7 +309,7 @@ ax.mojom.AutoclickClientReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

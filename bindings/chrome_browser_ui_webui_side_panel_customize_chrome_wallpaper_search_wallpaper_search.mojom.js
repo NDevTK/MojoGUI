@@ -266,7 +266,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryReceiver = class 
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -291,7 +291,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryReceiver = class 
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -612,7 +612,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -785,7 +785,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -887,7 +887,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchClientReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -912,7 +912,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchClientReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

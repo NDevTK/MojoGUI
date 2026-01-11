@@ -383,7 +383,7 @@ blink.mojom.AbortableAdAuctionReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -538,7 +538,7 @@ blink.mojom.AbortableAdAuctionReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -900,7 +900,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -1109,7 +1109,7 @@ blink.mojom.AdAuctionServiceReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

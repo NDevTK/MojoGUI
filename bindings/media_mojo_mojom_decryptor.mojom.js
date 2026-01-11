@@ -320,7 +320,7 @@ media.mojom.DecryptorReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -479,7 +479,7 @@ media.mojom.DecryptorReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -561,7 +561,7 @@ media.mojom.FrameResourceReleaserReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -573,7 +573,7 @@ media.mojom.FrameResourceReleaserReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

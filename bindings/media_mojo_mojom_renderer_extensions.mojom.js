@@ -139,7 +139,7 @@ media.mojom.FlingingRendererClientExtensionReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -164,7 +164,7 @@ media.mojom.FlingingRendererClientExtensionReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -318,7 +318,7 @@ media.mojom.MediaFoundationRendererExtensionReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -381,7 +381,7 @@ media.mojom.MediaFoundationRendererExtensionReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -463,7 +463,7 @@ media.mojom.MediaFoundationRendererObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -475,7 +475,7 @@ media.mojom.MediaFoundationRendererObserverReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -577,7 +577,7 @@ media.mojom.MediaFoundationRendererNotifierReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -602,7 +602,7 @@ media.mojom.MediaFoundationRendererNotifierReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

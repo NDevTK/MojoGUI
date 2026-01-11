@@ -223,7 +223,7 @@ chromeos.printing.printing_manager.mojom.PrintJobsObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -261,7 +261,7 @@ chromeos.printing.printing_manager.mojom.PrintJobsObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -495,7 +495,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver = clas
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -621,7 +621,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver = clas
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -743,7 +743,7 @@ chromeos.printing.printing_manager.mojom.PrintManagementHandlerReceiver = class 
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -781,7 +781,7 @@ chromeos.printing.printing_manager.mojom.PrintManagementHandlerReceiver = class 
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

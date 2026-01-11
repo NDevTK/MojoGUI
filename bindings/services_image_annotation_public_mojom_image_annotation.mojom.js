@@ -165,7 +165,7 @@ image_annotation.mojom.ImageProcessorReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -196,7 +196,7 @@ image_annotation.mojom.ImageProcessorReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -306,7 +306,7 @@ image_annotation.mojom.AnnotatorReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -337,7 +337,7 @@ image_annotation.mojom.AnnotatorReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -439,7 +439,7 @@ image_annotation.mojom.ImageAnnotationServiceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -464,7 +464,7 @@ image_annotation.mojom.ImageAnnotationServiceReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

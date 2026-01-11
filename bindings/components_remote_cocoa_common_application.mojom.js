@@ -103,7 +103,7 @@ remote_cocoa.mojom.StubInterfaceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -115,7 +115,7 @@ remote_cocoa.mojom.StubInterfaceReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -325,7 +325,7 @@ remote_cocoa.mojom.ApplicationReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -415,7 +415,7 @@ remote_cocoa.mojom.ApplicationReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

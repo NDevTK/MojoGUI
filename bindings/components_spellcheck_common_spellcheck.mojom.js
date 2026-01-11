@@ -178,7 +178,7 @@ spellcheck.mojom.SpellCheckerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -216,7 +216,7 @@ spellcheck.mojom.SpellCheckerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -317,7 +317,7 @@ spellcheck.mojom.SpellCheckInitializationHostReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -342,7 +342,7 @@ spellcheck.mojom.SpellCheckInitializationHostReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -597,7 +597,7 @@ spellcheck.mojom.SpellCheckHostReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -730,7 +730,7 @@ spellcheck.mojom.SpellCheckHostReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

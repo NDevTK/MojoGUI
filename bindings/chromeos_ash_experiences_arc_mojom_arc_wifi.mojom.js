@@ -206,7 +206,7 @@ arc.mojom.ArcWifiHostReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -288,7 +288,7 @@ arc.mojom.ArcWifiHostReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -434,7 +434,7 @@ arc.mojom.ArcWifiInstanceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -491,7 +491,7 @@ arc.mojom.ArcWifiInstanceReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

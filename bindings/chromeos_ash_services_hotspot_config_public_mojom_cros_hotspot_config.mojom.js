@@ -357,7 +357,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -471,7 +471,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -572,7 +572,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -597,7 +597,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -718,7 +718,7 @@ ash.hotspot_config.mojom.HotspotEnabledStateObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -756,7 +756,7 @@ ash.hotspot_config.mojom.HotspotEnabledStateObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

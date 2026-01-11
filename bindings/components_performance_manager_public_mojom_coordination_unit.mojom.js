@@ -361,7 +361,7 @@ performance_manager.mojom.DocumentCoordinationUnitReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -535,7 +535,7 @@ performance_manager.mojom.DocumentCoordinationUnitReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -741,7 +741,7 @@ performance_manager.mojom.ProcessCoordinationUnitReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -831,7 +831,7 @@ performance_manager.mojom.ProcessCoordinationUnitReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -939,7 +939,7 @@ performance_manager.mojom.ChildProcessCoordinationUnitReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -970,7 +970,7 @@ performance_manager.mojom.ChildProcessCoordinationUnitReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

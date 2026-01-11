@@ -92,7 +92,7 @@ guest_view.mojom.ViewHandleReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -104,7 +104,7 @@ guest_view.mojom.ViewHandleReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -235,7 +235,7 @@ guest_view.mojom.GuestViewHostReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -279,7 +279,7 @@ guest_view.mojom.GuestViewHostReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

@@ -413,7 +413,7 @@ media.mojom.VideoEncodeAcceleratorProviderReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -457,7 +457,7 @@ media.mojom.VideoEncodeAcceleratorProviderReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -559,7 +559,7 @@ media.mojom.VideoEncodeAcceleratorProviderFactoryReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -584,7 +584,7 @@ media.mojom.VideoEncodeAcceleratorProviderFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -835,7 +835,7 @@ media.mojom.VideoEncodeAcceleratorReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -962,7 +962,7 @@ media.mojom.VideoEncodeAcceleratorReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -1127,7 +1127,7 @@ media.mojom.VideoEncodeAcceleratorClientReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -1191,7 +1191,7 @@ media.mojom.VideoEncodeAcceleratorClientReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

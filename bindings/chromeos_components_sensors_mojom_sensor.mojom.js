@@ -268,7 +268,7 @@ chromeos.sensors.mojom.SensorServiceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -331,7 +331,7 @@ chromeos.sensors.mojom.SensorServiceReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -602,7 +602,7 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -748,7 +748,7 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -870,7 +870,7 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -908,7 +908,7 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -1011,7 +1011,7 @@ chromeos.sensors.mojom.SensorServiceNewDevicesObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -1036,7 +1036,7 @@ chromeos.sensors.mojom.SensorServiceNewDevicesObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

@@ -112,7 +112,7 @@ remoting.mojom.ChromotingHostServicesReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -137,7 +137,7 @@ remoting.mojom.ChromotingHostServicesReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -279,7 +279,7 @@ remoting.mojom.ChromotingSessionServicesReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -330,7 +330,7 @@ remoting.mojom.ChromotingSessionServicesReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

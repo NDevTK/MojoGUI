@@ -124,7 +124,7 @@ video_capture.mojom.AcceleratorFactoryReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -149,7 +149,7 @@ video_capture.mojom.AcceleratorFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -351,7 +351,7 @@ video_capture.mojom.VideoCaptureServiceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -441,7 +441,7 @@ video_capture.mojom.VideoCaptureServiceReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

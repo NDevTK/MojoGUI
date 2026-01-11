@@ -157,7 +157,7 @@ storage.mojom.IndexedDBObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -195,7 +195,7 @@ storage.mojom.IndexedDBObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -510,7 +510,7 @@ storage.mojom.IndexedDBControlReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -682,7 +682,7 @@ storage.mojom.IndexedDBControlReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

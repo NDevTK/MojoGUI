@@ -651,7 +651,7 @@ crosapi.mojom.TelemetryDiagnosticRoutineControlReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -708,7 +708,7 @@ crosapi.mojom.TelemetryDiagnosticRoutineControlReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -810,7 +810,7 @@ crosapi.mojom.TelemetryDiagnosticRoutineObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -835,7 +835,7 @@ crosapi.mojom.TelemetryDiagnosticRoutineObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -965,7 +965,7 @@ crosapi.mojom.TelemetryDiagnosticRoutinesServiceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -1009,7 +1009,7 @@ crosapi.mojom.TelemetryDiagnosticRoutinesServiceReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

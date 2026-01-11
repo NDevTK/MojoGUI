@@ -411,7 +411,7 @@ media_session.mojom.MediaSessionObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -488,7 +488,7 @@ media_session.mojom.MediaSessionObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -1138,7 +1138,7 @@ media_session.mojom.MediaSessionReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -1538,7 +1538,7 @@ media_session.mojom.MediaSessionReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

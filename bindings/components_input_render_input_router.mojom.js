@@ -248,7 +248,7 @@ input.mojom.RenderInputRouterDelegateReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -338,7 +338,7 @@ input.mojom.RenderInputRouterDelegateReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -523,7 +523,7 @@ input.mojom.RenderInputRouterDelegateClientReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -600,7 +600,7 @@ input.mojom.RenderInputRouterDelegateClientReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

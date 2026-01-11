@@ -2044,7 +2044,7 @@ chromeos.network_config.mojom.CrosNetworkConfigReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -2546,7 +2546,7 @@ chromeos.network_config.mojom.CrosNetworkConfigReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -2764,7 +2764,7 @@ chromeos.network_config.mojom.CrosNetworkConfigObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -2867,7 +2867,7 @@ chromeos.network_config.mojom.CrosNetworkConfigObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

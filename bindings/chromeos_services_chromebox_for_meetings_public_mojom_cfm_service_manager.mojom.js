@@ -108,7 +108,7 @@ chromeos.cfm.mojom.DisconnectReasonReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -120,7 +120,7 @@ chromeos.cfm.mojom.DisconnectReasonReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -256,7 +256,7 @@ chromeos.cfm.mojom.CfmServiceContextReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -306,7 +306,7 @@ chromeos.cfm.mojom.CfmServiceContextReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -408,7 +408,7 @@ chromeos.cfm.mojom.CfmServiceAdaptorReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -433,7 +433,7 @@ chromeos.cfm.mojom.CfmServiceAdaptorReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
