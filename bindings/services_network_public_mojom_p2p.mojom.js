@@ -77,9 +77,6 @@ mojo.internal.bindings.network.mojom.P2PSocketTypeSpec = { $: mojo.internal.Enum
 mojo.internal.bindings.network.mojom.P2PSocketOptionSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.network.mojom.EcnMarkingSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec = { $: {} };
-mojo.internal.bindings.network.mojom.P2PPacketInfoSpec = { $: {} };
-mojo.internal.bindings.network.mojom.P2PPortRangeSpec = { $: {} };
-mojo.internal.bindings.network.mojom.P2PSendPacketMetricsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PReceivedPacketSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PSendPacketSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PNetworkNotificationClient = {};
@@ -126,26 +123,12 @@ mojo.internal.bindings.network.mojom.EcnMarking = {
 // Struct: P2PHostAndIPEndPoint
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec, 'network.mojom.P2PHostAndIPEndPoint', [
+      mojo.internal.StructField('arg_val', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, 3, false, 0, undefined),
     ],
-    [[0, 8]]);
-
-// Struct: P2PPacketInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PPacketInfoSpec, 'network.mojom.P2PPacketInfo', [
-    ],
-    [[0, 8]]);
-
-// Struct: P2PPortRange
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PPortRangeSpec, 'network.mojom.P2PPortRange', [
-    ],
-    [[0, 8]]);
-
-// Struct: P2PSendPacketMetrics
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PSendPacketMetricsSpec, 'network.mojom.P2PSendPacketMetrics', [
-    ],
-    [[0, 8]]);
+    [[0, 40]]);
 
 // Struct: P2PReceivedPacket
 mojo.internal.Struct(

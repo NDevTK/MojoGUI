@@ -305,17 +305,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_aggregatable_debug_key_piece', 152, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_attribution_scopes_data_json', 160, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_aggregatable_named_budgets', 168, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_kAttributable', 176, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 184, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 192, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 200, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_event_level_reports', 208, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_remaining_aggregatable_attribution_budget', 212, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_remaining_aggregatable_debug_budget', 216, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_debug_key_$flag', 220, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_debug_key_$value', originalFieldName: 'arg_debug_key' }),
-      mojo.internal.StructField('arg_cookie_based_debug_allowed', 220, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_attributability', 176, 0, mojo.internal.bindings.attribution_internals.mojom.AttributabilitySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_max_event_level_reports', 184, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_remaining_aggregatable_attribution_budget', 188, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_remaining_aggregatable_debug_budget', 192, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_debug_key_$flag', 196, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_debug_key_$value', originalFieldName: 'arg_debug_key' }),
+      mojo.internal.StructField('arg_cookie_based_debug_allowed', 196, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 232]]);
+    [[0, 208]]);
 
 // Struct: WebUIRegistration
 mojo.internal.Struct(

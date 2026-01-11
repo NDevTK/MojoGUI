@@ -126,13 +126,10 @@ mojo.internal.Union(
 // Struct: TelemetryExtensionException
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryExtensionExceptionSpec, 'crosapi.mojom.TelemetryExtensionException', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, 3, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, 4, false, 1, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.crosapi.mojom.ReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_debug_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 40], [1, 48]]);
+    [[0, 24]]);
 
 // Struct: TelemetryExtensionSupported
 mojo.internal.Struct(

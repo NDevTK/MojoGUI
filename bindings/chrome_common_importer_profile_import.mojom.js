@@ -78,13 +78,6 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.chrome.mojom.ImportItemSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.chrome.mojom.SchemeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.chrome.mojom.ImportedBookmarkEntrySpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ImporterAutofillFormDataEntrySpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.SearchEngineInfoSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ImporterURLRowSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.SourceProfileSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.FaviconUsageDataListSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ImporterIE7PasswordInfoSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.ImportedPasswordFormSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ProfileImportObserver = {};
 mojo.internal.bindings.chrome.mojom.ProfileImportObserverSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.ProfileImportObserver.$interfaceName = 'chrome.mojom.ProfileImportObserver';
@@ -123,52 +116,17 @@ mojo.internal.bindings.chrome.mojom.Scheme = {
 // Struct: ImportedBookmarkEntry
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.ImportedBookmarkEntrySpec, 'chrome.mojom.ImportedBookmarkEntry', [
+      mojo.internal.StructField('arg_scheme', 0, 0, mojo.internal.bindings.chrome.mojom.SchemeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_signon_realm', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_username_element', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_username_value', 40, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_password_element', 48, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_password_value', 56, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_blocked_by_user', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 8]]);
-
-// Struct: ImporterAutofillFormDataEntry
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.ImporterAutofillFormDataEntrySpec, 'chrome.mojom.ImporterAutofillFormDataEntry', [
-    ],
-    [[0, 8]]);
-
-// Struct: SearchEngineInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.SearchEngineInfoSpec, 'chrome.mojom.SearchEngineInfo', [
-    ],
-    [[0, 8]]);
-
-// Struct: ImporterURLRow
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.ImporterURLRowSpec, 'chrome.mojom.ImporterURLRow', [
-    ],
-    [[0, 8]]);
-
-// Struct: SourceProfile
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.SourceProfileSpec, 'chrome.mojom.SourceProfile', [
-    ],
-    [[0, 8]]);
-
-// Struct: FaviconUsageDataList
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.FaviconUsageDataListSpec, 'chrome.mojom.FaviconUsageDataList', [
-    ],
-    [[0, 8]]);
-
-// Struct: ImporterIE7PasswordInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.ImporterIE7PasswordInfoSpec, 'chrome.mojom.ImporterIE7PasswordInfo', [
-    ],
-    [[0, 8]]);
-
-// Struct: ImportedPasswordForm
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.ImportedPasswordFormSpec, 'chrome.mojom.ImportedPasswordForm', [
-      mojo.internal.StructField('arg_kHtml', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
+    [[0, 80]]);
 
 // Interface: ProfileImportObserver
 mojo.internal.Struct(

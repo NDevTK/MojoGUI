@@ -385,8 +385,9 @@ mojo.internal.Struct(
 // Struct: SwapBuffersCompleteParams
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.SwapBuffersCompleteParamsSpec, 'gpu.mojom.SwapBuffersCompleteParams', [
+      mojo.internal.StructField('arg_val', 0, 0, mojo.internal.bindings.gpu.mojom.OnGpuSwitched()Spec.$, null, false, 0, undefined),
     ],
-    [[0, 8]]);
+    [[0, 16]]);
 
 // Struct: DeferredRequest
 mojo.internal.Struct(

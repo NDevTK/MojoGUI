@@ -97,8 +97,9 @@ mojo.internal.bindings.network.mojom.kClientDisconnectReason = 1;
 // Struct: URLRequestRedirectInfo
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec, 'network.mojom.URLRequestRedirectInfo', [
+      mojo.internal.StructField('arg_kClientDisconnectReason', 0, 0, mojo.internal.Pointer, 1, false, 0, undefined),
     ],
-    [[0, 8]]);
+    [[0, 16]]);
 
 // Struct: URLLoaderClientEndpoints
 mojo.internal.Struct(

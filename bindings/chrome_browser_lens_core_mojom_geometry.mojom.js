@@ -88,12 +88,10 @@ mojo.internal.bindings.lens.mojom.CoordinateType = {
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.CenterRotatedBoxSpec, 'lens.mojom.CenterRotatedBox', [
       mojo.internal.StructField('arg_box', 0, 0, mojo.internal.bindings.gfx.mojom.RectFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_kUnspecified', 8, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_rotation', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_coordinate_type', 8, 0, mojo.internal.bindings.lens.mojom.CoordinateTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rotation', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 32]]);
 
 // Struct: Geometry
 mojo.internal.Struct(

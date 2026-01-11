@@ -97,13 +97,12 @@ mojo.internal.bindings.performance_manager.mojom.Mode = {
 // Struct: WebMemoryAttribution
 mojo.internal.Struct(
     mojo.internal.bindings.performance_manager.mojom.WebMemoryAttributionSpec, 'performance_manager.mojom.WebMemoryAttribution', [
-      mojo.internal.StructField('arg_kCrossOriginAggregated', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scope', 0, 0, mojo.internal.bindings.performance_manager.mojom.ScopeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_src', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_id', 24, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 // Struct: WebMemoryBreakdownEntry
 mojo.internal.Struct(
@@ -117,7 +116,9 @@ mojo.internal.Struct(
 // Struct: WebMemoryMeasurement
 mojo.internal.Struct(
     mojo.internal.bindings.performance_manager.mojom.WebMemoryMeasurementSpec, 'performance_manager.mojom.WebMemoryMeasurement', [
-      mojo.internal.StructField('arg_kDefault', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_breakdown', 0, 0, mojo.internal.Array(mojo.internal.bindings.performance_manager.mojom.WebMemoryBreakdownEntrySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_detached_memory', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_shared_memory', 16, 0, mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_blink_memory', 24, 0, mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec.$, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 40]]);

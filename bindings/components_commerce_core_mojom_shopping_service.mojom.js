@@ -169,12 +169,18 @@ mojo.internal.Struct(
 // Struct: PriceInsightsInfo
 mojo.internal.Struct(
     mojo.internal.bindings.shopping_service.mojom.PriceInsightsInfoSpec, 'shopping_service.mojom.PriceInsightsInfo', [
-      mojo.internal.StructField('arg_kUnknown', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cluster_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_typical_low_price', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_typical_high_price', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_catalog_attributes', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_jackpot', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bucket', 40, 0, mojo.internal.bindings.shopping_service.mojom.PriceBucketSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_history', 48, 0, mojo.internal.Array(mojo.internal.bindings.shopping_service.mojom.PricePointSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_locale', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_currency_code', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_has_multiple_catalogs', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 88]]);
 
 // Struct: ProductSpecificationsDescriptionText
 mojo.internal.Struct(

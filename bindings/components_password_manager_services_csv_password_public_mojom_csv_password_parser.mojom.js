@@ -100,11 +100,14 @@ mojo.internal.Struct(
 // Struct: CSVPassword
 mojo.internal.Struct(
     mojo.internal.bindings.password_manager.mojom.CSVPasswordSpec, 'password_manager.mojom.CSVPassword', [
-      mojo.internal.StructField('arg_kOK', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.password_manager.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_username', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_password', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_note', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_invalid_url', 40, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 56]]);
 
 // Interface: CSVPasswordParser
 mojo.internal.Struct(

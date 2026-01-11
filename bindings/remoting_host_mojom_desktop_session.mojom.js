@@ -372,12 +372,13 @@ mojo.internal.Union(
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.AudioPacketSpec, 'remoting.mojom.AudioPacket', [
       mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ByteStringSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_kInvalid', 8, 0, mojo.internal.Pointer, -1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_encoding', 8, 0, mojo.internal.bindings.remoting.mojom.EncodingSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_sampling_rate', 16, 0, mojo.internal.bindings.remoting.mojom.SamplingRateSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bytes_per_sample', 24, 0, mojo.internal.bindings.remoting.mojom.BytesPerSampleSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_channels', 32, 0, mojo.internal.bindings.remoting.mojom.ChannelsSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 // Struct: ClipboardEvent
 mojo.internal.Struct(
@@ -472,16 +473,13 @@ mojo.internal.Struct(
 // Struct: FileTransferError
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.FileTransferErrorSpec, 'remoting.mojom.FileTransferError', [
-      mojo.internal.StructField('arg_kUnknown', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, 3, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, 4, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 40, 0, mojo.internal.Pointer, 5, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 48, 0, mojo.internal.Pointer, 6, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 56, 0, mojo.internal.Pointer, 7, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.remoting.mojom.TypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_api_error_code', 8, 0, mojo.internal.bindings.remoting.mojom.Int32Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_function', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_file', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_line_number', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 48]]);
 
 // Struct: BeginFileReadSuccess
 mojo.internal.Struct(

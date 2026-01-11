@@ -630,11 +630,22 @@ mojo.internal.Struct(
 // Struct: JapaneseSettings
 mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.JapaneseSettingsSpec, 'ash.ime.mojom.JapaneseSettings', [
-      mojo.internal.StructField('arg_kUnspecified', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
+      mojo.internal.StructField('arg_unused', 0, 0, mojo.internal.bindings.ash.ime.mojom.JpUnusedStructSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_input_mode', 8, 0, mojo.internal.bindings.ash.ime.mojom.InputModeSpec.$, null, false, 22, undefined),
+      mojo.internal.StructField('arg_punctuation_style', 16, 0, mojo.internal.bindings.ash.ime.mojom.PunctuationStyleSpec.$, null, false, 22, undefined),
+      mojo.internal.StructField('arg_symbol_style', 24, 0, mojo.internal.bindings.ash.ime.mojom.SymbolStyleSpec.$, null, false, 22, undefined),
+      mojo.internal.StructField('arg_space_input_style', 32, 0, mojo.internal.bindings.ash.ime.mojom.SpaceInputStyleSpec.$, null, false, 22, undefined),
+      mojo.internal.StructField('arg_selection_shortcut', 40, 0, mojo.internal.bindings.ash.ime.mojom.SelectionShortcutSpec.$, null, false, 22, undefined),
+      mojo.internal.StructField('arg_keymap_style', 48, 0, mojo.internal.bindings.ash.ime.mojom.KeymapStyleSpec.$, null, false, 22, undefined),
+      mojo.internal.StructField('arg_shift_key_mode_style', 56, 0, mojo.internal.bindings.ash.ime.mojom.ShiftKeyModeStyleSpec.$, null, false, 22, undefined),
+      mojo.internal.StructField('arg_number_of_suggestions', 64, 0, mojo.internal.Uint32, 0, false, 22, undefined),
+      mojo.internal.StructField('arg_automatically_switch_to_halfwidth', 68, 0, mojo.internal.Bool, false, false, 22, undefined),
+      mojo.internal.StructField('arg_use_input_history', 68, 1, mojo.internal.Bool, false, false, 22, undefined),
+      mojo.internal.StructField('arg_use_system_dictionary', 68, 2, mojo.internal.Bool, false, false, 22, undefined),
+      mojo.internal.StructField('arg_disable_personalized_suggestions', 68, 3, mojo.internal.Bool, false, false, 22, undefined),
+      mojo.internal.StructField('arg_unused2', 68, 4, mojo.internal.Bool, false, false, 22, undefined),
     ],
-    [[0, 32]]);
+    [[0, 16], [22, 80]]);
 
 // Struct: ZhuyinSettings
 mojo.internal.Struct(

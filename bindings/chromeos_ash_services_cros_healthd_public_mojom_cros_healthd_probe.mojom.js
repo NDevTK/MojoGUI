@@ -1127,26 +1127,19 @@ mojo.internal.Struct(
 // Struct: VirtualizationInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.VirtualizationInfoSpec, 'ash.cros_healthd.mojom.VirtualizationInfo', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 40, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_smt_control', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.SMTControlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_has_kvm_device', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_smt_active', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 24]]);
 
 // Struct: VulnerabilityInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.VulnerabilityInfoSpec, 'ash.cros_healthd.mojom.VulnerabilityInfo', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 40, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 24]]);
 
 // Struct: KeylockerInfo
 mojo.internal.Struct(
@@ -1168,11 +1161,11 @@ mojo.internal.Struct(
 // Struct: CpuVirtualizationInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CpuVirtualizationInfoSpec, 'ash.cros_healthd.mojom.CpuVirtualizationInfo', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.TypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_locked', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: LogicalCpuInfo
 mojo.internal.Struct(
@@ -1337,13 +1330,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_marketing_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_os_version', 16, 0, mojo.internal.bindings.ash.cros_healthd.mojom.OsVersionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_boot_mode', 24, 0, mojo.internal.bindings.ash.cros_healthd.mojom.BootModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_kUnmappedEnumField', 32, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 40, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 48, 0, mojo.internal.Pointer, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 56, 0, mojo.internal.Pointer, 3, false, 0, undefined),
-      mojo.internal.StructField('arg_oem_name', 64, 0, mojo.internal.String, null, true, 1, undefined),
+      mojo.internal.StructField('arg_oem_name', 32, 0, mojo.internal.String, null, true, 1, undefined),
+      mojo.internal.StructField('arg_efi_platform_size', 40, 0, mojo.internal.bindings.ash.cros_healthd.mojom.EfiPlatformSizeSpec.$, null, false, 2, undefined),
     ],
-    [[0, 72], [1, 80]]);
+    [[0, 40], [1, 48], [2, 56]]);
 
 // Struct: OsVersion
 mojo.internal.Struct(
@@ -1389,29 +1379,33 @@ mojo.internal.Struct(
 // Struct: PsrEvent
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.PsrEventSpec, 'ash.cros_healthd.mojom.PsrEvent', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, 3, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, 4, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 40, 0, mojo.internal.Pointer, 5, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 48, 0, mojo.internal.Pointer, 6, false, 1, undefined),
-      mojo.internal.StructField('arg_val', 56, 0, mojo.internal.Pointer, 7, false, 1, undefined),
-      mojo.internal.StructField('arg_val', 64, 0, mojo.internal.Pointer, 8, false, 1, undefined),
-      mojo.internal.StructField('arg_val', 72, 0, mojo.internal.Pointer, 9, false, 1, undefined),
-      mojo.internal.StructField('arg_val', 80, 0, mojo.internal.Pointer, 10, false, 1, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.EventTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_time', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 56], [1, 96]]);
+    [[0, 24]]);
 
 // Struct: PsrInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.PsrInfoSpec, 'ash.cros_healthd.mojom.PsrInfo', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, 3, false, 0, undefined),
+      mojo.internal.StructField('arg_log_state', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.LogStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_uuid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_upid', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_oem_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_oem_make', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_oem_model', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_manufacture_country', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_oem_data', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_events', 64, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.mojom.PsrEventSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_log_start_date', 72, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_uptime_seconds', 76, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_s5_counter', 80, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_s4_counter', 84, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_s3_counter', 88, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_warm_reset_counter', 92, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_supported', 96, 0, mojo.internal.Bool, false, false, 1, undefined),
     ],
-    [[0, 40]]);
+    [[0, 104], [1, 112]]);
 
 // Struct: WirelessInterfaceInfo
 mojo.internal.Struct(
@@ -1761,13 +1755,11 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.InputDeviceSpec, 'ash.cros_healthd.mojom.InputDevice', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_kUnmappedEnumField', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 40, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_connection_type', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ConnectionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_physical_location', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_enabled', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 40]]);
 
 // Struct: SensorInfo
 mojo.internal.Struct(
@@ -1781,16 +1773,11 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.SensorSpec, 'ash.cros_healthd.mojom.Sensor', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_kUnmappedEnumField', 8, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, 3, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 40, 0, mojo.internal.Pointer, 4, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 48, 0, mojo.internal.Pointer, 5, false, 0, undefined),
-      mojo.internal.StructField('arg_device_id', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 64, 0, mojo.internal.Pointer, 6, false, 1, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.TypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_location', 16, 0, mojo.internal.bindings.ash.cros_healthd.mojom.LocationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 72], [1, 80]]);
+    [[0, 40]]);
 
 // Struct: ThermalInfo
 mojo.internal.Struct(
@@ -1802,9 +1789,9 @@ mojo.internal.Struct(
 // Struct: ThermalSensorInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.ThermalSensorInfoSpec, 'ash.cros_healthd.mojom.ThermalSensorInfo', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_temperature_celsius', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 16, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ThermalSensorSourceSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

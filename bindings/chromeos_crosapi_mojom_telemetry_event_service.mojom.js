@@ -292,20 +292,17 @@ mojo.internal.Union(
 // Struct: TelemetryAudioJackEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryAudioJackEventInfoSpec, 'crosapi.mojom.TelemetryAudioJackEventInfo', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.crosapi.mojom.StateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_type', 8, 0, mojo.internal.bindings.crosapi.mojom.DeviceTypeSpec.$, null, false, 1, undefined),
     ],
-    [[0, 32]]);
+    [[0, 16], [1, 24]]);
 
 // Struct: TelemetryLidEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryLidEventInfoSpec, 'crosapi.mojom.TelemetryLidEventInfo', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.crosapi.mojom.StateSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 16]]);
 
 // Struct: TelemetryUsbEventInfo
 mojo.internal.Struct(
@@ -313,61 +310,48 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_vendor', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_categories', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_kUnmappedEnumField', 24, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 40, 0, mojo.internal.Pointer, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_vid', 48, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_pid', 50, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 24, 0, mojo.internal.bindings.crosapi.mojom.StateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_vid', 32, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pid', 34, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 48]]);
 
 // Struct: TelemetryExternalDisplayEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryExternalDisplayEventInfoSpec, 'crosapi.mojom.TelemetryExternalDisplayEventInfo', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.crosapi.mojom.StateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_display_info', 8, 0, mojo.internal.bindings.crosapi.mojom.ProbeExternalDisplayInfoSpec.$, null, true, 1, undefined),
     ],
-    [[0, 32]]);
+    [[0, 16], [1, 24]]);
 
 // Struct: TelemetrySdCardEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetrySdCardEventInfoSpec, 'crosapi.mojom.TelemetrySdCardEventInfo', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.crosapi.mojom.StateSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 16]]);
 
 // Struct: TelemetryPowerEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryPowerEventInfoSpec, 'crosapi.mojom.TelemetryPowerEventInfo', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, 3, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, 4, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.crosapi.mojom.StateSpec.$, null, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 16]]);
 
 // Struct: TelemetryStylusGarageEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryStylusGarageEventInfoSpec, 'crosapi.mojom.TelemetryStylusGarageEventInfo', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.crosapi.mojom.StateSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 16]]);
 
 // Struct: TelemetryTouchpadButtonEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryTouchpadButtonEventInfoSpec, 'crosapi.mojom.TelemetryTouchpadButtonEventInfo', [
       mojo.internal.StructField('arg_button', 0, 0, mojo.internal.bindings.crosapi.mojom.TelemetryInputTouchButtonSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_kUnmappedEnumField', 8, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, 2, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.crosapi.mojom.StateSpec.$, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 24]]);
 
 // Struct: TelemetryTouchPointInfo
 mojo.internal.Struct(

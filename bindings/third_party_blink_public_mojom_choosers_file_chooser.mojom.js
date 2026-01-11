@@ -115,13 +115,17 @@ mojo.internal.Union(
 // Struct: FileChooserParams
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileChooserParamsSpec, 'blink.mojom.FileChooserParams', [
-      mojo.internal.StructField('arg_kOpen', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.blink.mojom.ModeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_default_file_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_selected_files', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_accept_types', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_requestor', 40, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_need_local_path', 48, 0, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_use_media_capture', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_open_writable', 48, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 64]]);
 
 // Struct: NativeFileInfo
 mojo.internal.Struct(

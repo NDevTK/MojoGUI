@@ -1152,11 +1152,10 @@ mojo.internal.Struct(
 // Struct: SubjectAltName
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_config.mojom.SubjectAltNameSpec, 'chromeos.network_config.mojom.SubjectAltName', [
-      mojo.internal.StructField('arg_kEmail', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.chromeos.network_config.mojom.TypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: IPSecConfigProperties
 mojo.internal.Struct(

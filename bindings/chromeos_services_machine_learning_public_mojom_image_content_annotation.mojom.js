@@ -115,8 +115,8 @@ mojo.internal.Struct(
 // Struct: ImageAnnotationResult
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotationResultSpec, 'chromeos.machine_learning.mojom.ImageAnnotationResult', [
-      mojo.internal.StructField('arg_OK', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.ERRORSpec.$, 1, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_annotations', 8, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.ImageAnnotationScoreSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

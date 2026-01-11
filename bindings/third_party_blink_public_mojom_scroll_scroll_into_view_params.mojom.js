@@ -92,15 +92,11 @@ mojo.internal.bindings.blink.mojom.Behavior = {
 // Struct: ScrollAlignment
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ScrollAlignmentSpec, 'blink.mojom.ScrollAlignment', [
-      mojo.internal.StructField('arg_kNoScroll', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 40, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 48, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rect_visible', 0, 0, mojo.internal.bindings.blink.mojom.BehaviorSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_rect_hidden', 8, 0, mojo.internal.bindings.blink.mojom.BehaviorSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_rect_partial', 16, 0, mojo.internal.bindings.blink.mojom.BehaviorSpec.$, 0, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 32]]);
 
 // Struct: FocusedEditableParams
 mojo.internal.Struct(

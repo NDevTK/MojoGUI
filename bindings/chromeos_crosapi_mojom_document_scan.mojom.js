@@ -270,12 +270,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_device_uuid', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_connection_type', 40, 0, mojo.internal.bindings.crosapi.mojom.ConnectionTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_image_formats', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_kUnspecified', 56, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 64, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 72, 0, mojo.internal.Pointer, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_secure', 80, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_secure', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_protocol_type', 64, 0, mojo.internal.String, null, true, 1, undefined),
     ],
-    [[0, 96]]);
+    [[0, 72], [1, 80]]);
 
 // Struct: ScannerEnumFilter
 mojo.internal.Struct(

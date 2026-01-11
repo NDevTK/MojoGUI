@@ -100,10 +100,12 @@ mojo.internal.bindings.viz.mojom.Type = {
 // Struct: TransferableUIResourceRequest
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.TransferableUIResourceRequestSpec, 'viz.mojom.TransferableUIResourceRequest', [
-      mojo.internal.StructField('arg_kCreate', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.viz.mojom.TypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_uid', 8, 0, mojo.internal.bindings.cc.mojom.UIResourceIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_transferable_resource', 16, 0, mojo.internal.bindings.viz.mojom.TransferableResourceSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_opaque', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 40]]);
 
 // Struct: LayerTreeUpdate
 mojo.internal.Struct(

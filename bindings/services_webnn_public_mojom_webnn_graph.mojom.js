@@ -591,19 +591,23 @@ mojo.internal.Struct(
 // Struct: Operand
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.OperandSpec, 'webnn.mojom.Operand', [
-      mojo.internal.StructField('arg_kInput', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_kind', 0, 0, mojo.internal.bindings.webnn.mojom.KindSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_descriptor', 8, 0, mojo.internal.bindings.webnn.mojom.OperandDescriptorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: ArgMinMax
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.ArgMinMaxSpec, 'webnn.mojom.ArgMinMax', [
-      mojo.internal.StructField('arg_kMin', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_kind', 0, 0, mojo.internal.bindings.webnn.mojom.KindSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_operand_id', 8, 0, mojo.internal.bindings.webnn.mojom.OperandIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_operand_id', 16, 0, mojo.internal.bindings.webnn.mojom.OperandIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_label', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_axis', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_keep_dimensions', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 48]]);
 
 // Struct: BatchNormalization
 mojo.internal.Struct(
@@ -660,10 +664,18 @@ mojo.internal.Struct(
 // Struct: Conv2d
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.Conv2dSpec, 'webnn.mojom.Conv2d', [
-      mojo.internal.StructField('arg_kDirect', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_kind', 0, 0, mojo.internal.bindings.webnn.mojom.KindSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_operand_id', 8, 0, mojo.internal.bindings.webnn.mojom.OperandIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_filter_operand_id', 16, 0, mojo.internal.bindings.webnn.mojom.OperandIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_operand_id', 24, 0, mojo.internal.bindings.webnn.mojom.OperandIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_padding', 32, 0, mojo.internal.bindings.webnn.mojom.Padding2dSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_strides', 40, 0, mojo.internal.bindings.webnn.mojom.Size2dSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dilations', 48, 0, mojo.internal.bindings.webnn.mojom.Size2dSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bias_operand_id', 56, 0, mojo.internal.bindings.webnn.mojom.OperandIdSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_label', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_groups', 72, 0, mojo.internal.Uint32, 1, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 88]]);
 
 // Struct: CumulativeSum
 mojo.internal.Struct(
@@ -691,49 +703,23 @@ mojo.internal.Struct(
 // Struct: ElementWiseBinary
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.ElementWiseBinarySpec, 'webnn.mojom.ElementWiseBinary', [
-      mojo.internal.StructField('arg_kAdd', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 40, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 48, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 56, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 64, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 72, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 80, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 88, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 96, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 104, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 112, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 120, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_kind', 0, 0, mojo.internal.bindings.webnn.mojom.KindSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_lhs_operand_id', 8, 0, mojo.internal.bindings.webnn.mojom.OperandIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rhs_operand_id', 16, 0, mojo.internal.bindings.webnn.mojom.OperandIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_operand_id', 24, 0, mojo.internal.bindings.webnn.mojom.OperandIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_label', 32, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 136]]);
+    [[0, 48]]);
 
 // Struct: ElementWiseUnary
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.ElementWiseUnarySpec, 'webnn.mojom.ElementWiseUnary', [
-      mojo.internal.StructField('arg_kAbs', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 40, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 48, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 56, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 64, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 72, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 80, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 88, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 96, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 104, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 112, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 120, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 128, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 136, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 144, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_kind', 0, 0, mojo.internal.bindings.webnn.mojom.KindSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_operand_id', 8, 0, mojo.internal.bindings.webnn.mojom.OperandIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_operand_id', 16, 0, mojo.internal.bindings.webnn.mojom.OperandIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_label', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 160]]);
+    [[0, 40]]);
 
 // Struct: Expand
 mojo.internal.Struct(
@@ -800,27 +786,28 @@ mojo.internal.Struct(
 // Struct: Reduce
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.ReduceSpec, 'webnn.mojom.Reduce', [
-      mojo.internal.StructField('arg_kL1', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 40, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 48, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 56, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 64, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 72, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_kind', 0, 0, mojo.internal.bindings.webnn.mojom.KindSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_operand_id', 8, 0, mojo.internal.bindings.webnn.mojom.OperandIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_operand_id', 16, 0, mojo.internal.bindings.webnn.mojom.OperandIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_axes', 24, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_label', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_keep_dimensions', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 88]]);
+    [[0, 56]]);
 
 // Struct: Pool2d
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.Pool2dSpec, 'webnn.mojom.Pool2d', [
-      mojo.internal.StructField('arg_kAveragePool2d', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_kind', 0, 0, mojo.internal.bindings.webnn.mojom.KindSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_operand_id', 8, 0, mojo.internal.bindings.webnn.mojom.OperandIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_operand_id', 16, 0, mojo.internal.bindings.webnn.mojom.OperandIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_window_dimensions', 24, 0, mojo.internal.bindings.webnn.mojom.Size2dSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_padding', 32, 0, mojo.internal.bindings.webnn.mojom.Padding2dSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_strides', 40, 0, mojo.internal.bindings.webnn.mojom.Size2dSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dilations', 48, 0, mojo.internal.bindings.webnn.mojom.Size2dSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_label', 56, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 72]]);
 
 // Struct: Range
 mojo.internal.Struct(
@@ -1205,10 +1192,12 @@ mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.Resample2dSpec, 'webnn.mojom.Resample2d', [
       mojo.internal.StructField('arg_input_operand_id', 0, 0, mojo.internal.bindings.webnn.mojom.OperandIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_output_operand_id', 8, 0, mojo.internal.bindings.webnn.mojom.OperandIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_kNearestNeighbor', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 16, 0, mojo.internal.bindings.webnn.mojom.InterpolationModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scales', 24, 0, mojo.internal.Array(mojo.internal.Float, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_axes', 32, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_label', 40, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 56]]);
 
 // Struct: Where
 mojo.internal.Struct(

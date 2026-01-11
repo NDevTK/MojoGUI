@@ -231,18 +231,22 @@ mojo.internal.Struct(
 // Struct: Issue
 mojo.internal.Struct(
     mojo.internal.bindings.media_router.mojom.IssueSpec, 'media_router.mojom.Issue', [
-      mojo.internal.StructField('arg_WARNING', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.bindings.media_router.mojom.NOTIFICATIONSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_route_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sink_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_severity', 16, 0, mojo.internal.bindings.media_router.mojom.SeveritySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 32, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 48]]);
 
 // Struct: RouteMessage
 mojo.internal.Struct(
     mojo.internal.bindings.media_router.mojom.RouteMessageSpec, 'media_router.mojom.RouteMessage', [
-      mojo.internal.StructField('arg_TEXT', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.bindings.media_router.mojom.BINARYSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.media_router.mojom.TypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_data', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: RoutePresentationConnection
 mojo.internal.Struct(

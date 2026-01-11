@@ -216,11 +216,12 @@ mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TrustTokenKeyCommitmentResultSpec, 'network.mojom.TrustTokenKeyCommitmentResult', [
       mojo.internal.StructField('arg_protocol_version', 0, 0, mojo.internal.bindings.network.mojom.TrustTokenProtocolVersionSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_keys', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.TrustTokenVerificationKeySpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_kAndroid', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_batch_size', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_request_issuance_locally_on', 16, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.OsSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_unavailable_local_operation_fallback', 24, 0, mojo.internal.bindings.network.mojom.UnavailableLocalOperationFallbackSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_batch_size', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: FulfillTrustTokenIssuanceRequest
 mojo.internal.Struct(
@@ -233,11 +234,10 @@ mojo.internal.Struct(
 // Struct: FulfillTrustTokenIssuanceAnswer
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.FulfillTrustTokenIssuanceAnswerSpec, 'network.mojom.FulfillTrustTokenIssuanceAnswer', [
-      mojo.internal.StructField('arg_kOk', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.network.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: TrustTokenOperationResult
 mojo.internal.Struct(

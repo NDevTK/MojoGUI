@@ -144,8 +144,8 @@ mojo.internal.Struct(
 // Struct: KerberosConfig
 mojo.internal.Struct(
     mojo.internal.bindings.smbfs.mojom.KerberosConfigSpec, 'smbfs.mojom.KerberosConfig', [
-      mojo.internal.StructField('arg_kActiveDirectory', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.smbfs.mojom.SourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_identity', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

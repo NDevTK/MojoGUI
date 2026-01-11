@@ -439,84 +439,61 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_vendor', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_categories', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_kUnmappedEnumField', 24, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 40, 0, mojo.internal.Pointer, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_vid', 48, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_pid', 50, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_vid', 24, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pid', 26, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 32, 0, mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec.$, null, false, 1, undefined),
     ],
-    [[0, 64]]);
+    [[0, 40], [1, 48]]);
 
 // Struct: ThunderboltEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.ThunderboltEventInfoSpec, 'ash.cros_healthd.mojom.ThunderboltEventInfo', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, 3, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, 4, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec.$, null, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 16]]);
 
 // Struct: LidEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.LidEventInfoSpec, 'ash.cros_healthd.mojom.LidEventInfo', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 16]]);
 
 // Struct: BluetoothEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.BluetoothEventInfoSpec, 'ash.cros_healthd.mojom.BluetoothEventInfo', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, 3, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, 4, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 40, 0, mojo.internal.Pointer, 5, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 48, 0, mojo.internal.Pointer, 6, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec.$, null, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 16]]);
 
 // Struct: PowerEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.PowerEventInfoSpec, 'ash.cros_healthd.mojom.PowerEventInfo', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, 3, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, 4, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec.$, null, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 16]]);
 
 // Struct: AudioEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.AudioEventInfoSpec, 'ash.cros_healthd.mojom.AudioEventInfo', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 16]]);
 
 // Struct: AudioJackEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.AudioJackEventInfoSpec, 'ash.cros_healthd.mojom.AudioJackEventInfo', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_type', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DeviceTypeSpec.$, null, false, 1, undefined),
     ],
-    [[0, 32]]);
+    [[0, 16], [1, 24]]);
 
 // Struct: SdCardEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.SdCardEventInfoSpec, 'ash.cros_healthd.mojom.SdCardEventInfo', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 16]]);
 
 // Struct: TouchpadButtonEvent
 mojo.internal.Struct(
@@ -558,11 +535,10 @@ mojo.internal.Struct(
 // Struct: ExternalDisplayEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.ExternalDisplayEventInfoSpec, 'ash.cros_healthd.mojom.ExternalDisplayEventInfo', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_display_info', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ExternalDisplayInfoSpec.$, null, true, 1, undefined),
     ],
-    [[0, 32]]);
+    [[0, 16], [1, 24]]);
 
 // Struct: TouchscreenTouchEvent
 mojo.internal.Struct(
@@ -583,11 +559,9 @@ mojo.internal.Struct(
 // Struct: StylusGarageEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.StylusGarageEventInfoSpec, 'ash.cros_healthd.mojom.StylusGarageEventInfo', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 16]]);
 
 // Struct: StylusTouchPointInfo
 mojo.internal.Struct(
@@ -626,12 +600,12 @@ mojo.internal.Struct(
 // Struct: CrashEventInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrashEventInfoSpec, 'ash.cros_healthd.mojom.CrashEventInfo', [
-      mojo.internal.StructField('arg_kUnknown', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, null, false, 1, undefined),
+      mojo.internal.StructField('arg_crash_type', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.CrashTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_local_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_capture_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_upload_info', 24, 0, mojo.internal.bindings.ash.cros_healthd.mojom.CrashUploadInfoSpec.$, null, true, 0, undefined),
     ],
-    [[0, 32], [1, 40]]);
+    [[0, 40]]);
 
 // Interface: CrosHealthdBluetoothObserver
 mojo.internal.Struct(

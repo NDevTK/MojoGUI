@@ -101,11 +101,22 @@ mojo.internal.Struct(
 // Struct: MediaStatus
 mojo.internal.Struct(
     mojo.internal.bindings.media_router.mojom.MediaStatusSpec, 'media_router.mojom.MediaStatus', [
-      mojo.internal.StructField('arg_PLAYING', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.bindings.media_router.mojom.PAUSEDSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.bindings.media_router.mojom.BUFFERINGSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_secondary_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_play_state', 16, 0, mojo.internal.bindings.media_router.mojom.PlayStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_duration', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_current_time', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_images', 40, 0, mojo.internal.Array(mojo.internal.bindings.media_router.mojom.MediaImageSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_volume', 48, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_can_play_pause', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_can_mute', 52, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_can_set_volume', 52, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_can_seek', 52, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_can_skip_to_next_track', 52, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_can_skip_to_previous_track', 52, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_muted', 52, 6, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 64]]);
 
 // Interface: MediaStatusObserver
 mojo.internal.Struct(

@@ -108,11 +108,10 @@ mojo.internal.Union(
 // Struct: CreateContextOptions
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.CreateContextOptionsSpec, 'webnn.mojom.CreateContextOptions', [
-      mojo.internal.StructField('arg_kDefault', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.webnn.mojom.DeviceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_power_preference', 8, 0, mojo.internal.bindings.webnn.mojom.PowerPreferenceSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: CreateContextSuccess
 mojo.internal.Struct(

@@ -116,12 +116,10 @@ mojo.internal.bindings.network.mojom.SRIMessageSignatureError = {
 // Struct: SRIMessageSignatureComponentParameter
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SRIMessageSignatureComponentParameterSpec, 'network.mojom.SRIMessageSignatureComponentParameter', [
-      mojo.internal.StructField('arg_kName', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.network.mojom.TypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 24]]);
 
 // Struct: SRIMessageSignatureComponent
 mojo.internal.Struct(

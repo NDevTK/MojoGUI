@@ -85,7 +85,10 @@ mojo.internal.bindings.blink.mojom.EntryType = {
 // Struct: PerformanceMarkOrMeasure
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PerformanceMarkOrMeasureSpec, 'blink.mojom.PerformanceMarkOrMeasure', [
-      mojo.internal.StructField('arg_kMark', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_entry_type', 8, 0, mojo.internal.bindings.blink.mojom.EntryTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_start_time', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_duration', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_detail', 32, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 48]]);

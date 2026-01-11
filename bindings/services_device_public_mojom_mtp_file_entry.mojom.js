@@ -95,18 +95,11 @@ mojo.internal.bindings.device.mojom.FileType = {
 // Struct: MtpFileEntry
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.MtpFileEntrySpec, 'device.mojom.MtpFileEntry', [
-      mojo.internal.StructField('arg_FILE_TYPE_FOLDER', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.bindings.device.mojom.FILE_TYPE_JPEGSpec.$, 14, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.bindings.device.mojom.FILE_TYPE_JFIFSpec.$, 15, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.bindings.device.mojom.FILE_TYPE_TIFFSpec.$, 16, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.bindings.device.mojom.FILE_TYPE_BMPSpec.$, 17, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 40, 0, mojo.internal.bindings.device.mojom.FILE_TYPE_GIFSpec.$, 18, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 48, 0, mojo.internal.bindings.device.mojom.FILE_TYPE_PICTSpec.$, 19, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 56, 0, mojo.internal.bindings.device.mojom.FILE_TYPE_PNGSpec.$, 20, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 64, 0, mojo.internal.bindings.device.mojom.FILE_TYPE_WINDOWSIMAGEFORMATSpec.$, 25, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 72, 0, mojo.internal.bindings.device.mojom.FILE_TYPE_JP2Spec.$, 40, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 80, 0, mojo.internal.bindings.device.mojom.FILE_TYPE_JPXSpec.$, 41, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 88, 0, mojo.internal.bindings.device.mojom.FILE_TYPE_UNKNOWNSpec.$, 44, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 96, 0, mojo.internal.bindings.device.mojom.FILE_TYPE_OTHERSpec.$, 9999, false, 0, undefined),
+      mojo.internal.StructField('arg_file_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_modification_time', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_file_type', 24, 0, mojo.internal.bindings.device.mojom.FileTypeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_item_id', 32, 0, mojo.internal.Uint32, 4294967295, false, 0, undefined),
+      mojo.internal.StructField('arg_parent_id', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 112]]);
+    [[0, 48]]);

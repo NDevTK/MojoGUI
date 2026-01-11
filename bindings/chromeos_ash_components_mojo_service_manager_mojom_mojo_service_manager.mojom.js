@@ -183,9 +183,9 @@ mojo.internal.Struct(
 // Struct: ServiceEvent
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceEventSpec, 'chromeos.mojo_service_manager.mojom.ServiceEvent', [
-      mojo.internal.StructField('arg_kUnknown', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.chromeos.mojo_service_manager.mojom.TypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_service_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dispatcher', 16, 0, mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ProcessIdentitySpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

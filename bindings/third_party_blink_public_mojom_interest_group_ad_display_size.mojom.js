@@ -88,10 +88,10 @@ mojo.internal.bindings.blink.mojom.LengthUnit = {
 // Struct: AdSize
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AdSizeSpec, 'blink.mojom.AdSize', [
-      mojo.internal.StructField('arg_kInvalid', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_width', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_width_units', 8, 0, mojo.internal.bindings.blink.mojom.LengthUnitSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_height', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_height_units', 24, 0, mojo.internal.bindings.blink.mojom.LengthUnitSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 

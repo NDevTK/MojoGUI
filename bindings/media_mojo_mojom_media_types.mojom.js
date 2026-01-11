@@ -480,8 +480,12 @@ mojo.internal.Union(
 // Struct: MediaLogRecord
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaLogRecordSpec, 'media.mojom.MediaLogRecord', [
+      mojo.internal.StructField('arg_val', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
-    [[0, 8]]);
+    [[0, 40]]);
 
 // Struct: VideoTransformation
 mojo.internal.Struct(
@@ -494,8 +498,8 @@ mojo.internal.Struct(
 // Struct: VideoAspectRatio
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoAspectRatioSpec, 'media.mojom.VideoAspectRatio', [
-      mojo.internal.StructField('arg_kDisplay', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.media.mojom.TypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -553,8 +557,12 @@ mojo.internal.Struct(
 // Struct: SubsampleEntry
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.SubsampleEntrySpec, 'media.mojom.SubsampleEntry', [
+      mojo.internal.StructField('arg_val', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
-    [[0, 8]]);
+    [[0, 40]]);
 
 // Struct: DecryptConfig
 mojo.internal.Struct(

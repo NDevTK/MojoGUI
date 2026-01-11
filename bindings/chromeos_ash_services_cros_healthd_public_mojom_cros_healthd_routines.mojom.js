@@ -674,11 +674,10 @@ mojo.internal.Struct(
 // Struct: VolumeButtonRoutineArgument
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.VolumeButtonRoutineArgumentSpec, 'ash.cros_healthd.mojom.VolumeButtonRoutineArgument', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ButtonTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timeout', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: LedLitUpRoutineArgument
 mojo.internal.Struct(
@@ -798,20 +797,19 @@ mojo.internal.Struct(
 // Struct: NetworkBandwidthRoutineRunningInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.NetworkBandwidthRoutineRunningInfoSpec, 'ash.cros_healthd.mojom.NetworkBandwidthRoutineRunningInfo', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.TypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_speed_kbps', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: RoutineStateWaiting
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.RoutineStateWaitingSpec, 'ash.cros_healthd.mojom.RoutineStateWaiting', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_interaction', 16, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RoutineInteractionSpec.$, null, true, 1, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24], [1, 32]]);
 
 // Struct: CheckLedLitUpStateInquiry
 mojo.internal.Struct(
@@ -822,11 +820,9 @@ mojo.internal.Struct(
 // Struct: CheckLedLitUpStateReply
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CheckLedLitUpStateReplySpec, 'ash.cros_healthd.mojom.CheckLedLitUpStateReply', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 16]]);
 
 // Struct: UnplugAcAdapterInquiry
 mojo.internal.Struct(
@@ -849,11 +845,9 @@ mojo.internal.Struct(
 // Struct: CheckKeyboardBacklightStateReply
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CheckKeyboardBacklightStateReplySpec, 'ash.cros_healthd.mojom.CheckKeyboardBacklightStateReply', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 16]]);
 
 // Struct: RoutineStateFinished
 mojo.internal.Struct(
@@ -948,12 +942,14 @@ mojo.internal.Struct(
 // Struct: BluetoothPairingPeripheralInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.BluetoothPairingPeripheralInfoSpec, 'ash.cros_healthd.mojom.BluetoothPairingPeripheralInfo', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, 3, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, 4, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 40, 0, mojo.internal.Pointer, 5, false, 0, undefined),
+      mojo.internal.StructField('arg_pair_error', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.PairErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_connect_error', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ConnectErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_uuids', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.UuidSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_address_type', 24, 0, mojo.internal.bindings.ash.cros_healthd.mojom.AddressTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_failed_manufacturer_id', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_bluetooth_class_$value', 40, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_bluetooth_class_$flag', originalFieldName: 'arg_bluetooth_class' }),
+      mojo.internal.StructField('arg_bluetooth_class_$flag', 44, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_bluetooth_class_$value', originalFieldName: 'arg_bluetooth_class' }),
+      mojo.internal.StructField('arg_is_address_valid', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -999,14 +995,11 @@ mojo.internal.Struct(
 // Struct: SensitiveSensorInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.SensitiveSensorInfoSpec, 'ash.cros_healthd.mojom.SensitiveSensorInfo', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, 3, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, 4, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_types', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.cros_healthd.mojom.TypeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_channels', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 32]]);
 
 // Struct: SensitiveSensorReport
 mojo.internal.Struct(
@@ -1034,13 +1027,11 @@ mojo.internal.Struct(
 // Struct: CameraFrameAnalysisRoutineDetail
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CameraFrameAnalysisRoutineDetailSpec, 'ash.cros_healthd.mojom.CameraFrameAnalysisRoutineDetail', [
-      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, 3, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, 4, false, 0, undefined),
+      mojo.internal.StructField('arg_issue', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.IssueSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_privacy_shutter_open_test', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.CameraSubtestResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_lens_not_dirty_test', 16, 0, mojo.internal.bindings.ash.cros_healthd.mojom.CameraSubtestResultSpec.$, null, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 32]]);
 
 // Interface: CrosHealthdRoutinesService
 mojo.internal.Struct(

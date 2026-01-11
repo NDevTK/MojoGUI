@@ -101,12 +101,13 @@ mojo.internal.bindings.printing.mojom.DuplexMode = {
 // Struct: PwgRasterSettings
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PwgRasterSettingsSpec, 'printing.mojom.PwgRasterSettings', [
-      mojo.internal.StructField('arg_TRANSFORM_NORMAL', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.bindings.printing.mojom.TRANSFORM_ROTATE_180Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.bindings.printing.mojom.TRANSFORM_FLIP_HORIZONTALSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.bindings.printing.mojom.TRANSFORM_FLIP_VERTICALSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_duplex_mode', 0, 0, mojo.internal.bindings.printing.mojom.DuplexModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_odd_page_transform', 8, 0, mojo.internal.bindings.printing.mojom.TransformTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rotate_all_pages', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_reverse_page_order', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_use_color', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Interface: PdfToPwgRasterConverter
 mojo.internal.Struct(

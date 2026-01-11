@@ -112,13 +112,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.internal.mojom.InputDeviceSpec, 'ash.cros_healthd.internal.mojom.InputDevice', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_kUnmappedEnumField', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 40, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_connection_type', 8, 0, mojo.internal.bindings.ash.cros_healthd.internal.mojom.ConnectionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_physical_location', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sysfs_path', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_enabled', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);
 
 // Interface: ChromiumDataCollector
 mojo.internal.Struct(

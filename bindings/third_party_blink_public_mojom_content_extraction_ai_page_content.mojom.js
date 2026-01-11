@@ -381,10 +381,9 @@ mojo.internal.Struct(
 // Struct: RedactedFrameMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RedactedFrameMetadataSpec, 'blink.mojom.RedactedFrameMetadata', [
-      mojo.internal.StructField('arg_kCrossSite', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.blink.mojom.ReasonSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 // Struct: AIPageContentIframeData
 mojo.internal.Struct(

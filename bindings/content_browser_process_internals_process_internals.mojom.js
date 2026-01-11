@@ -137,14 +137,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_site_instance', 0, 0, mojo.internal.bindings.mojom.SiteInstanceInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_last_committed_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_subframes', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojom.FrameInfoSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_kActive', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 40, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_routing_id', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_agent_scheduling_group_id', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_process_id', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 24, 0, mojo.internal.bindings.mojom.TypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_routing_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_agent_scheduling_group_id', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_process_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 56]]);
 
 // Struct: WebContentsInfo
 mojo.internal.Struct(

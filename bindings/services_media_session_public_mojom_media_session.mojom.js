@@ -289,12 +289,27 @@ mojo.internal.Struct(
 // Struct: MediaSessionInfo
 mojo.internal.Struct(
     mojo.internal.bindings.media_session.mojom.MediaSessionInfoSpec, 'media_session.mojom.MediaSessionInfo', [
-      mojo.internal.StructField('arg_kActive', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.media_session.mojom.SessionStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_force_duck', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_playback_state', 16, 0, mojo.internal.bindings.media_session.mojom.MediaPlaybackStateSpec.$, null, false, 1, undefined),
+      mojo.internal.StructField('arg_is_controllable', 24, 0, mojo.internal.Bool, false, false, 2, undefined),
+      mojo.internal.StructField('arg_prefer_stop_for_gain_focus_loss', 24, 1, mojo.internal.Bool, false, false, 4, undefined),
+      mojo.internal.StructField('arg_deprecated_is_sensitive', 24, 2, mojo.internal.Bool, false, false, 6, undefined),
+      mojo.internal.StructField('arg_picture_in_picture_state', 32, 0, mojo.internal.bindings.media_session.mojom.MediaPictureInPictureStateSpec.$, null, false, 7, undefined),
+      mojo.internal.StructField('arg_deprecated_audio_video_state', 40, 0, mojo.internal.bindings.media_session.mojom.MediaAudioVideoStateSpec.$, null, false, 8, undefined),
+      mojo.internal.StructField('arg_audio_sink_id', 48, 0, mojo.internal.String, null, true, 9, undefined),
+      mojo.internal.StructField('arg_audio_video_states', 56, 0, mojo.internal.Array(mojo.internal.bindings.media_session.mojom.MediaAudioVideoStateSpec.$, false), null, true, 10, undefined),
+      mojo.internal.StructField('arg_microphone_state', 64, 0, mojo.internal.bindings.media_session.mojom.MicrophoneStateSpec.$, null, false, 11, undefined),
+      mojo.internal.StructField('arg_camera_state', 72, 0, mojo.internal.bindings.media_session.mojom.CameraStateSpec.$, null, false, 11, undefined),
+      mojo.internal.StructField('arg_muted', 80, 0, mojo.internal.Bool, false, false, 12, undefined),
+      mojo.internal.StructField('arg_has_presentation', 80, 1, mojo.internal.Bool, false, false, 14, undefined),
+      mojo.internal.StructField('arg_remote_playback_metadata', 88, 0, mojo.internal.bindings.media_session.mojom.RemotePlaybackMetadataSpec.$, null, true, 15, undefined),
+      mojo.internal.StructField('arg_hide_metadata', 96, 0, mojo.internal.Bool, false, false, 16, undefined),
+      mojo.internal.StructField('arg_ignore_for_active_session', 96, 1, mojo.internal.Bool, false, false, 20, undefined),
+      mojo.internal.StructField('arg_meets_visibility_threshold', 96, 2, mojo.internal.Bool, false, false, 21, undefined),
+      mojo.internal.StructField('arg_can_enter_browser_initiated_autopip', 96, 3, mojo.internal.Bool, false, false, 24, undefined),
     ],
-    [[0, 40]]);
+    [[0, 24], [1, 32], [2, 40], [4, 40], [6, 40], [7, 48], [8, 56], [9, 64], [10, 72], [11, 88], [12, 96], [14, 96], [15, 104], [16, 112], [20, 112], [21, 112], [24, 112]]);
 
 // Struct: MediaSessionDebugInfo
 mojo.internal.Struct(

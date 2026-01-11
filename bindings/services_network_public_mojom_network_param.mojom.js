@@ -77,17 +77,12 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.network.mojom.ProxySchemeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.network.mojom.AuthChallengeInfoSpec = { $: {} };
 mojo.internal.bindings.network.mojom.AuthCredentialsSpec = { $: {} };
-mojo.internal.bindings.network.mojom.CertVerifyResultSpec = { $: {} };
-mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec = { $: {} };
-mojo.internal.bindings.network.mojom.HttpVersionSpec = { $: {} };
 mojo.internal.bindings.network.mojom.HostPortPairSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ProxyServerSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ProxyChainSpec = { $: {} };
 mojo.internal.bindings.network.mojom.ResolveErrorInfoSpec = { $: {} };
 mojo.internal.bindings.network.mojom.SSLCertRequestInfoSpec = { $: {} };
 mojo.internal.bindings.network.mojom.SSLInfoSpec = { $: {} };
-mojo.internal.bindings.network.mojom.X509CertificateSpec = { $: {} };
-mojo.internal.bindings.network.mojom.NetLogSourceSpec = { $: {} };
 
 // Enum: ProxyScheme
 mojo.internal.bindings.network.mojom.ProxyScheme = {
@@ -114,24 +109,6 @@ mojo.internal.Struct(
 // Struct: AuthCredentials
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.AuthCredentialsSpec, 'network.mojom.AuthCredentials', [
-    ],
-    [[0, 8]]);
-
-// Struct: CertVerifyResult
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.CertVerifyResultSpec, 'network.mojom.CertVerifyResult', [
-    ],
-    [[0, 8]]);
-
-// Struct: HttpResponseHeaders
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec, 'network.mojom.HttpResponseHeaders', [
-    ],
-    [[0, 8]]);
-
-// Struct: HttpVersion
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.HttpVersionSpec, 'network.mojom.HttpVersion', [
       mojo.internal.StructField('arg_major_value', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
       mojo.internal.StructField('arg_minor_value', 2, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
@@ -182,18 +159,6 @@ mojo.internal.Struct(
 // Struct: SSLInfo
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SSLInfoSpec, 'network.mojom.SSLInfo', [
-    ],
-    [[0, 8]]);
-
-// Struct: X509Certificate
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.X509CertificateSpec, 'network.mojom.X509Certificate', [
-    ],
-    [[0, 8]]);
-
-// Struct: NetLogSource
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.NetLogSourceSpec, 'network.mojom.NetLogSource', [
       mojo.internal.StructField('arg_start_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_source_type', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_source_id', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),

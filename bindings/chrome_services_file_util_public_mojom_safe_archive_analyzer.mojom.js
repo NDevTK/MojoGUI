@@ -74,7 +74,6 @@ mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
 mojo.internal.bindings.chrome.mojom.ObfuscatedFileUtilHeaderDataSpec = { $: {} };
-mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer = {};
 mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer.$interfaceName = 'chrome.mojom.SafeArchiveAnalyzer';
@@ -103,12 +102,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_nonce_prefix', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
-
-// Struct: SafeArchiveAnalyzerResults
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec, 'chrome.mojom.SafeArchiveAnalyzerResults', [
-    ],
-    [[0, 8]]);
 
 // Interface: SafeArchiveAnalyzer
 mojo.internal.Struct(

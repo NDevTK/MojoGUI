@@ -164,12 +164,13 @@ mojo.internal.Struct(
 // Struct: GeolocationDiagnostics
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.GeolocationDiagnosticsSpec, 'device.mojom.GeolocationDiagnostics', [
-      mojo.internal.StructField('arg_kStopped', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_provider_state', 0, 0, mojo.internal.bindings.device.mojom.ProviderStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_network_location_diagnostics', 8, 0, mojo.internal.bindings.device.mojom.NetworkLocationDiagnosticsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_position_cache_diagnostics', 16, 0, mojo.internal.bindings.device.mojom.PositionCacheDiagnosticsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_wifi_polling_policy_diagnostics', 24, 0, mojo.internal.bindings.device.mojom.WifiPollingPolicyDiagnosticsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_location_provider_manager_mode', 32, 0, mojo.internal.bindings.device.mojom.LocationProviderManagerModeSpec.$, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: NetworkLocationResponse
 mojo.internal.Struct(

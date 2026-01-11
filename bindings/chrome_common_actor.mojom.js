@@ -302,8 +302,8 @@ mojo.internal.Struct(
 // Struct: ClickAction
 mojo.internal.Struct(
     mojo.internal.bindings.actor.mojom.ClickActionSpec, 'actor.mojom.ClickAction', [
-      mojo.internal.StructField('arg_kLeft', 0, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 2, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.actor.mojom.TypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_count', 8, 0, mojo.internal.bindings.actor.mojom.CountSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -322,21 +322,19 @@ mojo.internal.Struct(
 // Struct: TypeAction
 mojo.internal.Struct(
     mojo.internal.bindings.actor.mojom.TypeActionSpec, 'actor.mojom.TypeAction', [
-      mojo.internal.StructField('arg_kDeleteExisting', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.actor.mojom.ModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_follow_by_enter', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: ScrollAction
 mojo.internal.Struct(
     mojo.internal.bindings.actor.mojom.ScrollActionSpec, 'actor.mojom.ScrollAction', [
-      mojo.internal.StructField('arg_kLeft', 0, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 3, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, 4, false, 0, undefined),
+      mojo.internal.StructField('arg_direction', 0, 0, mojo.internal.bindings.actor.mojom.ScrollDirectionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_distance', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 24]]);
 
 // Struct: SelectAction
 mojo.internal.Struct(

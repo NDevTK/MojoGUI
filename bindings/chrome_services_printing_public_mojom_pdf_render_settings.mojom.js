@@ -89,11 +89,11 @@ mojo.internal.bindings.printing.mojom.Mode = {
 // Struct: PdfRenderSettings
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PdfRenderSettingsSpec, 'printing.mojom.PdfRenderSettings', [
-      mojo.internal.StructField('arg_NORMAL', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.bindings.printing.mojom.TEXTONLYSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.bindings.printing.mojom.POSTSCRIPT_LEVEL2Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.bindings.printing.mojom.POSTSCRIPT_LEVEL3Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.bindings.printing.mojom.EMF_WITH_REDUCED_RASTERIZATIONSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 40, 0, mojo.internal.bindings.printing.mojom.POSTSCRIPT_LEVEL3_WITH_TYPE42_FONTSSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_area', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_offsets', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dpi', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 24, 0, mojo.internal.bindings.printing.mojom.ModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_autorotate', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_use_color', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);

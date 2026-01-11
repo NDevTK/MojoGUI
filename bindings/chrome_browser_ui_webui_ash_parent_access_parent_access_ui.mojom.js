@@ -154,10 +154,11 @@ mojo.internal.Struct(
 // Struct: ParentAccessParams
 mojo.internal.Struct(
     mojo.internal.bindings.parent_access_ui.mojom.ParentAccessParamsSpec, 'parent_access_ui.mojom.ParentAccessParams', [
-      mojo.internal.StructField('arg_kWebsiteAccess', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_flow_type', 0, 0, mojo.internal.bindings.parent_access_ui.mojom.FlowTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_flow_type_params', 8, 0, mojo.internal.bindings.parent_access_ui.mojom.FlowTypeParamsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_is_disabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: WebApprovalsParams
 mojo.internal.Struct(

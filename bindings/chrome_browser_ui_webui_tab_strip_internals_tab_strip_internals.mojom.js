@@ -212,14 +212,10 @@ mojo.internal.Struct(
 // Struct: NodeId
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec, 'tab_strip_internals.mojom.NodeId', [
-      mojo.internal.StructField('arg_kTab', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 40, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_node_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.tab_strip_internals.mojom.TypeSpec.$, null, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 24]]);
 
 // Struct: TabStripModel
 mojo.internal.Struct(
@@ -300,8 +296,8 @@ mojo.internal.Struct(
 // Struct: SplitTabVisualData
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip_internals.mojom.SplitTabVisualDataSpec, 'tab_strip_internals.mojom.SplitTabVisualData', [
-      mojo.internal.StructField('arg_kVertical', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_layout', 0, 0, mojo.internal.bindings.tab_strip_internals.mojom.LayoutSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_split_ratio', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -77,7 +77,6 @@ mojo.internal.bindings.search.mojom.NTPLoggingEventTypeSpec = { $: mojo.internal
 mojo.internal.bindings.search.mojom.OmniboxFocusStateSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.search.mojom.OmniboxFocusChangeReasonSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec = { $: {} };
-mojo.internal.bindings.search.mojom.NtpThemeSpec = { $: {} };
 mojo.internal.bindings.search.mojom.EmbeddedSearchConnector = {};
 mojo.internal.bindings.search.mojom.EmbeddedSearchConnectorSpec = { $ : {} };
 mojo.internal.bindings.search.mojom.EmbeddedSearchConnector.$interfaceName = 'search.mojom.EmbeddedSearchConnector';
@@ -113,12 +112,6 @@ mojo.internal.bindings.search.mojom.OmniboxFocusChangeReason = {
 // Struct: InstantMostVisitedInfo
 mojo.internal.Struct(
     mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec, 'search.mojom.InstantMostVisitedInfo', [
-    ],
-    [[0, 8]]);
-
-// Struct: NtpTheme
-mojo.internal.Struct(
-    mojo.internal.bindings.search.mojom.NtpThemeSpec, 'search.mojom.NtpTheme', [
     ],
     [[0, 8]]);
 

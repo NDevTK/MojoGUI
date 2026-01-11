@@ -84,7 +84,7 @@ mojo.internal.bindings.webnn.mojom.Code = {
 // Struct: Error
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.ErrorSpec, 'webnn.mojom.Error', [
-      mojo.internal.StructField('arg_kUnknownError', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.webnn.mojom.CodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);

@@ -205,46 +205,42 @@ mojo.internal.Struct(
 // Struct: FileMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.FileMetadataSpec, 'sharing.mojom.FileMetadata', [
-      mojo.internal.StructField('arg_kUnknown', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, 3, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, 4, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.sharing.mojom.TypeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_payload_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_mime_type', 32, 0, mojo.internal.String, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 40, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 // Struct: TextMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.TextMetadataSpec, 'sharing.mojom.TextMetadata', [
-      mojo.internal.StructField('arg_kUnknown', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, 3, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, 4, false, 0, undefined),
+      mojo.internal.StructField('arg_text_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.sharing.mojom.TypeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_payload_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: WifiCredentialsMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.WifiCredentialsMetadataSpec, 'sharing.mojom.WifiCredentialsMetadata', [
-      mojo.internal.StructField('arg_kUnknownSecurityType', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, 3, false, 0, undefined),
+      mojo.internal.StructField('arg_ssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_security_type', 8, 0, mojo.internal.bindings.sharing.mojom.SecurityTypeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_payload_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: ConnectionResponseFrame
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.ConnectionResponseFrameSpec, 'sharing.mojom.ConnectionResponseFrame', [
-      mojo.internal.StructField('arg_kUnknown', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, 3, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, 4, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 40, 0, mojo.internal.Pointer, 5, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.sharing.mojom.StatusSpec.$, null, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 16]]);
 
 // Struct: PairedKeyEncryptionFrame
 mojo.internal.Struct(
@@ -258,12 +254,9 @@ mojo.internal.Struct(
 // Struct: PairedKeyResultFrame
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.PairedKeyResultFrameSpec, 'sharing.mojom.PairedKeyResultFrame', [
-      mojo.internal.StructField('arg_kUnknown', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, 3, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.sharing.mojom.StatusSpec.$, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 16]]);
 
 // Struct: CertificateInfoFrame
 mojo.internal.Struct(

@@ -119,10 +119,13 @@ mojo.internal.Struct(
 // Struct: TrackedPreferenceMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.prefs.mojom.TrackedPreferenceMetadataSpec, 'prefs.mojom.TrackedPreferenceMetadata', [
-      mojo.internal.StructField('arg_NO_ENFORCEMENT', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.bindings.prefs.mojom.ENFORCE_ON_LOADSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reporting_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_enforcement_level', 16, 0, mojo.internal.bindings.prefs.mojom.EnforcementLevelSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_strategy', 24, 0, mojo.internal.bindings.prefs.mojom.PrefTrackingStrategySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value_type', 32, 0, mojo.internal.bindings.prefs.mojom.ValueTypeSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 48]]);
 
 // Interface: ResetOnLoadObserver
 mojo.internal.Struct(

@@ -133,7 +133,8 @@ mojo.internal.Struct(
 // Struct: CSSInjection
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.CSSInjectionSpec, 'extensions.mojom.CSSInjection', [
-      mojo.internal.StructField('arg_kAdd', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sources', 0, 0, mojo.internal.Array(mojo.internal.bindings.extensions.mojom.CSSSourceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_css_origin', 8, 0, mojo.internal.bindings.extensions.mojom.CSSOriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_operation', 16, 0, mojo.internal.bindings.extensions.mojom.OperationSpec.$, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);

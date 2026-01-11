@@ -86,11 +86,10 @@ mojo.internal.bindings.tabs_api.mojom.Type = {
 // Struct: NodeId
 mojo.internal.Struct(
     mojo.internal.bindings.tabs_api.mojom.NodeIdSpec, 'tabs_api.mojom.NodeId', [
-      mojo.internal.StructField('arg_kUnknown', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.tabs_api.mojom.TypeSpec.$, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: Position
 mojo.internal.Struct(

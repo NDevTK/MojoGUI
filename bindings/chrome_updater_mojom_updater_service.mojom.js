@@ -220,19 +220,18 @@ mojo.internal.Struct(
 // Struct: UpdateState
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.UpdateStateSpec, 'updater.mojom.UpdateState', [
-      mojo.internal.StructField('arg_kUnknown', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 40, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 48, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 56, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 64, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 72, 0, mojo.internal.Pointer, null, false, 1, undefined),
-      mojo.internal.StructField('arg_val', 80, 0, mojo.internal.Pointer, null, false, 1, undefined),
+      mojo.internal.StructField('arg_app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.updater.mojom.StateSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_next_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_downloaded_bytes', 24, 0, mojo.internal.Int64, -1, false, 0, undefined),
+      mojo.internal.StructField('arg_total_bytes', 32, 0, mojo.internal.Int64, -1, false, 0, undefined),
+      mojo.internal.StructField('arg_installer_text', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_installer_cmd_line', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_extra_code1', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_install_progress', 64, 0, mojo.internal.Int8, -1, false, 0, undefined),
     ],
-    [[0, 80], [1, 96]]);
+    [[0, 80]]);
 
 // Struct: AppState
 mojo.internal.Struct(
@@ -254,13 +253,14 @@ mojo.internal.Struct(
 // Struct: PolicyValue
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.PolicyValueSpec, 'updater.mojom.PolicyValue', [
-      mojo.internal.StructField('arg_kSourceUnknown', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_policy_value', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_policy_source', 8, 0, mojo.internal.bindings.updater.mojom.PolicySourceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_default_value', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_external_constants_value', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_platform_value', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_cloud_value', 40, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 // Struct: UpdaterState
 mojo.internal.Struct(

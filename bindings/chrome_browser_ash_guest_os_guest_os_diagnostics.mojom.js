@@ -96,9 +96,9 @@ mojo.internal.Struct(
 // Struct: DiagnosticEntry
 mojo.internal.Struct(
     mojo.internal.bindings.guest_os.mojom.DiagnosticEntrySpec, 'guest_os.mojom.DiagnosticEntry', [
-      mojo.internal.StructField('arg_kPass', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_requirement', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.guest_os.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_explanation', 16, 0, mojo.internal.bindings.guest_os.mojom.DiagnosticMessageSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 

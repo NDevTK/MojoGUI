@@ -150,8 +150,8 @@ mojo.internal.Struct(
 // Struct: TextSuggesterResult
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterResultSpec, 'chromeos.machine_learning.mojom.TextSuggesterResult', [
-      mojo.internal.StructField('arg_OK', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.ERRORSpec.$, 1, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_candidates', 8, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionCandidateSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -80,7 +80,6 @@ mojo.internal.bindings.content.mojom.NavigationGestureSpec = { $: mojo.internal.
 mojo.internal.bindings.content.mojom.PageTransitionSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.content.mojom.NavigationClientDisconnectReasonSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.content.mojom.PageStateSpec = { $: {} };
-mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.DidCommitSameDocumentNavigationParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.CookieManagerInfoSpec = { $: {} };
 mojo.internal.bindings.content.mojom.StorageInfoSpec = { $: {} };
@@ -112,12 +111,6 @@ mojo.internal.bindings.content.mojom.NavigationClientDisconnectReason = {
 // Struct: PageState
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.PageStateSpec, 'content.mojom.PageState', [
-    ],
-    [[0, 8]]);
-
-// Struct: DidCommitProvisionalLoadParams
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadParamsSpec, 'content.mojom.DidCommitProvisionalLoadParams', [
       mojo.internal.StructField('arg_item_sequence_number', 0, 0, mojo.internal.Int64, -1, false, 0, undefined),
       mojo.internal.StructField('arg_document_sequence_number', 8, 0, mojo.internal.Int64, -1, false, 0, undefined),
       mojo.internal.StructField('arg_navigation_api_key', 16, 0, mojo.internal.String, null, false, 0, undefined),
