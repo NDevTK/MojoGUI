@@ -269,6 +269,7 @@
         // Core polyfills needed by mojom dependencies
         if (typeof mojo !== 'undefined') {
             mojo.internal = mojo.internal || {};
+            mojo.internal.interfaceSupport = mojo.internal.interfaceSupport || {};
             mojo.internal.Union = function (objectToBlessAsType, name, fields) {
                 const unionSpec = { name, fields };
                 objectToBlessAsType.$ = {
