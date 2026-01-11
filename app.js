@@ -217,7 +217,7 @@
     // ========================================
     // Mojo Loader Service
     // ========================================
-    global.MojoLoader = {
+    window.MojoLoader = {
         async ensureBinding(interfaceName) {
             // Check if already resolved
             if (MojoProxy.getInterfaceComponents(interfaceName).Interface) {
