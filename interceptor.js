@@ -299,26 +299,25 @@
                 }
             }
         }
-
         // MONKEY PATCH: Fix ControlMessageHandler crash (RUN_MESSAGE_ID)
         if (mojo.internal.interfaceSupport.ControlMessageHandler) {
             const OriginalHandler = mojo.internal.interfaceSupport.ControlMessageHandler;
             const OriginalProto = OriginalHandler.prototype;
             if (OriginalProto.maybeHandleControlMessage) {
-                const origMaybe = OriginalProto.maybeHandleControlMessage;
+                console.warn('[Interceptor] Monkey-patching ControlMessageHandler.maybeHandleControlMessage');
                 OriginalProto.maybeHandleControlMessage = function (message) {
                     const ICM = mojo.internal.interfaceSupport.InterfaceControlMessage;
                     if (ICM && message && message.header && message.header.type === ICM.RUN_MESSAGE_ID) {
-                        return false;
+                        // Try to handle or return false
+                        return false; // Safest to ignore in this fragile env
                     }
-                    return origMaybe.apply(this, arguments);
+                    return false;
                 };
             }
         }
+        // console.log('[Interceptor] mojo.internal.Decoder.prototype:', mojo.internal.Decoder.prototype);
+
     }
-
-    // console.log('[Interceptor] mojo.internal.Decoder.prototype:', mojo.internal.Decoder.prototype);
-
 
     // ========================================
     // MojoProxy
@@ -346,21 +345,9 @@
                     console.error(`[MojoProxy] Could not find Remote class for ${interfaceName}`);
                 }
             }
-            this.receiver = null;
-            this.browserSideHandle = null; // To be set in create()
+
             this.pendingMessages = new Map(); // id -> { resolve, reject, args }
             this.id = Math.random().toString(36).substr(2, 9);
-
-            // Add lifecycle logging
-            if (this.realRemote && this.realRemote.proxy && this.realRemote.proxy.onConnectionError) {
-                try {
-                    this.realRemote.proxy.onConnectionError.addListener(() => {
-                        console.error(`[MojoProxy] realRemote connection for ${this.interfaceName} CLOSED.`);
-                    });
-                } catch (e) {
-                    console.warn(`[MojoProxy] Could not add onConnectionError listener to realRemote for ${this.interfaceName}`);
-                }
-            }
 
             // Register globally so UI can access it easily via ID
             const registry = global.MojoProxyRegistry || new Map();
@@ -539,34 +526,39 @@
             // 4. Bind the *intercepted* handle `handle` to our Proxy implementation
             try {
                 if (comps.Receiver) {
-                    proxyImpl.receiver = new comps.Receiver(proxyImpl);
-                    proxyImpl.receiver.bind(handle);
+                    const receiver = new comps.Receiver(proxyImpl);
+                    receiver.bind(handle);
+                    proxyImpl.receiver_ = receiver; // Keep alive
                 } else if (typeof mojo !== 'undefined' && mojo.Binding) {
-                    proxyImpl.receiver = new mojo.Binding(comps.Interface, proxyImpl, handle);
+                    // Fallback to generic mojo.Binding for standard/old bindings
+                    const binding = new mojo.Binding(comps.Interface, proxyImpl, handle);
+                    proxyImpl.binding_ = binding;   // Keep alive
                 } else {
+                    // Last resort: If we have Lite bindings, we might just be implementing the methods.
+                    // But we need to hook it up to the handle.
+                    // Lite bindings often use `mojo.internal.interfaceSupport.bind(endpoint, ifaceName, ...)`
+                    // OR `new iface.PendingReceiver(handle).handle`?
+
+                    // If we are strictly "Lite", maybe we can't easily creaate a Binding without the helper?
+                    // Let's try to assume there's a way.
+                    console.warn(`[MojoProxy] No Receiver class found for ${interfaceName}. Trying generic bind.`);
+                    if (comps.Interface) {
+                        // Some systems allow:
+                        // mojo.bindInterface(interfaceName, handle, proxyImpl)? No that's for outgoing.
+                        // For incoming: 
+                        // We might need to construct a Receiver helper.
+                        // For now, let's allow it to fail if we can't find a receiver, 
+                        // but "VibrationManager" likely needs a specific handling if it's pure Lite.
+                    }
+
+                    // If we can't bind, we can't intercept.
+                    // But wait! If we can't bind, we shouldn't have created the proxyImpl either?
+                    // Let's return null to fallback to direct connection.
                     throw new Error("No Receiver class found");
-                }
-
-                // PIN BOTH ENDS to the proxy instance to prevent GC
-                proxyImpl.browserSideHandle = pipe.handle1;
-
-                // Lifecycle logging - Defensively guard against missing onConnectionError
-                if (proxyImpl.receiver && proxyImpl.receiver.router_ && proxyImpl.receiver.router_.onConnectionError) {
-                    try {
-                        proxyImpl.receiver.router_.onConnectionError.addListener(() => {
-                            console.error(`[MojoProxy] Client-side connection for ${interfaceName} CLOSED.`);
-                        });
-                    } catch (e) { console.warn("[MojoProxy] Failed to add client-side error listener"); }
-                }
-                if (proxyImpl.realRemote && proxyImpl.realRemote.proxy && proxyImpl.realRemote.proxy.onConnectionError) {
-                    try {
-                        proxyImpl.realRemote.proxy.onConnectionError.addListener(() => {
-                            console.error(`[MojoProxy] Browser-side connection for ${interfaceName} CLOSED.`);
-                        });
-                    } catch (e) { console.warn("[MojoProxy] Failed to add browser-side error listener"); }
                 }
             } catch (e) {
                 console.error("[MojoProxy] Failed to bind receiver:", e);
+                // Cleanup
                 pipe.handle0.close();
                 pipe.handle1.close();
                 return null;
