@@ -1,109 +1,114 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/media/mojo/mojom/cdm_service.mojom
-// Module: media.mojom
+ // Source: chromium_src/media/mojo/mojom/cdm_service.mojom
+ // Module: media.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var media = media || {};
-media.mojom = media.mojom || {};
-var mojo_base = mojo_base || {};
-var sandbox = sandbox || {};
-var service_manager = service_manager || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-media.mojom.CdmService = {};
-media.mojom.CdmService.$interfaceName = 'media.mojom.CdmService';
-media.mojom.CdmService_CreateCdmFactory_ParamsSpec = { $: {} };
-media.mojom.SeatbeltExtensionTokenProvider = {};
-media.mojom.SeatbeltExtensionTokenProvider.$interfaceName = 'media.mojom.SeatbeltExtensionTokenProvider';
-media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec = { $: {} };
-media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec = { $: {} };
-media.mojom.CdmServiceBroker = {};
-media.mojom.CdmServiceBroker.$interfaceName = 'media.mojom.CdmServiceBroker';
-media.mojom.CdmServiceBroker_GetService_ParamsSpec = { $: {} };
+ mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
+mojo.internal.bindings.service_manager = mojo.internal.bindings.service_manager || {};
+
+mojo.internal.bindings.media.mojom.CdmService = {};
+mojo.internal.bindings.media.mojom.CdmService.$interfaceName = 'media.mojom.CdmService';
+mojo.internal.bindings.media.mojom.CdmService_CreateCdmFactory_ParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider = {};
+mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider.$interfaceName = 'media.mojom.SeatbeltExtensionTokenProvider';
+mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.CdmServiceBroker = {};
+mojo.internal.bindings.media.mojom.CdmServiceBroker.$interfaceName = 'media.mojom.CdmServiceBroker';
+mojo.internal.bindings.media.mojom.CdmServiceBroker_GetService_ParamsSpec = { $: {} };
 
 // Interface: CdmService
 mojo.internal.Struct(
-    media.mojom.CdmService_CreateCdmFactory_ParamsSpec, 'media.mojom.CdmService_CreateCdmFactory_Params', [
-      mojo.internal.StructField('factory', 0, 0, mojo.internal.InterfaceRequest(media.mojom.CdmFactoryRemote), null, false, 0, undefined),
-      mojo.internal.StructField('frame_interfaces', 8, 0, mojo.internal.InterfaceProxy(media.mojom.FrameInterfaceFactoryRemote), null, false, 0, undefined),
+    mojo.internal.bindings.media.mojom.CdmService_CreateCdmFactory_ParamsSpec, 'media.mojom.CdmService_CreateCdmFactory_Params', [
+      mojo.internal.StructField('arg_factory', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.CdmFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_interfaces', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
-media.mojom.CdmServicePendingReceiver = class {
+mojo.internal.bindings.media.mojom.CdmServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.CdmServiceRemote = class {
+mojo.internal.bindings.media.mojom.CdmServiceRemote = class {
   static get $interfaceName() {
     return 'media.mojom.CdmService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.CdmServicePendingReceiver,
+      mojo.internal.bindings.media.mojom.CdmServicePendingReceiver,
       handle);
-    this.$ = new media.mojom.CdmServiceRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.media.mojom.CdmServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -113,12 +118,12 @@ media.mojom.CdmServiceRemote = class {
   close() {
     this.proxy.close();
   }
-  createCdmFactory(factory, frame_interfaces) {
-    return this.$.createCdmFactory(factory, frame_interfaces);
+  createCdmFactory(arg_factory, arg_frame_interfaces) {
+    return this.$.createCdmFactory(arg_factory, arg_frame_interfaces);
   }
 };
 
-media.mojom.CdmServiceRemoteCallHandler = class {
+mojo.internal.bindings.media.mojom.CdmServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('CdmService', [
@@ -126,19 +131,19 @@ media.mojom.CdmServiceRemoteCallHandler = class {
     ]);
   }
 
-  createCdmFactory(factory, frame_interfaces) {
+  createCdmFactory(arg_factory, arg_frame_interfaces) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      media.mojom.CdmService_CreateCdmFactory_ParamsSpec,
+      mojo.internal.bindings.media.mojom.CdmService_CreateCdmFactory_ParamsSpec,
       null,
-      [factory, frame_interfaces],
+      [arg_factory, arg_frame_interfaces],
       false);
   }
 
 };
 
-media.mojom.CdmService.getRemote = function() {
-  let remote = new media.mojom.CdmServiceRemote();
+mojo.internal.bindings.media.mojom.CdmService.getRemote = function() {
+  let remote = new mojo.internal.bindings.media.mojom.CdmServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -147,7 +152,7 @@ media.mojom.CdmService.getRemote = function() {
   return remote.$;
 };
 
-media.mojom.CdmServiceReceiver = class {
+mojo.internal.bindings.media.mojom.CdmServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -196,7 +201,7 @@ media.mojom.CdmServiceReceiver = class {
         // Try Method 0: CreateCdmFactory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.CdmService_CreateCdmFactory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmService_CreateCdmFactory_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCdmFactory (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -213,9 +218,9 @@ media.mojom.CdmServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.CdmService_CreateCdmFactory_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmService_CreateCdmFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCdmFactory');
-          const result = this.impl.createCdmFactory(params.factory, params.frame_interfaces);
+          const result = this.impl.createCdmFactory(params.arg_factory, params.arg_frame_interfaces);
           break;
         }
       }
@@ -226,40 +231,40 @@ media.mojom.CdmServiceReceiver = class {
   }
 };
 
-media.mojom.CdmServiceReceiver = media.mojom.CdmServiceReceiver;
+mojo.internal.bindings.media.mojom.CdmServiceReceiver = mojo.internal.bindings.media.mojom.CdmServiceReceiver;
 
-media.mojom.CdmServicePtr = media.mojom.CdmServiceRemote;
-media.mojom.CdmServiceRequest = media.mojom.CdmServicePendingReceiver;
+mojo.internal.bindings.media.mojom.CdmServicePtr = mojo.internal.bindings.media.mojom.CdmServiceRemote;
+mojo.internal.bindings.media.mojom.CdmServiceRequest = mojo.internal.bindings.media.mojom.CdmServicePendingReceiver;
 
 
 // Interface: SeatbeltExtensionTokenProvider
 mojo.internal.Struct(
-    media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec, 'media.mojom.SeatbeltExtensionTokenProvider_GetTokens_Params', [
+    mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec, 'media.mojom.SeatbeltExtensionTokenProvider_GetTokens_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec, 'media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParams', [
-      mojo.internal.StructField('tokens', 0, 0, mojo.internal.Array(sandbox.mac.mojom.SeatbeltExtensionTokenSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec, 'media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParams', [
+      mojo.internal.StructField('arg_tokens', 0, 0, mojo.internal.Array(mojo.internal.bindings.sandbox.mac.mojom.SeatbeltExtensionTokenSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-media.mojom.SeatbeltExtensionTokenProviderPendingReceiver = class {
+mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.SeatbeltExtensionTokenProviderRemote = class {
+mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderRemote = class {
   static get $interfaceName() {
     return 'media.mojom.SeatbeltExtensionTokenProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.SeatbeltExtensionTokenProviderPendingReceiver,
+      mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderPendingReceiver,
       handle);
-    this.$ = new media.mojom.SeatbeltExtensionTokenProviderRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -274,7 +279,7 @@ media.mojom.SeatbeltExtensionTokenProviderRemote = class {
   }
 };
 
-media.mojom.SeatbeltExtensionTokenProviderRemoteCallHandler = class {
+mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('SeatbeltExtensionTokenProvider', [
@@ -285,16 +290,16 @@ media.mojom.SeatbeltExtensionTokenProviderRemoteCallHandler = class {
   getTokens() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec,
-      media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec,
+      mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec,
+      mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec,
       [],
       false);
   }
 
 };
 
-media.mojom.SeatbeltExtensionTokenProvider.getRemote = function() {
-  let remote = new media.mojom.SeatbeltExtensionTokenProviderRemote();
+mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider.getRemote = function() {
+  let remote = new mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -303,7 +308,7 @@ media.mojom.SeatbeltExtensionTokenProvider.getRemote = function() {
   return remote.$;
 };
 
-media.mojom.SeatbeltExtensionTokenProviderReceiver = class {
+mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -352,7 +357,7 @@ media.mojom.SeatbeltExtensionTokenProviderReceiver = class {
         // Try Method 0: GetTokens
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTokens (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -369,14 +374,14 @@ media.mojom.SeatbeltExtensionTokenProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getTokens');
           const result = this.impl.getTokens();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetTokens FAILED:', e));
           }
@@ -390,37 +395,37 @@ media.mojom.SeatbeltExtensionTokenProviderReceiver = class {
   }
 };
 
-media.mojom.SeatbeltExtensionTokenProviderReceiver = media.mojom.SeatbeltExtensionTokenProviderReceiver;
+mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderReceiver = mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderReceiver;
 
-media.mojom.SeatbeltExtensionTokenProviderPtr = media.mojom.SeatbeltExtensionTokenProviderRemote;
-media.mojom.SeatbeltExtensionTokenProviderRequest = media.mojom.SeatbeltExtensionTokenProviderPendingReceiver;
+mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderPtr = mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderRemote;
+mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderRequest = mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderPendingReceiver;
 
 
 // Interface: CdmServiceBroker
 mojo.internal.Struct(
-    media.mojom.CdmServiceBroker_GetService_ParamsSpec, 'media.mojom.CdmServiceBroker_GetService_Params', [
-      mojo.internal.StructField('cdm_path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('token_provider', 8, 0, mojo.internal.InterfaceProxy(media.mojom.SeatbeltExtensionTokenProviderSpec), null, true, 0, undefined),
-      mojo.internal.StructField('receiver', 16, 0, mojo.internal.InterfaceRequest(media.mojom.CdmServiceSpec), null, false, 0, undefined),
+    mojo.internal.bindings.media.mojom.CdmServiceBroker_GetService_ParamsSpec, 'media.mojom.CdmServiceBroker_GetService_Params', [
+      mojo.internal.StructField('arg_cdm_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_token_provider', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.CdmServiceSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
-media.mojom.CdmServiceBrokerPendingReceiver = class {
+mojo.internal.bindings.media.mojom.CdmServiceBrokerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.CdmServiceBrokerRemote = class {
+mojo.internal.bindings.media.mojom.CdmServiceBrokerRemote = class {
   static get $interfaceName() {
     return 'media.mojom.CdmServiceBroker';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.CdmServiceBrokerPendingReceiver,
+      mojo.internal.bindings.media.mojom.CdmServiceBrokerPendingReceiver,
       handle);
-    this.$ = new media.mojom.CdmServiceBrokerRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.media.mojom.CdmServiceBrokerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -430,12 +435,12 @@ media.mojom.CdmServiceBrokerRemote = class {
   close() {
     this.proxy.close();
   }
-  getService(cdm_path, token_provider, receiver) {
-    return this.$.getService(cdm_path, token_provider, receiver);
+  getService(arg_cdm_path, arg_token_provider, arg_receiver) {
+    return this.$.getService(arg_cdm_path, arg_token_provider, arg_receiver);
   }
 };
 
-media.mojom.CdmServiceBrokerRemoteCallHandler = class {
+mojo.internal.bindings.media.mojom.CdmServiceBrokerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('CdmServiceBroker', [
@@ -443,19 +448,19 @@ media.mojom.CdmServiceBrokerRemoteCallHandler = class {
     ]);
   }
 
-  getService(cdm_path, token_provider, receiver) {
+  getService(arg_cdm_path, arg_token_provider, arg_receiver) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      media.mojom.CdmServiceBroker_GetService_ParamsSpec,
+      mojo.internal.bindings.media.mojom.CdmServiceBroker_GetService_ParamsSpec,
       null,
-      [cdm_path, token_provider, receiver],
+      [arg_cdm_path, arg_token_provider, arg_receiver],
       false);
   }
 
 };
 
-media.mojom.CdmServiceBroker.getRemote = function() {
-  let remote = new media.mojom.CdmServiceBrokerRemote();
+mojo.internal.bindings.media.mojom.CdmServiceBroker.getRemote = function() {
+  let remote = new mojo.internal.bindings.media.mojom.CdmServiceBrokerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -464,7 +469,7 @@ media.mojom.CdmServiceBroker.getRemote = function() {
   return remote.$;
 };
 
-media.mojom.CdmServiceBrokerReceiver = class {
+mojo.internal.bindings.media.mojom.CdmServiceBrokerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -513,7 +518,7 @@ media.mojom.CdmServiceBrokerReceiver = class {
         // Try Method 0: GetService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.CdmServiceBroker_GetService_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmServiceBroker_GetService_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetService (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -530,9 +535,9 @@ media.mojom.CdmServiceBrokerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.CdmServiceBroker_GetService_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmServiceBroker_GetService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getService');
-          const result = this.impl.getService(params.cdm_path, params.token_provider, params.receiver);
+          const result = this.impl.getService(params.arg_cdm_path, params.arg_token_provider, params.arg_receiver);
           break;
         }
       }
@@ -543,8 +548,8 @@ media.mojom.CdmServiceBrokerReceiver = class {
   }
 };
 
-media.mojom.CdmServiceBrokerReceiver = media.mojom.CdmServiceBrokerReceiver;
+mojo.internal.bindings.media.mojom.CdmServiceBrokerReceiver = mojo.internal.bindings.media.mojom.CdmServiceBrokerReceiver;
 
-media.mojom.CdmServiceBrokerPtr = media.mojom.CdmServiceBrokerRemote;
-media.mojom.CdmServiceBrokerRequest = media.mojom.CdmServiceBrokerPendingReceiver;
+mojo.internal.bindings.media.mojom.CdmServiceBrokerPtr = mojo.internal.bindings.media.mojom.CdmServiceBrokerRemote;
+mojo.internal.bindings.media.mojom.CdmServiceBrokerRequest = mojo.internal.bindings.media.mojom.CdmServiceBrokerPendingReceiver;
 

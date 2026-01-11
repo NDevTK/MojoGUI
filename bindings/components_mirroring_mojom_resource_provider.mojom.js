@@ -1,112 +1,117 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/components/mirroring/mojom/resource_provider.mojom
-// Module: mirroring.mojom
+ // Source: chromium_src/components/mirroring/mojom/resource_provider.mojom
+ // Module: mirroring.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var mirroring = mirroring || {};
-mirroring.mojom = mirroring.mojom || {};
-var media = media || {};
-var network = network || {};
-var sandbox = sandbox || {};
-var viz = viz || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-mirroring.mojom.AudioStreamCreatorClient = {};
-mirroring.mojom.AudioStreamCreatorClient.$interfaceName = 'mirroring.mojom.AudioStreamCreatorClient';
-mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec = { $: {} };
-mirroring.mojom.ResourceProvider = {};
-mirroring.mojom.ResourceProvider.$interfaceName = 'mirroring.mojom.ResourceProvider';
-mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec = { $: {} };
-mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec = { $: {} };
-mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec = { $: {} };
-mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec = { $: {} };
-mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec = { $: {} };
-mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec = { $: {} };
+ mojo.internal.bindings.mirroring = mojo.internal.bindings.mirroring || {};
+mojo.internal.bindings.mirroring.mojom = mojo.internal.bindings.mirroring.mojom || {};
+mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+
+mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClient = {};
+mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClient.$interfaceName = 'mirroring.mojom.AudioStreamCreatorClient';
+mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec = { $: {} };
+mojo.internal.bindings.mirroring.mojom.ResourceProvider = {};
+mojo.internal.bindings.mirroring.mojom.ResourceProvider.$interfaceName = 'mirroring.mojom.ResourceProvider';
+mojo.internal.bindings.mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec = { $: {} };
+mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec = { $: {} };
+mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec = { $: {} };
+mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec = { $: {} };
+mojo.internal.bindings.mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec = { $: {} };
+mojo.internal.bindings.mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec = { $: {} };
 
 // Interface: AudioStreamCreatorClient
 mojo.internal.Struct(
-    mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec, 'mirroring.mojom.AudioStreamCreatorClient_StreamCreated_Params', [
-      mojo.internal.StructField('stream', 0, 0, mojo.internal.InterfaceProxy(media.mojom.AudioInputStreamRemote), null, false, 0, undefined),
-      mojo.internal.StructField('client_receiver', 8, 0, mojo.internal.InterfaceRequest(media.mojom.AudioInputStreamClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('data_pipe', 16, 0, media.mojom.ReadWriteAudioDataPipeSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec, 'mirroring.mojom.AudioStreamCreatorClient_StreamCreated_Params', [
+      mojo.internal.StructField('arg_stream', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioInputStreamRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioInputStreamClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_data_pipe', 16, 0, mojo.internal.bindings.media.mojom.ReadWriteAudioDataPipeSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
-mirroring.mojom.AudioStreamCreatorClientPendingReceiver = class {
+mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-mirroring.mojom.AudioStreamCreatorClientRemote = class {
+mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClientRemote = class {
   static get $interfaceName() {
     return 'mirroring.mojom.AudioStreamCreatorClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mirroring.mojom.AudioStreamCreatorClientPendingReceiver,
+      mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClientPendingReceiver,
       handle);
-    this.$ = new mirroring.mojom.AudioStreamCreatorClientRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -116,12 +121,12 @@ mirroring.mojom.AudioStreamCreatorClientRemote = class {
   close() {
     this.proxy.close();
   }
-  streamCreated(stream, client_receiver, data_pipe) {
-    return this.$.streamCreated(stream, client_receiver, data_pipe);
+  streamCreated(arg_stream, arg_client_receiver, arg_data_pipe) {
+    return this.$.streamCreated(arg_stream, arg_client_receiver, arg_data_pipe);
   }
 };
 
-mirroring.mojom.AudioStreamCreatorClientRemoteCallHandler = class {
+mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('AudioStreamCreatorClient', [
@@ -129,19 +134,19 @@ mirroring.mojom.AudioStreamCreatorClientRemoteCallHandler = class {
     ]);
   }
 
-  streamCreated(stream, client_receiver, data_pipe) {
+  streamCreated(arg_stream, arg_client_receiver, arg_data_pipe) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec,
+      mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec,
       null,
-      [stream, client_receiver, data_pipe],
+      [arg_stream, arg_client_receiver, arg_data_pipe],
       false);
   }
 
 };
 
-mirroring.mojom.AudioStreamCreatorClient.getRemote = function() {
-  let remote = new mirroring.mojom.AudioStreamCreatorClientRemote();
+mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClient.getRemote = function() {
+  let remote = new mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -150,7 +155,7 @@ mirroring.mojom.AudioStreamCreatorClient.getRemote = function() {
   return remote.$;
 };
 
-mirroring.mojom.AudioStreamCreatorClientReceiver = class {
+mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -199,7 +204,7 @@ mirroring.mojom.AudioStreamCreatorClientReceiver = class {
         // Try Method 0: StreamCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StreamCreated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -216,9 +221,9 @@ mirroring.mojom.AudioStreamCreatorClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.streamCreated');
-          const result = this.impl.streamCreated(params.stream, params.client_receiver, params.data_pipe);
+          const result = this.impl.streamCreated(params.arg_stream, params.arg_client_receiver, params.arg_data_pipe);
           break;
         }
       }
@@ -229,68 +234,68 @@ mirroring.mojom.AudioStreamCreatorClientReceiver = class {
   }
 };
 
-mirroring.mojom.AudioStreamCreatorClientReceiver = mirroring.mojom.AudioStreamCreatorClientReceiver;
+mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClientReceiver = mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClientReceiver;
 
-mirroring.mojom.AudioStreamCreatorClientPtr = mirroring.mojom.AudioStreamCreatorClientRemote;
-mirroring.mojom.AudioStreamCreatorClientRequest = mirroring.mojom.AudioStreamCreatorClientPendingReceiver;
+mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClientPtr = mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClientRemote;
+mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClientRequest = mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClientPendingReceiver;
 
 
 // Interface: ResourceProvider
 mojo.internal.Struct(
-    mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec, 'mirroring.mojom.ResourceProvider_BindGpu_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(viz.mojom.GpuRemote), null, false, 0, undefined),
+    mojo.internal.bindings.mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec, 'mirroring.mojom.ResourceProvider_BindGpu_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.GpuRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec, 'mirroring.mojom.ResourceProvider_GetVideoCaptureHost_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(media.mojom.VideoCaptureHostRemote), null, false, 0, undefined),
+    mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec, 'mirroring.mojom.ResourceProvider_GetVideoCaptureHost_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoCaptureHostRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec, 'mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(media.mojom.VideoEncoderMetricsProviderRemote), null, false, 0, undefined),
+    mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec, 'mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoEncoderMetricsProviderRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec, 'mirroring.mojom.ResourceProvider_GetNetworkContext_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(network.mojom.NetworkContextRemote), null, false, 0, undefined),
+    mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec, 'mirroring.mojom.ResourceProvider_GetNetworkContext_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.NetworkContextRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec, 'mirroring.mojom.ResourceProvider_CreateAudioStream_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(mirroring.mojom.AudioStreamCreatorClientSpec), null, false, 0, undefined),
-      mojo.internal.StructField('param', 8, 0, media.mojom.AudioParametersSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('shared_memory_count', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec, 'mirroring.mojom.ResourceProvider_CreateAudioStream_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_param', 8, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shared_memory_count', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
-    mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec, 'mirroring.mojom.ResourceProvider_ConnectToRemotingSource_Params', [
-      mojo.internal.StructField('remoter', 0, 0, mojo.internal.InterfaceProxy(media.mojom.RemoterRemote), null, false, 0, undefined),
-      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(media.mojom.RemotingSourceRemote), null, false, 0, undefined),
+    mojo.internal.bindings.mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec, 'mirroring.mojom.ResourceProvider_ConnectToRemotingSource_Params', [
+      mojo.internal.StructField('arg_remoter', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.RemoterRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RemotingSourceRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
-mirroring.mojom.ResourceProviderPendingReceiver = class {
+mojo.internal.bindings.mirroring.mojom.ResourceProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-mirroring.mojom.ResourceProviderRemote = class {
+mojo.internal.bindings.mirroring.mojom.ResourceProviderRemote = class {
   static get $interfaceName() {
     return 'mirroring.mojom.ResourceProvider';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mirroring.mojom.ResourceProviderPendingReceiver,
+      mojo.internal.bindings.mirroring.mojom.ResourceProviderPendingReceiver,
       handle);
-    this.$ = new mirroring.mojom.ResourceProviderRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.mirroring.mojom.ResourceProviderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -300,27 +305,27 @@ mirroring.mojom.ResourceProviderRemote = class {
   close() {
     this.proxy.close();
   }
-  bindGpu(receiver) {
-    return this.$.bindGpu(receiver);
+  bindGpu(arg_receiver) {
+    return this.$.bindGpu(arg_receiver);
   }
-  getVideoCaptureHost(receiver) {
-    return this.$.getVideoCaptureHost(receiver);
+  getVideoCaptureHost(arg_receiver) {
+    return this.$.getVideoCaptureHost(arg_receiver);
   }
-  getVideoEncoderMetricsProvider(receiver) {
-    return this.$.getVideoEncoderMetricsProvider(receiver);
+  getVideoEncoderMetricsProvider(arg_receiver) {
+    return this.$.getVideoEncoderMetricsProvider(arg_receiver);
   }
-  getNetworkContext(receiver) {
-    return this.$.getNetworkContext(receiver);
+  getNetworkContext(arg_receiver) {
+    return this.$.getNetworkContext(arg_receiver);
   }
-  createAudioStream(client, param, shared_memory_count) {
-    return this.$.createAudioStream(client, param, shared_memory_count);
+  createAudioStream(arg_client, arg_param, arg_shared_memory_count) {
+    return this.$.createAudioStream(arg_client, arg_param, arg_shared_memory_count);
   }
-  connectToRemotingSource(remoter, receiver) {
-    return this.$.connectToRemotingSource(remoter, receiver);
+  connectToRemotingSource(arg_remoter, arg_receiver) {
+    return this.$.connectToRemotingSource(arg_remoter, arg_receiver);
   }
 };
 
-mirroring.mojom.ResourceProviderRemoteCallHandler = class {
+mojo.internal.bindings.mirroring.mojom.ResourceProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ResourceProvider', [
@@ -333,64 +338,64 @@ mirroring.mojom.ResourceProviderRemoteCallHandler = class {
     ]);
   }
 
-  bindGpu(receiver) {
+  bindGpu(arg_receiver) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec,
+      mojo.internal.bindings.mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec,
       null,
-      [receiver],
+      [arg_receiver],
       false);
   }
 
-  getVideoCaptureHost(receiver) {
+  getVideoCaptureHost(arg_receiver) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec,
+      mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec,
       null,
-      [receiver],
+      [arg_receiver],
       false);
   }
 
-  getVideoEncoderMetricsProvider(receiver) {
+  getVideoEncoderMetricsProvider(arg_receiver) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec,
+      mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec,
       null,
-      [receiver],
+      [arg_receiver],
       false);
   }
 
-  getNetworkContext(receiver) {
+  getNetworkContext(arg_receiver) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec,
+      mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec,
       null,
-      [receiver],
+      [arg_receiver],
       false);
   }
 
-  createAudioStream(client, param, shared_memory_count) {
+  createAudioStream(arg_client, arg_param, arg_shared_memory_count) {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
-      mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec,
+      mojo.internal.bindings.mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec,
       null,
-      [client, param, shared_memory_count],
+      [arg_client, arg_param, arg_shared_memory_count],
       false);
   }
 
-  connectToRemotingSource(remoter, receiver) {
+  connectToRemotingSource(arg_remoter, arg_receiver) {
     return this.proxy.sendMessage(
       this.ordinals[5],  // ordinal
-      mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec,
+      mojo.internal.bindings.mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec,
       null,
-      [remoter, receiver],
+      [arg_remoter, arg_receiver],
       false);
   }
 
 };
 
-mirroring.mojom.ResourceProvider.getRemote = function() {
-  let remote = new mirroring.mojom.ResourceProviderRemote();
+mojo.internal.bindings.mirroring.mojom.ResourceProvider.getRemote = function() {
+  let remote = new mojo.internal.bindings.mirroring.mojom.ResourceProviderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -399,7 +404,7 @@ mirroring.mojom.ResourceProvider.getRemote = function() {
   return remote.$;
 };
 
-mirroring.mojom.ResourceProviderReceiver = class {
+mojo.internal.bindings.mirroring.mojom.ResourceProviderReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -453,7 +458,7 @@ mirroring.mojom.ResourceProviderReceiver = class {
         // Try Method 0: BindGpu
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindGpu (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -464,7 +469,7 @@ mirroring.mojom.ResourceProviderReceiver = class {
         // Try Method 1: GetVideoCaptureHost
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVideoCaptureHost (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -475,7 +480,7 @@ mirroring.mojom.ResourceProviderReceiver = class {
         // Try Method 2: GetVideoEncoderMetricsProvider
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVideoEncoderMetricsProvider (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -486,7 +491,7 @@ mirroring.mojom.ResourceProviderReceiver = class {
         // Try Method 3: GetNetworkContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNetworkContext (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -497,7 +502,7 @@ mirroring.mojom.ResourceProviderReceiver = class {
         // Try Method 4: CreateAudioStream
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateAudioStream (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -508,7 +513,7 @@ mirroring.mojom.ResourceProviderReceiver = class {
         // Try Method 5: ConnectToRemotingSource
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectToRemotingSource (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -525,44 +530,44 @@ mirroring.mojom.ResourceProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindGpu');
-          const result = this.impl.bindGpu(params.receiver);
+          const result = this.impl.bindGpu(params.arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getVideoCaptureHost');
-          const result = this.impl.getVideoCaptureHost(params.receiver);
+          const result = this.impl.getVideoCaptureHost(params.arg_receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getVideoEncoderMetricsProvider');
-          const result = this.impl.getVideoEncoderMetricsProvider(params.receiver);
+          const result = this.impl.getVideoEncoderMetricsProvider(params.arg_receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNetworkContext');
-          const result = this.impl.getNetworkContext(params.receiver);
+          const result = this.impl.getNetworkContext(params.arg_receiver);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAudioStream');
-          const result = this.impl.createAudioStream(params.client, params.param, params.shared_memory_count);
+          const result = this.impl.createAudioStream(params.arg_client, params.arg_param, params.arg_shared_memory_count);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToRemotingSource');
-          const result = this.impl.connectToRemotingSource(params.remoter, params.receiver);
+          const result = this.impl.connectToRemotingSource(params.arg_remoter, params.arg_receiver);
           break;
         }
       }
@@ -573,8 +578,8 @@ mirroring.mojom.ResourceProviderReceiver = class {
   }
 };
 
-mirroring.mojom.ResourceProviderReceiver = mirroring.mojom.ResourceProviderReceiver;
+mojo.internal.bindings.mirroring.mojom.ResourceProviderReceiver = mojo.internal.bindings.mirroring.mojom.ResourceProviderReceiver;
 
-mirroring.mojom.ResourceProviderPtr = mirroring.mojom.ResourceProviderRemote;
-mirroring.mojom.ResourceProviderRequest = mirroring.mojom.ResourceProviderPendingReceiver;
+mojo.internal.bindings.mirroring.mojom.ResourceProviderPtr = mojo.internal.bindings.mirroring.mojom.ResourceProviderRemote;
+mojo.internal.bindings.mirroring.mojom.ResourceProviderRequest = mojo.internal.bindings.mirroring.mojom.ResourceProviderPendingReceiver;
 

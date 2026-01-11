@@ -1,100 +1,105 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/services/audio/public/mojom/device_notifications.mojom
-// Module: audio.mojom
+ // Source: chromium_src/services/audio/public/mojom/device_notifications.mojom
+ // Module: audio.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var audio = audio || {};
-audio.mojom = audio.mojom || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-audio.mojom.DeviceListener = {};
-audio.mojom.DeviceListener.$interfaceName = 'audio.mojom.DeviceListener';
-audio.mojom.DeviceListener_DevicesChanged_ParamsSpec = { $: {} };
-audio.mojom.DeviceNotifier = {};
-audio.mojom.DeviceNotifier.$interfaceName = 'audio.mojom.DeviceNotifier';
-audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec = { $: {} };
+ mojo.internal.bindings.audio = mojo.internal.bindings.audio || {};
+mojo.internal.bindings.audio.mojom = mojo.internal.bindings.audio.mojom || {};
+
+mojo.internal.bindings.audio.mojom.DeviceListener = {};
+mojo.internal.bindings.audio.mojom.DeviceListener.$interfaceName = 'audio.mojom.DeviceListener';
+mojo.internal.bindings.audio.mojom.DeviceListener_DevicesChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.audio.mojom.DeviceNotifier = {};
+mojo.internal.bindings.audio.mojom.DeviceNotifier.$interfaceName = 'audio.mojom.DeviceNotifier';
+mojo.internal.bindings.audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec = { $: {} };
 
 // Interface: DeviceListener
 mojo.internal.Struct(
-    audio.mojom.DeviceListener_DevicesChanged_ParamsSpec, 'audio.mojom.DeviceListener_DevicesChanged_Params', [
+    mojo.internal.bindings.audio.mojom.DeviceListener_DevicesChanged_ParamsSpec, 'audio.mojom.DeviceListener_DevicesChanged_Params', [
     ],
     [[0, 8]]);
 
-audio.mojom.DeviceListenerPendingReceiver = class {
+mojo.internal.bindings.audio.mojom.DeviceListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-audio.mojom.DeviceListenerRemote = class {
+mojo.internal.bindings.audio.mojom.DeviceListenerRemote = class {
   static get $interfaceName() {
     return 'audio.mojom.DeviceListener';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      audio.mojom.DeviceListenerPendingReceiver,
+      mojo.internal.bindings.audio.mojom.DeviceListenerPendingReceiver,
       handle);
-    this.$ = new audio.mojom.DeviceListenerRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.audio.mojom.DeviceListenerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -109,7 +114,7 @@ audio.mojom.DeviceListenerRemote = class {
   }
 };
 
-audio.mojom.DeviceListenerRemoteCallHandler = class {
+mojo.internal.bindings.audio.mojom.DeviceListenerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('DeviceListener', [
@@ -120,7 +125,7 @@ audio.mojom.DeviceListenerRemoteCallHandler = class {
   devicesChanged() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      audio.mojom.DeviceListener_DevicesChanged_ParamsSpec,
+      mojo.internal.bindings.audio.mojom.DeviceListener_DevicesChanged_ParamsSpec,
       null,
       [],
       false);
@@ -128,8 +133,8 @@ audio.mojom.DeviceListenerRemoteCallHandler = class {
 
 };
 
-audio.mojom.DeviceListener.getRemote = function() {
-  let remote = new audio.mojom.DeviceListenerRemote();
+mojo.internal.bindings.audio.mojom.DeviceListener.getRemote = function() {
+  let remote = new mojo.internal.bindings.audio.mojom.DeviceListenerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -138,7 +143,7 @@ audio.mojom.DeviceListener.getRemote = function() {
   return remote.$;
 };
 
-audio.mojom.DeviceListenerReceiver = class {
+mojo.internal.bindings.audio.mojom.DeviceListenerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -187,7 +192,7 @@ audio.mojom.DeviceListenerReceiver = class {
         // Try Method 0: DevicesChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(audio.mojom.DeviceListener_DevicesChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.DeviceListener_DevicesChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DevicesChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -204,7 +209,7 @@ audio.mojom.DeviceListenerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(audio.mojom.DeviceListener_DevicesChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.DeviceListener_DevicesChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.devicesChanged');
           const result = this.impl.devicesChanged();
           break;
@@ -217,35 +222,35 @@ audio.mojom.DeviceListenerReceiver = class {
   }
 };
 
-audio.mojom.DeviceListenerReceiver = audio.mojom.DeviceListenerReceiver;
+mojo.internal.bindings.audio.mojom.DeviceListenerReceiver = mojo.internal.bindings.audio.mojom.DeviceListenerReceiver;
 
-audio.mojom.DeviceListenerPtr = audio.mojom.DeviceListenerRemote;
-audio.mojom.DeviceListenerRequest = audio.mojom.DeviceListenerPendingReceiver;
+mojo.internal.bindings.audio.mojom.DeviceListenerPtr = mojo.internal.bindings.audio.mojom.DeviceListenerRemote;
+mojo.internal.bindings.audio.mojom.DeviceListenerRequest = mojo.internal.bindings.audio.mojom.DeviceListenerPendingReceiver;
 
 
 // Interface: DeviceNotifier
 mojo.internal.Struct(
-    audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec, 'audio.mojom.DeviceNotifier_RegisterListener_Params', [
-      mojo.internal.StructField('listener', 0, 0, mojo.internal.InterfaceProxy(audio.mojom.DeviceListenerSpec), null, false, 0, undefined),
+    mojo.internal.bindings.audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec, 'audio.mojom.DeviceNotifier_RegisterListener_Params', [
+      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.audio.mojom.DeviceListenerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-audio.mojom.DeviceNotifierPendingReceiver = class {
+mojo.internal.bindings.audio.mojom.DeviceNotifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-audio.mojom.DeviceNotifierRemote = class {
+mojo.internal.bindings.audio.mojom.DeviceNotifierRemote = class {
   static get $interfaceName() {
     return 'audio.mojom.DeviceNotifier';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      audio.mojom.DeviceNotifierPendingReceiver,
+      mojo.internal.bindings.audio.mojom.DeviceNotifierPendingReceiver,
       handle);
-    this.$ = new audio.mojom.DeviceNotifierRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.audio.mojom.DeviceNotifierRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -255,12 +260,12 @@ audio.mojom.DeviceNotifierRemote = class {
   close() {
     this.proxy.close();
   }
-  registerListener(listener) {
-    return this.$.registerListener(listener);
+  registerListener(arg_listener) {
+    return this.$.registerListener(arg_listener);
   }
 };
 
-audio.mojom.DeviceNotifierRemoteCallHandler = class {
+mojo.internal.bindings.audio.mojom.DeviceNotifierRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('DeviceNotifier', [
@@ -268,19 +273,19 @@ audio.mojom.DeviceNotifierRemoteCallHandler = class {
     ]);
   }
 
-  registerListener(listener) {
+  registerListener(arg_listener) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec,
+      mojo.internal.bindings.audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec,
       null,
-      [listener],
+      [arg_listener],
       false);
   }
 
 };
 
-audio.mojom.DeviceNotifier.getRemote = function() {
-  let remote = new audio.mojom.DeviceNotifierRemote();
+mojo.internal.bindings.audio.mojom.DeviceNotifier.getRemote = function() {
+  let remote = new mojo.internal.bindings.audio.mojom.DeviceNotifierRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -289,7 +294,7 @@ audio.mojom.DeviceNotifier.getRemote = function() {
   return remote.$;
 };
 
-audio.mojom.DeviceNotifierReceiver = class {
+mojo.internal.bindings.audio.mojom.DeviceNotifierReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -338,7 +343,7 @@ audio.mojom.DeviceNotifierReceiver = class {
         // Try Method 0: RegisterListener
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterListener (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -355,9 +360,9 @@ audio.mojom.DeviceNotifierReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerListener');
-          const result = this.impl.registerListener(params.listener);
+          const result = this.impl.registerListener(params.arg_listener);
           break;
         }
       }
@@ -368,8 +373,8 @@ audio.mojom.DeviceNotifierReceiver = class {
   }
 };
 
-audio.mojom.DeviceNotifierReceiver = audio.mojom.DeviceNotifierReceiver;
+mojo.internal.bindings.audio.mojom.DeviceNotifierReceiver = mojo.internal.bindings.audio.mojom.DeviceNotifierReceiver;
 
-audio.mojom.DeviceNotifierPtr = audio.mojom.DeviceNotifierRemote;
-audio.mojom.DeviceNotifierRequest = audio.mojom.DeviceNotifierPendingReceiver;
+mojo.internal.bindings.audio.mojom.DeviceNotifierPtr = mojo.internal.bindings.audio.mojom.DeviceNotifierRemote;
+mojo.internal.bindings.audio.mojom.DeviceNotifierRequest = mojo.internal.bindings.audio.mojom.DeviceNotifierPendingReceiver;
 

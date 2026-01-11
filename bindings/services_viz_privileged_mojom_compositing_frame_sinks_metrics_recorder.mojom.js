@@ -1,162 +1,167 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/services/viz/privileged/mojom/compositing/frame_sinks_metrics_recorder.mojom
-// Module: viz.mojom
+ // Source: chromium_src/services/viz/privileged/mojom/compositing/frame_sinks_metrics_recorder.mojom
+ // Module: viz.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var viz = viz || {};
-viz.mojom = viz.mojom || {};
-var mojo_base = mojo_base || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-viz.mojom.FrameCountingPerSinkDataSpec = { $: {} };
-viz.mojom.FrameCountingDataSpec = { $: {} };
-viz.mojom.OverdrawDataSpec = { $: {} };
-viz.mojom.FrameSinksMetricsRecorder = {};
-viz.mojom.FrameSinksMetricsRecorder.$interfaceName = 'viz.mojom.FrameSinksMetricsRecorder';
-viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec = { $: {} };
-viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec = { $: {} };
-viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec = { $: {} };
-viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec = { $: {} };
-viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec = { $: {} };
-viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec = { $: {} };
+ mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+
+mojo.internal.bindings.viz.mojom.FrameCountingPerSinkDataSpec = { $: {} };
+mojo.internal.bindings.viz.mojom.FrameCountingDataSpec = { $: {} };
+mojo.internal.bindings.viz.mojom.OverdrawDataSpec = { $: {} };
+mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder = {};
+mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder.$interfaceName = 'viz.mojom.FrameSinksMetricsRecorder';
+mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec = { $: {} };
+mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec = { $: {} };
+mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec = { $: {} };
+mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec = { $: {} };
+mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec = { $: {} };
 
 // Struct: FrameCountingPerSinkData
 mojo.internal.Struct(
-    viz.mojom.FrameCountingPerSinkDataSpec, 'viz.mojom.FrameCountingPerSinkData', [
-      mojo.internal.StructField('debug_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('presented_frames', 8, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
-      mojo.internal.StructField('start_bucket', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('is_root', 18, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.viz.mojom.FrameCountingPerSinkDataSpec, 'viz.mojom.FrameCountingPerSinkData', [
+      mojo.internal.StructField('arg_debug_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_presented_frames', 8, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_start_bucket', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_root', 18, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: FrameCountingData
 mojo.internal.Struct(
-    viz.mojom.FrameCountingDataSpec, 'viz.mojom.FrameCountingData', [
-      mojo.internal.StructField('per_sink_data', 0, 0, mojo.internal.Array(viz.mojom.FrameCountingPerSinkDataSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.viz.mojom.FrameCountingDataSpec, 'viz.mojom.FrameCountingData', [
+      mojo.internal.StructField('arg_per_sink_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.viz.mojom.FrameCountingPerSinkDataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: OverdrawData
 mojo.internal.Struct(
-    viz.mojom.OverdrawDataSpec, 'viz.mojom.OverdrawData', [
-      mojo.internal.StructField('average_overdraws', 0, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
+    mojo.internal.bindings.viz.mojom.OverdrawDataSpec, 'viz.mojom.OverdrawData', [
+      mojo.internal.StructField('arg_average_overdraws', 0, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Interface: FrameSinksMetricsRecorder
 mojo.internal.Struct(
-    viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_Params', [
-      mojo.internal.StructField('start_time', 0, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('bucket_size', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_Params', [
+      mojo.internal.StructField('arg_start_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bucket_size', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_Params', [
+    mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParams', [
-      mojo.internal.StructField('data', 0, 0, viz.mojom.FrameCountingDataSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParams', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.viz.mojom.FrameCountingDataSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_Params', [
-      mojo.internal.StructField('root_frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('bucket_size', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_Params', [
+      mojo.internal.StructField('arg_root_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bucket_size', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_Params', [
-      mojo.internal.StructField('root_frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_Params', [
+      mojo.internal.StructField('arg_root_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParams', [
-      mojo.internal.StructField('data', 0, 0, viz.mojom.OverdrawDataSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParams', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.viz.mojom.OverdrawDataSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
-viz.mojom.FrameSinksMetricsRecorderPendingReceiver = class {
+mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-viz.mojom.FrameSinksMetricsRecorderRemote = class {
+mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderRemote = class {
   static get $interfaceName() {
     return 'viz.mojom.FrameSinksMetricsRecorder';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      viz.mojom.FrameSinksMetricsRecorderPendingReceiver,
+      mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderPendingReceiver,
       handle);
-    this.$ = new viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -166,21 +171,21 @@ viz.mojom.FrameSinksMetricsRecorderRemote = class {
   close() {
     this.proxy.close();
   }
-  startFrameCounting(start_time, bucket_size) {
-    return this.$.startFrameCounting(start_time, bucket_size);
+  startFrameCounting(arg_start_time, arg_bucket_size) {
+    return this.$.startFrameCounting(arg_start_time, arg_bucket_size);
   }
   stopFrameCounting() {
     return this.$.stopFrameCounting();
   }
-  startOverdrawTracking(root_frame_sink_id, bucket_size) {
-    return this.$.startOverdrawTracking(root_frame_sink_id, bucket_size);
+  startOverdrawTracking(arg_root_frame_sink_id, arg_bucket_size) {
+    return this.$.startOverdrawTracking(arg_root_frame_sink_id, arg_bucket_size);
   }
-  stopOverdrawTracking(root_frame_sink_id) {
-    return this.$.stopOverdrawTracking(root_frame_sink_id);
+  stopOverdrawTracking(arg_root_frame_sink_id) {
+    return this.$.stopOverdrawTracking(arg_root_frame_sink_id);
   }
 };
 
-viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = class {
+mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('FrameSinksMetricsRecorder', [
@@ -191,46 +196,46 @@ viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = class {
     ]);
   }
 
-  startFrameCounting(start_time, bucket_size) {
+  startFrameCounting(arg_start_time, arg_bucket_size) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec,
+      mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec,
       null,
-      [start_time, bucket_size],
+      [arg_start_time, arg_bucket_size],
       false);
   }
 
   stopFrameCounting() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec,
-      viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec,
+      mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec,
+      mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec,
       [],
       false);
   }
 
-  startOverdrawTracking(root_frame_sink_id, bucket_size) {
+  startOverdrawTracking(arg_root_frame_sink_id, arg_bucket_size) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec,
+      mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec,
       null,
-      [root_frame_sink_id, bucket_size],
+      [arg_root_frame_sink_id, arg_bucket_size],
       false);
   }
 
-  stopOverdrawTracking(root_frame_sink_id) {
+  stopOverdrawTracking(arg_root_frame_sink_id) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec,
-      viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec,
-      [root_frame_sink_id],
+      mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec,
+      mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec,
+      [arg_root_frame_sink_id],
       false);
   }
 
 };
 
-viz.mojom.FrameSinksMetricsRecorder.getRemote = function() {
-  let remote = new viz.mojom.FrameSinksMetricsRecorderRemote();
+mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder.getRemote = function() {
+  let remote = new mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -239,7 +244,7 @@ viz.mojom.FrameSinksMetricsRecorder.getRemote = function() {
   return remote.$;
 };
 
-viz.mojom.FrameSinksMetricsRecorderReceiver = class {
+mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -291,7 +296,7 @@ viz.mojom.FrameSinksMetricsRecorderReceiver = class {
         // Try Method 0: StartFrameCounting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartFrameCounting (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -302,7 +307,7 @@ viz.mojom.FrameSinksMetricsRecorderReceiver = class {
         // Try Method 1: StopFrameCounting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopFrameCounting (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -313,7 +318,7 @@ viz.mojom.FrameSinksMetricsRecorderReceiver = class {
         // Try Method 2: StartOverdrawTracking
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartOverdrawTracking (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -324,7 +329,7 @@ viz.mojom.FrameSinksMetricsRecorderReceiver = class {
         // Try Method 3: StopOverdrawTracking
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopOverdrawTracking (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -341,21 +346,21 @@ viz.mojom.FrameSinksMetricsRecorderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startFrameCounting');
-          const result = this.impl.startFrameCounting(params.start_time, params.bucket_size);
+          const result = this.impl.startFrameCounting(params.arg_start_time, params.arg_bucket_size);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopFrameCounting');
           const result = this.impl.stopFrameCounting();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] StopFrameCounting FAILED:', e));
           }
@@ -363,21 +368,21 @@ viz.mojom.FrameSinksMetricsRecorderReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startOverdrawTracking');
-          const result = this.impl.startOverdrawTracking(params.root_frame_sink_id, params.bucket_size);
+          const result = this.impl.startOverdrawTracking(params.arg_root_frame_sink_id, params.arg_bucket_size);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopOverdrawTracking');
-          const result = this.impl.stopOverdrawTracking(params.root_frame_sink_id);
+          const result = this.impl.stopOverdrawTracking(params.arg_root_frame_sink_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] StopOverdrawTracking FAILED:', e));
           }
@@ -391,8 +396,8 @@ viz.mojom.FrameSinksMetricsRecorderReceiver = class {
   }
 };
 
-viz.mojom.FrameSinksMetricsRecorderReceiver = viz.mojom.FrameSinksMetricsRecorderReceiver;
+mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderReceiver = mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderReceiver;
 
-viz.mojom.FrameSinksMetricsRecorderPtr = viz.mojom.FrameSinksMetricsRecorderRemote;
-viz.mojom.FrameSinksMetricsRecorderRequest = viz.mojom.FrameSinksMetricsRecorderPendingReceiver;
+mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderPtr = mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderRemote;
+mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderRequest = mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderPendingReceiver;
 

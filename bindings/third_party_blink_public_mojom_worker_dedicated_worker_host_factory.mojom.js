@@ -1,127 +1,132 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/third_party/blink/public/mojom/worker/dedicated_worker_host_factory.mojom
-// Module: blink.mojom
+ // Source: chromium_src/third_party/blink/public/mojom/worker/dedicated_worker_host_factory.mojom
+ // Module: blink.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var blink = blink || {};
-blink.mojom = blink.mojom || {};
-var network = network || {};
-var url = url || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-blink.mojom.DedicatedWorkerHostFactoryClient = {};
-blink.mojom.DedicatedWorkerHostFactoryClient.$interfaceName = 'blink.mojom.DedicatedWorkerHostFactoryClient';
-blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_ParamsSpec = { $: {} };
-blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_ParamsSpec = { $: {} };
-blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_ParamsSpec = { $: {} };
-blink.mojom.DedicatedWorkerHostFactory = {};
-blink.mojom.DedicatedWorkerHostFactory.$interfaceName = 'blink.mojom.DedicatedWorkerHostFactory';
-blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_ParamsSpec = { $: {} };
+ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-blink.mojom.kNavigation_DedicatedWorkerSpec = "navigation:dedicated_worker";
+mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClient = {};
+mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClient.$interfaceName = 'blink.mojom.DedicatedWorkerHostFactoryClient';
+mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactory = {};
+mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactory.$interfaceName = 'blink.mojom.DedicatedWorkerHostFactory';
+mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_ParamsSpec = { $: {} };
+
+mojo.internal.bindings.blink.mojom.kNavigation_DedicatedWorkerSpec = "navigation:dedicated_worker";
 
 // Interface: DedicatedWorkerHostFactoryClient
 mojo.internal.Struct(
-    blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_ParamsSpec, 'blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_Params', [
-      mojo.internal.StructField('browser_interface_broker', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.BrowserInterfaceBrokerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('host', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.DedicatedWorkerHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('origin', 16, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_ParamsSpec, 'blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_Params', [
+      mojo.internal.StructField('arg_browser_interface_broker', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.DedicatedWorkerHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin', 16, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
-    blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_ParamsSpec, 'blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_Params', [
-      mojo.internal.StructField('service_worker_container_info', 0, 0, blink.mojom.ServiceWorkerContainerInfoForClientSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('main_script_load_params', 8, 0, blink.mojom.WorkerMainScriptLoadParamsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('subresource_loader_factories', 16, 0, blink.mojom.URLLoaderFactoryBundleSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('subresource_loader_updater', 24, 0, mojo.internal.InterfaceRequest(blink.mojom.SubresourceLoaderUpdaterRemote), null, false, 0, undefined),
-      mojo.internal.StructField('controller_info', 32, 0, blink.mojom.ControllerServiceWorkerInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('back_forward_cache_controller_host', 40, 0, mojo.internal.InterfaceProxy(blink.mojom.BackForwardCacheControllerHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('coep_reporting_observer_receiver', 48, 0, mojo.internal.InterfaceRequest(blink.mojom.ReportingObserverRemote), null, true, 0, undefined),
-      mojo.internal.StructField('dip_reporting_observer_receiver', 56, 0, mojo.internal.InterfaceRequest(blink.mojom.ReportingObserverRemote), null, true, 0, undefined),
+    mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_ParamsSpec, 'blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_Params', [
+      mojo.internal.StructField('arg_service_worker_container_info', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerContainerInfoForClientSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_main_script_load_params', 8, 0, mojo.internal.bindings.blink.mojom.WorkerMainScriptLoadParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_subresource_loader_factories', 16, 0, mojo.internal.bindings.blink.mojom.URLLoaderFactoryBundleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_subresource_loader_updater', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdaterRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_controller_info', 32, 0, mojo.internal.bindings.blink.mojom.ControllerServiceWorkerInfoSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_back_forward_cache_controller_host', 40, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_coep_reporting_observer_receiver', 48, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ReportingObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_dip_reporting_observer_receiver', 56, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ReportingObserverRemote), null, true, 0, undefined),
     ],
     [[0, 72]]);
 
 mojo.internal.Struct(
-    blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_ParamsSpec, 'blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_Params', [
+    mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_ParamsSpec, 'blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_Params', [
     ],
     [[0, 8]]);
 
-blink.mojom.DedicatedWorkerHostFactoryClientPendingReceiver = class {
+mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.DedicatedWorkerHostFactoryClientRemote = class {
+mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClientRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.DedicatedWorkerHostFactoryClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.DedicatedWorkerHostFactoryClientPendingReceiver,
+      mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClientPendingReceiver,
       handle);
-    this.$ = new blink.mojom.DedicatedWorkerHostFactoryClientRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -131,18 +136,18 @@ blink.mojom.DedicatedWorkerHostFactoryClientRemote = class {
   close() {
     this.proxy.close();
   }
-  onWorkerHostCreated(browser_interface_broker, host, origin) {
-    return this.$.onWorkerHostCreated(browser_interface_broker, host, origin);
+  onWorkerHostCreated(arg_browser_interface_broker, arg_host, arg_origin) {
+    return this.$.onWorkerHostCreated(arg_browser_interface_broker, arg_host, arg_origin);
   }
-  onScriptLoadStarted(service_worker_container_info, main_script_load_params, subresource_loader_factories, subresource_loader_updater, controller_info, back_forward_cache_controller_host, coep_reporting_observer_receiver, dip_reporting_observer_receiver) {
-    return this.$.onScriptLoadStarted(service_worker_container_info, main_script_load_params, subresource_loader_factories, subresource_loader_updater, controller_info, back_forward_cache_controller_host, coep_reporting_observer_receiver, dip_reporting_observer_receiver);
+  onScriptLoadStarted(arg_service_worker_container_info, arg_main_script_load_params, arg_subresource_loader_factories, arg_subresource_loader_updater, arg_controller_info, arg_back_forward_cache_controller_host, arg_coep_reporting_observer_receiver, arg_dip_reporting_observer_receiver) {
+    return this.$.onScriptLoadStarted(arg_service_worker_container_info, arg_main_script_load_params, arg_subresource_loader_factories, arg_subresource_loader_updater, arg_controller_info, arg_back_forward_cache_controller_host, arg_coep_reporting_observer_receiver, arg_dip_reporting_observer_receiver);
   }
   onScriptLoadStartFailed() {
     return this.$.onScriptLoadStartFailed();
   }
 };
 
-blink.mojom.DedicatedWorkerHostFactoryClientRemoteCallHandler = class {
+mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('DedicatedWorkerHostFactoryClient', [
@@ -152,28 +157,28 @@ blink.mojom.DedicatedWorkerHostFactoryClientRemoteCallHandler = class {
     ]);
   }
 
-  onWorkerHostCreated(browser_interface_broker, host, origin) {
+  onWorkerHostCreated(arg_browser_interface_broker, arg_host, arg_origin) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_ParamsSpec,
       null,
-      [browser_interface_broker, host, origin],
+      [arg_browser_interface_broker, arg_host, arg_origin],
       false);
   }
 
-  onScriptLoadStarted(service_worker_container_info, main_script_load_params, subresource_loader_factories, subresource_loader_updater, controller_info, back_forward_cache_controller_host, coep_reporting_observer_receiver, dip_reporting_observer_receiver) {
+  onScriptLoadStarted(arg_service_worker_container_info, arg_main_script_load_params, arg_subresource_loader_factories, arg_subresource_loader_updater, arg_controller_info, arg_back_forward_cache_controller_host, arg_coep_reporting_observer_receiver, arg_dip_reporting_observer_receiver) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_ParamsSpec,
       null,
-      [service_worker_container_info, main_script_load_params, subresource_loader_factories, subresource_loader_updater, controller_info, back_forward_cache_controller_host, coep_reporting_observer_receiver, dip_reporting_observer_receiver],
+      [arg_service_worker_container_info, arg_main_script_load_params, arg_subresource_loader_factories, arg_subresource_loader_updater, arg_controller_info, arg_back_forward_cache_controller_host, arg_coep_reporting_observer_receiver, arg_dip_reporting_observer_receiver],
       false);
   }
 
   onScriptLoadStartFailed() {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_ParamsSpec,
       null,
       [],
       false);
@@ -181,8 +186,8 @@ blink.mojom.DedicatedWorkerHostFactoryClientRemoteCallHandler = class {
 
 };
 
-blink.mojom.DedicatedWorkerHostFactoryClient.getRemote = function() {
-  let remote = new blink.mojom.DedicatedWorkerHostFactoryClientRemote();
+mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClient.getRemote = function() {
+  let remote = new mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -191,7 +196,7 @@ blink.mojom.DedicatedWorkerHostFactoryClient.getRemote = function() {
   return remote.$;
 };
 
-blink.mojom.DedicatedWorkerHostFactoryClientReceiver = class {
+mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -242,7 +247,7 @@ blink.mojom.DedicatedWorkerHostFactoryClientReceiver = class {
         // Try Method 0: OnWorkerHostCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWorkerHostCreated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -253,7 +258,7 @@ blink.mojom.DedicatedWorkerHostFactoryClientReceiver = class {
         // Try Method 1: OnScriptLoadStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScriptLoadStarted (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -264,7 +269,7 @@ blink.mojom.DedicatedWorkerHostFactoryClientReceiver = class {
         // Try Method 2: OnScriptLoadStartFailed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScriptLoadStartFailed (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -281,21 +286,21 @@ blink.mojom.DedicatedWorkerHostFactoryClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWorkerHostCreated');
-          const result = this.impl.onWorkerHostCreated(params.browser_interface_broker, params.host, params.origin);
+          const result = this.impl.onWorkerHostCreated(params.arg_browser_interface_broker, params.arg_host, params.arg_origin);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScriptLoadStarted');
-          const result = this.impl.onScriptLoadStarted(params.service_worker_container_info, params.main_script_load_params, params.subresource_loader_factories, params.subresource_loader_updater, params.controller_info, params.back_forward_cache_controller_host, params.coep_reporting_observer_receiver, params.dip_reporting_observer_receiver);
+          const result = this.impl.onScriptLoadStarted(params.arg_service_worker_container_info, params.arg_main_script_load_params, params.arg_subresource_loader_factories, params.arg_subresource_loader_updater, params.arg_controller_info, params.arg_back_forward_cache_controller_host, params.arg_coep_reporting_observer_receiver, params.arg_dip_reporting_observer_receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScriptLoadStartFailed');
           const result = this.impl.onScriptLoadStartFailed();
           break;
@@ -308,41 +313,41 @@ blink.mojom.DedicatedWorkerHostFactoryClientReceiver = class {
   }
 };
 
-blink.mojom.DedicatedWorkerHostFactoryClientReceiver = blink.mojom.DedicatedWorkerHostFactoryClientReceiver;
+mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClientReceiver = mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClientReceiver;
 
-blink.mojom.DedicatedWorkerHostFactoryClientPtr = blink.mojom.DedicatedWorkerHostFactoryClientRemote;
-blink.mojom.DedicatedWorkerHostFactoryClientRequest = blink.mojom.DedicatedWorkerHostFactoryClientPendingReceiver;
+mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClientPtr = mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClientRemote;
+mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClientRequest = mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClientPendingReceiver;
 
 
 // Interface: DedicatedWorkerHostFactory
 mojo.internal.Struct(
-    blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_ParamsSpec, 'blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_Params', [
-      mojo.internal.StructField('token', 0, 0, blink.mojom.DedicatedWorkerTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('script_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('credentials_mode', 16, 0, network.mojom.CredentialsModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('outside_fetch_client_settings_object', 24, 0, blink.mojom.FetchClientSettingsObjectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('blob_url_token', 32, 0, mojo.internal.InterfaceProxy(blink.mojom.BlobURLTokenRemote), null, true, 0, undefined),
-      mojo.internal.StructField('client', 40, 0, mojo.internal.InterfaceProxy(blink.mojom.DedicatedWorkerHostFactoryClientSpec), null, false, 0, undefined),
-      mojo.internal.StructField('storage_access_api_status', 48, 0, network.mojom.StorageAccessApiStatusSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_ParamsSpec, 'blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_Params', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.blink.mojom.DedicatedWorkerTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_script_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_credentials_mode', 16, 0, mojo.internal.bindings.network.mojom.CredentialsModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_outside_fetch_client_settings_object', 24, 0, mojo.internal.bindings.blink.mojom.FetchClientSettingsObjectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_blob_url_token', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BlobURLTokenRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_client', 40, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_storage_access_api_status', 48, 0, mojo.internal.bindings.network.mojom.StorageAccessApiStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
-blink.mojom.DedicatedWorkerHostFactoryPendingReceiver = class {
+mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.DedicatedWorkerHostFactoryRemote = class {
+mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.DedicatedWorkerHostFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.DedicatedWorkerHostFactoryPendingReceiver,
+      mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryPendingReceiver,
       handle);
-    this.$ = new blink.mojom.DedicatedWorkerHostFactoryRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -352,12 +357,12 @@ blink.mojom.DedicatedWorkerHostFactoryRemote = class {
   close() {
     this.proxy.close();
   }
-  createWorkerHostAndStartScriptLoad(token, script_url, credentials_mode, outside_fetch_client_settings_object, blob_url_token, client, storage_access_api_status) {
-    return this.$.createWorkerHostAndStartScriptLoad(token, script_url, credentials_mode, outside_fetch_client_settings_object, blob_url_token, client, storage_access_api_status);
+  createWorkerHostAndStartScriptLoad(arg_token, arg_script_url, arg_credentials_mode, arg_outside_fetch_client_settings_object, arg_blob_url_token, arg_client, arg_storage_access_api_status) {
+    return this.$.createWorkerHostAndStartScriptLoad(arg_token, arg_script_url, arg_credentials_mode, arg_outside_fetch_client_settings_object, arg_blob_url_token, arg_client, arg_storage_access_api_status);
   }
 };
 
-blink.mojom.DedicatedWorkerHostFactoryRemoteCallHandler = class {
+mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('DedicatedWorkerHostFactory', [
@@ -365,19 +370,19 @@ blink.mojom.DedicatedWorkerHostFactoryRemoteCallHandler = class {
     ]);
   }
 
-  createWorkerHostAndStartScriptLoad(token, script_url, credentials_mode, outside_fetch_client_settings_object, blob_url_token, client, storage_access_api_status) {
+  createWorkerHostAndStartScriptLoad(arg_token, arg_script_url, arg_credentials_mode, arg_outside_fetch_client_settings_object, arg_blob_url_token, arg_client, arg_storage_access_api_status) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_ParamsSpec,
       null,
-      [token, script_url, credentials_mode, outside_fetch_client_settings_object, blob_url_token, client, storage_access_api_status],
+      [arg_token, arg_script_url, arg_credentials_mode, arg_outside_fetch_client_settings_object, arg_blob_url_token, arg_client, arg_storage_access_api_status],
       false);
   }
 
 };
 
-blink.mojom.DedicatedWorkerHostFactory.getRemote = function() {
-  let remote = new blink.mojom.DedicatedWorkerHostFactoryRemote();
+mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactory.getRemote = function() {
+  let remote = new mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -386,7 +391,7 @@ blink.mojom.DedicatedWorkerHostFactory.getRemote = function() {
   return remote.$;
 };
 
-blink.mojom.DedicatedWorkerHostFactoryReceiver = class {
+mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -435,7 +440,7 @@ blink.mojom.DedicatedWorkerHostFactoryReceiver = class {
         // Try Method 0: CreateWorkerHostAndStartScriptLoad
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWorkerHostAndStartScriptLoad (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -452,9 +457,9 @@ blink.mojom.DedicatedWorkerHostFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createWorkerHostAndStartScriptLoad');
-          const result = this.impl.createWorkerHostAndStartScriptLoad(params.token, params.script_url, params.credentials_mode, params.outside_fetch_client_settings_object, params.blob_url_token, params.client, params.storage_access_api_status);
+          const result = this.impl.createWorkerHostAndStartScriptLoad(params.arg_token, params.arg_script_url, params.arg_credentials_mode, params.arg_outside_fetch_client_settings_object, params.arg_blob_url_token, params.arg_client, params.arg_storage_access_api_status);
           break;
         }
       }
@@ -465,8 +470,8 @@ blink.mojom.DedicatedWorkerHostFactoryReceiver = class {
   }
 };
 
-blink.mojom.DedicatedWorkerHostFactoryReceiver = blink.mojom.DedicatedWorkerHostFactoryReceiver;
+mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryReceiver = mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryReceiver;
 
-blink.mojom.DedicatedWorkerHostFactoryPtr = blink.mojom.DedicatedWorkerHostFactoryRemote;
-blink.mojom.DedicatedWorkerHostFactoryRequest = blink.mojom.DedicatedWorkerHostFactoryPendingReceiver;
+mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryPtr = mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryRemote;
+mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryRequest = mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryPendingReceiver;
 

@@ -1,106 +1,111 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/third_party/blink/public/mojom/content_extraction/frame_metadata_observer_registry.mojom
-// Module: blink.mojom
+ // Source: chromium_src/third_party/blink/public/mojom/content_extraction/frame_metadata_observer_registry.mojom
+ // Module: blink.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var blink = blink || {};
-blink.mojom = blink.mojom || {};
-var url = url || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-blink.mojom.PaidContentMetadataObserver = {};
-blink.mojom.PaidContentMetadataObserver.$interfaceName = 'blink.mojom.PaidContentMetadataObserver';
-blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec = { $: {} };
-blink.mojom.MetaTagsObserver = {};
-blink.mojom.MetaTagsObserver.$interfaceName = 'blink.mojom.MetaTagsObserver';
-blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec = { $: {} };
-blink.mojom.FrameMetadataObserverRegistry = {};
-blink.mojom.FrameMetadataObserverRegistry.$interfaceName = 'blink.mojom.FrameMetadataObserverRegistry';
-blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec = { $: {} };
-blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec = { $: {} };
+ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+
+mojo.internal.bindings.blink.mojom.PaidContentMetadataObserver = {};
+mojo.internal.bindings.blink.mojom.PaidContentMetadataObserver.$interfaceName = 'blink.mojom.PaidContentMetadataObserver';
+mojo.internal.bindings.blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.MetaTagsObserver = {};
+mojo.internal.bindings.blink.mojom.MetaTagsObserver.$interfaceName = 'blink.mojom.MetaTagsObserver';
+mojo.internal.bindings.blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry = {};
+mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry.$interfaceName = 'blink.mojom.FrameMetadataObserverRegistry';
+mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec = { $: {} };
 
 // Interface: PaidContentMetadataObserver
 mojo.internal.Struct(
-    blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec, 'blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_Params', [
-      mojo.internal.StructField('has_paid_content', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec, 'blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_Params', [
+      mojo.internal.StructField('arg_has_paid_content', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
-blink.mojom.PaidContentMetadataObserverPendingReceiver = class {
+mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.PaidContentMetadataObserverRemote = class {
+mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.PaidContentMetadataObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.PaidContentMetadataObserverPendingReceiver,
+      mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverPendingReceiver,
       handle);
-    this.$ = new blink.mojom.PaidContentMetadataObserverRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -110,12 +115,12 @@ blink.mojom.PaidContentMetadataObserverRemote = class {
   close() {
     this.proxy.close();
   }
-  onPaidContentMetadataChanged(has_paid_content) {
-    return this.$.onPaidContentMetadataChanged(has_paid_content);
+  onPaidContentMetadataChanged(arg_has_paid_content) {
+    return this.$.onPaidContentMetadataChanged(arg_has_paid_content);
   }
 };
 
-blink.mojom.PaidContentMetadataObserverRemoteCallHandler = class {
+mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('PaidContentMetadataObserver', [
@@ -123,19 +128,19 @@ blink.mojom.PaidContentMetadataObserverRemoteCallHandler = class {
     ]);
   }
 
-  onPaidContentMetadataChanged(has_paid_content) {
+  onPaidContentMetadataChanged(arg_has_paid_content) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec,
       null,
-      [has_paid_content],
+      [arg_has_paid_content],
       false);
   }
 
 };
 
-blink.mojom.PaidContentMetadataObserver.getRemote = function() {
-  let remote = new blink.mojom.PaidContentMetadataObserverRemote();
+mojo.internal.bindings.blink.mojom.PaidContentMetadataObserver.getRemote = function() {
+  let remote = new mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -144,7 +149,7 @@ blink.mojom.PaidContentMetadataObserver.getRemote = function() {
   return remote.$;
 };
 
-blink.mojom.PaidContentMetadataObserverReceiver = class {
+mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -193,7 +198,7 @@ blink.mojom.PaidContentMetadataObserverReceiver = class {
         // Try Method 0: OnPaidContentMetadataChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPaidContentMetadataChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -210,9 +215,9 @@ blink.mojom.PaidContentMetadataObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPaidContentMetadataChanged');
-          const result = this.impl.onPaidContentMetadataChanged(params.has_paid_content);
+          const result = this.impl.onPaidContentMetadataChanged(params.arg_has_paid_content);
           break;
         }
       }
@@ -223,35 +228,35 @@ blink.mojom.PaidContentMetadataObserverReceiver = class {
   }
 };
 
-blink.mojom.PaidContentMetadataObserverReceiver = blink.mojom.PaidContentMetadataObserverReceiver;
+mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverReceiver = mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverReceiver;
 
-blink.mojom.PaidContentMetadataObserverPtr = blink.mojom.PaidContentMetadataObserverRemote;
-blink.mojom.PaidContentMetadataObserverRequest = blink.mojom.PaidContentMetadataObserverPendingReceiver;
+mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverPtr = mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverRemote;
+mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverRequest = mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverPendingReceiver;
 
 
 // Interface: MetaTagsObserver
 mojo.internal.Struct(
-    blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec, 'blink.mojom.MetaTagsObserver_OnMetaTagsChanged_Params', [
-      mojo.internal.StructField('meta_tags', 0, 0, mojo.internal.Array(blink.mojom.MetaTagSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec, 'blink.mojom.MetaTagsObserver_OnMetaTagsChanged_Params', [
+      mojo.internal.StructField('arg_meta_tags', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.MetaTagSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-blink.mojom.MetaTagsObserverPendingReceiver = class {
+mojo.internal.bindings.blink.mojom.MetaTagsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.MetaTagsObserverRemote = class {
+mojo.internal.bindings.blink.mojom.MetaTagsObserverRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.MetaTagsObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.MetaTagsObserverPendingReceiver,
+      mojo.internal.bindings.blink.mojom.MetaTagsObserverPendingReceiver,
       handle);
-    this.$ = new blink.mojom.MetaTagsObserverRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.blink.mojom.MetaTagsObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -261,12 +266,12 @@ blink.mojom.MetaTagsObserverRemote = class {
   close() {
     this.proxy.close();
   }
-  onMetaTagsChanged(meta_tags) {
-    return this.$.onMetaTagsChanged(meta_tags);
+  onMetaTagsChanged(arg_meta_tags) {
+    return this.$.onMetaTagsChanged(arg_meta_tags);
   }
 };
 
-blink.mojom.MetaTagsObserverRemoteCallHandler = class {
+mojo.internal.bindings.blink.mojom.MetaTagsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('MetaTagsObserver', [
@@ -274,19 +279,19 @@ blink.mojom.MetaTagsObserverRemoteCallHandler = class {
     ]);
   }
 
-  onMetaTagsChanged(meta_tags) {
+  onMetaTagsChanged(arg_meta_tags) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec,
       null,
-      [meta_tags],
+      [arg_meta_tags],
       false);
   }
 
 };
 
-blink.mojom.MetaTagsObserver.getRemote = function() {
-  let remote = new blink.mojom.MetaTagsObserverRemote();
+mojo.internal.bindings.blink.mojom.MetaTagsObserver.getRemote = function() {
+  let remote = new mojo.internal.bindings.blink.mojom.MetaTagsObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -295,7 +300,7 @@ blink.mojom.MetaTagsObserver.getRemote = function() {
   return remote.$;
 };
 
-blink.mojom.MetaTagsObserverReceiver = class {
+mojo.internal.bindings.blink.mojom.MetaTagsObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -344,7 +349,7 @@ blink.mojom.MetaTagsObserverReceiver = class {
         // Try Method 0: OnMetaTagsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMetaTagsChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -361,9 +366,9 @@ blink.mojom.MetaTagsObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMetaTagsChanged');
-          const result = this.impl.onMetaTagsChanged(params.meta_tags);
+          const result = this.impl.onMetaTagsChanged(params.arg_meta_tags);
           break;
         }
       }
@@ -374,42 +379,42 @@ blink.mojom.MetaTagsObserverReceiver = class {
   }
 };
 
-blink.mojom.MetaTagsObserverReceiver = blink.mojom.MetaTagsObserverReceiver;
+mojo.internal.bindings.blink.mojom.MetaTagsObserverReceiver = mojo.internal.bindings.blink.mojom.MetaTagsObserverReceiver;
 
-blink.mojom.MetaTagsObserverPtr = blink.mojom.MetaTagsObserverRemote;
-blink.mojom.MetaTagsObserverRequest = blink.mojom.MetaTagsObserverPendingReceiver;
+mojo.internal.bindings.blink.mojom.MetaTagsObserverPtr = mojo.internal.bindings.blink.mojom.MetaTagsObserverRemote;
+mojo.internal.bindings.blink.mojom.MetaTagsObserverRequest = mojo.internal.bindings.blink.mojom.MetaTagsObserverPendingReceiver;
 
 
 // Interface: FrameMetadataObserverRegistry
 mojo.internal.Struct(
-    blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec, 'blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(blink.mojom.PaidContentMetadataObserverSpec), null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec, 'blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec, 'blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_Params', [
-      mojo.internal.StructField('names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(blink.mojom.MetaTagsObserverSpec), null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec, 'blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_Params', [
+      mojo.internal.StructField('arg_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.MetaTagsObserverSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
-blink.mojom.FrameMetadataObserverRegistryPendingReceiver = class {
+mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.FrameMetadataObserverRegistryRemote = class {
+mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistryRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.FrameMetadataObserverRegistry';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.FrameMetadataObserverRegistryPendingReceiver,
+      mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistryPendingReceiver,
       handle);
-    this.$ = new blink.mojom.FrameMetadataObserverRegistryRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -419,15 +424,15 @@ blink.mojom.FrameMetadataObserverRegistryRemote = class {
   close() {
     this.proxy.close();
   }
-  addPaidContentMetadataObserver(observer) {
-    return this.$.addPaidContentMetadataObserver(observer);
+  addPaidContentMetadataObserver(arg_observer) {
+    return this.$.addPaidContentMetadataObserver(arg_observer);
   }
-  addMetaTagsObserver(names, observer) {
-    return this.$.addMetaTagsObserver(names, observer);
+  addMetaTagsObserver(arg_names, arg_observer) {
+    return this.$.addMetaTagsObserver(arg_names, arg_observer);
   }
 };
 
-blink.mojom.FrameMetadataObserverRegistryRemoteCallHandler = class {
+mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('FrameMetadataObserverRegistry', [
@@ -436,28 +441,28 @@ blink.mojom.FrameMetadataObserverRegistryRemoteCallHandler = class {
     ]);
   }
 
-  addPaidContentMetadataObserver(observer) {
+  addPaidContentMetadataObserver(arg_observer) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec,
       null,
-      [observer],
+      [arg_observer],
       false);
   }
 
-  addMetaTagsObserver(names, observer) {
+  addMetaTagsObserver(arg_names, arg_observer) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec,
       null,
-      [names, observer],
+      [arg_names, arg_observer],
       false);
   }
 
 };
 
-blink.mojom.FrameMetadataObserverRegistry.getRemote = function() {
-  let remote = new blink.mojom.FrameMetadataObserverRegistryRemote();
+mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry.getRemote = function() {
+  let remote = new mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -466,7 +471,7 @@ blink.mojom.FrameMetadataObserverRegistry.getRemote = function() {
   return remote.$;
 };
 
-blink.mojom.FrameMetadataObserverRegistryReceiver = class {
+mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -516,7 +521,7 @@ blink.mojom.FrameMetadataObserverRegistryReceiver = class {
         // Try Method 0: AddPaidContentMetadataObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddPaidContentMetadataObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -527,7 +532,7 @@ blink.mojom.FrameMetadataObserverRegistryReceiver = class {
         // Try Method 1: AddMetaTagsObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddMetaTagsObserver (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -544,16 +549,16 @@ blink.mojom.FrameMetadataObserverRegistryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPaidContentMetadataObserver');
-          const result = this.impl.addPaidContentMetadataObserver(params.observer);
+          const result = this.impl.addPaidContentMetadataObserver(params.arg_observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addMetaTagsObserver');
-          const result = this.impl.addMetaTagsObserver(params.names, params.observer);
+          const result = this.impl.addMetaTagsObserver(params.arg_names, params.arg_observer);
           break;
         }
       }
@@ -564,8 +569,8 @@ blink.mojom.FrameMetadataObserverRegistryReceiver = class {
   }
 };
 
-blink.mojom.FrameMetadataObserverRegistryReceiver = blink.mojom.FrameMetadataObserverRegistryReceiver;
+mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistryReceiver = mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistryReceiver;
 
-blink.mojom.FrameMetadataObserverRegistryPtr = blink.mojom.FrameMetadataObserverRegistryRemote;
-blink.mojom.FrameMetadataObserverRegistryRequest = blink.mojom.FrameMetadataObserverRegistryPendingReceiver;
+mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistryPtr = mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistryRemote;
+mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistryRequest = mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistryPendingReceiver;
 

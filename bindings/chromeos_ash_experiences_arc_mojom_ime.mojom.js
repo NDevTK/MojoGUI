@@ -1,109 +1,114 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/chromeos/ash/experiences/arc/mojom/ime.mojom
-// Module: arc.mojom
+ // Source: chromium_src/chromeos/ash/experiences/arc/mojom/ime.mojom
+ // Module: arc.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var arc = arc || {};
-arc.mojom = arc.mojom || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-arc.mojom.TextInputTypeSpec = { $: mojo.internal.Enum() };
-arc.mojom.SegmentStyleSpec = { $: mojo.internal.Enum() };
-arc.mojom.CursorCoordinateSpaceSpec = { $: mojo.internal.Enum() };
-arc.mojom.CompositionSegmentSpec = { $: {} };
-arc.mojom.KeyEventDataSpec = { $: {} };
-arc.mojom.ImeHost = {};
-arc.mojom.ImeHost.$interfaceName = 'arc.mojom.ImeHost';
-arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec = { $: {} };
-arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec = { $: {} };
-arc.mojom.ImeHost_OnCancelComposition_ParamsSpec = { $: {} };
-arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec = { $: {} };
-arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec = { $: {} };
-arc.mojom.ImeHost_SendKeyEvent_ParamsSpec = { $: {} };
-arc.mojom.ImeHost_SendKeyEvent_ResponseParamsSpec = { $: {} };
-arc.mojom.ImeInstance = {};
-arc.mojom.ImeInstance.$interfaceName = 'arc.mojom.ImeInstance';
-arc.mojom.ImeInstance_Init_ParamsSpec = { $: {} };
-arc.mojom.ImeInstance_Init_ResponseParamsSpec = { $: {} };
-arc.mojom.ImeInstance_SetCompositionText_ParamsSpec = { $: {} };
-arc.mojom.ImeInstance_SetSelectionText_ParamsSpec = { $: {} };
-arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec = { $: {} };
-arc.mojom.ImeInstance_InsertText_ParamsSpec = { $: {} };
-arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec = { $: {} };
-arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec = { $: {} };
-arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec = { $: {} };
+ mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
-arc.mojom.TEXT_INPUT_FLAG_NONE = 0;
+mojo.internal.bindings.arc.mojom.TextInputTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.SegmentStyleSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.CursorCoordinateSpaceSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.CompositionSegmentSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.KeyEventDataSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.ImeHost = {};
+mojo.internal.bindings.arc.mojom.ImeHost.$interfaceName = 'arc.mojom.ImeHost';
+mojo.internal.bindings.arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.ImeHost_OnCancelComposition_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.ImeHost_SendKeyEvent_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.ImeHost_SendKeyEvent_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.ImeInstance = {};
+mojo.internal.bindings.arc.mojom.ImeInstance.$interfaceName = 'arc.mojom.ImeInstance';
+mojo.internal.bindings.arc.mojom.ImeInstance_Init_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.ImeInstance_Init_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.ImeInstance_SetCompositionText_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.ImeInstance_SetSelectionText_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.ImeInstance_InsertText_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec = { $: {} };
 
-arc.mojom.TEXT_INPUT_FLAG_AUTOCAPITALIZE_NONE = 64;
+mojo.internal.bindings.arc.mojom.TEXT_INPUT_FLAG_NONE = 0;
 
-arc.mojom.TEXT_INPUT_FLAG_AUTOCAPITALIZE_CHARACTERS = 128;
+mojo.internal.bindings.arc.mojom.TEXT_INPUT_FLAG_AUTOCAPITALIZE_NONE = 64;
 
-arc.mojom.TEXT_INPUT_FLAG_AUTOCAPITALIZE_WORDS = 256;
+mojo.internal.bindings.arc.mojom.TEXT_INPUT_FLAG_AUTOCAPITALIZE_CHARACTERS = 128;
 
-arc.mojom.TEXT_INPUT_FLAG_AUTOCAPITALIZE_SENTENCES = 512;
+mojo.internal.bindings.arc.mojom.TEXT_INPUT_FLAG_AUTOCAPITALIZE_WORDS = 256;
+
+mojo.internal.bindings.arc.mojom.TEXT_INPUT_FLAG_AUTOCAPITALIZE_SENTENCES = 512;
 
 // Enum: TextInputType
-arc.mojom.TextInputType = {
+mojo.internal.bindings.arc.mojom.TextInputType = {
   NONE: 0,
   TEXT: 1,
   PASSWORD: 2,
@@ -119,14 +124,14 @@ arc.mojom.TextInputType = {
 };
 
 // Enum: SegmentStyle
-arc.mojom.SegmentStyle = {
+mojo.internal.bindings.arc.mojom.SegmentStyle = {
   DEFAULT: 0,
   EMPHASIZED: 1,
   NONE: 2,
 };
 
 // Enum: CursorCoordinateSpace
-arc.mojom.CursorCoordinateSpace = {
+mojo.internal.bindings.arc.mojom.CursorCoordinateSpace = {
   SCREEN: 0,
   DISPLAY: 1,
   NOTIFICATION: 2,
@@ -134,93 +139,93 @@ arc.mojom.CursorCoordinateSpace = {
 
 // Struct: CompositionSegment
 mojo.internal.Struct(
-    arc.mojom.CompositionSegmentSpec, 'arc.mojom.CompositionSegment', [
-      mojo.internal.StructField('start_offset', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('end_offset', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('emphasized', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('style', 16, 0, arc.mojom.SegmentStyleSpec.$, null, false, 18, undefined),
+    mojo.internal.bindings.arc.mojom.CompositionSegmentSpec, 'arc.mojom.CompositionSegment', [
+      mojo.internal.StructField('arg_start_offset', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_end_offset', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_emphasized', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_style', 16, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.SegmentStyleSpec.$, null, false, 18, undefined),
     ],
     [[0, 24], [18, 32]]);
 
 // Struct: KeyEventData
 mojo.internal.Struct(
-    arc.mojom.KeyEventDataSpec, 'arc.mojom.KeyEventData', [
-      mojo.internal.StructField('key_code', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('pressed', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_shift_down', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_control_down', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_alt_down', 4, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_capslock_on', 4, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('scan_code', 8, 0, mojo.internal.Uint32, 0, false, 16, undefined),
-      mojo.internal.StructField('is_alt_gr_down', 12, 0, mojo.internal.Bool, false, false, 20, undefined),
-      mojo.internal.StructField('is_repeat', 12, 1, mojo.internal.Bool, false, false, 23, undefined),
+    mojo.internal.bindings.arc.mojom.KeyEventDataSpec, 'arc.mojom.KeyEventData', [
+      mojo.internal.StructField('arg_key_code', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pressed', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_shift_down', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_control_down', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_alt_down', 4, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_capslock_on', 4, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_scan_code', 8, 0, mojo.internal.Uint32, 0, false, 16, undefined),
+      mojo.internal.StructField('arg_is_alt_gr_down', 12, 0, mojo.internal.Bool, false, false, 20, undefined),
+      mojo.internal.StructField('arg_is_repeat', 12, 1, mojo.internal.Bool, false, false, 23, undefined),
     ],
     [[0, 16], [16, 24], [20, 24], [23, 24]]);
 
 // Interface: ImeHost
 mojo.internal.Struct(
-    arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec, 'arc.mojom.ImeHost_OnTextInputTypeChanged_Params', [
-      mojo.internal.StructField('type', 0, 0, arc.mojom.TextInputTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('is_personalized_learning_allowed', 8, 0, mojo.internal.Bool, false, false, 10, undefined),
-      mojo.internal.StructField('flags', 12, 0, mojo.internal.Int32, 0, false, 11, undefined),
+    mojo.internal.bindings.arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec, 'arc.mojom.ImeHost_OnTextInputTypeChanged_Params', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.TextInputTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_personalized_learning_allowed', 8, 0, mojo.internal.Bool, false, false, 10, undefined),
+      mojo.internal.StructField('arg_flags', 12, 0, mojo.internal.Int32, 0, false, 11, undefined),
     ],
     [[0, 16], [10, 24], [11, 24]]);
 
 mojo.internal.Struct(
-    arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec, 'arc.mojom.ImeHost_OnCursorRectChanged_Params', [
-      mojo.internal.StructField('rect', 0, 0, arc.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('coordinateSpace', 8, 0, arc.mojom.CursorCoordinateSpaceSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec, 'arc.mojom.ImeHost_OnCursorRectChanged_Params', [
+      mojo.internal.StructField('arg_rect', 0, 0, mojo.internal.bindings.arc.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_coordinateSpace', 8, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.CursorCoordinateSpaceSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    arc.mojom.ImeHost_OnCancelComposition_ParamsSpec, 'arc.mojom.ImeHost_OnCancelComposition_Params', [
+    mojo.internal.bindings.arc.mojom.ImeHost_OnCancelComposition_ParamsSpec, 'arc.mojom.ImeHost_OnCancelComposition_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec, 'arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_Params', [
+    mojo.internal.bindings.arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec, 'arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec, 'arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_Params', [
-      mojo.internal.StructField('rect', 0, 0, arc.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('text_range', 8, 0, arc.mojom.RangeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('text_in_range', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('selection_range', 24, 0, arc.mojom.RangeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('coordinateSpace', 32, 0, arc.mojom.CursorCoordinateSpaceSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec, 'arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_Params', [
+      mojo.internal.StructField('arg_rect', 0, 0, mojo.internal.bindings.arc.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_range', 8, 0, mojo.internal.bindings.arc.mojom.RangeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_in_range', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_selection_range', 24, 0, mojo.internal.bindings.arc.mojom.RangeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_coordinateSpace', 32, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.CursorCoordinateSpaceSpec.$, null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 mojo.internal.Struct(
-    arc.mojom.ImeHost_SendKeyEvent_ParamsSpec, 'arc.mojom.ImeHost_SendKeyEvent_Params', [
-      mojo.internal.StructField('key_event_data', 0, 0, arc.mojom.KeyEventDataSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.arc.mojom.ImeHost_SendKeyEvent_ParamsSpec, 'arc.mojom.ImeHost_SendKeyEvent_Params', [
+      mojo.internal.StructField('arg_key_event_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.KeyEventDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    arc.mojom.ImeHost_SendKeyEvent_ResponseParamsSpec, 'arc.mojom.ImeHost_SendKeyEvent_ResponseParams', [
-      mojo.internal.StructField('is_consumed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.arc.mojom.ImeHost_SendKeyEvent_ResponseParamsSpec, 'arc.mojom.ImeHost_SendKeyEvent_ResponseParams', [
+      mojo.internal.StructField('arg_is_consumed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
-arc.mojom.ImeHostPendingReceiver = class {
+mojo.internal.bindings.arc.mojom.ImeHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.ImeHostRemote = class {
+mojo.internal.bindings.arc.mojom.ImeHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.ImeHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.ImeHostPendingReceiver,
+      mojo.internal.bindings.arc.mojom.ImeHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.ImeHostRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.arc.mojom.ImeHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -230,11 +235,11 @@ arc.mojom.ImeHostRemote = class {
   close() {
     this.proxy.close();
   }
-  onTextInputTypeChanged(type, is_personalized_learning_allowed, flags) {
-    return this.$.onTextInputTypeChanged(type, is_personalized_learning_allowed, flags);
+  onTextInputTypeChanged(arg_type, arg_is_personalized_learning_allowed, arg_flags) {
+    return this.$.onTextInputTypeChanged(arg_type, arg_is_personalized_learning_allowed, arg_flags);
   }
-  onCursorRectChanged(rect, coordinateSpace) {
-    return this.$.onCursorRectChanged(rect, coordinateSpace);
+  onCursorRectChanged(arg_rect, arg_coordinateSpace) {
+    return this.$.onCursorRectChanged(arg_rect, arg_coordinateSpace);
   }
   onCancelComposition() {
     return this.$.onCancelComposition();
@@ -242,15 +247,15 @@ arc.mojom.ImeHostRemote = class {
   showVirtualKeyboardIfEnabled() {
     return this.$.showVirtualKeyboardIfEnabled();
   }
-  onCursorRectChangedWithSurroundingText(rect, text_range, text_in_range, selection_range, coordinateSpace) {
-    return this.$.onCursorRectChangedWithSurroundingText(rect, text_range, text_in_range, selection_range, coordinateSpace);
+  onCursorRectChangedWithSurroundingText(arg_rect, arg_text_range, arg_text_in_range, arg_selection_range, arg_coordinateSpace) {
+    return this.$.onCursorRectChangedWithSurroundingText(arg_rect, arg_text_range, arg_text_in_range, arg_selection_range, arg_coordinateSpace);
   }
-  sendKeyEvent(key_event_data) {
-    return this.$.sendKeyEvent(key_event_data);
+  sendKeyEvent(arg_key_event_data) {
+    return this.$.sendKeyEvent(arg_key_event_data);
   }
 };
 
-arc.mojom.ImeHostRemoteCallHandler = class {
+mojo.internal.bindings.arc.mojom.ImeHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ImeHost', [
@@ -263,28 +268,28 @@ arc.mojom.ImeHostRemoteCallHandler = class {
     ]);
   }
 
-  onTextInputTypeChanged(type, is_personalized_learning_allowed, flags) {
+  onTextInputTypeChanged(arg_type, arg_is_personalized_learning_allowed, arg_flags) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec,
+      mojo.internal.bindings.arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec,
       null,
-      [type, is_personalized_learning_allowed, flags],
+      [arg_type, arg_is_personalized_learning_allowed, arg_flags],
       false);
   }
 
-  onCursorRectChanged(rect, coordinateSpace) {
+  onCursorRectChanged(arg_rect, arg_coordinateSpace) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec,
+      mojo.internal.bindings.arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec,
       null,
-      [rect, coordinateSpace],
+      [arg_rect, arg_coordinateSpace],
       false);
   }
 
   onCancelComposition() {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      arc.mojom.ImeHost_OnCancelComposition_ParamsSpec,
+      mojo.internal.bindings.arc.mojom.ImeHost_OnCancelComposition_ParamsSpec,
       null,
       [],
       false);
@@ -293,34 +298,34 @@ arc.mojom.ImeHostRemoteCallHandler = class {
   showVirtualKeyboardIfEnabled() {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec,
+      mojo.internal.bindings.arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec,
       null,
       [],
       false);
   }
 
-  onCursorRectChangedWithSurroundingText(rect, text_range, text_in_range, selection_range, coordinateSpace) {
+  onCursorRectChangedWithSurroundingText(arg_rect, arg_text_range, arg_text_in_range, arg_selection_range, arg_coordinateSpace) {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
-      arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec,
+      mojo.internal.bindings.arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec,
       null,
-      [rect, text_range, text_in_range, selection_range, coordinateSpace],
+      [arg_rect, arg_text_range, arg_text_in_range, arg_selection_range, arg_coordinateSpace],
       false);
   }
 
-  sendKeyEvent(key_event_data) {
+  sendKeyEvent(arg_key_event_data) {
     return this.proxy.sendMessage(
       this.ordinals[5],  // ordinal
-      arc.mojom.ImeHost_SendKeyEvent_ParamsSpec,
-      arc.mojom.ImeHost_SendKeyEvent_ResponseParamsSpec,
-      [key_event_data],
+      mojo.internal.bindings.arc.mojom.ImeHost_SendKeyEvent_ParamsSpec,
+      mojo.internal.bindings.arc.mojom.ImeHost_SendKeyEvent_ResponseParamsSpec,
+      [arg_key_event_data],
       false);
   }
 
 };
 
-arc.mojom.ImeHost.getRemote = function() {
-  let remote = new arc.mojom.ImeHostRemote();
+mojo.internal.bindings.arc.mojom.ImeHost.getRemote = function() {
+  let remote = new mojo.internal.bindings.arc.mojom.ImeHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -329,7 +334,7 @@ arc.mojom.ImeHost.getRemote = function() {
   return remote.$;
 };
 
-arc.mojom.ImeHostReceiver = class {
+mojo.internal.bindings.arc.mojom.ImeHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -383,7 +388,7 @@ arc.mojom.ImeHostReceiver = class {
         // Try Method 0: OnTextInputTypeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTextInputTypeChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -394,7 +399,7 @@ arc.mojom.ImeHostReceiver = class {
         // Try Method 1: OnCursorRectChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCursorRectChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -405,7 +410,7 @@ arc.mojom.ImeHostReceiver = class {
         // Try Method 2: OnCancelComposition
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.ImeHost_OnCancelComposition_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeHost_OnCancelComposition_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCancelComposition (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -416,7 +421,7 @@ arc.mojom.ImeHostReceiver = class {
         // Try Method 3: ShowVirtualKeyboardIfEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowVirtualKeyboardIfEnabled (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -427,7 +432,7 @@ arc.mojom.ImeHostReceiver = class {
         // Try Method 4: OnCursorRectChangedWithSurroundingText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCursorRectChangedWithSurroundingText (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -438,7 +443,7 @@ arc.mojom.ImeHostReceiver = class {
         // Try Method 5: SendKeyEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.ImeHost_SendKeyEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeHost_SendKeyEvent_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendKeyEvent (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -455,49 +460,49 @@ arc.mojom.ImeHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTextInputTypeChanged');
-          const result = this.impl.onTextInputTypeChanged(params.type, params.is_personalized_learning_allowed, params.flags);
+          const result = this.impl.onTextInputTypeChanged(params.arg_type, params.arg_is_personalized_learning_allowed, params.arg_flags);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCursorRectChanged');
-          const result = this.impl.onCursorRectChanged(params.rect, params.coordinateSpace);
+          const result = this.impl.onCursorRectChanged(params.arg_rect, params.arg_coordinateSpace);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeHost_OnCancelComposition_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeHost_OnCancelComposition_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCancelComposition');
           const result = this.impl.onCancelComposition();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showVirtualKeyboardIfEnabled');
           const result = this.impl.showVirtualKeyboardIfEnabled();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCursorRectChangedWithSurroundingText');
-          const result = this.impl.onCursorRectChangedWithSurroundingText(params.rect, params.text_range, params.text_in_range, params.selection_range, params.coordinateSpace);
+          const result = this.impl.onCursorRectChangedWithSurroundingText(params.arg_rect, params.arg_text_range, params.arg_text_in_range, params.arg_selection_range, params.arg_coordinateSpace);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeHost_SendKeyEvent_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeHost_SendKeyEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendKeyEvent');
-          const result = this.impl.sendKeyEvent(params.key_event_data);
+          const result = this.impl.sendKeyEvent(params.arg_key_event_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ImeHost_SendKeyEvent_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.ImeHost_SendKeyEvent_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] SendKeyEvent FAILED:', e));
           }
@@ -511,86 +516,86 @@ arc.mojom.ImeHostReceiver = class {
   }
 };
 
-arc.mojom.ImeHostReceiver = arc.mojom.ImeHostReceiver;
+mojo.internal.bindings.arc.mojom.ImeHostReceiver = mojo.internal.bindings.arc.mojom.ImeHostReceiver;
 
-arc.mojom.ImeHostPtr = arc.mojom.ImeHostRemote;
-arc.mojom.ImeHostRequest = arc.mojom.ImeHostPendingReceiver;
+mojo.internal.bindings.arc.mojom.ImeHostPtr = mojo.internal.bindings.arc.mojom.ImeHostRemote;
+mojo.internal.bindings.arc.mojom.ImeHostRequest = mojo.internal.bindings.arc.mojom.ImeHostPendingReceiver;
 
 
 // Interface: ImeInstance
 mojo.internal.Struct(
-    arc.mojom.ImeInstance_Init_ParamsSpec, 'arc.mojom.ImeInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.ImeHostSpec), null, false, 0, undefined),
+    mojo.internal.bindings.arc.mojom.ImeInstance_Init_ParamsSpec, 'arc.mojom.ImeInstance_Init_Params', [
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.ImeHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    arc.mojom.ImeInstance_Init_ResponseParamsSpec, 'arc.mojom.ImeInstance_Init_ResponseParams', [
+    mojo.internal.bindings.arc.mojom.ImeInstance_Init_ResponseParamsSpec, 'arc.mojom.ImeInstance_Init_ResponseParams', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    arc.mojom.ImeInstance_SetCompositionText_ParamsSpec, 'arc.mojom.ImeInstance_SetCompositionText_Params', [
-      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('segments', 8, 0, mojo.internal.Array(arc.mojom.CompositionSegmentSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('selection_range', 16, 0, arc.mojom.RangeSpec.$, null, true, 21, undefined),
+    mojo.internal.bindings.arc.mojom.ImeInstance_SetCompositionText_ParamsSpec, 'arc.mojom.ImeInstance_SetCompositionText_Params', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_segments', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.arc.mojom.CompositionSegmentSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_selection_range', 16, 0, mojo.internal.bindings.arc.mojom.RangeSpec.$, null, true, 21, undefined),
     ],
     [[0, 24], [21, 32]]);
 
 mojo.internal.Struct(
-    arc.mojom.ImeInstance_SetSelectionText_ParamsSpec, 'arc.mojom.ImeInstance_SetSelectionText_Params', [
-      mojo.internal.StructField('selection', 0, 0, arc.mojom.RangeSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.arc.mojom.ImeInstance_SetSelectionText_ParamsSpec, 'arc.mojom.ImeInstance_SetSelectionText_Params', [
+      mojo.internal.StructField('arg_selection', 0, 0, mojo.internal.bindings.arc.mojom.RangeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec, 'arc.mojom.ImeInstance_ConfirmCompositionText_Params', [
+    mojo.internal.bindings.arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec, 'arc.mojom.ImeInstance_ConfirmCompositionText_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    arc.mojom.ImeInstance_InsertText_ParamsSpec, 'arc.mojom.ImeInstance_InsertText_Params', [
-      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('new_cursor_position', 8, 0, mojo.internal.Int32, 0, false, 17, undefined),
+    mojo.internal.bindings.arc.mojom.ImeInstance_InsertText_ParamsSpec, 'arc.mojom.ImeInstance_InsertText_Params', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_cursor_position', 8, 0, mojo.internal.Int32, 0, false, 17, undefined),
     ],
     [[0, 16], [17, 24]]);
 
 mojo.internal.Struct(
-    arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec, 'arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_Params', [
-      mojo.internal.StructField('new_bounds', 0, 0, arc.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('is_available', 8, 0, mojo.internal.Bool, false, false, 7, undefined),
+    mojo.internal.bindings.arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec, 'arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_Params', [
+      mojo.internal.StructField('arg_new_bounds', 0, 0, mojo.internal.bindings.arc.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_available', 8, 0, mojo.internal.Bool, false, false, 7, undefined),
     ],
     [[0, 16], [7, 24]]);
 
 mojo.internal.Struct(
-    arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec, 'arc.mojom.ImeInstance_ExtendSelectionAndDelete_Params', [
-      mojo.internal.StructField('before', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('after', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    mojo.internal.bindings.arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec, 'arc.mojom.ImeInstance_ExtendSelectionAndDelete_Params', [
+      mojo.internal.StructField('arg_before', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_after', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec, 'arc.mojom.ImeInstance_SetComposingRegion_Params', [
-      mojo.internal.StructField('range', 0, 0, arc.mojom.RangeSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec, 'arc.mojom.ImeInstance_SetComposingRegion_Params', [
+      mojo.internal.StructField('arg_range', 0, 0, mojo.internal.bindings.arc.mojom.RangeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-arc.mojom.ImeInstancePendingReceiver = class {
+mojo.internal.bindings.arc.mojom.ImeInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.ImeInstanceRemote = class {
+mojo.internal.bindings.arc.mojom.ImeInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.ImeInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.ImeInstancePendingReceiver,
+      mojo.internal.bindings.arc.mojom.ImeInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.ImeInstanceRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.arc.mojom.ImeInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -600,33 +605,33 @@ arc.mojom.ImeInstanceRemote = class {
   close() {
     this.proxy.close();
   }
-  init(host_remote) {
-    return this.$.init(host_remote);
+  init(arg_host_remote) {
+    return this.$.init(arg_host_remote);
   }
-  setCompositionText(text, segments, selection_range) {
-    return this.$.setCompositionText(text, segments, selection_range);
+  setCompositionText(arg_text, arg_segments, arg_selection_range) {
+    return this.$.setCompositionText(arg_text, arg_segments, arg_selection_range);
   }
-  setSelectionText(selection) {
-    return this.$.setSelectionText(selection);
+  setSelectionText(arg_selection) {
+    return this.$.setSelectionText(arg_selection);
   }
   confirmCompositionText() {
     return this.$.confirmCompositionText();
   }
-  insertText(text, new_cursor_position) {
-    return this.$.insertText(text, new_cursor_position);
+  insertText(arg_text, arg_new_cursor_position) {
+    return this.$.insertText(arg_text, arg_new_cursor_position);
   }
-  onKeyboardAppearanceChanging(new_bounds, is_available) {
-    return this.$.onKeyboardAppearanceChanging(new_bounds, is_available);
+  onKeyboardAppearanceChanging(arg_new_bounds, arg_is_available) {
+    return this.$.onKeyboardAppearanceChanging(arg_new_bounds, arg_is_available);
   }
-  extendSelectionAndDelete(before, after) {
-    return this.$.extendSelectionAndDelete(before, after);
+  extendSelectionAndDelete(arg_before, arg_after) {
+    return this.$.extendSelectionAndDelete(arg_before, arg_after);
   }
-  setComposingRegion(range) {
-    return this.$.setComposingRegion(range);
+  setComposingRegion(arg_range) {
+    return this.$.setComposingRegion(arg_range);
   }
 };
 
-arc.mojom.ImeInstanceRemoteCallHandler = class {
+mojo.internal.bindings.arc.mojom.ImeInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ImeInstance', [
@@ -641,82 +646,82 @@ arc.mojom.ImeInstanceRemoteCallHandler = class {
     ]);
   }
 
-  init(host_remote) {
+  init(arg_host_remote) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      arc.mojom.ImeInstance_Init_ParamsSpec,
-      arc.mojom.ImeInstance_Init_ResponseParamsSpec,
-      [host_remote],
+      mojo.internal.bindings.arc.mojom.ImeInstance_Init_ParamsSpec,
+      mojo.internal.bindings.arc.mojom.ImeInstance_Init_ResponseParamsSpec,
+      [arg_host_remote],
       false);
   }
 
-  setCompositionText(text, segments, selection_range) {
+  setCompositionText(arg_text, arg_segments, arg_selection_range) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      arc.mojom.ImeInstance_SetCompositionText_ParamsSpec,
+      mojo.internal.bindings.arc.mojom.ImeInstance_SetCompositionText_ParamsSpec,
       null,
-      [text, segments, selection_range],
+      [arg_text, arg_segments, arg_selection_range],
       false);
   }
 
-  setSelectionText(selection) {
+  setSelectionText(arg_selection) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      arc.mojom.ImeInstance_SetSelectionText_ParamsSpec,
+      mojo.internal.bindings.arc.mojom.ImeInstance_SetSelectionText_ParamsSpec,
       null,
-      [selection],
+      [arg_selection],
       false);
   }
 
   confirmCompositionText() {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec,
+      mojo.internal.bindings.arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec,
       null,
       [],
       false);
   }
 
-  insertText(text, new_cursor_position) {
+  insertText(arg_text, arg_new_cursor_position) {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
-      arc.mojom.ImeInstance_InsertText_ParamsSpec,
+      mojo.internal.bindings.arc.mojom.ImeInstance_InsertText_ParamsSpec,
       null,
-      [text, new_cursor_position],
+      [arg_text, arg_new_cursor_position],
       false);
   }
 
-  onKeyboardAppearanceChanging(new_bounds, is_available) {
+  onKeyboardAppearanceChanging(arg_new_bounds, arg_is_available) {
     return this.proxy.sendMessage(
       this.ordinals[5],  // ordinal
-      arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec,
+      mojo.internal.bindings.arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec,
       null,
-      [new_bounds, is_available],
+      [arg_new_bounds, arg_is_available],
       false);
   }
 
-  extendSelectionAndDelete(before, after) {
+  extendSelectionAndDelete(arg_before, arg_after) {
     return this.proxy.sendMessage(
       this.ordinals[6],  // ordinal
-      arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec,
+      mojo.internal.bindings.arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec,
       null,
-      [before, after],
+      [arg_before, arg_after],
       false);
   }
 
-  setComposingRegion(range) {
+  setComposingRegion(arg_range) {
     return this.proxy.sendMessage(
       this.ordinals[7],  // ordinal
-      arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec,
+      mojo.internal.bindings.arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec,
       null,
-      [range],
+      [arg_range],
       false);
   }
 
 };
 
-arc.mojom.ImeInstance.getRemote = function() {
-  let remote = new arc.mojom.ImeInstanceRemote();
+mojo.internal.bindings.arc.mojom.ImeInstance.getRemote = function() {
+  let remote = new mojo.internal.bindings.arc.mojom.ImeInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -725,7 +730,7 @@ arc.mojom.ImeInstance.getRemote = function() {
   return remote.$;
 };
 
-arc.mojom.ImeInstanceReceiver = class {
+mojo.internal.bindings.arc.mojom.ImeInstanceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -781,7 +786,7 @@ arc.mojom.ImeInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.ImeInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeInstance_Init_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -792,7 +797,7 @@ arc.mojom.ImeInstanceReceiver = class {
         // Try Method 1: SetCompositionText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.ImeInstance_SetCompositionText_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeInstance_SetCompositionText_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCompositionText (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -803,7 +808,7 @@ arc.mojom.ImeInstanceReceiver = class {
         // Try Method 2: SetSelectionText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.ImeInstance_SetSelectionText_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeInstance_SetSelectionText_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSelectionText (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -814,7 +819,7 @@ arc.mojom.ImeInstanceReceiver = class {
         // Try Method 3: ConfirmCompositionText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConfirmCompositionText (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -825,7 +830,7 @@ arc.mojom.ImeInstanceReceiver = class {
         // Try Method 4: InsertText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.ImeInstance_InsertText_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeInstance_InsertText_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InsertText (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -836,7 +841,7 @@ arc.mojom.ImeInstanceReceiver = class {
         // Try Method 5: OnKeyboardAppearanceChanging
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnKeyboardAppearanceChanging (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -847,7 +852,7 @@ arc.mojom.ImeInstanceReceiver = class {
         // Try Method 6: ExtendSelectionAndDelete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExtendSelectionAndDelete (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -858,7 +863,7 @@ arc.mojom.ImeInstanceReceiver = class {
         // Try Method 7: SetComposingRegion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetComposingRegion (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -875,14 +880,14 @@ arc.mojom.ImeInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_Init_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.ImeInstance_Init_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.ImeInstance_Init_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
           }
@@ -890,51 +895,51 @@ arc.mojom.ImeInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_SetCompositionText_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeInstance_SetCompositionText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCompositionText');
-          const result = this.impl.setCompositionText(params.text, params.segments, params.selection_range);
+          const result = this.impl.setCompositionText(params.arg_text, params.arg_segments, params.arg_selection_range);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_SetSelectionText_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeInstance_SetSelectionText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSelectionText');
-          const result = this.impl.setSelectionText(params.selection);
+          const result = this.impl.setSelectionText(params.arg_selection);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.confirmCompositionText');
           const result = this.impl.confirmCompositionText();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_InsertText_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeInstance_InsertText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.insertText');
-          const result = this.impl.insertText(params.text, params.new_cursor_position);
+          const result = this.impl.insertText(params.arg_text, params.arg_new_cursor_position);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onKeyboardAppearanceChanging');
-          const result = this.impl.onKeyboardAppearanceChanging(params.new_bounds, params.is_available);
+          const result = this.impl.onKeyboardAppearanceChanging(params.arg_new_bounds, params.arg_is_available);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.extendSelectionAndDelete');
-          const result = this.impl.extendSelectionAndDelete(params.before, params.after);
+          const result = this.impl.extendSelectionAndDelete(params.arg_before, params.arg_after);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setComposingRegion');
-          const result = this.impl.setComposingRegion(params.range);
+          const result = this.impl.setComposingRegion(params.arg_range);
           break;
         }
       }
@@ -945,8 +950,8 @@ arc.mojom.ImeInstanceReceiver = class {
   }
 };
 
-arc.mojom.ImeInstanceReceiver = arc.mojom.ImeInstanceReceiver;
+mojo.internal.bindings.arc.mojom.ImeInstanceReceiver = mojo.internal.bindings.arc.mojom.ImeInstanceReceiver;
 
-arc.mojom.ImeInstancePtr = arc.mojom.ImeInstanceRemote;
-arc.mojom.ImeInstanceRequest = arc.mojom.ImeInstancePendingReceiver;
+mojo.internal.bindings.arc.mojom.ImeInstancePtr = mojo.internal.bindings.arc.mojom.ImeInstanceRemote;
+mojo.internal.bindings.arc.mojom.ImeInstanceRequest = mojo.internal.bindings.arc.mojom.ImeInstancePendingReceiver;
 

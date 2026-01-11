@@ -1,118 +1,123 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/chrome/browser/ui/webui/side_panel/customize_chrome/wallpaper_search/wallpaper_search.mojom
-// Module: side_panel.customize_chrome.mojom
+ // Source: chromium_src/chrome/browser/ui/webui/side_panel/customize_chrome/wallpaper_search/wallpaper_search.mojom
+ // Module: side_panel.customize_chrome.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var side_panel = side_panel || {};
-side_panel.customize_chrome = side_panel.customize_chrome || {};
-side_panel.customize_chrome.mojom = side_panel.customize_chrome.mojom || {};
-var mojo_base = mojo_base || {};
-var skia = skia || {};
-var url = url || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-side_panel.customize_chrome.mojom.DescriptorDNameSpec = { $: mojo.internal.Enum() };
-side_panel.customize_chrome.mojom.WallpaperSearchStatusSpec = { $: mojo.internal.Enum() };
-side_panel.customize_chrome.mojom.UserFeedbackSpec = { $: mojo.internal.Enum() };
-side_panel.customize_chrome.mojom.DescriptorDValueSpec = { $: {} };
-side_panel.customize_chrome.mojom.KeyLabelSpec = { $: {} };
-side_panel.customize_chrome.mojom.GroupSpec = { $: {} };
-side_panel.customize_chrome.mojom.DescriptorBSpec = { $: {} };
-side_panel.customize_chrome.mojom.DescriptorsSpec = { $: {} };
-side_panel.customize_chrome.mojom.InspirationSpec = { $: {} };
-side_panel.customize_chrome.mojom.InspirationDescriptorsSpec = { $: {} };
-side_panel.customize_chrome.mojom.InspirationGroupSpec = { $: {} };
-side_panel.customize_chrome.mojom.WallpaperSearchResultSpec = { $: {} };
-side_panel.customize_chrome.mojom.ResultDescriptorsSpec = { $: {} };
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory = {};
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory.$interfaceName = 'side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory';
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec = { $: {} };
-side_panel.customize_chrome.mojom.WallpaperSearchHandler = {};
-side_panel.customize_chrome.mojom.WallpaperSearchHandler.$interfaceName = 'side_panel.customize_chrome.mojom.WallpaperSearchHandler';
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec = { $: {} };
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec = { $: {} };
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec = { $: {} };
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec = { $: {} };
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec = { $: {} };
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec = { $: {} };
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec = { $: {} };
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec = { $: {} };
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec = { $: {} };
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec = { $: {} };
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec = { $: {} };
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec = { $: {} };
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec = { $: {} };
-side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec = { $: {} };
-side_panel.customize_chrome.mojom.WallpaperSearchClient = {};
-side_panel.customize_chrome.mojom.WallpaperSearchClient.$interfaceName = 'side_panel.customize_chrome.mojom.WallpaperSearchClient';
-side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec = { $: {} };
+ mojo.internal.bindings.side_panel = mojo.internal.bindings.side_panel || {};
+mojo.internal.bindings.side_panel.customize_chrome = mojo.internal.bindings.side_panel.customize_chrome || {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom = mojo.internal.bindings.side_panel.customize_chrome.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+
+mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorDNameSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.UserFeedbackSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorDValueSpec = { $: {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.KeyLabelSpec = { $: {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.GroupSpec = { $: {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorBSpec = { $: {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorsSpec = { $: {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationSpec = { $: {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationDescriptorsSpec = { $: {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationGroupSpec = { $: {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchResultSpec = { $: {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.ResultDescriptorsSpec = { $: {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory.$interfaceName = 'side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory';
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec = { $: {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler.$interfaceName = 'side_panel.customize_chrome.mojom.WallpaperSearchHandler';
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec = { $: {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec = { $: {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec = { $: {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec = { $: {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec = { $: {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec = { $: {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec = { $: {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec = { $: {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec = { $: {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec = { $: {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec = { $: {} };
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClient = {};
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClient.$interfaceName = 'side_panel.customize_chrome.mojom.WallpaperSearchClient';
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec = { $: {} };
 
 // Enum: DescriptorDName
-side_panel.customize_chrome.mojom.DescriptorDName = {
+mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorDName = {
   kYellow: 0,
 };
 
 // Enum: WallpaperSearchStatus
-side_panel.customize_chrome.mojom.WallpaperSearchStatus = {
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchStatus = {
   kOk: 0,
   kError: 1,
   kRequestThrottled: 2,
@@ -121,7 +126,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchStatus = {
 };
 
 // Enum: UserFeedback
-side_panel.customize_chrome.mojom.UserFeedback = {
+mojo.internal.bindings.side_panel.customize_chrome.mojom.UserFeedback = {
   kUnspecified: 0,
   kThumbsUp: 1,
   kThumbsDown: 2,
@@ -129,129 +134,129 @@ side_panel.customize_chrome.mojom.UserFeedback = {
 
 // Union: DescriptorDValue
 mojo.internal.Union(
-    side_panel.customize_chrome.mojom.DescriptorDValueSpec, 'side_panel.customize_chrome.mojom.DescriptorDValue', {
-      'color': {
+    mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorDValueSpec, 'side_panel.customize_chrome.mojom.DescriptorDValue', {
+      'arg_color': {
         'ordinal': 0,
-        'type': skia.mojom.SkColorSpec.$,
+        'type': mojo.internal.bindings.skia.mojom.SkColorSpec.$,
         'nullable': false,
       },
-      'hue': {
+      'arg_hue': {
         'ordinal': 1,
         'type': mojo.internal.Float,
         'nullable': false,
       },
-      'name': {
+      'arg_name': {
         'ordinal': 2,
-        'type': side_panel.customize_chrome.mojom.DescriptorDNameSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorDNameSpec.$,
         'nullable': false,
       },
     });
 
 // Struct: KeyLabel
 mojo.internal.Struct(
-    side_panel.customize_chrome.mojom.KeyLabelSpec, 'side_panel.customize_chrome.mojom.KeyLabel', [
-      mojo.internal.StructField('key', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('label', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.side_panel.customize_chrome.mojom.KeyLabelSpec, 'side_panel.customize_chrome.mojom.KeyLabel', [
+      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: Group
 mojo.internal.Struct(
-    side_panel.customize_chrome.mojom.GroupSpec, 'side_panel.customize_chrome.mojom.Group', [
-      mojo.internal.StructField('category', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('descriptor_as', 8, 0, mojo.internal.Array(side_panel.customize_chrome.mojom.KeyLabelSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.side_panel.customize_chrome.mojom.GroupSpec, 'side_panel.customize_chrome.mojom.Group', [
+      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_descriptor_as', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.side_panel.customize_chrome.mojom.KeyLabelSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: DescriptorB
 mojo.internal.Struct(
-    side_panel.customize_chrome.mojom.DescriptorBSpec, 'side_panel.customize_chrome.mojom.DescriptorB', [
-      mojo.internal.StructField('key', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('label', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('image_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorBSpec, 'side_panel.customize_chrome.mojom.DescriptorB', [
+      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: Descriptors
 mojo.internal.Struct(
-    side_panel.customize_chrome.mojom.DescriptorsSpec, 'side_panel.customize_chrome.mojom.Descriptors', [
-      mojo.internal.StructField('groups', 0, 0, mojo.internal.Array(side_panel.customize_chrome.mojom.GroupSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('descriptor_b', 8, 0, mojo.internal.Array(side_panel.customize_chrome.mojom.DescriptorBSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('descriptor_c', 16, 0, mojo.internal.Array(side_panel.customize_chrome.mojom.KeyLabelSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorsSpec, 'side_panel.customize_chrome.mojom.Descriptors', [
+      mojo.internal.StructField('arg_groups', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.side_panel.customize_chrome.mojom.GroupSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_descriptor_b', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorBSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_descriptor_c', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.side_panel.customize_chrome.mojom.KeyLabelSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: Inspiration
 mojo.internal.Struct(
-    side_panel.customize_chrome.mojom.InspirationSpec, 'side_panel.customize_chrome.mojom.Inspiration', [
-      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.TokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('description', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('background_url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('thumbnail_url', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationSpec, 'side_panel.customize_chrome.mojom.Inspiration', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_background_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_thumbnail_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: InspirationDescriptors
 mojo.internal.Struct(
-    side_panel.customize_chrome.mojom.InspirationDescriptorsSpec, 'side_panel.customize_chrome.mojom.InspirationDescriptors', [
-      mojo.internal.StructField('subject', 0, 0, side_panel.customize_chrome.mojom.KeyLabelSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('style', 8, 0, side_panel.customize_chrome.mojom.KeyLabelSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('mood', 16, 0, side_panel.customize_chrome.mojom.KeyLabelSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('color', 24, 0, side_panel.customize_chrome.mojom.DescriptorDValueSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationDescriptorsSpec, 'side_panel.customize_chrome.mojom.InspirationDescriptors', [
+      mojo.internal.StructField('arg_subject', 0, 0, mojo.internal.bindings.mojo.internal.bindings.side_panel.customize_chrome.mojom.KeyLabelSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_style', 8, 0, mojo.internal.bindings.mojo.internal.bindings.side_panel.customize_chrome.mojom.KeyLabelSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_mood', 16, 0, mojo.internal.bindings.mojo.internal.bindings.side_panel.customize_chrome.mojom.KeyLabelSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_color', 24, 0, mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorDValueSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: InspirationGroup
 mojo.internal.Struct(
-    side_panel.customize_chrome.mojom.InspirationGroupSpec, 'side_panel.customize_chrome.mojom.InspirationGroup', [
-      mojo.internal.StructField('descriptors', 0, 0, side_panel.customize_chrome.mojom.InspirationDescriptorsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('inspirations', 8, 0, mojo.internal.Array(side_panel.customize_chrome.mojom.InspirationSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationGroupSpec, 'side_panel.customize_chrome.mojom.InspirationGroup', [
+      mojo.internal.StructField('arg_descriptors', 0, 0, mojo.internal.bindings.mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationDescriptorsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_inspirations', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: WallpaperSearchResult
 mojo.internal.Struct(
-    side_panel.customize_chrome.mojom.WallpaperSearchResultSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchResult', [
-      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.TokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('image', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('descriptors', 16, 0, side_panel.customize_chrome.mojom.ResultDescriptorsSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchResultSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchResult', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_descriptors', 16, 0, mojo.internal.bindings.mojo.internal.bindings.side_panel.customize_chrome.mojom.ResultDescriptorsSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: ResultDescriptors
 mojo.internal.Struct(
-    side_panel.customize_chrome.mojom.ResultDescriptorsSpec, 'side_panel.customize_chrome.mojom.ResultDescriptors', [
-      mojo.internal.StructField('subject', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('style', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('mood', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('color', 24, 0, side_panel.customize_chrome.mojom.DescriptorDValueSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.side_panel.customize_chrome.mojom.ResultDescriptorsSpec, 'side_panel.customize_chrome.mojom.ResultDescriptors', [
+      mojo.internal.StructField('arg_subject', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_style', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_mood', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_color', 24, 0, mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorDValueSpec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
 // Interface: WallpaperSearchHandlerFactory
 mojo.internal.Struct(
-    side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.InterfaceProxy(side_panel.customize_chrome.mojom.WallpaperSearchClientSpec), null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(side_panel.customize_chrome.mojom.WallpaperSearchHandlerSpec), null, false, 0, undefined),
+    mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryPendingReceiver = class {
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRemote = class {
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryPendingReceiver,
+      mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -261,12 +266,12 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
-  createWallpaperSearchHandler(client, handler) {
-    return this.$.createWallpaperSearchHandler(client, handler);
+  createWallpaperSearchHandler(arg_client, arg_handler) {
+    return this.$.createWallpaperSearchHandler(arg_client, arg_handler);
   }
 };
 
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRemoteCallHandler = class {
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('WallpaperSearchHandlerFactory', [
@@ -274,19 +279,19 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRemoteCallHandler
     ]);
   }
 
-  createWallpaperSearchHandler(client, handler) {
+  createWallpaperSearchHandler(arg_client, arg_handler) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec,
+      mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec,
       null,
-      [client, handler],
+      [arg_client, arg_handler],
       false);
   }
 
 };
 
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory.getRemote = function() {
-  let remote = new side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRemote();
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory.getRemote = function() {
+  let remote = new mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -295,7 +300,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory.getRemote = func
   return remote.$;
 };
 
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryReceiver = class {
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -344,7 +349,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryReceiver = class 
         // Try Method 0: CreateWallpaperSearchHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWallpaperSearchHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -361,9 +366,9 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryReceiver = class 
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createWallpaperSearchHandler');
-          const result = this.impl.createWallpaperSearchHandler(params.client, params.handler);
+          const result = this.impl.createWallpaperSearchHandler(params.arg_client, params.arg_handler);
           break;
         }
       }
@@ -374,114 +379,114 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryReceiver = class 
   }
 };
 
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryReceiver = side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryReceiver;
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryReceiver = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryReceiver;
 
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryPtr = side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRemote;
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRequest = side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryPendingReceiver;
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryPtr = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRemote;
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRequest = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryPendingReceiver;
 
 
 // Interface: WallpaperSearchHandler
 mojo.internal.Struct(
-    side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_Params', [
+    mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParams', [
-      mojo.internal.StructField('descriptors', 0, 0, side_panel.customize_chrome.mojom.DescriptorsSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParams', [
+      mojo.internal.StructField('arg_descriptors', 0, 0, mojo.internal.bindings.mojo.internal.bindings.side_panel.customize_chrome.mojom.DescriptorsSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_Params', [
+    mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParams', [
-      mojo.internal.StructField('inspirationGroups', 0, 0, mojo.internal.Array(side_panel.customize_chrome.mojom.InspirationGroupSpec.$, false), null, true, 0, undefined),
+    mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParams', [
+      mojo.internal.StructField('arg_inspirationGroups', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.side_panel.customize_chrome.mojom.InspirationGroupSpec.$, false), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_Params', [
-      mojo.internal.StructField('result_descriptors', 0, 0, side_panel.customize_chrome.mojom.ResultDescriptorsSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_Params', [
+      mojo.internal.StructField('arg_result_descriptors', 0, 0, mojo.internal.bindings.mojo.internal.bindings.side_panel.customize_chrome.mojom.ResultDescriptorsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, side_panel.customize_chrome.mojom.WallpaperSearchStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('results', 8, 0, mojo.internal.Array(side_panel.customize_chrome.mojom.WallpaperSearchResultSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchResultSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_Params', [
-      mojo.internal.StructField('result_ids', 0, 0, mojo.internal.Array(mojo_base.mojom.TokenSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('time', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+    mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_Params', [
+      mojo.internal.StructField('arg_result_ids', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.TokenSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_time', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_Params', [
-      mojo.internal.StructField('result_id', 0, 0, mojo_base.mojom.TokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('descriptors', 8, 0, side_panel.customize_chrome.mojom.ResultDescriptorsSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_Params', [
+      mojo.internal.StructField('arg_result_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_descriptors', 8, 0, mojo.internal.bindings.mojo.internal.bindings.side_panel.customize_chrome.mojom.ResultDescriptorsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_Params', [
-      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.TokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('background_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_Params', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_background_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_Params', [
-      mojo.internal.StructField('result_id', 0, 0, mojo_base.mojom.TokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('time', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('descriptors', 16, 0, side_panel.customize_chrome.mojom.ResultDescriptorsSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_Params', [
+      mojo.internal.StructField('arg_result_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_time', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_descriptors', 16, 0, mojo.internal.bindings.mojo.internal.bindings.side_panel.customize_chrome.mojom.ResultDescriptorsSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
-    side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_Params', [
+    mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_Params', [
-      mojo.internal.StructField('selected_option', 0, 0, side_panel.customize_chrome.mojom.UserFeedbackSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_Params', [
+      mojo.internal.StructField('arg_selected_option', 0, 0, mojo.internal.bindings.mojo.internal.bindings.side_panel.customize_chrome.mojom.UserFeedbackSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_Params', [
+    mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_Params', [
+    mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_Params', [
     ],
     [[0, 8]]);
 
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerPendingReceiver = class {
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemote = class {
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemote = class {
   static get $interfaceName() {
     return 'side_panel.customize_chrome.mojom.WallpaperSearchHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      side_panel.customize_chrome.mojom.WallpaperSearchHandlerPendingReceiver,
+      mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerPendingReceiver,
       handle);
-    this.$ = new side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -497,26 +502,26 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemote = class {
   getInspirations() {
     return this.$.getInspirations();
   }
-  getWallpaperSearchResults(result_descriptors) {
-    return this.$.getWallpaperSearchResults(result_descriptors);
+  getWallpaperSearchResults(arg_result_descriptors) {
+    return this.$.getWallpaperSearchResults(arg_result_descriptors);
   }
-  setResultRenderTime(result_ids, time) {
-    return this.$.setResultRenderTime(result_ids, time);
+  setResultRenderTime(arg_result_ids, arg_time) {
+    return this.$.setResultRenderTime(arg_result_ids, arg_time);
   }
-  setBackgroundToHistoryImage(result_id, descriptors) {
-    return this.$.setBackgroundToHistoryImage(result_id, descriptors);
+  setBackgroundToHistoryImage(arg_result_id, arg_descriptors) {
+    return this.$.setBackgroundToHistoryImage(arg_result_id, arg_descriptors);
   }
-  setBackgroundToInspirationImage(id, background_url) {
-    return this.$.setBackgroundToInspirationImage(id, background_url);
+  setBackgroundToInspirationImage(arg_id, arg_background_url) {
+    return this.$.setBackgroundToInspirationImage(arg_id, arg_background_url);
   }
-  setBackgroundToWallpaperSearchResult(result_id, time, descriptors) {
-    return this.$.setBackgroundToWallpaperSearchResult(result_id, time, descriptors);
+  setBackgroundToWallpaperSearchResult(arg_result_id, arg_time, arg_descriptors) {
+    return this.$.setBackgroundToWallpaperSearchResult(arg_result_id, arg_time, arg_descriptors);
   }
   updateHistory() {
     return this.$.updateHistory();
   }
-  setUserFeedback(selected_option) {
-    return this.$.setUserFeedback(selected_option);
+  setUserFeedback(arg_selected_option) {
+    return this.$.setUserFeedback(arg_selected_option);
   }
   openHelpArticle() {
     return this.$.openHelpArticle();
@@ -526,7 +531,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemote = class {
   }
 };
 
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = class {
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('WallpaperSearchHandler', [
@@ -547,8 +552,8 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
   getDescriptors() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec,
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec,
+      mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec,
+      mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec,
       [],
       false);
   }
@@ -556,79 +561,79 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
   getInspirations() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec,
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec,
+      mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec,
+      mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec,
       [],
       false);
   }
 
-  getWallpaperSearchResults(result_descriptors) {
+  getWallpaperSearchResults(arg_result_descriptors) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec,
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec,
-      [result_descriptors],
+      mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec,
+      mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec,
+      [arg_result_descriptors],
       false);
   }
 
-  setResultRenderTime(result_ids, time) {
+  setResultRenderTime(arg_result_ids, arg_time) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec,
+      mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec,
       null,
-      [result_ids, time],
+      [arg_result_ids, arg_time],
       false);
   }
 
-  setBackgroundToHistoryImage(result_id, descriptors) {
+  setBackgroundToHistoryImage(arg_result_id, arg_descriptors) {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec,
+      mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec,
       null,
-      [result_id, descriptors],
+      [arg_result_id, arg_descriptors],
       false);
   }
 
-  setBackgroundToInspirationImage(id, background_url) {
+  setBackgroundToInspirationImage(arg_id, arg_background_url) {
     return this.proxy.sendMessage(
       this.ordinals[5],  // ordinal
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec,
+      mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec,
       null,
-      [id, background_url],
+      [arg_id, arg_background_url],
       false);
   }
 
-  setBackgroundToWallpaperSearchResult(result_id, time, descriptors) {
+  setBackgroundToWallpaperSearchResult(arg_result_id, arg_time, arg_descriptors) {
     return this.proxy.sendMessage(
       this.ordinals[6],  // ordinal
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec,
+      mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec,
       null,
-      [result_id, time, descriptors],
+      [arg_result_id, arg_time, arg_descriptors],
       false);
   }
 
   updateHistory() {
     return this.proxy.sendMessage(
       this.ordinals[7],  // ordinal
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec,
+      mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec,
       null,
       [],
       false);
   }
 
-  setUserFeedback(selected_option) {
+  setUserFeedback(arg_selected_option) {
     return this.proxy.sendMessage(
       this.ordinals[8],  // ordinal
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec,
+      mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec,
       null,
-      [selected_option],
+      [arg_selected_option],
       false);
   }
 
   openHelpArticle() {
     return this.proxy.sendMessage(
       this.ordinals[9],  // ordinal
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec,
+      mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec,
       null,
       [],
       false);
@@ -637,7 +642,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
   launchHatsSurvey() {
     return this.proxy.sendMessage(
       this.ordinals[10],  // ordinal
-      side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec,
+      mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec,
       null,
       [],
       false);
@@ -645,8 +650,8 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
 
 };
 
-side_panel.customize_chrome.mojom.WallpaperSearchHandler.getRemote = function() {
-  let remote = new side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemote();
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler.getRemote = function() {
+  let remote = new mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -655,7 +660,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler.getRemote = function() 
   return remote.$;
 };
 
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -714,7 +719,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
         // Try Method 0: GetDescriptors
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDescriptors (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -725,7 +730,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
         // Try Method 1: GetInspirations
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetInspirations (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -736,7 +741,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
         // Try Method 2: GetWallpaperSearchResults
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWallpaperSearchResults (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -747,7 +752,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
         // Try Method 3: SetResultRenderTime
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetResultRenderTime (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -758,7 +763,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
         // Try Method 4: SetBackgroundToHistoryImage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBackgroundToHistoryImage (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -769,7 +774,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
         // Try Method 5: SetBackgroundToInspirationImage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBackgroundToInspirationImage (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -780,7 +785,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
         // Try Method 6: SetBackgroundToWallpaperSearchResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBackgroundToWallpaperSearchResult (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -791,7 +796,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
         // Try Method 7: UpdateHistory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateHistory (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -802,7 +807,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
         // Try Method 8: SetUserFeedback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUserFeedback (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -813,7 +818,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
         // Try Method 9: OpenHelpArticle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenHelpArticle (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -824,7 +829,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
         // Try Method 10: LaunchHatsSurvey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LaunchHatsSurvey (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -841,14 +846,14 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDescriptors');
           const result = this.impl.getDescriptors();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetDescriptors FAILED:', e));
           }
@@ -856,14 +861,14 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getInspirations');
           const result = this.impl.getInspirations();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetInspirations FAILED:', e));
           }
@@ -871,14 +876,14 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getWallpaperSearchResults');
-          const result = this.impl.getWallpaperSearchResults(params.result_descriptors);
+          const result = this.impl.getWallpaperSearchResults(params.arg_result_descriptors);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetWallpaperSearchResults FAILED:', e));
           }
@@ -886,56 +891,56 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setResultRenderTime');
-          const result = this.impl.setResultRenderTime(params.result_ids, params.time);
+          const result = this.impl.setResultRenderTime(params.arg_result_ids, params.arg_time);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBackgroundToHistoryImage');
-          const result = this.impl.setBackgroundToHistoryImage(params.result_id, params.descriptors);
+          const result = this.impl.setBackgroundToHistoryImage(params.arg_result_id, params.arg_descriptors);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBackgroundToInspirationImage');
-          const result = this.impl.setBackgroundToInspirationImage(params.id, params.background_url);
+          const result = this.impl.setBackgroundToInspirationImage(params.arg_id, params.arg_background_url);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBackgroundToWallpaperSearchResult');
-          const result = this.impl.setBackgroundToWallpaperSearchResult(params.result_id, params.time, params.descriptors);
+          const result = this.impl.setBackgroundToWallpaperSearchResult(params.arg_result_id, params.arg_time, params.arg_descriptors);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateHistory');
           const result = this.impl.updateHistory();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUserFeedback');
-          const result = this.impl.setUserFeedback(params.selected_option);
+          const result = this.impl.setUserFeedback(params.arg_selected_option);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openHelpArticle');
           const result = this.impl.openHelpArticle();
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.launchHatsSurvey');
           const result = this.impl.launchHatsSurvey();
           break;
@@ -948,35 +953,35 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
   }
 };
 
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver;
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver;
 
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerPtr = side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemote;
-side_panel.customize_chrome.mojom.WallpaperSearchHandlerRequest = side_panel.customize_chrome.mojom.WallpaperSearchHandlerPendingReceiver;
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerPtr = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemote;
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerRequest = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerPendingReceiver;
 
 
 // Interface: WallpaperSearchClient
 mojo.internal.Struct(
-    side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_Params', [
-      mojo.internal.StructField('history', 0, 0, mojo.internal.Array(side_panel.customize_chrome.mojom.WallpaperSearchResultSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec, 'side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_Params', [
+      mojo.internal.StructField('arg_history', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchResultSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-side_panel.customize_chrome.mojom.WallpaperSearchClientPendingReceiver = class {
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-side_panel.customize_chrome.mojom.WallpaperSearchClientRemote = class {
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClientRemote = class {
   static get $interfaceName() {
     return 'side_panel.customize_chrome.mojom.WallpaperSearchClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      side_panel.customize_chrome.mojom.WallpaperSearchClientPendingReceiver,
+      mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClientPendingReceiver,
       handle);
-    this.$ = new side_panel.customize_chrome.mojom.WallpaperSearchClientRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -986,12 +991,12 @@ side_panel.customize_chrome.mojom.WallpaperSearchClientRemote = class {
   close() {
     this.proxy.close();
   }
-  setHistory(history) {
-    return this.$.setHistory(history);
+  setHistory(arg_history) {
+    return this.$.setHistory(arg_history);
   }
 };
 
-side_panel.customize_chrome.mojom.WallpaperSearchClientRemoteCallHandler = class {
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('WallpaperSearchClient', [
@@ -999,19 +1004,19 @@ side_panel.customize_chrome.mojom.WallpaperSearchClientRemoteCallHandler = class
     ]);
   }
 
-  setHistory(history) {
+  setHistory(arg_history) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec,
+      mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec,
       null,
-      [history],
+      [arg_history],
       false);
   }
 
 };
 
-side_panel.customize_chrome.mojom.WallpaperSearchClient.getRemote = function() {
-  let remote = new side_panel.customize_chrome.mojom.WallpaperSearchClientRemote();
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClient.getRemote = function() {
+  let remote = new mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1020,7 +1025,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchClient.getRemote = function() {
   return remote.$;
 };
 
-side_panel.customize_chrome.mojom.WallpaperSearchClientReceiver = class {
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -1069,7 +1074,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchClientReceiver = class {
         // Try Method 0: SetHistory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetHistory (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1086,9 +1091,9 @@ side_panel.customize_chrome.mojom.WallpaperSearchClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHistory');
-          const result = this.impl.setHistory(params.history);
+          const result = this.impl.setHistory(params.arg_history);
           break;
         }
       }
@@ -1099,8 +1104,8 @@ side_panel.customize_chrome.mojom.WallpaperSearchClientReceiver = class {
   }
 };
 
-side_panel.customize_chrome.mojom.WallpaperSearchClientReceiver = side_panel.customize_chrome.mojom.WallpaperSearchClientReceiver;
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClientReceiver = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClientReceiver;
 
-side_panel.customize_chrome.mojom.WallpaperSearchClientPtr = side_panel.customize_chrome.mojom.WallpaperSearchClientRemote;
-side_panel.customize_chrome.mojom.WallpaperSearchClientRequest = side_panel.customize_chrome.mojom.WallpaperSearchClientPendingReceiver;
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClientPtr = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClientRemote;
+mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClientRequest = mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClientPendingReceiver;
 

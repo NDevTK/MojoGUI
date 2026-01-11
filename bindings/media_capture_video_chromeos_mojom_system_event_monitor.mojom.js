@@ -1,109 +1,114 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/media/capture/video/chromeos/mojom/system_event_monitor.mojom
-// Module: cros.mojom
+ // Source: chromium_src/media/capture/video/chromeos/mojom/system_event_monitor.mojom
+ // Module: cros.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var cros = cros || {};
-cros.mojom = cros.mojom || {};
-var mojo_base = mojo_base || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-cros.mojom.LidStateSpec = { $: mojo.internal.Enum() };
-cros.mojom.DeviceTypeSpec = { $: mojo.internal.Enum() };
-cros.mojom.ClockwiseRotationSpec = { $: mojo.internal.Enum() };
-cros.mojom.CrosDisplayObserver = {};
-cros.mojom.CrosDisplayObserver.$interfaceName = 'cros.mojom.CrosDisplayObserver';
-cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec = { $: {} };
-cros.mojom.CrosLidObserver = {};
-cros.mojom.CrosLidObserver.$interfaceName = 'cros.mojom.CrosLidObserver';
-cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec = { $: {} };
-cros.mojom.CrosPowerObserver = {};
-cros.mojom.CrosPowerObserver.$interfaceName = 'cros.mojom.CrosPowerObserver';
-cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec = { $: {} };
-cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParamsSpec = { $: {} };
-cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec = { $: {} };
-cros.mojom.CrosSystemEventMonitor = {};
-cros.mojom.CrosSystemEventMonitor.$interfaceName = 'cros.mojom.CrosSystemEventMonitor';
-cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec = { $: {} };
-cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec = { $: {} };
-cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec = { $: {} };
-cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec = { $: {} };
+ mojo.internal.bindings.cros = mojo.internal.bindings.cros || {};
+mojo.internal.bindings.cros.mojom = mojo.internal.bindings.cros.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+
+mojo.internal.bindings.cros.mojom.LidStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.cros.mojom.DeviceTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.cros.mojom.ClockwiseRotationSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.cros.mojom.CrosDisplayObserver = {};
+mojo.internal.bindings.cros.mojom.CrosDisplayObserver.$interfaceName = 'cros.mojom.CrosDisplayObserver';
+mojo.internal.bindings.cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.cros.mojom.CrosLidObserver = {};
+mojo.internal.bindings.cros.mojom.CrosLidObserver.$interfaceName = 'cros.mojom.CrosLidObserver';
+mojo.internal.bindings.cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.cros.mojom.CrosPowerObserver = {};
+mojo.internal.bindings.cros.mojom.CrosPowerObserver.$interfaceName = 'cros.mojom.CrosPowerObserver';
+mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec = { $: {} };
+mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec = { $: {} };
+mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor = {};
+mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor.$interfaceName = 'cros.mojom.CrosSystemEventMonitor';
+mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec = { $: {} };
+mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec = { $: {} };
+mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec = { $: {} };
+mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec = { $: {} };
 
 // Enum: LidState
-cros.mojom.LidState = {
+mojo.internal.bindings.cros.mojom.LidState = {
   kOpen: 0,
   kClosed: 1,
   kNotPresent: 2,
 };
 
 // Enum: DeviceType
-cros.mojom.DeviceType = {
+mojo.internal.bindings.cros.mojom.DeviceType = {
   kAudio: 0,
   kVideoCapture: 1,
   kUnkown: 2,
 };
 
 // Enum: ClockwiseRotation
-cros.mojom.ClockwiseRotation = {
+mojo.internal.bindings.cros.mojom.ClockwiseRotation = {
   kRotate0: 0,
   kRotate90: 1,
   kRotate180: 2,
@@ -112,27 +117,27 @@ cros.mojom.ClockwiseRotation = {
 
 // Interface: CrosDisplayObserver
 mojo.internal.Struct(
-    cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec, 'cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_Params', [
-      mojo.internal.StructField('rotation', 0, 0, cros.mojom.ClockwiseRotationSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec, 'cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_Params', [
+      mojo.internal.StructField('arg_rotation', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.ClockwiseRotationSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-cros.mojom.CrosDisplayObserverPendingReceiver = class {
+mojo.internal.bindings.cros.mojom.CrosDisplayObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-cros.mojom.CrosDisplayObserverRemote = class {
+mojo.internal.bindings.cros.mojom.CrosDisplayObserverRemote = class {
   static get $interfaceName() {
     return 'cros.mojom.CrosDisplayObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      cros.mojom.CrosDisplayObserverPendingReceiver,
+      mojo.internal.bindings.cros.mojom.CrosDisplayObserverPendingReceiver,
       handle);
-    this.$ = new cros.mojom.CrosDisplayObserverRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.cros.mojom.CrosDisplayObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -142,12 +147,12 @@ cros.mojom.CrosDisplayObserverRemote = class {
   close() {
     this.proxy.close();
   }
-  onDisplayRotationChanged(rotation) {
-    return this.$.onDisplayRotationChanged(rotation);
+  onDisplayRotationChanged(arg_rotation) {
+    return this.$.onDisplayRotationChanged(arg_rotation);
   }
 };
 
-cros.mojom.CrosDisplayObserverRemoteCallHandler = class {
+mojo.internal.bindings.cros.mojom.CrosDisplayObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('CrosDisplayObserver', [
@@ -155,19 +160,19 @@ cros.mojom.CrosDisplayObserverRemoteCallHandler = class {
     ]);
   }
 
-  onDisplayRotationChanged(rotation) {
+  onDisplayRotationChanged(arg_rotation) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec,
+      mojo.internal.bindings.cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec,
       null,
-      [rotation],
+      [arg_rotation],
       false);
   }
 
 };
 
-cros.mojom.CrosDisplayObserver.getRemote = function() {
-  let remote = new cros.mojom.CrosDisplayObserverRemote();
+mojo.internal.bindings.cros.mojom.CrosDisplayObserver.getRemote = function() {
+  let remote = new mojo.internal.bindings.cros.mojom.CrosDisplayObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -176,7 +181,7 @@ cros.mojom.CrosDisplayObserver.getRemote = function() {
   return remote.$;
 };
 
-cros.mojom.CrosDisplayObserverReceiver = class {
+mojo.internal.bindings.cros.mojom.CrosDisplayObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -225,7 +230,7 @@ cros.mojom.CrosDisplayObserverReceiver = class {
         // Try Method 0: OnDisplayRotationChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDisplayRotationChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -242,9 +247,9 @@ cros.mojom.CrosDisplayObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDisplayRotationChanged');
-          const result = this.impl.onDisplayRotationChanged(params.rotation);
+          const result = this.impl.onDisplayRotationChanged(params.arg_rotation);
           break;
         }
       }
@@ -255,35 +260,35 @@ cros.mojom.CrosDisplayObserverReceiver = class {
   }
 };
 
-cros.mojom.CrosDisplayObserverReceiver = cros.mojom.CrosDisplayObserverReceiver;
+mojo.internal.bindings.cros.mojom.CrosDisplayObserverReceiver = mojo.internal.bindings.cros.mojom.CrosDisplayObserverReceiver;
 
-cros.mojom.CrosDisplayObserverPtr = cros.mojom.CrosDisplayObserverRemote;
-cros.mojom.CrosDisplayObserverRequest = cros.mojom.CrosDisplayObserverPendingReceiver;
+mojo.internal.bindings.cros.mojom.CrosDisplayObserverPtr = mojo.internal.bindings.cros.mojom.CrosDisplayObserverRemote;
+mojo.internal.bindings.cros.mojom.CrosDisplayObserverRequest = mojo.internal.bindings.cros.mojom.CrosDisplayObserverPendingReceiver;
 
 
 // Interface: CrosLidObserver
 mojo.internal.Struct(
-    cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec, 'cros.mojom.CrosLidObserver_OnLidStateChanged_Params', [
-      mojo.internal.StructField('new_state', 0, 0, cros.mojom.LidStateSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec, 'cros.mojom.CrosLidObserver_OnLidStateChanged_Params', [
+      mojo.internal.StructField('arg_new_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.LidStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-cros.mojom.CrosLidObserverPendingReceiver = class {
+mojo.internal.bindings.cros.mojom.CrosLidObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-cros.mojom.CrosLidObserverRemote = class {
+mojo.internal.bindings.cros.mojom.CrosLidObserverRemote = class {
   static get $interfaceName() {
     return 'cros.mojom.CrosLidObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      cros.mojom.CrosLidObserverPendingReceiver,
+      mojo.internal.bindings.cros.mojom.CrosLidObserverPendingReceiver,
       handle);
-    this.$ = new cros.mojom.CrosLidObserverRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.cros.mojom.CrosLidObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -293,12 +298,12 @@ cros.mojom.CrosLidObserverRemote = class {
   close() {
     this.proxy.close();
   }
-  onLidStateChanged(new_state) {
-    return this.$.onLidStateChanged(new_state);
+  onLidStateChanged(arg_new_state) {
+    return this.$.onLidStateChanged(arg_new_state);
   }
 };
 
-cros.mojom.CrosLidObserverRemoteCallHandler = class {
+mojo.internal.bindings.cros.mojom.CrosLidObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('CrosLidObserver', [
@@ -306,19 +311,19 @@ cros.mojom.CrosLidObserverRemoteCallHandler = class {
     ]);
   }
 
-  onLidStateChanged(new_state) {
+  onLidStateChanged(arg_new_state) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec,
+      mojo.internal.bindings.cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec,
       null,
-      [new_state],
+      [arg_new_state],
       false);
   }
 
 };
 
-cros.mojom.CrosLidObserver.getRemote = function() {
-  let remote = new cros.mojom.CrosLidObserverRemote();
+mojo.internal.bindings.cros.mojom.CrosLidObserver.getRemote = function() {
+  let remote = new mojo.internal.bindings.cros.mojom.CrosLidObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -327,7 +332,7 @@ cros.mojom.CrosLidObserver.getRemote = function() {
   return remote.$;
 };
 
-cros.mojom.CrosLidObserverReceiver = class {
+mojo.internal.bindings.cros.mojom.CrosLidObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -376,7 +381,7 @@ cros.mojom.CrosLidObserverReceiver = class {
         // Try Method 0: OnLidStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLidStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -393,9 +398,9 @@ cros.mojom.CrosLidObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLidStateChanged');
-          const result = this.impl.onLidStateChanged(params.new_state);
+          const result = this.impl.onLidStateChanged(params.arg_new_state);
           break;
         }
       }
@@ -406,44 +411,44 @@ cros.mojom.CrosLidObserverReceiver = class {
   }
 };
 
-cros.mojom.CrosLidObserverReceiver = cros.mojom.CrosLidObserverReceiver;
+mojo.internal.bindings.cros.mojom.CrosLidObserverReceiver = mojo.internal.bindings.cros.mojom.CrosLidObserverReceiver;
 
-cros.mojom.CrosLidObserverPtr = cros.mojom.CrosLidObserverRemote;
-cros.mojom.CrosLidObserverRequest = cros.mojom.CrosLidObserverPendingReceiver;
+mojo.internal.bindings.cros.mojom.CrosLidObserverPtr = mojo.internal.bindings.cros.mojom.CrosLidObserverRemote;
+mojo.internal.bindings.cros.mojom.CrosLidObserverRequest = mojo.internal.bindings.cros.mojom.CrosLidObserverPendingReceiver;
 
 
 // Interface: CrosPowerObserver
 mojo.internal.Struct(
-    cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec, 'cros.mojom.CrosPowerObserver_OnSystemSuspend_Params', [
+    mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec, 'cros.mojom.CrosPowerObserver_OnSystemSuspend_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParamsSpec, 'cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParams', [
+    mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParamsSpec, 'cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParams', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec, 'cros.mojom.CrosPowerObserver_OnSystemResume_Params', [
+    mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec, 'cros.mojom.CrosPowerObserver_OnSystemResume_Params', [
     ],
     [[0, 8]]);
 
-cros.mojom.CrosPowerObserverPendingReceiver = class {
+mojo.internal.bindings.cros.mojom.CrosPowerObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-cros.mojom.CrosPowerObserverRemote = class {
+mojo.internal.bindings.cros.mojom.CrosPowerObserverRemote = class {
   static get $interfaceName() {
     return 'cros.mojom.CrosPowerObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      cros.mojom.CrosPowerObserverPendingReceiver,
+      mojo.internal.bindings.cros.mojom.CrosPowerObserverPendingReceiver,
       handle);
-    this.$ = new cros.mojom.CrosPowerObserverRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.cros.mojom.CrosPowerObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -461,7 +466,7 @@ cros.mojom.CrosPowerObserverRemote = class {
   }
 };
 
-cros.mojom.CrosPowerObserverRemoteCallHandler = class {
+mojo.internal.bindings.cros.mojom.CrosPowerObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('CrosPowerObserver', [
@@ -473,8 +478,8 @@ cros.mojom.CrosPowerObserverRemoteCallHandler = class {
   onSystemSuspend() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec,
-      cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParamsSpec,
+      mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec,
+      mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParamsSpec,
       [],
       false);
   }
@@ -482,7 +487,7 @@ cros.mojom.CrosPowerObserverRemoteCallHandler = class {
   onSystemResume() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec,
+      mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec,
       null,
       [],
       false);
@@ -490,8 +495,8 @@ cros.mojom.CrosPowerObserverRemoteCallHandler = class {
 
 };
 
-cros.mojom.CrosPowerObserver.getRemote = function() {
-  let remote = new cros.mojom.CrosPowerObserverRemote();
+mojo.internal.bindings.cros.mojom.CrosPowerObserver.getRemote = function() {
+  let remote = new mojo.internal.bindings.cros.mojom.CrosPowerObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -500,7 +505,7 @@ cros.mojom.CrosPowerObserver.getRemote = function() {
   return remote.$;
 };
 
-cros.mojom.CrosPowerObserverReceiver = class {
+mojo.internal.bindings.cros.mojom.CrosPowerObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -550,7 +555,7 @@ cros.mojom.CrosPowerObserverReceiver = class {
         // Try Method 0: OnSystemSuspend
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSystemSuspend (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -561,7 +566,7 @@ cros.mojom.CrosPowerObserverReceiver = class {
         // Try Method 1: OnSystemResume
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSystemResume (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -578,14 +583,14 @@ cros.mojom.CrosPowerObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSystemSuspend');
           const result = this.impl.onSystemSuspend();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] OnSystemSuspend FAILED:', e));
           }
@@ -593,7 +598,7 @@ cros.mojom.CrosPowerObserverReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSystemResume');
           const result = this.impl.onSystemResume();
           break;
@@ -606,54 +611,54 @@ cros.mojom.CrosPowerObserverReceiver = class {
   }
 };
 
-cros.mojom.CrosPowerObserverReceiver = cros.mojom.CrosPowerObserverReceiver;
+mojo.internal.bindings.cros.mojom.CrosPowerObserverReceiver = mojo.internal.bindings.cros.mojom.CrosPowerObserverReceiver;
 
-cros.mojom.CrosPowerObserverPtr = cros.mojom.CrosPowerObserverRemote;
-cros.mojom.CrosPowerObserverRequest = cros.mojom.CrosPowerObserverPendingReceiver;
+mojo.internal.bindings.cros.mojom.CrosPowerObserverPtr = mojo.internal.bindings.cros.mojom.CrosPowerObserverRemote;
+mojo.internal.bindings.cros.mojom.CrosPowerObserverRequest = mojo.internal.bindings.cros.mojom.CrosPowerObserverPendingReceiver;
 
 
 // Interface: CrosSystemEventMonitor
 mojo.internal.Struct(
-    cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec, 'cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.CrosDisplayObserverSpec), null, false, 0, undefined),
+    mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec, 'cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CrosDisplayObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec, 'cros.mojom.CrosSystemEventMonitor_AddLidObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(cros.mojom.CrosLidObserverSpec), null, false, 0, undefined),
+    mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec, 'cros.mojom.CrosSystemEventMonitor_AddLidObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CrosLidObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec, 'cros.mojom.CrosSystemEventMonitor_AddPowerObserver_Params', [
-      mojo.internal.StructField('client_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('observer', 8, 0, mojo.internal.InterfaceProxy(cros.mojom.CrosPowerObserverSpec), null, false, 0, undefined),
+    mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec, 'cros.mojom.CrosSystemEventMonitor_AddPowerObserver_Params', [
+      mojo.internal.StructField('arg_client_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CrosPowerObserverSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec, 'cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_Params', [
-      mojo.internal.StructField('type', 0, 0, cros.mojom.DeviceTypeSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec, 'cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_Params', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.cros.mojom.DeviceTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-cros.mojom.CrosSystemEventMonitorPendingReceiver = class {
+mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-cros.mojom.CrosSystemEventMonitorRemote = class {
+mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorRemote = class {
   static get $interfaceName() {
     return 'cros.mojom.CrosSystemEventMonitor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      cros.mojom.CrosSystemEventMonitorPendingReceiver,
+      mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorPendingReceiver,
       handle);
-    this.$ = new cros.mojom.CrosSystemEventMonitorRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -663,21 +668,21 @@ cros.mojom.CrosSystemEventMonitorRemote = class {
   close() {
     this.proxy.close();
   }
-  addDisplayObserver(observer) {
-    return this.$.addDisplayObserver(observer);
+  addDisplayObserver(arg_observer) {
+    return this.$.addDisplayObserver(arg_observer);
   }
-  addLidObserver(observer) {
-    return this.$.addLidObserver(observer);
+  addLidObserver(arg_observer) {
+    return this.$.addLidObserver(arg_observer);
   }
-  addPowerObserver(client_name, observer) {
-    return this.$.addPowerObserver(client_name, observer);
+  addPowerObserver(arg_client_name, arg_observer) {
+    return this.$.addPowerObserver(arg_client_name, arg_observer);
   }
-  notifyDeviceChanged(type) {
-    return this.$.notifyDeviceChanged(type);
+  notifyDeviceChanged(arg_type) {
+    return this.$.notifyDeviceChanged(arg_type);
   }
 };
 
-cros.mojom.CrosSystemEventMonitorRemoteCallHandler = class {
+mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('CrosSystemEventMonitor', [
@@ -688,46 +693,46 @@ cros.mojom.CrosSystemEventMonitorRemoteCallHandler = class {
     ]);
   }
 
-  addDisplayObserver(observer) {
+  addDisplayObserver(arg_observer) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec,
+      mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec,
       null,
-      [observer],
+      [arg_observer],
       false);
   }
 
-  addLidObserver(observer) {
+  addLidObserver(arg_observer) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec,
+      mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec,
       null,
-      [observer],
+      [arg_observer],
       false);
   }
 
-  addPowerObserver(client_name, observer) {
+  addPowerObserver(arg_client_name, arg_observer) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec,
+      mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec,
       null,
-      [client_name, observer],
+      [arg_client_name, arg_observer],
       false);
   }
 
-  notifyDeviceChanged(type) {
+  notifyDeviceChanged(arg_type) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec,
+      mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec,
       null,
-      [type],
+      [arg_type],
       false);
   }
 
 };
 
-cros.mojom.CrosSystemEventMonitor.getRemote = function() {
-  let remote = new cros.mojom.CrosSystemEventMonitorRemote();
+mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor.getRemote = function() {
+  let remote = new mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -736,7 +741,7 @@ cros.mojom.CrosSystemEventMonitor.getRemote = function() {
   return remote.$;
 };
 
-cros.mojom.CrosSystemEventMonitorReceiver = class {
+mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -788,7 +793,7 @@ cros.mojom.CrosSystemEventMonitorReceiver = class {
         // Try Method 0: AddDisplayObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddDisplayObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -799,7 +804,7 @@ cros.mojom.CrosSystemEventMonitorReceiver = class {
         // Try Method 1: AddLidObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddLidObserver (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -810,7 +815,7 @@ cros.mojom.CrosSystemEventMonitorReceiver = class {
         // Try Method 2: AddPowerObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddPowerObserver (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -821,7 +826,7 @@ cros.mojom.CrosSystemEventMonitorReceiver = class {
         // Try Method 3: NotifyDeviceChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyDeviceChanged (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -838,30 +843,30 @@ cros.mojom.CrosSystemEventMonitorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addDisplayObserver');
-          const result = this.impl.addDisplayObserver(params.observer);
+          const result = this.impl.addDisplayObserver(params.arg_observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addLidObserver');
-          const result = this.impl.addLidObserver(params.observer);
+          const result = this.impl.addLidObserver(params.arg_observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPowerObserver');
-          const result = this.impl.addPowerObserver(params.client_name, params.observer);
+          const result = this.impl.addPowerObserver(params.arg_client_name, params.arg_observer);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyDeviceChanged');
-          const result = this.impl.notifyDeviceChanged(params.type);
+          const result = this.impl.notifyDeviceChanged(params.arg_type);
           break;
         }
       }
@@ -872,8 +877,8 @@ cros.mojom.CrosSystemEventMonitorReceiver = class {
   }
 };
 
-cros.mojom.CrosSystemEventMonitorReceiver = cros.mojom.CrosSystemEventMonitorReceiver;
+mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorReceiver = mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorReceiver;
 
-cros.mojom.CrosSystemEventMonitorPtr = cros.mojom.CrosSystemEventMonitorRemote;
-cros.mojom.CrosSystemEventMonitorRequest = cros.mojom.CrosSystemEventMonitorPendingReceiver;
+mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorPtr = mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorRemote;
+mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorRequest = mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorPendingReceiver;
 

@@ -1,131 +1,136 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/components/mirroring/mojom/mirroring_service.mojom
-// Module: mirroring.mojom
+ // Source: chromium_src/components/mirroring/mojom/mirroring_service.mojom
+ // Module: mirroring.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var mirroring = mirroring || {};
-mirroring.mojom = mirroring.mojom || {};
-var sandbox = sandbox || {};
-var gfx = gfx || {};
-var mojo_base = mojo_base || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-mirroring.mojom.MirroringService = {};
-mirroring.mojom.MirroringService.$interfaceName = 'mirroring.mojom.MirroringService';
-mirroring.mojom.MirroringService_Start_ParamsSpec = { $: {} };
-mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec = { $: {} };
-mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec = { $: {} };
-mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec = { $: {} };
+ mojo.internal.bindings.mirroring = mojo.internal.bindings.mirroring || {};
+mojo.internal.bindings.mirroring.mojom = mojo.internal.bindings.mirroring.mojom || {};
+mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-mirroring.mojom.kMirroringSandbox = sandbox.mojom.Sandbox.kMirroring;
+mojo.internal.bindings.mirroring.mojom.MirroringService = {};
+mojo.internal.bindings.mirroring.mojom.MirroringService.$interfaceName = 'mirroring.mojom.MirroringService';
+mojo.internal.bindings.mirroring.mojom.MirroringService_Start_ParamsSpec = { $: {} };
+mojo.internal.bindings.mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec = { $: {} };
+mojo.internal.bindings.mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec = { $: {} };
+mojo.internal.bindings.mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec = { $: {} };
 
-mirroring.mojom.kMirroringSandbox = sandbox.mojom.Sandbox.kHardwareVideoEncoding;
+mojo.internal.bindings.mirroring.mojom.kMirroringSandbox = sandbox.mojom.Sandbox.kMirroring;
 
-mirroring.mojom.kMirroringSandbox = sandbox.mojom.Sandbox.kService;
+mojo.internal.bindings.mirroring.mojom.kMirroringSandbox = sandbox.mojom.Sandbox.kHardwareVideoEncoding;
+
+mojo.internal.bindings.mirroring.mojom.kMirroringSandbox = sandbox.mojom.Sandbox.kService;
 
 // Interface: MirroringService
 mojo.internal.Struct(
-    mirroring.mojom.MirroringService_Start_ParamsSpec, 'mirroring.mojom.MirroringService_Start_Params', [
-      mojo.internal.StructField('params', 0, 0, mirroring.mojom.SessionParametersSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('max_resolution', 8, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('observer', 16, 0, mojo.internal.InterfaceProxy(mirroring.mojom.SessionObserverRemote), null, false, 0, undefined),
-      mojo.internal.StructField('resource_provider', 24, 0, mojo.internal.InterfaceProxy(mirroring.mojom.ResourceProviderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('outbound_channel', 32, 0, mojo.internal.InterfaceProxy(mirroring.mojom.CastMessageChannelRemote), null, false, 0, undefined),
-      mojo.internal.StructField('inbound_channel', 40, 0, mojo.internal.InterfaceRequest(mirroring.mojom.CastMessageChannelRemote), null, false, 0, undefined),
+    mojo.internal.bindings.mirroring.mojom.MirroringService_Start_ParamsSpec, 'mirroring.mojom.MirroringService_Start_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mirroring.mojom.SessionParametersSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_max_resolution', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mirroring.mojom.SessionObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_resource_provider', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mirroring.mojom.ResourceProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_outbound_channel', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mirroring.mojom.CastMessageChannelRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_inbound_channel', 40, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.mirroring.mojom.CastMessageChannelRemote), null, false, 0, undefined),
     ],
     [[0, 56]]);
 
 mojo.internal.Struct(
-    mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec, 'mirroring.mojom.MirroringService_SwitchMirroringSourceTab_Params', [
+    mojo.internal.bindings.mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec, 'mirroring.mojom.MirroringService_SwitchMirroringSourceTab_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec, 'mirroring.mojom.MirroringService_GetMirroringStats_Params', [
+    mojo.internal.bindings.mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec, 'mirroring.mojom.MirroringService_GetMirroringStats_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec, 'mirroring.mojom.MirroringService_GetMirroringStats_ResponseParams', [
-      mojo.internal.StructField('json_stats', 0, 0, mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec, 'mirroring.mojom.MirroringService_GetMirroringStats_ResponseParams', [
+      mojo.internal.StructField('arg_json_stats', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-mirroring.mojom.MirroringServicePendingReceiver = class {
+mojo.internal.bindings.mirroring.mojom.MirroringServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-mirroring.mojom.MirroringServiceRemote = class {
+mojo.internal.bindings.mirroring.mojom.MirroringServiceRemote = class {
   static get $interfaceName() {
     return 'mirroring.mojom.MirroringService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mirroring.mojom.MirroringServicePendingReceiver,
+      mojo.internal.bindings.mirroring.mojom.MirroringServicePendingReceiver,
       handle);
-    this.$ = new mirroring.mojom.MirroringServiceRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.mirroring.mojom.MirroringServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -135,8 +140,8 @@ mirroring.mojom.MirroringServiceRemote = class {
   close() {
     this.proxy.close();
   }
-  start(params, max_resolution, observer, resource_provider, outbound_channel, inbound_channel) {
-    return this.$.start(params, max_resolution, observer, resource_provider, outbound_channel, inbound_channel);
+  start(arg_params, arg_max_resolution, arg_observer, arg_resource_provider, arg_outbound_channel, arg_inbound_channel) {
+    return this.$.start(arg_params, arg_max_resolution, arg_observer, arg_resource_provider, arg_outbound_channel, arg_inbound_channel);
   }
   switchMirroringSourceTab() {
     return this.$.switchMirroringSourceTab();
@@ -146,7 +151,7 @@ mirroring.mojom.MirroringServiceRemote = class {
   }
 };
 
-mirroring.mojom.MirroringServiceRemoteCallHandler = class {
+mojo.internal.bindings.mirroring.mojom.MirroringServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('MirroringService', [
@@ -156,19 +161,19 @@ mirroring.mojom.MirroringServiceRemoteCallHandler = class {
     ]);
   }
 
-  start(params, max_resolution, observer, resource_provider, outbound_channel, inbound_channel) {
+  start(arg_params, arg_max_resolution, arg_observer, arg_resource_provider, arg_outbound_channel, arg_inbound_channel) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      mirroring.mojom.MirroringService_Start_ParamsSpec,
+      mojo.internal.bindings.mirroring.mojom.MirroringService_Start_ParamsSpec,
       null,
-      [params, max_resolution, observer, resource_provider, outbound_channel, inbound_channel],
+      [arg_params, arg_max_resolution, arg_observer, arg_resource_provider, arg_outbound_channel, arg_inbound_channel],
       false);
   }
 
   switchMirroringSourceTab() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec,
+      mojo.internal.bindings.mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec,
       null,
       [],
       false);
@@ -177,16 +182,16 @@ mirroring.mojom.MirroringServiceRemoteCallHandler = class {
   getMirroringStats() {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec,
-      mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec,
+      mojo.internal.bindings.mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec,
+      mojo.internal.bindings.mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec,
       [],
       false);
   }
 
 };
 
-mirroring.mojom.MirroringService.getRemote = function() {
-  let remote = new mirroring.mojom.MirroringServiceRemote();
+mojo.internal.bindings.mirroring.mojom.MirroringService.getRemote = function() {
+  let remote = new mojo.internal.bindings.mirroring.mojom.MirroringServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -195,7 +200,7 @@ mirroring.mojom.MirroringService.getRemote = function() {
   return remote.$;
 };
 
-mirroring.mojom.MirroringServiceReceiver = class {
+mojo.internal.bindings.mirroring.mojom.MirroringServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -246,7 +251,7 @@ mirroring.mojom.MirroringServiceReceiver = class {
         // Try Method 0: Start
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mirroring.mojom.MirroringService_Start_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.MirroringService_Start_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Start (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -257,7 +262,7 @@ mirroring.mojom.MirroringServiceReceiver = class {
         // Try Method 1: SwitchMirroringSourceTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SwitchMirroringSourceTab (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -268,7 +273,7 @@ mirroring.mojom.MirroringServiceReceiver = class {
         // Try Method 2: GetMirroringStats
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMirroringStats (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -285,28 +290,28 @@ mirroring.mojom.MirroringServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mirroring.mojom.MirroringService_Start_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.MirroringService_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
-          const result = this.impl.start(params.params, params.max_resolution, params.observer, params.resource_provider, params.outbound_channel, params.inbound_channel);
+          const result = this.impl.start(params.arg_params, params.arg_max_resolution, params.arg_observer, params.arg_resource_provider, params.arg_outbound_channel, params.arg_inbound_channel);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.switchMirroringSourceTab');
           const result = this.impl.switchMirroringSourceTab();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMirroringStats');
           const result = this.impl.getMirroringStats();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetMirroringStats FAILED:', e));
           }
@@ -320,8 +325,8 @@ mirroring.mojom.MirroringServiceReceiver = class {
   }
 };
 
-mirroring.mojom.MirroringServiceReceiver = mirroring.mojom.MirroringServiceReceiver;
+mojo.internal.bindings.mirroring.mojom.MirroringServiceReceiver = mojo.internal.bindings.mirroring.mojom.MirroringServiceReceiver;
 
-mirroring.mojom.MirroringServicePtr = mirroring.mojom.MirroringServiceRemote;
-mirroring.mojom.MirroringServiceRequest = mirroring.mojom.MirroringServicePendingReceiver;
+mojo.internal.bindings.mirroring.mojom.MirroringServicePtr = mojo.internal.bindings.mirroring.mojom.MirroringServiceRemote;
+mojo.internal.bindings.mirroring.mojom.MirroringServiceRequest = mojo.internal.bindings.mirroring.mojom.MirroringServicePendingReceiver;
 

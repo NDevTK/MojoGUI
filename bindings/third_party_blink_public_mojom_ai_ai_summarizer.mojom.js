@@ -1,83 +1,88 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/third_party/blink/public/mojom/ai/ai_summarizer.mojom
-// Module: blink.mojom
+ // Source: chromium_src/third_party/blink/public/mojom/ai/ai_summarizer.mojom
+ // Module: blink.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var blink = blink || {};
-blink.mojom = blink.mojom || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-blink.mojom.AISummarizerTypeSpec = { $: mojo.internal.Enum() };
-blink.mojom.AISummarizerFormatSpec = { $: mojo.internal.Enum() };
-blink.mojom.AISummarizerLengthSpec = { $: mojo.internal.Enum() };
-blink.mojom.AISummarizerCreateOptionsSpec = { $: {} };
-blink.mojom.AISummarizer = {};
-blink.mojom.AISummarizer.$interfaceName = 'blink.mojom.AISummarizer';
-blink.mojom.AISummarizer_Summarize_ParamsSpec = { $: {} };
-blink.mojom.AISummarizer_MeasureUsage_ParamsSpec = { $: {} };
-blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec = { $: {} };
+ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+
+mojo.internal.bindings.blink.mojom.AISummarizerTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.AISummarizerFormatSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.AISummarizerLengthSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.AISummarizerCreateOptionsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.AISummarizer = {};
+mojo.internal.bindings.blink.mojom.AISummarizer.$interfaceName = 'blink.mojom.AISummarizer';
+mojo.internal.bindings.blink.mojom.AISummarizer_Summarize_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.AISummarizer_MeasureUsage_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec = { $: {} };
 
 // Enum: AISummarizerType
-blink.mojom.AISummarizerType = {
+mojo.internal.bindings.blink.mojom.AISummarizerType = {
   kTLDR: 0,
   kKeyPoints: 1,
   kTeaser: 2,
@@ -85,13 +90,13 @@ blink.mojom.AISummarizerType = {
 };
 
 // Enum: AISummarizerFormat
-blink.mojom.AISummarizerFormat = {
+mojo.internal.bindings.blink.mojom.AISummarizerFormat = {
   kPlainText: 0,
   kMarkDown: 1,
 };
 
 // Enum: AISummarizerLength
-blink.mojom.AISummarizerLength = {
+mojo.internal.bindings.blink.mojom.AISummarizerLength = {
   kShort: 0,
   kMedium: 1,
   kLong: 2,
@@ -99,56 +104,56 @@ blink.mojom.AISummarizerLength = {
 
 // Struct: AISummarizerCreateOptions
 mojo.internal.Struct(
-    blink.mojom.AISummarizerCreateOptionsSpec, 'blink.mojom.AISummarizerCreateOptions', [
-      mojo.internal.StructField('shared_context', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('type', 8, 0, blink.mojom.AISummarizerTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('format', 16, 0, blink.mojom.AISummarizerFormatSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('length', 24, 0, blink.mojom.AISummarizerLengthSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('expected_input_languages', 32, 0, mojo.internal.Array(blink.mojom.AILanguageCodeSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('expected_context_languages', 40, 0, mojo.internal.Array(blink.mojom.AILanguageCodeSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('output_language', 48, 0, blink.mojom.AILanguageCodeSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.AISummarizerCreateOptionsSpec, 'blink.mojom.AISummarizerCreateOptions', [
+      mojo.internal.StructField('arg_shared_context', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AISummarizerTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_format', 16, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AISummarizerFormatSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_length', 24, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AISummarizerLengthSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_expected_input_languages', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_expected_context_languages', 40, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_language', 48, 0, mojo.internal.bindings.blink.mojom.AILanguageCodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
 // Interface: AISummarizer
 mojo.internal.Struct(
-    blink.mojom.AISummarizer_Summarize_ParamsSpec, 'blink.mojom.AISummarizer_Summarize_Params', [
-      mojo.internal.StructField('input', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('context', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('pending_responder', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.ModelStreamingResponderRemote), null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.AISummarizer_Summarize_ParamsSpec, 'blink.mojom.AISummarizer_Summarize_Params', [
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_context', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pending_responder', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
-    blink.mojom.AISummarizer_MeasureUsage_ParamsSpec, 'blink.mojom.AISummarizer_MeasureUsage_Params', [
-      mojo.internal.StructField('input', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('context', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.AISummarizer_MeasureUsage_ParamsSpec, 'blink.mojom.AISummarizer_MeasureUsage_Params', [
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_context', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec, 'blink.mojom.AISummarizer_MeasureUsage_ResponseParams', [
-      mojo.internal.StructField('number_of_tokens_$value', 0, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'number_of_tokens_$flag', originalFieldName: 'number_of_tokens' }),
-      mojo.internal.StructField('number_of_tokens_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'number_of_tokens_$value', originalFieldName: 'number_of_tokens' }),
+    mojo.internal.bindings.blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec, 'blink.mojom.AISummarizer_MeasureUsage_ResponseParams', [
+      mojo.internal.StructField('arg_number_of_tokens_$value', 0, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_number_of_tokens_$flag', originalFieldName: 'arg_number_of_tokens' }),
+      mojo.internal.StructField('arg_number_of_tokens_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_number_of_tokens_$value', originalFieldName: 'arg_number_of_tokens' }),
     ],
     [[0, 16]]);
 
-blink.mojom.AISummarizerPendingReceiver = class {
+mojo.internal.bindings.blink.mojom.AISummarizerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.AISummarizerRemote = class {
+mojo.internal.bindings.blink.mojom.AISummarizerRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.AISummarizer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.AISummarizerPendingReceiver,
+      mojo.internal.bindings.blink.mojom.AISummarizerPendingReceiver,
       handle);
-    this.$ = new blink.mojom.AISummarizerRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.blink.mojom.AISummarizerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -158,15 +163,15 @@ blink.mojom.AISummarizerRemote = class {
   close() {
     this.proxy.close();
   }
-  summarize(input, context, pending_responder) {
-    return this.$.summarize(input, context, pending_responder);
+  summarize(arg_input, arg_context, arg_pending_responder) {
+    return this.$.summarize(arg_input, arg_context, arg_pending_responder);
   }
-  measureUsage(input, context) {
-    return this.$.measureUsage(input, context);
+  measureUsage(arg_input, arg_context) {
+    return this.$.measureUsage(arg_input, arg_context);
   }
 };
 
-blink.mojom.AISummarizerRemoteCallHandler = class {
+mojo.internal.bindings.blink.mojom.AISummarizerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('AISummarizer', [
@@ -175,28 +180,28 @@ blink.mojom.AISummarizerRemoteCallHandler = class {
     ]);
   }
 
-  summarize(input, context, pending_responder) {
+  summarize(arg_input, arg_context, arg_pending_responder) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      blink.mojom.AISummarizer_Summarize_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.AISummarizer_Summarize_ParamsSpec,
       null,
-      [input, context, pending_responder],
+      [arg_input, arg_context, arg_pending_responder],
       false);
   }
 
-  measureUsage(input, context) {
+  measureUsage(arg_input, arg_context) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      blink.mojom.AISummarizer_MeasureUsage_ParamsSpec,
-      blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec,
-      [input, context],
+      mojo.internal.bindings.blink.mojom.AISummarizer_MeasureUsage_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec,
+      [arg_input, arg_context],
       false);
   }
 
 };
 
-blink.mojom.AISummarizer.getRemote = function() {
-  let remote = new blink.mojom.AISummarizerRemote();
+mojo.internal.bindings.blink.mojom.AISummarizer.getRemote = function() {
+  let remote = new mojo.internal.bindings.blink.mojom.AISummarizerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -205,7 +210,7 @@ blink.mojom.AISummarizer.getRemote = function() {
   return remote.$;
 };
 
-blink.mojom.AISummarizerReceiver = class {
+mojo.internal.bindings.blink.mojom.AISummarizerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -255,7 +260,7 @@ blink.mojom.AISummarizerReceiver = class {
         // Try Method 0: Summarize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.AISummarizer_Summarize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AISummarizer_Summarize_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Summarize (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -266,7 +271,7 @@ blink.mojom.AISummarizerReceiver = class {
         // Try Method 1: MeasureUsage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.AISummarizer_MeasureUsage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AISummarizer_MeasureUsage_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MeasureUsage (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -283,21 +288,21 @@ blink.mojom.AISummarizerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AISummarizer_Summarize_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AISummarizer_Summarize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.summarize');
-          const result = this.impl.summarize(params.input, params.context, params.pending_responder);
+          const result = this.impl.summarize(params.arg_input, params.arg_context, params.arg_pending_responder);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AISummarizer_MeasureUsage_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AISummarizer_MeasureUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.measureUsage');
-          const result = this.impl.measureUsage(params.input, params.context);
+          const result = this.impl.measureUsage(params.arg_input, params.arg_context);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] MeasureUsage FAILED:', e));
           }
@@ -311,8 +316,8 @@ blink.mojom.AISummarizerReceiver = class {
   }
 };
 
-blink.mojom.AISummarizerReceiver = blink.mojom.AISummarizerReceiver;
+mojo.internal.bindings.blink.mojom.AISummarizerReceiver = mojo.internal.bindings.blink.mojom.AISummarizerReceiver;
 
-blink.mojom.AISummarizerPtr = blink.mojom.AISummarizerRemote;
-blink.mojom.AISummarizerRequest = blink.mojom.AISummarizerPendingReceiver;
+mojo.internal.bindings.blink.mojom.AISummarizerPtr = mojo.internal.bindings.blink.mojom.AISummarizerRemote;
+mojo.internal.bindings.blink.mojom.AISummarizerRequest = mojo.internal.bindings.blink.mojom.AISummarizerPendingReceiver;
 

@@ -1,258 +1,263 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/ash/webui/projector_app/mojom/untrusted_projector.mojom
-// Module: ash.projector.mojom
+ // Source: chromium_src/ash/webui/projector_app/mojom/untrusted_projector.mojom
+ // Module: ash.projector.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var ash = ash || {};
-ash.projector = ash.projector || {};
-ash.projector.mojom = ash.projector.mojom || {};
-var mojo_base = mojo_base || {};
-var url = url || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-ash.projector.mojom.UntrustedProjectorPageHandler = {};
-ash.projector.mojom.UntrustedProjectorPageHandler.$interfaceName = 'ash.projector.mojom.UntrustedProjectorPageHandler';
-ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec = { $: {} };
-ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec = { $: {} };
-ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec = { $: {} };
-ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec = { $: {} };
-ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec = { $: {} };
-ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec = { $: {} };
-ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec = { $: {} };
-ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec = { $: {} };
-ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec = { $: {} };
-ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec = { $: {} };
-ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec = { $: {} };
-ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ResponseParamsSpec = { $: {} };
-ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec = { $: {} };
-ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ResponseParamsSpec = { $: {} };
-ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec = { $: {} };
-ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec = { $: {} };
-ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec = { $: {} };
-ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec = { $: {} };
-ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec = { $: {} };
-ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec = { $: {} };
-ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec = { $: {} };
-ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec = { $: {} };
-ash.projector.mojom.UntrustedProjectorPage = {};
-ash.projector.mojom.UntrustedProjectorPage.$interfaceName = 'ash.projector.mojom.UntrustedProjectorPage';
-ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec = { $: {} };
-ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec = { $: {} };
-ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec = { $: {} };
-ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec = { $: {} };
-ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec = { $: {} };
-ash.projector.mojom.UntrustedProjectorPageHandlerFactory = {};
-ash.projector.mojom.UntrustedProjectorPageHandlerFactory.$interfaceName = 'ash.projector.mojom.UntrustedProjectorPageHandlerFactory';
-ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec = { $: {} };
+ mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.projector = mojo.internal.bindings.ash.projector || {};
+mojo.internal.bindings.ash.projector.mojom = mojo.internal.bindings.ash.projector.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler.$interfaceName = 'ash.projector.mojom.UntrustedProjectorPageHandler';
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage.$interfaceName = 'ash.projector.mojom.UntrustedProjectorPage';
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory = {};
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory.$interfaceName = 'ash.projector.mojom.UntrustedProjectorPageHandlerFactory';
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec = { $: {} };
 
 // Interface: UntrustedProjectorPageHandler
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_Params', [
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParams', [
-      mojo.internal.StructField('precondition', 0, 0, ash.projector.mojom.NewScreencastPreconditionSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParams', [
+      mojo.internal.StructField('arg_precondition', 0, 0, mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_Params', [
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParams', [
-      mojo.internal.StructField('should_download', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParams', [
+      mojo.internal.StructField('arg_should_download', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_Params', [
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParams', [
-      mojo.internal.StructField('triggered', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParams', [
+      mojo.internal.StructField('arg_triggered', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_Params', [
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParams', [
-      mojo.internal.StructField('pending_screencasts', 0, 0, mojo.internal.Array(ash.projector.mojom.PendingScreencastSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParams', [
+      mojo.internal.StructField('arg_pending_screencasts', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.projector.mojom.PendingScreencastSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_Params', [
-      mojo.internal.StructField('pref', 0, 0, ash.projector.mojom.PrefsThatProjectorCanAskForSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_Params', [
+      mojo.internal.StructField('arg_pref', 0, 0, mojo.internal.bindings.ash.projector.mojom.PrefsThatProjectorCanAskForSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParams', [
-      mojo.internal.StructField('value', 0, 0, mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParams', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_Params', [
-      mojo.internal.StructField('pref', 0, 0, ash.projector.mojom.PrefsThatProjectorCanAskForSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_Params', [
+      mojo.internal.StructField('arg_pref', 0, 0, mojo.internal.bindings.ash.projector.mojom.PrefsThatProjectorCanAskForSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ResponseParams', [
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ResponseParams', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_Params', [
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ResponseParams', [
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ResponseParams', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_Params', [
-      mojo.internal.StructField('storage_dir_name', 0, 0, mojo_base.mojom.SafeBaseNameSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_Params', [
+      mojo.internal.StructField('arg_storage_dir_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.SafeBaseNameSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParams', [
-      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('method', 8, 0, ash.projector.mojom.RequestTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('request_body', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('headers', 24, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('account_email', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('use_credentials', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('use_api_key', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_method', 8, 0, mojo.internal.bindings.ash.projector.mojom.RequestTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_body', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_headers', 24, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_account_email', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_use_credentials', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_use_api_key', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);
 
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, ash.projector.mojom.XhrResponseSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParams', [
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.projector.mojom.XhrResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_Params', [
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParams', [
-      mojo.internal.StructField('accounts', 0, 0, mojo.internal.Array(ash.projector.mojom.AccountSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParams', [
+      mojo.internal.StructField('arg_accounts', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.projector.mojom.AccountSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_Params', [
-      mojo.internal.StructField('video_file_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('resource_key', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_Params', [
+      mojo.internal.StructField('arg_video_file_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_resource_key', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.projector.mojom.GetVideoResultSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.projector.mojom.GetVideoResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-ash.projector.mojom.UntrustedProjectorPageHandlerPendingReceiver = class {
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.projector.mojom.UntrustedProjectorPageHandlerRemote = class {
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.projector.mojom.UntrustedProjectorPageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.projector.mojom.UntrustedProjectorPageHandlerPendingReceiver,
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerPendingReceiver,
       handle);
-    this.$ = new ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -274,30 +279,30 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemote = class {
   getPendingScreencasts() {
     return this.$.getPendingScreencasts();
   }
-  getUserPref(pref) {
-    return this.$.getUserPref(pref);
+  getUserPref(arg_pref) {
+    return this.$.getUserPref(arg_pref);
   }
-  setUserPref(pref, value) {
-    return this.$.setUserPref(pref, value);
+  setUserPref(arg_pref, arg_value) {
+    return this.$.setUserPref(arg_pref, arg_value);
   }
   openFeedbackDialog() {
     return this.$.openFeedbackDialog();
   }
-  startProjectorSession(storage_dir_name) {
-    return this.$.startProjectorSession(storage_dir_name);
+  startProjectorSession(arg_storage_dir_name) {
+    return this.$.startProjectorSession(arg_storage_dir_name);
   }
-  sendXhr(url, method, request_body, use_credentials, use_api_key, headers, account_email) {
-    return this.$.sendXhr(url, method, request_body, use_credentials, use_api_key, headers, account_email);
+  sendXhr(arg_url, arg_method, arg_request_body, arg_use_credentials, arg_use_api_key, arg_headers, arg_account_email) {
+    return this.$.sendXhr(arg_url, arg_method, arg_request_body, arg_use_credentials, arg_use_api_key, arg_headers, arg_account_email);
   }
   getAccounts() {
     return this.$.getAccounts();
   }
-  getVideo(video_file_id, resource_key) {
-    return this.$.getVideo(video_file_id, resource_key);
+  getVideo(arg_video_file_id, arg_resource_key) {
+    return this.$.getVideo(arg_video_file_id, arg_resource_key);
   }
 };
 
-ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('UntrustedProjectorPageHandler', [
@@ -318,8 +323,8 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
   getNewScreencastPrecondition() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec,
-      ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec,
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec,
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec,
       [],
       false);
   }
@@ -327,8 +332,8 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
   shouldDownloadSoda() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec,
-      ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec,
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec,
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec,
       [],
       false);
   }
@@ -336,8 +341,8 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
   installSoda() {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec,
-      ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec,
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec,
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec,
       [],
       false);
   }
@@ -345,79 +350,79 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
   getPendingScreencasts() {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec,
-      ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec,
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec,
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec,
       [],
       false);
   }
 
-  getUserPref(pref) {
+  getUserPref(arg_pref) {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
-      ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec,
-      ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec,
-      [pref],
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec,
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec,
+      [arg_pref],
       false);
   }
 
-  setUserPref(pref, value) {
+  setUserPref(arg_pref, arg_value) {
     return this.proxy.sendMessage(
       this.ordinals[5],  // ordinal
-      ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec,
-      ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ResponseParamsSpec,
-      [pref, value],
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec,
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ResponseParamsSpec,
+      [arg_pref, arg_value],
       false);
   }
 
   openFeedbackDialog() {
     return this.proxy.sendMessage(
       this.ordinals[6],  // ordinal
-      ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec,
-      ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ResponseParamsSpec,
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec,
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ResponseParamsSpec,
       [],
       false);
   }
 
-  startProjectorSession(storage_dir_name) {
+  startProjectorSession(arg_storage_dir_name) {
     return this.proxy.sendMessage(
       this.ordinals[7],  // ordinal
-      ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec,
-      ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec,
-      [storage_dir_name],
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec,
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec,
+      [arg_storage_dir_name],
       false);
   }
 
-  sendXhr(url, method, request_body, use_credentials, use_api_key, headers, account_email) {
+  sendXhr(arg_url, arg_method, arg_request_body, arg_use_credentials, arg_use_api_key, arg_headers, arg_account_email) {
     return this.proxy.sendMessage(
       this.ordinals[8],  // ordinal
-      ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec,
-      ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec,
-      [url, method, request_body, use_credentials, use_api_key, headers, account_email],
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec,
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec,
+      [arg_url, arg_method, arg_request_body, arg_use_credentials, arg_use_api_key, arg_headers, arg_account_email],
       false);
   }
 
   getAccounts() {
     return this.proxy.sendMessage(
       this.ordinals[9],  // ordinal
-      ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec,
-      ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec,
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec,
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec,
       [],
       false);
   }
 
-  getVideo(video_file_id, resource_key) {
+  getVideo(arg_video_file_id, arg_resource_key) {
     return this.proxy.sendMessage(
       this.ordinals[10],  // ordinal
-      ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec,
-      ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec,
-      [video_file_id, resource_key],
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec,
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec,
+      [arg_video_file_id, arg_resource_key],
       false);
   }
 
 };
 
-ash.projector.mojom.UntrustedProjectorPageHandler.getRemote = function() {
-  let remote = new ash.projector.mojom.UntrustedProjectorPageHandlerRemote();
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -426,7 +431,7 @@ ash.projector.mojom.UntrustedProjectorPageHandler.getRemote = function() {
   return remote.$;
 };
 
-ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -485,7 +490,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         // Try Method 0: GetNewScreencastPrecondition
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNewScreencastPrecondition (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -496,7 +501,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         // Try Method 1: ShouldDownloadSoda
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldDownloadSoda (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -507,7 +512,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         // Try Method 2: InstallSoda
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallSoda (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -518,7 +523,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         // Try Method 3: GetPendingScreencasts
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPendingScreencasts (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -529,7 +534,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         // Try Method 4: GetUserPref
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUserPref (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -540,7 +545,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         // Try Method 5: SetUserPref
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUserPref (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -551,7 +556,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         // Try Method 6: OpenFeedbackDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenFeedbackDialog (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -562,7 +567,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         // Try Method 7: StartProjectorSession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartProjectorSession (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -573,7 +578,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         // Try Method 8: SendXhr
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendXhr (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -584,7 +589,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         // Try Method 9: GetAccounts
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAccounts (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -595,7 +600,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         // Try Method 10: GetVideo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVideo (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -612,14 +617,14 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNewScreencastPrecondition');
           const result = this.impl.getNewScreencastPrecondition();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetNewScreencastPrecondition FAILED:', e));
           }
@@ -627,14 +632,14 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.shouldDownloadSoda');
           const result = this.impl.shouldDownloadSoda();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] ShouldDownloadSoda FAILED:', e));
           }
@@ -642,14 +647,14 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.installSoda');
           const result = this.impl.installSoda();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] InstallSoda FAILED:', e));
           }
@@ -657,14 +662,14 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPendingScreencasts');
           const result = this.impl.getPendingScreencasts();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetPendingScreencasts FAILED:', e));
           }
@@ -672,14 +677,14 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUserPref');
-          const result = this.impl.getUserPref(params.pref);
+          const result = this.impl.getUserPref(params.arg_pref);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetUserPref FAILED:', e));
           }
@@ -687,14 +692,14 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUserPref');
-          const result = this.impl.setUserPref(params.pref, params.value);
+          const result = this.impl.setUserPref(params.arg_pref, params.arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] SetUserPref FAILED:', e));
           }
@@ -702,14 +707,14 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openFeedbackDialog');
           const result = this.impl.openFeedbackDialog();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] OpenFeedbackDialog FAILED:', e));
           }
@@ -717,14 +722,14 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startProjectorSession');
-          const result = this.impl.startProjectorSession(params.storage_dir_name);
+          const result = this.impl.startProjectorSession(params.arg_storage_dir_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] StartProjectorSession FAILED:', e));
           }
@@ -732,14 +737,14 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendXhr');
-          const result = this.impl.sendXhr(params.url, params.method, params.request_body, params.use_credentials, params.use_api_key, params.headers, params.account_email);
+          const result = this.impl.sendXhr(params.arg_url, params.arg_method, params.arg_request_body, params.arg_use_credentials, params.arg_use_api_key, params.arg_headers, params.arg_account_email);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] SendXhr FAILED:', e));
           }
@@ -747,14 +752,14 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAccounts');
           const result = this.impl.getAccounts();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetAccounts FAILED:', e));
           }
@@ -762,14 +767,14 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getVideo');
-          const result = this.impl.getVideo(params.video_file_id, params.resource_key);
+          const result = this.impl.getVideo(params.arg_video_file_id, params.arg_resource_key);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetVideo FAILED:', e));
           }
@@ -783,57 +788,57 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
   }
 };
 
-ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = ash.projector.mojom.UntrustedProjectorPageHandlerReceiver;
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerReceiver;
 
-ash.projector.mojom.UntrustedProjectorPageHandlerPtr = ash.projector.mojom.UntrustedProjectorPageHandlerRemote;
-ash.projector.mojom.UntrustedProjectorPageHandlerRequest = ash.projector.mojom.UntrustedProjectorPageHandlerPendingReceiver;
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerPtr = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerRemote;
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerRequest = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerPendingReceiver;
 
 
 // Interface: UntrustedProjectorPage
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_Params', [
-      mojo.internal.StructField('precondition', 0, 0, ash.projector.mojom.NewScreencastPreconditionSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_Params', [
+      mojo.internal.StructField('arg_precondition', 0, 0, mojo.internal.bindings.ash.projector.mojom.NewScreencastPreconditionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_Params', [
-      mojo.internal.StructField('progress', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_Params', [
+      mojo.internal.StructField('arg_progress', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_Params', [
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_Params', [
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_Params', [
-      mojo.internal.StructField('pending_screencasts', 0, 0, mojo.internal.Array(ash.projector.mojom.PendingScreencastSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_Params', [
+      mojo.internal.StructField('arg_pending_screencasts', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.projector.mojom.PendingScreencastSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-ash.projector.mojom.UntrustedProjectorPagePendingReceiver = class {
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.projector.mojom.UntrustedProjectorPageRemote = class {
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageRemote = class {
   static get $interfaceName() {
     return 'ash.projector.mojom.UntrustedProjectorPage';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.projector.mojom.UntrustedProjectorPagePendingReceiver,
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPagePendingReceiver,
       handle);
-    this.$ = new ash.projector.mojom.UntrustedProjectorPageRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -843,11 +848,11 @@ ash.projector.mojom.UntrustedProjectorPageRemote = class {
   close() {
     this.proxy.close();
   }
-  onNewScreencastPreconditionChanged(precondition) {
-    return this.$.onNewScreencastPreconditionChanged(precondition);
+  onNewScreencastPreconditionChanged(arg_precondition) {
+    return this.$.onNewScreencastPreconditionChanged(arg_precondition);
   }
-  onSodaInstallProgressUpdated(progress) {
-    return this.$.onSodaInstallProgressUpdated(progress);
+  onSodaInstallProgressUpdated(arg_progress) {
+    return this.$.onSodaInstallProgressUpdated(arg_progress);
   }
   onSodaInstalled() {
     return this.$.onSodaInstalled();
@@ -855,12 +860,12 @@ ash.projector.mojom.UntrustedProjectorPageRemote = class {
   onSodaInstallError() {
     return this.$.onSodaInstallError();
   }
-  onScreencastsStateChange(pending_screencasts) {
-    return this.$.onScreencastsStateChange(pending_screencasts);
+  onScreencastsStateChange(arg_pending_screencasts) {
+    return this.$.onScreencastsStateChange(arg_pending_screencasts);
   }
 };
 
-ash.projector.mojom.UntrustedProjectorPageRemoteCallHandler = class {
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('UntrustedProjectorPage', [
@@ -872,28 +877,28 @@ ash.projector.mojom.UntrustedProjectorPageRemoteCallHandler = class {
     ]);
   }
 
-  onNewScreencastPreconditionChanged(precondition) {
+  onNewScreencastPreconditionChanged(arg_precondition) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec,
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec,
       null,
-      [precondition],
+      [arg_precondition],
       false);
   }
 
-  onSodaInstallProgressUpdated(progress) {
+  onSodaInstallProgressUpdated(arg_progress) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec,
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec,
       null,
-      [progress],
+      [arg_progress],
       false);
   }
 
   onSodaInstalled() {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec,
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec,
       null,
       [],
       false);
@@ -902,25 +907,25 @@ ash.projector.mojom.UntrustedProjectorPageRemoteCallHandler = class {
   onSodaInstallError() {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec,
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec,
       null,
       [],
       false);
   }
 
-  onScreencastsStateChange(pending_screencasts) {
+  onScreencastsStateChange(arg_pending_screencasts) {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
-      ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec,
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec,
       null,
-      [pending_screencasts],
+      [arg_pending_screencasts],
       false);
   }
 
 };
 
-ash.projector.mojom.UntrustedProjectorPage.getRemote = function() {
-  let remote = new ash.projector.mojom.UntrustedProjectorPageRemote();
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -929,7 +934,7 @@ ash.projector.mojom.UntrustedProjectorPage.getRemote = function() {
   return remote.$;
 };
 
-ash.projector.mojom.UntrustedProjectorPageReceiver = class {
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -982,7 +987,7 @@ ash.projector.mojom.UntrustedProjectorPageReceiver = class {
         // Try Method 0: OnNewScreencastPreconditionChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNewScreencastPreconditionChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -993,7 +998,7 @@ ash.projector.mojom.UntrustedProjectorPageReceiver = class {
         // Try Method 1: OnSodaInstallProgressUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSodaInstallProgressUpdated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1004,7 +1009,7 @@ ash.projector.mojom.UntrustedProjectorPageReceiver = class {
         // Try Method 2: OnSodaInstalled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSodaInstalled (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1015,7 +1020,7 @@ ash.projector.mojom.UntrustedProjectorPageReceiver = class {
         // Try Method 3: OnSodaInstallError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSodaInstallError (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1026,7 +1031,7 @@ ash.projector.mojom.UntrustedProjectorPageReceiver = class {
         // Try Method 4: OnScreencastsStateChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScreencastsStateChange (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1043,37 +1048,37 @@ ash.projector.mojom.UntrustedProjectorPageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNewScreencastPreconditionChanged');
-          const result = this.impl.onNewScreencastPreconditionChanged(params.precondition);
+          const result = this.impl.onNewScreencastPreconditionChanged(params.arg_precondition);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSodaInstallProgressUpdated');
-          const result = this.impl.onSodaInstallProgressUpdated(params.progress);
+          const result = this.impl.onSodaInstallProgressUpdated(params.arg_progress);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSodaInstalled');
           const result = this.impl.onSodaInstalled();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSodaInstallError');
           const result = this.impl.onSodaInstallError();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScreencastsStateChange');
-          const result = this.impl.onScreencastsStateChange(params.pending_screencasts);
+          const result = this.impl.onScreencastsStateChange(params.arg_pending_screencasts);
           break;
         }
       }
@@ -1084,36 +1089,36 @@ ash.projector.mojom.UntrustedProjectorPageReceiver = class {
   }
 };
 
-ash.projector.mojom.UntrustedProjectorPageReceiver = ash.projector.mojom.UntrustedProjectorPageReceiver;
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageReceiver = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageReceiver;
 
-ash.projector.mojom.UntrustedProjectorPagePtr = ash.projector.mojom.UntrustedProjectorPageRemote;
-ash.projector.mojom.UntrustedProjectorPageRequest = ash.projector.mojom.UntrustedProjectorPagePendingReceiver;
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPagePtr = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageRemote;
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageRequest = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPagePendingReceiver;
 
 
 // Interface: UntrustedProjectorPageHandlerFactory
 mojo.internal.Struct(
-    ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_Params', [
-      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.projector.mojom.UntrustedProjectorPageHandlerSpec), null, false, 0, undefined),
-      mojo.internal.StructField('page', 8, 0, mojo.internal.InterfaceProxy(ash.projector.mojom.UntrustedProjectorPageSpec), null, false, 0, undefined),
+    mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec, 'ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_Params', [
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
-ash.projector.mojom.UntrustedProjectorPageHandlerFactoryPendingReceiver = class {
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRemote = class {
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'ash.projector.mojom.UntrustedProjectorPageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.projector.mojom.UntrustedProjectorPageHandlerFactoryPendingReceiver,
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1123,12 +1128,12 @@ ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
-  create(handler, page) {
-    return this.$.create(handler, page);
+  create(arg_handler, arg_page) {
+    return this.$.create(arg_handler, arg_page);
   }
 };
 
-ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRemoteCallHandler = class {
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('UntrustedProjectorPageHandlerFactory', [
@@ -1136,19 +1141,19 @@ ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRemoteCallHandler = clas
     ]);
   }
 
-  create(handler, page) {
+  create(arg_handler, arg_page) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec,
+      mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec,
       null,
-      [handler, page],
+      [arg_handler, arg_page],
       false);
   }
 
 };
 
-ash.projector.mojom.UntrustedProjectorPageHandlerFactory.getRemote = function() {
-  let remote = new ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRemote();
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1157,7 +1162,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerFactory.getRemote = function() 
   return remote.$;
 };
 
-ash.projector.mojom.UntrustedProjectorPageHandlerFactoryReceiver = class {
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -1206,7 +1211,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerFactoryReceiver = class {
         // Try Method 0: Create
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Create (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1223,9 +1228,9 @@ ash.projector.mojom.UntrustedProjectorPageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.create');
-          const result = this.impl.create(params.handler, params.page);
+          const result = this.impl.create(params.arg_handler, params.arg_page);
           break;
         }
       }
@@ -1236,8 +1241,8 @@ ash.projector.mojom.UntrustedProjectorPageHandlerFactoryReceiver = class {
   }
 };
 
-ash.projector.mojom.UntrustedProjectorPageHandlerFactoryReceiver = ash.projector.mojom.UntrustedProjectorPageHandlerFactoryReceiver;
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactoryReceiver = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactoryReceiver;
 
-ash.projector.mojom.UntrustedProjectorPageHandlerFactoryPtr = ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRemote;
-ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRequest = ash.projector.mojom.UntrustedProjectorPageHandlerFactoryPendingReceiver;
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactoryPtr = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRemote;
+mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRequest = mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactoryPendingReceiver;
 

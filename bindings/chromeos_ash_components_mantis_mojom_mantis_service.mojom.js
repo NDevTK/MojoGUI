@@ -1,94 +1,99 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/chromeos/ash/components/mantis/mojom/mantis_service.mojom
-// Module: mantis.mojom
+ // Source: chromium_src/chromeos/ash/components/mantis/mojom/mantis_service.mojom
+ // Module: mantis.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var mantis = mantis || {};
-mantis.mojom = mantis.mojom || {};
-var chromeos = chromeos || {};
-var mojo_base = mojo_base || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-mantis.mojom.MantisFeatureStatusSpec = { $: mojo.internal.Enum() };
-mantis.mojom.InitializeResultSpec = { $: mojo.internal.Enum() };
-mantis.mojom.PlatformModelProgressObserver = {};
-mantis.mojom.PlatformModelProgressObserver.$interfaceName = 'mantis.mojom.PlatformModelProgressObserver';
-mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec = { $: {} };
-mantis.mojom.MantisService = {};
-mantis.mojom.MantisService.$interfaceName = 'mantis.mojom.MantisService';
-mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec = { $: {} };
-mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec = { $: {} };
-mantis.mojom.MantisService_Initialize_ParamsSpec = { $: {} };
-mantis.mojom.MantisService_Initialize_ResponseParamsSpec = { $: {} };
+ mojo.internal.bindings.mantis = mojo.internal.bindings.mantis || {};
+mojo.internal.bindings.mantis.mojom = mojo.internal.bindings.mantis.mojom || {};
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+
+mojo.internal.bindings.mantis.mojom.MantisFeatureStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.mantis.mojom.InitializeResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserver = {};
+mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserver.$interfaceName = 'mantis.mojom.PlatformModelProgressObserver';
+mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec = { $: {} };
+mojo.internal.bindings.mantis.mojom.MantisService = {};
+mojo.internal.bindings.mantis.mojom.MantisService.$interfaceName = 'mantis.mojom.MantisService';
+mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec = { $: {} };
+mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ParamsSpec = { $: {} };
+mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ResponseParamsSpec = { $: {} };
 
 // Enum: MantisFeatureStatus
-mantis.mojom.MantisFeatureStatus = {
+mojo.internal.bindings.mantis.mojom.MantisFeatureStatus = {
   kDeviceNotSupported: 0,
   kARCVMDisabled: 1,
   kAvailable: 2,
 };
 
 // Enum: InitializeResult
-mantis.mojom.InitializeResult = {
+mojo.internal.bindings.mantis.mojom.InitializeResult = {
   kSuccess: 0,
   kGpuBlocked: 1,
   kFailedToLoadLibrary: 2,
@@ -97,27 +102,27 @@ mantis.mojom.InitializeResult = {
 
 // Interface: PlatformModelProgressObserver
 mojo.internal.Struct(
-    mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec, 'mantis.mojom.PlatformModelProgressObserver_Progress_Params', [
-      mojo.internal.StructField('progress', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec, 'mantis.mojom.PlatformModelProgressObserver_Progress_Params', [
+      mojo.internal.StructField('arg_progress', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
-mantis.mojom.PlatformModelProgressObserverPendingReceiver = class {
+mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-mantis.mojom.PlatformModelProgressObserverRemote = class {
+mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverRemote = class {
   static get $interfaceName() {
     return 'mantis.mojom.PlatformModelProgressObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mantis.mojom.PlatformModelProgressObserverPendingReceiver,
+      mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverPendingReceiver,
       handle);
-    this.$ = new mantis.mojom.PlatformModelProgressObserverRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -127,12 +132,12 @@ mantis.mojom.PlatformModelProgressObserverRemote = class {
   close() {
     this.proxy.close();
   }
-  progress(progress) {
-    return this.$.progress(progress);
+  progress(arg_progress) {
+    return this.$.progress(arg_progress);
   }
 };
 
-mantis.mojom.PlatformModelProgressObserverRemoteCallHandler = class {
+mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('PlatformModelProgressObserver', [
@@ -140,19 +145,19 @@ mantis.mojom.PlatformModelProgressObserverRemoteCallHandler = class {
     ]);
   }
 
-  progress(progress) {
+  progress(arg_progress) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec,
+      mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec,
       null,
-      [progress],
+      [arg_progress],
       false);
   }
 
 };
 
-mantis.mojom.PlatformModelProgressObserver.getRemote = function() {
-  let remote = new mantis.mojom.PlatformModelProgressObserverRemote();
+mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserver.getRemote = function() {
+  let remote = new mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -161,7 +166,7 @@ mantis.mojom.PlatformModelProgressObserver.getRemote = function() {
   return remote.$;
 };
 
-mantis.mojom.PlatformModelProgressObserverReceiver = class {
+mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -210,7 +215,7 @@ mantis.mojom.PlatformModelProgressObserverReceiver = class {
         // Try Method 0: Progress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Progress (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -227,9 +232,9 @@ mantis.mojom.PlatformModelProgressObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.progress');
-          const result = this.impl.progress(params.progress);
+          const result = this.impl.progress(params.arg_progress);
           break;
         }
       }
@@ -240,55 +245,55 @@ mantis.mojom.PlatformModelProgressObserverReceiver = class {
   }
 };
 
-mantis.mojom.PlatformModelProgressObserverReceiver = mantis.mojom.PlatformModelProgressObserverReceiver;
+mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverReceiver = mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverReceiver;
 
-mantis.mojom.PlatformModelProgressObserverPtr = mantis.mojom.PlatformModelProgressObserverRemote;
-mantis.mojom.PlatformModelProgressObserverRequest = mantis.mojom.PlatformModelProgressObserverPendingReceiver;
+mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverPtr = mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverRemote;
+mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverRequest = mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverPendingReceiver;
 
 
 // Interface: MantisService
 mojo.internal.Struct(
-    mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec, 'mantis.mojom.MantisService_GetMantisFeatureStatus_Params', [
+    mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec, 'mantis.mojom.MantisService_GetMantisFeatureStatus_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec, 'mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParams', [
-      mojo.internal.StructField('status', 0, 0, mantis.mojom.MantisFeatureStatusSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec, 'mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mantis.mojom.MantisFeatureStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mantis.mojom.MantisService_Initialize_ParamsSpec, 'mantis.mojom.MantisService_Initialize_Params', [
-      mojo.internal.StructField('progress_observer', 0, 0, mojo.internal.InterfaceProxy(mantis.mojom.PlatformModelProgressObserverSpec), null, true, 0, undefined),
-      mojo.internal.StructField('processor', 8, 0, mojo.internal.InterfaceRequest(mantis.mojom.MantisProcessorRemote), null, false, 0, undefined),
-      mojo.internal.StructField('dlc_uuid', 16, 0, mojo_base.mojom.UuidSpec.$, null, true, 3, undefined),
-      mojo.internal.StructField('text_classifier', 24, 0, mojo.internal.InterfaceProxy(chromeos.machine_learning.mojom.TextClassifierRemote), null, true, 4, undefined),
+    mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ParamsSpec, 'mantis.mojom.MantisService_Initialize_Params', [
+      mojo.internal.StructField('arg_progress_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverSpec), null, true, 0, undefined),
+      mojo.internal.StructField('arg_processor', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.mantis.mojom.MantisProcessorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_dlc_uuid', 16, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec.$, null, true, 3, undefined),
+      mojo.internal.StructField('arg_text_classifier', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierRemote), null, true, 4, undefined),
     ],
     [[0, 24], [3, 32], [4, 40]]);
 
 mojo.internal.Struct(
-    mantis.mojom.MantisService_Initialize_ResponseParamsSpec, 'mantis.mojom.MantisService_Initialize_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, mantis.mojom.InitializeResultSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ResponseParamsSpec, 'mantis.mojom.MantisService_Initialize_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mantis.mojom.InitializeResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-mantis.mojom.MantisServicePendingReceiver = class {
+mojo.internal.bindings.mantis.mojom.MantisServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-mantis.mojom.MantisServiceRemote = class {
+mojo.internal.bindings.mantis.mojom.MantisServiceRemote = class {
   static get $interfaceName() {
     return 'mantis.mojom.MantisService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mantis.mojom.MantisServicePendingReceiver,
+      mojo.internal.bindings.mantis.mojom.MantisServicePendingReceiver,
       handle);
-    this.$ = new mantis.mojom.MantisServiceRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.mantis.mojom.MantisServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -301,12 +306,12 @@ mantis.mojom.MantisServiceRemote = class {
   getMantisFeatureStatus() {
     return this.$.getMantisFeatureStatus();
   }
-  initialize(progress_observer, processor, dlc_uuid, text_classifier) {
-    return this.$.initialize(progress_observer, processor, dlc_uuid, text_classifier);
+  initialize(arg_progress_observer, arg_processor, arg_dlc_uuid, arg_text_classifier) {
+    return this.$.initialize(arg_progress_observer, arg_processor, arg_dlc_uuid, arg_text_classifier);
   }
 };
 
-mantis.mojom.MantisServiceRemoteCallHandler = class {
+mojo.internal.bindings.mantis.mojom.MantisServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('MantisService', [
@@ -318,25 +323,25 @@ mantis.mojom.MantisServiceRemoteCallHandler = class {
   getMantisFeatureStatus() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec,
-      mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec,
+      mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec,
+      mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec,
       [],
       false);
   }
 
-  initialize(progress_observer, processor, dlc_uuid, text_classifier) {
+  initialize(arg_progress_observer, arg_processor, arg_dlc_uuid, arg_text_classifier) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      mantis.mojom.MantisService_Initialize_ParamsSpec,
-      mantis.mojom.MantisService_Initialize_ResponseParamsSpec,
-      [progress_observer, processor, dlc_uuid, text_classifier],
+      mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ParamsSpec,
+      mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ResponseParamsSpec,
+      [arg_progress_observer, arg_processor, arg_dlc_uuid, arg_text_classifier],
       false);
   }
 
 };
 
-mantis.mojom.MantisService.getRemote = function() {
-  let remote = new mantis.mojom.MantisServiceRemote();
+mojo.internal.bindings.mantis.mojom.MantisService.getRemote = function() {
+  let remote = new mojo.internal.bindings.mantis.mojom.MantisServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -345,7 +350,7 @@ mantis.mojom.MantisService.getRemote = function() {
   return remote.$;
 };
 
-mantis.mojom.MantisServiceReceiver = class {
+mojo.internal.bindings.mantis.mojom.MantisServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -395,7 +400,7 @@ mantis.mojom.MantisServiceReceiver = class {
         // Try Method 0: GetMantisFeatureStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMantisFeatureStatus (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -406,7 +411,7 @@ mantis.mojom.MantisServiceReceiver = class {
         // Try Method 1: Initialize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mantis.mojom.MantisService_Initialize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Initialize (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -423,14 +428,14 @@ mantis.mojom.MantisServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMantisFeatureStatus');
           const result = this.impl.getMantisFeatureStatus();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetMantisFeatureStatus FAILED:', e));
           }
@@ -438,14 +443,14 @@ mantis.mojom.MantisServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mantis.mojom.MantisService_Initialize_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
-          const result = this.impl.initialize(params.progress_observer, params.processor, params.dlc_uuid, params.text_classifier);
+          const result = this.impl.initialize(params.arg_progress_observer, params.arg_processor, params.arg_dlc_uuid, params.arg_text_classifier);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mantis.mojom.MantisService_Initialize_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] Initialize FAILED:', e));
           }
@@ -459,8 +464,8 @@ mantis.mojom.MantisServiceReceiver = class {
   }
 };
 
-mantis.mojom.MantisServiceReceiver = mantis.mojom.MantisServiceReceiver;
+mojo.internal.bindings.mantis.mojom.MantisServiceReceiver = mojo.internal.bindings.mantis.mojom.MantisServiceReceiver;
 
-mantis.mojom.MantisServicePtr = mantis.mojom.MantisServiceRemote;
-mantis.mojom.MantisServiceRequest = mantis.mojom.MantisServicePendingReceiver;
+mojo.internal.bindings.mantis.mojom.MantisServicePtr = mojo.internal.bindings.mantis.mojom.MantisServiceRemote;
+mojo.internal.bindings.mantis.mojom.MantisServiceRequest = mojo.internal.bindings.mantis.mojom.MantisServicePendingReceiver;
 

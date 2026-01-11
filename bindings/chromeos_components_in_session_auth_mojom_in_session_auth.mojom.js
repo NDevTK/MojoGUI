@@ -1,87 +1,92 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/chromeos/components/in_session_auth/mojom/in_session_auth.mojom
-// Module: chromeos.auth.mojom
+ // Source: chromium_src/chromeos/components/in_session_auth/mojom/in_session_auth.mojom
+ // Module: chromeos.auth.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var chromeos = chromeos || {};
-chromeos.auth = chromeos.auth || {};
-chromeos.auth.mojom = chromeos.auth.mojom || {};
-var mojo_base = mojo_base || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-chromeos.auth.mojom.ReasonSpec = { $: mojo.internal.Enum() };
-chromeos.auth.mojom.RequestTokenReplySpec = { $: {} };
-chromeos.auth.mojom.InSessionAuth = {};
-chromeos.auth.mojom.InSessionAuth.$interfaceName = 'chromeos.auth.mojom.InSessionAuth';
-chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec = { $: {} };
-chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec = { $: {} };
-chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec = { $: {} };
-chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParamsSpec = { $: {} };
-chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec = { $: {} };
-chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec = { $: {} };
-chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec = { $: {} };
+ mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.auth = mojo.internal.bindings.chromeos.auth || {};
+mojo.internal.bindings.chromeos.auth.mojom = mojo.internal.bindings.chromeos.auth.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+
+mojo.internal.bindings.chromeos.auth.mojom.ReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos.auth.mojom.RequestTokenReplySpec = { $: {} };
+mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth = {};
+mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth.$interfaceName = 'chromeos.auth.mojom.InSessionAuth';
+mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec = { $: {} };
 
 // Enum: Reason
-chromeos.auth.mojom.Reason = {
+mojo.internal.bindings.chromeos.auth.mojom.Reason = {
   kAccessPasswordManager: 0,
   kAccessAuthenticationSettings: 1,
   kAccessMultideviceSettings: 2,
@@ -90,74 +95,74 @@ chromeos.auth.mojom.Reason = {
 
 // Struct: RequestTokenReply
 mojo.internal.Struct(
-    chromeos.auth.mojom.RequestTokenReplySpec, 'chromeos.auth.mojom.RequestTokenReply', [
-      mojo.internal.StructField('token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('timeout', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.chromeos.auth.mojom.RequestTokenReplySpec, 'chromeos.auth.mojom.RequestTokenReply', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timeout', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: InSessionAuth
 mojo.internal.Struct(
-    chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec, 'chromeos.auth.mojom.InSessionAuth_RequestToken_Params', [
-      mojo.internal.StructField('reason', 0, 0, chromeos.auth.mojom.ReasonSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('prompt', 8, 0, mojo.internal.String, null, true, 1, undefined),
+    mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec, 'chromeos.auth.mojom.InSessionAuth_RequestToken_Params', [
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.auth.mojom.ReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_prompt', 8, 0, mojo.internal.String, null, true, 1, undefined),
     ],
     [[0, 16], [1, 24]]);
 
 mojo.internal.Struct(
-    chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec, 'chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParams', [
-      mojo.internal.StructField('reply', 0, 0, chromeos.auth.mojom.RequestTokenReplySpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec, 'chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParams', [
+      mojo.internal.StructField('arg_reply', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.auth.mojom.RequestTokenReplySpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec, 'chromeos.auth.mojom.InSessionAuth_CheckToken_Params', [
-      mojo.internal.StructField('reason', 0, 0, chromeos.auth.mojom.ReasonSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('token', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec, 'chromeos.auth.mojom.InSessionAuth_CheckToken_Params', [
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.auth.mojom.ReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParamsSpec, 'chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParams', [
-      mojo.internal.StructField('valid', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParamsSpec, 'chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParams', [
+      mojo.internal.StructField('arg_valid', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec, 'chromeos.auth.mojom.InSessionAuth_InvalidateToken_Params', [
-      mojo.internal.StructField('token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec, 'chromeos.auth.mojom.InSessionAuth_InvalidateToken_Params', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec, 'chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_Params', [
-      mojo.internal.StructField('rp_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('window_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec, 'chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_Params', [
+      mojo.internal.StructField('arg_rp_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_window_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec, 'chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParams', [
-      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec, 'chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
-chromeos.auth.mojom.InSessionAuthPendingReceiver = class {
+mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.auth.mojom.InSessionAuthRemote = class {
+mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthRemote = class {
   static get $interfaceName() {
     return 'chromeos.auth.mojom.InSessionAuth';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.auth.mojom.InSessionAuthPendingReceiver,
+      mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthPendingReceiver,
       handle);
-    this.$ = new chromeos.auth.mojom.InSessionAuthRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -167,21 +172,21 @@ chromeos.auth.mojom.InSessionAuthRemote = class {
   close() {
     this.proxy.close();
   }
-  requestToken(reason, prompt) {
-    return this.$.requestToken(reason, prompt);
+  requestToken(arg_reason, arg_prompt) {
+    return this.$.requestToken(arg_reason, arg_prompt);
   }
-  checkToken(reason, token) {
-    return this.$.checkToken(reason, token);
+  checkToken(arg_reason, arg_token) {
+    return this.$.checkToken(arg_reason, arg_token);
   }
-  invalidateToken(token) {
-    return this.$.invalidateToken(token);
+  invalidateToken(arg_token) {
+    return this.$.invalidateToken(arg_token);
   }
-  requestLegacyWebAuthn(rp_id, window_id) {
-    return this.$.requestLegacyWebAuthn(rp_id, window_id);
+  requestLegacyWebAuthn(arg_rp_id, arg_window_id) {
+    return this.$.requestLegacyWebAuthn(arg_rp_id, arg_window_id);
   }
 };
 
-chromeos.auth.mojom.InSessionAuthRemoteCallHandler = class {
+mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('InSessionAuth', [
@@ -192,46 +197,46 @@ chromeos.auth.mojom.InSessionAuthRemoteCallHandler = class {
     ]);
   }
 
-  requestToken(reason, prompt) {
+  requestToken(arg_reason, arg_prompt) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec,
-      chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec,
-      [reason, prompt],
+      mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec,
+      mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec,
+      [arg_reason, arg_prompt],
       false);
   }
 
-  checkToken(reason, token) {
+  checkToken(arg_reason, arg_token) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec,
-      chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParamsSpec,
-      [reason, token],
+      mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec,
+      mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParamsSpec,
+      [arg_reason, arg_token],
       false);
   }
 
-  invalidateToken(token) {
+  invalidateToken(arg_token) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec,
+      mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec,
       null,
-      [token],
+      [arg_token],
       false);
   }
 
-  requestLegacyWebAuthn(rp_id, window_id) {
+  requestLegacyWebAuthn(arg_rp_id, arg_window_id) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec,
-      chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec,
-      [rp_id, window_id],
+      mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec,
+      mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec,
+      [arg_rp_id, arg_window_id],
       false);
   }
 
 };
 
-chromeos.auth.mojom.InSessionAuth.getRemote = function() {
-  let remote = new chromeos.auth.mojom.InSessionAuthRemote();
+mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth.getRemote = function() {
+  let remote = new mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -240,7 +245,7 @@ chromeos.auth.mojom.InSessionAuth.getRemote = function() {
   return remote.$;
 };
 
-chromeos.auth.mojom.InSessionAuthReceiver = class {
+mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -292,7 +297,7 @@ chromeos.auth.mojom.InSessionAuthReceiver = class {
         // Try Method 0: RequestToken
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestToken (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -303,7 +308,7 @@ chromeos.auth.mojom.InSessionAuthReceiver = class {
         // Try Method 1: CheckToken
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckToken (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -314,7 +319,7 @@ chromeos.auth.mojom.InSessionAuthReceiver = class {
         // Try Method 2: InvalidateToken
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InvalidateToken (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -325,7 +330,7 @@ chromeos.auth.mojom.InSessionAuthReceiver = class {
         // Try Method 3: RequestLegacyWebAuthn
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestLegacyWebAuthn (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -342,14 +347,14 @@ chromeos.auth.mojom.InSessionAuthReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestToken');
-          const result = this.impl.requestToken(params.reason, params.prompt);
+          const result = this.impl.requestToken(params.arg_reason, params.arg_prompt);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] RequestToken FAILED:', e));
           }
@@ -357,14 +362,14 @@ chromeos.auth.mojom.InSessionAuthReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkToken');
-          const result = this.impl.checkToken(params.reason, params.token);
+          const result = this.impl.checkToken(params.arg_reason, params.arg_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] CheckToken FAILED:', e));
           }
@@ -372,21 +377,21 @@ chromeos.auth.mojom.InSessionAuthReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.invalidateToken');
-          const result = this.impl.invalidateToken(params.token);
+          const result = this.impl.invalidateToken(params.arg_token);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestLegacyWebAuthn');
-          const result = this.impl.requestLegacyWebAuthn(params.rp_id, params.window_id);
+          const result = this.impl.requestLegacyWebAuthn(params.arg_rp_id, params.arg_window_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] RequestLegacyWebAuthn FAILED:', e));
           }
@@ -400,8 +405,8 @@ chromeos.auth.mojom.InSessionAuthReceiver = class {
   }
 };
 
-chromeos.auth.mojom.InSessionAuthReceiver = chromeos.auth.mojom.InSessionAuthReceiver;
+mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthReceiver = mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthReceiver;
 
-chromeos.auth.mojom.InSessionAuthPtr = chromeos.auth.mojom.InSessionAuthRemote;
-chromeos.auth.mojom.InSessionAuthRequest = chromeos.auth.mojom.InSessionAuthPendingReceiver;
+mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthPtr = mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthRemote;
+mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthRequest = mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthPendingReceiver;
 

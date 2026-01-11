@@ -1,124 +1,129 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/content/common/memory_coordinator/mojom/memory_coordinator.mojom
-// Module: content.mojom
+ // Source: chromium_src/content/common/memory_coordinator/mojom/memory_coordinator.mojom
+ // Module: content.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var content = content || {};
-content.mojom = content.mojom || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-content.mojom.MemoryConsumerTraitsSpec = { $: {} };
-content.mojom.ChildMemoryConsumer = {};
-content.mojom.ChildMemoryConsumer.$interfaceName = 'content.mojom.ChildMemoryConsumer';
-content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec = { $: {} };
-content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec = { $: {} };
-content.mojom.BrowserMemoryConsumerRegistry = {};
-content.mojom.BrowserMemoryConsumerRegistry.$interfaceName = 'content.mojom.BrowserMemoryConsumerRegistry';
-content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec = { $: {} };
+ mojo.internal.bindings.content = mojo.internal.bindings.content || {};
+mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
+
+mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec = { $: {} };
+mojo.internal.bindings.content.mojom.ChildMemoryConsumer = {};
+mojo.internal.bindings.content.mojom.ChildMemoryConsumer.$interfaceName = 'content.mojom.ChildMemoryConsumer';
+mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec = { $: {} };
+mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec = { $: {} };
+mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry = {};
+mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry.$interfaceName = 'content.mojom.BrowserMemoryConsumerRegistry';
+mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec = { $: {} };
 
 // Struct: MemoryConsumerTraits
 mojo.internal.Struct(
-    content.mojom.MemoryConsumerTraitsSpec, 'content.mojom.MemoryConsumerTraits', [
-      mojo.internal.StructField('supports_memory_limit', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('in_process', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('estimated_memory_usage', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('release_memory_cost', 3, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('recreate_memory_cost', 4, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('information_retention', 5, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('memory_release_behavior', 6, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('execution_type', 7, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('release_gc_references', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('garbage_collects_v8_heap', 9, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec, 'content.mojom.MemoryConsumerTraits', [
+      mojo.internal.StructField('arg_supports_memory_limit', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_in_process', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_estimated_memory_usage', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_release_memory_cost', 3, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_recreate_memory_cost', 4, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_information_retention', 5, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_memory_release_behavior', 6, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_execution_type', 7, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_release_gc_references', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_garbage_collects_v8_heap', 9, 0, mojo.internal.Uint8, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: ChildMemoryConsumer
 mojo.internal.Struct(
-    content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec, 'content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_Params', [
+    mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec, 'content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec, 'content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_Params', [
-      mojo.internal.StructField('percentage', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec, 'content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_Params', [
+      mojo.internal.StructField('arg_percentage', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
-content.mojom.ChildMemoryConsumerPendingReceiver = class {
+mojo.internal.bindings.content.mojom.ChildMemoryConsumerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.ChildMemoryConsumerRemote = class {
+mojo.internal.bindings.content.mojom.ChildMemoryConsumerRemote = class {
   static get $interfaceName() {
     return 'content.mojom.ChildMemoryConsumer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.ChildMemoryConsumerPendingReceiver,
+      mojo.internal.bindings.content.mojom.ChildMemoryConsumerPendingReceiver,
       handle);
-    this.$ = new content.mojom.ChildMemoryConsumerRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.content.mojom.ChildMemoryConsumerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -131,12 +136,12 @@ content.mojom.ChildMemoryConsumerRemote = class {
   notifyReleaseMemory() {
     return this.$.notifyReleaseMemory();
   }
-  notifyUpdateMemoryLimit(percentage) {
-    return this.$.notifyUpdateMemoryLimit(percentage);
+  notifyUpdateMemoryLimit(arg_percentage) {
+    return this.$.notifyUpdateMemoryLimit(arg_percentage);
   }
 };
 
-content.mojom.ChildMemoryConsumerRemoteCallHandler = class {
+mojo.internal.bindings.content.mojom.ChildMemoryConsumerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ChildMemoryConsumer', [
@@ -148,25 +153,25 @@ content.mojom.ChildMemoryConsumerRemoteCallHandler = class {
   notifyReleaseMemory() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec,
+      mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec,
       null,
       [],
       false);
   }
 
-  notifyUpdateMemoryLimit(percentage) {
+  notifyUpdateMemoryLimit(arg_percentage) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec,
+      mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec,
       null,
-      [percentage],
+      [arg_percentage],
       false);
   }
 
 };
 
-content.mojom.ChildMemoryConsumer.getRemote = function() {
-  let remote = new content.mojom.ChildMemoryConsumerRemote();
+mojo.internal.bindings.content.mojom.ChildMemoryConsumer.getRemote = function() {
+  let remote = new mojo.internal.bindings.content.mojom.ChildMemoryConsumerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -175,7 +180,7 @@ content.mojom.ChildMemoryConsumer.getRemote = function() {
   return remote.$;
 };
 
-content.mojom.ChildMemoryConsumerReceiver = class {
+mojo.internal.bindings.content.mojom.ChildMemoryConsumerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -225,7 +230,7 @@ content.mojom.ChildMemoryConsumerReceiver = class {
         // Try Method 0: NotifyReleaseMemory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyReleaseMemory (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -236,7 +241,7 @@ content.mojom.ChildMemoryConsumerReceiver = class {
         // Try Method 1: NotifyUpdateMemoryLimit
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyUpdateMemoryLimit (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -253,16 +258,16 @@ content.mojom.ChildMemoryConsumerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyReleaseMemory');
           const result = this.impl.notifyReleaseMemory();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyUpdateMemoryLimit');
-          const result = this.impl.notifyUpdateMemoryLimit(params.percentage);
+          const result = this.impl.notifyUpdateMemoryLimit(params.arg_percentage);
           break;
         }
       }
@@ -273,37 +278,37 @@ content.mojom.ChildMemoryConsumerReceiver = class {
   }
 };
 
-content.mojom.ChildMemoryConsumerReceiver = content.mojom.ChildMemoryConsumerReceiver;
+mojo.internal.bindings.content.mojom.ChildMemoryConsumerReceiver = mojo.internal.bindings.content.mojom.ChildMemoryConsumerReceiver;
 
-content.mojom.ChildMemoryConsumerPtr = content.mojom.ChildMemoryConsumerRemote;
-content.mojom.ChildMemoryConsumerRequest = content.mojom.ChildMemoryConsumerPendingReceiver;
+mojo.internal.bindings.content.mojom.ChildMemoryConsumerPtr = mojo.internal.bindings.content.mojom.ChildMemoryConsumerRemote;
+mojo.internal.bindings.content.mojom.ChildMemoryConsumerRequest = mojo.internal.bindings.content.mojom.ChildMemoryConsumerPendingReceiver;
 
 
 // Interface: BrowserMemoryConsumerRegistry
 mojo.internal.Struct(
-    content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec, 'content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_Params', [
-      mojo.internal.StructField('consumer_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('traits', 8, 0, content.mojom.MemoryConsumerTraitsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('child_consumer', 16, 0, mojo.internal.InterfaceProxy(content.mojom.ChildMemoryConsumerSpec), null, false, 0, undefined),
+    mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec, 'content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_Params', [
+      mojo.internal.StructField('arg_consumer_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_traits', 8, 0, mojo.internal.bindings.mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_child_consumer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.content.mojom.ChildMemoryConsumerSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
-content.mojom.BrowserMemoryConsumerRegistryPendingReceiver = class {
+mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.BrowserMemoryConsumerRegistryRemote = class {
+mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistryRemote = class {
   static get $interfaceName() {
     return 'content.mojom.BrowserMemoryConsumerRegistry';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.BrowserMemoryConsumerRegistryPendingReceiver,
+      mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistryPendingReceiver,
       handle);
-    this.$ = new content.mojom.BrowserMemoryConsumerRegistryRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -313,12 +318,12 @@ content.mojom.BrowserMemoryConsumerRegistryRemote = class {
   close() {
     this.proxy.close();
   }
-  registerChildMemoryConsumer(consumer_id, traits, child_consumer) {
-    return this.$.registerChildMemoryConsumer(consumer_id, traits, child_consumer);
+  registerChildMemoryConsumer(arg_consumer_id, arg_traits, arg_child_consumer) {
+    return this.$.registerChildMemoryConsumer(arg_consumer_id, arg_traits, arg_child_consumer);
   }
 };
 
-content.mojom.BrowserMemoryConsumerRegistryRemoteCallHandler = class {
+mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('BrowserMemoryConsumerRegistry', [
@@ -326,19 +331,19 @@ content.mojom.BrowserMemoryConsumerRegistryRemoteCallHandler = class {
     ]);
   }
 
-  registerChildMemoryConsumer(consumer_id, traits, child_consumer) {
+  registerChildMemoryConsumer(arg_consumer_id, arg_traits, arg_child_consumer) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec,
+      mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec,
       null,
-      [consumer_id, traits, child_consumer],
+      [arg_consumer_id, arg_traits, arg_child_consumer],
       false);
   }
 
 };
 
-content.mojom.BrowserMemoryConsumerRegistry.getRemote = function() {
-  let remote = new content.mojom.BrowserMemoryConsumerRegistryRemote();
+mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry.getRemote = function() {
+  let remote = new mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -347,7 +352,7 @@ content.mojom.BrowserMemoryConsumerRegistry.getRemote = function() {
   return remote.$;
 };
 
-content.mojom.BrowserMemoryConsumerRegistryReceiver = class {
+mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -396,7 +401,7 @@ content.mojom.BrowserMemoryConsumerRegistryReceiver = class {
         // Try Method 0: RegisterChildMemoryConsumer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterChildMemoryConsumer (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -413,9 +418,9 @@ content.mojom.BrowserMemoryConsumerRegistryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerChildMemoryConsumer');
-          const result = this.impl.registerChildMemoryConsumer(params.consumer_id, params.traits, params.child_consumer);
+          const result = this.impl.registerChildMemoryConsumer(params.arg_consumer_id, params.arg_traits, params.arg_child_consumer);
           break;
         }
       }
@@ -426,8 +431,8 @@ content.mojom.BrowserMemoryConsumerRegistryReceiver = class {
   }
 };
 
-content.mojom.BrowserMemoryConsumerRegistryReceiver = content.mojom.BrowserMemoryConsumerRegistryReceiver;
+mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistryReceiver = mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistryReceiver;
 
-content.mojom.BrowserMemoryConsumerRegistryPtr = content.mojom.BrowserMemoryConsumerRegistryRemote;
-content.mojom.BrowserMemoryConsumerRegistryRequest = content.mojom.BrowserMemoryConsumerRegistryPendingReceiver;
+mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistryPtr = mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistryRemote;
+mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistryRequest = mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistryPendingReceiver;
 

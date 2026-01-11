@@ -1,90 +1,95 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/third_party/blink/public/mojom/context_menu/context_menu.mojom
-// Module: blink.mojom
+ // Source: chromium_src/third_party/blink/public/mojom/context_menu/context_menu.mojom
+ // Module: blink.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var blink = blink || {};
-blink.mojom = blink.mojom || {};
-var mojo_base = mojo_base || {};
-var network = network || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var url = url || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-blink.mojom.ContextMenuDataMediaTypeSpec = { $: mojo.internal.Enum() };
-blink.mojom.CustomContextMenuItemTypeSpec = { $: mojo.internal.Enum() };
-blink.mojom.AcceleratorSpec = { $: {} };
-blink.mojom.FormRendererIdSpec = { $: {} };
-blink.mojom.FieldRendererIdSpec = { $: {} };
-blink.mojom.CustomContextMenuItemSpec = { $: {} };
-blink.mojom.UntrustworthyContextMenuParamsSpec = { $: {} };
-blink.mojom.ContextMenuClient = {};
-blink.mojom.ContextMenuClient.$interfaceName = 'blink.mojom.ContextMenuClient';
-blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec = { $: {} };
-blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec = { $: {} };
+ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+
+mojo.internal.bindings.blink.mojom.ContextMenuDataMediaTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.CustomContextMenuItemTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.AcceleratorSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.FormRendererIdSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.FieldRendererIdSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.CustomContextMenuItemSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.UntrustworthyContextMenuParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.ContextMenuClient = {};
+mojo.internal.bindings.blink.mojom.ContextMenuClient.$interfaceName = 'blink.mojom.ContextMenuClient';
+mojo.internal.bindings.blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec = { $: {} };
 
 // Enum: ContextMenuDataMediaType
-blink.mojom.ContextMenuDataMediaType = {
+mojo.internal.bindings.blink.mojom.ContextMenuDataMediaType = {
   kNone: 0,
   kImage: 1,
   kVideo: 2,
@@ -95,7 +100,7 @@ blink.mojom.ContextMenuDataMediaType = {
 };
 
 // Enum: CustomContextMenuItemType
-blink.mojom.CustomContextMenuItemType = {
+mojo.internal.bindings.blink.mojom.CustomContextMenuItemType = {
   kOption: 0,
   kCheckableOption: 1,
   kGroup: 2,
@@ -105,119 +110,119 @@ blink.mojom.CustomContextMenuItemType = {
 
 // Struct: Accelerator
 mojo.internal.Struct(
-    blink.mojom.AcceleratorSpec, 'blink.mojom.Accelerator', [
-      mojo.internal.StructField('modifiers', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('key_code', 4, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.AcceleratorSpec, 'blink.mojom.Accelerator', [
+      mojo.internal.StructField('arg_modifiers', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_key_code', 4, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: FormRendererId
 mojo.internal.Struct(
-    blink.mojom.FormRendererIdSpec, 'blink.mojom.FormRendererId', [
-      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.FormRendererIdSpec, 'blink.mojom.FormRendererId', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: FieldRendererId
 mojo.internal.Struct(
-    blink.mojom.FieldRendererIdSpec, 'blink.mojom.FieldRendererId', [
-      mojo.internal.StructField('id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.FieldRendererIdSpec, 'blink.mojom.FieldRendererId', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: CustomContextMenuItem
 mojo.internal.Struct(
-    blink.mojom.CustomContextMenuItemSpec, 'blink.mojom.CustomContextMenuItem', [
-      mojo.internal.StructField('label', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('accelerator', 8, 0, blink.mojom.AcceleratorSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('icon', 16, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('tool_tip', 24, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('type', 32, 0, blink.mojom.CustomContextMenuItemTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('feature_name', 40, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('submenu', 48, 0, mojo.internal.Array(blink.mojom.CustomContextMenuItemSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('action', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('is_experimental_feature', 60, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('rtl', 60, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('has_directional_override', 60, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enabled', 60, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('checked', 60, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('force_show_accelerator_for_item', 60, 5, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.CustomContextMenuItemSpec, 'blink.mojom.CustomContextMenuItem', [
+      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_accelerator', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.AcceleratorSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_icon', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tool_tip', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 32, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CustomContextMenuItemTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_feature_name', 40, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_submenu', 48, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CustomContextMenuItemSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_experimental_feature', 60, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_rtl', 60, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_directional_override', 60, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enabled', 60, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_checked', 60, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_force_show_accelerator_for_item', 60, 5, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 72]]);
 
 // Struct: UntrustworthyContextMenuParams
 mojo.internal.Struct(
-    blink.mojom.UntrustworthyContextMenuParamsSpec, 'blink.mojom.UntrustworthyContextMenuParams', [
-      mojo.internal.StructField('media_type', 0, 0, blink.mojom.ContextMenuDataMediaTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('link_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('link_text', 16, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('impression', 24, 0, blink.mojom.ImpressionSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('unfiltered_link_url', 32, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('src_url', 40, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('selection_text', 48, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('title_text', 56, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('alt_text', 64, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('suggested_filename', 72, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('misspelled_word', 80, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('dictionary_suggestions', 88, 0, mojo.internal.Array(mojo_base.mojom.String16Spec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('frame_charset', 96, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('referrer_policy', 104, 0, network.mojom.ReferrerPolicySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('link_followed', 112, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('custom_items', 120, 0, mojo.internal.Array(blink.mojom.CustomContextMenuItemSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('source_type', 128, 0, ui.mojom.MenuSourceTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('selection_rect', 136, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('annotation_type', 144, 0, blink.mojom.AnnotationTypeSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('form_control_type', 152, 0, blink.mojom.FormControlTypeSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('field_renderer_id', 160, 0, blink.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('form_renderer_id', 168, 0, blink.mojom.FormRendererIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('x', 176, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('y', 180, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('media_flags', 184, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('writing_direction_default', 188, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('writing_direction_left_to_right', 192, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('writing_direction_right_to_left', 196, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('edit_flags', 200, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('selection_start_offset', 204, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('interest_for_node_id', 208, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('has_image_contents', 212, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_image_media_plugin_document', 212, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('spellcheck_enabled', 212, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_editable', 212, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('opened_from_interest_for', 212, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_content_editable_for_autofill', 212, 5, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.UntrustworthyContextMenuParamsSpec, 'blink.mojom.UntrustworthyContextMenuParams', [
+      mojo.internal.StructField('arg_media_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.ContextMenuDataMediaTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_link_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_link_text', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_impression', 24, 0, mojo.internal.bindings.blink.mojom.ImpressionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_unfiltered_link_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_src_url', 40, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_selection_text', 48, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title_text', 56, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_alt_text', 64, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_suggested_filename', 72, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_misspelled_word', 80, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dictionary_suggestions', 88, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_charset', 96, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_referrer_policy', 104, 0, mojo.internal.bindings.network.mojom.ReferrerPolicySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_link_followed', 112, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_custom_items', 120, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CustomContextMenuItemSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_type', 128, 0, mojo.internal.bindings.ui.mojom.MenuSourceTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_selection_rect', 136, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_annotation_type', 144, 0, mojo.internal.bindings.blink.mojom.AnnotationTypeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_form_control_type', 152, 0, mojo.internal.bindings.blink.mojom.FormControlTypeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_field_renderer_id', 160, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FieldRendererIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_form_renderer_id', 168, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.FormRendererIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_x', 176, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_y', 180, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_media_flags', 184, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_writing_direction_default', 188, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_writing_direction_left_to_right', 192, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_writing_direction_right_to_left', 196, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_edit_flags', 200, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_selection_start_offset', 204, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_interest_for_node_id', 208, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_has_image_contents', 212, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_image_media_plugin_document', 212, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_spellcheck_enabled', 212, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_editable', 212, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_opened_from_interest_for', 212, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_content_editable_for_autofill', 212, 5, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 224]]);
 
 // Interface: ContextMenuClient
 mojo.internal.Struct(
-    blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec, 'blink.mojom.ContextMenuClient_CustomContextMenuAction_Params', [
-      mojo.internal.StructField('action', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec, 'blink.mojom.ContextMenuClient_CustomContextMenuAction_Params', [
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec, 'blink.mojom.ContextMenuClient_ContextMenuClosed_Params', [
-      mojo.internal.StructField('link_followed', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('impression', 8, 0, blink.mojom.ImpressionSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec, 'blink.mojom.ContextMenuClient_ContextMenuClosed_Params', [
+      mojo.internal.StructField('arg_link_followed', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_impression', 8, 0, mojo.internal.bindings.blink.mojom.ImpressionSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
-blink.mojom.ContextMenuClientPendingReceiver = class {
+mojo.internal.bindings.blink.mojom.ContextMenuClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.ContextMenuClientRemote = class {
+mojo.internal.bindings.blink.mojom.ContextMenuClientRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.ContextMenuClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.ContextMenuClientPendingReceiver,
+      mojo.internal.bindings.blink.mojom.ContextMenuClientPendingReceiver,
       handle);
-    this.$ = new blink.mojom.ContextMenuClientRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.blink.mojom.ContextMenuClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -227,15 +232,15 @@ blink.mojom.ContextMenuClientRemote = class {
   close() {
     this.proxy.close();
   }
-  customContextMenuAction(action) {
-    return this.$.customContextMenuAction(action);
+  customContextMenuAction(arg_action) {
+    return this.$.customContextMenuAction(arg_action);
   }
-  contextMenuClosed(link_followed, impression) {
-    return this.$.contextMenuClosed(link_followed, impression);
+  contextMenuClosed(arg_link_followed, arg_impression) {
+    return this.$.contextMenuClosed(arg_link_followed, arg_impression);
   }
 };
 
-blink.mojom.ContextMenuClientRemoteCallHandler = class {
+mojo.internal.bindings.blink.mojom.ContextMenuClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ContextMenuClient', [
@@ -244,28 +249,28 @@ blink.mojom.ContextMenuClientRemoteCallHandler = class {
     ]);
   }
 
-  customContextMenuAction(action) {
+  customContextMenuAction(arg_action) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec,
       null,
-      [action],
+      [arg_action],
       false);
   }
 
-  contextMenuClosed(link_followed, impression) {
+  contextMenuClosed(arg_link_followed, arg_impression) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec,
       null,
-      [link_followed, impression],
+      [arg_link_followed, arg_impression],
       false);
   }
 
 };
 
-blink.mojom.ContextMenuClient.getRemote = function() {
-  let remote = new blink.mojom.ContextMenuClientRemote();
+mojo.internal.bindings.blink.mojom.ContextMenuClient.getRemote = function() {
+  let remote = new mojo.internal.bindings.blink.mojom.ContextMenuClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -274,7 +279,7 @@ blink.mojom.ContextMenuClient.getRemote = function() {
   return remote.$;
 };
 
-blink.mojom.ContextMenuClientReceiver = class {
+mojo.internal.bindings.blink.mojom.ContextMenuClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -324,7 +329,7 @@ blink.mojom.ContextMenuClientReceiver = class {
         // Try Method 0: CustomContextMenuAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CustomContextMenuAction (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -335,7 +340,7 @@ blink.mojom.ContextMenuClientReceiver = class {
         // Try Method 1: ContextMenuClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ContextMenuClosed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -352,16 +357,16 @@ blink.mojom.ContextMenuClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.customContextMenuAction');
-          const result = this.impl.customContextMenuAction(params.action);
+          const result = this.impl.customContextMenuAction(params.arg_action);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.contextMenuClosed');
-          const result = this.impl.contextMenuClosed(params.link_followed, params.impression);
+          const result = this.impl.contextMenuClosed(params.arg_link_followed, params.arg_impression);
           break;
         }
       }
@@ -372,8 +377,8 @@ blink.mojom.ContextMenuClientReceiver = class {
   }
 };
 
-blink.mojom.ContextMenuClientReceiver = blink.mojom.ContextMenuClientReceiver;
+mojo.internal.bindings.blink.mojom.ContextMenuClientReceiver = mojo.internal.bindings.blink.mojom.ContextMenuClientReceiver;
 
-blink.mojom.ContextMenuClientPtr = blink.mojom.ContextMenuClientRemote;
-blink.mojom.ContextMenuClientRequest = blink.mojom.ContextMenuClientPendingReceiver;
+mojo.internal.bindings.blink.mojom.ContextMenuClientPtr = mojo.internal.bindings.blink.mojom.ContextMenuClientRemote;
+mojo.internal.bindings.blink.mojom.ContextMenuClientRequest = mojo.internal.bindings.blink.mojom.ContextMenuClientPendingReceiver;
 

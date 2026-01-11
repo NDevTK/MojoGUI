@@ -1,109 +1,114 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/chromeos/ash/services/heartd/public/mojom/heartd.mojom
-// Module: ash.heartd.mojom
+ // Source: chromium_src/chromeos/ash/services/heartd/public/mojom/heartd.mojom
+ // Module: ash.heartd.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var ash = ash || {};
-ash.heartd = ash.heartd || {};
-ash.heartd.mojom = ash.heartd.mojom || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-ash.heartd.mojom.HeartbeatResponseSpec = { $: mojo.internal.Enum() };
-ash.heartd.mojom.ServiceNameSpec = { $: mojo.internal.Enum() };
-ash.heartd.mojom.ActionTypeSpec = { $: mojo.internal.Enum() };
-ash.heartd.mojom.HeartbeatServiceArgumentSpec = { $: {} };
-ash.heartd.mojom.ActionSpec = { $: {} };
-ash.heartd.mojom.HeartdControl = {};
-ash.heartd.mojom.HeartdControl.$interfaceName = 'ash.heartd.mojom.HeartdControl';
-ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec = { $: {} };
-ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec = { $: {} };
-ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec = { $: {} };
-ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec = { $: {} };
-ash.heartd.mojom.HeartbeatService = {};
-ash.heartd.mojom.HeartbeatService.$interfaceName = 'ash.heartd.mojom.HeartbeatService';
-ash.heartd.mojom.HeartbeatService_Register_ParamsSpec = { $: {} };
-ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec = { $: {} };
-ash.heartd.mojom.Pacemaker = {};
-ash.heartd.mojom.Pacemaker.$interfaceName = 'ash.heartd.mojom.Pacemaker';
-ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec = { $: {} };
-ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec = { $: {} };
-ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec = { $: {} };
-ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec = { $: {} };
+ mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.heartd = mojo.internal.bindings.ash.heartd || {};
+mojo.internal.bindings.ash.heartd.mojom = mojo.internal.bindings.ash.heartd.mojom || {};
+
+mojo.internal.bindings.ash.heartd.mojom.HeartbeatResponseSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.heartd.mojom.ServiceNameSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.heartd.mojom.ActionTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceArgumentSpec = { $: {} };
+mojo.internal.bindings.ash.heartd.mojom.ActionSpec = { $: {} };
+mojo.internal.bindings.ash.heartd.mojom.HeartdControl = {};
+mojo.internal.bindings.ash.heartd.mojom.HeartdControl.$interfaceName = 'ash.heartd.mojom.HeartdControl';
+mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.heartd.mojom.HeartbeatService = {};
+mojo.internal.bindings.ash.heartd.mojom.HeartbeatService.$interfaceName = 'ash.heartd.mojom.HeartbeatService';
+mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.heartd.mojom.Pacemaker = {};
+mojo.internal.bindings.ash.heartd.mojom.Pacemaker.$interfaceName = 'ash.heartd.mojom.Pacemaker';
+mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec = { $: {} };
 
 // Enum: HeartbeatResponse
-ash.heartd.mojom.HeartbeatResponse = {
+mojo.internal.bindings.ash.heartd.mojom.HeartbeatResponse = {
   kSuccess: 0,
   kRateLimit: 1,
   kNotAllowed: 2,
 };
 
 // Enum: ServiceName
-ash.heartd.mojom.ServiceName = {
+mojo.internal.bindings.ash.heartd.mojom.ServiceName = {
   kUnmappedEnumField: 0,
   kKiosk: 1,
 };
 
 // Enum: ActionType
-ash.heartd.mojom.ActionType = {
+mojo.internal.bindings.ash.heartd.mojom.ActionType = {
   kUnmappedEnumField: 0,
   kNoOperation: 1,
   kNormalReboot: 2,
@@ -113,59 +118,59 @@ ash.heartd.mojom.ActionType = {
 
 // Struct: HeartbeatServiceArgument
 mojo.internal.Struct(
-    ash.heartd.mojom.HeartbeatServiceArgumentSpec, 'ash.heartd.mojom.HeartbeatServiceArgument', [
-      mojo.internal.StructField('actions', 0, 0, mojo.internal.Array(ash.heartd.mojom.ActionSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('verification_window_seconds', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceArgumentSpec, 'ash.heartd.mojom.HeartbeatServiceArgument', [
+      mojo.internal.StructField('arg_actions', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.heartd.mojom.ActionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_verification_window_seconds', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: Action
 mojo.internal.Struct(
-    ash.heartd.mojom.ActionSpec, 'ash.heartd.mojom.Action', [
-      mojo.internal.StructField('action', 0, 0, ash.heartd.mojom.ActionTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('failure_count', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    mojo.internal.bindings.ash.heartd.mojom.ActionSpec, 'ash.heartd.mojom.Action', [
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.heartd.mojom.ActionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_failure_count', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: HeartdControl
 mojo.internal.Struct(
-    ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec, 'ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_Params', [
+    mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec, 'ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec, 'ash.heartd.mojom.HeartdControl_EnableForceRebootAction_Params', [
+    mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec, 'ash.heartd.mojom.HeartdControl_EnableForceRebootAction_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec, 'ash.heartd.mojom.HeartdControl_RunAction_Params', [
-      mojo.internal.StructField('action', 0, 0, ash.heartd.mojom.ActionTypeSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec, 'ash.heartd.mojom.HeartdControl_RunAction_Params', [
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.heartd.mojom.ActionTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec, 'ash.heartd.mojom.HeartdControl_RunAction_ResponseParams', [
-      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec, 'ash.heartd.mojom.HeartdControl_RunAction_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
-ash.heartd.mojom.HeartdControlPendingReceiver = class {
+mojo.internal.bindings.ash.heartd.mojom.HeartdControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.heartd.mojom.HeartdControlRemote = class {
+mojo.internal.bindings.ash.heartd.mojom.HeartdControlRemote = class {
   static get $interfaceName() {
     return 'ash.heartd.mojom.HeartdControl';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.heartd.mojom.HeartdControlPendingReceiver,
+      mojo.internal.bindings.ash.heartd.mojom.HeartdControlPendingReceiver,
       handle);
-    this.$ = new ash.heartd.mojom.HeartdControlRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.heartd.mojom.HeartdControlRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -181,12 +186,12 @@ ash.heartd.mojom.HeartdControlRemote = class {
   enableForceRebootAction() {
     return this.$.enableForceRebootAction();
   }
-  runAction(action) {
-    return this.$.runAction(action);
+  runAction(arg_action) {
+    return this.$.runAction(arg_action);
   }
 };
 
-ash.heartd.mojom.HeartdControlRemoteCallHandler = class {
+mojo.internal.bindings.ash.heartd.mojom.HeartdControlRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('HeartdControl', [
@@ -199,7 +204,7 @@ ash.heartd.mojom.HeartdControlRemoteCallHandler = class {
   enableNormalRebootAction() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec,
+      mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec,
       null,
       [],
       false);
@@ -208,25 +213,25 @@ ash.heartd.mojom.HeartdControlRemoteCallHandler = class {
   enableForceRebootAction() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec,
+      mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec,
       null,
       [],
       false);
   }
 
-  runAction(action) {
+  runAction(arg_action) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec,
-      ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec,
-      [action],
+      mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec,
+      mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec,
+      [arg_action],
       false);
   }
 
 };
 
-ash.heartd.mojom.HeartdControl.getRemote = function() {
-  let remote = new ash.heartd.mojom.HeartdControlRemote();
+mojo.internal.bindings.ash.heartd.mojom.HeartdControl.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.heartd.mojom.HeartdControlRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -235,7 +240,7 @@ ash.heartd.mojom.HeartdControl.getRemote = function() {
   return remote.$;
 };
 
-ash.heartd.mojom.HeartdControlReceiver = class {
+mojo.internal.bindings.ash.heartd.mojom.HeartdControlReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -286,7 +291,7 @@ ash.heartd.mojom.HeartdControlReceiver = class {
         // Try Method 0: EnableNormalRebootAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableNormalRebootAction (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -297,7 +302,7 @@ ash.heartd.mojom.HeartdControlReceiver = class {
         // Try Method 1: EnableForceRebootAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableForceRebootAction (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -308,7 +313,7 @@ ash.heartd.mojom.HeartdControlReceiver = class {
         // Try Method 2: RunAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunAction (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -325,28 +330,28 @@ ash.heartd.mojom.HeartdControlReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableNormalRebootAction');
           const result = this.impl.enableNormalRebootAction();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableForceRebootAction');
           const result = this.impl.enableForceRebootAction();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runAction');
-          const result = this.impl.runAction(params.action);
+          const result = this.impl.runAction(params.arg_action);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] RunAction FAILED:', e));
           }
@@ -360,43 +365,43 @@ ash.heartd.mojom.HeartdControlReceiver = class {
   }
 };
 
-ash.heartd.mojom.HeartdControlReceiver = ash.heartd.mojom.HeartdControlReceiver;
+mojo.internal.bindings.ash.heartd.mojom.HeartdControlReceiver = mojo.internal.bindings.ash.heartd.mojom.HeartdControlReceiver;
 
-ash.heartd.mojom.HeartdControlPtr = ash.heartd.mojom.HeartdControlRemote;
-ash.heartd.mojom.HeartdControlRequest = ash.heartd.mojom.HeartdControlPendingReceiver;
+mojo.internal.bindings.ash.heartd.mojom.HeartdControlPtr = mojo.internal.bindings.ash.heartd.mojom.HeartdControlRemote;
+mojo.internal.bindings.ash.heartd.mojom.HeartdControlRequest = mojo.internal.bindings.ash.heartd.mojom.HeartdControlPendingReceiver;
 
 
 // Interface: HeartbeatService
 mojo.internal.Struct(
-    ash.heartd.mojom.HeartbeatService_Register_ParamsSpec, 'ash.heartd.mojom.HeartbeatService_Register_Params', [
-      mojo.internal.StructField('name', 0, 0, ash.heartd.mojom.ServiceNameSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('argument', 8, 0, ash.heartd.mojom.HeartbeatServiceArgumentSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('receiver', 16, 0, mojo.internal.InterfaceRequest(ash.heartd.mojom.PacemakerSpec), null, false, 0, undefined),
+    mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ParamsSpec, 'ash.heartd.mojom.HeartbeatService_Register_Params', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.heartd.mojom.ServiceNameSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_argument', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceArgumentSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.heartd.mojom.PacemakerSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
-    ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec, 'ash.heartd.mojom.HeartbeatService_Register_ResponseParams', [
-      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec, 'ash.heartd.mojom.HeartbeatService_Register_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
-ash.heartd.mojom.HeartbeatServicePendingReceiver = class {
+mojo.internal.bindings.ash.heartd.mojom.HeartbeatServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.heartd.mojom.HeartbeatServiceRemote = class {
+mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceRemote = class {
   static get $interfaceName() {
     return 'ash.heartd.mojom.HeartbeatService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.heartd.mojom.HeartbeatServicePendingReceiver,
+      mojo.internal.bindings.ash.heartd.mojom.HeartbeatServicePendingReceiver,
       handle);
-    this.$ = new ash.heartd.mojom.HeartbeatServiceRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -406,12 +411,12 @@ ash.heartd.mojom.HeartbeatServiceRemote = class {
   close() {
     this.proxy.close();
   }
-  register(name, argument, receiver) {
-    return this.$.register(name, argument, receiver);
+  register(arg_name, arg_argument, arg_receiver) {
+    return this.$.register(arg_name, arg_argument, arg_receiver);
   }
 };
 
-ash.heartd.mojom.HeartbeatServiceRemoteCallHandler = class {
+mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('HeartbeatService', [
@@ -419,19 +424,19 @@ ash.heartd.mojom.HeartbeatServiceRemoteCallHandler = class {
     ]);
   }
 
-  register(name, argument, receiver) {
+  register(arg_name, arg_argument, arg_receiver) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.heartd.mojom.HeartbeatService_Register_ParamsSpec,
-      ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec,
-      [name, argument, receiver],
+      mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ParamsSpec,
+      mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec,
+      [arg_name, arg_argument, arg_receiver],
       false);
   }
 
 };
 
-ash.heartd.mojom.HeartbeatService.getRemote = function() {
-  let remote = new ash.heartd.mojom.HeartbeatServiceRemote();
+mojo.internal.bindings.ash.heartd.mojom.HeartbeatService.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -440,7 +445,7 @@ ash.heartd.mojom.HeartbeatService.getRemote = function() {
   return remote.$;
 };
 
-ash.heartd.mojom.HeartbeatServiceReceiver = class {
+mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -489,7 +494,7 @@ ash.heartd.mojom.HeartbeatServiceReceiver = class {
         // Try Method 0: Register
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.heartd.mojom.HeartbeatService_Register_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Register (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -506,14 +511,14 @@ ash.heartd.mojom.HeartbeatServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.heartd.mojom.HeartbeatService_Register_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.register');
-          const result = this.impl.register(params.name, params.argument, params.receiver);
+          const result = this.impl.register(params.arg_name, params.arg_argument, params.arg_receiver);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] Register FAILED:', e));
           }
@@ -527,50 +532,50 @@ ash.heartd.mojom.HeartbeatServiceReceiver = class {
   }
 };
 
-ash.heartd.mojom.HeartbeatServiceReceiver = ash.heartd.mojom.HeartbeatServiceReceiver;
+mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceReceiver = mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceReceiver;
 
-ash.heartd.mojom.HeartbeatServicePtr = ash.heartd.mojom.HeartbeatServiceRemote;
-ash.heartd.mojom.HeartbeatServiceRequest = ash.heartd.mojom.HeartbeatServicePendingReceiver;
+mojo.internal.bindings.ash.heartd.mojom.HeartbeatServicePtr = mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceRemote;
+mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceRequest = mojo.internal.bindings.ash.heartd.mojom.HeartbeatServicePendingReceiver;
 
 
 // Interface: Pacemaker
 mojo.internal.Struct(
-    ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec, 'ash.heartd.mojom.Pacemaker_SendHeartbeat_Params', [
+    mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec, 'ash.heartd.mojom.Pacemaker_SendHeartbeat_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec, 'ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParams', [
-      mojo.internal.StructField('response', 0, 0, ash.heartd.mojom.HeartbeatResponseSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec, 'ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParams', [
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.heartd.mojom.HeartbeatResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec, 'ash.heartd.mojom.Pacemaker_StopMonitor_Params', [
+    mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec, 'ash.heartd.mojom.Pacemaker_StopMonitor_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec, 'ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParams', [
+    mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec, 'ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParams', [
     ],
     [[0, 8]]);
 
-ash.heartd.mojom.PacemakerPendingReceiver = class {
+mojo.internal.bindings.ash.heartd.mojom.PacemakerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.heartd.mojom.PacemakerRemote = class {
+mojo.internal.bindings.ash.heartd.mojom.PacemakerRemote = class {
   static get $interfaceName() {
     return 'ash.heartd.mojom.Pacemaker';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.heartd.mojom.PacemakerPendingReceiver,
+      mojo.internal.bindings.ash.heartd.mojom.PacemakerPendingReceiver,
       handle);
-    this.$ = new ash.heartd.mojom.PacemakerRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.heartd.mojom.PacemakerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -588,7 +593,7 @@ ash.heartd.mojom.PacemakerRemote = class {
   }
 };
 
-ash.heartd.mojom.PacemakerRemoteCallHandler = class {
+mojo.internal.bindings.ash.heartd.mojom.PacemakerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('Pacemaker', [
@@ -600,8 +605,8 @@ ash.heartd.mojom.PacemakerRemoteCallHandler = class {
   sendHeartbeat() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec,
-      ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec,
+      mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec,
+      mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec,
       [],
       false);
   }
@@ -609,16 +614,16 @@ ash.heartd.mojom.PacemakerRemoteCallHandler = class {
   stopMonitor() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec,
-      ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec,
+      mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec,
+      mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec,
       [],
       false);
   }
 
 };
 
-ash.heartd.mojom.Pacemaker.getRemote = function() {
-  let remote = new ash.heartd.mojom.PacemakerRemote();
+mojo.internal.bindings.ash.heartd.mojom.Pacemaker.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.heartd.mojom.PacemakerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -627,7 +632,7 @@ ash.heartd.mojom.Pacemaker.getRemote = function() {
   return remote.$;
 };
 
-ash.heartd.mojom.PacemakerReceiver = class {
+mojo.internal.bindings.ash.heartd.mojom.PacemakerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -677,7 +682,7 @@ ash.heartd.mojom.PacemakerReceiver = class {
         // Try Method 0: SendHeartbeat
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendHeartbeat (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -688,7 +693,7 @@ ash.heartd.mojom.PacemakerReceiver = class {
         // Try Method 1: StopMonitor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopMonitor (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -705,14 +710,14 @@ ash.heartd.mojom.PacemakerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendHeartbeat');
           const result = this.impl.sendHeartbeat();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] SendHeartbeat FAILED:', e));
           }
@@ -720,14 +725,14 @@ ash.heartd.mojom.PacemakerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopMonitor');
           const result = this.impl.stopMonitor();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] StopMonitor FAILED:', e));
           }
@@ -741,8 +746,8 @@ ash.heartd.mojom.PacemakerReceiver = class {
   }
 };
 
-ash.heartd.mojom.PacemakerReceiver = ash.heartd.mojom.PacemakerReceiver;
+mojo.internal.bindings.ash.heartd.mojom.PacemakerReceiver = mojo.internal.bindings.ash.heartd.mojom.PacemakerReceiver;
 
-ash.heartd.mojom.PacemakerPtr = ash.heartd.mojom.PacemakerRemote;
-ash.heartd.mojom.PacemakerRequest = ash.heartd.mojom.PacemakerPendingReceiver;
+mojo.internal.bindings.ash.heartd.mojom.PacemakerPtr = mojo.internal.bindings.ash.heartd.mojom.PacemakerRemote;
+mojo.internal.bindings.ash.heartd.mojom.PacemakerRequest = mojo.internal.bindings.ash.heartd.mojom.PacemakerPendingReceiver;
 

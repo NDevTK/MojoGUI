@@ -1,126 +1,131 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/services/network/public/mojom/proxy_config_with_annotation.mojom
-// Module: network.mojom
+ // Source: chromium_src/services/network/public/mojom/proxy_config_with_annotation.mojom
+ // Module: network.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var network = network || {};
-network.mojom = network.mojom || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-network.mojom.ProxyConfigWithAnnotationSpec = { $: {} };
-network.mojom.ProxyConfigClient = {};
-network.mojom.ProxyConfigClient.$interfaceName = 'network.mojom.ProxyConfigClient';
-network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec = { $: {} };
-network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec = { $: {} };
-network.mojom.ProxyConfigClient_FlushProxyConfig_ResponseParamsSpec = { $: {} };
-network.mojom.ProxyConfigPollerClient = {};
-network.mojom.ProxyConfigPollerClient.$interfaceName = 'network.mojom.ProxyConfigPollerClient';
-network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec = { $: {} };
-network.mojom.ProxyErrorClient = {};
-network.mojom.ProxyErrorClient.$interfaceName = 'network.mojom.ProxyErrorClient';
-network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec = { $: {} };
-network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec = { $: {} };
+ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+
+mojo.internal.bindings.network.mojom.ProxyConfigWithAnnotationSpec = { $: {} };
+mojo.internal.bindings.network.mojom.ProxyConfigClient = {};
+mojo.internal.bindings.network.mojom.ProxyConfigClient.$interfaceName = 'network.mojom.ProxyConfigClient';
+mojo.internal.bindings.network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.ProxyConfigPollerClient = {};
+mojo.internal.bindings.network.mojom.ProxyConfigPollerClient.$interfaceName = 'network.mojom.ProxyConfigPollerClient';
+mojo.internal.bindings.network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.ProxyErrorClient = {};
+mojo.internal.bindings.network.mojom.ProxyErrorClient.$interfaceName = 'network.mojom.ProxyErrorClient';
+mojo.internal.bindings.network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec = { $: {} };
 
 // Struct: ProxyConfigWithAnnotation
 mojo.internal.Struct(
-    network.mojom.ProxyConfigWithAnnotationSpec, 'network.mojom.ProxyConfigWithAnnotation', [
-      mojo.internal.StructField('value', 0, 0, network.mojom.ProxyConfigSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('traffic_annotation', 8, 0, network.mojom.MutableNetworkTrafficAnnotationTagSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.network.mojom.ProxyConfigWithAnnotationSpec, 'network.mojom.ProxyConfigWithAnnotation', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.network.mojom.ProxyConfigSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_traffic_annotation', 8, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: ProxyConfigClient
 mojo.internal.Struct(
-    network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec, 'network.mojom.ProxyConfigClient_OnProxyConfigUpdated_Params', [
-      mojo.internal.StructField('proxy_config', 0, 0, network.mojom.ProxyConfigWithAnnotationSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec, 'network.mojom.ProxyConfigClient_OnProxyConfigUpdated_Params', [
+      mojo.internal.StructField('arg_proxy_config', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ProxyConfigWithAnnotationSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec, 'network.mojom.ProxyConfigClient_FlushProxyConfig_Params', [
+    mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec, 'network.mojom.ProxyConfigClient_FlushProxyConfig_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    network.mojom.ProxyConfigClient_FlushProxyConfig_ResponseParamsSpec, 'network.mojom.ProxyConfigClient_FlushProxyConfig_ResponseParams', [
+    mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ResponseParamsSpec, 'network.mojom.ProxyConfigClient_FlushProxyConfig_ResponseParams', [
     ],
     [[0, 8]]);
 
-network.mojom.ProxyConfigClientPendingReceiver = class {
+mojo.internal.bindings.network.mojom.ProxyConfigClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.ProxyConfigClientRemote = class {
+mojo.internal.bindings.network.mojom.ProxyConfigClientRemote = class {
   static get $interfaceName() {
     return 'network.mojom.ProxyConfigClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.ProxyConfigClientPendingReceiver,
+      mojo.internal.bindings.network.mojom.ProxyConfigClientPendingReceiver,
       handle);
-    this.$ = new network.mojom.ProxyConfigClientRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.network.mojom.ProxyConfigClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -130,15 +135,15 @@ network.mojom.ProxyConfigClientRemote = class {
   close() {
     this.proxy.close();
   }
-  onProxyConfigUpdated(proxy_config) {
-    return this.$.onProxyConfigUpdated(proxy_config);
+  onProxyConfigUpdated(arg_proxy_config) {
+    return this.$.onProxyConfigUpdated(arg_proxy_config);
   }
   flushProxyConfig() {
     return this.$.flushProxyConfig();
   }
 };
 
-network.mojom.ProxyConfigClientRemoteCallHandler = class {
+mojo.internal.bindings.network.mojom.ProxyConfigClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ProxyConfigClient', [
@@ -147,28 +152,28 @@ network.mojom.ProxyConfigClientRemoteCallHandler = class {
     ]);
   }
 
-  onProxyConfigUpdated(proxy_config) {
+  onProxyConfigUpdated(arg_proxy_config) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec,
+      mojo.internal.bindings.network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec,
       null,
-      [proxy_config],
+      [arg_proxy_config],
       false);
   }
 
   flushProxyConfig() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec,
-      network.mojom.ProxyConfigClient_FlushProxyConfig_ResponseParamsSpec,
+      mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec,
+      mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ResponseParamsSpec,
       [],
       false);
   }
 
 };
 
-network.mojom.ProxyConfigClient.getRemote = function() {
-  let remote = new network.mojom.ProxyConfigClientRemote();
+mojo.internal.bindings.network.mojom.ProxyConfigClient.getRemote = function() {
+  let remote = new mojo.internal.bindings.network.mojom.ProxyConfigClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -177,7 +182,7 @@ network.mojom.ProxyConfigClient.getRemote = function() {
   return remote.$;
 };
 
-network.mojom.ProxyConfigClientReceiver = class {
+mojo.internal.bindings.network.mojom.ProxyConfigClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -227,7 +232,7 @@ network.mojom.ProxyConfigClientReceiver = class {
         // Try Method 0: OnProxyConfigUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProxyConfigUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -238,7 +243,7 @@ network.mojom.ProxyConfigClientReceiver = class {
         // Try Method 1: FlushProxyConfig
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FlushProxyConfig (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -255,21 +260,21 @@ network.mojom.ProxyConfigClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProxyConfigUpdated');
-          const result = this.impl.onProxyConfigUpdated(params.proxy_config);
+          const result = this.impl.onProxyConfigUpdated(params.arg_proxy_config);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flushProxyConfig');
           const result = this.impl.flushProxyConfig();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.ProxyConfigClient_FlushProxyConfig_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] FlushProxyConfig FAILED:', e));
           }
@@ -283,34 +288,34 @@ network.mojom.ProxyConfigClientReceiver = class {
   }
 };
 
-network.mojom.ProxyConfigClientReceiver = network.mojom.ProxyConfigClientReceiver;
+mojo.internal.bindings.network.mojom.ProxyConfigClientReceiver = mojo.internal.bindings.network.mojom.ProxyConfigClientReceiver;
 
-network.mojom.ProxyConfigClientPtr = network.mojom.ProxyConfigClientRemote;
-network.mojom.ProxyConfigClientRequest = network.mojom.ProxyConfigClientPendingReceiver;
+mojo.internal.bindings.network.mojom.ProxyConfigClientPtr = mojo.internal.bindings.network.mojom.ProxyConfigClientRemote;
+mojo.internal.bindings.network.mojom.ProxyConfigClientRequest = mojo.internal.bindings.network.mojom.ProxyConfigClientPendingReceiver;
 
 
 // Interface: ProxyConfigPollerClient
 mojo.internal.Struct(
-    network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec, 'network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_Params', [
+    mojo.internal.bindings.network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec, 'network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_Params', [
     ],
     [[0, 8]]);
 
-network.mojom.ProxyConfigPollerClientPendingReceiver = class {
+mojo.internal.bindings.network.mojom.ProxyConfigPollerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.ProxyConfigPollerClientRemote = class {
+mojo.internal.bindings.network.mojom.ProxyConfigPollerClientRemote = class {
   static get $interfaceName() {
     return 'network.mojom.ProxyConfigPollerClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.ProxyConfigPollerClientPendingReceiver,
+      mojo.internal.bindings.network.mojom.ProxyConfigPollerClientPendingReceiver,
       handle);
-    this.$ = new network.mojom.ProxyConfigPollerClientRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.network.mojom.ProxyConfigPollerClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -325,7 +330,7 @@ network.mojom.ProxyConfigPollerClientRemote = class {
   }
 };
 
-network.mojom.ProxyConfigPollerClientRemoteCallHandler = class {
+mojo.internal.bindings.network.mojom.ProxyConfigPollerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ProxyConfigPollerClient', [
@@ -336,7 +341,7 @@ network.mojom.ProxyConfigPollerClientRemoteCallHandler = class {
   onLazyProxyConfigPoll() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec,
+      mojo.internal.bindings.network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec,
       null,
       [],
       false);
@@ -344,8 +349,8 @@ network.mojom.ProxyConfigPollerClientRemoteCallHandler = class {
 
 };
 
-network.mojom.ProxyConfigPollerClient.getRemote = function() {
-  let remote = new network.mojom.ProxyConfigPollerClientRemote();
+mojo.internal.bindings.network.mojom.ProxyConfigPollerClient.getRemote = function() {
+  let remote = new mojo.internal.bindings.network.mojom.ProxyConfigPollerClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -354,7 +359,7 @@ network.mojom.ProxyConfigPollerClient.getRemote = function() {
   return remote.$;
 };
 
-network.mojom.ProxyConfigPollerClientReceiver = class {
+mojo.internal.bindings.network.mojom.ProxyConfigPollerClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -403,7 +408,7 @@ network.mojom.ProxyConfigPollerClientReceiver = class {
         // Try Method 0: OnLazyProxyConfigPoll
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLazyProxyConfigPoll (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -420,7 +425,7 @@ network.mojom.ProxyConfigPollerClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLazyProxyConfigPoll');
           const result = this.impl.onLazyProxyConfigPoll();
           break;
@@ -433,42 +438,42 @@ network.mojom.ProxyConfigPollerClientReceiver = class {
   }
 };
 
-network.mojom.ProxyConfigPollerClientReceiver = network.mojom.ProxyConfigPollerClientReceiver;
+mojo.internal.bindings.network.mojom.ProxyConfigPollerClientReceiver = mojo.internal.bindings.network.mojom.ProxyConfigPollerClientReceiver;
 
-network.mojom.ProxyConfigPollerClientPtr = network.mojom.ProxyConfigPollerClientRemote;
-network.mojom.ProxyConfigPollerClientRequest = network.mojom.ProxyConfigPollerClientPendingReceiver;
+mojo.internal.bindings.network.mojom.ProxyConfigPollerClientPtr = mojo.internal.bindings.network.mojom.ProxyConfigPollerClientRemote;
+mojo.internal.bindings.network.mojom.ProxyConfigPollerClientRequest = mojo.internal.bindings.network.mojom.ProxyConfigPollerClientPendingReceiver;
 
 
 // Interface: ProxyErrorClient
 mojo.internal.Struct(
-    network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec, 'network.mojom.ProxyErrorClient_OnPACScriptError_Params', [
-      mojo.internal.StructField('details', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('line_number', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    mojo.internal.bindings.network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec, 'network.mojom.ProxyErrorClient_OnPACScriptError_Params', [
+      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_line_number', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec, 'network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_Params', [
-      mojo.internal.StructField('net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    mojo.internal.bindings.network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec, 'network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_Params', [
+      mojo.internal.StructField('arg_net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
-network.mojom.ProxyErrorClientPendingReceiver = class {
+mojo.internal.bindings.network.mojom.ProxyErrorClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.ProxyErrorClientRemote = class {
+mojo.internal.bindings.network.mojom.ProxyErrorClientRemote = class {
   static get $interfaceName() {
     return 'network.mojom.ProxyErrorClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.ProxyErrorClientPendingReceiver,
+      mojo.internal.bindings.network.mojom.ProxyErrorClientPendingReceiver,
       handle);
-    this.$ = new network.mojom.ProxyErrorClientRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.network.mojom.ProxyErrorClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -478,15 +483,15 @@ network.mojom.ProxyErrorClientRemote = class {
   close() {
     this.proxy.close();
   }
-  onPACScriptError(line_number, details) {
-    return this.$.onPACScriptError(line_number, details);
+  onPACScriptError(arg_line_number, arg_details) {
+    return this.$.onPACScriptError(arg_line_number, arg_details);
   }
-  onRequestMaybeFailedDueToProxySettings(net_error) {
-    return this.$.onRequestMaybeFailedDueToProxySettings(net_error);
+  onRequestMaybeFailedDueToProxySettings(arg_net_error) {
+    return this.$.onRequestMaybeFailedDueToProxySettings(arg_net_error);
   }
 };
 
-network.mojom.ProxyErrorClientRemoteCallHandler = class {
+mojo.internal.bindings.network.mojom.ProxyErrorClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ProxyErrorClient', [
@@ -495,28 +500,28 @@ network.mojom.ProxyErrorClientRemoteCallHandler = class {
     ]);
   }
 
-  onPACScriptError(line_number, details) {
+  onPACScriptError(arg_line_number, arg_details) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec,
+      mojo.internal.bindings.network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec,
       null,
-      [line_number, details],
+      [arg_line_number, arg_details],
       false);
   }
 
-  onRequestMaybeFailedDueToProxySettings(net_error) {
+  onRequestMaybeFailedDueToProxySettings(arg_net_error) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec,
+      mojo.internal.bindings.network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec,
       null,
-      [net_error],
+      [arg_net_error],
       false);
   }
 
 };
 
-network.mojom.ProxyErrorClient.getRemote = function() {
-  let remote = new network.mojom.ProxyErrorClientRemote();
+mojo.internal.bindings.network.mojom.ProxyErrorClient.getRemote = function() {
+  let remote = new mojo.internal.bindings.network.mojom.ProxyErrorClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -525,7 +530,7 @@ network.mojom.ProxyErrorClient.getRemote = function() {
   return remote.$;
 };
 
-network.mojom.ProxyErrorClientReceiver = class {
+mojo.internal.bindings.network.mojom.ProxyErrorClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -575,7 +580,7 @@ network.mojom.ProxyErrorClientReceiver = class {
         // Try Method 0: OnPACScriptError
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPACScriptError (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -586,7 +591,7 @@ network.mojom.ProxyErrorClientReceiver = class {
         // Try Method 1: OnRequestMaybeFailedDueToProxySettings
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRequestMaybeFailedDueToProxySettings (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -603,16 +608,16 @@ network.mojom.ProxyErrorClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPACScriptError');
-          const result = this.impl.onPACScriptError(params.line_number, params.details);
+          const result = this.impl.onPACScriptError(params.arg_line_number, params.arg_details);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRequestMaybeFailedDueToProxySettings');
-          const result = this.impl.onRequestMaybeFailedDueToProxySettings(params.net_error);
+          const result = this.impl.onRequestMaybeFailedDueToProxySettings(params.arg_net_error);
           break;
         }
       }
@@ -623,8 +628,8 @@ network.mojom.ProxyErrorClientReceiver = class {
   }
 };
 
-network.mojom.ProxyErrorClientReceiver = network.mojom.ProxyErrorClientReceiver;
+mojo.internal.bindings.network.mojom.ProxyErrorClientReceiver = mojo.internal.bindings.network.mojom.ProxyErrorClientReceiver;
 
-network.mojom.ProxyErrorClientPtr = network.mojom.ProxyErrorClientRemote;
-network.mojom.ProxyErrorClientRequest = network.mojom.ProxyErrorClientPendingReceiver;
+mojo.internal.bindings.network.mojom.ProxyErrorClientPtr = mojo.internal.bindings.network.mojom.ProxyErrorClientRemote;
+mojo.internal.bindings.network.mojom.ProxyErrorClientRequest = mojo.internal.bindings.network.mojom.ProxyErrorClientPendingReceiver;
 

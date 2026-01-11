@@ -1,139 +1,144 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/content/common/renderer_host.mojom
-// Module: content.mojom
+ // Source: chromium_src/content/common/renderer_host.mojom
+ // Module: content.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var content = content || {};
-content.mojom = content.mojom || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-content.mojom.RendererHost = {};
-content.mojom.RendererHost.$interfaceName = 'content.mojom.RendererHost';
-content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec = { $: {} };
-content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec = { $: {} };
-content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec = { $: {} };
-content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec = { $: {} };
-content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec = { $: {} };
-content.mojom.RendererHost_HasGpuProcess_ParamsSpec = { $: {} };
-content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec = { $: {} };
+ mojo.internal.bindings.content = mojo.internal.bindings.content || {};
+mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {};
+
+mojo.internal.bindings.content.mojom.RendererHost = {};
+mojo.internal.bindings.content.mojom.RendererHost.$interfaceName = 'content.mojom.RendererHost';
+mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec = { $: {} };
+mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec = { $: {} };
+mojo.internal.bindings.content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec = { $: {} };
+mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ParamsSpec = { $: {} };
+mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec = { $: {} };
 
 // Interface: RendererHost
 mojo.internal.Struct(
-    content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec, 'content.mojom.RendererHost_GetBrowserHistogram_Params', [
-      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec, 'content.mojom.RendererHost_GetBrowserHistogram_Params', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec, 'content.mojom.RendererHost_GetBrowserHistogram_ResponseParams', [
-      mojo.internal.StructField('histogram_json', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec, 'content.mojom.RendererHost_GetBrowserHistogram_ResponseParams', [
+      mojo.internal.StructField('arg_histogram_json', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec, 'content.mojom.RendererHost_SuddenTerminationAllowedChanged_Params', [
-      mojo.internal.StructField('allowed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec, 'content.mojom.RendererHost_SuddenTerminationAllowedChanged_Params', [
+      mojo.internal.StructField('arg_allowed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec, 'content.mojom.RendererHost_RecordUserMetricsAction_Params', [
-      mojo.internal.StructField('action', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec, 'content.mojom.RendererHost_RecordUserMetricsAction_Params', [
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec, 'content.mojom.RendererHost_SetPrivateMemoryFootprint_Params', [
-      mojo.internal.StructField('private_memory_footprint_bytes', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    mojo.internal.bindings.content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec, 'content.mojom.RendererHost_SetPrivateMemoryFootprint_Params', [
+      mojo.internal.StructField('arg_private_memory_footprint_bytes', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    content.mojom.RendererHost_HasGpuProcess_ParamsSpec, 'content.mojom.RendererHost_HasGpuProcess_Params', [
+    mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ParamsSpec, 'content.mojom.RendererHost_HasGpuProcess_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec, 'content.mojom.RendererHost_HasGpuProcess_ResponseParams', [
-      mojo.internal.StructField('has_gpu_process', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec, 'content.mojom.RendererHost_HasGpuProcess_ResponseParams', [
+      mojo.internal.StructField('arg_has_gpu_process', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
-content.mojom.RendererHostPendingReceiver = class {
+mojo.internal.bindings.content.mojom.RendererHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content.mojom.RendererHostRemote = class {
+mojo.internal.bindings.content.mojom.RendererHostRemote = class {
   static get $interfaceName() {
     return 'content.mojom.RendererHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content.mojom.RendererHostPendingReceiver,
+      mojo.internal.bindings.content.mojom.RendererHostPendingReceiver,
       handle);
-    this.$ = new content.mojom.RendererHostRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.content.mojom.RendererHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -143,24 +148,24 @@ content.mojom.RendererHostRemote = class {
   close() {
     this.proxy.close();
   }
-  getBrowserHistogram(name) {
-    return this.$.getBrowserHistogram(name);
+  getBrowserHistogram(arg_name) {
+    return this.$.getBrowserHistogram(arg_name);
   }
-  suddenTerminationAllowedChanged(allowed) {
-    return this.$.suddenTerminationAllowedChanged(allowed);
+  suddenTerminationAllowedChanged(arg_allowed) {
+    return this.$.suddenTerminationAllowedChanged(arg_allowed);
   }
-  recordUserMetricsAction(action) {
-    return this.$.recordUserMetricsAction(action);
+  recordUserMetricsAction(arg_action) {
+    return this.$.recordUserMetricsAction(arg_action);
   }
-  setPrivateMemoryFootprint(private_memory_footprint_bytes) {
-    return this.$.setPrivateMemoryFootprint(private_memory_footprint_bytes);
+  setPrivateMemoryFootprint(arg_private_memory_footprint_bytes) {
+    return this.$.setPrivateMemoryFootprint(arg_private_memory_footprint_bytes);
   }
   hasGpuProcess() {
     return this.$.hasGpuProcess();
   }
 };
 
-content.mojom.RendererHostRemoteCallHandler = class {
+mojo.internal.bindings.content.mojom.RendererHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('RendererHost', [
@@ -172,55 +177,55 @@ content.mojom.RendererHostRemoteCallHandler = class {
     ]);
   }
 
-  getBrowserHistogram(name) {
+  getBrowserHistogram(arg_name) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec,
-      content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec,
-      [name],
+      mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec,
+      mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec,
+      [arg_name],
       false);
   }
 
-  suddenTerminationAllowedChanged(allowed) {
+  suddenTerminationAllowedChanged(arg_allowed) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec,
+      mojo.internal.bindings.content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec,
       null,
-      [allowed],
+      [arg_allowed],
       false);
   }
 
-  recordUserMetricsAction(action) {
+  recordUserMetricsAction(arg_action) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec,
+      mojo.internal.bindings.content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec,
       null,
-      [action],
+      [arg_action],
       false);
   }
 
-  setPrivateMemoryFootprint(private_memory_footprint_bytes) {
+  setPrivateMemoryFootprint(arg_private_memory_footprint_bytes) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec,
+      mojo.internal.bindings.content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec,
       null,
-      [private_memory_footprint_bytes],
+      [arg_private_memory_footprint_bytes],
       false);
   }
 
   hasGpuProcess() {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
-      content.mojom.RendererHost_HasGpuProcess_ParamsSpec,
-      content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec,
+      mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ParamsSpec,
+      mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec,
       [],
       false);
   }
 
 };
 
-content.mojom.RendererHost.getRemote = function() {
-  let remote = new content.mojom.RendererHostRemote();
+mojo.internal.bindings.content.mojom.RendererHost.getRemote = function() {
+  let remote = new mojo.internal.bindings.content.mojom.RendererHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -229,7 +234,7 @@ content.mojom.RendererHost.getRemote = function() {
   return remote.$;
 };
 
-content.mojom.RendererHostReceiver = class {
+mojo.internal.bindings.content.mojom.RendererHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -282,7 +287,7 @@ content.mojom.RendererHostReceiver = class {
         // Try Method 0: GetBrowserHistogram
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBrowserHistogram (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -293,7 +298,7 @@ content.mojom.RendererHostReceiver = class {
         // Try Method 1: SuddenTerminationAllowedChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SuddenTerminationAllowedChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -304,7 +309,7 @@ content.mojom.RendererHostReceiver = class {
         // Try Method 2: RecordUserMetricsAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordUserMetricsAction (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -315,7 +320,7 @@ content.mojom.RendererHostReceiver = class {
         // Try Method 3: SetPrivateMemoryFootprint
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPrivateMemoryFootprint (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -326,7 +331,7 @@ content.mojom.RendererHostReceiver = class {
         // Try Method 4: HasGpuProcess
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content.mojom.RendererHost_HasGpuProcess_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasGpuProcess (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -343,14 +348,14 @@ content.mojom.RendererHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getBrowserHistogram');
-          const result = this.impl.getBrowserHistogram(params.name);
+          const result = this.impl.getBrowserHistogram(params.arg_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetBrowserHistogram FAILED:', e));
           }
@@ -358,35 +363,35 @@ content.mojom.RendererHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.suddenTerminationAllowedChanged');
-          const result = this.impl.suddenTerminationAllowedChanged(params.allowed);
+          const result = this.impl.suddenTerminationAllowedChanged(params.arg_allowed);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordUserMetricsAction');
-          const result = this.impl.recordUserMetricsAction(params.action);
+          const result = this.impl.recordUserMetricsAction(params.arg_action);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPrivateMemoryFootprint');
-          const result = this.impl.setPrivateMemoryFootprint(params.private_memory_footprint_bytes);
+          const result = this.impl.setPrivateMemoryFootprint(params.arg_private_memory_footprint_bytes);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.RendererHost_HasGpuProcess_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hasGpuProcess');
           const result = this.impl.hasGpuProcess();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] HasGpuProcess FAILED:', e));
           }
@@ -400,8 +405,8 @@ content.mojom.RendererHostReceiver = class {
   }
 };
 
-content.mojom.RendererHostReceiver = content.mojom.RendererHostReceiver;
+mojo.internal.bindings.content.mojom.RendererHostReceiver = mojo.internal.bindings.content.mojom.RendererHostReceiver;
 
-content.mojom.RendererHostPtr = content.mojom.RendererHostRemote;
-content.mojom.RendererHostRequest = content.mojom.RendererHostPendingReceiver;
+mojo.internal.bindings.content.mojom.RendererHostPtr = mojo.internal.bindings.content.mojom.RendererHostRemote;
+mojo.internal.bindings.content.mojom.RendererHostRequest = mojo.internal.bindings.content.mojom.RendererHostPendingReceiver;
 

@@ -1,101 +1,106 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/services/network/public/mojom/trust_tokens.mojom
-// Module: network.mojom
+ // Source: chromium_src/services/network/public/mojom/trust_tokens.mojom
+ // Module: network.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var network = network || {};
-network.mojom = network.mojom || {};
-var url = url || {};
-var mojo_base = mojo_base || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-network.mojom.TrustTokenProtocolVersionSpec = { $: mojo.internal.Enum() };
-network.mojom.TrustTokenOperationStatusSpec = { $: mojo.internal.Enum() };
-network.mojom.TrustTokenOperationTypeSpec = { $: mojo.internal.Enum() };
-network.mojom.TrustTokenRefreshPolicySpec = { $: mojo.internal.Enum() };
-network.mojom.TrustTokenSignRequestDataSpec = { $: mojo.internal.Enum() };
-network.mojom.OsSpec = { $: mojo.internal.Enum() };
-network.mojom.UnavailableLocalOperationFallbackSpec = { $: mojo.internal.Enum() };
-network.mojom.StatusSpec = { $: mojo.internal.Enum() };
-network.mojom.DeleteStoredTrustTokensStatusSpec = { $: mojo.internal.Enum() };
-network.mojom.TrustTokenParamsSpec = { $: {} };
-network.mojom.HasTrustTokensResultSpec = { $: {} };
-network.mojom.HasRedemptionRecordResultSpec = { $: {} };
-network.mojom.TrustTokenVerificationKeySpec = { $: {} };
-network.mojom.TrustTokenKeyCommitmentResultSpec = { $: {} };
-network.mojom.FulfillTrustTokenIssuanceRequestSpec = { $: {} };
-network.mojom.FulfillTrustTokenIssuanceAnswerSpec = { $: {} };
-network.mojom.TrustTokenOperationResultSpec = { $: {} };
-network.mojom.StoredTrustTokensForIssuerSpec = { $: {} };
-network.mojom.ToplevelRedemptionRecordSpec = { $: {} };
-network.mojom.TrustTokenQueryAnswerer = {};
-network.mojom.TrustTokenQueryAnswerer.$interfaceName = 'network.mojom.TrustTokenQueryAnswerer';
-network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec = { $: {} };
-network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec = { $: {} };
-network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec = { $: {} };
-network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec = { $: {} };
+ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+
+mojo.internal.bindings.network.mojom.TrustTokenProtocolVersionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.TrustTokenOperationStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.TrustTokenOperationTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.TrustTokenRefreshPolicySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.TrustTokenSignRequestDataSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.OsSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.UnavailableLocalOperationFallbackSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.StatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.DeleteStoredTrustTokensStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.TrustTokenParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.HasTrustTokensResultSpec = { $: {} };
+mojo.internal.bindings.network.mojom.HasRedemptionRecordResultSpec = { $: {} };
+mojo.internal.bindings.network.mojom.TrustTokenVerificationKeySpec = { $: {} };
+mojo.internal.bindings.network.mojom.TrustTokenKeyCommitmentResultSpec = { $: {} };
+mojo.internal.bindings.network.mojom.FulfillTrustTokenIssuanceRequestSpec = { $: {} };
+mojo.internal.bindings.network.mojom.FulfillTrustTokenIssuanceAnswerSpec = { $: {} };
+mojo.internal.bindings.network.mojom.TrustTokenOperationResultSpec = { $: {} };
+mojo.internal.bindings.network.mojom.StoredTrustTokensForIssuerSpec = { $: {} };
+mojo.internal.bindings.network.mojom.ToplevelRedemptionRecordSpec = { $: {} };
+mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer = {};
+mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer.$interfaceName = 'network.mojom.TrustTokenQueryAnswerer';
+mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec = { $: {} };
 
 // Enum: TrustTokenProtocolVersion
-network.mojom.TrustTokenProtocolVersion = {
+mojo.internal.bindings.network.mojom.TrustTokenProtocolVersion = {
   kTrustTokenV3Pmb: 0,
   kTrustTokenV3Voprf: 1,
   kPrivateStateTokenV1Pmb: 2,
@@ -103,7 +108,7 @@ network.mojom.TrustTokenProtocolVersion = {
 };
 
 // Enum: TrustTokenOperationStatus
-network.mojom.TrustTokenOperationStatus = {
+mojo.internal.bindings.network.mojom.TrustTokenOperationStatus = {
   kOk: 0,
   kInvalidArgument: 1,
   kMissingIssuerKeys: 2,
@@ -120,45 +125,45 @@ network.mojom.TrustTokenOperationStatus = {
 };
 
 // Enum: TrustTokenOperationType
-network.mojom.TrustTokenOperationType = {
+mojo.internal.bindings.network.mojom.TrustTokenOperationType = {
   kIssuance: 0,
   kRedemption: 1,
   kSigning: 2,
 };
 
 // Enum: TrustTokenRefreshPolicy
-network.mojom.TrustTokenRefreshPolicy = {
+mojo.internal.bindings.network.mojom.TrustTokenRefreshPolicy = {
   kUseCached: 0,
   kRefresh: 1,
 };
 
 // Enum: TrustTokenSignRequestData
-network.mojom.TrustTokenSignRequestData = {
+mojo.internal.bindings.network.mojom.TrustTokenSignRequestData = {
   kOmit: 0,
   kHeadersOnly: 1,
   kInclude: 2,
 };
 
 // Enum: Os
-network.mojom.Os = {
+mojo.internal.bindings.network.mojom.Os = {
   kAndroid: 0,
 };
 
 // Enum: UnavailableLocalOperationFallback
-network.mojom.UnavailableLocalOperationFallback = {
+mojo.internal.bindings.network.mojom.UnavailableLocalOperationFallback = {
   kWebIssuance: 0,
   kReturnWithError: 1,
 };
 
 // Enum: Status
-network.mojom.Status = {
+mojo.internal.bindings.network.mojom.Status = {
   kOk: 0,
   kNotFound: 1,
   kUnknownError: 2,
 };
 
 // Enum: DeleteStoredTrustTokensStatus
-network.mojom.DeleteStoredTrustTokensStatus = {
+mojo.internal.bindings.network.mojom.DeleteStoredTrustTokensStatus = {
   kSuccessTokensDeleted: 0,
   kSuccessNoTokensDeleted: 1,
   kFailureFeatureDisabled: 2,
@@ -167,137 +172,139 @@ network.mojom.DeleteStoredTrustTokensStatus = {
 
 // Struct: TrustTokenParams
 mojo.internal.Struct(
-    network.mojom.TrustTokenParamsSpec, 'network.mojom.TrustTokenParams', [
-      mojo.internal.StructField('operation', 0, 0, network.mojom.TrustTokenOperationTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('refresh_policy', 8, 0, network.mojom.TrustTokenRefreshPolicySpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('custom_key_commitment', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('custom_issuer', 24, 0, url.mojom.OriginSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('sign_request_data', 32, 0, network.mojom.TrustTokenSignRequestDataSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('issuers', 40, 0, mojo.internal.Array(url.mojom.OriginSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('additional_signed_headers', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('possibly_unsafe_additional_signing_data', 56, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('include_timestamp_header', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.network.mojom.TrustTokenParamsSpec, 'network.mojom.TrustTokenParams', [
+      mojo.internal.StructField('arg_operation', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.TrustTokenOperationTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_refresh_policy', 8, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.TrustTokenRefreshPolicySpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_custom_key_commitment', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_custom_issuer', 24, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_sign_request_data', 32, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.TrustTokenSignRequestDataSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_issuers', 40, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.OriginSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_additional_signed_headers', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_possibly_unsafe_additional_signing_data', 56, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_include_timestamp_header', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 80]]);
 
 // Struct: HasTrustTokensResult
 mojo.internal.Struct(
-    network.mojom.HasTrustTokensResultSpec, 'network.mojom.HasTrustTokensResult', [
-      mojo.internal.StructField('status', 0, 0, network.mojom.TrustTokenOperationStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('has_trust_tokens', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.network.mojom.HasTrustTokensResultSpec, 'network.mojom.HasTrustTokensResult', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.TrustTokenOperationStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_has_trust_tokens', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: HasRedemptionRecordResult
 mojo.internal.Struct(
-    network.mojom.HasRedemptionRecordResultSpec, 'network.mojom.HasRedemptionRecordResult', [
-      mojo.internal.StructField('status', 0, 0, network.mojom.TrustTokenOperationStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('has_redemption_record', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.network.mojom.HasRedemptionRecordResultSpec, 'network.mojom.HasRedemptionRecordResult', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.TrustTokenOperationStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_has_redemption_record', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: TrustTokenVerificationKey
 mojo.internal.Struct(
-    network.mojom.TrustTokenVerificationKeySpec, 'network.mojom.TrustTokenVerificationKey', [
-      mojo.internal.StructField('body', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('expiry', 8, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.network.mojom.TrustTokenVerificationKeySpec, 'network.mojom.TrustTokenVerificationKey', [
+      mojo.internal.StructField('arg_body', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_expiry', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: TrustTokenKeyCommitmentResult
 mojo.internal.Struct(
-    network.mojom.TrustTokenKeyCommitmentResultSpec, 'network.mojom.TrustTokenKeyCommitmentResult', [
-      mojo.internal.StructField('protocol_version', 0, 0, network.mojom.TrustTokenProtocolVersionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('keys', 8, 0, mojo.internal.Array(network.mojom.TrustTokenVerificationKeySpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('kAndroid', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('batch_size', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    mojo.internal.bindings.network.mojom.TrustTokenKeyCommitmentResultSpec, 'network.mojom.TrustTokenKeyCommitmentResult', [
+      mojo.internal.StructField('arg_protocol_version', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.TrustTokenProtocolVersionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_keys', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.network.mojom.TrustTokenVerificationKeySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_kAndroid', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_batch_size', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: FulfillTrustTokenIssuanceRequest
 mojo.internal.Struct(
-    network.mojom.FulfillTrustTokenIssuanceRequestSpec, 'network.mojom.FulfillTrustTokenIssuanceRequest', [
-      mojo.internal.StructField('issuer', 0, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('request', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.network.mojom.FulfillTrustTokenIssuanceRequestSpec, 'network.mojom.FulfillTrustTokenIssuanceRequest', [
+      mojo.internal.StructField('arg_issuer', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: FulfillTrustTokenIssuanceAnswer
 mojo.internal.Struct(
-    network.mojom.FulfillTrustTokenIssuanceAnswerSpec, 'network.mojom.FulfillTrustTokenIssuanceAnswer', [
-      mojo.internal.StructField('kOk', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    mojo.internal.bindings.network.mojom.FulfillTrustTokenIssuanceAnswerSpec, 'network.mojom.FulfillTrustTokenIssuanceAnswer', [
+      mojo.internal.StructField('arg_kOk', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 32]]);
 
 // Struct: TrustTokenOperationResult
 mojo.internal.Struct(
-    network.mojom.TrustTokenOperationResultSpec, 'network.mojom.TrustTokenOperationResult', [
-      mojo.internal.StructField('operation', 0, 0, network.mojom.TrustTokenOperationTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('status', 8, 0, network.mojom.TrustTokenOperationStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('issuer', 16, 0, url.mojom.OriginSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('top_level_origin', 24, 0, url.mojom.OriginSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('issued_token_count', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    mojo.internal.bindings.network.mojom.TrustTokenOperationResultSpec, 'network.mojom.TrustTokenOperationResult', [
+      mojo.internal.StructField('arg_operation', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.TrustTokenOperationTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.TrustTokenOperationStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_issuer', 16, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_top_level_origin', 24, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_issued_token_count', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: StoredTrustTokensForIssuer
 mojo.internal.Struct(
-    network.mojom.StoredTrustTokensForIssuerSpec, 'network.mojom.StoredTrustTokensForIssuer', [
-      mojo.internal.StructField('issuer', 0, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    mojo.internal.bindings.network.mojom.StoredTrustTokensForIssuerSpec, 'network.mojom.StoredTrustTokensForIssuer', [
+      mojo.internal.StructField('arg_issuer', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ToplevelRedemptionRecord
 mojo.internal.Struct(
-    network.mojom.ToplevelRedemptionRecordSpec, 'network.mojom.ToplevelRedemptionRecord', [
-      mojo.internal.StructField('toplevel_origin', 0, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('last_redemption', 8, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.network.mojom.ToplevelRedemptionRecordSpec, 'network.mojom.ToplevelRedemptionRecord', [
+      mojo.internal.StructField('arg_toplevel_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_redemption', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: TrustTokenQueryAnswerer
 mojo.internal.Struct(
-    network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec, 'network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_Params', [
-      mojo.internal.StructField('issuer', 0, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec, 'network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_Params', [
+      mojo.internal.StructField('arg_issuer', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec, 'network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, network.mojom.HasTrustTokensResultSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec, 'network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.HasTrustTokensResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec, 'network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_Params', [
-      mojo.internal.StructField('issuer', 0, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec, 'network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_Params', [
+      mojo.internal.StructField('arg_issuer', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec, 'network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, network.mojom.HasRedemptionRecordResultSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec, 'network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.HasRedemptionRecordResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-network.mojom.TrustTokenQueryAnswererPendingReceiver = class {
+mojo.internal.bindings.network.mojom.TrustTokenQueryAnswererPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.TrustTokenQueryAnswererRemote = class {
+mojo.internal.bindings.network.mojom.TrustTokenQueryAnswererRemote = class {
   static get $interfaceName() {
     return 'network.mojom.TrustTokenQueryAnswerer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.TrustTokenQueryAnswererPendingReceiver,
+      mojo.internal.bindings.network.mojom.TrustTokenQueryAnswererPendingReceiver,
       handle);
-    this.$ = new network.mojom.TrustTokenQueryAnswererRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.network.mojom.TrustTokenQueryAnswererRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -307,15 +314,15 @@ network.mojom.TrustTokenQueryAnswererRemote = class {
   close() {
     this.proxy.close();
   }
-  hasTrustTokens(issuer) {
-    return this.$.hasTrustTokens(issuer);
+  hasTrustTokens(arg_issuer) {
+    return this.$.hasTrustTokens(arg_issuer);
   }
-  hasRedemptionRecord(issuer) {
-    return this.$.hasRedemptionRecord(issuer);
+  hasRedemptionRecord(arg_issuer) {
+    return this.$.hasRedemptionRecord(arg_issuer);
   }
 };
 
-network.mojom.TrustTokenQueryAnswererRemoteCallHandler = class {
+mojo.internal.bindings.network.mojom.TrustTokenQueryAnswererRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('TrustTokenQueryAnswerer', [
@@ -324,28 +331,28 @@ network.mojom.TrustTokenQueryAnswererRemoteCallHandler = class {
     ]);
   }
 
-  hasTrustTokens(issuer) {
+  hasTrustTokens(arg_issuer) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec,
-      network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec,
-      [issuer],
+      mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec,
+      mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec,
+      [arg_issuer],
       false);
   }
 
-  hasRedemptionRecord(issuer) {
+  hasRedemptionRecord(arg_issuer) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec,
-      network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec,
-      [issuer],
+      mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec,
+      mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec,
+      [arg_issuer],
       false);
   }
 
 };
 
-network.mojom.TrustTokenQueryAnswerer.getRemote = function() {
-  let remote = new network.mojom.TrustTokenQueryAnswererRemote();
+mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer.getRemote = function() {
+  let remote = new mojo.internal.bindings.network.mojom.TrustTokenQueryAnswererRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -354,7 +361,7 @@ network.mojom.TrustTokenQueryAnswerer.getRemote = function() {
   return remote.$;
 };
 
-network.mojom.TrustTokenQueryAnswererReceiver = class {
+mojo.internal.bindings.network.mojom.TrustTokenQueryAnswererReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -404,7 +411,7 @@ network.mojom.TrustTokenQueryAnswererReceiver = class {
         // Try Method 0: HasTrustTokens
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasTrustTokens (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -415,7 +422,7 @@ network.mojom.TrustTokenQueryAnswererReceiver = class {
         // Try Method 1: HasRedemptionRecord
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasRedemptionRecord (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -432,14 +439,14 @@ network.mojom.TrustTokenQueryAnswererReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hasTrustTokens');
-          const result = this.impl.hasTrustTokens(params.issuer);
+          const result = this.impl.hasTrustTokens(params.arg_issuer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] HasTrustTokens FAILED:', e));
           }
@@ -447,14 +454,14 @@ network.mojom.TrustTokenQueryAnswererReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hasRedemptionRecord');
-          const result = this.impl.hasRedemptionRecord(params.issuer);
+          const result = this.impl.hasRedemptionRecord(params.arg_issuer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] HasRedemptionRecord FAILED:', e));
           }
@@ -468,8 +475,8 @@ network.mojom.TrustTokenQueryAnswererReceiver = class {
   }
 };
 
-network.mojom.TrustTokenQueryAnswererReceiver = network.mojom.TrustTokenQueryAnswererReceiver;
+mojo.internal.bindings.network.mojom.TrustTokenQueryAnswererReceiver = mojo.internal.bindings.network.mojom.TrustTokenQueryAnswererReceiver;
 
-network.mojom.TrustTokenQueryAnswererPtr = network.mojom.TrustTokenQueryAnswererRemote;
-network.mojom.TrustTokenQueryAnswererRequest = network.mojom.TrustTokenQueryAnswererPendingReceiver;
+mojo.internal.bindings.network.mojom.TrustTokenQueryAnswererPtr = mojo.internal.bindings.network.mojom.TrustTokenQueryAnswererRemote;
+mojo.internal.bindings.network.mojom.TrustTokenQueryAnswererRequest = mojo.internal.bindings.network.mojom.TrustTokenQueryAnswererPendingReceiver;
 

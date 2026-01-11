@@ -1,98 +1,103 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/services/device/public/mojom/geolocation_internals.mojom
-// Module: device.mojom
+ // Source: chromium_src/services/device/public/mojom/geolocation_internals.mojom
+ // Module: device.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var device = device || {};
-device.mojom = device.mojom || {};
-var mojo_base = mojo_base || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-device.mojom.ProviderStateSpec = { $: mojo.internal.Enum() };
-device.mojom.LocationProviderManagerModeSpec = { $: mojo.internal.Enum() };
-device.mojom.AccessPointDataSpec = { $: {} };
-device.mojom.NetworkLocationDiagnosticsSpec = { $: {} };
-device.mojom.PositionCacheDiagnosticsSpec = { $: {} };
-device.mojom.WifiPollingPolicyDiagnosticsSpec = { $: {} };
-device.mojom.GeolocationDiagnosticsSpec = { $: {} };
-device.mojom.NetworkLocationResponseSpec = { $: {} };
-device.mojom.GeolocationInternalsObserver = {};
-device.mojom.GeolocationInternalsObserver.$interfaceName = 'device.mojom.GeolocationInternalsObserver';
-device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec = { $: {} };
-device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec = { $: {} };
-device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec = { $: {} };
-device.mojom.GeolocationInternals = {};
-device.mojom.GeolocationInternals.$interfaceName = 'device.mojom.GeolocationInternals';
-device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec = { $: {} };
-device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec = { $: {} };
+ mojo.internal.bindings.device = mojo.internal.bindings.device || {};
+mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
-device.mojom.kInvalidRadioSignalStrength = -2147483648;
+mojo.internal.bindings.device.mojom.ProviderStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.device.mojom.LocationProviderManagerModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.device.mojom.AccessPointDataSpec = { $: {} };
+mojo.internal.bindings.device.mojom.NetworkLocationDiagnosticsSpec = { $: {} };
+mojo.internal.bindings.device.mojom.PositionCacheDiagnosticsSpec = { $: {} };
+mojo.internal.bindings.device.mojom.WifiPollingPolicyDiagnosticsSpec = { $: {} };
+mojo.internal.bindings.device.mojom.GeolocationDiagnosticsSpec = { $: {} };
+mojo.internal.bindings.device.mojom.NetworkLocationResponseSpec = { $: {} };
+mojo.internal.bindings.device.mojom.GeolocationInternalsObserver = {};
+mojo.internal.bindings.device.mojom.GeolocationInternalsObserver.$interfaceName = 'device.mojom.GeolocationInternalsObserver';
+mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec = { $: {} };
+mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec = { $: {} };
+mojo.internal.bindings.device.mojom.GeolocationInternals = {};
+mojo.internal.bindings.device.mojom.GeolocationInternals.$interfaceName = 'device.mojom.GeolocationInternals';
+mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec = { $: {} };
+mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec = { $: {} };
 
-device.mojom.kInvalidChannel = -2147483648;
+mojo.internal.bindings.device.mojom.kInvalidRadioSignalStrength = -2147483648;
 
-device.mojom.kInvalidSignalToNoise = -2147483648;
+mojo.internal.bindings.device.mojom.kInvalidChannel = -2147483648;
+
+mojo.internal.bindings.device.mojom.kInvalidSignalToNoise = -2147483648;
 
 // Enum: ProviderState
-device.mojom.ProviderState = {
+mojo.internal.bindings.device.mojom.ProviderState = {
   kStopped: 0,
   kHighAccuracy: 1,
   kLowAccuracy: 2,
@@ -100,7 +105,7 @@ device.mojom.ProviderState = {
 };
 
 // Enum: LocationProviderManagerMode
-device.mojom.LocationProviderManagerMode = {
+mojo.internal.bindings.device.mojom.LocationProviderManagerMode = {
   kNetworkOnly: 0,
   kPlatformOnly: 1,
   kCustomOnly: 2,
@@ -111,100 +116,103 @@ device.mojom.LocationProviderManagerMode = {
 
 // Struct: AccessPointData
 mojo.internal.Struct(
-    device.mojom.AccessPointDataSpec, 'device.mojom.AccessPointData', [
-      mojo.internal.StructField('mac_address', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('timestamp', 8, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('radio_signal_strength', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('channel', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('signal_to_noise', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    mojo.internal.bindings.device.mojom.AccessPointDataSpec, 'device.mojom.AccessPointData', [
+      mojo.internal.StructField('arg_mac_address', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_radio_signal_strength', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_channel', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_signal_to_noise', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: NetworkLocationDiagnostics
 mojo.internal.Struct(
-    device.mojom.NetworkLocationDiagnosticsSpec, 'device.mojom.NetworkLocationDiagnostics', [
-      mojo.internal.StructField('access_point_data', 0, 0, mojo.internal.Array(device.mojom.AccessPointDataSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('wifi_timestamp', 8, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.device.mojom.NetworkLocationDiagnosticsSpec, 'device.mojom.NetworkLocationDiagnostics', [
+      mojo.internal.StructField('arg_access_point_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.device.mojom.AccessPointDataSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_wifi_timestamp', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: PositionCacheDiagnostics
 mojo.internal.Struct(
-    device.mojom.PositionCacheDiagnosticsSpec, 'device.mojom.PositionCacheDiagnostics', [
-      mojo.internal.StructField('last_hit', 0, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('last_miss', 8, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('hit_rate_$value', 16, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'hit_rate_$flag', originalFieldName: 'hit_rate' }),
-      mojo.internal.StructField('last_network_result', 24, 0, device.mojom.GeopositionResultSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('cache_size', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('hit_rate_$flag', 36, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'hit_rate_$value', originalFieldName: 'hit_rate' }),
+    mojo.internal.bindings.device.mojom.PositionCacheDiagnosticsSpec, 'device.mojom.PositionCacheDiagnostics', [
+      mojo.internal.StructField('arg_last_hit', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_last_miss', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_hit_rate_$value', 16, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_hit_rate_$flag', originalFieldName: 'arg_hit_rate' }),
+      mojo.internal.StructField('arg_last_network_result', 24, 0, mojo.internal.bindings.device.mojom.GeopositionResultSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_cache_size', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_hit_rate_$flag', 36, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_hit_rate_$value', originalFieldName: 'arg_hit_rate' }),
     ],
     [[0, 48]]);
 
 // Struct: WifiPollingPolicyDiagnostics
 mojo.internal.Struct(
-    device.mojom.WifiPollingPolicyDiagnosticsSpec, 'device.mojom.WifiPollingPolicyDiagnostics', [
-      mojo.internal.StructField('interval_start', 0, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('interval_duration', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('polling_interval', 16, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('default_interval', 24, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('no_change_interval', 32, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('two_no_change_interval', 40, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('no_wifi_interval', 48, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.device.mojom.WifiPollingPolicyDiagnosticsSpec, 'device.mojom.WifiPollingPolicyDiagnostics', [
+      mojo.internal.StructField('arg_interval_start', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_interval_duration', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_polling_interval', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_default_interval', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_no_change_interval', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_two_no_change_interval', 40, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_no_wifi_interval', 48, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
 // Struct: GeolocationDiagnostics
 mojo.internal.Struct(
-    device.mojom.GeolocationDiagnosticsSpec, 'device.mojom.GeolocationDiagnostics', [
-      mojo.internal.StructField('kStopped', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    mojo.internal.bindings.device.mojom.GeolocationDiagnosticsSpec, 'device.mojom.GeolocationDiagnostics', [
+      mojo.internal.StructField('arg_kStopped', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 40]]);
 
 // Struct: NetworkLocationResponse
 mojo.internal.Struct(
-    device.mojom.NetworkLocationResponseSpec, 'device.mojom.NetworkLocationResponse', [
-      mojo.internal.StructField('latitude', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('longitude', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('accuracy_$value', 16, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'accuracy_$flag', originalFieldName: 'accuracy' }),
-      mojo.internal.StructField('accuracy_$flag', 24, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'accuracy_$value', originalFieldName: 'accuracy' }),
+    mojo.internal.bindings.device.mojom.NetworkLocationResponseSpec, 'device.mojom.NetworkLocationResponse', [
+      mojo.internal.StructField('arg_latitude', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_longitude', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_accuracy_$value', 16, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_accuracy_$flag', originalFieldName: 'arg_accuracy' }),
+      mojo.internal.StructField('arg_accuracy_$flag', 24, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_accuracy_$value', originalFieldName: 'arg_accuracy' }),
     ],
     [[0, 40]]);
 
 // Interface: GeolocationInternalsObserver
 mojo.internal.Struct(
-    device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec, 'device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_Params', [
-      mojo.internal.StructField('diagnostics', 0, 0, device.mojom.GeolocationDiagnosticsSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec, 'device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_Params', [
+      mojo.internal.StructField('arg_diagnostics', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.GeolocationDiagnosticsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec, 'device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_Params', [
-      mojo.internal.StructField('access_point_data', 0, 0, mojo.internal.Array(device.mojom.AccessPointDataSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec, 'device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_Params', [
+      mojo.internal.StructField('arg_access_point_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.device.mojom.AccessPointDataSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec, 'device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_Params', [
-      mojo.internal.StructField('response', 0, 0, device.mojom.NetworkLocationResponseSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec, 'device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_Params', [
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.NetworkLocationResponseSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
-device.mojom.GeolocationInternalsObserverPendingReceiver = class {
+mojo.internal.bindings.device.mojom.GeolocationInternalsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.GeolocationInternalsObserverRemote = class {
+mojo.internal.bindings.device.mojom.GeolocationInternalsObserverRemote = class {
   static get $interfaceName() {
     return 'device.mojom.GeolocationInternalsObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.GeolocationInternalsObserverPendingReceiver,
+      mojo.internal.bindings.device.mojom.GeolocationInternalsObserverPendingReceiver,
       handle);
-    this.$ = new device.mojom.GeolocationInternalsObserverRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.device.mojom.GeolocationInternalsObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -214,18 +222,18 @@ device.mojom.GeolocationInternalsObserverRemote = class {
   close() {
     this.proxy.close();
   }
-  onDiagnosticsChanged(diagnostics) {
-    return this.$.onDiagnosticsChanged(diagnostics);
+  onDiagnosticsChanged(arg_diagnostics) {
+    return this.$.onDiagnosticsChanged(arg_diagnostics);
   }
-  onNetworkLocationRequested(access_point_data) {
-    return this.$.onNetworkLocationRequested(access_point_data);
+  onNetworkLocationRequested(arg_access_point_data) {
+    return this.$.onNetworkLocationRequested(arg_access_point_data);
   }
-  onNetworkLocationReceived(response) {
-    return this.$.onNetworkLocationReceived(response);
+  onNetworkLocationReceived(arg_response) {
+    return this.$.onNetworkLocationReceived(arg_response);
   }
 };
 
-device.mojom.GeolocationInternalsObserverRemoteCallHandler = class {
+mojo.internal.bindings.device.mojom.GeolocationInternalsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('GeolocationInternalsObserver', [
@@ -235,37 +243,37 @@ device.mojom.GeolocationInternalsObserverRemoteCallHandler = class {
     ]);
   }
 
-  onDiagnosticsChanged(diagnostics) {
+  onDiagnosticsChanged(arg_diagnostics) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec,
+      mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec,
       null,
-      [diagnostics],
+      [arg_diagnostics],
       false);
   }
 
-  onNetworkLocationRequested(access_point_data) {
+  onNetworkLocationRequested(arg_access_point_data) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec,
+      mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec,
       null,
-      [access_point_data],
+      [arg_access_point_data],
       false);
   }
 
-  onNetworkLocationReceived(response) {
+  onNetworkLocationReceived(arg_response) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec,
+      mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec,
       null,
-      [response],
+      [arg_response],
       false);
   }
 
 };
 
-device.mojom.GeolocationInternalsObserver.getRemote = function() {
-  let remote = new device.mojom.GeolocationInternalsObserverRemote();
+mojo.internal.bindings.device.mojom.GeolocationInternalsObserver.getRemote = function() {
+  let remote = new mojo.internal.bindings.device.mojom.GeolocationInternalsObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -274,7 +282,7 @@ device.mojom.GeolocationInternalsObserver.getRemote = function() {
   return remote.$;
 };
 
-device.mojom.GeolocationInternalsObserverReceiver = class {
+mojo.internal.bindings.device.mojom.GeolocationInternalsObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -325,7 +333,7 @@ device.mojom.GeolocationInternalsObserverReceiver = class {
         // Try Method 0: OnDiagnosticsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDiagnosticsChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -336,7 +344,7 @@ device.mojom.GeolocationInternalsObserverReceiver = class {
         // Try Method 1: OnNetworkLocationRequested
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkLocationRequested (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -347,7 +355,7 @@ device.mojom.GeolocationInternalsObserverReceiver = class {
         // Try Method 2: OnNetworkLocationReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkLocationReceived (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -364,23 +372,23 @@ device.mojom.GeolocationInternalsObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDiagnosticsChanged');
-          const result = this.impl.onDiagnosticsChanged(params.diagnostics);
+          const result = this.impl.onDiagnosticsChanged(params.arg_diagnostics);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNetworkLocationRequested');
-          const result = this.impl.onNetworkLocationRequested(params.access_point_data);
+          const result = this.impl.onNetworkLocationRequested(params.arg_access_point_data);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNetworkLocationReceived');
-          const result = this.impl.onNetworkLocationReceived(params.response);
+          const result = this.impl.onNetworkLocationReceived(params.arg_response);
           break;
         }
       }
@@ -391,41 +399,41 @@ device.mojom.GeolocationInternalsObserverReceiver = class {
   }
 };
 
-device.mojom.GeolocationInternalsObserverReceiver = device.mojom.GeolocationInternalsObserverReceiver;
+mojo.internal.bindings.device.mojom.GeolocationInternalsObserverReceiver = mojo.internal.bindings.device.mojom.GeolocationInternalsObserverReceiver;
 
-device.mojom.GeolocationInternalsObserverPtr = device.mojom.GeolocationInternalsObserverRemote;
-device.mojom.GeolocationInternalsObserverRequest = device.mojom.GeolocationInternalsObserverPendingReceiver;
+mojo.internal.bindings.device.mojom.GeolocationInternalsObserverPtr = mojo.internal.bindings.device.mojom.GeolocationInternalsObserverRemote;
+mojo.internal.bindings.device.mojom.GeolocationInternalsObserverRequest = mojo.internal.bindings.device.mojom.GeolocationInternalsObserverPendingReceiver;
 
 
 // Interface: GeolocationInternals
 mojo.internal.Struct(
-    device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec, 'device.mojom.GeolocationInternals_AddInternalsObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(device.mojom.GeolocationInternalsObserverSpec), null, false, 0, undefined),
+    mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec, 'device.mojom.GeolocationInternals_AddInternalsObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.GeolocationInternalsObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec, 'device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParams', [
-      mojo.internal.StructField('diagnostics', 0, 0, device.mojom.GeolocationDiagnosticsSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec, 'device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParams', [
+      mojo.internal.StructField('arg_diagnostics', 0, 0, mojo.internal.bindings.mojo.internal.bindings.device.mojom.GeolocationDiagnosticsSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
-device.mojom.GeolocationInternalsPendingReceiver = class {
+mojo.internal.bindings.device.mojom.GeolocationInternalsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-device.mojom.GeolocationInternalsRemote = class {
+mojo.internal.bindings.device.mojom.GeolocationInternalsRemote = class {
   static get $interfaceName() {
     return 'device.mojom.GeolocationInternals';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      device.mojom.GeolocationInternalsPendingReceiver,
+      mojo.internal.bindings.device.mojom.GeolocationInternalsPendingReceiver,
       handle);
-    this.$ = new device.mojom.GeolocationInternalsRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.device.mojom.GeolocationInternalsRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -435,12 +443,12 @@ device.mojom.GeolocationInternalsRemote = class {
   close() {
     this.proxy.close();
   }
-  addInternalsObserver(observer) {
-    return this.$.addInternalsObserver(observer);
+  addInternalsObserver(arg_observer) {
+    return this.$.addInternalsObserver(arg_observer);
   }
 };
 
-device.mojom.GeolocationInternalsRemoteCallHandler = class {
+mojo.internal.bindings.device.mojom.GeolocationInternalsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('GeolocationInternals', [
@@ -448,19 +456,19 @@ device.mojom.GeolocationInternalsRemoteCallHandler = class {
     ]);
   }
 
-  addInternalsObserver(observer) {
+  addInternalsObserver(arg_observer) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec,
-      device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec,
-      [observer],
+      mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec,
+      mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec,
+      [arg_observer],
       false);
   }
 
 };
 
-device.mojom.GeolocationInternals.getRemote = function() {
-  let remote = new device.mojom.GeolocationInternalsRemote();
+mojo.internal.bindings.device.mojom.GeolocationInternals.getRemote = function() {
+  let remote = new mojo.internal.bindings.device.mojom.GeolocationInternalsRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -469,7 +477,7 @@ device.mojom.GeolocationInternals.getRemote = function() {
   return remote.$;
 };
 
-device.mojom.GeolocationInternalsReceiver = class {
+mojo.internal.bindings.device.mojom.GeolocationInternalsReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -518,7 +526,7 @@ device.mojom.GeolocationInternalsReceiver = class {
         // Try Method 0: AddInternalsObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddInternalsObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -535,14 +543,14 @@ device.mojom.GeolocationInternalsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addInternalsObserver');
-          const result = this.impl.addInternalsObserver(params.observer);
+          const result = this.impl.addInternalsObserver(params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] AddInternalsObserver FAILED:', e));
           }
@@ -556,8 +564,8 @@ device.mojom.GeolocationInternalsReceiver = class {
   }
 };
 
-device.mojom.GeolocationInternalsReceiver = device.mojom.GeolocationInternalsReceiver;
+mojo.internal.bindings.device.mojom.GeolocationInternalsReceiver = mojo.internal.bindings.device.mojom.GeolocationInternalsReceiver;
 
-device.mojom.GeolocationInternalsPtr = device.mojom.GeolocationInternalsRemote;
-device.mojom.GeolocationInternalsRequest = device.mojom.GeolocationInternalsPendingReceiver;
+mojo.internal.bindings.device.mojom.GeolocationInternalsPtr = mojo.internal.bindings.device.mojom.GeolocationInternalsRemote;
+mojo.internal.bindings.device.mojom.GeolocationInternalsRequest = mojo.internal.bindings.device.mojom.GeolocationInternalsPendingReceiver;
 

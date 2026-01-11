@@ -1,132 +1,137 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/third_party/blink/public/mojom/input/input_messages.mojom
-// Module: blink.mojom
+ // Source: chromium_src/third_party/blink/public/mojom/input/input_messages.mojom
+ // Module: blink.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var blink = blink || {};
-blink.mojom = blink.mojom || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-blink.mojom.TextSuggestionBackend = {};
-blink.mojom.TextSuggestionBackend.$interfaceName = 'blink.mojom.TextSuggestionBackend';
-blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec = { $: {} };
-blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec = { $: {} };
-blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec = { $: {} };
-blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec = { $: {} };
-blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec = { $: {} };
-blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec = { $: {} };
+ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+
+mojo.internal.bindings.blink.mojom.TextSuggestionBackend = {};
+mojo.internal.bindings.blink.mojom.TextSuggestionBackend.$interfaceName = 'blink.mojom.TextSuggestionBackend';
+mojo.internal.bindings.blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec = { $: {} };
 
 // Interface: TextSuggestionBackend
 mojo.internal.Struct(
-    blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec, 'blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_Params', [
-      mojo.internal.StructField('suggestion', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec, 'blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_Params', [
+      mojo.internal.StructField('arg_suggestion', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec, 'blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_Params', [
-      mojo.internal.StructField('marker_tag', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('suggestion_index', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec, 'blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_Params', [
+      mojo.internal.StructField('arg_marker_tag', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestion_index', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec, 'blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_Params', [
+    mojo.internal.bindings.blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec, 'blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec, 'blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_Params', [
-      mojo.internal.StructField('suggestion', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec, 'blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_Params', [
+      mojo.internal.StructField('arg_suggestion', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec, 'blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_Params', [
+    mojo.internal.bindings.blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec, 'blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec, 'blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_Params', [
-      mojo.internal.StructField('max_number_of_suggestions', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec, 'blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_Params', [
+      mojo.internal.StructField('arg_max_number_of_suggestions', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
-blink.mojom.TextSuggestionBackendPendingReceiver = class {
+mojo.internal.bindings.blink.mojom.TextSuggestionBackendPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.TextSuggestionBackendRemote = class {
+mojo.internal.bindings.blink.mojom.TextSuggestionBackendRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.TextSuggestionBackend';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.TextSuggestionBackendPendingReceiver,
+      mojo.internal.bindings.blink.mojom.TextSuggestionBackendPendingReceiver,
       handle);
-    this.$ = new blink.mojom.TextSuggestionBackendRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.blink.mojom.TextSuggestionBackendRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -136,27 +141,27 @@ blink.mojom.TextSuggestionBackendRemote = class {
   close() {
     this.proxy.close();
   }
-  applySpellCheckSuggestion(suggestion) {
-    return this.$.applySpellCheckSuggestion(suggestion);
+  applySpellCheckSuggestion(arg_suggestion) {
+    return this.$.applySpellCheckSuggestion(arg_suggestion);
   }
-  applyTextSuggestion(marker_tag, suggestion_index) {
-    return this.$.applyTextSuggestion(marker_tag, suggestion_index);
+  applyTextSuggestion(arg_marker_tag, arg_suggestion_index) {
+    return this.$.applyTextSuggestion(arg_marker_tag, arg_suggestion_index);
   }
   deleteActiveSuggestionRange() {
     return this.$.deleteActiveSuggestionRange();
   }
-  onNewWordAddedToDictionary(suggestion) {
-    return this.$.onNewWordAddedToDictionary(suggestion);
+  onNewWordAddedToDictionary(arg_suggestion) {
+    return this.$.onNewWordAddedToDictionary(arg_suggestion);
   }
   onSuggestionMenuClosed() {
     return this.$.onSuggestionMenuClosed();
   }
-  suggestionMenuTimeoutCallback(max_number_of_suggestions) {
-    return this.$.suggestionMenuTimeoutCallback(max_number_of_suggestions);
+  suggestionMenuTimeoutCallback(arg_max_number_of_suggestions) {
+    return this.$.suggestionMenuTimeoutCallback(arg_max_number_of_suggestions);
   }
 };
 
-blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
+mojo.internal.bindings.blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('TextSuggestionBackend', [
@@ -169,64 +174,64 @@ blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
     ]);
   }
 
-  applySpellCheckSuggestion(suggestion) {
+  applySpellCheckSuggestion(arg_suggestion) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec,
       null,
-      [suggestion],
+      [arg_suggestion],
       false);
   }
 
-  applyTextSuggestion(marker_tag, suggestion_index) {
+  applyTextSuggestion(arg_marker_tag, arg_suggestion_index) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec,
       null,
-      [marker_tag, suggestion_index],
+      [arg_marker_tag, arg_suggestion_index],
       false);
   }
 
   deleteActiveSuggestionRange() {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec,
       null,
       [],
       false);
   }
 
-  onNewWordAddedToDictionary(suggestion) {
+  onNewWordAddedToDictionary(arg_suggestion) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec,
       null,
-      [suggestion],
+      [arg_suggestion],
       false);
   }
 
   onSuggestionMenuClosed() {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
-      blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec,
       null,
       [],
       false);
   }
 
-  suggestionMenuTimeoutCallback(max_number_of_suggestions) {
+  suggestionMenuTimeoutCallback(arg_max_number_of_suggestions) {
     return this.proxy.sendMessage(
       this.ordinals[5],  // ordinal
-      blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec,
       null,
-      [max_number_of_suggestions],
+      [arg_max_number_of_suggestions],
       false);
   }
 
 };
 
-blink.mojom.TextSuggestionBackend.getRemote = function() {
-  let remote = new blink.mojom.TextSuggestionBackendRemote();
+mojo.internal.bindings.blink.mojom.TextSuggestionBackend.getRemote = function() {
+  let remote = new mojo.internal.bindings.blink.mojom.TextSuggestionBackendRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -235,7 +240,7 @@ blink.mojom.TextSuggestionBackend.getRemote = function() {
   return remote.$;
 };
 
-blink.mojom.TextSuggestionBackendReceiver = class {
+mojo.internal.bindings.blink.mojom.TextSuggestionBackendReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -289,7 +294,7 @@ blink.mojom.TextSuggestionBackendReceiver = class {
         // Try Method 0: ApplySpellCheckSuggestion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ApplySpellCheckSuggestion (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -300,7 +305,7 @@ blink.mojom.TextSuggestionBackendReceiver = class {
         // Try Method 1: ApplyTextSuggestion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ApplyTextSuggestion (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -311,7 +316,7 @@ blink.mojom.TextSuggestionBackendReceiver = class {
         // Try Method 2: DeleteActiveSuggestionRange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteActiveSuggestionRange (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -322,7 +327,7 @@ blink.mojom.TextSuggestionBackendReceiver = class {
         // Try Method 3: OnNewWordAddedToDictionary
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNewWordAddedToDictionary (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -333,7 +338,7 @@ blink.mojom.TextSuggestionBackendReceiver = class {
         // Try Method 4: OnSuggestionMenuClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSuggestionMenuClosed (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -344,7 +349,7 @@ blink.mojom.TextSuggestionBackendReceiver = class {
         // Try Method 5: SuggestionMenuTimeoutCallback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SuggestionMenuTimeoutCallback (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -361,44 +366,44 @@ blink.mojom.TextSuggestionBackendReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.applySpellCheckSuggestion');
-          const result = this.impl.applySpellCheckSuggestion(params.suggestion);
+          const result = this.impl.applySpellCheckSuggestion(params.arg_suggestion);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.applyTextSuggestion');
-          const result = this.impl.applyTextSuggestion(params.marker_tag, params.suggestion_index);
+          const result = this.impl.applyTextSuggestion(params.arg_marker_tag, params.arg_suggestion_index);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteActiveSuggestionRange');
           const result = this.impl.deleteActiveSuggestionRange();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNewWordAddedToDictionary');
-          const result = this.impl.onNewWordAddedToDictionary(params.suggestion);
+          const result = this.impl.onNewWordAddedToDictionary(params.arg_suggestion);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSuggestionMenuClosed');
           const result = this.impl.onSuggestionMenuClosed();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.suggestionMenuTimeoutCallback');
-          const result = this.impl.suggestionMenuTimeoutCallback(params.max_number_of_suggestions);
+          const result = this.impl.suggestionMenuTimeoutCallback(params.arg_max_number_of_suggestions);
           break;
         }
       }
@@ -409,8 +414,8 @@ blink.mojom.TextSuggestionBackendReceiver = class {
   }
 };
 
-blink.mojom.TextSuggestionBackendReceiver = blink.mojom.TextSuggestionBackendReceiver;
+mojo.internal.bindings.blink.mojom.TextSuggestionBackendReceiver = mojo.internal.bindings.blink.mojom.TextSuggestionBackendReceiver;
 
-blink.mojom.TextSuggestionBackendPtr = blink.mojom.TextSuggestionBackendRemote;
-blink.mojom.TextSuggestionBackendRequest = blink.mojom.TextSuggestionBackendPendingReceiver;
+mojo.internal.bindings.blink.mojom.TextSuggestionBackendPtr = mojo.internal.bindings.blink.mojom.TextSuggestionBackendRemote;
+mojo.internal.bindings.blink.mojom.TextSuggestionBackendRequest = mojo.internal.bindings.blink.mojom.TextSuggestionBackendPendingReceiver;
 

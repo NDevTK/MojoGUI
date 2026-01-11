@@ -1,162 +1,167 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/chromeos/ash/experiences/arc/mojom/timer.mojom
-// Module: arc.mojom
+ // Source: chromium_src/chromeos/ash/experiences/arc/mojom/timer.mojom
+ // Module: arc.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var arc = arc || {};
-arc.mojom = arc.mojom || {};
-var mojo_base = mojo_base || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-arc.mojom.ArcTimerResultSpec = { $: mojo.internal.Enum() };
-arc.mojom.ClockIdSpec = { $: mojo.internal.Enum() };
-arc.mojom.CreateTimerRequestSpec = { $: {} };
-arc.mojom.TimerHost = {};
-arc.mojom.TimerHost.$interfaceName = 'arc.mojom.TimerHost';
-arc.mojom.TimerHost_CreateTimers_ParamsSpec = { $: {} };
-arc.mojom.TimerHost_CreateTimers_ResponseParamsSpec = { $: {} };
-arc.mojom.TimerHost_StartTimer_ParamsSpec = { $: {} };
-arc.mojom.TimerHost_StartTimer_ResponseParamsSpec = { $: {} };
-arc.mojom.TimerHost_SetTime_ParamsSpec = { $: {} };
-arc.mojom.TimerHost_SetTime_ResponseParamsSpec = { $: {} };
-arc.mojom.TimerInstance = {};
-arc.mojom.TimerInstance.$interfaceName = 'arc.mojom.TimerInstance';
-arc.mojom.TimerInstance_Init_ParamsSpec = { $: {} };
-arc.mojom.TimerInstance_Init_ResponseParamsSpec = { $: {} };
+ mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+
+mojo.internal.bindings.arc.mojom.ArcTimerResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.ClockIdSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.CreateTimerRequestSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.TimerHost = {};
+mojo.internal.bindings.arc.mojom.TimerHost.$interfaceName = 'arc.mojom.TimerHost';
+mojo.internal.bindings.arc.mojom.TimerHost_CreateTimers_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.TimerHost_CreateTimers_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.TimerHost_StartTimer_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.TimerHost_StartTimer_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.TimerHost_SetTime_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.TimerHost_SetTime_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.TimerInstance = {};
+mojo.internal.bindings.arc.mojom.TimerInstance.$interfaceName = 'arc.mojom.TimerInstance';
+mojo.internal.bindings.arc.mojom.TimerInstance_Init_ParamsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.TimerInstance_Init_ResponseParamsSpec = { $: {} };
 
 // Enum: ArcTimerResult
-arc.mojom.ArcTimerResult = {
+mojo.internal.bindings.arc.mojom.ArcTimerResult = {
   SUCCESS: 0,
   FAILURE: 1,
 };
 
 // Enum: ClockId
-arc.mojom.ClockId = {
+mojo.internal.bindings.arc.mojom.ClockId = {
   REALTIME_ALARM: 0,
   BOOTTIME_ALARM: 1,
 };
 
 // Struct: CreateTimerRequest
 mojo.internal.Struct(
-    arc.mojom.CreateTimerRequestSpec, 'arc.mojom.CreateTimerRequest', [
-      mojo.internal.StructField('clock_id', 0, 0, arc.mojom.ClockIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('expiration_fd', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
+    mojo.internal.bindings.arc.mojom.CreateTimerRequestSpec, 'arc.mojom.CreateTimerRequest', [
+      mojo.internal.StructField('arg_clock_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ClockIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_expiration_fd', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: TimerHost
 mojo.internal.Struct(
-    arc.mojom.TimerHost_CreateTimers_ParamsSpec, 'arc.mojom.TimerHost_CreateTimers_Params', [
-      mojo.internal.StructField('timer_requests', 0, 0, mojo.internal.Array(arc.mojom.CreateTimerRequestSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.arc.mojom.TimerHost_CreateTimers_ParamsSpec, 'arc.mojom.TimerHost_CreateTimers_Params', [
+      mojo.internal.StructField('arg_timer_requests', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.arc.mojom.CreateTimerRequestSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    arc.mojom.TimerHost_CreateTimers_ResponseParamsSpec, 'arc.mojom.TimerHost_CreateTimers_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.ArcTimerResultSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.arc.mojom.TimerHost_CreateTimers_ResponseParamsSpec, 'arc.mojom.TimerHost_CreateTimers_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ArcTimerResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    arc.mojom.TimerHost_StartTimer_ParamsSpec, 'arc.mojom.TimerHost_StartTimer_Params', [
-      mojo.internal.StructField('clock_id', 0, 0, arc.mojom.ClockIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('absolute_expiration_time', 8, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.arc.mojom.TimerHost_StartTimer_ParamsSpec, 'arc.mojom.TimerHost_StartTimer_Params', [
+      mojo.internal.StructField('arg_clock_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ClockIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_absolute_expiration_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    arc.mojom.TimerHost_StartTimer_ResponseParamsSpec, 'arc.mojom.TimerHost_StartTimer_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.ArcTimerResultSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.arc.mojom.TimerHost_StartTimer_ResponseParamsSpec, 'arc.mojom.TimerHost_StartTimer_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ArcTimerResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    arc.mojom.TimerHost_SetTime_ParamsSpec, 'arc.mojom.TimerHost_SetTime_Params', [
-      mojo.internal.StructField('time', 0, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.arc.mojom.TimerHost_SetTime_ParamsSpec, 'arc.mojom.TimerHost_SetTime_Params', [
+      mojo.internal.StructField('arg_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    arc.mojom.TimerHost_SetTime_ResponseParamsSpec, 'arc.mojom.TimerHost_SetTime_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, arc.mojom.ArcTimerResultSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.arc.mojom.TimerHost_SetTime_ResponseParamsSpec, 'arc.mojom.TimerHost_SetTime_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.ArcTimerResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-arc.mojom.TimerHostPendingReceiver = class {
+mojo.internal.bindings.arc.mojom.TimerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.TimerHostRemote = class {
+mojo.internal.bindings.arc.mojom.TimerHostRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.TimerHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.TimerHostPendingReceiver,
+      mojo.internal.bindings.arc.mojom.TimerHostPendingReceiver,
       handle);
-    this.$ = new arc.mojom.TimerHostRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.arc.mojom.TimerHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -166,18 +171,18 @@ arc.mojom.TimerHostRemote = class {
   close() {
     this.proxy.close();
   }
-  createTimers(timer_requests) {
-    return this.$.createTimers(timer_requests);
+  createTimers(arg_timer_requests) {
+    return this.$.createTimers(arg_timer_requests);
   }
-  startTimer(clock_id, absolute_expiration_time) {
-    return this.$.startTimer(clock_id, absolute_expiration_time);
+  startTimer(arg_clock_id, arg_absolute_expiration_time) {
+    return this.$.startTimer(arg_clock_id, arg_absolute_expiration_time);
   }
-  setTime(time) {
-    return this.$.setTime(time);
+  setTime(arg_time) {
+    return this.$.setTime(arg_time);
   }
 };
 
-arc.mojom.TimerHostRemoteCallHandler = class {
+mojo.internal.bindings.arc.mojom.TimerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('TimerHost', [
@@ -187,37 +192,37 @@ arc.mojom.TimerHostRemoteCallHandler = class {
     ]);
   }
 
-  createTimers(timer_requests) {
+  createTimers(arg_timer_requests) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      arc.mojom.TimerHost_CreateTimers_ParamsSpec,
-      arc.mojom.TimerHost_CreateTimers_ResponseParamsSpec,
-      [timer_requests],
+      mojo.internal.bindings.arc.mojom.TimerHost_CreateTimers_ParamsSpec,
+      mojo.internal.bindings.arc.mojom.TimerHost_CreateTimers_ResponseParamsSpec,
+      [arg_timer_requests],
       false);
   }
 
-  startTimer(clock_id, absolute_expiration_time) {
+  startTimer(arg_clock_id, arg_absolute_expiration_time) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      arc.mojom.TimerHost_StartTimer_ParamsSpec,
-      arc.mojom.TimerHost_StartTimer_ResponseParamsSpec,
-      [clock_id, absolute_expiration_time],
+      mojo.internal.bindings.arc.mojom.TimerHost_StartTimer_ParamsSpec,
+      mojo.internal.bindings.arc.mojom.TimerHost_StartTimer_ResponseParamsSpec,
+      [arg_clock_id, arg_absolute_expiration_time],
       false);
   }
 
-  setTime(time) {
+  setTime(arg_time) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      arc.mojom.TimerHost_SetTime_ParamsSpec,
-      arc.mojom.TimerHost_SetTime_ResponseParamsSpec,
-      [time],
+      mojo.internal.bindings.arc.mojom.TimerHost_SetTime_ParamsSpec,
+      mojo.internal.bindings.arc.mojom.TimerHost_SetTime_ResponseParamsSpec,
+      [arg_time],
       false);
   }
 
 };
 
-arc.mojom.TimerHost.getRemote = function() {
-  let remote = new arc.mojom.TimerHostRemote();
+mojo.internal.bindings.arc.mojom.TimerHost.getRemote = function() {
+  let remote = new mojo.internal.bindings.arc.mojom.TimerHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -226,7 +231,7 @@ arc.mojom.TimerHost.getRemote = function() {
   return remote.$;
 };
 
-arc.mojom.TimerHostReceiver = class {
+mojo.internal.bindings.arc.mojom.TimerHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -277,7 +282,7 @@ arc.mojom.TimerHostReceiver = class {
         // Try Method 0: CreateTimers
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.TimerHost_CreateTimers_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TimerHost_CreateTimers_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateTimers (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -288,7 +293,7 @@ arc.mojom.TimerHostReceiver = class {
         // Try Method 1: StartTimer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.TimerHost_StartTimer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TimerHost_StartTimer_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartTimer (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -299,7 +304,7 @@ arc.mojom.TimerHostReceiver = class {
         // Try Method 2: SetTime
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.TimerHost_SetTime_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TimerHost_SetTime_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTime (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -316,14 +321,14 @@ arc.mojom.TimerHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.TimerHost_CreateTimers_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TimerHost_CreateTimers_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createTimers');
-          const result = this.impl.createTimers(params.timer_requests);
+          const result = this.impl.createTimers(params.arg_timer_requests);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.TimerHost_CreateTimers_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.TimerHost_CreateTimers_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] CreateTimers FAILED:', e));
           }
@@ -331,14 +336,14 @@ arc.mojom.TimerHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.TimerHost_StartTimer_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TimerHost_StartTimer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startTimer');
-          const result = this.impl.startTimer(params.clock_id, params.absolute_expiration_time);
+          const result = this.impl.startTimer(params.arg_clock_id, params.arg_absolute_expiration_time);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.TimerHost_StartTimer_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.TimerHost_StartTimer_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] StartTimer FAILED:', e));
           }
@@ -346,14 +351,14 @@ arc.mojom.TimerHostReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.TimerHost_SetTime_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TimerHost_SetTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTime');
-          const result = this.impl.setTime(params.time);
+          const result = this.impl.setTime(params.arg_time);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.TimerHost_SetTime_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.TimerHost_SetTime_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] SetTime FAILED:', e));
           }
@@ -367,40 +372,40 @@ arc.mojom.TimerHostReceiver = class {
   }
 };
 
-arc.mojom.TimerHostReceiver = arc.mojom.TimerHostReceiver;
+mojo.internal.bindings.arc.mojom.TimerHostReceiver = mojo.internal.bindings.arc.mojom.TimerHostReceiver;
 
-arc.mojom.TimerHostPtr = arc.mojom.TimerHostRemote;
-arc.mojom.TimerHostRequest = arc.mojom.TimerHostPendingReceiver;
+mojo.internal.bindings.arc.mojom.TimerHostPtr = mojo.internal.bindings.arc.mojom.TimerHostRemote;
+mojo.internal.bindings.arc.mojom.TimerHostRequest = mojo.internal.bindings.arc.mojom.TimerHostPendingReceiver;
 
 
 // Interface: TimerInstance
 mojo.internal.Struct(
-    arc.mojom.TimerInstance_Init_ParamsSpec, 'arc.mojom.TimerInstance_Init_Params', [
-      mojo.internal.StructField('host_remote', 0, 0, mojo.internal.InterfaceProxy(arc.mojom.TimerHostSpec), null, false, 0, undefined),
+    mojo.internal.bindings.arc.mojom.TimerInstance_Init_ParamsSpec, 'arc.mojom.TimerInstance_Init_Params', [
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.TimerHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    arc.mojom.TimerInstance_Init_ResponseParamsSpec, 'arc.mojom.TimerInstance_Init_ResponseParams', [
+    mojo.internal.bindings.arc.mojom.TimerInstance_Init_ResponseParamsSpec, 'arc.mojom.TimerInstance_Init_ResponseParams', [
     ],
     [[0, 8]]);
 
-arc.mojom.TimerInstancePendingReceiver = class {
+mojo.internal.bindings.arc.mojom.TimerInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.TimerInstanceRemote = class {
+mojo.internal.bindings.arc.mojom.TimerInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.TimerInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.TimerInstancePendingReceiver,
+      mojo.internal.bindings.arc.mojom.TimerInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.TimerInstanceRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.arc.mojom.TimerInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -410,12 +415,12 @@ arc.mojom.TimerInstanceRemote = class {
   close() {
     this.proxy.close();
   }
-  init(host_remote) {
-    return this.$.init(host_remote);
+  init(arg_host_remote) {
+    return this.$.init(arg_host_remote);
   }
 };
 
-arc.mojom.TimerInstanceRemoteCallHandler = class {
+mojo.internal.bindings.arc.mojom.TimerInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('TimerInstance', [
@@ -423,19 +428,19 @@ arc.mojom.TimerInstanceRemoteCallHandler = class {
     ]);
   }
 
-  init(host_remote) {
+  init(arg_host_remote) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      arc.mojom.TimerInstance_Init_ParamsSpec,
-      arc.mojom.TimerInstance_Init_ResponseParamsSpec,
-      [host_remote],
+      mojo.internal.bindings.arc.mojom.TimerInstance_Init_ParamsSpec,
+      mojo.internal.bindings.arc.mojom.TimerInstance_Init_ResponseParamsSpec,
+      [arg_host_remote],
       false);
   }
 
 };
 
-arc.mojom.TimerInstance.getRemote = function() {
-  let remote = new arc.mojom.TimerInstanceRemote();
+mojo.internal.bindings.arc.mojom.TimerInstance.getRemote = function() {
+  let remote = new mojo.internal.bindings.arc.mojom.TimerInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -444,7 +449,7 @@ arc.mojom.TimerInstance.getRemote = function() {
   return remote.$;
 };
 
-arc.mojom.TimerInstanceReceiver = class {
+mojo.internal.bindings.arc.mojom.TimerInstanceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -493,7 +498,7 @@ arc.mojom.TimerInstanceReceiver = class {
         // Try Method 0: Init
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.TimerInstance_Init_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TimerInstance_Init_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -510,14 +515,14 @@ arc.mojom.TimerInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.TimerInstance_Init_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TimerInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.host_remote);
+          const result = this.impl.init(params.arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, arc.mojom.TimerInstance_Init_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.arc.mojom.TimerInstance_Init_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
           }
@@ -531,8 +536,8 @@ arc.mojom.TimerInstanceReceiver = class {
   }
 };
 
-arc.mojom.TimerInstanceReceiver = arc.mojom.TimerInstanceReceiver;
+mojo.internal.bindings.arc.mojom.TimerInstanceReceiver = mojo.internal.bindings.arc.mojom.TimerInstanceReceiver;
 
-arc.mojom.TimerInstancePtr = arc.mojom.TimerInstanceRemote;
-arc.mojom.TimerInstanceRequest = arc.mojom.TimerInstancePendingReceiver;
+mojo.internal.bindings.arc.mojom.TimerInstancePtr = mojo.internal.bindings.arc.mojom.TimerInstanceRemote;
+mojo.internal.bindings.arc.mojom.TimerInstanceRequest = mojo.internal.bindings.arc.mojom.TimerInstancePendingReceiver;
 

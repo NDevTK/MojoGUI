@@ -1,126 +1,131 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/services/on_device_model/public/mojom/on_device_model_service.mojom
-// Module: on_device_model.mojom
+ // Source: chromium_src/services/on_device_model/public/mojom/on_device_model_service.mojom
+ // Module: on_device_model.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var on_device_model = on_device_model || {};
-on_device_model.mojom = on_device_model.mojom || {};
-var mojo_base = mojo_base || {};
-var sandbox = sandbox || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-on_device_model.mojom.ModelBackendTypeSpec = { $: mojo.internal.Enum() };
-on_device_model.mojom.ModelPerformanceHintSpec = { $: mojo.internal.Enum() };
-on_device_model.mojom.PlatformModelStateSpec = { $: mojo.internal.Enum() };
-on_device_model.mojom.FormatFeatureSpec = { $: mojo.internal.Enum() };
-on_device_model.mojom.SafetyFeatureSpec = { $: mojo.internal.Enum() };
-on_device_model.mojom.ModelFileSpec = { $: {} };
-on_device_model.mojom.SafetyModelAssetsSpec = { $: {} };
-on_device_model.mojom.ModelAssetsSpec = { $: {} };
-on_device_model.mojom.LoadModelParamsSpec = { $: {} };
-on_device_model.mojom.TextSafetyModelAssetsSpec = { $: {} };
-on_device_model.mojom.BertSafetyModelAssetsSpec = { $: {} };
-on_device_model.mojom.LanguageModelAssetsSpec = { $: {} };
-on_device_model.mojom.TextSafetyModelParamsSpec = { $: {} };
-on_device_model.mojom.PlatformModelProgressObserver = {};
-on_device_model.mojom.PlatformModelProgressObserver.$interfaceName = 'on_device_model.mojom.PlatformModelProgressObserver';
-on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec = { $: {} };
-on_device_model.mojom.OnDeviceModelService = {};
-on_device_model.mojom.OnDeviceModelService.$interfaceName = 'on_device_model.mojom.OnDeviceModelService';
-on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec = { $: {} };
-on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec = { $: {} };
-on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec = { $: {} };
-on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec = { $: {} };
-on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec = { $: {} };
-on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec = { $: {} };
-on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec = { $: {} };
-on_device_model.mojom.OnDeviceModelPlatformService = {};
-on_device_model.mojom.OnDeviceModelPlatformService.$interfaceName = 'on_device_model.mojom.OnDeviceModelPlatformService';
-on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec = { $: {} };
-on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec = { $: {} };
-on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec = { $: {} };
-on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec = { $: {} };
-on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec = { $: {} };
-on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec = { $: {} };
-on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec = { $: {} };
-on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec = { $: {} };
-on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec = { $: {} };
-on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec = { $: {} };
+ mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
+mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
+
+mojo.internal.bindings.on_device_model.mojom.ModelBackendTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.on_device_model.mojom.ModelPerformanceHintSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.on_device_model.mojom.PlatformModelStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.on_device_model.mojom.FormatFeatureSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.on_device_model.mojom.SafetyFeatureSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.on_device_model.mojom.ModelFileSpec = { $: {} };
+mojo.internal.bindings.on_device_model.mojom.SafetyModelAssetsSpec = { $: {} };
+mojo.internal.bindings.on_device_model.mojom.ModelAssetsSpec = { $: {} };
+mojo.internal.bindings.on_device_model.mojom.LoadModelParamsSpec = { $: {} };
+mojo.internal.bindings.on_device_model.mojom.TextSafetyModelAssetsSpec = { $: {} };
+mojo.internal.bindings.on_device_model.mojom.BertSafetyModelAssetsSpec = { $: {} };
+mojo.internal.bindings.on_device_model.mojom.LanguageModelAssetsSpec = { $: {} };
+mojo.internal.bindings.on_device_model.mojom.TextSafetyModelParamsSpec = { $: {} };
+mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserver = {};
+mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserver.$interfaceName = 'on_device_model.mojom.PlatformModelProgressObserver';
+mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec = { $: {} };
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService = {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService.$interfaceName = 'on_device_model.mojom.OnDeviceModelService';
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec = { $: {} };
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec = { $: {} };
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec = { $: {} };
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec = { $: {} };
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService = {};
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService.$interfaceName = 'on_device_model.mojom.OnDeviceModelPlatformService';
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec = { $: {} };
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec = { $: {} };
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec = { $: {} };
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec = { $: {} };
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec = { $: {} };
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec = { $: {} };
 
 // Enum: ModelBackendType
-on_device_model.mojom.ModelBackendType = {
+mojo.internal.bindings.on_device_model.mojom.ModelBackendType = {
   kGpu: 0,
   kApu: 1,
   kCpu: 2,
 };
 
 // Enum: ModelPerformanceHint
-on_device_model.mojom.ModelPerformanceHint = {
+mojo.internal.bindings.on_device_model.mojom.ModelPerformanceHint = {
   kHighestQuality: 0,
   kFastestInference: 1,
 };
 
 // Enum: PlatformModelState
-on_device_model.mojom.PlatformModelState = {
+mojo.internal.bindings.on_device_model.mojom.PlatformModelState = {
   kUnknownState: 0,
   kInstalledOnDisk: 1,
   kInvalidUuid: 2,
@@ -134,7 +139,7 @@ on_device_model.mojom.PlatformModelState = {
 };
 
 // Enum: FormatFeature
-on_device_model.mojom.FormatFeature = {
+mojo.internal.bindings.on_device_model.mojom.FormatFeature = {
   kNone: 0,
   kPrompt: 1,
   kAudioSummary: 2,
@@ -142,7 +147,7 @@ on_device_model.mojom.FormatFeature = {
 };
 
 // Enum: SafetyFeature
-on_device_model.mojom.SafetyFeature = {
+mojo.internal.bindings.on_device_model.mojom.SafetyFeature = {
   kGeneral: 0,
   kAudioSummaryRequest: 1,
   kAudioTitleRequest: 2,
@@ -154,109 +159,109 @@ on_device_model.mojom.SafetyFeature = {
 
 // Union: ModelFile
 mojo.internal.Union(
-    on_device_model.mojom.ModelFileSpec, 'on_device_model.mojom.ModelFile', {
-      'file': {
+    mojo.internal.bindings.on_device_model.mojom.ModelFileSpec, 'on_device_model.mojom.ModelFile', {
+      'arg_file': {
         'ordinal': 0,
-        'type': mojo_base.mojom.FileSpec.$,
+        'type': mojo.internal.bindings.mojo_base.mojom.FileSpec.$,
         'nullable': false,
       },
-      'path': {
+      'arg_path': {
         'ordinal': 1,
-        'type': mojo_base.mojom.FilePathSpec.$,
+        'type': mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$,
         'nullable': false,
       },
     });
 
 // Union: SafetyModelAssets
 mojo.internal.Union(
-    on_device_model.mojom.SafetyModelAssetsSpec, 'on_device_model.mojom.SafetyModelAssets', {
-      'ts_assets': {
+    mojo.internal.bindings.on_device_model.mojom.SafetyModelAssetsSpec, 'on_device_model.mojom.SafetyModelAssets', {
+      'arg_ts_assets': {
         'ordinal': 0,
-        'type': on_device_model.mojom.TextSafetyModelAssetsSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.on_device_model.mojom.TextSafetyModelAssetsSpec.$,
         'nullable': false,
       },
-      'bs_assets': {
+      'arg_bs_assets': {
         'ordinal': 1,
-        'type': on_device_model.mojom.BertSafetyModelAssetsSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.on_device_model.mojom.BertSafetyModelAssetsSpec.$,
         'nullable': false,
       },
     });
 
 // Struct: ModelAssets
 mojo.internal.Struct(
-    on_device_model.mojom.ModelAssetsSpec, 'on_device_model.mojom.ModelAssets', [
-      mojo.internal.StructField('weights', 0, 0, on_device_model.mojom.ModelFileSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('sp_model_path', 8, 0, mojo_base.mojom.FilePathSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('cache', 16, 0, mojo_base.mojom.FileSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('encoder_cache', 24, 0, mojo_base.mojom.FileSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('adapter_cache', 32, 0, mojo_base.mojom.FileSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.on_device_model.mojom.ModelAssetsSpec, 'on_device_model.mojom.ModelAssets', [
+      mojo.internal.StructField('arg_weights', 0, 0, mojo.internal.bindings.on_device_model.mojom.ModelFileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sp_model_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_cache', 16, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_encoder_cache', 24, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_adapter_cache', 32, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec.$, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: LoadModelParams
 mojo.internal.Struct(
-    on_device_model.mojom.LoadModelParamsSpec, 'on_device_model.mojom.LoadModelParams', [
-      mojo.internal.StructField('backend_type', 0, 0, on_device_model.mojom.ModelBackendTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('assets', 8, 0, on_device_model.mojom.ModelAssetsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('adaptation_ranks', 16, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-      mojo.internal.StructField('performance_hint', 24, 0, on_device_model.mojom.ModelPerformanceHintSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('max_tokens', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.on_device_model.mojom.LoadModelParamsSpec, 'on_device_model.mojom.LoadModelParams', [
+      mojo.internal.StructField('arg_backend_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.on_device_model.mojom.ModelBackendTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_assets', 8, 0, mojo.internal.bindings.mojo.internal.bindings.on_device_model.mojom.ModelAssetsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_adaptation_ranks', 16, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_performance_hint', 24, 0, mojo.internal.bindings.mojo.internal.bindings.on_device_model.mojom.ModelPerformanceHintSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_tokens', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: TextSafetyModelAssets
 mojo.internal.Struct(
-    on_device_model.mojom.TextSafetyModelAssetsSpec, 'on_device_model.mojom.TextSafetyModelAssets', [
-      mojo.internal.StructField('data', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('sp_model', 8, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.on_device_model.mojom.TextSafetyModelAssetsSpec, 'on_device_model.mojom.TextSafetyModelAssets', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sp_model', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: BertSafetyModelAssets
 mojo.internal.Struct(
-    on_device_model.mojom.BertSafetyModelAssetsSpec, 'on_device_model.mojom.BertSafetyModelAssets', [
-      mojo.internal.StructField('model', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.on_device_model.mojom.BertSafetyModelAssetsSpec, 'on_device_model.mojom.BertSafetyModelAssets', [
+      mojo.internal.StructField('arg_model', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: LanguageModelAssets
 mojo.internal.Struct(
-    on_device_model.mojom.LanguageModelAssetsSpec, 'on_device_model.mojom.LanguageModelAssets', [
-      mojo.internal.StructField('model', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.on_device_model.mojom.LanguageModelAssetsSpec, 'on_device_model.mojom.LanguageModelAssets', [
+      mojo.internal.StructField('arg_model', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: TextSafetyModelParams
 mojo.internal.Struct(
-    on_device_model.mojom.TextSafetyModelParamsSpec, 'on_device_model.mojom.TextSafetyModelParams', [
-      mojo.internal.StructField('safety_assets', 0, 0, on_device_model.mojom.SafetyModelAssetsSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('language_assets', 8, 0, on_device_model.mojom.LanguageModelAssetsSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.on_device_model.mojom.TextSafetyModelParamsSpec, 'on_device_model.mojom.TextSafetyModelParams', [
+      mojo.internal.StructField('arg_safety_assets', 0, 0, mojo.internal.bindings.on_device_model.mojom.SafetyModelAssetsSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_language_assets', 8, 0, mojo.internal.bindings.mojo.internal.bindings.on_device_model.mojom.LanguageModelAssetsSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: PlatformModelProgressObserver
 mojo.internal.Struct(
-    on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec, 'on_device_model.mojom.PlatformModelProgressObserver_Progress_Params', [
-      mojo.internal.StructField('progress', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec, 'on_device_model.mojom.PlatformModelProgressObserver_Progress_Params', [
+      mojo.internal.StructField('arg_progress', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
-on_device_model.mojom.PlatformModelProgressObserverPendingReceiver = class {
+mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-on_device_model.mojom.PlatformModelProgressObserverRemote = class {
+mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverRemote = class {
   static get $interfaceName() {
     return 'on_device_model.mojom.PlatformModelProgressObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      on_device_model.mojom.PlatformModelProgressObserverPendingReceiver,
+      mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverPendingReceiver,
       handle);
-    this.$ = new on_device_model.mojom.PlatformModelProgressObserverRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -266,12 +271,12 @@ on_device_model.mojom.PlatformModelProgressObserverRemote = class {
   close() {
     this.proxy.close();
   }
-  progress(progress) {
-    return this.$.progress(progress);
+  progress(arg_progress) {
+    return this.$.progress(arg_progress);
   }
 };
 
-on_device_model.mojom.PlatformModelProgressObserverRemoteCallHandler = class {
+mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('PlatformModelProgressObserver', [
@@ -279,19 +284,19 @@ on_device_model.mojom.PlatformModelProgressObserverRemoteCallHandler = class {
     ]);
   }
 
-  progress(progress) {
+  progress(arg_progress) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec,
+      mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec,
       null,
-      [progress],
+      [arg_progress],
       false);
   }
 
 };
 
-on_device_model.mojom.PlatformModelProgressObserver.getRemote = function() {
-  let remote = new on_device_model.mojom.PlatformModelProgressObserverRemote();
+mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserver.getRemote = function() {
+  let remote = new mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -300,7 +305,7 @@ on_device_model.mojom.PlatformModelProgressObserver.getRemote = function() {
   return remote.$;
 };
 
-on_device_model.mojom.PlatformModelProgressObserverReceiver = class {
+mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -349,7 +354,7 @@ on_device_model.mojom.PlatformModelProgressObserverReceiver = class {
         // Try Method 0: Progress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Progress (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -366,9 +371,9 @@ on_device_model.mojom.PlatformModelProgressObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.progress');
-          const result = this.impl.progress(params.progress);
+          const result = this.impl.progress(params.arg_progress);
           break;
         }
       }
@@ -379,73 +384,73 @@ on_device_model.mojom.PlatformModelProgressObserverReceiver = class {
   }
 };
 
-on_device_model.mojom.PlatformModelProgressObserverReceiver = on_device_model.mojom.PlatformModelProgressObserverReceiver;
+mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverReceiver = mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverReceiver;
 
-on_device_model.mojom.PlatformModelProgressObserverPtr = on_device_model.mojom.PlatformModelProgressObserverRemote;
-on_device_model.mojom.PlatformModelProgressObserverRequest = on_device_model.mojom.PlatformModelProgressObserverPendingReceiver;
+mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverPtr = mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverRemote;
+mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverRequest = mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverPendingReceiver;
 
 
 // Interface: OnDeviceModelService
 mojo.internal.Struct(
-    on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec, 'on_device_model.mojom.OnDeviceModelService_LoadModel_Params', [
-      mojo.internal.StructField('params', 0, 0, on_device_model.mojom.LoadModelParamsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('model', 8, 0, mojo.internal.InterfaceRequest(on_device_model.mojom.OnDeviceModelRemote), null, false, 0, undefined),
+    mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec, 'on_device_model.mojom.OnDeviceModelService_LoadModel_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.on_device_model.mojom.LoadModelParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_model', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, on_device_model.mojom.LoadModelResultSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.on_device_model.mojom.LoadModelResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec, 'on_device_model.mojom.OnDeviceModelService_GetCapabilities_Params', [
-      mojo.internal.StructField('weights', 0, 0, on_device_model.mojom.ModelFileSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec, 'on_device_model.mojom.OnDeviceModelService_GetCapabilities_Params', [
+      mojo.internal.StructField('arg_weights', 0, 0, mojo.internal.bindings.on_device_model.mojom.ModelFileSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParams', [
-      mojo.internal.StructField('capabilities', 0, 0, on_device_model.mojom.CapabilitiesSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParams', [
+      mojo.internal.StructField('arg_capabilities', 0, 0, mojo.internal.bindings.on_device_model.mojom.CapabilitiesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec, 'on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_Params', [
-      mojo.internal.StructField('params', 0, 0, on_device_model.mojom.TextSafetyModelParamsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('model', 8, 0, mojo.internal.InterfaceRequest(on_device_model.mojom.TextSafetyModelRemote), null, false, 0, undefined),
+    mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec, 'on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.on_device_model.mojom.TextSafetyModelParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_model', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.TextSafetyModelRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec, 'on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_Params', [
+    mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec, 'on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParams', [
-      mojo.internal.StructField('performanceInfo', 0, 0, on_device_model.mojom.DevicePerformanceInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('device_info', 8, 0, on_device_model.mojom.DeviceInfoSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParams', [
+      mojo.internal.StructField('arg_performanceInfo', 0, 0, mojo.internal.bindings.on_device_model.mojom.DevicePerformanceInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_info', 8, 0, mojo.internal.bindings.on_device_model.mojom.DeviceInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
-on_device_model.mojom.OnDeviceModelServicePendingReceiver = class {
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-on_device_model.mojom.OnDeviceModelServiceRemote = class {
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceRemote = class {
   static get $interfaceName() {
     return 'on_device_model.mojom.OnDeviceModelService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      on_device_model.mojom.OnDeviceModelServicePendingReceiver,
+      mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServicePendingReceiver,
       handle);
-    this.$ = new on_device_model.mojom.OnDeviceModelServiceRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -455,21 +460,21 @@ on_device_model.mojom.OnDeviceModelServiceRemote = class {
   close() {
     this.proxy.close();
   }
-  loadModel(params, model) {
-    return this.$.loadModel(params, model);
+  loadModel(arg_params, arg_model) {
+    return this.$.loadModel(arg_params, arg_model);
   }
-  getCapabilities(weights) {
-    return this.$.getCapabilities(weights);
+  getCapabilities(arg_weights) {
+    return this.$.getCapabilities(arg_weights);
   }
-  loadTextSafetyModel(params, model) {
-    return this.$.loadTextSafetyModel(params, model);
+  loadTextSafetyModel(arg_params, arg_model) {
+    return this.$.loadTextSafetyModel(arg_params, arg_model);
   }
   getDeviceAndPerformanceInfo() {
     return this.$.getDeviceAndPerformanceInfo();
   }
 };
 
-on_device_model.mojom.OnDeviceModelServiceRemoteCallHandler = class {
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('OnDeviceModelService', [
@@ -480,46 +485,46 @@ on_device_model.mojom.OnDeviceModelServiceRemoteCallHandler = class {
     ]);
   }
 
-  loadModel(params, model) {
+  loadModel(arg_params, arg_model) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec,
-      on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec,
-      [params, model],
+      mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec,
+      mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec,
+      [arg_params, arg_model],
       false);
   }
 
-  getCapabilities(weights) {
+  getCapabilities(arg_weights) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec,
-      on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec,
-      [weights],
+      mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec,
+      mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec,
+      [arg_weights],
       false);
   }
 
-  loadTextSafetyModel(params, model) {
+  loadTextSafetyModel(arg_params, arg_model) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec,
+      mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec,
       null,
-      [params, model],
+      [arg_params, arg_model],
       false);
   }
 
   getDeviceAndPerformanceInfo() {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec,
-      on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec,
+      mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec,
+      mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec,
       [],
       false);
   }
 
 };
 
-on_device_model.mojom.OnDeviceModelService.getRemote = function() {
-  let remote = new on_device_model.mojom.OnDeviceModelServiceRemote();
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService.getRemote = function() {
+  let remote = new mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -528,7 +533,7 @@ on_device_model.mojom.OnDeviceModelService.getRemote = function() {
   return remote.$;
 };
 
-on_device_model.mojom.OnDeviceModelServiceReceiver = class {
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -580,7 +585,7 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
         // Try Method 0: LoadModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadModel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -591,7 +596,7 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
         // Try Method 1: GetCapabilities
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCapabilities (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -602,7 +607,7 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
         // Try Method 2: LoadTextSafetyModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadTextSafetyModel (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -613,7 +618,7 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
         // Try Method 3: GetDeviceAndPerformanceInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceAndPerformanceInfo (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -630,14 +635,14 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadModel');
-          const result = this.impl.loadModel(params.params, params.model);
+          const result = this.impl.loadModel(params.arg_params, params.arg_model);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] LoadModel FAILED:', e));
           }
@@ -645,14 +650,14 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCapabilities');
-          const result = this.impl.getCapabilities(params.weights);
+          const result = this.impl.getCapabilities(params.arg_weights);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetCapabilities FAILED:', e));
           }
@@ -660,21 +665,21 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadTextSafetyModel');
-          const result = this.impl.loadTextSafetyModel(params.params, params.model);
+          const result = this.impl.loadTextSafetyModel(params.arg_params, params.arg_model);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDeviceAndPerformanceInfo');
           const result = this.impl.getDeviceAndPerformanceInfo();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetDeviceAndPerformanceInfo FAILED:', e));
           }
@@ -688,94 +693,94 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
   }
 };
 
-on_device_model.mojom.OnDeviceModelServiceReceiver = on_device_model.mojom.OnDeviceModelServiceReceiver;
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceReceiver = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceReceiver;
 
-on_device_model.mojom.OnDeviceModelServicePtr = on_device_model.mojom.OnDeviceModelServiceRemote;
-on_device_model.mojom.OnDeviceModelServiceRequest = on_device_model.mojom.OnDeviceModelServicePendingReceiver;
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServicePtr = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceRemote;
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceRequest = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServicePendingReceiver;
 
 
 // Interface: OnDeviceModelPlatformService
 mojo.internal.Struct(
-    on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_Params', [
-      mojo.internal.StructField('uuid', 0, 0, mojo_base.mojom.UuidSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('model', 8, 0, mojo.internal.InterfaceRequest(on_device_model.mojom.OnDeviceModelRemote), null, false, 0, undefined),
-      mojo.internal.StructField('progress_observer', 16, 0, mojo.internal.InterfaceProxy(on_device_model.mojom.PlatformModelProgressObserverSpec), null, true, 0, undefined),
+    mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_Params', [
+      mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_model', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_progress_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverSpec), null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
-    on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, on_device_model.mojom.LoadModelResultSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.on_device_model.mojom.LoadModelResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_Params', [
-      mojo.internal.StructField('uuid', 0, 0, mojo_base.mojom.UuidSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_Params', [
+      mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, on_device_model.mojom.PlatformModelStateSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.on_device_model.mojom.PlatformModelStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_Params', [
+    mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParams', [
-      mojo.internal.StructField('performance_class', 0, 0, on_device_model.mojom.PerformanceClassSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParams', [
+      mojo.internal.StructField('arg_performance_class', 0, 0, mojo.internal.bindings.on_device_model.mojom.PerformanceClassSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_Params', [
-      mojo.internal.StructField('uuid', 0, 0, mojo_base.mojom.UuidSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('feature', 8, 0, on_device_model.mojom.FormatFeatureSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('fields', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+    mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_Params', [
+      mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_feature', 8, 0, mojo.internal.bindings.mojo.internal.bindings.on_device_model.mojom.FormatFeatureSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fields', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
-    on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_Params', [
-      mojo.internal.StructField('safety_feature', 0, 0, on_device_model.mojom.SafetyFeatureSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('text', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('safety_info', 16, 0, on_device_model.mojom.SafetyInfoSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_Params', [
+      mojo.internal.StructField('arg_safety_feature', 0, 0, mojo.internal.bindings.mojo.internal.bindings.on_device_model.mojom.SafetyFeatureSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_safety_info', 16, 0, mojo.internal.bindings.on_device_model.mojom.SafetyInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
-    on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec, 'on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
-on_device_model.mojom.OnDeviceModelPlatformServicePendingReceiver = class {
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-on_device_model.mojom.OnDeviceModelPlatformServiceRemote = class {
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceRemote = class {
   static get $interfaceName() {
     return 'on_device_model.mojom.OnDeviceModelPlatformService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      on_device_model.mojom.OnDeviceModelPlatformServicePendingReceiver,
+      mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServicePendingReceiver,
       handle);
-    this.$ = new on_device_model.mojom.OnDeviceModelPlatformServiceRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -785,24 +790,24 @@ on_device_model.mojom.OnDeviceModelPlatformServiceRemote = class {
   close() {
     this.proxy.close();
   }
-  loadPlatformModel(uuid, model, progress_observer) {
-    return this.$.loadPlatformModel(uuid, model, progress_observer);
+  loadPlatformModel(arg_uuid, arg_model, arg_progress_observer) {
+    return this.$.loadPlatformModel(arg_uuid, arg_model, arg_progress_observer);
   }
-  getPlatformModelState(uuid) {
-    return this.$.getPlatformModelState(uuid);
+  getPlatformModelState(arg_uuid) {
+    return this.$.getPlatformModelState(arg_uuid);
   }
   getEstimatedPerformanceClass() {
     return this.$.getEstimatedPerformanceClass();
   }
-  formatInput(uuid, feature, fields) {
-    return this.$.formatInput(uuid, feature, fields);
+  formatInput(arg_uuid, arg_feature, arg_fields) {
+    return this.$.formatInput(arg_uuid, arg_feature, arg_fields);
   }
-  validateSafetyResult(safety_feature, text, safety_info) {
-    return this.$.validateSafetyResult(safety_feature, text, safety_info);
+  validateSafetyResult(arg_safety_feature, arg_text, arg_safety_info) {
+    return this.$.validateSafetyResult(arg_safety_feature, arg_text, arg_safety_info);
   }
 };
 
-on_device_model.mojom.OnDeviceModelPlatformServiceRemoteCallHandler = class {
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('OnDeviceModelPlatformService', [
@@ -814,55 +819,55 @@ on_device_model.mojom.OnDeviceModelPlatformServiceRemoteCallHandler = class {
     ]);
   }
 
-  loadPlatformModel(uuid, model, progress_observer) {
+  loadPlatformModel(arg_uuid, arg_model, arg_progress_observer) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec,
-      on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec,
-      [uuid, model, progress_observer],
+      mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec,
+      mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec,
+      [arg_uuid, arg_model, arg_progress_observer],
       false);
   }
 
-  getPlatformModelState(uuid) {
+  getPlatformModelState(arg_uuid) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec,
-      on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec,
-      [uuid],
+      mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec,
+      mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec,
+      [arg_uuid],
       false);
   }
 
   getEstimatedPerformanceClass() {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec,
-      on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec,
+      mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec,
+      mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec,
       [],
       false);
   }
 
-  formatInput(uuid, feature, fields) {
+  formatInput(arg_uuid, arg_feature, arg_fields) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec,
-      on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec,
-      [uuid, feature, fields],
+      mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec,
+      mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec,
+      [arg_uuid, arg_feature, arg_fields],
       false);
   }
 
-  validateSafetyResult(safety_feature, text, safety_info) {
+  validateSafetyResult(arg_safety_feature, arg_text, arg_safety_info) {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
-      on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec,
-      on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec,
-      [safety_feature, text, safety_info],
+      mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec,
+      mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec,
+      [arg_safety_feature, arg_text, arg_safety_info],
       false);
   }
 
 };
 
-on_device_model.mojom.OnDeviceModelPlatformService.getRemote = function() {
-  let remote = new on_device_model.mojom.OnDeviceModelPlatformServiceRemote();
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService.getRemote = function() {
+  let remote = new mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -871,7 +876,7 @@ on_device_model.mojom.OnDeviceModelPlatformService.getRemote = function() {
   return remote.$;
 };
 
-on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -924,7 +929,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
         // Try Method 0: LoadPlatformModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadPlatformModel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -935,7 +940,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
         // Try Method 1: GetPlatformModelState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPlatformModelState (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -946,7 +951,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
         // Try Method 2: GetEstimatedPerformanceClass
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetEstimatedPerformanceClass (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -957,7 +962,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
         // Try Method 3: FormatInput
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FormatInput (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -968,7 +973,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
         // Try Method 4: ValidateSafetyResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ValidateSafetyResult (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -985,14 +990,14 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadPlatformModel');
-          const result = this.impl.loadPlatformModel(params.uuid, params.model, params.progress_observer);
+          const result = this.impl.loadPlatformModel(params.arg_uuid, params.arg_model, params.arg_progress_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] LoadPlatformModel FAILED:', e));
           }
@@ -1000,14 +1005,14 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPlatformModelState');
-          const result = this.impl.getPlatformModelState(params.uuid);
+          const result = this.impl.getPlatformModelState(params.arg_uuid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetPlatformModelState FAILED:', e));
           }
@@ -1015,14 +1020,14 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getEstimatedPerformanceClass');
           const result = this.impl.getEstimatedPerformanceClass();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetEstimatedPerformanceClass FAILED:', e));
           }
@@ -1030,14 +1035,14 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.formatInput');
-          const result = this.impl.formatInput(params.uuid, params.feature, params.fields);
+          const result = this.impl.formatInput(params.arg_uuid, params.arg_feature, params.arg_fields);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] FormatInput FAILED:', e));
           }
@@ -1045,14 +1050,14 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.validateSafetyResult');
-          const result = this.impl.validateSafetyResult(params.safety_feature, params.text, params.safety_info);
+          const result = this.impl.validateSafetyResult(params.arg_safety_feature, params.arg_text, params.arg_safety_info);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] ValidateSafetyResult FAILED:', e));
           }
@@ -1066,8 +1071,8 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
   }
 };
 
-on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = on_device_model.mojom.OnDeviceModelPlatformServiceReceiver;
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceReceiver;
 
-on_device_model.mojom.OnDeviceModelPlatformServicePtr = on_device_model.mojom.OnDeviceModelPlatformServiceRemote;
-on_device_model.mojom.OnDeviceModelPlatformServiceRequest = on_device_model.mojom.OnDeviceModelPlatformServicePendingReceiver;
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServicePtr = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceRemote;
+mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceRequest = mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServicePendingReceiver;
 

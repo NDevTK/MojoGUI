@@ -1,123 +1,128 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/components/content_capture/common/content_capture.mojom
-// Module: content_capture.mojom
+ // Source: chromium_src/components/content_capture/common/content_capture.mojom
+ // Module: content_capture.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var content_capture = content_capture || {};
-content_capture.mojom = content_capture.mojom || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-content_capture.mojom.ContentCaptureReceiver = {};
-content_capture.mojom.ContentCaptureReceiver.$interfaceName = 'content_capture.mojom.ContentCaptureReceiver';
-content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec = { $: {} };
-content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec = { $: {} };
-content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec = { $: {} };
-content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec = { $: {} };
-content_capture.mojom.ContentCaptureSender = {};
-content_capture.mojom.ContentCaptureSender.$interfaceName = 'content_capture.mojom.ContentCaptureSender';
-content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec = { $: {} };
-content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec = { $: {} };
+ mojo.internal.bindings.content_capture = mojo.internal.bindings.content_capture || {};
+mojo.internal.bindings.content_capture.mojom = mojo.internal.bindings.content_capture.mojom || {};
+
+mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver = {};
+mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver.$interfaceName = 'content_capture.mojom.ContentCaptureReceiver';
+mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec = { $: {} };
+mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec = { $: {} };
+mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec = { $: {} };
+mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec = { $: {} };
+mojo.internal.bindings.content_capture.mojom.ContentCaptureSender = {};
+mojo.internal.bindings.content_capture.mojom.ContentCaptureSender.$interfaceName = 'content_capture.mojom.ContentCaptureSender';
+mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec = { $: {} };
+mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec = { $: {} };
 
 // Interface: ContentCaptureReceiver
 mojo.internal.Struct(
-    content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec, 'content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_Params', [
+    mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec, 'content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec, 'content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_Params', [
-      mojo.internal.StructField('data', 0, 0, content_capture.mojom.ContentCaptureDataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('first_data', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec, 'content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_Params', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.content_capture.mojom.ContentCaptureDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_first_data', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec, 'content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_Params', [
-      mojo.internal.StructField('data', 0, 0, content_capture.mojom.ContentCaptureDataSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec, 'content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_Params', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.content_capture.mojom.ContentCaptureDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec, 'content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_Params', [
-      mojo.internal.StructField('ids', 0, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
+    mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec, 'content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_Params', [
+      mojo.internal.StructField('arg_ids', 0, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-content_capture.mojom.ContentCaptureReceiverPendingReceiver = class {
+mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content_capture.mojom.ContentCaptureReceiverRemote = class {
+mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverRemote = class {
   static get $interfaceName() {
     return 'content_capture.mojom.ContentCaptureReceiver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content_capture.mojom.ContentCaptureReceiverPendingReceiver,
+      mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverPendingReceiver,
       handle);
-    this.$ = new content_capture.mojom.ContentCaptureReceiverRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -130,18 +135,18 @@ content_capture.mojom.ContentCaptureReceiverRemote = class {
   didCompleteBatchCaptureContent() {
     return this.$.didCompleteBatchCaptureContent();
   }
-  didCaptureContent(data, first_data) {
-    return this.$.didCaptureContent(data, first_data);
+  didCaptureContent(arg_data, arg_first_data) {
+    return this.$.didCaptureContent(arg_data, arg_first_data);
   }
-  didUpdateContent(data) {
-    return this.$.didUpdateContent(data);
+  didUpdateContent(arg_data) {
+    return this.$.didUpdateContent(arg_data);
   }
-  didRemoveContent(ids) {
-    return this.$.didRemoveContent(ids);
+  didRemoveContent(arg_ids) {
+    return this.$.didRemoveContent(arg_ids);
   }
 };
 
-content_capture.mojom.ContentCaptureReceiverRemoteCallHandler = class {
+mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ContentCaptureReceiver', [
@@ -155,43 +160,43 @@ content_capture.mojom.ContentCaptureReceiverRemoteCallHandler = class {
   didCompleteBatchCaptureContent() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec,
+      mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec,
       null,
       [],
       false);
   }
 
-  didCaptureContent(data, first_data) {
+  didCaptureContent(arg_data, arg_first_data) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec,
+      mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec,
       null,
-      [data, first_data],
+      [arg_data, arg_first_data],
       false);
   }
 
-  didUpdateContent(data) {
+  didUpdateContent(arg_data) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec,
+      mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec,
       null,
-      [data],
+      [arg_data],
       false);
   }
 
-  didRemoveContent(ids) {
+  didRemoveContent(arg_ids) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec,
+      mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec,
       null,
-      [ids],
+      [arg_ids],
       false);
   }
 
 };
 
-content_capture.mojom.ContentCaptureReceiver.getRemote = function() {
-  let remote = new content_capture.mojom.ContentCaptureReceiverRemote();
+mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver.getRemote = function() {
+  let remote = new mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -200,7 +205,7 @@ content_capture.mojom.ContentCaptureReceiver.getRemote = function() {
   return remote.$;
 };
 
-content_capture.mojom.ContentCaptureReceiverReceiver = class {
+mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -252,7 +257,7 @@ content_capture.mojom.ContentCaptureReceiverReceiver = class {
         // Try Method 0: DidCompleteBatchCaptureContent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidCompleteBatchCaptureContent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -263,7 +268,7 @@ content_capture.mojom.ContentCaptureReceiverReceiver = class {
         // Try Method 1: DidCaptureContent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidCaptureContent (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -274,7 +279,7 @@ content_capture.mojom.ContentCaptureReceiverReceiver = class {
         // Try Method 2: DidUpdateContent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidUpdateContent (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -285,7 +290,7 @@ content_capture.mojom.ContentCaptureReceiverReceiver = class {
         // Try Method 3: DidRemoveContent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DidRemoveContent (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -302,30 +307,30 @@ content_capture.mojom.ContentCaptureReceiverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didCompleteBatchCaptureContent');
           const result = this.impl.didCompleteBatchCaptureContent();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didCaptureContent');
-          const result = this.impl.didCaptureContent(params.data, params.first_data);
+          const result = this.impl.didCaptureContent(params.arg_data, params.arg_first_data);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didUpdateContent');
-          const result = this.impl.didUpdateContent(params.data);
+          const result = this.impl.didUpdateContent(params.arg_data);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didRemoveContent');
-          const result = this.impl.didRemoveContent(params.ids);
+          const result = this.impl.didRemoveContent(params.arg_ids);
           break;
         }
       }
@@ -336,39 +341,39 @@ content_capture.mojom.ContentCaptureReceiverReceiver = class {
   }
 };
 
-content_capture.mojom.ContentCaptureReceiverReceiver = content_capture.mojom.ContentCaptureReceiverReceiver;
+mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverReceiver = mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverReceiver;
 
-content_capture.mojom.ContentCaptureReceiverPtr = content_capture.mojom.ContentCaptureReceiverRemote;
-content_capture.mojom.ContentCaptureReceiverRequest = content_capture.mojom.ContentCaptureReceiverPendingReceiver;
+mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverPtr = mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverRemote;
+mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverRequest = mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverPendingReceiver;
 
 
 // Interface: ContentCaptureSender
 mojo.internal.Struct(
-    content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec, 'content_capture.mojom.ContentCaptureSender_StartCapture_Params', [
+    mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec, 'content_capture.mojom.ContentCaptureSender_StartCapture_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec, 'content_capture.mojom.ContentCaptureSender_StopCapture_Params', [
+    mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec, 'content_capture.mojom.ContentCaptureSender_StopCapture_Params', [
     ],
     [[0, 8]]);
 
-content_capture.mojom.ContentCaptureSenderPendingReceiver = class {
+mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-content_capture.mojom.ContentCaptureSenderRemote = class {
+mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderRemote = class {
   static get $interfaceName() {
     return 'content_capture.mojom.ContentCaptureSender';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      content_capture.mojom.ContentCaptureSenderPendingReceiver,
+      mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderPendingReceiver,
       handle);
-    this.$ = new content_capture.mojom.ContentCaptureSenderRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -386,7 +391,7 @@ content_capture.mojom.ContentCaptureSenderRemote = class {
   }
 };
 
-content_capture.mojom.ContentCaptureSenderRemoteCallHandler = class {
+mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ContentCaptureSender', [
@@ -398,7 +403,7 @@ content_capture.mojom.ContentCaptureSenderRemoteCallHandler = class {
   startCapture() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec,
+      mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec,
       null,
       [],
       false);
@@ -407,7 +412,7 @@ content_capture.mojom.ContentCaptureSenderRemoteCallHandler = class {
   stopCapture() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec,
+      mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec,
       null,
       [],
       false);
@@ -415,8 +420,8 @@ content_capture.mojom.ContentCaptureSenderRemoteCallHandler = class {
 
 };
 
-content_capture.mojom.ContentCaptureSender.getRemote = function() {
-  let remote = new content_capture.mojom.ContentCaptureSenderRemote();
+mojo.internal.bindings.content_capture.mojom.ContentCaptureSender.getRemote = function() {
+  let remote = new mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -425,7 +430,7 @@ content_capture.mojom.ContentCaptureSender.getRemote = function() {
   return remote.$;
 };
 
-content_capture.mojom.ContentCaptureSenderReceiver = class {
+mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -475,7 +480,7 @@ content_capture.mojom.ContentCaptureSenderReceiver = class {
         // Try Method 0: StartCapture
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartCapture (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -486,7 +491,7 @@ content_capture.mojom.ContentCaptureSenderReceiver = class {
         // Try Method 1: StopCapture
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopCapture (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -503,14 +508,14 @@ content_capture.mojom.ContentCaptureSenderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startCapture');
           const result = this.impl.startCapture();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopCapture');
           const result = this.impl.stopCapture();
           break;
@@ -523,8 +528,8 @@ content_capture.mojom.ContentCaptureSenderReceiver = class {
   }
 };
 
-content_capture.mojom.ContentCaptureSenderReceiver = content_capture.mojom.ContentCaptureSenderReceiver;
+mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderReceiver = mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderReceiver;
 
-content_capture.mojom.ContentCaptureSenderPtr = content_capture.mojom.ContentCaptureSenderRemote;
-content_capture.mojom.ContentCaptureSenderRequest = content_capture.mojom.ContentCaptureSenderPendingReceiver;
+mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderPtr = mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderRemote;
+mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderRequest = mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderPendingReceiver;
 

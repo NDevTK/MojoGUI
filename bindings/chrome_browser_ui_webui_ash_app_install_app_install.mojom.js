@@ -1,183 +1,188 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/chrome/browser/ui/webui/ash/app_install/app_install.mojom
-// Module: ash.app_install.mojom
+ // Source: chromium_src/chrome/browser/ui/webui/ash/app_install/app_install.mojom
+ // Module: ash.app_install.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var ash = ash || {};
-ash.app_install = ash.app_install || {};
-ash.app_install.mojom = ash.app_install.mojom || {};
-var gfx = gfx || {};
-var url = url || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-ash.app_install.mojom.DialogArgsSpec = { $: {} };
-ash.app_install.mojom.AppInfoArgsSpec = { $: {} };
-ash.app_install.mojom.AppInfoDataSpec = { $: {} };
-ash.app_install.mojom.ScreenshotSpec = { $: {} };
-ash.app_install.mojom.NoAppErrorArgsSpec = { $: {} };
-ash.app_install.mojom.AppInfoActions = {};
-ash.app_install.mojom.AppInfoActions.$interfaceName = 'ash.app_install.mojom.AppInfoActions';
-ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec = { $: {} };
-ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec = { $: {} };
-ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec = { $: {} };
-ash.app_install.mojom.ConnectionErrorActions = {};
-ash.app_install.mojom.ConnectionErrorActions.$interfaceName = 'ash.app_install.mojom.ConnectionErrorActions';
-ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec = { $: {} };
-ash.app_install.mojom.PageHandlerFactory = {};
-ash.app_install.mojom.PageHandlerFactory.$interfaceName = 'ash.app_install.mojom.PageHandlerFactory';
-ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-ash.app_install.mojom.PageHandler = {};
-ash.app_install.mojom.PageHandler.$interfaceName = 'ash.app_install.mojom.PageHandler';
-ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec = { $: {} };
-ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec = { $: {} };
-ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec = { $: {} };
+ mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.app_install = mojo.internal.bindings.ash.app_install || {};
+mojo.internal.bindings.ash.app_install.mojom = mojo.internal.bindings.ash.app_install.mojom || {};
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+
+mojo.internal.bindings.ash.app_install.mojom.DialogArgsSpec = { $: {} };
+mojo.internal.bindings.ash.app_install.mojom.AppInfoArgsSpec = { $: {} };
+mojo.internal.bindings.ash.app_install.mojom.AppInfoDataSpec = { $: {} };
+mojo.internal.bindings.ash.app_install.mojom.ScreenshotSpec = { $: {} };
+mojo.internal.bindings.ash.app_install.mojom.NoAppErrorArgsSpec = { $: {} };
+mojo.internal.bindings.ash.app_install.mojom.AppInfoActions = {};
+mojo.internal.bindings.ash.app_install.mojom.AppInfoActions.$interfaceName = 'ash.app_install.mojom.AppInfoActions';
+mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActions = {};
+mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActions.$interfaceName = 'ash.app_install.mojom.ConnectionErrorActions';
+mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactory = {};
+mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactory.$interfaceName = 'ash.app_install.mojom.PageHandlerFactory';
+mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.app_install.mojom.PageHandler = {};
+mojo.internal.bindings.ash.app_install.mojom.PageHandler.$interfaceName = 'ash.app_install.mojom.PageHandler';
+mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec = { $: {} };
 
 // Union: DialogArgs
 mojo.internal.Union(
-    ash.app_install.mojom.DialogArgsSpec, 'ash.app_install.mojom.DialogArgs', {
-      'app_info_args': {
+    mojo.internal.bindings.ash.app_install.mojom.DialogArgsSpec, 'ash.app_install.mojom.DialogArgs', {
+      'arg_app_info_args': {
         'ordinal': 0,
-        'type': ash.app_install.mojom.AppInfoArgsSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.app_install.mojom.AppInfoArgsSpec.$,
         'nullable': false,
       },
-      'no_app_error_args': {
+      'arg_no_app_error_args': {
         'ordinal': 1,
-        'type': ash.app_install.mojom.NoAppErrorArgsSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.app_install.mojom.NoAppErrorArgsSpec.$,
         'nullable': false,
       },
-      'connection_error_actions': {
+      'arg_connection_error_actions': {
         'ordinal': 2,
-        'type': mojo.internal.InterfaceProxy(ash.app_install.mojom.ConnectionErrorActionsSpec),
+        'type': mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActionsSpec),
         'nullable': false,
       },
     });
 
 // Struct: AppInfoArgs
 mojo.internal.Struct(
-    ash.app_install.mojom.AppInfoArgsSpec, 'ash.app_install.mojom.AppInfoArgs', [
-      mojo.internal.StructField('data', 0, 0, ash.app_install.mojom.AppInfoDataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('actions', 8, 0, mojo.internal.InterfaceProxy(ash.app_install.mojom.AppInfoActionsSpec), null, false, 0, undefined),
+    mojo.internal.bindings.ash.app_install.mojom.AppInfoArgsSpec, 'ash.app_install.mojom.AppInfoArgs', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.app_install.mojom.AppInfoDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_actions', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: AppInfoData
 mojo.internal.Struct(
-    ash.app_install.mojom.AppInfoDataSpec, 'ash.app_install.mojom.AppInfoData', [
-      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('description', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('icon_url', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('screenshots', 32, 0, mojo.internal.Array(ash.app_install.mojom.ScreenshotSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('is_already_installed', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.app_install.mojom.AppInfoDataSpec, 'ash.app_install.mojom.AppInfoData', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_screenshots', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.app_install.mojom.ScreenshotSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_already_installed', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);
 
 // Struct: Screenshot
 mojo.internal.Struct(
-    ash.app_install.mojom.ScreenshotSpec, 'ash.app_install.mojom.Screenshot', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('size', 8, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.app_install.mojom.ScreenshotSpec, 'ash.app_install.mojom.Screenshot', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: NoAppErrorArgs
 mojo.internal.Struct(
-    ash.app_install.mojom.NoAppErrorArgsSpec, 'ash.app_install.mojom.NoAppErrorArgs', [
+    mojo.internal.bindings.ash.app_install.mojom.NoAppErrorArgsSpec, 'ash.app_install.mojom.NoAppErrorArgs', [
     ],
     [[0, 8]]);
 
 // Interface: AppInfoActions
 mojo.internal.Struct(
-    ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec, 'ash.app_install.mojom.AppInfoActions_InstallApp_Params', [
+    mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec, 'ash.app_install.mojom.AppInfoActions_InstallApp_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec, 'ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParams', [
-      mojo.internal.StructField('installed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec, 'ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParams', [
+      mojo.internal.StructField('arg_installed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec, 'ash.app_install.mojom.AppInfoActions_LaunchApp_Params', [
+    mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec, 'ash.app_install.mojom.AppInfoActions_LaunchApp_Params', [
     ],
     [[0, 8]]);
 
-ash.app_install.mojom.AppInfoActionsPendingReceiver = class {
+mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.app_install.mojom.AppInfoActionsRemote = class {
+mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsRemote = class {
   static get $interfaceName() {
     return 'ash.app_install.mojom.AppInfoActions';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.app_install.mojom.AppInfoActionsPendingReceiver,
+      mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsPendingReceiver,
       handle);
-    this.$ = new ash.app_install.mojom.AppInfoActionsRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -195,7 +200,7 @@ ash.app_install.mojom.AppInfoActionsRemote = class {
   }
 };
 
-ash.app_install.mojom.AppInfoActionsRemoteCallHandler = class {
+mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('AppInfoActions', [
@@ -207,8 +212,8 @@ ash.app_install.mojom.AppInfoActionsRemoteCallHandler = class {
   installApp() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec,
-      ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec,
+      mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec,
+      mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec,
       [],
       false);
   }
@@ -216,7 +221,7 @@ ash.app_install.mojom.AppInfoActionsRemoteCallHandler = class {
   launchApp() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec,
+      mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec,
       null,
       [],
       false);
@@ -224,8 +229,8 @@ ash.app_install.mojom.AppInfoActionsRemoteCallHandler = class {
 
 };
 
-ash.app_install.mojom.AppInfoActions.getRemote = function() {
-  let remote = new ash.app_install.mojom.AppInfoActionsRemote();
+mojo.internal.bindings.ash.app_install.mojom.AppInfoActions.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -234,7 +239,7 @@ ash.app_install.mojom.AppInfoActions.getRemote = function() {
   return remote.$;
 };
 
-ash.app_install.mojom.AppInfoActionsReceiver = class {
+mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -284,7 +289,7 @@ ash.app_install.mojom.AppInfoActionsReceiver = class {
         // Try Method 0: InstallApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InstallApp (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -295,7 +300,7 @@ ash.app_install.mojom.AppInfoActionsReceiver = class {
         // Try Method 1: LaunchApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LaunchApp (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -312,14 +317,14 @@ ash.app_install.mojom.AppInfoActionsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.installApp');
           const result = this.impl.installApp();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] InstallApp FAILED:', e));
           }
@@ -327,7 +332,7 @@ ash.app_install.mojom.AppInfoActionsReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.launchApp');
           const result = this.impl.launchApp();
           break;
@@ -340,34 +345,34 @@ ash.app_install.mojom.AppInfoActionsReceiver = class {
   }
 };
 
-ash.app_install.mojom.AppInfoActionsReceiver = ash.app_install.mojom.AppInfoActionsReceiver;
+mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsReceiver = mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsReceiver;
 
-ash.app_install.mojom.AppInfoActionsPtr = ash.app_install.mojom.AppInfoActionsRemote;
-ash.app_install.mojom.AppInfoActionsRequest = ash.app_install.mojom.AppInfoActionsPendingReceiver;
+mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsPtr = mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsRemote;
+mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsRequest = mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsPendingReceiver;
 
 
 // Interface: ConnectionErrorActions
 mojo.internal.Struct(
-    ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec, 'ash.app_install.mojom.ConnectionErrorActions_TryAgain_Params', [
+    mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec, 'ash.app_install.mojom.ConnectionErrorActions_TryAgain_Params', [
     ],
     [[0, 8]]);
 
-ash.app_install.mojom.ConnectionErrorActionsPendingReceiver = class {
+mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActionsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.app_install.mojom.ConnectionErrorActionsRemote = class {
+mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActionsRemote = class {
   static get $interfaceName() {
     return 'ash.app_install.mojom.ConnectionErrorActions';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.app_install.mojom.ConnectionErrorActionsPendingReceiver,
+      mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActionsPendingReceiver,
       handle);
-    this.$ = new ash.app_install.mojom.ConnectionErrorActionsRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActionsRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -382,7 +387,7 @@ ash.app_install.mojom.ConnectionErrorActionsRemote = class {
   }
 };
 
-ash.app_install.mojom.ConnectionErrorActionsRemoteCallHandler = class {
+mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActionsRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ConnectionErrorActions', [
@@ -393,7 +398,7 @@ ash.app_install.mojom.ConnectionErrorActionsRemoteCallHandler = class {
   tryAgain() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec,
+      mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec,
       null,
       [],
       false);
@@ -401,8 +406,8 @@ ash.app_install.mojom.ConnectionErrorActionsRemoteCallHandler = class {
 
 };
 
-ash.app_install.mojom.ConnectionErrorActions.getRemote = function() {
-  let remote = new ash.app_install.mojom.ConnectionErrorActionsRemote();
+mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActions.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActionsRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -411,7 +416,7 @@ ash.app_install.mojom.ConnectionErrorActions.getRemote = function() {
   return remote.$;
 };
 
-ash.app_install.mojom.ConnectionErrorActionsReceiver = class {
+mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActionsReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -460,7 +465,7 @@ ash.app_install.mojom.ConnectionErrorActionsReceiver = class {
         // Try Method 0: TryAgain
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TryAgain (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -477,7 +482,7 @@ ash.app_install.mojom.ConnectionErrorActionsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.tryAgain');
           const result = this.impl.tryAgain();
           break;
@@ -490,35 +495,35 @@ ash.app_install.mojom.ConnectionErrorActionsReceiver = class {
   }
 };
 
-ash.app_install.mojom.ConnectionErrorActionsReceiver = ash.app_install.mojom.ConnectionErrorActionsReceiver;
+mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActionsReceiver = mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActionsReceiver;
 
-ash.app_install.mojom.ConnectionErrorActionsPtr = ash.app_install.mojom.ConnectionErrorActionsRemote;
-ash.app_install.mojom.ConnectionErrorActionsRequest = ash.app_install.mojom.ConnectionErrorActionsPendingReceiver;
+mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActionsPtr = mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActionsRemote;
+mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActionsRequest = mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActionsPendingReceiver;
 
 
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
-    ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(ash.app_install.mojom.PageHandlerSpec), null, false, 0, undefined),
+    mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.app_install.mojom.PageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-ash.app_install.mojom.PageHandlerFactoryPendingReceiver = class {
+mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.app_install.mojom.PageHandlerFactoryRemote = class {
+mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'ash.app_install.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.app_install.mojom.PageHandlerFactoryPendingReceiver,
+      mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new ash.app_install.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -528,12 +533,12 @@ ash.app_install.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
-  createPageHandler(handler) {
-    return this.$.createPageHandler(handler);
+  createPageHandler(arg_handler) {
+    return this.$.createPageHandler(arg_handler);
   }
 };
 
-ash.app_install.mojom.PageHandlerFactoryRemoteCallHandler = class {
+mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
@@ -541,19 +546,19 @@ ash.app_install.mojom.PageHandlerFactoryRemoteCallHandler = class {
     ]);
   }
 
-  createPageHandler(handler) {
+  createPageHandler(arg_handler) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [handler],
+      [arg_handler],
       false);
   }
 
 };
 
-ash.app_install.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new ash.app_install.mojom.PageHandlerFactoryRemote();
+mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -562,7 +567,7 @@ ash.app_install.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-ash.app_install.mojom.PageHandlerFactoryReceiver = class {
+mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -611,7 +616,7 @@ ash.app_install.mojom.PageHandlerFactoryReceiver = class {
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -628,9 +633,9 @@ ash.app_install.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.handler);
+          const result = this.impl.createPageHandler(params.arg_handler);
           break;
         }
       }
@@ -641,45 +646,45 @@ ash.app_install.mojom.PageHandlerFactoryReceiver = class {
   }
 };
 
-ash.app_install.mojom.PageHandlerFactoryReceiver = ash.app_install.mojom.PageHandlerFactoryReceiver;
+mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactoryReceiver = mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactoryReceiver;
 
-ash.app_install.mojom.PageHandlerFactoryPtr = ash.app_install.mojom.PageHandlerFactoryRemote;
-ash.app_install.mojom.PageHandlerFactoryRequest = ash.app_install.mojom.PageHandlerFactoryPendingReceiver;
+mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactoryPtr = mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactoryRemote;
+mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactoryRequest = mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
 mojo.internal.Struct(
-    ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec, 'ash.app_install.mojom.PageHandler_GetDialogArgs_Params', [
+    mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec, 'ash.app_install.mojom.PageHandler_GetDialogArgs_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec, 'ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParams', [
-      mojo.internal.StructField('dialog_args', 0, 0, ash.app_install.mojom.DialogArgsSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec, 'ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParams', [
+      mojo.internal.StructField('arg_dialog_args', 0, 0, mojo.internal.bindings.ash.app_install.mojom.DialogArgsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec, 'ash.app_install.mojom.PageHandler_CloseDialog_Params', [
+    mojo.internal.bindings.ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec, 'ash.app_install.mojom.PageHandler_CloseDialog_Params', [
     ],
     [[0, 8]]);
 
-ash.app_install.mojom.PageHandlerPendingReceiver = class {
+mojo.internal.bindings.ash.app_install.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.app_install.mojom.PageHandlerRemote = class {
+mojo.internal.bindings.ash.app_install.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'ash.app_install.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.app_install.mojom.PageHandlerPendingReceiver,
+      mojo.internal.bindings.ash.app_install.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new ash.app_install.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.app_install.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -697,7 +702,7 @@ ash.app_install.mojom.PageHandlerRemote = class {
   }
 };
 
-ash.app_install.mojom.PageHandlerRemoteCallHandler = class {
+mojo.internal.bindings.ash.app_install.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
@@ -709,8 +714,8 @@ ash.app_install.mojom.PageHandlerRemoteCallHandler = class {
   getDialogArgs() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec,
-      ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec,
+      mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec,
+      mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec,
       [],
       false);
   }
@@ -718,7 +723,7 @@ ash.app_install.mojom.PageHandlerRemoteCallHandler = class {
   closeDialog() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec,
+      mojo.internal.bindings.ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec,
       null,
       [],
       false);
@@ -726,8 +731,8 @@ ash.app_install.mojom.PageHandlerRemoteCallHandler = class {
 
 };
 
-ash.app_install.mojom.PageHandler.getRemote = function() {
-  let remote = new ash.app_install.mojom.PageHandlerRemote();
+mojo.internal.bindings.ash.app_install.mojom.PageHandler.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.app_install.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -736,7 +741,7 @@ ash.app_install.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-ash.app_install.mojom.PageHandlerReceiver = class {
+mojo.internal.bindings.ash.app_install.mojom.PageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -786,7 +791,7 @@ ash.app_install.mojom.PageHandlerReceiver = class {
         // Try Method 0: GetDialogArgs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDialogArgs (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -797,7 +802,7 @@ ash.app_install.mojom.PageHandlerReceiver = class {
         // Try Method 1: CloseDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseDialog (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -814,14 +819,14 @@ ash.app_install.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDialogArgs');
           const result = this.impl.getDialogArgs();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetDialogArgs FAILED:', e));
           }
@@ -829,7 +834,7 @@ ash.app_install.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeDialog');
           const result = this.impl.closeDialog();
           break;
@@ -842,8 +847,8 @@ ash.app_install.mojom.PageHandlerReceiver = class {
   }
 };
 
-ash.app_install.mojom.PageHandlerReceiver = ash.app_install.mojom.PageHandlerReceiver;
+mojo.internal.bindings.ash.app_install.mojom.PageHandlerReceiver = mojo.internal.bindings.ash.app_install.mojom.PageHandlerReceiver;
 
-ash.app_install.mojom.PageHandlerPtr = ash.app_install.mojom.PageHandlerRemote;
-ash.app_install.mojom.PageHandlerRequest = ash.app_install.mojom.PageHandlerPendingReceiver;
+mojo.internal.bindings.ash.app_install.mojom.PageHandlerPtr = mojo.internal.bindings.ash.app_install.mojom.PageHandlerRemote;
+mojo.internal.bindings.ash.app_install.mojom.PageHandlerRequest = mojo.internal.bindings.ash.app_install.mojom.PageHandlerPendingReceiver;
 

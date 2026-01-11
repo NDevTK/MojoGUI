@@ -1,126 +1,131 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/chrome/services/printing/public/mojom/pdf_to_emf_converter.mojom
-// Module: printing.mojom
+ // Source: chromium_src/chrome/services/printing/public/mojom/pdf_to_emf_converter.mojom
+ // Module: printing.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var printing = printing || {};
-printing.mojom = printing.mojom || {};
-var mojo_base = mojo_base || {};
-var url = url || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-printing.mojom.PdfToEmfConverter = {};
-printing.mojom.PdfToEmfConverter.$interfaceName = 'printing.mojom.PdfToEmfConverter';
-printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec = { $: {} };
-printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec = { $: {} };
-printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec = { $: {} };
-printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec = { $: {} };
-printing.mojom.PdfToEmfConverterFactory = {};
-printing.mojom.PdfToEmfConverterFactory.$interfaceName = 'printing.mojom.PdfToEmfConverterFactory';
-printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec = { $: {} };
-printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec = { $: {} };
+ mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
+mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+
+mojo.internal.bindings.printing.mojom.PdfToEmfConverter = {};
+mojo.internal.bindings.printing.mojom.PdfToEmfConverter.$interfaceName = 'printing.mojom.PdfToEmfConverter';
+mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec = { $: {} };
+mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec = { $: {} };
+mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec = { $: {} };
+mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory = {};
+mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory.$interfaceName = 'printing.mojom.PdfToEmfConverterFactory';
+mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec = { $: {} };
+mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec = { $: {} };
 
 // Interface: PdfToEmfConverter
 mojo.internal.Struct(
-    printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec, 'printing.mojom.PdfToEmfConverter_ConvertPage_Params', [
-      mojo.internal.StructField('page_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec, 'printing.mojom.PdfToEmfConverter_ConvertPage_Params', [
+      mojo.internal.StructField('arg_page_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec, 'printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParams', [
-      mojo.internal.StructField('emf_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('scale_factor', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+    mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec, 'printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParams', [
+      mojo.internal.StructField('arg_emf_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_scale_factor', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec, 'printing.mojom.PdfToEmfConverter_SetWebContentsURL_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec, 'printing.mojom.PdfToEmfConverter_SetWebContentsURL_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec, 'printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_Params', [
-      mojo.internal.StructField('use_skia', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec, 'printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_Params', [
+      mojo.internal.StructField('arg_use_skia', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
-printing.mojom.PdfToEmfConverterPendingReceiver = class {
+mojo.internal.bindings.printing.mojom.PdfToEmfConverterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-printing.mojom.PdfToEmfConverterRemote = class {
+mojo.internal.bindings.printing.mojom.PdfToEmfConverterRemote = class {
   static get $interfaceName() {
     return 'printing.mojom.PdfToEmfConverter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      printing.mojom.PdfToEmfConverterPendingReceiver,
+      mojo.internal.bindings.printing.mojom.PdfToEmfConverterPendingReceiver,
       handle);
-    this.$ = new printing.mojom.PdfToEmfConverterRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.printing.mojom.PdfToEmfConverterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -130,18 +135,18 @@ printing.mojom.PdfToEmfConverterRemote = class {
   close() {
     this.proxy.close();
   }
-  convertPage(page_index) {
-    return this.$.convertPage(page_index);
+  convertPage(arg_page_index) {
+    return this.$.convertPage(arg_page_index);
   }
-  setWebContentsURL(url) {
-    return this.$.setWebContentsURL(url);
+  setWebContentsURL(arg_url) {
+    return this.$.setWebContentsURL(arg_url);
   }
-  setUseSkiaRendererPolicy(use_skia) {
-    return this.$.setUseSkiaRendererPolicy(use_skia);
+  setUseSkiaRendererPolicy(arg_use_skia) {
+    return this.$.setUseSkiaRendererPolicy(arg_use_skia);
   }
 };
 
-printing.mojom.PdfToEmfConverterRemoteCallHandler = class {
+mojo.internal.bindings.printing.mojom.PdfToEmfConverterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('PdfToEmfConverter', [
@@ -151,37 +156,37 @@ printing.mojom.PdfToEmfConverterRemoteCallHandler = class {
     ]);
   }
 
-  convertPage(page_index) {
+  convertPage(arg_page_index) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec,
-      printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec,
-      [page_index],
+      mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec,
+      mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec,
+      [arg_page_index],
       false);
   }
 
-  setWebContentsURL(url) {
+  setWebContentsURL(arg_url) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec,
+      mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec,
       null,
-      [url],
+      [arg_url],
       false);
   }
 
-  setUseSkiaRendererPolicy(use_skia) {
+  setUseSkiaRendererPolicy(arg_use_skia) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec,
+      mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec,
       null,
-      [use_skia],
+      [arg_use_skia],
       false);
   }
 
 };
 
-printing.mojom.PdfToEmfConverter.getRemote = function() {
-  let remote = new printing.mojom.PdfToEmfConverterRemote();
+mojo.internal.bindings.printing.mojom.PdfToEmfConverter.getRemote = function() {
+  let remote = new mojo.internal.bindings.printing.mojom.PdfToEmfConverterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -190,7 +195,7 @@ printing.mojom.PdfToEmfConverter.getRemote = function() {
   return remote.$;
 };
 
-printing.mojom.PdfToEmfConverterReceiver = class {
+mojo.internal.bindings.printing.mojom.PdfToEmfConverterReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -241,7 +246,7 @@ printing.mojom.PdfToEmfConverterReceiver = class {
         // Try Method 0: ConvertPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConvertPage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -252,7 +257,7 @@ printing.mojom.PdfToEmfConverterReceiver = class {
         // Try Method 1: SetWebContentsURL
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWebContentsURL (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -263,7 +268,7 @@ printing.mojom.PdfToEmfConverterReceiver = class {
         // Try Method 2: SetUseSkiaRendererPolicy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUseSkiaRendererPolicy (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -280,14 +285,14 @@ printing.mojom.PdfToEmfConverterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.convertPage');
-          const result = this.impl.convertPage(params.page_index);
+          const result = this.impl.convertPage(params.arg_page_index);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] ConvertPage FAILED:', e));
           }
@@ -295,16 +300,16 @@ printing.mojom.PdfToEmfConverterReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWebContentsURL');
-          const result = this.impl.setWebContentsURL(params.url);
+          const result = this.impl.setWebContentsURL(params.arg_url);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUseSkiaRendererPolicy');
-          const result = this.impl.setUseSkiaRendererPolicy(params.use_skia);
+          const result = this.impl.setUseSkiaRendererPolicy(params.arg_use_skia);
           break;
         }
       }
@@ -315,43 +320,43 @@ printing.mojom.PdfToEmfConverterReceiver = class {
   }
 };
 
-printing.mojom.PdfToEmfConverterReceiver = printing.mojom.PdfToEmfConverterReceiver;
+mojo.internal.bindings.printing.mojom.PdfToEmfConverterReceiver = mojo.internal.bindings.printing.mojom.PdfToEmfConverterReceiver;
 
-printing.mojom.PdfToEmfConverterPtr = printing.mojom.PdfToEmfConverterRemote;
-printing.mojom.PdfToEmfConverterRequest = printing.mojom.PdfToEmfConverterPendingReceiver;
+mojo.internal.bindings.printing.mojom.PdfToEmfConverterPtr = mojo.internal.bindings.printing.mojom.PdfToEmfConverterRemote;
+mojo.internal.bindings.printing.mojom.PdfToEmfConverterRequest = mojo.internal.bindings.printing.mojom.PdfToEmfConverterPendingReceiver;
 
 
 // Interface: PdfToEmfConverterFactory
 mojo.internal.Struct(
-    printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec, 'printing.mojom.PdfToEmfConverterFactory_CreateConverter_Params', [
-      mojo.internal.StructField('pdf_region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('render_settings', 8, 0, printing.mojom.PdfRenderSettingsSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec, 'printing.mojom.PdfToEmfConverterFactory_CreateConverter_Params', [
+      mojo.internal.StructField('arg_pdf_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_render_settings', 8, 0, mojo.internal.bindings.printing.mojom.PdfRenderSettingsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec, 'printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParams', [
-      mojo.internal.StructField('converter', 0, 0, mojo.internal.InterfaceProxy(printing.mojom.PdfToEmfConverterSpec), null, false, 0, undefined),
-      mojo.internal.StructField('page_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec, 'printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParams', [
+      mojo.internal.StructField('arg_converter', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.printing.mojom.PdfToEmfConverterSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
-printing.mojom.PdfToEmfConverterFactoryPendingReceiver = class {
+mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-printing.mojom.PdfToEmfConverterFactoryRemote = class {
+mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactoryRemote = class {
   static get $interfaceName() {
     return 'printing.mojom.PdfToEmfConverterFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      printing.mojom.PdfToEmfConverterFactoryPendingReceiver,
+      mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactoryPendingReceiver,
       handle);
-    this.$ = new printing.mojom.PdfToEmfConverterFactoryRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -361,12 +366,12 @@ printing.mojom.PdfToEmfConverterFactoryRemote = class {
   close() {
     this.proxy.close();
   }
-  createConverter(pdf_region, render_settings) {
-    return this.$.createConverter(pdf_region, render_settings);
+  createConverter(arg_pdf_region, arg_render_settings) {
+    return this.$.createConverter(arg_pdf_region, arg_render_settings);
   }
 };
 
-printing.mojom.PdfToEmfConverterFactoryRemoteCallHandler = class {
+mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('PdfToEmfConverterFactory', [
@@ -374,19 +379,19 @@ printing.mojom.PdfToEmfConverterFactoryRemoteCallHandler = class {
     ]);
   }
 
-  createConverter(pdf_region, render_settings) {
+  createConverter(arg_pdf_region, arg_render_settings) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec,
-      printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec,
-      [pdf_region, render_settings],
+      mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec,
+      mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec,
+      [arg_pdf_region, arg_render_settings],
       false);
   }
 
 };
 
-printing.mojom.PdfToEmfConverterFactory.getRemote = function() {
-  let remote = new printing.mojom.PdfToEmfConverterFactoryRemote();
+mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory.getRemote = function() {
+  let remote = new mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -395,7 +400,7 @@ printing.mojom.PdfToEmfConverterFactory.getRemote = function() {
   return remote.$;
 };
 
-printing.mojom.PdfToEmfConverterFactoryReceiver = class {
+mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -444,7 +449,7 @@ printing.mojom.PdfToEmfConverterFactoryReceiver = class {
         // Try Method 0: CreateConverter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateConverter (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -461,14 +466,14 @@ printing.mojom.PdfToEmfConverterFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createConverter');
-          const result = this.impl.createConverter(params.pdf_region, params.render_settings);
+          const result = this.impl.createConverter(params.arg_pdf_region, params.arg_render_settings);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] CreateConverter FAILED:', e));
           }
@@ -482,8 +487,8 @@ printing.mojom.PdfToEmfConverterFactoryReceiver = class {
   }
 };
 
-printing.mojom.PdfToEmfConverterFactoryReceiver = printing.mojom.PdfToEmfConverterFactoryReceiver;
+mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactoryReceiver = mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactoryReceiver;
 
-printing.mojom.PdfToEmfConverterFactoryPtr = printing.mojom.PdfToEmfConverterFactoryRemote;
-printing.mojom.PdfToEmfConverterFactoryRequest = printing.mojom.PdfToEmfConverterFactoryPendingReceiver;
+mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactoryPtr = mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactoryRemote;
+mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactoryRequest = mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactoryPendingReceiver;
 

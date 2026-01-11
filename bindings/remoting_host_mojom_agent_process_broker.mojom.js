@@ -1,113 +1,118 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/remoting/host/mojom/agent_process_broker.mojom
-// Module: remoting.mojom
+ // Source: chromium_src/remoting/host/mojom/agent_process_broker.mojom
+ // Module: remoting.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var remoting = remoting || {};
-remoting.mojom = remoting.mojom || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-remoting.mojom.AgentProcess = {};
-remoting.mojom.AgentProcess.$interfaceName = 'remoting.mojom.AgentProcess';
-remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec = { $: {} };
-remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec = { $: {} };
-remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec = { $: {} };
-remoting.mojom.AgentProcessBroker = {};
-remoting.mojom.AgentProcessBroker.$interfaceName = 'remoting.mojom.AgentProcessBroker';
-remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec = { $: {} };
+ mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
+mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
+
+mojo.internal.bindings.remoting.mojom.AgentProcess = {};
+mojo.internal.bindings.remoting.mojom.AgentProcess.$interfaceName = 'remoting.mojom.AgentProcess';
+mojo.internal.bindings.remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec = { $: {} };
+mojo.internal.bindings.remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec = { $: {} };
+mojo.internal.bindings.remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec = { $: {} };
+mojo.internal.bindings.remoting.mojom.AgentProcessBroker = {};
+mojo.internal.bindings.remoting.mojom.AgentProcessBroker.$interfaceName = 'remoting.mojom.AgentProcessBroker';
+mojo.internal.bindings.remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec = { $: {} };
 
 // Interface: AgentProcess
 mojo.internal.Struct(
-    remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec, 'remoting.mojom.AgentProcess_ResumeProcess_Params', [
+    mojo.internal.bindings.remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec, 'remoting.mojom.AgentProcess_ResumeProcess_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec, 'remoting.mojom.AgentProcess_SuspendProcess_Params', [
+    mojo.internal.bindings.remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec, 'remoting.mojom.AgentProcess_SuspendProcess_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec, 'remoting.mojom.AgentProcess_BindRemotingHostControl_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(remoting.mojom.RemotingHostControlRemote), null, false, 0, undefined),
+    mojo.internal.bindings.remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec, 'remoting.mojom.AgentProcess_BindRemotingHostControl_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.RemotingHostControlRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-remoting.mojom.AgentProcessPendingReceiver = class {
+mojo.internal.bindings.remoting.mojom.AgentProcessPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-remoting.mojom.AgentProcessRemote = class {
+mojo.internal.bindings.remoting.mojom.AgentProcessRemote = class {
   static get $interfaceName() {
     return 'remoting.mojom.AgentProcess';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      remoting.mojom.AgentProcessPendingReceiver,
+      mojo.internal.bindings.remoting.mojom.AgentProcessPendingReceiver,
       handle);
-    this.$ = new remoting.mojom.AgentProcessRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.remoting.mojom.AgentProcessRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -123,12 +128,12 @@ remoting.mojom.AgentProcessRemote = class {
   suspendProcess() {
     return this.$.suspendProcess();
   }
-  bindRemotingHostControl(receiver) {
-    return this.$.bindRemotingHostControl(receiver);
+  bindRemotingHostControl(arg_receiver) {
+    return this.$.bindRemotingHostControl(arg_receiver);
   }
 };
 
-remoting.mojom.AgentProcessRemoteCallHandler = class {
+mojo.internal.bindings.remoting.mojom.AgentProcessRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('AgentProcess', [
@@ -141,7 +146,7 @@ remoting.mojom.AgentProcessRemoteCallHandler = class {
   resumeProcess() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec,
+      mojo.internal.bindings.remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec,
       null,
       [],
       false);
@@ -150,25 +155,25 @@ remoting.mojom.AgentProcessRemoteCallHandler = class {
   suspendProcess() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec,
+      mojo.internal.bindings.remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec,
       null,
       [],
       false);
   }
 
-  bindRemotingHostControl(receiver) {
+  bindRemotingHostControl(arg_receiver) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec,
+      mojo.internal.bindings.remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec,
       null,
-      [receiver],
+      [arg_receiver],
       false);
   }
 
 };
 
-remoting.mojom.AgentProcess.getRemote = function() {
-  let remote = new remoting.mojom.AgentProcessRemote();
+mojo.internal.bindings.remoting.mojom.AgentProcess.getRemote = function() {
+  let remote = new mojo.internal.bindings.remoting.mojom.AgentProcessRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -177,7 +182,7 @@ remoting.mojom.AgentProcess.getRemote = function() {
   return remote.$;
 };
 
-remoting.mojom.AgentProcessReceiver = class {
+mojo.internal.bindings.remoting.mojom.AgentProcessReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -228,7 +233,7 @@ remoting.mojom.AgentProcessReceiver = class {
         // Try Method 0: ResumeProcess
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResumeProcess (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -239,7 +244,7 @@ remoting.mojom.AgentProcessReceiver = class {
         // Try Method 1: SuspendProcess
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SuspendProcess (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -250,7 +255,7 @@ remoting.mojom.AgentProcessReceiver = class {
         // Try Method 2: BindRemotingHostControl
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindRemotingHostControl (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -267,23 +272,23 @@ remoting.mojom.AgentProcessReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resumeProcess');
           const result = this.impl.resumeProcess();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.suspendProcess');
           const result = this.impl.suspendProcess();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindRemotingHostControl');
-          const result = this.impl.bindRemotingHostControl(params.receiver);
+          const result = this.impl.bindRemotingHostControl(params.arg_receiver);
           break;
         }
       }
@@ -294,35 +299,35 @@ remoting.mojom.AgentProcessReceiver = class {
   }
 };
 
-remoting.mojom.AgentProcessReceiver = remoting.mojom.AgentProcessReceiver;
+mojo.internal.bindings.remoting.mojom.AgentProcessReceiver = mojo.internal.bindings.remoting.mojom.AgentProcessReceiver;
 
-remoting.mojom.AgentProcessPtr = remoting.mojom.AgentProcessRemote;
-remoting.mojom.AgentProcessRequest = remoting.mojom.AgentProcessPendingReceiver;
+mojo.internal.bindings.remoting.mojom.AgentProcessPtr = mojo.internal.bindings.remoting.mojom.AgentProcessRemote;
+mojo.internal.bindings.remoting.mojom.AgentProcessRequest = mojo.internal.bindings.remoting.mojom.AgentProcessPendingReceiver;
 
 
 // Interface: AgentProcessBroker
 mojo.internal.Struct(
-    remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec, 'remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_Params', [
-      mojo.internal.StructField('agent_process', 0, 0, mojo.internal.InterfaceProxy(remoting.mojom.AgentProcessSpec), null, false, 0, undefined),
+    mojo.internal.bindings.remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec, 'remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_Params', [
+      mojo.internal.StructField('arg_agent_process', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.remoting.mojom.AgentProcessSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-remoting.mojom.AgentProcessBrokerPendingReceiver = class {
+mojo.internal.bindings.remoting.mojom.AgentProcessBrokerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-remoting.mojom.AgentProcessBrokerRemote = class {
+mojo.internal.bindings.remoting.mojom.AgentProcessBrokerRemote = class {
   static get $interfaceName() {
     return 'remoting.mojom.AgentProcessBroker';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      remoting.mojom.AgentProcessBrokerPendingReceiver,
+      mojo.internal.bindings.remoting.mojom.AgentProcessBrokerPendingReceiver,
       handle);
-    this.$ = new remoting.mojom.AgentProcessBrokerRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.remoting.mojom.AgentProcessBrokerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -332,12 +337,12 @@ remoting.mojom.AgentProcessBrokerRemote = class {
   close() {
     this.proxy.close();
   }
-  onAgentProcessLaunched(agent_process) {
-    return this.$.onAgentProcessLaunched(agent_process);
+  onAgentProcessLaunched(arg_agent_process) {
+    return this.$.onAgentProcessLaunched(arg_agent_process);
   }
 };
 
-remoting.mojom.AgentProcessBrokerRemoteCallHandler = class {
+mojo.internal.bindings.remoting.mojom.AgentProcessBrokerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('AgentProcessBroker', [
@@ -345,19 +350,19 @@ remoting.mojom.AgentProcessBrokerRemoteCallHandler = class {
     ]);
   }
 
-  onAgentProcessLaunched(agent_process) {
+  onAgentProcessLaunched(arg_agent_process) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec,
+      mojo.internal.bindings.remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec,
       null,
-      [agent_process],
+      [arg_agent_process],
       false);
   }
 
 };
 
-remoting.mojom.AgentProcessBroker.getRemote = function() {
-  let remote = new remoting.mojom.AgentProcessBrokerRemote();
+mojo.internal.bindings.remoting.mojom.AgentProcessBroker.getRemote = function() {
+  let remote = new mojo.internal.bindings.remoting.mojom.AgentProcessBrokerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -366,7 +371,7 @@ remoting.mojom.AgentProcessBroker.getRemote = function() {
   return remote.$;
 };
 
-remoting.mojom.AgentProcessBrokerReceiver = class {
+mojo.internal.bindings.remoting.mojom.AgentProcessBrokerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -415,7 +420,7 @@ remoting.mojom.AgentProcessBrokerReceiver = class {
         // Try Method 0: OnAgentProcessLaunched
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAgentProcessLaunched (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -432,9 +437,9 @@ remoting.mojom.AgentProcessBrokerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAgentProcessLaunched');
-          const result = this.impl.onAgentProcessLaunched(params.agent_process);
+          const result = this.impl.onAgentProcessLaunched(params.arg_agent_process);
           break;
         }
       }
@@ -445,8 +450,8 @@ remoting.mojom.AgentProcessBrokerReceiver = class {
   }
 };
 
-remoting.mojom.AgentProcessBrokerReceiver = remoting.mojom.AgentProcessBrokerReceiver;
+mojo.internal.bindings.remoting.mojom.AgentProcessBrokerReceiver = mojo.internal.bindings.remoting.mojom.AgentProcessBrokerReceiver;
 
-remoting.mojom.AgentProcessBrokerPtr = remoting.mojom.AgentProcessBrokerRemote;
-remoting.mojom.AgentProcessBrokerRequest = remoting.mojom.AgentProcessBrokerPendingReceiver;
+mojo.internal.bindings.remoting.mojom.AgentProcessBrokerPtr = mojo.internal.bindings.remoting.mojom.AgentProcessBrokerRemote;
+mojo.internal.bindings.remoting.mojom.AgentProcessBrokerRequest = mojo.internal.bindings.remoting.mojom.AgentProcessBrokerPendingReceiver;
 

@@ -1,102 +1,107 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/chrome/common/font_prewarmer.mojom
-// Module: chrome.mojom
+ // Source: chromium_src/chrome/common/font_prewarmer.mojom
+ // Module: chrome.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var chrome = chrome || {};
-chrome.mojom = chrome.mojom || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-chrome.mojom.FontPrewarmer = {};
-chrome.mojom.FontPrewarmer.$interfaceName = 'chrome.mojom.FontPrewarmer';
-chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec = { $: {} };
-chrome.mojom.RenderFrameFontFamilyAccessor = {};
-chrome.mojom.RenderFrameFontFamilyAccessor.$interfaceName = 'chrome.mojom.RenderFrameFontFamilyAccessor';
-chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec = { $: {} };
-chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec = { $: {} };
+ mojo.internal.bindings.chrome = mojo.internal.bindings.chrome || {};
+mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
+
+mojo.internal.bindings.chrome.mojom.FontPrewarmer = {};
+mojo.internal.bindings.chrome.mojom.FontPrewarmer.$interfaceName = 'chrome.mojom.FontPrewarmer';
+mojo.internal.bindings.chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor = {};
+mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor.$interfaceName = 'chrome.mojom.RenderFrameFontFamilyAccessor';
+mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec = { $: {} };
 
 // Interface: FontPrewarmer
 mojo.internal.Struct(
-    chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec, 'chrome.mojom.FontPrewarmer_PrewarmFonts_Params', [
-      mojo.internal.StructField('font_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    mojo.internal.bindings.chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec, 'chrome.mojom.FontPrewarmer_PrewarmFonts_Params', [
+      mojo.internal.StructField('arg_font_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-chrome.mojom.FontPrewarmerPendingReceiver = class {
+mojo.internal.bindings.chrome.mojom.FontPrewarmerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.FontPrewarmerRemote = class {
+mojo.internal.bindings.chrome.mojom.FontPrewarmerRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.FontPrewarmer';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.FontPrewarmerPendingReceiver,
+      mojo.internal.bindings.chrome.mojom.FontPrewarmerPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.FontPrewarmerRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.chrome.mojom.FontPrewarmerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -106,12 +111,12 @@ chrome.mojom.FontPrewarmerRemote = class {
   close() {
     this.proxy.close();
   }
-  prewarmFonts(font_names) {
-    return this.$.prewarmFonts(font_names);
+  prewarmFonts(arg_font_names) {
+    return this.$.prewarmFonts(arg_font_names);
   }
 };
 
-chrome.mojom.FontPrewarmerRemoteCallHandler = class {
+mojo.internal.bindings.chrome.mojom.FontPrewarmerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('FontPrewarmer', [
@@ -119,19 +124,19 @@ chrome.mojom.FontPrewarmerRemoteCallHandler = class {
     ]);
   }
 
-  prewarmFonts(font_names) {
+  prewarmFonts(arg_font_names) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec,
+      mojo.internal.bindings.chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec,
       null,
-      [font_names],
+      [arg_font_names],
       false);
   }
 
 };
 
-chrome.mojom.FontPrewarmer.getRemote = function() {
-  let remote = new chrome.mojom.FontPrewarmerRemote();
+mojo.internal.bindings.chrome.mojom.FontPrewarmer.getRemote = function() {
+  let remote = new mojo.internal.bindings.chrome.mojom.FontPrewarmerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -140,7 +145,7 @@ chrome.mojom.FontPrewarmer.getRemote = function() {
   return remote.$;
 };
 
-chrome.mojom.FontPrewarmerReceiver = class {
+mojo.internal.bindings.chrome.mojom.FontPrewarmerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -189,7 +194,7 @@ chrome.mojom.FontPrewarmerReceiver = class {
         // Try Method 0: PrewarmFonts
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PrewarmFonts (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -206,9 +211,9 @@ chrome.mojom.FontPrewarmerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.prewarmFonts');
-          const result = this.impl.prewarmFonts(params.font_names);
+          const result = this.impl.prewarmFonts(params.arg_font_names);
           break;
         }
       }
@@ -219,40 +224,40 @@ chrome.mojom.FontPrewarmerReceiver = class {
   }
 };
 
-chrome.mojom.FontPrewarmerReceiver = chrome.mojom.FontPrewarmerReceiver;
+mojo.internal.bindings.chrome.mojom.FontPrewarmerReceiver = mojo.internal.bindings.chrome.mojom.FontPrewarmerReceiver;
 
-chrome.mojom.FontPrewarmerPtr = chrome.mojom.FontPrewarmerRemote;
-chrome.mojom.FontPrewarmerRequest = chrome.mojom.FontPrewarmerPendingReceiver;
+mojo.internal.bindings.chrome.mojom.FontPrewarmerPtr = mojo.internal.bindings.chrome.mojom.FontPrewarmerRemote;
+mojo.internal.bindings.chrome.mojom.FontPrewarmerRequest = mojo.internal.bindings.chrome.mojom.FontPrewarmerPendingReceiver;
 
 
 // Interface: RenderFrameFontFamilyAccessor
 mojo.internal.Struct(
-    chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec, 'chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_Params', [
+    mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec, 'chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec, 'chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParams', [
-      mojo.internal.StructField('font_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec, 'chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParams', [
+      mojo.internal.StructField('arg_font_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-chrome.mojom.RenderFrameFontFamilyAccessorPendingReceiver = class {
+mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chrome.mojom.RenderFrameFontFamilyAccessorRemote = class {
+mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorRemote = class {
   static get $interfaceName() {
     return 'chrome.mojom.RenderFrameFontFamilyAccessor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chrome.mojom.RenderFrameFontFamilyAccessorPendingReceiver,
+      mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorPendingReceiver,
       handle);
-    this.$ = new chrome.mojom.RenderFrameFontFamilyAccessorRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -267,7 +272,7 @@ chrome.mojom.RenderFrameFontFamilyAccessorRemote = class {
   }
 };
 
-chrome.mojom.RenderFrameFontFamilyAccessorRemoteCallHandler = class {
+mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('RenderFrameFontFamilyAccessor', [
@@ -278,16 +283,16 @@ chrome.mojom.RenderFrameFontFamilyAccessorRemoteCallHandler = class {
   getFontFamilyNames() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec,
-      chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec,
+      mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec,
+      mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec,
       [],
       false);
   }
 
 };
 
-chrome.mojom.RenderFrameFontFamilyAccessor.getRemote = function() {
-  let remote = new chrome.mojom.RenderFrameFontFamilyAccessorRemote();
+mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor.getRemote = function() {
+  let remote = new mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -296,7 +301,7 @@ chrome.mojom.RenderFrameFontFamilyAccessor.getRemote = function() {
   return remote.$;
 };
 
-chrome.mojom.RenderFrameFontFamilyAccessorReceiver = class {
+mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -345,7 +350,7 @@ chrome.mojom.RenderFrameFontFamilyAccessorReceiver = class {
         // Try Method 0: GetFontFamilyNames
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFontFamilyNames (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -362,14 +367,14 @@ chrome.mojom.RenderFrameFontFamilyAccessorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFontFamilyNames');
           const result = this.impl.getFontFamilyNames();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetFontFamilyNames FAILED:', e));
           }
@@ -383,8 +388,8 @@ chrome.mojom.RenderFrameFontFamilyAccessorReceiver = class {
   }
 };
 
-chrome.mojom.RenderFrameFontFamilyAccessorReceiver = chrome.mojom.RenderFrameFontFamilyAccessorReceiver;
+mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorReceiver = mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorReceiver;
 
-chrome.mojom.RenderFrameFontFamilyAccessorPtr = chrome.mojom.RenderFrameFontFamilyAccessorRemote;
-chrome.mojom.RenderFrameFontFamilyAccessorRequest = chrome.mojom.RenderFrameFontFamilyAccessorPendingReceiver;
+mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorPtr = mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorRemote;
+mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorRequest = mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorPendingReceiver;
 

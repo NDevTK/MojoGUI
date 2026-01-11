@@ -1,92 +1,97 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/components/services/font_data/public/mojom/font_data_service.mojom
-// Module: font_data_service.mojom
+ // Source: chromium_src/components/services/font_data/public/mojom/font_data_service.mojom
+ // Module: font_data_service.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var font_data_service = font_data_service || {};
-font_data_service.mojom = font_data_service.mojom || {};
-var mojo_base = mojo_base || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-font_data_service.mojom.TypefaceSlantSpec = { $: mojo.internal.Enum() };
-font_data_service.mojom.TypefaceDataSpec = { $: {} };
-font_data_service.mojom.TypefaceStyleSpec = { $: {} };
-font_data_service.mojom.CoordinateSpec = { $: {} };
-font_data_service.mojom.VariationPositionSpec = { $: {} };
-font_data_service.mojom.TypefaceFileSpec = { $: {} };
-font_data_service.mojom.MatchFamilyNameResultSpec = { $: {} };
-font_data_service.mojom.FontDataService = {};
-font_data_service.mojom.FontDataService.$interfaceName = 'font_data_service.mojom.FontDataService';
-font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec = { $: {} };
-font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec = { $: {} };
-font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec = { $: {} };
-font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsSpec = { $: {} };
-font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec = { $: {} };
-font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec = { $: {} };
-font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec = { $: {} };
-font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec = { $: {} };
+ mojo.internal.bindings.font_data_service = mojo.internal.bindings.font_data_service || {};
+mojo.internal.bindings.font_data_service.mojom = mojo.internal.bindings.font_data_service.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+
+mojo.internal.bindings.font_data_service.mojom.TypefaceSlantSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.font_data_service.mojom.TypefaceDataSpec = { $: {} };
+mojo.internal.bindings.font_data_service.mojom.TypefaceStyleSpec = { $: {} };
+mojo.internal.bindings.font_data_service.mojom.CoordinateSpec = { $: {} };
+mojo.internal.bindings.font_data_service.mojom.VariationPositionSpec = { $: {} };
+mojo.internal.bindings.font_data_service.mojom.TypefaceFileSpec = { $: {} };
+mojo.internal.bindings.font_data_service.mojom.MatchFamilyNameResultSpec = { $: {} };
+mojo.internal.bindings.font_data_service.mojom.FontDataService = {};
+mojo.internal.bindings.font_data_service.mojom.FontDataService.$interfaceName = 'font_data_service.mojom.FontDataService';
+mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec = { $: {} };
+mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec = { $: {} };
+mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec = { $: {} };
+mojo.internal.bindings.font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec = { $: {} };
+mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec = { $: {} };
 
 // Enum: TypefaceSlant
-font_data_service.mojom.TypefaceSlant = {
+mojo.internal.bindings.font_data_service.mojom.TypefaceSlant = {
   kRoman: 0,
   kItalic: 1,
   kOblique: 2,
@@ -94,130 +99,130 @@ font_data_service.mojom.TypefaceSlant = {
 
 // Union: TypefaceData
 mojo.internal.Union(
-    font_data_service.mojom.TypefaceDataSpec, 'font_data_service.mojom.TypefaceData', {
-      'region': {
+    mojo.internal.bindings.font_data_service.mojom.TypefaceDataSpec, 'font_data_service.mojom.TypefaceData', {
+      'arg_region': {
         'ordinal': 0,
-        'type': mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$,
+        'type': mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$,
         'nullable': false,
       },
-      'font_file': {
+      'arg_font_file': {
         'ordinal': 1,
-        'type': font_data_service.mojom.TypefaceFileSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.font_data_service.mojom.TypefaceFileSpec.$,
         'nullable': false,
       },
     });
 
 // Struct: TypefaceStyle
 mojo.internal.Struct(
-    font_data_service.mojom.TypefaceStyleSpec, 'font_data_service.mojom.TypefaceStyle', [
-      mojo.internal.StructField('slant', 0, 0, font_data_service.mojom.TypefaceSlantSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('weight', 8, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('width', 10, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    mojo.internal.bindings.font_data_service.mojom.TypefaceStyleSpec, 'font_data_service.mojom.TypefaceStyle', [
+      mojo.internal.StructField('arg_slant', 0, 0, mojo.internal.bindings.mojo.internal.bindings.font_data_service.mojom.TypefaceSlantSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_weight', 8, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_width', 10, 0, mojo.internal.Uint8, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: Coordinate
 mojo.internal.Struct(
-    font_data_service.mojom.CoordinateSpec, 'font_data_service.mojom.Coordinate', [
-      mojo.internal.StructField('axis', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('value', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+    mojo.internal.bindings.font_data_service.mojom.CoordinateSpec, 'font_data_service.mojom.Coordinate', [
+      mojo.internal.StructField('arg_axis', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: VariationPosition
 mojo.internal.Struct(
-    font_data_service.mojom.VariationPositionSpec, 'font_data_service.mojom.VariationPosition', [
-      mojo.internal.StructField('coordinates', 0, 0, mojo.internal.Array(font_data_service.mojom.CoordinateSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('coordinateCount', 8, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+    mojo.internal.bindings.font_data_service.mojom.VariationPositionSpec, 'font_data_service.mojom.VariationPosition', [
+      mojo.internal.StructField('arg_coordinates', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.font_data_service.mojom.CoordinateSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_coordinateCount', 8, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: TypefaceFile
 mojo.internal.Struct(
-    font_data_service.mojom.TypefaceFileSpec, 'font_data_service.mojom.TypefaceFile', [
-      mojo.internal.StructField('file_handle', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('id', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    mojo.internal.bindings.font_data_service.mojom.TypefaceFileSpec, 'font_data_service.mojom.TypefaceFile', [
+      mojo.internal.StructField('arg_file_handle', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: MatchFamilyNameResult
 mojo.internal.Struct(
-    font_data_service.mojom.MatchFamilyNameResultSpec, 'font_data_service.mojom.MatchFamilyNameResult', [
-      mojo.internal.StructField('typeface_data', 0, 0, font_data_service.mojom.TypefaceDataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('variation_position', 8, 0, font_data_service.mojom.VariationPositionSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('ttc_index', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    mojo.internal.bindings.font_data_service.mojom.MatchFamilyNameResultSpec, 'font_data_service.mojom.MatchFamilyNameResult', [
+      mojo.internal.StructField('arg_typeface_data', 0, 0, mojo.internal.bindings.font_data_service.mojom.TypefaceDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_variation_position', 8, 0, mojo.internal.bindings.mojo.internal.bindings.font_data_service.mojom.VariationPositionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_ttc_index', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Interface: FontDataService
 mojo.internal.Struct(
-    font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec, 'font_data_service.mojom.FontDataService_MatchFamilyName_Params', [
-      mojo.internal.StructField('family_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('style', 8, 0, font_data_service.mojom.TypefaceStyleSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec, 'font_data_service.mojom.FontDataService_MatchFamilyName_Params', [
+      mojo.internal.StructField('arg_family_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_style', 8, 0, mojo.internal.bindings.mojo.internal.bindings.font_data_service.mojom.TypefaceStyleSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec, 'font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, font_data_service.mojom.MatchFamilyNameResultSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec, 'font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.font_data_service.mojom.MatchFamilyNameResultSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec, 'font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_Params', [
-      mojo.internal.StructField('family_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('style', 8, 0, font_data_service.mojom.TypefaceStyleSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('bcp47s', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('character', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec, 'font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_Params', [
+      mojo.internal.StructField('arg_family_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_style', 8, 0, mojo.internal.bindings.mojo.internal.bindings.font_data_service.mojom.TypefaceStyleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bcp47s', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_character', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
-    font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsSpec, 'font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, font_data_service.mojom.MatchFamilyNameResultSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsSpec, 'font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.font_data_service.mojom.MatchFamilyNameResultSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec, 'font_data_service.mojom.FontDataService_GetAllFamilyNames_Params', [
+    mojo.internal.bindings.font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec, 'font_data_service.mojom.FontDataService_GetAllFamilyNames_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec, 'font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    mojo.internal.bindings.font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec, 'font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec, 'font_data_service.mojom.FontDataService_LegacyMakeTypeface_Params', [
-      mojo.internal.StructField('family_name', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('style', 8, 0, font_data_service.mojom.TypefaceStyleSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec, 'font_data_service.mojom.FontDataService_LegacyMakeTypeface_Params', [
+      mojo.internal.StructField('arg_family_name', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_style', 8, 0, mojo.internal.bindings.mojo.internal.bindings.font_data_service.mojom.TypefaceStyleSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec, 'font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, font_data_service.mojom.MatchFamilyNameResultSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec, 'font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.font_data_service.mojom.MatchFamilyNameResultSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
-font_data_service.mojom.FontDataServicePendingReceiver = class {
+mojo.internal.bindings.font_data_service.mojom.FontDataServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-font_data_service.mojom.FontDataServiceRemote = class {
+mojo.internal.bindings.font_data_service.mojom.FontDataServiceRemote = class {
   static get $interfaceName() {
     return 'font_data_service.mojom.FontDataService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      font_data_service.mojom.FontDataServicePendingReceiver,
+      mojo.internal.bindings.font_data_service.mojom.FontDataServicePendingReceiver,
       handle);
-    this.$ = new font_data_service.mojom.FontDataServiceRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.font_data_service.mojom.FontDataServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -227,21 +232,21 @@ font_data_service.mojom.FontDataServiceRemote = class {
   close() {
     this.proxy.close();
   }
-  matchFamilyName(family_name, style) {
-    return this.$.matchFamilyName(family_name, style);
+  matchFamilyName(arg_family_name, arg_style) {
+    return this.$.matchFamilyName(arg_family_name, arg_style);
   }
-  matchFamilyNameCharacter(family_name, style, bcp47s, character) {
-    return this.$.matchFamilyNameCharacter(family_name, style, bcp47s, character);
+  matchFamilyNameCharacter(arg_family_name, arg_style, arg_bcp47s, arg_character) {
+    return this.$.matchFamilyNameCharacter(arg_family_name, arg_style, arg_bcp47s, arg_character);
   }
   getAllFamilyNames() {
     return this.$.getAllFamilyNames();
   }
-  legacyMakeTypeface(family_name, style) {
-    return this.$.legacyMakeTypeface(family_name, style);
+  legacyMakeTypeface(arg_family_name, arg_style) {
+    return this.$.legacyMakeTypeface(arg_family_name, arg_style);
   }
 };
 
-font_data_service.mojom.FontDataServiceRemoteCallHandler = class {
+mojo.internal.bindings.font_data_service.mojom.FontDataServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('FontDataService', [
@@ -252,46 +257,46 @@ font_data_service.mojom.FontDataServiceRemoteCallHandler = class {
     ]);
   }
 
-  matchFamilyName(family_name, style) {
+  matchFamilyName(arg_family_name, arg_style) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec,
-      font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec,
-      [family_name, style],
+      mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec,
+      mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec,
+      [arg_family_name, arg_style],
       false);
   }
 
-  matchFamilyNameCharacter(family_name, style, bcp47s, character) {
+  matchFamilyNameCharacter(arg_family_name, arg_style, arg_bcp47s, arg_character) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec,
-      font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsSpec,
-      [family_name, style, bcp47s, character],
+      mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec,
+      mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsSpec,
+      [arg_family_name, arg_style, arg_bcp47s, arg_character],
       false);
   }
 
   getAllFamilyNames() {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec,
-      font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec,
+      mojo.internal.bindings.font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec,
+      mojo.internal.bindings.font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec,
       [],
       false);
   }
 
-  legacyMakeTypeface(family_name, style) {
+  legacyMakeTypeface(arg_family_name, arg_style) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec,
-      font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec,
-      [family_name, style],
+      mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec,
+      mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec,
+      [arg_family_name, arg_style],
       false);
   }
 
 };
 
-font_data_service.mojom.FontDataService.getRemote = function() {
-  let remote = new font_data_service.mojom.FontDataServiceRemote();
+mojo.internal.bindings.font_data_service.mojom.FontDataService.getRemote = function() {
+  let remote = new mojo.internal.bindings.font_data_service.mojom.FontDataServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -300,7 +305,7 @@ font_data_service.mojom.FontDataService.getRemote = function() {
   return remote.$;
 };
 
-font_data_service.mojom.FontDataServiceReceiver = class {
+mojo.internal.bindings.font_data_service.mojom.FontDataServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -352,7 +357,7 @@ font_data_service.mojom.FontDataServiceReceiver = class {
         // Try Method 0: MatchFamilyName
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MatchFamilyName (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -363,7 +368,7 @@ font_data_service.mojom.FontDataServiceReceiver = class {
         // Try Method 1: MatchFamilyNameCharacter
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MatchFamilyNameCharacter (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -374,7 +379,7 @@ font_data_service.mojom.FontDataServiceReceiver = class {
         // Try Method 2: GetAllFamilyNames
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllFamilyNames (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -385,7 +390,7 @@ font_data_service.mojom.FontDataServiceReceiver = class {
         // Try Method 3: LegacyMakeTypeface
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LegacyMakeTypeface (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -402,14 +407,14 @@ font_data_service.mojom.FontDataServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.matchFamilyName');
-          const result = this.impl.matchFamilyName(params.family_name, params.style);
+          const result = this.impl.matchFamilyName(params.arg_family_name, params.arg_style);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] MatchFamilyName FAILED:', e));
           }
@@ -417,14 +422,14 @@ font_data_service.mojom.FontDataServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.matchFamilyNameCharacter');
-          const result = this.impl.matchFamilyNameCharacter(params.family_name, params.style, params.bcp47s, params.character);
+          const result = this.impl.matchFamilyNameCharacter(params.arg_family_name, params.arg_style, params.arg_bcp47s, params.arg_character);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] MatchFamilyNameCharacter FAILED:', e));
           }
@@ -432,14 +437,14 @@ font_data_service.mojom.FontDataServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAllFamilyNames');
           const result = this.impl.getAllFamilyNames();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetAllFamilyNames FAILED:', e));
           }
@@ -447,14 +452,14 @@ font_data_service.mojom.FontDataServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.legacyMakeTypeface');
-          const result = this.impl.legacyMakeTypeface(params.family_name, params.style);
+          const result = this.impl.legacyMakeTypeface(params.arg_family_name, params.arg_style);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] LegacyMakeTypeface FAILED:', e));
           }
@@ -468,8 +473,8 @@ font_data_service.mojom.FontDataServiceReceiver = class {
   }
 };
 
-font_data_service.mojom.FontDataServiceReceiver = font_data_service.mojom.FontDataServiceReceiver;
+mojo.internal.bindings.font_data_service.mojom.FontDataServiceReceiver = mojo.internal.bindings.font_data_service.mojom.FontDataServiceReceiver;
 
-font_data_service.mojom.FontDataServicePtr = font_data_service.mojom.FontDataServiceRemote;
-font_data_service.mojom.FontDataServiceRequest = font_data_service.mojom.FontDataServicePendingReceiver;
+mojo.internal.bindings.font_data_service.mojom.FontDataServicePtr = mojo.internal.bindings.font_data_service.mojom.FontDataServiceRemote;
+mojo.internal.bindings.font_data_service.mojom.FontDataServiceRequest = mojo.internal.bindings.font_data_service.mojom.FontDataServicePendingReceiver;
 

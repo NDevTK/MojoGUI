@@ -1,187 +1,192 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/components/browser_apis/tab_strip/tab_strip_api.mojom
-// Module: tabs_api.mojom
+ // Source: chromium_src/components/browser_apis/tab_strip/tab_strip_api.mojom
+ // Module: tabs_api.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var tabs_api = tabs_api || {};
-tabs_api.mojom = tabs_api.mojom || {};
-var mojo_base = mojo_base || {};
-var url = url || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-tabs_api.mojom.TabsEventSpec = { $: {} };
-tabs_api.mojom.TabsSnapshotSpec = { $: {} };
-tabs_api.mojom.TabStripService = {};
-tabs_api.mojom.TabStripService.$interfaceName = 'tabs_api.mojom.TabStripService';
-tabs_api.mojom.TabStripService_GetTabs_ParamsSpec = { $: {} };
-tabs_api.mojom.TabStripService_GetTab_ParamsSpec = { $: {} };
-tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec = { $: {} };
-tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec = { $: {} };
-tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec = { $: {} };
-tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec = { $: {} };
-tabs_api.mojom.TabStripService_MoveNode_ParamsSpec = { $: {} };
-tabs_api.mojom.TabsObserver = {};
-tabs_api.mojom.TabsObserver.$interfaceName = 'tabs_api.mojom.TabsObserver';
-tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec = { $: {} };
+ mojo.internal.bindings.tabs_api = mojo.internal.bindings.tabs_api || {};
+mojo.internal.bindings.tabs_api.mojom = mojo.internal.bindings.tabs_api.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+
+mojo.internal.bindings.tabs_api.mojom.TabsEventSpec = { $: {} };
+mojo.internal.bindings.tabs_api.mojom.TabsSnapshotSpec = { $: {} };
+mojo.internal.bindings.tabs_api.mojom.TabStripService = {};
+mojo.internal.bindings.tabs_api.mojom.TabStripService.$interfaceName = 'tabs_api.mojom.TabStripService';
+mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTabs_ParamsSpec = { $: {} };
+mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTab_ParamsSpec = { $: {} };
+mojo.internal.bindings.tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec = { $: {} };
+mojo.internal.bindings.tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec = { $: {} };
+mojo.internal.bindings.tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec = { $: {} };
+mojo.internal.bindings.tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec = { $: {} };
+mojo.internal.bindings.tabs_api.mojom.TabStripService_MoveNode_ParamsSpec = { $: {} };
+mojo.internal.bindings.tabs_api.mojom.TabsObserver = {};
+mojo.internal.bindings.tabs_api.mojom.TabsObserver.$interfaceName = 'tabs_api.mojom.TabsObserver';
+mojo.internal.bindings.tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec = { $: {} };
 
 // Union: TabsEvent
 mojo.internal.Union(
-    tabs_api.mojom.TabsEventSpec, 'tabs_api.mojom.TabsEvent', {
-      'tabs_created_event': {
+    mojo.internal.bindings.tabs_api.mojom.TabsEventSpec, 'tabs_api.mojom.TabsEvent', {
+      'arg_tabs_created_event': {
         'ordinal': 0,
-        'type': tabs_api.mojom.OnTabsCreatedEventSpec.$,
+        'type': mojo.internal.bindings.tabs_api.mojom.OnTabsCreatedEventSpec.$,
         'nullable': false,
       },
-      'tabs_closed_event': {
+      'arg_tabs_closed_event': {
         'ordinal': 1,
-        'type': tabs_api.mojom.OnTabsClosedEventSpec.$,
+        'type': mojo.internal.bindings.tabs_api.mojom.OnTabsClosedEventSpec.$,
         'nullable': false,
       },
-      'node_moved_event': {
+      'arg_node_moved_event': {
         'ordinal': 2,
-        'type': tabs_api.mojom.OnNodeMovedEventSpec.$,
+        'type': mojo.internal.bindings.tabs_api.mojom.OnNodeMovedEventSpec.$,
         'nullable': false,
       },
-      'data_changed_event': {
+      'arg_data_changed_event': {
         'ordinal': 3,
-        'type': tabs_api.mojom.OnDataChangedEventSpec.$,
+        'type': mojo.internal.bindings.tabs_api.mojom.OnDataChangedEventSpec.$,
         'nullable': false,
       },
-      'collection_created_event': {
+      'arg_collection_created_event': {
         'ordinal': 4,
-        'type': tabs_api.mojom.OnCollectionCreatedEventSpec.$,
+        'type': mojo.internal.bindings.tabs_api.mojom.OnCollectionCreatedEventSpec.$,
         'nullable': false,
       },
     });
 
 // Struct: TabsSnapshot
 mojo.internal.Struct(
-    tabs_api.mojom.TabsSnapshotSpec, 'tabs_api.mojom.TabsSnapshot', [
-      mojo.internal.StructField('tab_strip', 0, 0, tabs_api.mojom.ContainerSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('stream', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    mojo.internal.bindings.tabs_api.mojom.TabsSnapshotSpec, 'tabs_api.mojom.TabsSnapshot', [
+      mojo.internal.StructField('arg_tab_strip', 0, 0, mojo.internal.bindings.tabs_api.mojom.ContainerSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stream', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: TabStripService
 mojo.internal.Struct(
-    tabs_api.mojom.TabStripService_GetTabs_ParamsSpec, 'tabs_api.mojom.TabStripService_GetTabs_Params', [
+    mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTabs_ParamsSpec, 'tabs_api.mojom.TabStripService_GetTabs_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    tabs_api.mojom.TabStripService_GetTab_ParamsSpec, 'tabs_api.mojom.TabStripService_GetTab_Params', [
-      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTab_ParamsSpec, 'tabs_api.mojom.TabStripService_GetTab_Params', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.tabs_api.mojom.NodeIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec, 'tabs_api.mojom.TabStripService_CreateTabAt_Params', [
-      mojo.internal.StructField('pos', 0, 0, tabs_api.mojom.PositionSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec, 'tabs_api.mojom.TabStripService_CreateTabAt_Params', [
+      mojo.internal.StructField('arg_pos', 0, 0, mojo.internal.bindings.tabs_api.mojom.PositionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec, 'tabs_api.mojom.TabStripService_CloseTabs_Params', [
-      mojo.internal.StructField('id', 0, 0, mojo.internal.Array(tabs_api.mojom.NodeIdSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec, 'tabs_api.mojom.TabStripService_CloseTabs_Params', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Array(mojo.internal.bindings.tabs_api.mojom.NodeIdSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec, 'tabs_api.mojom.TabStripService_ActivateTab_Params', [
-      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec, 'tabs_api.mojom.TabStripService_ActivateTab_Params', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.tabs_api.mojom.NodeIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec, 'tabs_api.mojom.TabStripService_SetSelectedTabs_Params', [
-      mojo.internal.StructField('selection', 0, 0, mojo.internal.Array(tabs_api.mojom.NodeIdSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('tab_to_activate', 8, 0, tabs_api.mojom.NodeIdSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec, 'tabs_api.mojom.TabStripService_SetSelectedTabs_Params', [
+      mojo.internal.StructField('arg_selection', 0, 0, mojo.internal.Array(mojo.internal.bindings.tabs_api.mojom.NodeIdSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tab_to_activate', 8, 0, mojo.internal.bindings.tabs_api.mojom.NodeIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    tabs_api.mojom.TabStripService_MoveNode_ParamsSpec, 'tabs_api.mojom.TabStripService_MoveNode_Params', [
-      mojo.internal.StructField('id', 0, 0, tabs_api.mojom.NodeIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('position', 8, 0, tabs_api.mojom.PositionSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.tabs_api.mojom.TabStripService_MoveNode_ParamsSpec, 'tabs_api.mojom.TabStripService_MoveNode_Params', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.tabs_api.mojom.NodeIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_position', 8, 0, mojo.internal.bindings.tabs_api.mojom.PositionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
-tabs_api.mojom.TabStripServicePendingReceiver = class {
+mojo.internal.bindings.tabs_api.mojom.TabStripServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-tabs_api.mojom.TabStripServiceRemote = class {
+mojo.internal.bindings.tabs_api.mojom.TabStripServiceRemote = class {
   static get $interfaceName() {
     return 'tabs_api.mojom.TabStripService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      tabs_api.mojom.TabStripServicePendingReceiver,
+      mojo.internal.bindings.tabs_api.mojom.TabStripServicePendingReceiver,
       handle);
-    this.$ = new tabs_api.mojom.TabStripServiceRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.tabs_api.mojom.TabStripServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -194,27 +199,27 @@ tabs_api.mojom.TabStripServiceRemote = class {
   getTabs() {
     return this.$.getTabs();
   }
-  getTab(id) {
-    return this.$.getTab(id);
+  getTab(arg_id) {
+    return this.$.getTab(arg_id);
   }
-  createTabAt(pos, url) {
-    return this.$.createTabAt(pos, url);
+  createTabAt(arg_pos, arg_url) {
+    return this.$.createTabAt(arg_pos, arg_url);
   }
-  closeTabs(id) {
-    return this.$.closeTabs(id);
+  closeTabs(arg_id) {
+    return this.$.closeTabs(arg_id);
   }
-  activateTab(id) {
-    return this.$.activateTab(id);
+  activateTab(arg_id) {
+    return this.$.activateTab(arg_id);
   }
-  setSelectedTabs(selection, tab_to_activate) {
-    return this.$.setSelectedTabs(selection, tab_to_activate);
+  setSelectedTabs(arg_selection, arg_tab_to_activate) {
+    return this.$.setSelectedTabs(arg_selection, arg_tab_to_activate);
   }
-  moveNode(id, position) {
-    return this.$.moveNode(id, position);
+  moveNode(arg_id, arg_position) {
+    return this.$.moveNode(arg_id, arg_position);
   }
 };
 
-tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
+mojo.internal.bindings.tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('TabStripService', [
@@ -231,70 +236,70 @@ tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
   getTabs() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      tabs_api.mojom.TabStripService_GetTabs_ParamsSpec,
+      mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTabs_ParamsSpec,
       null,
       [],
       false);
   }
 
-  getTab(id) {
+  getTab(arg_id) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      tabs_api.mojom.TabStripService_GetTab_ParamsSpec,
+      mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTab_ParamsSpec,
       null,
-      [id],
+      [arg_id],
       false);
   }
 
-  createTabAt(pos, url) {
+  createTabAt(arg_pos, arg_url) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec,
+      mojo.internal.bindings.tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec,
       null,
-      [pos, url],
+      [arg_pos, arg_url],
       false);
   }
 
-  closeTabs(id) {
+  closeTabs(arg_id) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec,
+      mojo.internal.bindings.tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec,
       null,
-      [id],
+      [arg_id],
       false);
   }
 
-  activateTab(id) {
+  activateTab(arg_id) {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
-      tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec,
+      mojo.internal.bindings.tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec,
       null,
-      [id],
+      [arg_id],
       false);
   }
 
-  setSelectedTabs(selection, tab_to_activate) {
+  setSelectedTabs(arg_selection, arg_tab_to_activate) {
     return this.proxy.sendMessage(
       this.ordinals[5],  // ordinal
-      tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec,
+      mojo.internal.bindings.tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec,
       null,
-      [selection, tab_to_activate],
+      [arg_selection, arg_tab_to_activate],
       false);
   }
 
-  moveNode(id, position) {
+  moveNode(arg_id, arg_position) {
     return this.proxy.sendMessage(
       this.ordinals[6],  // ordinal
-      tabs_api.mojom.TabStripService_MoveNode_ParamsSpec,
+      mojo.internal.bindings.tabs_api.mojom.TabStripService_MoveNode_ParamsSpec,
       null,
-      [id, position],
+      [arg_id, arg_position],
       false);
   }
 
 };
 
-tabs_api.mojom.TabStripService.getRemote = function() {
-  let remote = new tabs_api.mojom.TabStripServiceRemote();
+mojo.internal.bindings.tabs_api.mojom.TabStripService.getRemote = function() {
+  let remote = new mojo.internal.bindings.tabs_api.mojom.TabStripServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -303,7 +308,7 @@ tabs_api.mojom.TabStripService.getRemote = function() {
   return remote.$;
 };
 
-tabs_api.mojom.TabStripServiceReceiver = class {
+mojo.internal.bindings.tabs_api.mojom.TabStripServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -358,7 +363,7 @@ tabs_api.mojom.TabStripServiceReceiver = class {
         // Try Method 0: GetTabs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tabs_api.mojom.TabStripService_GetTabs_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTabs_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTabs (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -369,7 +374,7 @@ tabs_api.mojom.TabStripServiceReceiver = class {
         // Try Method 1: GetTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tabs_api.mojom.TabStripService_GetTab_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTab_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTab (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -380,7 +385,7 @@ tabs_api.mojom.TabStripServiceReceiver = class {
         // Try Method 2: CreateTabAt
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateTabAt (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -391,7 +396,7 @@ tabs_api.mojom.TabStripServiceReceiver = class {
         // Try Method 3: CloseTabs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseTabs (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -402,7 +407,7 @@ tabs_api.mojom.TabStripServiceReceiver = class {
         // Try Method 4: ActivateTab
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActivateTab (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -413,7 +418,7 @@ tabs_api.mojom.TabStripServiceReceiver = class {
         // Try Method 5: SetSelectedTabs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSelectedTabs (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -424,7 +429,7 @@ tabs_api.mojom.TabStripServiceReceiver = class {
         // Try Method 6: MoveNode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tabs_api.mojom.TabStripService_MoveNode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_MoveNode_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MoveNode (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -441,51 +446,51 @@ tabs_api.mojom.TabStripServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tabs_api.mojom.TabStripService_GetTabs_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTabs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getTabs');
           const result = this.impl.getTabs();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tabs_api.mojom.TabStripService_GetTab_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getTab');
-          const result = this.impl.getTab(params.id);
+          const result = this.impl.getTab(params.arg_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createTabAt');
-          const result = this.impl.createTabAt(params.pos, params.url);
+          const result = this.impl.createTabAt(params.arg_pos, params.arg_url);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeTabs');
-          const result = this.impl.closeTabs(params.id);
+          const result = this.impl.closeTabs(params.arg_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.activateTab');
-          const result = this.impl.activateTab(params.id);
+          const result = this.impl.activateTab(params.arg_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSelectedTabs');
-          const result = this.impl.setSelectedTabs(params.selection, params.tab_to_activate);
+          const result = this.impl.setSelectedTabs(params.arg_selection, params.arg_tab_to_activate);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tabs_api.mojom.TabStripService_MoveNode_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripService_MoveNode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.moveNode');
-          const result = this.impl.moveNode(params.id, params.position);
+          const result = this.impl.moveNode(params.arg_id, params.arg_position);
           break;
         }
       }
@@ -496,35 +501,35 @@ tabs_api.mojom.TabStripServiceReceiver = class {
   }
 };
 
-tabs_api.mojom.TabStripServiceReceiver = tabs_api.mojom.TabStripServiceReceiver;
+mojo.internal.bindings.tabs_api.mojom.TabStripServiceReceiver = mojo.internal.bindings.tabs_api.mojom.TabStripServiceReceiver;
 
-tabs_api.mojom.TabStripServicePtr = tabs_api.mojom.TabStripServiceRemote;
-tabs_api.mojom.TabStripServiceRequest = tabs_api.mojom.TabStripServicePendingReceiver;
+mojo.internal.bindings.tabs_api.mojom.TabStripServicePtr = mojo.internal.bindings.tabs_api.mojom.TabStripServiceRemote;
+mojo.internal.bindings.tabs_api.mojom.TabStripServiceRequest = mojo.internal.bindings.tabs_api.mojom.TabStripServicePendingReceiver;
 
 
 // Interface: TabsObserver
 mojo.internal.Struct(
-    tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec, 'tabs_api.mojom.TabsObserver_OnTabEvents_Params', [
-      mojo.internal.StructField('events', 0, 0, mojo.internal.Array(tabs_api.mojom.TabsEventSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec, 'tabs_api.mojom.TabsObserver_OnTabEvents_Params', [
+      mojo.internal.StructField('arg_events', 0, 0, mojo.internal.Array(mojo.internal.bindings.tabs_api.mojom.TabsEventSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-tabs_api.mojom.TabsObserverPendingReceiver = class {
+mojo.internal.bindings.tabs_api.mojom.TabsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-tabs_api.mojom.TabsObserverRemote = class {
+mojo.internal.bindings.tabs_api.mojom.TabsObserverRemote = class {
   static get $interfaceName() {
     return 'tabs_api.mojom.TabsObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      tabs_api.mojom.TabsObserverPendingReceiver,
+      mojo.internal.bindings.tabs_api.mojom.TabsObserverPendingReceiver,
       handle);
-    this.$ = new tabs_api.mojom.TabsObserverRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.tabs_api.mojom.TabsObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -534,12 +539,12 @@ tabs_api.mojom.TabsObserverRemote = class {
   close() {
     this.proxy.close();
   }
-  onTabEvents(events) {
-    return this.$.onTabEvents(events);
+  onTabEvents(arg_events) {
+    return this.$.onTabEvents(arg_events);
   }
 };
 
-tabs_api.mojom.TabsObserverRemoteCallHandler = class {
+mojo.internal.bindings.tabs_api.mojom.TabsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('TabsObserver', [
@@ -547,19 +552,19 @@ tabs_api.mojom.TabsObserverRemoteCallHandler = class {
     ]);
   }
 
-  onTabEvents(events) {
+  onTabEvents(arg_events) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec,
+      mojo.internal.bindings.tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec,
       null,
-      [events],
+      [arg_events],
       false);
   }
 
 };
 
-tabs_api.mojom.TabsObserver.getRemote = function() {
-  let remote = new tabs_api.mojom.TabsObserverRemote();
+mojo.internal.bindings.tabs_api.mojom.TabsObserver.getRemote = function() {
+  let remote = new mojo.internal.bindings.tabs_api.mojom.TabsObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -568,7 +573,7 @@ tabs_api.mojom.TabsObserver.getRemote = function() {
   return remote.$;
 };
 
-tabs_api.mojom.TabsObserverReceiver = class {
+mojo.internal.bindings.tabs_api.mojom.TabsObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -617,7 +622,7 @@ tabs_api.mojom.TabsObserverReceiver = class {
         // Try Method 0: OnTabEvents
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTabEvents (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -634,9 +639,9 @@ tabs_api.mojom.TabsObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTabEvents');
-          const result = this.impl.onTabEvents(params.events);
+          const result = this.impl.onTabEvents(params.arg_events);
           break;
         }
       }
@@ -647,8 +652,8 @@ tabs_api.mojom.TabsObserverReceiver = class {
   }
 };
 
-tabs_api.mojom.TabsObserverReceiver = tabs_api.mojom.TabsObserverReceiver;
+mojo.internal.bindings.tabs_api.mojom.TabsObserverReceiver = mojo.internal.bindings.tabs_api.mojom.TabsObserverReceiver;
 
-tabs_api.mojom.TabsObserverPtr = tabs_api.mojom.TabsObserverRemote;
-tabs_api.mojom.TabsObserverRequest = tabs_api.mojom.TabsObserverPendingReceiver;
+mojo.internal.bindings.tabs_api.mojom.TabsObserverPtr = mojo.internal.bindings.tabs_api.mojom.TabsObserverRemote;
+mojo.internal.bindings.tabs_api.mojom.TabsObserverRequest = mojo.internal.bindings.tabs_api.mojom.TabsObserverPendingReceiver;
 

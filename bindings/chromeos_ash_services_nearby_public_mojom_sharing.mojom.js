@@ -1,151 +1,156 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/chromeos/ash/services/nearby/public/mojom/sharing.mojom
-// Module: sharing.mojom
+ // Source: chromium_src/chromeos/ash/services/nearby/public/mojom/sharing.mojom
+ // Module: sharing.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var sharing = sharing || {};
-sharing.mojom = sharing.mojom || {};
-var nearby = nearby || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var bluetooth = bluetooth || {};
-var sandbox = sandbox || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-sharing.mojom.WifiLanDependenciesSpec = { $: {} };
-sharing.mojom.WifiDirectDependenciesSpec = { $: {} };
-sharing.mojom.NearbyDependenciesSpec = { $: {} };
-sharing.mojom.Sharing = {};
-sharing.mojom.Sharing.$interfaceName = 'sharing.mojom.Sharing';
-sharing.mojom.Sharing_Connect_ParamsSpec = { $: {} };
-sharing.mojom.Sharing_ShutDown_ParamsSpec = { $: {} };
-sharing.mojom.Sharing_ShutDown_ResponseParamsSpec = { $: {} };
+ mojo.internal.bindings.sharing = mojo.internal.bindings.sharing || {};
+mojo.internal.bindings.sharing.mojom = mojo.internal.bindings.sharing.mojom || {};
+mojo.internal.bindings.nearby = mojo.internal.bindings.nearby || {};
+mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.bluetooth = mojo.internal.bindings.bluetooth || {};
+mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
+
+mojo.internal.bindings.sharing.mojom.WifiLanDependenciesSpec = { $: {} };
+mojo.internal.bindings.sharing.mojom.WifiDirectDependenciesSpec = { $: {} };
+mojo.internal.bindings.sharing.mojom.NearbyDependenciesSpec = { $: {} };
+mojo.internal.bindings.sharing.mojom.Sharing = {};
+mojo.internal.bindings.sharing.mojom.Sharing.$interfaceName = 'sharing.mojom.Sharing';
+mojo.internal.bindings.sharing.mojom.Sharing_Connect_ParamsSpec = { $: {} };
+mojo.internal.bindings.sharing.mojom.Sharing_ShutDown_ParamsSpec = { $: {} };
+mojo.internal.bindings.sharing.mojom.Sharing_ShutDown_ResponseParamsSpec = { $: {} };
 
 // Struct: WifiLanDependencies
 mojo.internal.Struct(
-    sharing.mojom.WifiLanDependenciesSpec, 'sharing.mojom.WifiLanDependencies', [
-      mojo.internal.StructField('cros_network_config', 0, 0, mojo.internal.InterfaceProxy(chromeos.network_config.mojom.CrosNetworkConfigRemote), null, false, 0, undefined),
-      mojo.internal.StructField('firewall_hole_factory', 8, 0, mojo.internal.InterfaceProxy(sharing.mojom.FirewallHoleFactoryRemote), null, false, 0, undefined),
-      mojo.internal.StructField('tcp_socket_factory', 16, 0, mojo.internal.InterfaceProxy(sharing.mojom.TcpSocketFactoryRemote), null, false, 0, undefined),
-      mojo.internal.StructField('mdns_manager', 24, 0, mojo.internal.InterfaceProxy(sharing.mojom.MdnsManagerRemote), null, true, 0, undefined),
+    mojo.internal.bindings.sharing.mojom.WifiLanDependenciesSpec, 'sharing.mojom.WifiLanDependencies', [
+      mojo.internal.StructField('arg_cros_network_config', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_firewall_hole_factory', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.FirewallHoleFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tcp_socket_factory', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.TcpSocketFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_mdns_manager', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.MdnsManagerRemote), null, true, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: WifiDirectDependencies
 mojo.internal.Struct(
-    sharing.mojom.WifiDirectDependenciesSpec, 'sharing.mojom.WifiDirectDependencies', [
-      mojo.internal.StructField('wifi_direct_manager', 0, 0, mojo.internal.InterfaceProxy(ash.wifi_direct.mojom.WifiDirectManagerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('firewall_hole_factory', 8, 0, mojo.internal.InterfaceProxy(sharing.mojom.FirewallHoleFactoryRemote), null, false, 0, undefined),
+    mojo.internal.bindings.sharing.mojom.WifiDirectDependenciesSpec, 'sharing.mojom.WifiDirectDependencies', [
+      mojo.internal.StructField('arg_wifi_direct_manager', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_firewall_hole_factory', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.FirewallHoleFactoryRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: NearbyDependencies
 mojo.internal.Struct(
-    sharing.mojom.NearbyDependenciesSpec, 'sharing.mojom.NearbyDependencies', [
-      mojo.internal.StructField('bluetooth_adapter', 0, 0, mojo.internal.InterfaceProxy(bluetooth.mojom.AdapterRemote), null, true, 0, undefined),
-      mojo.internal.StructField('webrtc_dependencies', 8, 0, sharing.mojom.WebRtcDependenciesSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('wifilan_dependencies', 16, 0, sharing.mojom.WifiLanDependenciesSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('wifidirect_dependencies', 24, 0, sharing.mojom.WifiDirectDependenciesSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('nearby_presence_credential_storage', 32, 0, mojo.internal.InterfaceProxy(ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemote), null, true, 0, undefined),
+    mojo.internal.bindings.sharing.mojom.NearbyDependenciesSpec, 'sharing.mojom.NearbyDependencies', [
+      mojo.internal.StructField('arg_bluetooth_adapter', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.bluetooth.mojom.AdapterRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_webrtc_dependencies', 8, 0, mojo.internal.bindings.sharing.mojom.WebRtcDependenciesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_wifilan_dependencies', 16, 0, mojo.internal.bindings.mojo.internal.bindings.sharing.mojom.WifiLanDependenciesSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_wifidirect_dependencies', 24, 0, mojo.internal.bindings.mojo.internal.bindings.sharing.mojom.WifiDirectDependenciesSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_nearby_presence_credential_storage', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemote), null, true, 0, undefined),
     ],
     [[0, 48]]);
 
 // Interface: Sharing
 mojo.internal.Struct(
-    sharing.mojom.Sharing_Connect_ParamsSpec, 'sharing.mojom.Sharing_Connect_Params', [
-      mojo.internal.StructField('deps', 0, 0, sharing.mojom.NearbyDependenciesSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('nearby_connections', 8, 0, mojo.internal.InterfaceRequest(nearby.connections.mojom.NearbyConnectionsRemote), null, false, 0, undefined),
-      mojo.internal.StructField('nearby_presence', 16, 0, mojo.internal.InterfaceRequest(ash.nearby.presence.mojom.NearbyPresenceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('decoder', 24, 0, mojo.internal.InterfaceRequest(sharing.mojom.NearbySharingDecoderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('quick_start_decoder', 32, 0, mojo.internal.InterfaceRequest(ash.quick_start.mojom.QuickStartDecoderRemote), null, false, 0, undefined),
+    mojo.internal.bindings.sharing.mojom.Sharing_Connect_ParamsSpec, 'sharing.mojom.Sharing_Connect_Params', [
+      mojo.internal.StructField('arg_deps', 0, 0, mojo.internal.bindings.mojo.internal.bindings.sharing.mojom.NearbyDependenciesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_nearby_connections', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_nearby_presence', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_decoder', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.sharing.mojom.NearbySharingDecoderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_quick_start_decoder', 32, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderRemote), null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 mojo.internal.Struct(
-    sharing.mojom.Sharing_ShutDown_ParamsSpec, 'sharing.mojom.Sharing_ShutDown_Params', [
+    mojo.internal.bindings.sharing.mojom.Sharing_ShutDown_ParamsSpec, 'sharing.mojom.Sharing_ShutDown_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    sharing.mojom.Sharing_ShutDown_ResponseParamsSpec, 'sharing.mojom.Sharing_ShutDown_ResponseParams', [
+    mojo.internal.bindings.sharing.mojom.Sharing_ShutDown_ResponseParamsSpec, 'sharing.mojom.Sharing_ShutDown_ResponseParams', [
     ],
     [[0, 8]]);
 
-sharing.mojom.SharingPendingReceiver = class {
+mojo.internal.bindings.sharing.mojom.SharingPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-sharing.mojom.SharingRemote = class {
+mojo.internal.bindings.sharing.mojom.SharingRemote = class {
   static get $interfaceName() {
     return 'sharing.mojom.Sharing';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      sharing.mojom.SharingPendingReceiver,
+      mojo.internal.bindings.sharing.mojom.SharingPendingReceiver,
       handle);
-    this.$ = new sharing.mojom.SharingRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.sharing.mojom.SharingRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -155,15 +160,15 @@ sharing.mojom.SharingRemote = class {
   close() {
     this.proxy.close();
   }
-  connect(deps, nearby_connections, nearby_presence, decoder, quick_start_decoder) {
-    return this.$.connect(deps, nearby_connections, nearby_presence, decoder, quick_start_decoder);
+  connect(arg_deps, arg_nearby_connections, arg_nearby_presence, arg_decoder, arg_quick_start_decoder) {
+    return this.$.connect(arg_deps, arg_nearby_connections, arg_nearby_presence, arg_decoder, arg_quick_start_decoder);
   }
   shutDown() {
     return this.$.shutDown();
   }
 };
 
-sharing.mojom.SharingRemoteCallHandler = class {
+mojo.internal.bindings.sharing.mojom.SharingRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('Sharing', [
@@ -172,28 +177,28 @@ sharing.mojom.SharingRemoteCallHandler = class {
     ]);
   }
 
-  connect(deps, nearby_connections, nearby_presence, decoder, quick_start_decoder) {
+  connect(arg_deps, arg_nearby_connections, arg_nearby_presence, arg_decoder, arg_quick_start_decoder) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      sharing.mojom.Sharing_Connect_ParamsSpec,
+      mojo.internal.bindings.sharing.mojom.Sharing_Connect_ParamsSpec,
       null,
-      [deps, nearby_connections, nearby_presence, decoder, quick_start_decoder],
+      [arg_deps, arg_nearby_connections, arg_nearby_presence, arg_decoder, arg_quick_start_decoder],
       false);
   }
 
   shutDown() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      sharing.mojom.Sharing_ShutDown_ParamsSpec,
-      sharing.mojom.Sharing_ShutDown_ResponseParamsSpec,
+      mojo.internal.bindings.sharing.mojom.Sharing_ShutDown_ParamsSpec,
+      mojo.internal.bindings.sharing.mojom.Sharing_ShutDown_ResponseParamsSpec,
       [],
       false);
   }
 
 };
 
-sharing.mojom.Sharing.getRemote = function() {
-  let remote = new sharing.mojom.SharingRemote();
+mojo.internal.bindings.sharing.mojom.Sharing.getRemote = function() {
+  let remote = new mojo.internal.bindings.sharing.mojom.SharingRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -202,7 +207,7 @@ sharing.mojom.Sharing.getRemote = function() {
   return remote.$;
 };
 
-sharing.mojom.SharingReceiver = class {
+mojo.internal.bindings.sharing.mojom.SharingReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -252,7 +257,7 @@ sharing.mojom.SharingReceiver = class {
         // Try Method 0: Connect
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(sharing.mojom.Sharing_Connect_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.Sharing_Connect_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Connect (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -263,7 +268,7 @@ sharing.mojom.SharingReceiver = class {
         // Try Method 1: ShutDown
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(sharing.mojom.Sharing_ShutDown_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.Sharing_ShutDown_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShutDown (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -280,21 +285,21 @@ sharing.mojom.SharingReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(sharing.mojom.Sharing_Connect_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.Sharing_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.deps, params.nearby_connections, params.nearby_presence, params.decoder, params.quick_start_decoder);
+          const result = this.impl.connect(params.arg_deps, params.arg_nearby_connections, params.arg_nearby_presence, params.arg_decoder, params.arg_quick_start_decoder);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(sharing.mojom.Sharing_ShutDown_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.Sharing_ShutDown_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.shutDown');
           const result = this.impl.shutDown();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, sharing.mojom.Sharing_ShutDown_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.sharing.mojom.Sharing_ShutDown_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] ShutDown FAILED:', e));
           }
@@ -308,8 +313,8 @@ sharing.mojom.SharingReceiver = class {
   }
 };
 
-sharing.mojom.SharingReceiver = sharing.mojom.SharingReceiver;
+mojo.internal.bindings.sharing.mojom.SharingReceiver = mojo.internal.bindings.sharing.mojom.SharingReceiver;
 
-sharing.mojom.SharingPtr = sharing.mojom.SharingRemote;
-sharing.mojom.SharingRequest = sharing.mojom.SharingPendingReceiver;
+mojo.internal.bindings.sharing.mojom.SharingPtr = mojo.internal.bindings.sharing.mojom.SharingRemote;
+mojo.internal.bindings.sharing.mojom.SharingRequest = mojo.internal.bindings.sharing.mojom.SharingPendingReceiver;
 

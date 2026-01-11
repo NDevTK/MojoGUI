@@ -1,104 +1,109 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/chrome/browser/lens/core/mojom/lens_side_panel.mojom
-// Module: lens.mojom
+ // Source: chromium_src/chrome/browser/lens/core/mojom/lens_side_panel.mojom
+ // Module: lens.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var lens = lens || {};
-lens.mojom = lens.mojom || {};
-var url = url || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-lens.mojom.SidePanelResultStatusSpec = { $: mojo.internal.Enum() };
-lens.mojom.LensSidePanelPageHandlerFactory = {};
-lens.mojom.LensSidePanelPageHandlerFactory.$interfaceName = 'lens.mojom.LensSidePanelPageHandlerFactory';
-lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec = { $: {} };
-lens.mojom.LensSidePanelPageHandler = {};
-lens.mojom.LensSidePanelPageHandler.$interfaceName = 'lens.mojom.LensSidePanelPageHandler';
-lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec = { $: {} };
-lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec = { $: {} };
-lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParamsSpec = { $: {} };
-lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec = { $: {} };
-lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec = { $: {} };
-lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec = { $: {} };
-lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec = { $: {} };
-lens.mojom.LensSidePanelPage = {};
-lens.mojom.LensSidePanelPage.$interfaceName = 'lens.mojom.LensSidePanelPage';
-lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec = { $: {} };
-lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec = { $: {} };
-lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec = { $: {} };
-lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec = { $: {} };
-lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec = { $: {} };
-lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec = { $: {} };
-lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec = { $: {} };
-lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec = { $: {} };
-lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec = { $: {} };
-lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec = { $: {} };
-lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec = { $: {} };
-lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec = { $: {} };
-lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec = { $: {} };
-lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec = { $: {} };
+ mojo.internal.bindings.lens = mojo.internal.bindings.lens || {};
+mojo.internal.bindings.lens.mojom = mojo.internal.bindings.lens.mojom || {};
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+
+mojo.internal.bindings.lens.mojom.SidePanelResultStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory = {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory.$interfaceName = 'lens.mojom.LensSidePanelPageHandlerFactory';
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec = { $: {} };
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler = {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler.$interfaceName = 'lens.mojom.LensSidePanelPageHandler';
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec = { $: {} };
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec = { $: {} };
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec = { $: {} };
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec = { $: {} };
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec = { $: {} };
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec = { $: {} };
+mojo.internal.bindings.lens.mojom.LensSidePanelPage = {};
+mojo.internal.bindings.lens.mojom.LensSidePanelPage.$interfaceName = 'lens.mojom.LensSidePanelPage';
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec = { $: {} };
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec = { $: {} };
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec = { $: {} };
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec = { $: {} };
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec = { $: {} };
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec = { $: {} };
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec = { $: {} };
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec = { $: {} };
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec = { $: {} };
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec = { $: {} };
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec = { $: {} };
+mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec = { $: {} };
 
 // Enum: SidePanelResultStatus
-lens.mojom.SidePanelResultStatus = {
+mojo.internal.bindings.lens.mojom.SidePanelResultStatus = {
   kUnknown: 0,
   kResultShown: 1,
   kErrorPageShownOffline: 2,
@@ -108,28 +113,28 @@ lens.mojom.SidePanelResultStatus = {
 
 // Interface: LensSidePanelPageHandlerFactory
 mojo.internal.Struct(
-    lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec, 'lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_Params', [
-      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(lens.mojom.LensSidePanelPageHandlerSpec), null, false, 0, undefined),
-      mojo.internal.StructField('page', 8, 0, mojo.internal.InterfaceProxy(lens.mojom.LensSidePanelPageSpec), null, false, 0, undefined),
+    mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec, 'lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_Params', [
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.lens.mojom.LensSidePanelPageSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
-lens.mojom.LensSidePanelPageHandlerFactoryPendingReceiver = class {
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-lens.mojom.LensSidePanelPageHandlerFactoryRemote = class {
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'lens.mojom.LensSidePanelPageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      lens.mojom.LensSidePanelPageHandlerFactoryPendingReceiver,
+      mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new lens.mojom.LensSidePanelPageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -139,12 +144,12 @@ lens.mojom.LensSidePanelPageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
-  createSidePanelPageHandler(handler, page) {
-    return this.$.createSidePanelPageHandler(handler, page);
+  createSidePanelPageHandler(arg_handler, arg_page) {
+    return this.$.createSidePanelPageHandler(arg_handler, arg_page);
   }
 };
 
-lens.mojom.LensSidePanelPageHandlerFactoryRemoteCallHandler = class {
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('LensSidePanelPageHandlerFactory', [
@@ -152,19 +157,19 @@ lens.mojom.LensSidePanelPageHandlerFactoryRemoteCallHandler = class {
     ]);
   }
 
-  createSidePanelPageHandler(handler, page) {
+  createSidePanelPageHandler(arg_handler, arg_page) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec,
+      mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec,
       null,
-      [handler, page],
+      [arg_handler, arg_page],
       false);
   }
 
 };
 
-lens.mojom.LensSidePanelPageHandlerFactory.getRemote = function() {
-  let remote = new lens.mojom.LensSidePanelPageHandlerFactoryRemote();
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory.getRemote = function() {
+  let remote = new mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -173,7 +178,7 @@ lens.mojom.LensSidePanelPageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-lens.mojom.LensSidePanelPageHandlerFactoryReceiver = class {
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -222,7 +227,7 @@ lens.mojom.LensSidePanelPageHandlerFactoryReceiver = class {
         // Try Method 0: CreateSidePanelPageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSidePanelPageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -239,9 +244,9 @@ lens.mojom.LensSidePanelPageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSidePanelPageHandler');
-          const result = this.impl.createSidePanelPageHandler(params.handler, params.page);
+          const result = this.impl.createSidePanelPageHandler(params.arg_handler, params.arg_page);
           break;
         }
       }
@@ -252,68 +257,68 @@ lens.mojom.LensSidePanelPageHandlerFactoryReceiver = class {
   }
 };
 
-lens.mojom.LensSidePanelPageHandlerFactoryReceiver = lens.mojom.LensSidePanelPageHandlerFactoryReceiver;
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactoryReceiver = mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactoryReceiver;
 
-lens.mojom.LensSidePanelPageHandlerFactoryPtr = lens.mojom.LensSidePanelPageHandlerFactoryRemote;
-lens.mojom.LensSidePanelPageHandlerFactoryRequest = lens.mojom.LensSidePanelPageHandlerFactoryPendingReceiver;
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactoryPtr = mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactoryRemote;
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactoryRequest = mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactoryPendingReceiver;
 
 
 // Interface: LensSidePanelPageHandler
 mojo.internal.Struct(
-    lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec, 'lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_Params', [
+    mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec, 'lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec, 'lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_Params', [
+    mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec, 'lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParamsSpec, 'lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParams', [
-      mojo.internal.StructField('is_contextual_searchbox', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParamsSpec, 'lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParams', [
+      mojo.internal.StructField('arg_is_contextual_searchbox', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec, 'lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_Params', [
-      mojo.internal.StructField('text_fragments', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('pdf_page_number', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec, 'lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_Params', [
+      mojo.internal.StructField('arg_text_fragments', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_pdf_page_number', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec, 'lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_Params', [
+    mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec, 'lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec, 'lens.mojom.LensSidePanelPageHandler_OnAimMessage_Params', [
-      mojo.internal.StructField('message', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec, 'lens.mojom.LensSidePanelPageHandler_OnAimMessage_Params', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec, 'lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_Params', [
+    mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec, 'lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_Params', [
     ],
     [[0, 8]]);
 
-lens.mojom.LensSidePanelPageHandlerPendingReceiver = class {
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-lens.mojom.LensSidePanelPageHandlerRemote = class {
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerRemote = class {
   static get $interfaceName() {
     return 'lens.mojom.LensSidePanelPageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      lens.mojom.LensSidePanelPageHandlerPendingReceiver,
+      mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerPendingReceiver,
       handle);
-    this.$ = new lens.mojom.LensSidePanelPageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -329,21 +334,21 @@ lens.mojom.LensSidePanelPageHandlerRemote = class {
   getIsContextualSearchbox() {
     return this.$.getIsContextualSearchbox();
   }
-  onScrollToMessage(text_fragments, pdf_page_number) {
-    return this.$.onScrollToMessage(text_fragments, pdf_page_number);
+  onScrollToMessage(arg_text_fragments, arg_pdf_page_number) {
+    return this.$.onScrollToMessage(arg_text_fragments, arg_pdf_page_number);
   }
   requestSendFeedback() {
     return this.$.requestSendFeedback();
   }
-  onAimMessage(message) {
-    return this.$.onAimMessage(message);
+  onAimMessage(arg_message) {
+    return this.$.onAimMessage(arg_message);
   }
   onImageQueryWithEmptyText() {
     return this.$.onImageQueryWithEmptyText();
   }
 };
 
-lens.mojom.LensSidePanelPageHandlerRemoteCallHandler = class {
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('LensSidePanelPageHandler', [
@@ -359,7 +364,7 @@ lens.mojom.LensSidePanelPageHandlerRemoteCallHandler = class {
   popAndLoadQueryFromHistory() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec,
+      mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec,
       null,
       [],
       false);
@@ -368,43 +373,43 @@ lens.mojom.LensSidePanelPageHandlerRemoteCallHandler = class {
   getIsContextualSearchbox() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec,
-      lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParamsSpec,
+      mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec,
+      mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParamsSpec,
       [],
       false);
   }
 
-  onScrollToMessage(text_fragments, pdf_page_number) {
+  onScrollToMessage(arg_text_fragments, arg_pdf_page_number) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec,
+      mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec,
       null,
-      [text_fragments, pdf_page_number],
+      [arg_text_fragments, arg_pdf_page_number],
       false);
   }
 
   requestSendFeedback() {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec,
+      mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec,
       null,
       [],
       false);
   }
 
-  onAimMessage(message) {
+  onAimMessage(arg_message) {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
-      lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec,
+      mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec,
       null,
-      [message],
+      [arg_message],
       false);
   }
 
   onImageQueryWithEmptyText() {
     return this.proxy.sendMessage(
       this.ordinals[5],  // ordinal
-      lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec,
+      mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec,
       null,
       [],
       false);
@@ -412,8 +417,8 @@ lens.mojom.LensSidePanelPageHandlerRemoteCallHandler = class {
 
 };
 
-lens.mojom.LensSidePanelPageHandler.getRemote = function() {
-  let remote = new lens.mojom.LensSidePanelPageHandlerRemote();
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler.getRemote = function() {
+  let remote = new mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -422,7 +427,7 @@ lens.mojom.LensSidePanelPageHandler.getRemote = function() {
   return remote.$;
 };
 
-lens.mojom.LensSidePanelPageHandlerReceiver = class {
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -476,7 +481,7 @@ lens.mojom.LensSidePanelPageHandlerReceiver = class {
         // Try Method 0: PopAndLoadQueryFromHistory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PopAndLoadQueryFromHistory (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -487,7 +492,7 @@ lens.mojom.LensSidePanelPageHandlerReceiver = class {
         // Try Method 1: GetIsContextualSearchbox
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetIsContextualSearchbox (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -498,7 +503,7 @@ lens.mojom.LensSidePanelPageHandlerReceiver = class {
         // Try Method 2: OnScrollToMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScrollToMessage (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -509,7 +514,7 @@ lens.mojom.LensSidePanelPageHandlerReceiver = class {
         // Try Method 3: RequestSendFeedback
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestSendFeedback (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -520,7 +525,7 @@ lens.mojom.LensSidePanelPageHandlerReceiver = class {
         // Try Method 4: OnAimMessage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAimMessage (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -531,7 +536,7 @@ lens.mojom.LensSidePanelPageHandlerReceiver = class {
         // Try Method 5: OnImageQueryWithEmptyText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnImageQueryWithEmptyText (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -548,21 +553,21 @@ lens.mojom.LensSidePanelPageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.popAndLoadQueryFromHistory');
           const result = this.impl.popAndLoadQueryFromHistory();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getIsContextualSearchbox');
           const result = this.impl.getIsContextualSearchbox();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetIsContextualSearchbox FAILED:', e));
           }
@@ -570,28 +575,28 @@ lens.mojom.LensSidePanelPageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScrollToMessage');
-          const result = this.impl.onScrollToMessage(params.text_fragments, params.pdf_page_number);
+          const result = this.impl.onScrollToMessage(params.arg_text_fragments, params.arg_pdf_page_number);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestSendFeedback');
           const result = this.impl.requestSendFeedback();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAimMessage');
-          const result = this.impl.onAimMessage(params.message);
+          const result = this.impl.onAimMessage(params.arg_message);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onImageQueryWithEmptyText');
           const result = this.impl.onImageQueryWithEmptyText();
           break;
@@ -604,110 +609,110 @@ lens.mojom.LensSidePanelPageHandlerReceiver = class {
   }
 };
 
-lens.mojom.LensSidePanelPageHandlerReceiver = lens.mojom.LensSidePanelPageHandlerReceiver;
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerReceiver = mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerReceiver;
 
-lens.mojom.LensSidePanelPageHandlerPtr = lens.mojom.LensSidePanelPageHandlerRemote;
-lens.mojom.LensSidePanelPageHandlerRequest = lens.mojom.LensSidePanelPageHandlerPendingReceiver;
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerPtr = mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerRemote;
+mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerRequest = mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerPendingReceiver;
 
 
 // Interface: LensSidePanelPage
 mojo.internal.Struct(
-    lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec, 'lens.mojom.LensSidePanelPage_LoadResultsInFrame_Params', [
-      mojo.internal.StructField('results_url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec, 'lens.mojom.LensSidePanelPage_LoadResultsInFrame_Params', [
+      mojo.internal.StructField('arg_results_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec, 'lens.mojom.LensSidePanelPage_SetIsLoadingResults_Params', [
-      mojo.internal.StructField('is_loading', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec, 'lens.mojom.LensSidePanelPage_SetIsLoadingResults_Params', [
+      mojo.internal.StructField('arg_is_loading', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec, 'lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_Params', [
-      mojo.internal.StructField('progress', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+    mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec, 'lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_Params', [
+      mojo.internal.StructField('arg_progress', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec, 'lens.mojom.LensSidePanelPage_SetBackArrowVisible_Params', [
-      mojo.internal.StructField('visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec, 'lens.mojom.LensSidePanelPage_SetBackArrowVisible_Params', [
+      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec, 'lens.mojom.LensSidePanelPage_SetShowErrorPage_Params', [
-      mojo.internal.StructField('status', 0, 0, lens.mojom.SidePanelResultStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('should_show_error_page', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec, 'lens.mojom.LensSidePanelPage_SetShowErrorPage_Params', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.lens.mojom.SidePanelResultStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_should_show_error_page', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec, 'lens.mojom.LensSidePanelPage_SuppressGhostLoader_Params', [
+    mojo.internal.bindings.lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec, 'lens.mojom.LensSidePanelPage_SuppressGhostLoader_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec, 'lens.mojom.LensSidePanelPage_PageContentTypeChanged_Params', [
-      mojo.internal.StructField('new_page_content_type', 0, 0, lens.mojom.PageContentTypeSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec, 'lens.mojom.LensSidePanelPage_PageContentTypeChanged_Params', [
+      mojo.internal.StructField('arg_new_page_content_type', 0, 0, mojo.internal.bindings.lens.mojom.PageContentTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec, 'lens.mojom.LensSidePanelPage_ShowToast_Params', [
-      mojo.internal.StructField('message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec, 'lens.mojom.LensSidePanelPage_ShowToast_Params', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec, 'lens.mojom.LensSidePanelPage_SendClientMessageToAim_Params', [
-      mojo.internal.StructField('serialized_message', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    mojo.internal.bindings.lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec, 'lens.mojom.LensSidePanelPage_SendClientMessageToAim_Params', [
+      mojo.internal.StructField('arg_serialized_message', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec, 'lens.mojom.LensSidePanelPage_AimHandshakeReceived_Params', [
+    mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec, 'lens.mojom.LensSidePanelPage_AimHandshakeReceived_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec, 'lens.mojom.LensSidePanelPage_AimResultsChanged_Params', [
-      mojo.internal.StructField('on_aim', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec, 'lens.mojom.LensSidePanelPage_AimResultsChanged_Params', [
+      mojo.internal.StructField('arg_on_aim', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec, 'lens.mojom.LensSidePanelPage_FocusResultsFrame_Params', [
+    mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec, 'lens.mojom.LensSidePanelPage_FocusResultsFrame_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec, 'lens.mojom.LensSidePanelPage_SetIsOverlayShowing_Params', [
-      mojo.internal.StructField('is_showing', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec, 'lens.mojom.LensSidePanelPage_SetIsOverlayShowing_Params', [
+      mojo.internal.StructField('arg_is_showing', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec, 'lens.mojom.LensSidePanelPage_FocusSearchbox_Params', [
+    mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec, 'lens.mojom.LensSidePanelPage_FocusSearchbox_Params', [
     ],
     [[0, 8]]);
 
-lens.mojom.LensSidePanelPagePendingReceiver = class {
+mojo.internal.bindings.lens.mojom.LensSidePanelPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-lens.mojom.LensSidePanelPageRemote = class {
+mojo.internal.bindings.lens.mojom.LensSidePanelPageRemote = class {
   static get $interfaceName() {
     return 'lens.mojom.LensSidePanelPage';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      lens.mojom.LensSidePanelPagePendingReceiver,
+      mojo.internal.bindings.lens.mojom.LensSidePanelPagePendingReceiver,
       handle);
-    this.$ = new lens.mojom.LensSidePanelPageRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.lens.mojom.LensSidePanelPageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -717,51 +722,51 @@ lens.mojom.LensSidePanelPageRemote = class {
   close() {
     this.proxy.close();
   }
-  loadResultsInFrame(results_url) {
-    return this.$.loadResultsInFrame(results_url);
+  loadResultsInFrame(arg_results_url) {
+    return this.$.loadResultsInFrame(arg_results_url);
   }
-  setIsLoadingResults(is_loading) {
-    return this.$.setIsLoadingResults(is_loading);
+  setIsLoadingResults(arg_is_loading) {
+    return this.$.setIsLoadingResults(arg_is_loading);
   }
-  setPageContentUploadProgress(progress) {
-    return this.$.setPageContentUploadProgress(progress);
+  setPageContentUploadProgress(arg_progress) {
+    return this.$.setPageContentUploadProgress(arg_progress);
   }
-  setBackArrowVisible(visible) {
-    return this.$.setBackArrowVisible(visible);
+  setBackArrowVisible(arg_visible) {
+    return this.$.setBackArrowVisible(arg_visible);
   }
-  setShowErrorPage(should_show_error_page, status) {
-    return this.$.setShowErrorPage(should_show_error_page, status);
+  setShowErrorPage(arg_should_show_error_page, arg_status) {
+    return this.$.setShowErrorPage(arg_should_show_error_page, arg_status);
   }
   suppressGhostLoader() {
     return this.$.suppressGhostLoader();
   }
-  pageContentTypeChanged(new_page_content_type) {
-    return this.$.pageContentTypeChanged(new_page_content_type);
+  pageContentTypeChanged(arg_new_page_content_type) {
+    return this.$.pageContentTypeChanged(arg_new_page_content_type);
   }
-  showToast(message) {
-    return this.$.showToast(message);
+  showToast(arg_message) {
+    return this.$.showToast(arg_message);
   }
-  sendClientMessageToAim(serialized_message) {
-    return this.$.sendClientMessageToAim(serialized_message);
+  sendClientMessageToAim(arg_serialized_message) {
+    return this.$.sendClientMessageToAim(arg_serialized_message);
   }
   aimHandshakeReceived() {
     return this.$.aimHandshakeReceived();
   }
-  aimResultsChanged(on_aim) {
-    return this.$.aimResultsChanged(on_aim);
+  aimResultsChanged(arg_on_aim) {
+    return this.$.aimResultsChanged(arg_on_aim);
   }
   focusResultsFrame() {
     return this.$.focusResultsFrame();
   }
-  setIsOverlayShowing(is_showing) {
-    return this.$.setIsOverlayShowing(is_showing);
+  setIsOverlayShowing(arg_is_showing) {
+    return this.$.setIsOverlayShowing(arg_is_showing);
   }
   focusSearchbox() {
     return this.$.focusSearchbox();
   }
 };
 
-lens.mojom.LensSidePanelPageRemoteCallHandler = class {
+mojo.internal.bindings.lens.mojom.LensSidePanelPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('LensSidePanelPage', [
@@ -782,127 +787,127 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
     ]);
   }
 
-  loadResultsInFrame(results_url) {
+  loadResultsInFrame(arg_results_url) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec,
+      mojo.internal.bindings.lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec,
       null,
-      [results_url],
+      [arg_results_url],
       false);
   }
 
-  setIsLoadingResults(is_loading) {
+  setIsLoadingResults(arg_is_loading) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec,
+      mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec,
       null,
-      [is_loading],
+      [arg_is_loading],
       false);
   }
 
-  setPageContentUploadProgress(progress) {
+  setPageContentUploadProgress(arg_progress) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec,
+      mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec,
       null,
-      [progress],
+      [arg_progress],
       false);
   }
 
-  setBackArrowVisible(visible) {
+  setBackArrowVisible(arg_visible) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec,
+      mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec,
       null,
-      [visible],
+      [arg_visible],
       false);
   }
 
-  setShowErrorPage(should_show_error_page, status) {
+  setShowErrorPage(arg_should_show_error_page, arg_status) {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
-      lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec,
+      mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec,
       null,
-      [should_show_error_page, status],
+      [arg_should_show_error_page, arg_status],
       false);
   }
 
   suppressGhostLoader() {
     return this.proxy.sendMessage(
       this.ordinals[5],  // ordinal
-      lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec,
+      mojo.internal.bindings.lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec,
       null,
       [],
       false);
   }
 
-  pageContentTypeChanged(new_page_content_type) {
+  pageContentTypeChanged(arg_new_page_content_type) {
     return this.proxy.sendMessage(
       this.ordinals[6],  // ordinal
-      lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec,
+      mojo.internal.bindings.lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec,
       null,
-      [new_page_content_type],
+      [arg_new_page_content_type],
       false);
   }
 
-  showToast(message) {
+  showToast(arg_message) {
     return this.proxy.sendMessage(
       this.ordinals[7],  // ordinal
-      lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec,
+      mojo.internal.bindings.lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec,
       null,
-      [message],
+      [arg_message],
       false);
   }
 
-  sendClientMessageToAim(serialized_message) {
+  sendClientMessageToAim(arg_serialized_message) {
     return this.proxy.sendMessage(
       this.ordinals[8],  // ordinal
-      lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec,
+      mojo.internal.bindings.lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec,
       null,
-      [serialized_message],
+      [arg_serialized_message],
       false);
   }
 
   aimHandshakeReceived() {
     return this.proxy.sendMessage(
       this.ordinals[9],  // ordinal
-      lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec,
+      mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec,
       null,
       [],
       false);
   }
 
-  aimResultsChanged(on_aim) {
+  aimResultsChanged(arg_on_aim) {
     return this.proxy.sendMessage(
       this.ordinals[10],  // ordinal
-      lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec,
+      mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec,
       null,
-      [on_aim],
+      [arg_on_aim],
       false);
   }
 
   focusResultsFrame() {
     return this.proxy.sendMessage(
       this.ordinals[11],  // ordinal
-      lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec,
+      mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec,
       null,
       [],
       false);
   }
 
-  setIsOverlayShowing(is_showing) {
+  setIsOverlayShowing(arg_is_showing) {
     return this.proxy.sendMessage(
       this.ordinals[12],  // ordinal
-      lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec,
+      mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec,
       null,
-      [is_showing],
+      [arg_is_showing],
       false);
   }
 
   focusSearchbox() {
     return this.proxy.sendMessage(
       this.ordinals[13],  // ordinal
-      lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec,
+      mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec,
       null,
       [],
       false);
@@ -910,8 +915,8 @@ lens.mojom.LensSidePanelPageRemoteCallHandler = class {
 
 };
 
-lens.mojom.LensSidePanelPage.getRemote = function() {
-  let remote = new lens.mojom.LensSidePanelPageRemote();
+mojo.internal.bindings.lens.mojom.LensSidePanelPage.getRemote = function() {
+  let remote = new mojo.internal.bindings.lens.mojom.LensSidePanelPageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -920,7 +925,7 @@ lens.mojom.LensSidePanelPage.getRemote = function() {
   return remote.$;
 };
 
-lens.mojom.LensSidePanelPageReceiver = class {
+mojo.internal.bindings.lens.mojom.LensSidePanelPageReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -982,7 +987,7 @@ lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 0: LoadResultsInFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadResultsInFrame (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -993,7 +998,7 @@ lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 1: SetIsLoadingResults
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIsLoadingResults (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1004,7 +1009,7 @@ lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 2: SetPageContentUploadProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPageContentUploadProgress (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1015,7 +1020,7 @@ lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 3: SetBackArrowVisible
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBackArrowVisible (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1026,7 +1031,7 @@ lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 4: SetShowErrorPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetShowErrorPage (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1037,7 +1042,7 @@ lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 5: SuppressGhostLoader
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SuppressGhostLoader (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1048,7 +1053,7 @@ lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 6: PageContentTypeChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PageContentTypeChanged (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1059,7 +1064,7 @@ lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 7: ShowToast
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowToast (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1070,7 +1075,7 @@ lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 8: SendClientMessageToAim
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendClientMessageToAim (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1081,7 +1086,7 @@ lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 9: AimHandshakeReceived
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AimHandshakeReceived (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1092,7 +1097,7 @@ lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 10: AimResultsChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AimResultsChanged (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1103,7 +1108,7 @@ lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 11: FocusResultsFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FocusResultsFrame (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1114,7 +1119,7 @@ lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 12: SetIsOverlayShowing
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIsOverlayShowing (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1125,7 +1130,7 @@ lens.mojom.LensSidePanelPageReceiver = class {
         // Try Method 13: FocusSearchbox
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FocusSearchbox (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1142,98 +1147,98 @@ lens.mojom.LensSidePanelPageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadResultsInFrame');
-          const result = this.impl.loadResultsInFrame(params.results_url);
+          const result = this.impl.loadResultsInFrame(params.arg_results_url);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsLoadingResults');
-          const result = this.impl.setIsLoadingResults(params.is_loading);
+          const result = this.impl.setIsLoadingResults(params.arg_is_loading);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPageContentUploadProgress');
-          const result = this.impl.setPageContentUploadProgress(params.progress);
+          const result = this.impl.setPageContentUploadProgress(params.arg_progress);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBackArrowVisible');
-          const result = this.impl.setBackArrowVisible(params.visible);
+          const result = this.impl.setBackArrowVisible(params.arg_visible);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setShowErrorPage');
-          const result = this.impl.setShowErrorPage(params.should_show_error_page, params.status);
+          const result = this.impl.setShowErrorPage(params.arg_should_show_error_page, params.arg_status);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.suppressGhostLoader');
           const result = this.impl.suppressGhostLoader();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pageContentTypeChanged');
-          const result = this.impl.pageContentTypeChanged(params.new_page_content_type);
+          const result = this.impl.pageContentTypeChanged(params.arg_new_page_content_type);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showToast');
-          const result = this.impl.showToast(params.message);
+          const result = this.impl.showToast(params.arg_message);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendClientMessageToAim');
-          const result = this.impl.sendClientMessageToAim(params.serialized_message);
+          const result = this.impl.sendClientMessageToAim(params.arg_serialized_message);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.aimHandshakeReceived');
           const result = this.impl.aimHandshakeReceived();
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.aimResultsChanged');
-          const result = this.impl.aimResultsChanged(params.on_aim);
+          const result = this.impl.aimResultsChanged(params.arg_on_aim);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.focusResultsFrame');
           const result = this.impl.focusResultsFrame();
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsOverlayShowing');
-          const result = this.impl.setIsOverlayShowing(params.is_showing);
+          const result = this.impl.setIsOverlayShowing(params.arg_is_showing);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.focusSearchbox');
           const result = this.impl.focusSearchbox();
           break;
@@ -1246,8 +1251,8 @@ lens.mojom.LensSidePanelPageReceiver = class {
   }
 };
 
-lens.mojom.LensSidePanelPageReceiver = lens.mojom.LensSidePanelPageReceiver;
+mojo.internal.bindings.lens.mojom.LensSidePanelPageReceiver = mojo.internal.bindings.lens.mojom.LensSidePanelPageReceiver;
 
-lens.mojom.LensSidePanelPagePtr = lens.mojom.LensSidePanelPageRemote;
-lens.mojom.LensSidePanelPageRequest = lens.mojom.LensSidePanelPagePendingReceiver;
+mojo.internal.bindings.lens.mojom.LensSidePanelPagePtr = mojo.internal.bindings.lens.mojom.LensSidePanelPageRemote;
+mojo.internal.bindings.lens.mojom.LensSidePanelPageRequest = mojo.internal.bindings.lens.mojom.LensSidePanelPagePendingReceiver;
 

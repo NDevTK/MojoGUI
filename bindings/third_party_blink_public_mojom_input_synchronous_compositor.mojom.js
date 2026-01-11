@@ -1,271 +1,276 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/third_party/blink/public/mojom/input/synchronous_compositor.mojom
-// Module: blink.mojom
+ // Source: chromium_src/third_party/blink/public/mojom/input/synchronous_compositor.mojom
+ // Module: blink.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var blink = blink || {};
-blink.mojom = blink.mojom || {};
-var mojo_base = mojo_base || {};
-var viz = viz || {};
-var gfx = gfx || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-blink.mojom.SyncCompositorDemandDrawHwParamsSpec = { $: {} };
-blink.mojom.SyncCompositorDemandDrawSwParamsSpec = { $: {} };
-blink.mojom.SyncCompositorCommonRendererParamsSpec = { $: {} };
-blink.mojom.SynchronousCompositor = {};
-blink.mojom.SynchronousCompositor.$interfaceName = 'blink.mojom.SynchronousCompositor';
-blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec = { $: {} };
-blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec = { $: {} };
-blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec = { $: {} };
-blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec = { $: {} };
-blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec = { $: {} };
-blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec = { $: {} };
-blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec = { $: {} };
-blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec = { $: {} };
-blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec = { $: {} };
-blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec = { $: {} };
-blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec = { $: {} };
-blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec = { $: {} };
-blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec = { $: {} };
-blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec = { $: {} };
-blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec = { $: {} };
-blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec = { $: {} };
-blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec = { $: {} };
-blink.mojom.SynchronousCompositorHost = {};
-blink.mojom.SynchronousCompositorHost.$interfaceName = 'blink.mojom.SynchronousCompositorHost';
-blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec = { $: {} };
-blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec = { $: {} };
-blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec = { $: {} };
-blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec = { $: {} };
-blink.mojom.SynchronousCompositorControlHost = {};
-blink.mojom.SynchronousCompositorControlHost.$interfaceName = 'blink.mojom.SynchronousCompositorControlHost';
-blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec = { $: {} };
-blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec = { $: {} };
+ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+
+mojo.internal.bindings.blink.mojom.SyncCompositorDemandDrawHwParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SyncCompositorDemandDrawSwParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SyncCompositorCommonRendererParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SynchronousCompositor = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositor.$interfaceName = 'blink.mojom.SynchronousCompositor';
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SynchronousCompositorHost = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositorHost.$interfaceName = 'blink.mojom.SynchronousCompositorHost';
+mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost = {};
+mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost.$interfaceName = 'blink.mojom.SynchronousCompositorControlHost';
+mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec = { $: {} };
 
 // Struct: SyncCompositorDemandDrawHwParams
 mojo.internal.Struct(
-    blink.mojom.SyncCompositorDemandDrawHwParamsSpec, 'blink.mojom.SyncCompositorDemandDrawHwParams', [
-      mojo.internal.StructField('viewport_size', 0, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('viewport_rect_for_tile_priority', 8, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('transform_for_tile_priority', 16, 0, gfx.mojom.TransformSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('need_new_local_surface_id', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SyncCompositorDemandDrawHwParamsSpec, 'blink.mojom.SyncCompositorDemandDrawHwParams', [
+      mojo.internal.StructField('arg_viewport_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_viewport_rect_for_tile_priority', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_transform_for_tile_priority', 16, 0, mojo.internal.bindings.gfx.mojom.TransformSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_need_new_local_surface_id', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: SyncCompositorDemandDrawSwParams
 mojo.internal.Struct(
-    blink.mojom.SyncCompositorDemandDrawSwParamsSpec, 'blink.mojom.SyncCompositorDemandDrawSwParams', [
-      mojo.internal.StructField('size', 0, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('clip', 8, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('transform', 16, 0, gfx.mojom.TransformSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SyncCompositorDemandDrawSwParamsSpec, 'blink.mojom.SyncCompositorDemandDrawSwParams', [
+      mojo.internal.StructField('arg_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_clip', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_transform', 16, 0, mojo.internal.bindings.gfx.mojom.TransformSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: SyncCompositorCommonRendererParams
 mojo.internal.Struct(
-    blink.mojom.SyncCompositorCommonRendererParamsSpec, 'blink.mojom.SyncCompositorCommonRendererParams', [
-      mojo.internal.StructField('total_scroll_offset', 0, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('max_scroll_offset', 8, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('scrollable_size', 16, 0, gfx.mojom.SizeFSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('version', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('page_scale_factor', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('min_page_scale_factor', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('max_page_scale_factor', 36, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('need_invalidate_count', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('did_activate_pending_tree_count', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('invalidate_needs_draw', 48, 0, mojo.internal.Bool, true, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SyncCompositorCommonRendererParamsSpec, 'blink.mojom.SyncCompositorCommonRendererParams', [
+      mojo.internal.StructField('arg_total_scroll_offset', 0, 0, mojo.internal.bindings.gfx.mojom.PointFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_max_scroll_offset', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scrollable_size', 16, 0, mojo.internal.bindings.gfx.mojom.SizeFSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_version', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_page_scale_factor', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_min_page_scale_factor', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_page_scale_factor', 36, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_need_invalidate_count', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_did_activate_pending_tree_count', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_invalidate_needs_draw', 48, 0, mojo.internal.Bool, true, false, 0, undefined),
     ],
     [[0, 64]]);
 
 // Interface: SynchronousCompositor
 mojo.internal.Struct(
-    blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec, 'blink.mojom.SynchronousCompositor_DemandDrawHwAsync_Params', [
-      mojo.internal.StructField('draw_params', 0, 0, blink.mojom.SyncCompositorDemandDrawHwParamsSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec, 'blink.mojom.SynchronousCompositor_DemandDrawHwAsync_Params', [
+      mojo.internal.StructField('arg_draw_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SyncCompositorDemandDrawHwParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec, 'blink.mojom.SynchronousCompositor_DemandDrawHw_Params', [
-      mojo.internal.StructField('draw_params', 0, 0, blink.mojom.SyncCompositorDemandDrawHwParamsSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec, 'blink.mojom.SynchronousCompositor_DemandDrawHw_Params', [
+      mojo.internal.StructField('arg_draw_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SyncCompositorDemandDrawHwParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec, 'blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.SyncCompositorCommonRendererParamsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('local_surface_id', 8, 0, viz.mojom.LocalSurfaceIdSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('frame', 16, 0, viz.mojom.CompositorFrameSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('hit_test_region_list', 24, 0, viz.mojom.HitTestRegionListSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('layer_tree_frame_sink_id', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('metadata_version', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec, 'blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SyncCompositorCommonRendererParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_local_surface_id', 8, 0, mojo.internal.bindings.viz.mojom.LocalSurfaceIdSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_frame', 16, 0, mojo.internal.bindings.viz.mojom.CompositorFrameSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_hit_test_region_list', 24, 0, mojo.internal.bindings.viz.mojom.HitTestRegionListSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_layer_tree_frame_sink_id', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata_version', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 
 mojo.internal.Struct(
-    blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec, 'blink.mojom.SynchronousCompositor_SetSharedMemory_Params', [
-      mojo.internal.StructField('shm_region', 0, 0, mojo_base.mojom.WritableSharedMemoryRegionSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec, 'blink.mojom.SynchronousCompositor_SetSharedMemory_Params', [
+      mojo.internal.StructField('arg_shm_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.WritableSharedMemoryRegionSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec, 'blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.SyncCompositorCommonRendererParamsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec, 'blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SyncCompositorCommonRendererParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec, 'blink.mojom.SynchronousCompositor_DemandDrawSw_Params', [
-      mojo.internal.StructField('draw_params', 0, 0, blink.mojom.SyncCompositorDemandDrawSwParamsSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec, 'blink.mojom.SynchronousCompositor_DemandDrawSw_Params', [
+      mojo.internal.StructField('arg_draw_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SyncCompositorDemandDrawSwParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec, 'blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.SyncCompositorCommonRendererParamsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('meta_data', 8, 0, viz.mojom.CompositorFrameMetadataSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('metadata_version', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec, 'blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SyncCompositorCommonRendererParamsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_meta_data', 8, 0, mojo.internal.bindings.viz.mojom.CompositorFrameMetadataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_metadata_version', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
-    blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec, 'blink.mojom.SynchronousCompositor_WillSkipDraw_Params', [
+    mojo.internal.bindings.blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec, 'blink.mojom.SynchronousCompositor_WillSkipDraw_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec, 'blink.mojom.SynchronousCompositor_ZeroSharedMemory_Params', [
+    mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec, 'blink.mojom.SynchronousCompositor_ZeroSharedMemory_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec, 'blink.mojom.SynchronousCompositor_ZoomBy_Params', [
-      mojo.internal.StructField('anchor', 0, 0, gfx.mojom.PointSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('delta', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec, 'blink.mojom.SynchronousCompositor_ZoomBy_Params', [
+      mojo.internal.StructField('arg_anchor', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_delta', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec, 'blink.mojom.SynchronousCompositor_ZoomBy_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.SyncCompositorCommonRendererParamsSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec, 'blink.mojom.SynchronousCompositor_ZoomBy_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SyncCompositorCommonRendererParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec, 'blink.mojom.SynchronousCompositor_SetMemoryPolicy_Params', [
-      mojo.internal.StructField('bytes_limit', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec, 'blink.mojom.SynchronousCompositor_SetMemoryPolicy_Params', [
+      mojo.internal.StructField('arg_bytes_limit', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec, 'blink.mojom.SynchronousCompositor_ReclaimResources_Params', [
-      mojo.internal.StructField('resources', 0, 0, mojo.internal.Array(viz.mojom.ReturnedResourceSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('layer_tree_frame_sink_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec, 'blink.mojom.SynchronousCompositor_ReclaimResources_Params', [
+      mojo.internal.StructField('arg_resources', 0, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ReturnedResourceSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_layer_tree_frame_sink_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec, 'blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_Params', [
-      mojo.internal.StructField('layer_tree_frame_sink_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('sequence_id', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec, 'blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_Params', [
+      mojo.internal.StructField('arg_layer_tree_frame_sink_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_sequence_id', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec, 'blink.mojom.SynchronousCompositor_SetScroll_Params', [
-      mojo.internal.StructField('offset', 0, 0, gfx.mojom.PointFSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec, 'blink.mojom.SynchronousCompositor_SetScroll_Params', [
+      mojo.internal.StructField('arg_offset', 0, 0, mojo.internal.bindings.gfx.mojom.PointFSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec, 'blink.mojom.SynchronousCompositor_BeginFrame_Params', [
-      mojo.internal.StructField('args', 0, 0, viz.mojom.BeginFrameArgsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('timing_details', 8, 0, mojo.internal.Map(mojo.internal.Uint32, viz.mojom.FrameTimingDetailsSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec, 'blink.mojom.SynchronousCompositor_BeginFrame_Params', [
+      mojo.internal.StructField('arg_args', 0, 0, mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timing_details', 8, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.bindings.viz.mojom.FrameTimingDetailsSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec, 'blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_Params', [
-      mojo.internal.StructField('paused', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec, 'blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_Params', [
+      mojo.internal.StructField('arg_paused', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
-blink.mojom.SynchronousCompositorPendingReceiver = class {
+mojo.internal.bindings.blink.mojom.SynchronousCompositorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.SynchronousCompositorRemote = class {
+mojo.internal.bindings.blink.mojom.SynchronousCompositorRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.SynchronousCompositor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.SynchronousCompositorPendingReceiver,
+      mojo.internal.bindings.blink.mojom.SynchronousCompositorPendingReceiver,
       handle);
-    this.$ = new blink.mojom.SynchronousCompositorRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.blink.mojom.SynchronousCompositorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -275,17 +280,17 @@ blink.mojom.SynchronousCompositorRemote = class {
   close() {
     this.proxy.close();
   }
-  demandDrawHwAsync(draw_params) {
-    return this.$.demandDrawHwAsync(draw_params);
+  demandDrawHwAsync(arg_draw_params) {
+    return this.$.demandDrawHwAsync(arg_draw_params);
   }
-  demandDrawHw(draw_params) {
-    return this.$.demandDrawHw(draw_params);
+  demandDrawHw(arg_draw_params) {
+    return this.$.demandDrawHw(arg_draw_params);
   }
-  setSharedMemory(shm_region) {
-    return this.$.setSharedMemory(shm_region);
+  setSharedMemory(arg_shm_region) {
+    return this.$.setSharedMemory(arg_shm_region);
   }
-  demandDrawSw(draw_params) {
-    return this.$.demandDrawSw(draw_params);
+  demandDrawSw(arg_draw_params) {
+    return this.$.demandDrawSw(arg_draw_params);
   }
   willSkipDraw() {
     return this.$.willSkipDraw();
@@ -293,30 +298,30 @@ blink.mojom.SynchronousCompositorRemote = class {
   zeroSharedMemory() {
     return this.$.zeroSharedMemory();
   }
-  zoomBy(delta, anchor) {
-    return this.$.zoomBy(delta, anchor);
+  zoomBy(arg_delta, arg_anchor) {
+    return this.$.zoomBy(arg_delta, arg_anchor);
   }
-  setMemoryPolicy(bytes_limit) {
-    return this.$.setMemoryPolicy(bytes_limit);
+  setMemoryPolicy(arg_bytes_limit) {
+    return this.$.setMemoryPolicy(arg_bytes_limit);
   }
-  reclaimResources(layer_tree_frame_sink_id, resources) {
-    return this.$.reclaimResources(layer_tree_frame_sink_id, resources);
+  reclaimResources(arg_layer_tree_frame_sink_id, arg_resources) {
+    return this.$.reclaimResources(arg_layer_tree_frame_sink_id, arg_resources);
   }
-  onCompositorFrameTransitionDirectiveProcessed(layer_tree_frame_sink_id, sequence_id) {
-    return this.$.onCompositorFrameTransitionDirectiveProcessed(layer_tree_frame_sink_id, sequence_id);
+  onCompositorFrameTransitionDirectiveProcessed(arg_layer_tree_frame_sink_id, arg_sequence_id) {
+    return this.$.onCompositorFrameTransitionDirectiveProcessed(arg_layer_tree_frame_sink_id, arg_sequence_id);
   }
-  setScroll(offset) {
-    return this.$.setScroll(offset);
+  setScroll(arg_offset) {
+    return this.$.setScroll(arg_offset);
   }
-  beginFrame(args, timing_details) {
-    return this.$.beginFrame(args, timing_details);
+  beginFrame(arg_args, arg_timing_details) {
+    return this.$.beginFrame(arg_args, arg_timing_details);
   }
-  setBeginFrameSourcePaused(paused) {
-    return this.$.setBeginFrameSourcePaused(paused);
+  setBeginFrameSourcePaused(arg_paused) {
+    return this.$.setBeginFrameSourcePaused(arg_paused);
   }
 };
 
-blink.mojom.SynchronousCompositorRemoteCallHandler = class {
+mojo.internal.bindings.blink.mojom.SynchronousCompositorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('SynchronousCompositor', [
@@ -336,46 +341,46 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
     ]);
   }
 
-  demandDrawHwAsync(draw_params) {
+  demandDrawHwAsync(arg_draw_params) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec,
       null,
-      [draw_params],
+      [arg_draw_params],
       false);
   }
 
-  demandDrawHw(draw_params) {
+  demandDrawHw(arg_draw_params) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec,
-      blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec,
-      [draw_params],
+      mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec,
+      [arg_draw_params],
       false);
   }
 
-  setSharedMemory(shm_region) {
+  setSharedMemory(arg_shm_region) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec,
-      blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec,
-      [shm_region],
+      mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec,
+      [arg_shm_region],
       false);
   }
 
-  demandDrawSw(draw_params) {
+  demandDrawSw(arg_draw_params) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec,
-      blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec,
-      [draw_params],
+      mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec,
+      [arg_draw_params],
       false);
   }
 
   willSkipDraw() {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
-      blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec,
       null,
       [],
       false);
@@ -384,79 +389,79 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
   zeroSharedMemory() {
     return this.proxy.sendMessage(
       this.ordinals[5],  // ordinal
-      blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec,
       null,
       [],
       false);
   }
 
-  zoomBy(delta, anchor) {
+  zoomBy(arg_delta, arg_anchor) {
     return this.proxy.sendMessage(
       this.ordinals[6],  // ordinal
-      blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec,
-      blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec,
-      [delta, anchor],
+      mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec,
+      [arg_delta, arg_anchor],
       false);
   }
 
-  setMemoryPolicy(bytes_limit) {
+  setMemoryPolicy(arg_bytes_limit) {
     return this.proxy.sendMessage(
       this.ordinals[7],  // ordinal
-      blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec,
       null,
-      [bytes_limit],
+      [arg_bytes_limit],
       false);
   }
 
-  reclaimResources(layer_tree_frame_sink_id, resources) {
+  reclaimResources(arg_layer_tree_frame_sink_id, arg_resources) {
     return this.proxy.sendMessage(
       this.ordinals[8],  // ordinal
-      blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec,
       null,
-      [layer_tree_frame_sink_id, resources],
+      [arg_layer_tree_frame_sink_id, arg_resources],
       false);
   }
 
-  onCompositorFrameTransitionDirectiveProcessed(layer_tree_frame_sink_id, sequence_id) {
+  onCompositorFrameTransitionDirectiveProcessed(arg_layer_tree_frame_sink_id, arg_sequence_id) {
     return this.proxy.sendMessage(
       this.ordinals[9],  // ordinal
-      blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec,
       null,
-      [layer_tree_frame_sink_id, sequence_id],
+      [arg_layer_tree_frame_sink_id, arg_sequence_id],
       false);
   }
 
-  setScroll(offset) {
+  setScroll(arg_offset) {
     return this.proxy.sendMessage(
       this.ordinals[10],  // ordinal
-      blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec,
       null,
-      [offset],
+      [arg_offset],
       false);
   }
 
-  beginFrame(args, timing_details) {
+  beginFrame(arg_args, arg_timing_details) {
     return this.proxy.sendMessage(
       this.ordinals[11],  // ordinal
-      blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec,
       null,
-      [args, timing_details],
+      [arg_args, arg_timing_details],
       false);
   }
 
-  setBeginFrameSourcePaused(paused) {
+  setBeginFrameSourcePaused(arg_paused) {
     return this.proxy.sendMessage(
       this.ordinals[12],  // ordinal
-      blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec,
       null,
-      [paused],
+      [arg_paused],
       false);
   }
 
 };
 
-blink.mojom.SynchronousCompositor.getRemote = function() {
-  let remote = new blink.mojom.SynchronousCompositorRemote();
+mojo.internal.bindings.blink.mojom.SynchronousCompositor.getRemote = function() {
+  let remote = new mojo.internal.bindings.blink.mojom.SynchronousCompositorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -465,7 +470,7 @@ blink.mojom.SynchronousCompositor.getRemote = function() {
   return remote.$;
 };
 
-blink.mojom.SynchronousCompositorReceiver = class {
+mojo.internal.bindings.blink.mojom.SynchronousCompositorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -526,7 +531,7 @@ blink.mojom.SynchronousCompositorReceiver = class {
         // Try Method 0: DemandDrawHwAsync
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DemandDrawHwAsync (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -537,7 +542,7 @@ blink.mojom.SynchronousCompositorReceiver = class {
         // Try Method 1: DemandDrawHw
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DemandDrawHw (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -548,7 +553,7 @@ blink.mojom.SynchronousCompositorReceiver = class {
         // Try Method 2: SetSharedMemory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSharedMemory (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -559,7 +564,7 @@ blink.mojom.SynchronousCompositorReceiver = class {
         // Try Method 3: DemandDrawSw
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DemandDrawSw (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -570,7 +575,7 @@ blink.mojom.SynchronousCompositorReceiver = class {
         // Try Method 4: WillSkipDraw
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WillSkipDraw (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -581,7 +586,7 @@ blink.mojom.SynchronousCompositorReceiver = class {
         // Try Method 5: ZeroSharedMemory
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ZeroSharedMemory (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -592,7 +597,7 @@ blink.mojom.SynchronousCompositorReceiver = class {
         // Try Method 6: ZoomBy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ZoomBy (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -603,7 +608,7 @@ blink.mojom.SynchronousCompositorReceiver = class {
         // Try Method 7: SetMemoryPolicy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMemoryPolicy (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -614,7 +619,7 @@ blink.mojom.SynchronousCompositorReceiver = class {
         // Try Method 8: ReclaimResources
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReclaimResources (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -625,7 +630,7 @@ blink.mojom.SynchronousCompositorReceiver = class {
         // Try Method 9: OnCompositorFrameTransitionDirectiveProcessed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCompositorFrameTransitionDirectiveProcessed (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -636,7 +641,7 @@ blink.mojom.SynchronousCompositorReceiver = class {
         // Try Method 10: SetScroll
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetScroll (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -647,7 +652,7 @@ blink.mojom.SynchronousCompositorReceiver = class {
         // Try Method 11: BeginFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BeginFrame (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -658,7 +663,7 @@ blink.mojom.SynchronousCompositorReceiver = class {
         // Try Method 12: SetBeginFrameSourcePaused
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBeginFrameSourcePaused (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -675,21 +680,21 @@ blink.mojom.SynchronousCompositorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.demandDrawHwAsync');
-          const result = this.impl.demandDrawHwAsync(params.draw_params);
+          const result = this.impl.demandDrawHwAsync(params.arg_draw_params);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.demandDrawHw');
-          const result = this.impl.demandDrawHw(params.draw_params);
+          const result = this.impl.demandDrawHw(params.arg_draw_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] DemandDrawHw FAILED:', e));
           }
@@ -697,14 +702,14 @@ blink.mojom.SynchronousCompositorReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSharedMemory');
-          const result = this.impl.setSharedMemory(params.shm_region);
+          const result = this.impl.setSharedMemory(params.arg_shm_region);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] SetSharedMemory FAILED:', e));
           }
@@ -712,14 +717,14 @@ blink.mojom.SynchronousCompositorReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.demandDrawSw');
-          const result = this.impl.demandDrawSw(params.draw_params);
+          const result = this.impl.demandDrawSw(params.arg_draw_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] DemandDrawSw FAILED:', e));
           }
@@ -727,28 +732,28 @@ blink.mojom.SynchronousCompositorReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.willSkipDraw');
           const result = this.impl.willSkipDraw();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.zeroSharedMemory');
           const result = this.impl.zeroSharedMemory();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.zoomBy');
-          const result = this.impl.zoomBy(params.delta, params.anchor);
+          const result = this.impl.zoomBy(params.arg_delta, params.arg_anchor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] ZoomBy FAILED:', e));
           }
@@ -756,44 +761,44 @@ blink.mojom.SynchronousCompositorReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMemoryPolicy');
-          const result = this.impl.setMemoryPolicy(params.bytes_limit);
+          const result = this.impl.setMemoryPolicy(params.arg_bytes_limit);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reclaimResources');
-          const result = this.impl.reclaimResources(params.layer_tree_frame_sink_id, params.resources);
+          const result = this.impl.reclaimResources(params.arg_layer_tree_frame_sink_id, params.arg_resources);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCompositorFrameTransitionDirectiveProcessed');
-          const result = this.impl.onCompositorFrameTransitionDirectiveProcessed(params.layer_tree_frame_sink_id, params.sequence_id);
+          const result = this.impl.onCompositorFrameTransitionDirectiveProcessed(params.arg_layer_tree_frame_sink_id, params.arg_sequence_id);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setScroll');
-          const result = this.impl.setScroll(params.offset);
+          const result = this.impl.setScroll(params.arg_offset);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.beginFrame');
-          const result = this.impl.beginFrame(params.args, params.timing_details);
+          const result = this.impl.beginFrame(params.arg_args, params.arg_timing_details);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBeginFrameSourcePaused');
-          const result = this.impl.setBeginFrameSourcePaused(params.paused);
+          const result = this.impl.setBeginFrameSourcePaused(params.arg_paused);
           break;
         }
       }
@@ -804,52 +809,52 @@ blink.mojom.SynchronousCompositorReceiver = class {
   }
 };
 
-blink.mojom.SynchronousCompositorReceiver = blink.mojom.SynchronousCompositorReceiver;
+mojo.internal.bindings.blink.mojom.SynchronousCompositorReceiver = mojo.internal.bindings.blink.mojom.SynchronousCompositorReceiver;
 
-blink.mojom.SynchronousCompositorPtr = blink.mojom.SynchronousCompositorRemote;
-blink.mojom.SynchronousCompositorRequest = blink.mojom.SynchronousCompositorPendingReceiver;
+mojo.internal.bindings.blink.mojom.SynchronousCompositorPtr = mojo.internal.bindings.blink.mojom.SynchronousCompositorRemote;
+mojo.internal.bindings.blink.mojom.SynchronousCompositorRequest = mojo.internal.bindings.blink.mojom.SynchronousCompositorPendingReceiver;
 
 
 // Interface: SynchronousCompositorHost
 mojo.internal.Struct(
-    blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec, 'blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_Params', [
+    mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec, 'blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec, 'blink.mojom.SynchronousCompositorHost_UpdateState_Params', [
-      mojo.internal.StructField('params', 0, 0, blink.mojom.SyncCompositorCommonRendererParamsSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec, 'blink.mojom.SynchronousCompositorHost_UpdateState_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SyncCompositorCommonRendererParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec, 'blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_Params', [
-      mojo.internal.StructField('needs_begin_frames', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec, 'blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_Params', [
+      mojo.internal.StructField('arg_needs_begin_frames', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec, 'blink.mojom.SynchronousCompositorHost_SetThreads_Params', [
-      mojo.internal.StructField('threads', 0, 0, mojo.internal.Array(viz.mojom.ThreadSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec, 'blink.mojom.SynchronousCompositorHost_SetThreads_Params', [
+      mojo.internal.StructField('arg_threads', 0, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ThreadSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-blink.mojom.SynchronousCompositorHostPendingReceiver = class {
+mojo.internal.bindings.blink.mojom.SynchronousCompositorHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.SynchronousCompositorHostRemote = class {
+mojo.internal.bindings.blink.mojom.SynchronousCompositorHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.SynchronousCompositorHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.SynchronousCompositorHostPendingReceiver,
+      mojo.internal.bindings.blink.mojom.SynchronousCompositorHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.SynchronousCompositorHostRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.blink.mojom.SynchronousCompositorHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -862,18 +867,18 @@ blink.mojom.SynchronousCompositorHostRemote = class {
   layerTreeFrameSinkCreated() {
     return this.$.layerTreeFrameSinkCreated();
   }
-  updateState(params) {
-    return this.$.updateState(params);
+  updateState(arg_params) {
+    return this.$.updateState(arg_params);
   }
-  setNeedsBeginFrames(needs_begin_frames) {
-    return this.$.setNeedsBeginFrames(needs_begin_frames);
+  setNeedsBeginFrames(arg_needs_begin_frames) {
+    return this.$.setNeedsBeginFrames(arg_needs_begin_frames);
   }
-  setThreads(threads) {
-    return this.$.setThreads(threads);
+  setThreads(arg_threads) {
+    return this.$.setThreads(arg_threads);
   }
 };
 
-blink.mojom.SynchronousCompositorHostRemoteCallHandler = class {
+mojo.internal.bindings.blink.mojom.SynchronousCompositorHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('SynchronousCompositorHost', [
@@ -887,43 +892,43 @@ blink.mojom.SynchronousCompositorHostRemoteCallHandler = class {
   layerTreeFrameSinkCreated() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec,
       null,
       [],
       false);
   }
 
-  updateState(params) {
+  updateState(arg_params) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec,
       null,
-      [params],
+      [arg_params],
       false);
   }
 
-  setNeedsBeginFrames(needs_begin_frames) {
+  setNeedsBeginFrames(arg_needs_begin_frames) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec,
       null,
-      [needs_begin_frames],
+      [arg_needs_begin_frames],
       false);
   }
 
-  setThreads(threads) {
+  setThreads(arg_threads) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec,
       null,
-      [threads],
+      [arg_threads],
       false);
   }
 
 };
 
-blink.mojom.SynchronousCompositorHost.getRemote = function() {
-  let remote = new blink.mojom.SynchronousCompositorHostRemote();
+mojo.internal.bindings.blink.mojom.SynchronousCompositorHost.getRemote = function() {
+  let remote = new mojo.internal.bindings.blink.mojom.SynchronousCompositorHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -932,7 +937,7 @@ blink.mojom.SynchronousCompositorHost.getRemote = function() {
   return remote.$;
 };
 
-blink.mojom.SynchronousCompositorHostReceiver = class {
+mojo.internal.bindings.blink.mojom.SynchronousCompositorHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -984,7 +989,7 @@ blink.mojom.SynchronousCompositorHostReceiver = class {
         // Try Method 0: LayerTreeFrameSinkCreated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LayerTreeFrameSinkCreated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -995,7 +1000,7 @@ blink.mojom.SynchronousCompositorHostReceiver = class {
         // Try Method 1: UpdateState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateState (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1006,7 +1011,7 @@ blink.mojom.SynchronousCompositorHostReceiver = class {
         // Try Method 2: SetNeedsBeginFrames
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNeedsBeginFrames (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1017,7 +1022,7 @@ blink.mojom.SynchronousCompositorHostReceiver = class {
         // Try Method 3: SetThreads
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetThreads (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1034,30 +1039,30 @@ blink.mojom.SynchronousCompositorHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.layerTreeFrameSinkCreated');
           const result = this.impl.layerTreeFrameSinkCreated();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateState');
-          const result = this.impl.updateState(params.params);
+          const result = this.impl.updateState(params.arg_params);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNeedsBeginFrames');
-          const result = this.impl.setNeedsBeginFrames(params.needs_begin_frames);
+          const result = this.impl.setNeedsBeginFrames(params.arg_needs_begin_frames);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setThreads');
-          const result = this.impl.setThreads(params.threads);
+          const result = this.impl.setThreads(params.arg_threads);
           break;
         }
       }
@@ -1068,45 +1073,45 @@ blink.mojom.SynchronousCompositorHostReceiver = class {
   }
 };
 
-blink.mojom.SynchronousCompositorHostReceiver = blink.mojom.SynchronousCompositorHostReceiver;
+mojo.internal.bindings.blink.mojom.SynchronousCompositorHostReceiver = mojo.internal.bindings.blink.mojom.SynchronousCompositorHostReceiver;
 
-blink.mojom.SynchronousCompositorHostPtr = blink.mojom.SynchronousCompositorHostRemote;
-blink.mojom.SynchronousCompositorHostRequest = blink.mojom.SynchronousCompositorHostPendingReceiver;
+mojo.internal.bindings.blink.mojom.SynchronousCompositorHostPtr = mojo.internal.bindings.blink.mojom.SynchronousCompositorHostRemote;
+mojo.internal.bindings.blink.mojom.SynchronousCompositorHostRequest = mojo.internal.bindings.blink.mojom.SynchronousCompositorHostPendingReceiver;
 
 
 // Interface: SynchronousCompositorControlHost
 mojo.internal.Struct(
-    blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec, 'blink.mojom.SynchronousCompositorControlHost_ReturnFrame_Params', [
-      mojo.internal.StructField('local_surface_id', 0, 0, viz.mojom.LocalSurfaceIdSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('frame', 8, 0, viz.mojom.CompositorFrameSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('hit_test_region_list', 16, 0, viz.mojom.HitTestRegionListSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('layer_tree_frame_sink_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('metadata_version', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec, 'blink.mojom.SynchronousCompositorControlHost_ReturnFrame_Params', [
+      mojo.internal.StructField('arg_local_surface_id', 0, 0, mojo.internal.bindings.viz.mojom.LocalSurfaceIdSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_frame', 8, 0, mojo.internal.bindings.viz.mojom.CompositorFrameSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_hit_test_region_list', 16, 0, mojo.internal.bindings.viz.mojom.HitTestRegionListSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_layer_tree_frame_sink_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata_version', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
-    blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec, 'blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_Params', [
-      mojo.internal.StructField('params', 0, 0, blink.mojom.SyncCompositorCommonRendererParamsSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec, 'blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SyncCompositorCommonRendererParamsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-blink.mojom.SynchronousCompositorControlHostPendingReceiver = class {
+mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.SynchronousCompositorControlHostRemote = class {
+mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.SynchronousCompositorControlHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.SynchronousCompositorControlHostPendingReceiver,
+      mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.SynchronousCompositorControlHostRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1116,15 +1121,15 @@ blink.mojom.SynchronousCompositorControlHostRemote = class {
   close() {
     this.proxy.close();
   }
-  returnFrame(layer_tree_frame_sink_id, metadata_version, local_surface_id, frame, hit_test_region_list) {
-    return this.$.returnFrame(layer_tree_frame_sink_id, metadata_version, local_surface_id, frame, hit_test_region_list);
+  returnFrame(arg_layer_tree_frame_sink_id, arg_metadata_version, arg_local_surface_id, arg_frame, arg_hit_test_region_list) {
+    return this.$.returnFrame(arg_layer_tree_frame_sink_id, arg_metadata_version, arg_local_surface_id, arg_frame, arg_hit_test_region_list);
   }
-  beginFrameResponse(params) {
-    return this.$.beginFrameResponse(params);
+  beginFrameResponse(arg_params) {
+    return this.$.beginFrameResponse(arg_params);
   }
 };
 
-blink.mojom.SynchronousCompositorControlHostRemoteCallHandler = class {
+mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('SynchronousCompositorControlHost', [
@@ -1133,28 +1138,28 @@ blink.mojom.SynchronousCompositorControlHostRemoteCallHandler = class {
     ]);
   }
 
-  returnFrame(layer_tree_frame_sink_id, metadata_version, local_surface_id, frame, hit_test_region_list) {
+  returnFrame(arg_layer_tree_frame_sink_id, arg_metadata_version, arg_local_surface_id, arg_frame, arg_hit_test_region_list) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec,
       null,
-      [layer_tree_frame_sink_id, metadata_version, local_surface_id, frame, hit_test_region_list],
+      [arg_layer_tree_frame_sink_id, arg_metadata_version, arg_local_surface_id, arg_frame, arg_hit_test_region_list],
       false);
   }
 
-  beginFrameResponse(params) {
+  beginFrameResponse(arg_params) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec,
       null,
-      [params],
+      [arg_params],
       false);
   }
 
 };
 
-blink.mojom.SynchronousCompositorControlHost.getRemote = function() {
-  let remote = new blink.mojom.SynchronousCompositorControlHostRemote();
+mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost.getRemote = function() {
+  let remote = new mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1163,7 +1168,7 @@ blink.mojom.SynchronousCompositorControlHost.getRemote = function() {
   return remote.$;
 };
 
-blink.mojom.SynchronousCompositorControlHostReceiver = class {
+mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -1213,7 +1218,7 @@ blink.mojom.SynchronousCompositorControlHostReceiver = class {
         // Try Method 0: ReturnFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReturnFrame (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1224,7 +1229,7 @@ blink.mojom.SynchronousCompositorControlHostReceiver = class {
         // Try Method 1: BeginFrameResponse
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BeginFrameResponse (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1241,16 +1246,16 @@ blink.mojom.SynchronousCompositorControlHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.returnFrame');
-          const result = this.impl.returnFrame(params.layer_tree_frame_sink_id, params.metadata_version, params.local_surface_id, params.frame, params.hit_test_region_list);
+          const result = this.impl.returnFrame(params.arg_layer_tree_frame_sink_id, params.arg_metadata_version, params.arg_local_surface_id, params.arg_frame, params.arg_hit_test_region_list);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.beginFrameResponse');
-          const result = this.impl.beginFrameResponse(params.params);
+          const result = this.impl.beginFrameResponse(params.arg_params);
           break;
         }
       }
@@ -1261,8 +1266,8 @@ blink.mojom.SynchronousCompositorControlHostReceiver = class {
   }
 };
 
-blink.mojom.SynchronousCompositorControlHostReceiver = blink.mojom.SynchronousCompositorControlHostReceiver;
+mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostReceiver = mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostReceiver;
 
-blink.mojom.SynchronousCompositorControlHostPtr = blink.mojom.SynchronousCompositorControlHostRemote;
-blink.mojom.SynchronousCompositorControlHostRequest = blink.mojom.SynchronousCompositorControlHostPendingReceiver;
+mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostPtr = mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostRemote;
+mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostRequest = mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostPendingReceiver;
 

@@ -1,176 +1,181 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/media/mojo/mojom/cdm_document_service.mojom
-// Module: media.mojom
+ // Source: chromium_src/media/mojo/mojom/cdm_document_service.mojom
+ // Module: media.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var media = media || {};
-media.mojom = media.mojom || {};
-var mojo_base = mojo_base || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-media.mojom.MediaFoundationCdmDataSpec = { $: {} };
-media.mojom.CdmDocumentService = {};
-media.mojom.CdmDocumentService.$interfaceName = 'media.mojom.CdmDocumentService';
-media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec = { $: {} };
-media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec = { $: {} };
-media.mojom.CdmDocumentService_GetStorageId_ParamsSpec = { $: {} };
-media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec = { $: {} };
-media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec = { $: {} };
-media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec = { $: {} };
-media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec = { $: {} };
-media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec = { $: {} };
-media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec = { $: {} };
-media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec = { $: {} };
+ mojo.internal.bindings.media = mojo.internal.bindings.media || {};
+mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+
+mojo.internal.bindings.media.mojom.MediaFoundationCdmDataSpec = { $: {} };
+mojo.internal.bindings.media.mojom.CdmDocumentService = {};
+mojo.internal.bindings.media.mojom.CdmDocumentService.$interfaceName = 'media.mojom.CdmDocumentService';
+mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec = { $: {} };
+mojo.internal.bindings.media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec = { $: {} };
 
 // Struct: MediaFoundationCdmData
 mojo.internal.Struct(
-    media.mojom.MediaFoundationCdmDataSpec, 'media.mojom.MediaFoundationCdmData', [
-      mojo.internal.StructField('origin_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('client_token', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('cdm_store_path_root', 16, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.media.mojom.MediaFoundationCdmDataSpec, 'media.mojom.MediaFoundationCdmData', [
+      mojo.internal.StructField('arg_origin_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_token', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_cdm_store_path_root', 16, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Interface: CdmDocumentService
 mojo.internal.Struct(
-    media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec, 'media.mojom.CdmDocumentService_ChallengePlatform_Params', [
-      mojo.internal.StructField('service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('challenge', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec, 'media.mojom.CdmDocumentService_ChallengePlatform_Params', [
+      mojo.internal.StructField('arg_service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_challenge', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec, 'media.mojom.CdmDocumentService_ChallengePlatform_ResponseParams', [
-      mojo.internal.StructField('signed_data', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('signed_data_signature', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('platform_key_certificate', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('success', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec, 'media.mojom.CdmDocumentService_ChallengePlatform_ResponseParams', [
+      mojo.internal.StructField('arg_signed_data', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_signed_data_signature', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_platform_key_certificate', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_success', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
-    media.mojom.CdmDocumentService_GetStorageId_ParamsSpec, 'media.mojom.CdmDocumentService_GetStorageId_Params', [
-      mojo.internal.StructField('version', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ParamsSpec, 'media.mojom.CdmDocumentService_GetStorageId_Params', [
+      mojo.internal.StructField('arg_version', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec, 'media.mojom.CdmDocumentService_GetStorageId_ResponseParams', [
-      mojo.internal.StructField('storage_id', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('version', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec, 'media.mojom.CdmDocumentService_GetStorageId_ResponseParams', [
+      mojo.internal.StructField('arg_storage_id', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_version', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec, 'media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_Params', [
+    mojo.internal.bindings.media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec, 'media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec, 'media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParams', [
-      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec, 'media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParams', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec, 'media.mojom.CdmDocumentService_GetMediaFoundationCdmData_Params', [
+    mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec, 'media.mojom.CdmDocumentService_GetMediaFoundationCdmData_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec, 'media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParams', [
-      mojo.internal.StructField('cdm_data', 0, 0, media.mojom.MediaFoundationCdmDataSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec, 'media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParams', [
+      mojo.internal.StructField('arg_cdm_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.MediaFoundationCdmDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec, 'media.mojom.CdmDocumentService_SetCdmClientToken_Params', [
-      mojo.internal.StructField('client_token', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    mojo.internal.bindings.media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec, 'media.mojom.CdmDocumentService_SetCdmClientToken_Params', [
+      mojo.internal.StructField('arg_client_token', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec, 'media.mojom.CdmDocumentService_OnCdmEvent_Params', [
-      mojo.internal.StructField('event', 0, 0, media.mojom.CdmEventSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('hresult', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec, 'media.mojom.CdmDocumentService_OnCdmEvent_Params', [
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.media.mojom.CdmEventSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_hresult', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
-media.mojom.CdmDocumentServicePendingReceiver = class {
+mojo.internal.bindings.media.mojom.CdmDocumentServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media.mojom.CdmDocumentServiceRemote = class {
+mojo.internal.bindings.media.mojom.CdmDocumentServiceRemote = class {
   static get $interfaceName() {
     return 'media.mojom.CdmDocumentService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media.mojom.CdmDocumentServicePendingReceiver,
+      mojo.internal.bindings.media.mojom.CdmDocumentServicePendingReceiver,
       handle);
-    this.$ = new media.mojom.CdmDocumentServiceRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.media.mojom.CdmDocumentServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -180,11 +185,11 @@ media.mojom.CdmDocumentServiceRemote = class {
   close() {
     this.proxy.close();
   }
-  challengePlatform(service_id, challenge) {
-    return this.$.challengePlatform(service_id, challenge);
+  challengePlatform(arg_service_id, arg_challenge) {
+    return this.$.challengePlatform(arg_service_id, arg_challenge);
   }
-  getStorageId(version) {
-    return this.$.getStorageId(version);
+  getStorageId(arg_version) {
+    return this.$.getStorageId(arg_version);
   }
   isVerifiedAccessEnabled() {
     return this.$.isVerifiedAccessEnabled();
@@ -192,15 +197,15 @@ media.mojom.CdmDocumentServiceRemote = class {
   getMediaFoundationCdmData() {
     return this.$.getMediaFoundationCdmData();
   }
-  setCdmClientToken(client_token) {
-    return this.$.setCdmClientToken(client_token);
+  setCdmClientToken(arg_client_token) {
+    return this.$.setCdmClientToken(arg_client_token);
   }
-  onCdmEvent(event, hresult) {
-    return this.$.onCdmEvent(event, hresult);
+  onCdmEvent(arg_event, arg_hresult) {
+    return this.$.onCdmEvent(arg_event, arg_hresult);
   }
 };
 
-media.mojom.CdmDocumentServiceRemoteCallHandler = class {
+mojo.internal.bindings.media.mojom.CdmDocumentServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('CdmDocumentService', [
@@ -213,29 +218,29 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
     ]);
   }
 
-  challengePlatform(service_id, challenge) {
+  challengePlatform(arg_service_id, arg_challenge) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec,
-      media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec,
-      [service_id, challenge],
+      mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec,
+      mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec,
+      [arg_service_id, arg_challenge],
       false);
   }
 
-  getStorageId(version) {
+  getStorageId(arg_version) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      media.mojom.CdmDocumentService_GetStorageId_ParamsSpec,
-      media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec,
-      [version],
+      mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ParamsSpec,
+      mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec,
+      [arg_version],
       false);
   }
 
   isVerifiedAccessEnabled() {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec,
-      media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec,
+      mojo.internal.bindings.media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec,
+      mojo.internal.bindings.media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec,
       [],
       false);
   }
@@ -243,34 +248,34 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
   getMediaFoundationCdmData() {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec,
-      media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec,
+      mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec,
+      mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec,
       [],
       false);
   }
 
-  setCdmClientToken(client_token) {
+  setCdmClientToken(arg_client_token) {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
-      media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec,
+      mojo.internal.bindings.media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec,
       null,
-      [client_token],
+      [arg_client_token],
       false);
   }
 
-  onCdmEvent(event, hresult) {
+  onCdmEvent(arg_event, arg_hresult) {
     return this.proxy.sendMessage(
       this.ordinals[5],  // ordinal
-      media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec,
+      mojo.internal.bindings.media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec,
       null,
-      [event, hresult],
+      [arg_event, arg_hresult],
       false);
   }
 
 };
 
-media.mojom.CdmDocumentService.getRemote = function() {
-  let remote = new media.mojom.CdmDocumentServiceRemote();
+mojo.internal.bindings.media.mojom.CdmDocumentService.getRemote = function() {
+  let remote = new mojo.internal.bindings.media.mojom.CdmDocumentServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -279,7 +284,7 @@ media.mojom.CdmDocumentService.getRemote = function() {
   return remote.$;
 };
 
-media.mojom.CdmDocumentServiceReceiver = class {
+mojo.internal.bindings.media.mojom.CdmDocumentServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -333,7 +338,7 @@ media.mojom.CdmDocumentServiceReceiver = class {
         // Try Method 0: ChallengePlatform
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ChallengePlatform (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -344,7 +349,7 @@ media.mojom.CdmDocumentServiceReceiver = class {
         // Try Method 1: GetStorageId
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.CdmDocumentService_GetStorageId_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStorageId (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -355,7 +360,7 @@ media.mojom.CdmDocumentServiceReceiver = class {
         // Try Method 2: IsVerifiedAccessEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsVerifiedAccessEnabled (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -366,7 +371,7 @@ media.mojom.CdmDocumentServiceReceiver = class {
         // Try Method 3: GetMediaFoundationCdmData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMediaFoundationCdmData (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -377,7 +382,7 @@ media.mojom.CdmDocumentServiceReceiver = class {
         // Try Method 4: SetCdmClientToken
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCdmClientToken (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -388,7 +393,7 @@ media.mojom.CdmDocumentServiceReceiver = class {
         // Try Method 5: OnCdmEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCdmEvent (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -405,14 +410,14 @@ media.mojom.CdmDocumentServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.challengePlatform');
-          const result = this.impl.challengePlatform(params.service_id, params.challenge);
+          const result = this.impl.challengePlatform(params.arg_service_id, params.arg_challenge);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] ChallengePlatform FAILED:', e));
           }
@@ -420,14 +425,14 @@ media.mojom.CdmDocumentServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.CdmDocumentService_GetStorageId_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getStorageId');
-          const result = this.impl.getStorageId(params.version);
+          const result = this.impl.getStorageId(params.arg_version);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetStorageId FAILED:', e));
           }
@@ -435,14 +440,14 @@ media.mojom.CdmDocumentServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isVerifiedAccessEnabled');
           const result = this.impl.isVerifiedAccessEnabled();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] IsVerifiedAccessEnabled FAILED:', e));
           }
@@ -450,14 +455,14 @@ media.mojom.CdmDocumentServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMediaFoundationCdmData');
           const result = this.impl.getMediaFoundationCdmData();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetMediaFoundationCdmData FAILED:', e));
           }
@@ -465,16 +470,16 @@ media.mojom.CdmDocumentServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCdmClientToken');
-          const result = this.impl.setCdmClientToken(params.client_token);
+          const result = this.impl.setCdmClientToken(params.arg_client_token);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCdmEvent');
-          const result = this.impl.onCdmEvent(params.event, params.hresult);
+          const result = this.impl.onCdmEvent(params.arg_event, params.arg_hresult);
           break;
         }
       }
@@ -485,8 +490,8 @@ media.mojom.CdmDocumentServiceReceiver = class {
   }
 };
 
-media.mojom.CdmDocumentServiceReceiver = media.mojom.CdmDocumentServiceReceiver;
+mojo.internal.bindings.media.mojom.CdmDocumentServiceReceiver = mojo.internal.bindings.media.mojom.CdmDocumentServiceReceiver;
 
-media.mojom.CdmDocumentServicePtr = media.mojom.CdmDocumentServiceRemote;
-media.mojom.CdmDocumentServiceRequest = media.mojom.CdmDocumentServicePendingReceiver;
+mojo.internal.bindings.media.mojom.CdmDocumentServicePtr = mojo.internal.bindings.media.mojom.CdmDocumentServiceRemote;
+mojo.internal.bindings.media.mojom.CdmDocumentServiceRequest = mojo.internal.bindings.media.mojom.CdmDocumentServicePendingReceiver;
 

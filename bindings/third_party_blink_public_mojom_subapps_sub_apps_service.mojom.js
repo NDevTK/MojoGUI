@@ -1,184 +1,189 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/third_party/blink/public/mojom/subapps/sub_apps_service.mojom
-// Module: blink.mojom
+ // Source: chromium_src/third_party/blink/public/mojom/subapps/sub_apps_service.mojom
+ // Module: blink.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var blink = blink || {};
-blink.mojom = blink.mojom || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-blink.mojom.SubAppsServiceResultCodeSpec = { $: mojo.internal.Enum() };
-blink.mojom.SubAppsServiceAddParametersSpec = { $: {} };
-blink.mojom.SubAppsServiceAddResultSpec = { $: {} };
-blink.mojom.SubAppsServiceListResultSpec = { $: {} };
-blink.mojom.SubAppsServiceListResultEntrySpec = { $: {} };
-blink.mojom.SubAppsServiceRemoveResultSpec = { $: {} };
-blink.mojom.SubAppsService = {};
-blink.mojom.SubAppsService.$interfaceName = 'blink.mojom.SubAppsService';
-blink.mojom.SubAppsService_Add_ParamsSpec = { $: {} };
-blink.mojom.SubAppsService_Add_ResponseParamsSpec = { $: {} };
-blink.mojom.SubAppsService_List_ParamsSpec = { $: {} };
-blink.mojom.SubAppsService_List_ResponseParamsSpec = { $: {} };
-blink.mojom.SubAppsService_Remove_ParamsSpec = { $: {} };
-blink.mojom.SubAppsService_Remove_ResponseParamsSpec = { $: {} };
+ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+
+mojo.internal.bindings.blink.mojom.SubAppsServiceResultCodeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.SubAppsServiceAddParametersSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SubAppsServiceAddResultSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SubAppsServiceListResultSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SubAppsServiceListResultEntrySpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SubAppsServiceRemoveResultSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SubAppsService = {};
+mojo.internal.bindings.blink.mojom.SubAppsService.$interfaceName = 'blink.mojom.SubAppsService';
+mojo.internal.bindings.blink.mojom.SubAppsService_Add_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SubAppsService_Add_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SubAppsService_List_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SubAppsService_List_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ResponseParamsSpec = { $: {} };
 
 // Enum: SubAppsServiceResultCode
-blink.mojom.SubAppsServiceResultCode = {
+mojo.internal.bindings.blink.mojom.SubAppsServiceResultCode = {
   kSuccess: 0,
   kFailure: 1,
 };
 
 // Struct: SubAppsServiceAddParameters
 mojo.internal.Struct(
-    blink.mojom.SubAppsServiceAddParametersSpec, 'blink.mojom.SubAppsServiceAddParameters', [
-      mojo.internal.StructField('manifest_id_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('install_url_path', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SubAppsServiceAddParametersSpec, 'blink.mojom.SubAppsServiceAddParameters', [
+      mojo.internal.StructField('arg_manifest_id_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_install_url_path', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: SubAppsServiceAddResult
 mojo.internal.Struct(
-    blink.mojom.SubAppsServiceAddResultSpec, 'blink.mojom.SubAppsServiceAddResult', [
-      mojo.internal.StructField('manifest_id_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('result_code', 8, 0, blink.mojom.SubAppsServiceResultCodeSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SubAppsServiceAddResultSpec, 'blink.mojom.SubAppsServiceAddResult', [
+      mojo.internal.StructField('arg_manifest_id_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result_code', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SubAppsServiceResultCodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: SubAppsServiceListResult
 mojo.internal.Struct(
-    blink.mojom.SubAppsServiceListResultSpec, 'blink.mojom.SubAppsServiceListResult', [
-      mojo.internal.StructField('result_code', 0, 0, blink.mojom.SubAppsServiceResultCodeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('sub_apps_list', 8, 0, mojo.internal.Array(blink.mojom.SubAppsServiceListResultEntrySpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SubAppsServiceListResultSpec, 'blink.mojom.SubAppsServiceListResult', [
+      mojo.internal.StructField('arg_result_code', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SubAppsServiceResultCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sub_apps_list', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SubAppsServiceListResultEntrySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: SubAppsServiceListResultEntry
 mojo.internal.Struct(
-    blink.mojom.SubAppsServiceListResultEntrySpec, 'blink.mojom.SubAppsServiceListResultEntry', [
-      mojo.internal.StructField('manifest_id_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('app_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SubAppsServiceListResultEntrySpec, 'blink.mojom.SubAppsServiceListResultEntry', [
+      mojo.internal.StructField('arg_manifest_id_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_app_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: SubAppsServiceRemoveResult
 mojo.internal.Struct(
-    blink.mojom.SubAppsServiceRemoveResultSpec, 'blink.mojom.SubAppsServiceRemoveResult', [
-      mojo.internal.StructField('manifest_id_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('result_code', 8, 0, blink.mojom.SubAppsServiceResultCodeSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SubAppsServiceRemoveResultSpec, 'blink.mojom.SubAppsServiceRemoveResult', [
+      mojo.internal.StructField('arg_manifest_id_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result_code', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SubAppsServiceResultCodeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: SubAppsService
 mojo.internal.Struct(
-    blink.mojom.SubAppsService_Add_ParamsSpec, 'blink.mojom.SubAppsService_Add_Params', [
-      mojo.internal.StructField('sub_apps_to_add', 0, 0, mojo.internal.Array(blink.mojom.SubAppsServiceAddParametersSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SubAppsService_Add_ParamsSpec, 'blink.mojom.SubAppsService_Add_Params', [
+      mojo.internal.StructField('arg_sub_apps_to_add', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SubAppsServiceAddParametersSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    blink.mojom.SubAppsService_Add_ResponseParamsSpec, 'blink.mojom.SubAppsService_Add_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, mojo.internal.Array(blink.mojom.SubAppsServiceAddResultSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SubAppsService_Add_ResponseParamsSpec, 'blink.mojom.SubAppsService_Add_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SubAppsServiceAddResultSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    blink.mojom.SubAppsService_List_ParamsSpec, 'blink.mojom.SubAppsService_List_Params', [
+    mojo.internal.bindings.blink.mojom.SubAppsService_List_ParamsSpec, 'blink.mojom.SubAppsService_List_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    blink.mojom.SubAppsService_List_ResponseParamsSpec, 'blink.mojom.SubAppsService_List_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, blink.mojom.SubAppsServiceListResultSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SubAppsService_List_ResponseParamsSpec, 'blink.mojom.SubAppsService_List_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SubAppsServiceListResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    blink.mojom.SubAppsService_Remove_ParamsSpec, 'blink.mojom.SubAppsService_Remove_Params', [
-      mojo.internal.StructField('manifest_id_paths', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ParamsSpec, 'blink.mojom.SubAppsService_Remove_Params', [
+      mojo.internal.StructField('arg_manifest_id_paths', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    blink.mojom.SubAppsService_Remove_ResponseParamsSpec, 'blink.mojom.SubAppsService_Remove_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, mojo.internal.Array(blink.mojom.SubAppsServiceRemoveResultSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ResponseParamsSpec, 'blink.mojom.SubAppsService_Remove_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SubAppsServiceRemoveResultSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-blink.mojom.SubAppsServicePendingReceiver = class {
+mojo.internal.bindings.blink.mojom.SubAppsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.SubAppsServiceRemote = class {
+mojo.internal.bindings.blink.mojom.SubAppsServiceRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.SubAppsService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.SubAppsServicePendingReceiver,
+      mojo.internal.bindings.blink.mojom.SubAppsServicePendingReceiver,
       handle);
-    this.$ = new blink.mojom.SubAppsServiceRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.blink.mojom.SubAppsServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -188,18 +193,18 @@ blink.mojom.SubAppsServiceRemote = class {
   close() {
     this.proxy.close();
   }
-  add(sub_apps_to_add) {
-    return this.$.add(sub_apps_to_add);
+  add(arg_sub_apps_to_add) {
+    return this.$.add(arg_sub_apps_to_add);
   }
   list() {
     return this.$.list();
   }
-  remove(manifest_id_paths) {
-    return this.$.remove(manifest_id_paths);
+  remove(arg_manifest_id_paths) {
+    return this.$.remove(arg_manifest_id_paths);
   }
 };
 
-blink.mojom.SubAppsServiceRemoteCallHandler = class {
+mojo.internal.bindings.blink.mojom.SubAppsServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('SubAppsService', [
@@ -209,37 +214,37 @@ blink.mojom.SubAppsServiceRemoteCallHandler = class {
     ]);
   }
 
-  add(sub_apps_to_add) {
+  add(arg_sub_apps_to_add) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      blink.mojom.SubAppsService_Add_ParamsSpec,
-      blink.mojom.SubAppsService_Add_ResponseParamsSpec,
-      [sub_apps_to_add],
+      mojo.internal.bindings.blink.mojom.SubAppsService_Add_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.SubAppsService_Add_ResponseParamsSpec,
+      [arg_sub_apps_to_add],
       false);
   }
 
   list() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      blink.mojom.SubAppsService_List_ParamsSpec,
-      blink.mojom.SubAppsService_List_ResponseParamsSpec,
+      mojo.internal.bindings.blink.mojom.SubAppsService_List_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.SubAppsService_List_ResponseParamsSpec,
       [],
       false);
   }
 
-  remove(manifest_id_paths) {
+  remove(arg_manifest_id_paths) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      blink.mojom.SubAppsService_Remove_ParamsSpec,
-      blink.mojom.SubAppsService_Remove_ResponseParamsSpec,
-      [manifest_id_paths],
+      mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ResponseParamsSpec,
+      [arg_manifest_id_paths],
       false);
   }
 
 };
 
-blink.mojom.SubAppsService.getRemote = function() {
-  let remote = new blink.mojom.SubAppsServiceRemote();
+mojo.internal.bindings.blink.mojom.SubAppsService.getRemote = function() {
+  let remote = new mojo.internal.bindings.blink.mojom.SubAppsServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -248,7 +253,7 @@ blink.mojom.SubAppsService.getRemote = function() {
   return remote.$;
 };
 
-blink.mojom.SubAppsServiceReceiver = class {
+mojo.internal.bindings.blink.mojom.SubAppsServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -299,7 +304,7 @@ blink.mojom.SubAppsServiceReceiver = class {
         // Try Method 0: Add
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.SubAppsService_Add_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SubAppsService_Add_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Add (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -310,7 +315,7 @@ blink.mojom.SubAppsServiceReceiver = class {
         // Try Method 1: List
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.SubAppsService_List_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SubAppsService_List_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> List (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -321,7 +326,7 @@ blink.mojom.SubAppsServiceReceiver = class {
         // Try Method 2: Remove
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.SubAppsService_Remove_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Remove (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -338,14 +343,14 @@ blink.mojom.SubAppsServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SubAppsService_Add_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SubAppsService_Add_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.add');
-          const result = this.impl.add(params.sub_apps_to_add);
+          const result = this.impl.add(params.arg_sub_apps_to_add);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SubAppsService_Add_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.SubAppsService_Add_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] Add FAILED:', e));
           }
@@ -353,14 +358,14 @@ blink.mojom.SubAppsServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SubAppsService_List_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SubAppsService_List_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.list');
           const result = this.impl.list();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SubAppsService_List_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.SubAppsService_List_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] List FAILED:', e));
           }
@@ -368,14 +373,14 @@ blink.mojom.SubAppsServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SubAppsService_Remove_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.remove');
-          const result = this.impl.remove(params.manifest_id_paths);
+          const result = this.impl.remove(params.arg_manifest_id_paths);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, blink.mojom.SubAppsService_Remove_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] Remove FAILED:', e));
           }
@@ -389,8 +394,8 @@ blink.mojom.SubAppsServiceReceiver = class {
   }
 };
 
-blink.mojom.SubAppsServiceReceiver = blink.mojom.SubAppsServiceReceiver;
+mojo.internal.bindings.blink.mojom.SubAppsServiceReceiver = mojo.internal.bindings.blink.mojom.SubAppsServiceReceiver;
 
-blink.mojom.SubAppsServicePtr = blink.mojom.SubAppsServiceRemote;
-blink.mojom.SubAppsServiceRequest = blink.mojom.SubAppsServicePendingReceiver;
+mojo.internal.bindings.blink.mojom.SubAppsServicePtr = mojo.internal.bindings.blink.mojom.SubAppsServiceRemote;
+mojo.internal.bindings.blink.mojom.SubAppsServiceRequest = mojo.internal.bindings.blink.mojom.SubAppsServicePendingReceiver;
 

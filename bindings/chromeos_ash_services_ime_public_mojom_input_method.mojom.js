@@ -1,141 +1,146 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/chromeos/ash/services/ime/public/mojom/input_method.mojom
-// Module: ash.ime.mojom
+ // Source: chromium_src/chromeos/ash/services/ime/public/mojom/input_method.mojom
+ // Module: ash.ime.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var ash = ash || {};
-ash.ime = ash.ime || {};
-ash.ime.mojom = ash.ime.mojom || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-ash.ime.mojom.KeyEventTypeSpec = { $: mojo.internal.Enum() };
-ash.ime.mojom.NamedDomKeySpec = { $: mojo.internal.Enum() };
-ash.ime.mojom.DomCodeSpec = { $: mojo.internal.Enum() };
-ash.ime.mojom.KeyEventResultSpec = { $: mojo.internal.Enum() };
-ash.ime.mojom.InputFieldTypeSpec = { $: mojo.internal.Enum() };
-ash.ime.mojom.AutocorrectModeSpec = { $: mojo.internal.Enum() };
-ash.ime.mojom.PersonalizationModeSpec = { $: mojo.internal.Enum() };
-ash.ime.mojom.TextPredictionModeSpec = { $: mojo.internal.Enum() };
-ash.ime.mojom.KoreanLayoutSpec = { $: mojo.internal.Enum() };
-ash.ime.mojom.PinyinLayoutSpec = { $: mojo.internal.Enum() };
-ash.ime.mojom.InputModeSpec = { $: mojo.internal.Enum() };
-ash.ime.mojom.PunctuationStyleSpec = { $: mojo.internal.Enum() };
-ash.ime.mojom.SymbolStyleSpec = { $: mojo.internal.Enum() };
-ash.ime.mojom.SpaceInputStyleSpec = { $: mojo.internal.Enum() };
-ash.ime.mojom.SelectionShortcutSpec = { $: mojo.internal.Enum() };
-ash.ime.mojom.KeymapStyleSpec = { $: mojo.internal.Enum() };
-ash.ime.mojom.ShiftKeyModeStyleSpec = { $: mojo.internal.Enum() };
-ash.ime.mojom.ZhuyinLayoutSpec = { $: mojo.internal.Enum() };
-ash.ime.mojom.ZhuyinSelectionKeysSpec = { $: mojo.internal.Enum() };
-ash.ime.mojom.ChineseLanguageModeSpec = { $: mojo.internal.Enum() };
-ash.ime.mojom.JapaneseInputModeSpec = { $: mojo.internal.Enum() };
-ash.ime.mojom.SuggestionModeSpec = { $: mojo.internal.Enum() };
-ash.ime.mojom.SuggestionTypeSpec = { $: mojo.internal.Enum() };
-ash.ime.mojom.AssistiveWindowTypeSpec = { $: mojo.internal.Enum() };
-ash.ime.mojom.AutocorrectSuggestionProviderSpec = { $: mojo.internal.Enum() };
-ash.ime.mojom.DomKeySpec = { $: {} };
-ash.ime.mojom.InputMethodSettingsSpec = { $: {} };
-ash.ime.mojom.InputMethodQuickSettingsSpec = { $: {} };
-ash.ime.mojom.ModifierStateSpec = { $: {} };
-ash.ime.mojom.PhysicalKeyEventSpec = { $: {} };
-ash.ime.mojom.SelectionRangeSpec = { $: {} };
-ash.ime.mojom.InputFieldInfoSpec = { $: {} };
-ash.ime.mojom.KoreanSettingsSpec = { $: {} };
-ash.ime.mojom.LatinSettingsSpec = { $: {} };
-ash.ime.mojom.FuzzyPinyinSettingsSpec = { $: {} };
-ash.ime.mojom.PinyinSettingsSpec = { $: {} };
-ash.ime.mojom.JapaneseSettingsSpec = { $: {} };
-ash.ime.mojom.ZhuyinSettingsSpec = { $: {} };
-ash.ime.mojom.ChineseQuickSettingsSpec = { $: {} };
-ash.ime.mojom.JapaneseQuickSettingsSpec = { $: {} };
-ash.ime.mojom.SuggestionCandidateSpec = { $: {} };
-ash.ime.mojom.InputMethodMetadataSpec = { $: {} };
-ash.ime.mojom.AssistiveWindowSpec = { $: {} };
-ash.ime.mojom.VietnameseTelexSettingsSpec = { $: {} };
-ash.ime.mojom.VietnameseVniSettingsSpec = { $: {} };
-ash.ime.mojom.InputMethod = {};
-ash.ime.mojom.InputMethod.$interfaceName = 'ash.ime.mojom.InputMethod';
-ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec = { $: {} };
-ash.ime.mojom.InputMethod_OnFocus_ParamsSpec = { $: {} };
-ash.ime.mojom.InputMethod_OnFocus_ResponseParamsSpec = { $: {} };
-ash.ime.mojom.InputMethod_OnBlur_ParamsSpec = { $: {} };
-ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec = { $: {} };
-ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParamsSpec = { $: {} };
-ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec = { $: {} };
-ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec = { $: {} };
-ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec = { $: {} };
-ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec = { $: {} };
-ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec = { $: {} };
-ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParamsSpec = { $: {} };
-ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec = { $: {} };
+ mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.ime = mojo.internal.bindings.ash.ime || {};
+mojo.internal.bindings.ash.ime.mojom = mojo.internal.bindings.ash.ime.mojom || {};
+
+mojo.internal.bindings.ash.ime.mojom.KeyEventTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.NamedDomKeySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.DomCodeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.KeyEventResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.InputFieldTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.AutocorrectModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.PersonalizationModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.TextPredictionModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.KoreanLayoutSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.PinyinLayoutSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.InputModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.PunctuationStyleSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.SymbolStyleSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.SpaceInputStyleSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.SelectionShortcutSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.KeymapStyleSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.ShiftKeyModeStyleSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.ZhuyinLayoutSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.ZhuyinSelectionKeysSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.ChineseLanguageModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.JapaneseInputModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.SuggestionModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.SuggestionTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.AssistiveWindowTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.AutocorrectSuggestionProviderSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.ime.mojom.DomKeySpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.InputMethodSettingsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.InputMethodQuickSettingsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.ModifierStateSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.PhysicalKeyEventSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.SelectionRangeSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.InputFieldInfoSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.KoreanSettingsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.LatinSettingsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.FuzzyPinyinSettingsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.PinyinSettingsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.JapaneseSettingsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.ZhuyinSettingsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.ChineseQuickSettingsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.JapaneseQuickSettingsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.SuggestionCandidateSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.InputMethodMetadataSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.AssistiveWindowSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.VietnameseTelexSettingsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.VietnameseVniSettingsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.InputMethod = {};
+mojo.internal.bindings.ash.ime.mojom.InputMethod.$interfaceName = 'ash.ime.mojom.InputMethod';
+mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.InputMethod_OnBlur_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec = { $: {} };
 
 // Enum: KeyEventType
-ash.ime.mojom.KeyEventType = {
+mojo.internal.bindings.ash.ime.mojom.KeyEventType = {
   kKeyDown: 0,
   kKeyUp: 1,
 };
 
 // Enum: NamedDomKey
-ash.ime.mojom.NamedDomKey = {
+mojo.internal.bindings.ash.ime.mojom.NamedDomKey = {
   kOther: 0,
   kAlt: 1,
   kAltGraph: 2,
@@ -181,7 +186,7 @@ ash.ime.mojom.NamedDomKey = {
 };
 
 // Enum: DomCode
-ash.ime.mojom.DomCode = {
+mojo.internal.bindings.ash.ime.mojom.DomCode = {
   kOther: 0,
   kBackquote: 1,
   kBackslash: 2,
@@ -274,13 +279,13 @@ ash.ime.mojom.DomCode = {
 };
 
 // Enum: KeyEventResult
-ash.ime.mojom.KeyEventResult = {
+mojo.internal.bindings.ash.ime.mojom.KeyEventResult = {
   kNeedsHandlingBySystem: 0,
   kConsumedByIme: 1,
 };
 
 // Enum: InputFieldType
-ash.ime.mojom.InputFieldType = {
+mojo.internal.bindings.ash.ime.mojom.InputFieldType = {
   kNoIME: 0,
   kText: 1,
   kSearch: 2,
@@ -292,25 +297,25 @@ ash.ime.mojom.InputFieldType = {
 };
 
 // Enum: AutocorrectMode
-ash.ime.mojom.AutocorrectMode = {
+mojo.internal.bindings.ash.ime.mojom.AutocorrectMode = {
   kDisabled: 0,
   kEnabled: 1,
 };
 
 // Enum: PersonalizationMode
-ash.ime.mojom.PersonalizationMode = {
+mojo.internal.bindings.ash.ime.mojom.PersonalizationMode = {
   kDisabled: 0,
   kEnabled: 1,
 };
 
 // Enum: TextPredictionMode
-ash.ime.mojom.TextPredictionMode = {
+mojo.internal.bindings.ash.ime.mojom.TextPredictionMode = {
   kDisabled: 0,
   kEnabled: 1,
 };
 
 // Enum: KoreanLayout
-ash.ime.mojom.KoreanLayout = {
+mojo.internal.bindings.ash.ime.mojom.KoreanLayout = {
   kDubeolsik: 0,
   kDubeolsikOldHangeul: 1,
   kSebeolsik390: 2,
@@ -323,21 +328,21 @@ ash.ime.mojom.KoreanLayout = {
 };
 
 // Enum: PinyinLayout
-ash.ime.mojom.PinyinLayout = {
+mojo.internal.bindings.ash.ime.mojom.PinyinLayout = {
   kUsQwerty: 0,
   kDvorak: 1,
   kColemak: 2,
 };
 
 // Enum: InputMode
-ash.ime.mojom.InputMode = {
+mojo.internal.bindings.ash.ime.mojom.InputMode = {
   kUnspecified: 0,
   kRomaji: 1,
   kKana: 2,
 };
 
 // Enum: PunctuationStyle
-ash.ime.mojom.PunctuationStyle = {
+mojo.internal.bindings.ash.ime.mojom.PunctuationStyle = {
   kUnspecified: 0,
   kKutenTouten: 1,
   kCommaPeriod: 2,
@@ -346,7 +351,7 @@ ash.ime.mojom.PunctuationStyle = {
 };
 
 // Enum: SymbolStyle
-ash.ime.mojom.SymbolStyle = {
+mojo.internal.bindings.ash.ime.mojom.SymbolStyle = {
   kUnspecified: 0,
   kCornerBracketMiddleDot: 1,
   kSquareBracketSlash: 2,
@@ -355,7 +360,7 @@ ash.ime.mojom.SymbolStyle = {
 };
 
 // Enum: SpaceInputStyle
-ash.ime.mojom.SpaceInputStyle = {
+mojo.internal.bindings.ash.ime.mojom.SpaceInputStyle = {
   kUnspecified: 0,
   kInputMode: 1,
   kFullWidth: 2,
@@ -363,7 +368,7 @@ ash.ime.mojom.SpaceInputStyle = {
 };
 
 // Enum: SelectionShortcut
-ash.ime.mojom.SelectionShortcut = {
+mojo.internal.bindings.ash.ime.mojom.SelectionShortcut = {
   kUnspecified: 0,
   kDigits123456789: 1,
   kAsdfghjkl: 2,
@@ -371,7 +376,7 @@ ash.ime.mojom.SelectionShortcut = {
 };
 
 // Enum: KeymapStyle
-ash.ime.mojom.KeymapStyle = {
+mojo.internal.bindings.ash.ime.mojom.KeymapStyle = {
   kUnspecified: 0,
   kCustom: 1,
   kAtok: 2,
@@ -382,7 +387,7 @@ ash.ime.mojom.KeymapStyle = {
 };
 
 // Enum: ShiftKeyModeStyle
-ash.ime.mojom.ShiftKeyModeStyle = {
+mojo.internal.bindings.ash.ime.mojom.ShiftKeyModeStyle = {
   kUnspecified: 0,
   kOff: 1,
   kAlphanumeric: 2,
@@ -390,14 +395,14 @@ ash.ime.mojom.ShiftKeyModeStyle = {
 };
 
 // Enum: ZhuyinLayout
-ash.ime.mojom.ZhuyinLayout = {
+mojo.internal.bindings.ash.ime.mojom.ZhuyinLayout = {
   kStandard: 0,
   kIbm: 1,
   kEten: 2,
 };
 
 // Enum: ZhuyinSelectionKeys
-ash.ime.mojom.ZhuyinSelectionKeys = {
+mojo.internal.bindings.ash.ime.mojom.ZhuyinSelectionKeys = {
   k1234567890: 0,
   kAsdfghjkl: 1,
   kAsdfzxcv89: 2,
@@ -406,13 +411,13 @@ ash.ime.mojom.ZhuyinSelectionKeys = {
 };
 
 // Enum: ChineseLanguageMode
-ash.ime.mojom.ChineseLanguageMode = {
+mojo.internal.bindings.ash.ime.mojom.ChineseLanguageMode = {
   kChinese: 0,
   kRaw: 1,
 };
 
 // Enum: JapaneseInputMode
-ash.ime.mojom.JapaneseInputMode = {
+mojo.internal.bindings.ash.ime.mojom.JapaneseInputMode = {
   kHiragana: 0,
   kKatakana: 1,
   kWideLatin: 2,
@@ -422,14 +427,14 @@ ash.ime.mojom.JapaneseInputMode = {
 };
 
 // Enum: SuggestionMode
-ash.ime.mojom.SuggestionMode = {
+mojo.internal.bindings.ash.ime.mojom.SuggestionMode = {
   kUnknown: 0,
   kCompletion: 1,
   kPrediction: 2,
 };
 
 // Enum: SuggestionType
-ash.ime.mojom.SuggestionType = {
+mojo.internal.bindings.ash.ime.mojom.SuggestionType = {
   kUnknown: 0,
   kAssistivePersonalInfo: 1,
   kAssistiveEmoji: 2,
@@ -439,7 +444,7 @@ ash.ime.mojom.SuggestionType = {
 };
 
 // Enum: AssistiveWindowType
-ash.ime.mojom.AssistiveWindowType = {
+mojo.internal.bindings.ash.ime.mojom.AssistiveWindowType = {
   kHidden: 0,
   kUndo: 1,
   kEmojiSuggestionDeprecated: 2,
@@ -450,7 +455,7 @@ ash.ime.mojom.AssistiveWindowType = {
 };
 
 // Enum: AutocorrectSuggestionProvider
-ash.ime.mojom.AutocorrectSuggestionProvider = {
+mojo.internal.bindings.ash.ime.mojom.AutocorrectSuggestionProvider = {
   kUnknown: 0,
   kUsEnglishPrebundled: 1,
   kUsEnglishDownloaded: 2,
@@ -460,13 +465,13 @@ ash.ime.mojom.AutocorrectSuggestionProvider = {
 
 // Union: DomKey
 mojo.internal.Union(
-    ash.ime.mojom.DomKeySpec, 'ash.ime.mojom.DomKey', {
-      'named_key': {
+    mojo.internal.bindings.ash.ime.mojom.DomKeySpec, 'ash.ime.mojom.DomKey', {
+      'arg_named_key': {
         'ordinal': 0,
-        'type': ash.ime.mojom.NamedDomKeySpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.NamedDomKeySpec.$,
         'nullable': false,
       },
-      'codepoint': {
+      'arg_codepoint': {
         'ordinal': 1,
         'type': mojo.internal.Uint32,
         'nullable': false,
@@ -475,326 +480,328 @@ mojo.internal.Union(
 
 // Union: InputMethodSettings
 mojo.internal.Union(
-    ash.ime.mojom.InputMethodSettingsSpec, 'ash.ime.mojom.InputMethodSettings', {
-      'korean_settings': {
+    mojo.internal.bindings.ash.ime.mojom.InputMethodSettingsSpec, 'ash.ime.mojom.InputMethodSettings', {
+      'arg_korean_settings': {
         'ordinal': 0,
-        'type': ash.ime.mojom.KoreanSettingsSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.KoreanSettingsSpec.$,
         'nullable': false,
       },
-      'latin_settings': {
+      'arg_latin_settings': {
         'ordinal': 1,
-        'type': ash.ime.mojom.LatinSettingsSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.LatinSettingsSpec.$,
         'nullable': false,
       },
-      'pinyin_settings': {
+      'arg_pinyin_settings': {
         'ordinal': 2,
-        'type': ash.ime.mojom.PinyinSettingsSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.PinyinSettingsSpec.$,
         'nullable': false,
       },
-      'zhuyin_settings': {
+      'arg_zhuyin_settings': {
         'ordinal': 3,
-        'type': ash.ime.mojom.ZhuyinSettingsSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.ZhuyinSettingsSpec.$,
         'nullable': false,
       },
-      'null_settings': {
+      'arg_null_settings': {
         'ordinal': 4,
         'type': mojo.internal.Bool,
         'nullable': false,
       },
-      'japanese_settings': {
+      'arg_japanese_settings': {
         'ordinal': 5,
-        'type': ash.ime.mojom.JapaneseSettingsSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.JapaneseSettingsSpec.$,
         'nullable': false,
       },
-      'vietnamese_telex_settings': {
+      'arg_vietnamese_telex_settings': {
         'ordinal': 6,
-        'type': ash.ime.mojom.VietnameseTelexSettingsSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.VietnameseTelexSettingsSpec.$,
         'nullable': false,
       },
-      'vietnamese_vni_settings': {
+      'arg_vietnamese_vni_settings': {
         'ordinal': 7,
-        'type': ash.ime.mojom.VietnameseVniSettingsSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.VietnameseVniSettingsSpec.$,
         'nullable': false,
       },
     });
 
 // Union: InputMethodQuickSettings
 mojo.internal.Union(
-    ash.ime.mojom.InputMethodQuickSettingsSpec, 'ash.ime.mojom.InputMethodQuickSettings', {
-      'chinese_settings': {
+    mojo.internal.bindings.ash.ime.mojom.InputMethodQuickSettingsSpec, 'ash.ime.mojom.InputMethodQuickSettings', {
+      'arg_chinese_settings': {
         'ordinal': 0,
-        'type': ash.ime.mojom.ChineseQuickSettingsSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.ChineseQuickSettingsSpec.$,
         'nullable': false,
       },
-      'japanese_settings': {
+      'arg_japanese_settings': {
         'ordinal': 1,
-        'type': ash.ime.mojom.JapaneseQuickSettingsSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.JapaneseQuickSettingsSpec.$,
         'nullable': false,
       },
     });
 
 // Struct: ModifierState
 mojo.internal.Struct(
-    ash.ime.mojom.ModifierStateSpec, 'ash.ime.mojom.ModifierState', [
-      mojo.internal.StructField('alt', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('alt_graph', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('caps_lock', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('control', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('meta', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('shift', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.ime.mojom.ModifierStateSpec, 'ash.ime.mojom.ModifierState', [
+      mojo.internal.StructField('arg_alt', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_alt_graph', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_caps_lock', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_control', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_meta', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_shift', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: PhysicalKeyEvent
 mojo.internal.Struct(
-    ash.ime.mojom.PhysicalKeyEventSpec, 'ash.ime.mojom.PhysicalKeyEvent', [
-      mojo.internal.StructField('type', 0, 0, ash.ime.mojom.KeyEventTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('key', 8, 0, ash.ime.mojom.DomKeySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('code', 16, 0, ash.ime.mojom.DomCodeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('modifier_state', 24, 0, ash.ime.mojom.ModifierStateSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.ime.mojom.PhysicalKeyEventSpec, 'ash.ime.mojom.PhysicalKeyEvent', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.KeyEventTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key', 8, 0, mojo.internal.bindings.ash.ime.mojom.DomKeySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_code', 16, 0, mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.DomCodeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_modifier_state', 24, 0, mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.ModifierStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: SelectionRange
 mojo.internal.Struct(
-    ash.ime.mojom.SelectionRangeSpec, 'ash.ime.mojom.SelectionRange', [
-      mojo.internal.StructField('anchor', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('focus', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.ash.ime.mojom.SelectionRangeSpec, 'ash.ime.mojom.SelectionRange', [
+      mojo.internal.StructField('arg_anchor', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_focus', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: InputFieldInfo
 mojo.internal.Struct(
-    ash.ime.mojom.InputFieldInfoSpec, 'ash.ime.mojom.InputFieldInfo', [
-      mojo.internal.StructField('type', 0, 0, ash.ime.mojom.InputFieldTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('autocorrect', 8, 0, ash.ime.mojom.AutocorrectModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('personalization', 16, 0, ash.ime.mojom.PersonalizationModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('text_prediction', 24, 0, ash.ime.mojom.TextPredictionModeSpec.$, null, false, 10, undefined),
+    mojo.internal.bindings.ash.ime.mojom.InputFieldInfoSpec, 'ash.ime.mojom.InputFieldInfo', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.InputFieldTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_autocorrect', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.AutocorrectModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_personalization', 16, 0, mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.PersonalizationModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_prediction', 24, 0, mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.TextPredictionModeSpec.$, null, false, 10, undefined),
     ],
     [[0, 32], [10, 40]]);
 
 // Struct: KoreanSettings
 mojo.internal.Struct(
-    ash.ime.mojom.KoreanSettingsSpec, 'ash.ime.mojom.KoreanSettings', [
-      mojo.internal.StructField('layout', 0, 0, ash.ime.mojom.KoreanLayoutSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('input_multiple_syllables', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.ime.mojom.KoreanSettingsSpec, 'ash.ime.mojom.KoreanSettings', [
+      mojo.internal.StructField('arg_layout', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.KoreanLayoutSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_multiple_syllables', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: LatinSettings
 mojo.internal.Struct(
-    ash.ime.mojom.LatinSettingsSpec, 'ash.ime.mojom.LatinSettings', [
-      mojo.internal.StructField('autocorrect', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('predictive_writing', 0, 1, mojo.internal.Bool, false, false, 5, undefined),
+    mojo.internal.bindings.ash.ime.mojom.LatinSettingsSpec, 'ash.ime.mojom.LatinSettings', [
+      mojo.internal.StructField('arg_autocorrect', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_predictive_writing', 0, 1, mojo.internal.Bool, false, false, 5, undefined),
     ],
     [[0, 16], [5, 16]]);
 
 // Struct: FuzzyPinyinSettings
 mojo.internal.Struct(
-    ash.ime.mojom.FuzzyPinyinSettingsSpec, 'ash.ime.mojom.FuzzyPinyinSettings', [
-      mojo.internal.StructField('an_ang', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('en_eng', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('ian_iang', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('k_g', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('r_l', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('uan_uang', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('c_ch', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('f_h', 0, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('in_ing', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('l_n', 1, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('s_sh', 1, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('z_zh', 1, 3, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.ime.mojom.FuzzyPinyinSettingsSpec, 'ash.ime.mojom.FuzzyPinyinSettings', [
+      mojo.internal.StructField('arg_an_ang', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_en_eng', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_ian_iang', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_k_g', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_r_l', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_uan_uang', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_c_ch', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_f_h', 0, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_in_ing', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_l_n', 1, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_s_sh', 1, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_z_zh', 1, 3, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: PinyinSettings
 mojo.internal.Struct(
-    ash.ime.mojom.PinyinSettingsSpec, 'ash.ime.mojom.PinyinSettings', [
-      mojo.internal.StructField('fuzzy_pinyin', 0, 0, ash.ime.mojom.FuzzyPinyinSettingsSpec.$, null, true, 6, undefined),
-      mojo.internal.StructField('layout', 8, 0, ash.ime.mojom.PinyinLayoutSpec.$, null, false, 6, undefined),
-      mojo.internal.StructField('use_hyphen_and_equals_to_page_candidates', 16, 0, mojo.internal.Bool, false, false, 6, undefined),
-      mojo.internal.StructField('use_comma_and_period_to_page_candidates', 16, 1, mojo.internal.Bool, false, false, 6, undefined),
-      mojo.internal.StructField('default_to_chinese', 16, 2, mojo.internal.Bool, false, false, 6, undefined),
-      mojo.internal.StructField('default_to_full_width_characters', 16, 3, mojo.internal.Bool, false, false, 6, undefined),
-      mojo.internal.StructField('default_to_full_width_punctuation', 16, 4, mojo.internal.Bool, false, false, 6, undefined),
+    mojo.internal.bindings.ash.ime.mojom.PinyinSettingsSpec, 'ash.ime.mojom.PinyinSettings', [
+      mojo.internal.StructField('arg_fuzzy_pinyin', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.FuzzyPinyinSettingsSpec.$, null, true, 6, undefined),
+      mojo.internal.StructField('arg_layout', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.PinyinLayoutSpec.$, null, false, 6, undefined),
+      mojo.internal.StructField('arg_use_hyphen_and_equals_to_page_candidates', 16, 0, mojo.internal.Bool, false, false, 6, undefined),
+      mojo.internal.StructField('arg_use_comma_and_period_to_page_candidates', 16, 1, mojo.internal.Bool, false, false, 6, undefined),
+      mojo.internal.StructField('arg_default_to_chinese', 16, 2, mojo.internal.Bool, false, false, 6, undefined),
+      mojo.internal.StructField('arg_default_to_full_width_characters', 16, 3, mojo.internal.Bool, false, false, 6, undefined),
+      mojo.internal.StructField('arg_default_to_full_width_punctuation', 16, 4, mojo.internal.Bool, false, false, 6, undefined),
     ],
     [[0, 8], [6, 32]]);
 
 // Struct: JapaneseSettings
 mojo.internal.Struct(
-    ash.ime.mojom.JapaneseSettingsSpec, 'ash.ime.mojom.JapaneseSettings', [
-      mojo.internal.StructField('kUnspecified', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
+    mojo.internal.bindings.ash.ime.mojom.JapaneseSettingsSpec, 'ash.ime.mojom.JapaneseSettings', [
+      mojo.internal.StructField('arg_kUnspecified', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 32]]);
 
 // Struct: ZhuyinSettings
 mojo.internal.Struct(
-    ash.ime.mojom.ZhuyinSettingsSpec, 'ash.ime.mojom.ZhuyinSettings', [
-      mojo.internal.StructField('layout', 0, 0, ash.ime.mojom.ZhuyinLayoutSpec.$, null, false, 7, undefined),
-      mojo.internal.StructField('selection_keys', 8, 0, ash.ime.mojom.ZhuyinSelectionKeysSpec.$, null, false, 7, undefined),
-      mojo.internal.StructField('page_size', 16, 0, mojo.internal.Uint32, 0, false, 7, undefined),
+    mojo.internal.bindings.ash.ime.mojom.ZhuyinSettingsSpec, 'ash.ime.mojom.ZhuyinSettings', [
+      mojo.internal.StructField('arg_layout', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.ZhuyinLayoutSpec.$, null, false, 7, undefined),
+      mojo.internal.StructField('arg_selection_keys', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.ZhuyinSelectionKeysSpec.$, null, false, 7, undefined),
+      mojo.internal.StructField('arg_page_size', 16, 0, mojo.internal.Uint32, 0, false, 7, undefined),
     ],
     [[0, 8], [7, 32]]);
 
 // Struct: ChineseQuickSettings
 mojo.internal.Struct(
-    ash.ime.mojom.ChineseQuickSettingsSpec, 'ash.ime.mojom.ChineseQuickSettings', [
-      mojo.internal.StructField('mode', 0, 0, ash.ime.mojom.ChineseLanguageModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('full_width_characters', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('full_width_punctuation', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.ime.mojom.ChineseQuickSettingsSpec, 'ash.ime.mojom.ChineseQuickSettings', [
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.ChineseLanguageModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_full_width_characters', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_full_width_punctuation', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: JapaneseQuickSettings
 mojo.internal.Struct(
-    ash.ime.mojom.JapaneseQuickSettingsSpec, 'ash.ime.mojom.JapaneseQuickSettings', [
-      mojo.internal.StructField('mode', 0, 0, ash.ime.mojom.JapaneseInputModeSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.ime.mojom.JapaneseQuickSettingsSpec, 'ash.ime.mojom.JapaneseQuickSettings', [
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.JapaneseInputModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: SuggestionCandidate
 mojo.internal.Struct(
-    ash.ime.mojom.SuggestionCandidateSpec, 'ash.ime.mojom.SuggestionCandidate', [
-      mojo.internal.StructField('mode', 0, 0, ash.ime.mojom.SuggestionModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('type', 8, 0, ash.ime.mojom.SuggestionTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('text', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('confirmed_length', 24, 0, mojo.internal.Int32, 0, false, 13, undefined),
+    mojo.internal.bindings.ash.ime.mojom.SuggestionCandidateSpec, 'ash.ime.mojom.SuggestionCandidate', [
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.SuggestionModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.SuggestionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_confirmed_length', 24, 0, mojo.internal.Int32, 0, false, 13, undefined),
     ],
     [[0, 32], [13, 40]]);
 
 // Struct: InputMethodMetadata
 mojo.internal.Struct(
-    ash.ime.mojom.InputMethodMetadataSpec, 'ash.ime.mojom.InputMethodMetadata', [
-      mojo.internal.StructField('autocorrect_suggestion_provider', 0, 0, ash.ime.mojom.AutocorrectSuggestionProviderSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.ime.mojom.InputMethodMetadataSpec, 'ash.ime.mojom.InputMethodMetadata', [
+      mojo.internal.StructField('arg_autocorrect_suggestion_provider', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.AutocorrectSuggestionProviderSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: AssistiveWindow
 mojo.internal.Struct(
-    ash.ime.mojom.AssistiveWindowSpec, 'ash.ime.mojom.AssistiveWindow', [
-      mojo.internal.StructField('type', 0, 0, ash.ime.mojom.AssistiveWindowTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('candidates', 8, 0, mojo.internal.Array(ash.ime.mojom.SuggestionCandidateSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.ash.ime.mojom.AssistiveWindowSpec, 'ash.ime.mojom.AssistiveWindow', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.AssistiveWindowTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_candidates', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.SuggestionCandidateSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: VietnameseTelexSettings
 mojo.internal.Struct(
-    ash.ime.mojom.VietnameseTelexSettingsSpec, 'ash.ime.mojom.VietnameseTelexSettings', [
-      mojo.internal.StructField('allow_flexible_diacritics', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('new_style_tone_mark_placement', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_insert_double_horn_on_uo', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_w_for_u_horn_shortcut', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('show_underline_for_composition_text', 0, 4, mojo.internal.Bool, false, false, 20, undefined),
+    mojo.internal.bindings.ash.ime.mojom.VietnameseTelexSettingsSpec, 'ash.ime.mojom.VietnameseTelexSettings', [
+      mojo.internal.StructField('arg_allow_flexible_diacritics', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_new_style_tone_mark_placement', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_insert_double_horn_on_uo', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_w_for_u_horn_shortcut', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_show_underline_for_composition_text', 0, 4, mojo.internal.Bool, false, false, 20, undefined),
     ],
     [[0, 16], [20, 16]]);
 
 // Struct: VietnameseVniSettings
 mojo.internal.Struct(
-    ash.ime.mojom.VietnameseVniSettingsSpec, 'ash.ime.mojom.VietnameseVniSettings', [
-      mojo.internal.StructField('allow_flexible_diacritics', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('new_style_tone_mark_placement', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_insert_double_horn_on_uo', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('show_underline_for_composition_text', 0, 3, mojo.internal.Bool, false, false, 20, undefined),
+    mojo.internal.bindings.ash.ime.mojom.VietnameseVniSettingsSpec, 'ash.ime.mojom.VietnameseVniSettings', [
+      mojo.internal.StructField('arg_allow_flexible_diacritics', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_new_style_tone_mark_placement', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_insert_double_horn_on_uo', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_show_underline_for_composition_text', 0, 3, mojo.internal.Bool, false, false, 20, undefined),
     ],
     [[0, 16], [20, 16]]);
 
 // Interface: InputMethod
 mojo.internal.Struct(
-    ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec, 'ash.ime.mojom.InputMethod_OnFocusDeprecated_Params', [
-      mojo.internal.StructField('input_field_info', 0, 0, ash.ime.mojom.InputFieldInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('settings', 8, 0, ash.ime.mojom.InputMethodSettingsSpec.$, null, true, 4, undefined),
+    mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec, 'ash.ime.mojom.InputMethod_OnFocusDeprecated_Params', [
+      mojo.internal.StructField('arg_input_field_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.InputFieldInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.ash.ime.mojom.InputMethodSettingsSpec.$, null, true, 4, undefined),
     ],
     [[0, 16], [4, 24]]);
 
 mojo.internal.Struct(
-    ash.ime.mojom.InputMethod_OnFocus_ParamsSpec, 'ash.ime.mojom.InputMethod_OnFocus_Params', [
-      mojo.internal.StructField('input_field_info', 0, 0, ash.ime.mojom.InputFieldInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('deprecated_settings', 8, 0, ash.ime.mojom.InputMethodSettingsSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ParamsSpec, 'ash.ime.mojom.InputMethod_OnFocus_Params', [
+      mojo.internal.StructField('arg_input_field_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.InputFieldInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_deprecated_settings', 8, 0, mojo.internal.bindings.ash.ime.mojom.InputMethodSettingsSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    ash.ime.mojom.InputMethod_OnFocus_ResponseParamsSpec, 'ash.ime.mojom.InputMethod_OnFocus_ResponseParams', [
-      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('metadata', 8, 0, ash.ime.mojom.InputMethodMetadataSpec.$, null, true, 17, undefined),
+    mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ResponseParamsSpec, 'ash.ime.mojom.InputMethod_OnFocus_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.InputMethodMetadataSpec.$, null, true, 17, undefined),
     ],
     [[0, 16], [17, 24]]);
 
 mojo.internal.Struct(
-    ash.ime.mojom.InputMethod_OnBlur_ParamsSpec, 'ash.ime.mojom.InputMethod_OnBlur_Params', [
+    mojo.internal.bindings.ash.ime.mojom.InputMethod_OnBlur_ParamsSpec, 'ash.ime.mojom.InputMethod_OnBlur_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec, 'ash.ime.mojom.InputMethod_ProcessKeyEvent_Params', [
-      mojo.internal.StructField('event', 0, 0, ash.ime.mojom.PhysicalKeyEventSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec, 'ash.ime.mojom.InputMethod_ProcessKeyEvent_Params', [
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.PhysicalKeyEventSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParamsSpec, 'ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.ime.mojom.KeyEventResultSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParamsSpec, 'ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.KeyEventResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec, 'ash.ime.mojom.InputMethod_OnSurroundingTextChanged_Params', [
-      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('selection_range', 8, 0, ash.ime.mojom.SelectionRangeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('offset', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec, 'ash.ime.mojom.InputMethod_OnSurroundingTextChanged_Params', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_selection_range', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.SelectionRangeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_offset', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
-    ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec, 'ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_Params', [
+    mojo.internal.bindings.ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec, 'ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec, 'ash.ime.mojom.InputMethod_OnCandidateSelected_Params', [
-      mojo.internal.StructField('selected_candidate_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec, 'ash.ime.mojom.InputMethod_OnCandidateSelected_Params', [
+      mojo.internal.StructField('arg_selected_candidate_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec, 'ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_Params', [
-      mojo.internal.StructField('settings', 0, 0, ash.ime.mojom.InputMethodQuickSettingsSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec, 'ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_Params', [
+      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.ash.ime.mojom.InputMethodQuickSettingsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec, 'ash.ime.mojom.InputMethod_IsReadyForTesting_Params', [
+    mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec, 'ash.ime.mojom.InputMethod_IsReadyForTesting_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParamsSpec, 'ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParams', [
-      mojo.internal.StructField('ready', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParamsSpec, 'ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParams', [
+      mojo.internal.StructField('arg_ready', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec, 'ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_Params', [
-      mojo.internal.StructField('window', 0, 0, ash.ime.mojom.AssistiveWindowSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec, 'ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_Params', [
+      mojo.internal.StructField('arg_window', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.ime.mojom.AssistiveWindowSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-ash.ime.mojom.InputMethodPendingReceiver = class {
+mojo.internal.bindings.ash.ime.mojom.InputMethodPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.ime.mojom.InputMethodRemote = class {
+mojo.internal.bindings.ash.ime.mojom.InputMethodRemote = class {
   static get $interfaceName() {
     return 'ash.ime.mojom.InputMethod';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.ime.mojom.InputMethodPendingReceiver,
+      mojo.internal.bindings.ash.ime.mojom.InputMethodPendingReceiver,
       handle);
-    this.$ = new ash.ime.mojom.InputMethodRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.ime.mojom.InputMethodRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -804,39 +811,39 @@ ash.ime.mojom.InputMethodRemote = class {
   close() {
     this.proxy.close();
   }
-  onFocusDeprecated(input_field_info, settings) {
-    return this.$.onFocusDeprecated(input_field_info, settings);
+  onFocusDeprecated(arg_input_field_info, arg_settings) {
+    return this.$.onFocusDeprecated(arg_input_field_info, arg_settings);
   }
-  onFocus(input_field_info, deprecated_settings) {
-    return this.$.onFocus(input_field_info, deprecated_settings);
+  onFocus(arg_input_field_info, arg_deprecated_settings) {
+    return this.$.onFocus(arg_input_field_info, arg_deprecated_settings);
   }
   onBlur() {
     return this.$.onBlur();
   }
-  processKeyEvent(event) {
-    return this.$.processKeyEvent(event);
+  processKeyEvent(arg_event) {
+    return this.$.processKeyEvent(arg_event);
   }
-  onSurroundingTextChanged(text, offset, selection_range) {
-    return this.$.onSurroundingTextChanged(text, offset, selection_range);
+  onSurroundingTextChanged(arg_text, arg_offset, arg_selection_range) {
+    return this.$.onSurroundingTextChanged(arg_text, arg_offset, arg_selection_range);
   }
   onCompositionCanceledBySystem() {
     return this.$.onCompositionCanceledBySystem();
   }
-  onCandidateSelected(selected_candidate_index) {
-    return this.$.onCandidateSelected(selected_candidate_index);
+  onCandidateSelected(arg_selected_candidate_index) {
+    return this.$.onCandidateSelected(arg_selected_candidate_index);
   }
-  onQuickSettingsUpdated(settings) {
-    return this.$.onQuickSettingsUpdated(settings);
+  onQuickSettingsUpdated(arg_settings) {
+    return this.$.onQuickSettingsUpdated(arg_settings);
   }
   isReadyForTesting() {
     return this.$.isReadyForTesting();
   }
-  onAssistiveWindowChanged(window) {
-    return this.$.onAssistiveWindowChanged(window);
+  onAssistiveWindowChanged(arg_window) {
+    return this.$.onAssistiveWindowChanged(arg_window);
   }
 };
 
-ash.ime.mojom.InputMethodRemoteCallHandler = class {
+mojo.internal.bindings.ash.ime.mojom.InputMethodRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('InputMethod', [
@@ -853,100 +860,100 @@ ash.ime.mojom.InputMethodRemoteCallHandler = class {
     ]);
   }
 
-  onFocusDeprecated(input_field_info, settings) {
+  onFocusDeprecated(arg_input_field_info, arg_settings) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec,
+      mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec,
       null,
-      [input_field_info, settings],
+      [arg_input_field_info, arg_settings],
       false);
   }
 
-  onFocus(input_field_info, deprecated_settings) {
+  onFocus(arg_input_field_info, arg_deprecated_settings) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      ash.ime.mojom.InputMethod_OnFocus_ParamsSpec,
-      ash.ime.mojom.InputMethod_OnFocus_ResponseParamsSpec,
-      [input_field_info, deprecated_settings],
+      mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ParamsSpec,
+      mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ResponseParamsSpec,
+      [arg_input_field_info, arg_deprecated_settings],
       false);
   }
 
   onBlur() {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      ash.ime.mojom.InputMethod_OnBlur_ParamsSpec,
+      mojo.internal.bindings.ash.ime.mojom.InputMethod_OnBlur_ParamsSpec,
       null,
       [],
       false);
   }
 
-  processKeyEvent(event) {
+  processKeyEvent(arg_event) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec,
-      ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParamsSpec,
-      [event],
+      mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec,
+      mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParamsSpec,
+      [arg_event],
       false);
   }
 
-  onSurroundingTextChanged(text, offset, selection_range) {
+  onSurroundingTextChanged(arg_text, arg_offset, arg_selection_range) {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
-      ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec,
+      mojo.internal.bindings.ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec,
       null,
-      [text, offset, selection_range],
+      [arg_text, arg_offset, arg_selection_range],
       false);
   }
 
   onCompositionCanceledBySystem() {
     return this.proxy.sendMessage(
       this.ordinals[5],  // ordinal
-      ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec,
+      mojo.internal.bindings.ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec,
       null,
       [],
       false);
   }
 
-  onCandidateSelected(selected_candidate_index) {
+  onCandidateSelected(arg_selected_candidate_index) {
     return this.proxy.sendMessage(
       this.ordinals[6],  // ordinal
-      ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec,
+      mojo.internal.bindings.ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec,
       null,
-      [selected_candidate_index],
+      [arg_selected_candidate_index],
       false);
   }
 
-  onQuickSettingsUpdated(settings) {
+  onQuickSettingsUpdated(arg_settings) {
     return this.proxy.sendMessage(
       this.ordinals[7],  // ordinal
-      ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec,
+      mojo.internal.bindings.ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec,
       null,
-      [settings],
+      [arg_settings],
       false);
   }
 
   isReadyForTesting() {
     return this.proxy.sendMessage(
       this.ordinals[8],  // ordinal
-      ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec,
-      ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParamsSpec,
+      mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec,
+      mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParamsSpec,
       [],
       false);
   }
 
-  onAssistiveWindowChanged(window) {
+  onAssistiveWindowChanged(arg_window) {
     return this.proxy.sendMessage(
       this.ordinals[9],  // ordinal
-      ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec,
+      mojo.internal.bindings.ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec,
       null,
-      [window],
+      [arg_window],
       false);
   }
 
 };
 
-ash.ime.mojom.InputMethod.getRemote = function() {
-  let remote = new ash.ime.mojom.InputMethodRemote();
+mojo.internal.bindings.ash.ime.mojom.InputMethod.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.ime.mojom.InputMethodRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -955,7 +962,7 @@ ash.ime.mojom.InputMethod.getRemote = function() {
   return remote.$;
 };
 
-ash.ime.mojom.InputMethodReceiver = class {
+mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -1013,7 +1020,7 @@ ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 0: OnFocusDeprecated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFocusDeprecated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1024,7 +1031,7 @@ ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 1: OnFocus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnFocus_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFocus (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1035,7 +1042,7 @@ ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 2: OnBlur
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnBlur_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnBlur_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBlur (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1046,7 +1053,7 @@ ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 3: ProcessKeyEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ProcessKeyEvent (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1057,7 +1064,7 @@ ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 4: OnSurroundingTextChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSurroundingTextChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1068,7 +1075,7 @@ ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 5: OnCompositionCanceledBySystem
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCompositionCanceledBySystem (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1079,7 +1086,7 @@ ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 6: OnCandidateSelected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCandidateSelected (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1090,7 +1097,7 @@ ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 7: OnQuickSettingsUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnQuickSettingsUpdated (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1101,7 +1108,7 @@ ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 8: IsReadyForTesting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsReadyForTesting (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1112,7 +1119,7 @@ ash.ime.mojom.InputMethodReceiver = class {
         // Try Method 9: OnAssistiveWindowChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAssistiveWindowChanged (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1129,21 +1136,21 @@ ash.ime.mojom.InputMethodReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFocusDeprecated');
-          const result = this.impl.onFocusDeprecated(params.input_field_info, params.settings);
+          const result = this.impl.onFocusDeprecated(params.arg_input_field_info, params.arg_settings);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnFocus_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFocus');
-          const result = this.impl.onFocus(params.input_field_info, params.deprecated_settings);
+          const result = this.impl.onFocus(params.arg_input_field_info, params.arg_deprecated_settings);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputMethod_OnFocus_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] OnFocus FAILED:', e));
           }
@@ -1151,21 +1158,21 @@ ash.ime.mojom.InputMethodReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnBlur_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnBlur_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBlur');
           const result = this.impl.onBlur();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.processKeyEvent');
-          const result = this.impl.processKeyEvent(params.event);
+          const result = this.impl.processKeyEvent(params.arg_event);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] ProcessKeyEvent FAILED:', e));
           }
@@ -1173,42 +1180,42 @@ ash.ime.mojom.InputMethodReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSurroundingTextChanged');
-          const result = this.impl.onSurroundingTextChanged(params.text, params.offset, params.selection_range);
+          const result = this.impl.onSurroundingTextChanged(params.arg_text, params.arg_offset, params.arg_selection_range);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCompositionCanceledBySystem');
           const result = this.impl.onCompositionCanceledBySystem();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCandidateSelected');
-          const result = this.impl.onCandidateSelected(params.selected_candidate_index);
+          const result = this.impl.onCandidateSelected(params.arg_selected_candidate_index);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onQuickSettingsUpdated');
-          const result = this.impl.onQuickSettingsUpdated(params.settings);
+          const result = this.impl.onQuickSettingsUpdated(params.arg_settings);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isReadyForTesting');
           const result = this.impl.isReadyForTesting();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] IsReadyForTesting FAILED:', e));
           }
@@ -1216,9 +1223,9 @@ ash.ime.mojom.InputMethodReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAssistiveWindowChanged');
-          const result = this.impl.onAssistiveWindowChanged(params.window);
+          const result = this.impl.onAssistiveWindowChanged(params.arg_window);
           break;
         }
       }
@@ -1229,8 +1236,8 @@ ash.ime.mojom.InputMethodReceiver = class {
   }
 };
 
-ash.ime.mojom.InputMethodReceiver = ash.ime.mojom.InputMethodReceiver;
+mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver;
 
-ash.ime.mojom.InputMethodPtr = ash.ime.mojom.InputMethodRemote;
-ash.ime.mojom.InputMethodRequest = ash.ime.mojom.InputMethodPendingReceiver;
+mojo.internal.bindings.ash.ime.mojom.InputMethodPtr = mojo.internal.bindings.ash.ime.mojom.InputMethodRemote;
+mojo.internal.bindings.ash.ime.mojom.InputMethodRequest = mojo.internal.bindings.ash.ime.mojom.InputMethodPendingReceiver;
 

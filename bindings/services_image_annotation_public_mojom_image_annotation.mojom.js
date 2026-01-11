@@ -1,96 +1,101 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/services/image_annotation/public/mojom/image_annotation.mojom
-// Module: image_annotation.mojom
+ // Source: chromium_src/services/image_annotation/public/mojom/image_annotation.mojom
+ // Module: image_annotation.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var image_annotation = image_annotation || {};
-image_annotation.mojom = image_annotation.mojom || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-image_annotation.mojom.AnnotateImageErrorSpec = { $: mojo.internal.Enum() };
-image_annotation.mojom.AnnotationTypeSpec = { $: mojo.internal.Enum() };
-image_annotation.mojom.AnnotateImageResultSpec = { $: {} };
-image_annotation.mojom.AnnotationSpec = { $: {} };
-image_annotation.mojom.ImageProcessor = {};
-image_annotation.mojom.ImageProcessor.$interfaceName = 'image_annotation.mojom.ImageProcessor';
-image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec = { $: {} };
-image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec = { $: {} };
-image_annotation.mojom.Annotator = {};
-image_annotation.mojom.Annotator.$interfaceName = 'image_annotation.mojom.Annotator';
-image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec = { $: {} };
-image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec = { $: {} };
-image_annotation.mojom.ImageAnnotationService = {};
-image_annotation.mojom.ImageAnnotationService.$interfaceName = 'image_annotation.mojom.ImageAnnotationService';
-image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec = { $: {} };
+ mojo.internal.bindings.image_annotation = mojo.internal.bindings.image_annotation || {};
+mojo.internal.bindings.image_annotation.mojom = mojo.internal.bindings.image_annotation.mojom || {};
+
+mojo.internal.bindings.image_annotation.mojom.AnnotateImageErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.image_annotation.mojom.AnnotationTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.image_annotation.mojom.AnnotateImageResultSpec = { $: {} };
+mojo.internal.bindings.image_annotation.mojom.AnnotationSpec = { $: {} };
+mojo.internal.bindings.image_annotation.mojom.ImageProcessor = {};
+mojo.internal.bindings.image_annotation.mojom.ImageProcessor.$interfaceName = 'image_annotation.mojom.ImageProcessor';
+mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec = { $: {} };
+mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.image_annotation.mojom.Annotator = {};
+mojo.internal.bindings.image_annotation.mojom.Annotator.$interfaceName = 'image_annotation.mojom.Annotator';
+mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec = { $: {} };
+mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService = {};
+mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService.$interfaceName = 'image_annotation.mojom.ImageAnnotationService';
+mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec = { $: {} };
 
 // Enum: AnnotateImageError
-image_annotation.mojom.AnnotateImageError = {
+mojo.internal.bindings.image_annotation.mojom.AnnotateImageError = {
   kCanceled: 0,
   kFailure: 1,
   kAdult: 2,
 };
 
 // Enum: AnnotationType
-image_annotation.mojom.AnnotationType = {
+mojo.internal.bindings.image_annotation.mojom.AnnotationType = {
   kOcr: 1,
   kLabel: 2,
   kCaption: 3,
@@ -99,58 +104,58 @@ image_annotation.mojom.AnnotationType = {
 
 // Union: AnnotateImageResult
 mojo.internal.Union(
-    image_annotation.mojom.AnnotateImageResultSpec, 'image_annotation.mojom.AnnotateImageResult', {
-      'error_code': {
+    mojo.internal.bindings.image_annotation.mojom.AnnotateImageResultSpec, 'image_annotation.mojom.AnnotateImageResult', {
+      'arg_error_code': {
         'ordinal': 0,
-        'type': image_annotation.mojom.AnnotateImageErrorSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.image_annotation.mojom.AnnotateImageErrorSpec.$,
         'nullable': false,
       },
-      'annotations': {
+      'arg_annotations': {
         'ordinal': 1,
-        'type': mojo.internal.Array(image_annotation.mojom.AnnotationSpec.$, false),
+        'type': mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.image_annotation.mojom.AnnotationSpec.$, false),
         'nullable': false,
       },
     });
 
 // Struct: Annotation
 mojo.internal.Struct(
-    image_annotation.mojom.AnnotationSpec, 'image_annotation.mojom.Annotation', [
-      mojo.internal.StructField('type', 0, 0, image_annotation.mojom.AnnotationTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('score', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('text', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.image_annotation.mojom.AnnotationSpec, 'image_annotation.mojom.Annotation', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.image_annotation.mojom.AnnotationTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_score', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Interface: ImageProcessor
 mojo.internal.Struct(
-    image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec, 'image_annotation.mojom.ImageProcessor_GetJpgImageData_Params', [
+    mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec, 'image_annotation.mojom.ImageProcessor_GetJpgImageData_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec, 'image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParams', [
-      mojo.internal.StructField('bytes', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('width', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('height', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec, 'image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParams', [
+      mojo.internal.StructField('arg_bytes', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_width', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_height', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
-image_annotation.mojom.ImageProcessorPendingReceiver = class {
+mojo.internal.bindings.image_annotation.mojom.ImageProcessorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-image_annotation.mojom.ImageProcessorRemote = class {
+mojo.internal.bindings.image_annotation.mojom.ImageProcessorRemote = class {
   static get $interfaceName() {
     return 'image_annotation.mojom.ImageProcessor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      image_annotation.mojom.ImageProcessorPendingReceiver,
+      mojo.internal.bindings.image_annotation.mojom.ImageProcessorPendingReceiver,
       handle);
-    this.$ = new image_annotation.mojom.ImageProcessorRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.image_annotation.mojom.ImageProcessorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -165,7 +170,7 @@ image_annotation.mojom.ImageProcessorRemote = class {
   }
 };
 
-image_annotation.mojom.ImageProcessorRemoteCallHandler = class {
+mojo.internal.bindings.image_annotation.mojom.ImageProcessorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ImageProcessor', [
@@ -176,16 +181,16 @@ image_annotation.mojom.ImageProcessorRemoteCallHandler = class {
   getJpgImageData() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec,
-      image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec,
+      mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec,
+      mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec,
       [],
       false);
   }
 
 };
 
-image_annotation.mojom.ImageProcessor.getRemote = function() {
-  let remote = new image_annotation.mojom.ImageProcessorRemote();
+mojo.internal.bindings.image_annotation.mojom.ImageProcessor.getRemote = function() {
+  let remote = new mojo.internal.bindings.image_annotation.mojom.ImageProcessorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -194,7 +199,7 @@ image_annotation.mojom.ImageProcessor.getRemote = function() {
   return remote.$;
 };
 
-image_annotation.mojom.ImageProcessorReceiver = class {
+mojo.internal.bindings.image_annotation.mojom.ImageProcessorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -243,7 +248,7 @@ image_annotation.mojom.ImageProcessorReceiver = class {
         // Try Method 0: GetJpgImageData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetJpgImageData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -260,14 +265,14 @@ image_annotation.mojom.ImageProcessorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getJpgImageData');
           const result = this.impl.getJpgImageData();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetJpgImageData FAILED:', e));
           }
@@ -281,43 +286,43 @@ image_annotation.mojom.ImageProcessorReceiver = class {
   }
 };
 
-image_annotation.mojom.ImageProcessorReceiver = image_annotation.mojom.ImageProcessorReceiver;
+mojo.internal.bindings.image_annotation.mojom.ImageProcessorReceiver = mojo.internal.bindings.image_annotation.mojom.ImageProcessorReceiver;
 
-image_annotation.mojom.ImageProcessorPtr = image_annotation.mojom.ImageProcessorRemote;
-image_annotation.mojom.ImageProcessorRequest = image_annotation.mojom.ImageProcessorPendingReceiver;
+mojo.internal.bindings.image_annotation.mojom.ImageProcessorPtr = mojo.internal.bindings.image_annotation.mojom.ImageProcessorRemote;
+mojo.internal.bindings.image_annotation.mojom.ImageProcessorRequest = mojo.internal.bindings.image_annotation.mojom.ImageProcessorPendingReceiver;
 
 
 // Interface: Annotator
 mojo.internal.Struct(
-    image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec, 'image_annotation.mojom.Annotator_AnnotateImage_Params', [
-      mojo.internal.StructField('source_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('description_language_tag', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('image_processor', 16, 0, mojo.internal.InterfaceProxy(image_annotation.mojom.ImageProcessorSpec), null, false, 0, undefined),
+    mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec, 'image_annotation.mojom.Annotator_AnnotateImage_Params', [
+      mojo.internal.StructField('arg_source_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description_language_tag', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_processor', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.image_annotation.mojom.ImageProcessorSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
-    image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec, 'image_annotation.mojom.Annotator_AnnotateImage_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, image_annotation.mojom.AnnotateImageResultSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec, 'image_annotation.mojom.Annotator_AnnotateImage_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.image_annotation.mojom.AnnotateImageResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-image_annotation.mojom.AnnotatorPendingReceiver = class {
+mojo.internal.bindings.image_annotation.mojom.AnnotatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-image_annotation.mojom.AnnotatorRemote = class {
+mojo.internal.bindings.image_annotation.mojom.AnnotatorRemote = class {
   static get $interfaceName() {
     return 'image_annotation.mojom.Annotator';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      image_annotation.mojom.AnnotatorPendingReceiver,
+      mojo.internal.bindings.image_annotation.mojom.AnnotatorPendingReceiver,
       handle);
-    this.$ = new image_annotation.mojom.AnnotatorRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.image_annotation.mojom.AnnotatorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -327,12 +332,12 @@ image_annotation.mojom.AnnotatorRemote = class {
   close() {
     this.proxy.close();
   }
-  annotateImage(source_id, description_language_tag, image_processor) {
-    return this.$.annotateImage(source_id, description_language_tag, image_processor);
+  annotateImage(arg_source_id, arg_description_language_tag, arg_image_processor) {
+    return this.$.annotateImage(arg_source_id, arg_description_language_tag, arg_image_processor);
   }
 };
 
-image_annotation.mojom.AnnotatorRemoteCallHandler = class {
+mojo.internal.bindings.image_annotation.mojom.AnnotatorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('Annotator', [
@@ -340,19 +345,19 @@ image_annotation.mojom.AnnotatorRemoteCallHandler = class {
     ]);
   }
 
-  annotateImage(source_id, description_language_tag, image_processor) {
+  annotateImage(arg_source_id, arg_description_language_tag, arg_image_processor) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec,
-      image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec,
-      [source_id, description_language_tag, image_processor],
+      mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec,
+      mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec,
+      [arg_source_id, arg_description_language_tag, arg_image_processor],
       false);
   }
 
 };
 
-image_annotation.mojom.Annotator.getRemote = function() {
-  let remote = new image_annotation.mojom.AnnotatorRemote();
+mojo.internal.bindings.image_annotation.mojom.Annotator.getRemote = function() {
+  let remote = new mojo.internal.bindings.image_annotation.mojom.AnnotatorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -361,7 +366,7 @@ image_annotation.mojom.Annotator.getRemote = function() {
   return remote.$;
 };
 
-image_annotation.mojom.AnnotatorReceiver = class {
+mojo.internal.bindings.image_annotation.mojom.AnnotatorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -410,7 +415,7 @@ image_annotation.mojom.AnnotatorReceiver = class {
         // Try Method 0: AnnotateImage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AnnotateImage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -427,14 +432,14 @@ image_annotation.mojom.AnnotatorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.annotateImage');
-          const result = this.impl.annotateImage(params.source_id, params.description_language_tag, params.image_processor);
+          const result = this.impl.annotateImage(params.arg_source_id, params.arg_description_language_tag, params.arg_image_processor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] AnnotateImage FAILED:', e));
           }
@@ -448,35 +453,35 @@ image_annotation.mojom.AnnotatorReceiver = class {
   }
 };
 
-image_annotation.mojom.AnnotatorReceiver = image_annotation.mojom.AnnotatorReceiver;
+mojo.internal.bindings.image_annotation.mojom.AnnotatorReceiver = mojo.internal.bindings.image_annotation.mojom.AnnotatorReceiver;
 
-image_annotation.mojom.AnnotatorPtr = image_annotation.mojom.AnnotatorRemote;
-image_annotation.mojom.AnnotatorRequest = image_annotation.mojom.AnnotatorPendingReceiver;
+mojo.internal.bindings.image_annotation.mojom.AnnotatorPtr = mojo.internal.bindings.image_annotation.mojom.AnnotatorRemote;
+mojo.internal.bindings.image_annotation.mojom.AnnotatorRequest = mojo.internal.bindings.image_annotation.mojom.AnnotatorPendingReceiver;
 
 
 // Interface: ImageAnnotationService
 mojo.internal.Struct(
-    image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec, 'image_annotation.mojom.ImageAnnotationService_BindAnnotator_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(image_annotation.mojom.AnnotatorSpec), null, false, 0, undefined),
+    mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec, 'image_annotation.mojom.ImageAnnotationService_BindAnnotator_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.image_annotation.mojom.AnnotatorSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-image_annotation.mojom.ImageAnnotationServicePendingReceiver = class {
+mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-image_annotation.mojom.ImageAnnotationServiceRemote = class {
+mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServiceRemote = class {
   static get $interfaceName() {
     return 'image_annotation.mojom.ImageAnnotationService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      image_annotation.mojom.ImageAnnotationServicePendingReceiver,
+      mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServicePendingReceiver,
       handle);
-    this.$ = new image_annotation.mojom.ImageAnnotationServiceRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -486,12 +491,12 @@ image_annotation.mojom.ImageAnnotationServiceRemote = class {
   close() {
     this.proxy.close();
   }
-  bindAnnotator(receiver) {
-    return this.$.bindAnnotator(receiver);
+  bindAnnotator(arg_receiver) {
+    return this.$.bindAnnotator(arg_receiver);
   }
 };
 
-image_annotation.mojom.ImageAnnotationServiceRemoteCallHandler = class {
+mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ImageAnnotationService', [
@@ -499,19 +504,19 @@ image_annotation.mojom.ImageAnnotationServiceRemoteCallHandler = class {
     ]);
   }
 
-  bindAnnotator(receiver) {
+  bindAnnotator(arg_receiver) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec,
+      mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec,
       null,
-      [receiver],
+      [arg_receiver],
       false);
   }
 
 };
 
-image_annotation.mojom.ImageAnnotationService.getRemote = function() {
-  let remote = new image_annotation.mojom.ImageAnnotationServiceRemote();
+mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService.getRemote = function() {
+  let remote = new mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -520,7 +525,7 @@ image_annotation.mojom.ImageAnnotationService.getRemote = function() {
   return remote.$;
 };
 
-image_annotation.mojom.ImageAnnotationServiceReceiver = class {
+mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -569,7 +574,7 @@ image_annotation.mojom.ImageAnnotationServiceReceiver = class {
         // Try Method 0: BindAnnotator
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindAnnotator (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -586,9 +591,9 @@ image_annotation.mojom.ImageAnnotationServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindAnnotator');
-          const result = this.impl.bindAnnotator(params.receiver);
+          const result = this.impl.bindAnnotator(params.arg_receiver);
           break;
         }
       }
@@ -599,8 +604,8 @@ image_annotation.mojom.ImageAnnotationServiceReceiver = class {
   }
 };
 
-image_annotation.mojom.ImageAnnotationServiceReceiver = image_annotation.mojom.ImageAnnotationServiceReceiver;
+mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServiceReceiver = mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServiceReceiver;
 
-image_annotation.mojom.ImageAnnotationServicePtr = image_annotation.mojom.ImageAnnotationServiceRemote;
-image_annotation.mojom.ImageAnnotationServiceRequest = image_annotation.mojom.ImageAnnotationServicePendingReceiver;
+mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServicePtr = mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServiceRemote;
+mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServiceRequest = mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServicePendingReceiver;
 

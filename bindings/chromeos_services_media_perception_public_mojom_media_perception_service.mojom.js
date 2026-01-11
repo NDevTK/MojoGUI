@@ -1,107 +1,112 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/chromeos/services/media_perception/public/mojom/media_perception_service.mojom
-// Module: chromeos.media_perception.mojom
+ // Source: chromium_src/chromeos/services/media_perception/public/mojom/media_perception_service.mojom
+ // Module: chromeos.media_perception.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var chromeos = chromeos || {};
-chromeos.media_perception = chromeos.media_perception || {};
-chromeos.media_perception.mojom = chromeos.media_perception.mojom || {};
-var video_capture = video_capture || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-chromeos.media_perception.mojom.MediaPerceptionService = {};
-chromeos.media_perception.mojom.MediaPerceptionService.$interfaceName = 'chromeos.media_perception.mojom.MediaPerceptionService';
-chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec = { $: {} };
-chromeos.media_perception.mojom.MediaPerceptionController = {};
-chromeos.media_perception.mojom.MediaPerceptionController.$interfaceName = 'chromeos.media_perception.mojom.MediaPerceptionController';
-chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec = { $: {} };
-chromeos.media_perception.mojom.MediaPerceptionControllerClient = {};
-chromeos.media_perception.mojom.MediaPerceptionControllerClient.$interfaceName = 'chromeos.media_perception.mojom.MediaPerceptionControllerClient';
-chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec = { $: {} };
+ mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.media_perception = mojo.internal.bindings.chromeos.media_perception || {};
+mojo.internal.bindings.chromeos.media_perception.mojom = mojo.internal.bindings.chromeos.media_perception.mojom || {};
+mojo.internal.bindings.video_capture = mojo.internal.bindings.video_capture || {};
+
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService = {};
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService.$interfaceName = 'chromeos.media_perception.mojom.MediaPerceptionService';
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController = {};
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController.$interfaceName = 'chromeos.media_perception.mojom.MediaPerceptionController';
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient = {};
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient.$interfaceName = 'chromeos.media_perception.mojom.MediaPerceptionControllerClient';
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec = { $: {} };
 
 // Interface: MediaPerceptionService
 mojo.internal.Struct(
-    chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec, 'chromeos.media_perception.mojom.MediaPerceptionService_GetController_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(chromeos.media_perception.mojom.MediaPerceptionControllerSpec), null, false, 0, undefined),
-      mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(chromeos.media_perception.mojom.MediaPerceptionControllerClientSpec), null, false, 0, undefined),
+    mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec, 'chromeos.media_perception.mojom.MediaPerceptionService_GetController_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
-chromeos.media_perception.mojom.MediaPerceptionServicePendingReceiver = class {
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.media_perception.mojom.MediaPerceptionServiceRemote = class {
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServiceRemote = class {
   static get $interfaceName() {
     return 'chromeos.media_perception.mojom.MediaPerceptionService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.media_perception.mojom.MediaPerceptionServicePendingReceiver,
+      mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServicePendingReceiver,
       handle);
-    this.$ = new chromeos.media_perception.mojom.MediaPerceptionServiceRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -111,12 +116,12 @@ chromeos.media_perception.mojom.MediaPerceptionServiceRemote = class {
   close() {
     this.proxy.close();
   }
-  getController(receiver, client) {
-    return this.$.getController(receiver, client);
+  getController(arg_receiver, arg_client) {
+    return this.$.getController(arg_receiver, arg_client);
   }
 };
 
-chromeos.media_perception.mojom.MediaPerceptionServiceRemoteCallHandler = class {
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('MediaPerceptionService', [
@@ -124,19 +129,19 @@ chromeos.media_perception.mojom.MediaPerceptionServiceRemoteCallHandler = class 
     ]);
   }
 
-  getController(receiver, client) {
+  getController(arg_receiver, arg_client) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec,
+      mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec,
       null,
-      [receiver, client],
+      [arg_receiver, arg_client],
       false);
   }
 
 };
 
-chromeos.media_perception.mojom.MediaPerceptionService.getRemote = function() {
-  let remote = new chromeos.media_perception.mojom.MediaPerceptionServiceRemote();
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService.getRemote = function() {
+  let remote = new mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -145,7 +150,7 @@ chromeos.media_perception.mojom.MediaPerceptionService.getRemote = function() {
   return remote.$;
 };
 
-chromeos.media_perception.mojom.MediaPerceptionServiceReceiver = class {
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -194,7 +199,7 @@ chromeos.media_perception.mojom.MediaPerceptionServiceReceiver = class {
         // Try Method 0: GetController
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetController (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -211,9 +216,9 @@ chromeos.media_perception.mojom.MediaPerceptionServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getController');
-          const result = this.impl.getController(params.receiver, params.client);
+          const result = this.impl.getController(params.arg_receiver, params.arg_client);
           break;
         }
       }
@@ -224,35 +229,35 @@ chromeos.media_perception.mojom.MediaPerceptionServiceReceiver = class {
   }
 };
 
-chromeos.media_perception.mojom.MediaPerceptionServiceReceiver = chromeos.media_perception.mojom.MediaPerceptionServiceReceiver;
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServiceReceiver = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServiceReceiver;
 
-chromeos.media_perception.mojom.MediaPerceptionServicePtr = chromeos.media_perception.mojom.MediaPerceptionServiceRemote;
-chromeos.media_perception.mojom.MediaPerceptionServiceRequest = chromeos.media_perception.mojom.MediaPerceptionServicePendingReceiver;
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServicePtr = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServiceRemote;
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServiceRequest = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServicePendingReceiver;
 
 
 // Interface: MediaPerceptionController
 mojo.internal.Struct(
-    chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec, 'chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(chromeos.media_perception.mojom.MediaPerceptionRemote), null, false, 0, undefined),
+    mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec, 'chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-chromeos.media_perception.mojom.MediaPerceptionControllerPendingReceiver = class {
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.media_perception.mojom.MediaPerceptionControllerRemote = class {
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerRemote = class {
   static get $interfaceName() {
     return 'chromeos.media_perception.mojom.MediaPerceptionController';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.media_perception.mojom.MediaPerceptionControllerPendingReceiver,
+      mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerPendingReceiver,
       handle);
-    this.$ = new chromeos.media_perception.mojom.MediaPerceptionControllerRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -262,12 +267,12 @@ chromeos.media_perception.mojom.MediaPerceptionControllerRemote = class {
   close() {
     this.proxy.close();
   }
-  activateMediaPerception(receiver) {
-    return this.$.activateMediaPerception(receiver);
+  activateMediaPerception(arg_receiver) {
+    return this.$.activateMediaPerception(arg_receiver);
   }
 };
 
-chromeos.media_perception.mojom.MediaPerceptionControllerRemoteCallHandler = class {
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('MediaPerceptionController', [
@@ -275,19 +280,19 @@ chromeos.media_perception.mojom.MediaPerceptionControllerRemoteCallHandler = cla
     ]);
   }
 
-  activateMediaPerception(receiver) {
+  activateMediaPerception(arg_receiver) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec,
+      mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec,
       null,
-      [receiver],
+      [arg_receiver],
       false);
   }
 
 };
 
-chromeos.media_perception.mojom.MediaPerceptionController.getRemote = function() {
-  let remote = new chromeos.media_perception.mojom.MediaPerceptionControllerRemote();
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController.getRemote = function() {
+  let remote = new mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -296,7 +301,7 @@ chromeos.media_perception.mojom.MediaPerceptionController.getRemote = function()
   return remote.$;
 };
 
-chromeos.media_perception.mojom.MediaPerceptionControllerReceiver = class {
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -345,7 +350,7 @@ chromeos.media_perception.mojom.MediaPerceptionControllerReceiver = class {
         // Try Method 0: ActivateMediaPerception
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActivateMediaPerception (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -362,9 +367,9 @@ chromeos.media_perception.mojom.MediaPerceptionControllerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.activateMediaPerception');
-          const result = this.impl.activateMediaPerception(params.receiver);
+          const result = this.impl.activateMediaPerception(params.arg_receiver);
           break;
         }
       }
@@ -375,35 +380,35 @@ chromeos.media_perception.mojom.MediaPerceptionControllerReceiver = class {
   }
 };
 
-chromeos.media_perception.mojom.MediaPerceptionControllerReceiver = chromeos.media_perception.mojom.MediaPerceptionControllerReceiver;
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerReceiver = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerReceiver;
 
-chromeos.media_perception.mojom.MediaPerceptionControllerPtr = chromeos.media_perception.mojom.MediaPerceptionControllerRemote;
-chromeos.media_perception.mojom.MediaPerceptionControllerRequest = chromeos.media_perception.mojom.MediaPerceptionControllerPendingReceiver;
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerPtr = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerRemote;
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerRequest = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerPendingReceiver;
 
 
 // Interface: MediaPerceptionControllerClient
 mojo.internal.Struct(
-    chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec, 'chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(video_capture.mojom.VideoSourceProviderRemote), null, false, 0, undefined),
+    mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec, 'chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-chromeos.media_perception.mojom.MediaPerceptionControllerClientPendingReceiver = class {
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.media_perception.mojom.MediaPerceptionControllerClientRemote = class {
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientRemote = class {
   static get $interfaceName() {
     return 'chromeos.media_perception.mojom.MediaPerceptionControllerClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.media_perception.mojom.MediaPerceptionControllerClientPendingReceiver,
+      mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientPendingReceiver,
       handle);
-    this.$ = new chromeos.media_perception.mojom.MediaPerceptionControllerClientRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -413,12 +418,12 @@ chromeos.media_perception.mojom.MediaPerceptionControllerClientRemote = class {
   close() {
     this.proxy.close();
   }
-  connectToVideoCaptureService(receiver) {
-    return this.$.connectToVideoCaptureService(receiver);
+  connectToVideoCaptureService(arg_receiver) {
+    return this.$.connectToVideoCaptureService(arg_receiver);
   }
 };
 
-chromeos.media_perception.mojom.MediaPerceptionControllerClientRemoteCallHandler = class {
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('MediaPerceptionControllerClient', [
@@ -426,19 +431,19 @@ chromeos.media_perception.mojom.MediaPerceptionControllerClientRemoteCallHandler
     ]);
   }
 
-  connectToVideoCaptureService(receiver) {
+  connectToVideoCaptureService(arg_receiver) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec,
+      mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec,
       null,
-      [receiver],
+      [arg_receiver],
       false);
   }
 
 };
 
-chromeos.media_perception.mojom.MediaPerceptionControllerClient.getRemote = function() {
-  let remote = new chromeos.media_perception.mojom.MediaPerceptionControllerClientRemote();
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient.getRemote = function() {
+  let remote = new mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -447,7 +452,7 @@ chromeos.media_perception.mojom.MediaPerceptionControllerClient.getRemote = func
   return remote.$;
 };
 
-chromeos.media_perception.mojom.MediaPerceptionControllerClientReceiver = class {
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -496,7 +501,7 @@ chromeos.media_perception.mojom.MediaPerceptionControllerClientReceiver = class 
         // Try Method 0: ConnectToVideoCaptureService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConnectToVideoCaptureService (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -513,9 +518,9 @@ chromeos.media_perception.mojom.MediaPerceptionControllerClientReceiver = class 
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToVideoCaptureService');
-          const result = this.impl.connectToVideoCaptureService(params.receiver);
+          const result = this.impl.connectToVideoCaptureService(params.arg_receiver);
           break;
         }
       }
@@ -526,8 +531,8 @@ chromeos.media_perception.mojom.MediaPerceptionControllerClientReceiver = class 
   }
 };
 
-chromeos.media_perception.mojom.MediaPerceptionControllerClientReceiver = chromeos.media_perception.mojom.MediaPerceptionControllerClientReceiver;
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientReceiver = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientReceiver;
 
-chromeos.media_perception.mojom.MediaPerceptionControllerClientPtr = chromeos.media_perception.mojom.MediaPerceptionControllerClientRemote;
-chromeos.media_perception.mojom.MediaPerceptionControllerClientRequest = chromeos.media_perception.mojom.MediaPerceptionControllerClientPendingReceiver;
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientPtr = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientRemote;
+mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientRequest = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientPendingReceiver;
 

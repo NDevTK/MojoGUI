@@ -1,89 +1,94 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/chromecast/browser/mojom/cast_content_window.mojom
-// Module: chromecast.mojom
+ // Source: chromium_src/chromecast/browser/mojom/cast_content_window.mojom
+ // Module: chromecast.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var chromecast = chromecast || {};
-chromecast.mojom = chromecast.mojom || {};
-var mojo_base = mojo_base || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-chromecast.mojom.VisibilityTypeSpec = { $: mojo.internal.Enum() };
-chromecast.mojom.VisibilityPrioritySpec = { $: mojo.internal.Enum() };
-chromecast.mojom.CastContentWindowObserver = {};
-chromecast.mojom.CastContentWindowObserver.$interfaceName = 'chromecast.mojom.CastContentWindowObserver';
-chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec = { $: {} };
-chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec = { $: {} };
-chromecast.mojom.CastContentWindow = {};
-chromecast.mojom.CastContentWindow.$interfaceName = 'chromecast.mojom.CastContentWindow';
-chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec = { $: {} };
-chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec = { $: {} };
-chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec = { $: {} };
-chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec = { $: {} };
-chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec = { $: {} };
-chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec = { $: {} };
+ mojo.internal.bindings.chromecast = mojo.internal.bindings.chromecast || {};
+mojo.internal.bindings.chromecast.mojom = mojo.internal.bindings.chromecast.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+
+mojo.internal.bindings.chromecast.mojom.VisibilityTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromecast.mojom.VisibilityPrioritySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver = {};
+mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver.$interfaceName = 'chromecast.mojom.CastContentWindowObserver';
+mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromecast.mojom.CastContentWindow = {};
+mojo.internal.bindings.chromecast.mojom.CastContentWindow.$interfaceName = 'chromecast.mojom.CastContentWindow';
+mojo.internal.bindings.chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec = { $: {} };
 
 // Enum: VisibilityType
-chromecast.mojom.VisibilityType = {
+mojo.internal.bindings.chromecast.mojom.VisibilityType = {
   UNKNOWN: 0,
   FULL_SCREEN: 1,
   PARTIAL_OUT: 2,
@@ -93,7 +98,7 @@ chromecast.mojom.VisibilityType = {
 };
 
 // Enum: VisibilityPriority
-chromecast.mojom.VisibilityPriority = {
+mojo.internal.bindings.chromecast.mojom.VisibilityPriority = {
   DESTROYED: -1,
   DEFAULT: 0,
   TRANSIENT_TIMEOUTABLE: 1,
@@ -106,32 +111,32 @@ chromecast.mojom.VisibilityPriority = {
 
 // Interface: CastContentWindowObserver
 mojo.internal.Struct(
-    chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec, 'chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_Params', [
-      mojo.internal.StructField('visibility_type', 0, 0, chromecast.mojom.VisibilityTypeSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec, 'chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_Params', [
+      mojo.internal.StructField('arg_visibility_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromecast.mojom.VisibilityTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec, 'chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_Params', [
+    mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec, 'chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_Params', [
     ],
     [[0, 8]]);
 
-chromecast.mojom.CastContentWindowObserverPendingReceiver = class {
+mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.mojom.CastContentWindowObserverRemote = class {
+mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverRemote = class {
   static get $interfaceName() {
     return 'chromecast.mojom.CastContentWindowObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.mojom.CastContentWindowObserverPendingReceiver,
+      mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverPendingReceiver,
       handle);
-    this.$ = new chromecast.mojom.CastContentWindowObserverRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -141,15 +146,15 @@ chromecast.mojom.CastContentWindowObserverRemote = class {
   close() {
     this.proxy.close();
   }
-  onVisibilityChange(visibility_type) {
-    return this.$.onVisibilityChange(visibility_type);
+  onVisibilityChange(arg_visibility_type) {
+    return this.$.onVisibilityChange(arg_visibility_type);
   }
   onWindowDestroyed() {
     return this.$.onWindowDestroyed();
   }
 };
 
-chromecast.mojom.CastContentWindowObserverRemoteCallHandler = class {
+mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('CastContentWindowObserver', [
@@ -158,19 +163,19 @@ chromecast.mojom.CastContentWindowObserverRemoteCallHandler = class {
     ]);
   }
 
-  onVisibilityChange(visibility_type) {
+  onVisibilityChange(arg_visibility_type) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec,
+      mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec,
       null,
-      [visibility_type],
+      [arg_visibility_type],
       false);
   }
 
   onWindowDestroyed() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec,
+      mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec,
       null,
       [],
       false);
@@ -178,8 +183,8 @@ chromecast.mojom.CastContentWindowObserverRemoteCallHandler = class {
 
 };
 
-chromecast.mojom.CastContentWindowObserver.getRemote = function() {
-  let remote = new chromecast.mojom.CastContentWindowObserverRemote();
+mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver.getRemote = function() {
+  let remote = new mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -188,7 +193,7 @@ chromecast.mojom.CastContentWindowObserver.getRemote = function() {
   return remote.$;
 };
 
-chromecast.mojom.CastContentWindowObserverReceiver = class {
+mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -238,7 +243,7 @@ chromecast.mojom.CastContentWindowObserverReceiver = class {
         // Try Method 0: OnVisibilityChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnVisibilityChange (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -249,7 +254,7 @@ chromecast.mojom.CastContentWindowObserverReceiver = class {
         // Try Method 1: OnWindowDestroyed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWindowDestroyed (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -266,14 +271,14 @@ chromecast.mojom.CastContentWindowObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVisibilityChange');
-          const result = this.impl.onVisibilityChange(params.visibility_type);
+          const result = this.impl.onVisibilityChange(params.arg_visibility_type);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWindowDestroyed');
           const result = this.impl.onWindowDestroyed();
           break;
@@ -286,64 +291,64 @@ chromecast.mojom.CastContentWindowObserverReceiver = class {
   }
 };
 
-chromecast.mojom.CastContentWindowObserverReceiver = chromecast.mojom.CastContentWindowObserverReceiver;
+mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverReceiver = mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverReceiver;
 
-chromecast.mojom.CastContentWindowObserverPtr = chromecast.mojom.CastContentWindowObserverRemote;
-chromecast.mojom.CastContentWindowObserverRequest = chromecast.mojom.CastContentWindowObserverPendingReceiver;
+mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverPtr = mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverRemote;
+mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverRequest = mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverPendingReceiver;
 
 
 // Interface: CastContentWindow
 mojo.internal.Struct(
-    chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec, 'chromecast.mojom.CastContentWindow_CreateWindow_Params', [
-      mojo.internal.StructField('z_order', 0, 0, chromecast.mojom.ZOrderSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('priority', 8, 0, chromecast.mojom.VisibilityPrioritySpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec, 'chromecast.mojom.CastContentWindow_CreateWindow_Params', [
+      mojo.internal.StructField('arg_z_order', 0, 0, mojo.internal.bindings.chromecast.mojom.ZOrderSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_priority', 8, 0, mojo.internal.bindings.mojo.internal.bindings.chromecast.mojom.VisibilityPrioritySpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec, 'chromecast.mojom.CastContentWindow_AddObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(chromecast.mojom.CastContentWindowObserverSpec), null, false, 0, undefined),
+    mojo.internal.bindings.chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec, 'chromecast.mojom.CastContentWindow_AddObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec, 'chromecast.mojom.CastContentWindow_GrantScreenAccess_Params', [
+    mojo.internal.bindings.chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec, 'chromecast.mojom.CastContentWindow_GrantScreenAccess_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec, 'chromecast.mojom.CastContentWindow_RevokeScreenAccess_Params', [
+    mojo.internal.bindings.chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec, 'chromecast.mojom.CastContentWindow_RevokeScreenAccess_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec, 'chromecast.mojom.CastContentWindow_RequestVisibility_Params', [
-      mojo.internal.StructField('priority', 0, 0, chromecast.mojom.VisibilityPrioritySpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec, 'chromecast.mojom.CastContentWindow_RequestVisibility_Params', [
+      mojo.internal.StructField('arg_priority', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromecast.mojom.VisibilityPrioritySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec, 'chromecast.mojom.CastContentWindow_EnableTouchInput_Params', [
-      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec, 'chromecast.mojom.CastContentWindow_EnableTouchInput_Params', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
-chromecast.mojom.CastContentWindowPendingReceiver = class {
+mojo.internal.bindings.chromecast.mojom.CastContentWindowPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromecast.mojom.CastContentWindowRemote = class {
+mojo.internal.bindings.chromecast.mojom.CastContentWindowRemote = class {
   static get $interfaceName() {
     return 'chromecast.mojom.CastContentWindow';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromecast.mojom.CastContentWindowPendingReceiver,
+      mojo.internal.bindings.chromecast.mojom.CastContentWindowPendingReceiver,
       handle);
-    this.$ = new chromecast.mojom.CastContentWindowRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.chromecast.mojom.CastContentWindowRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -353,11 +358,11 @@ chromecast.mojom.CastContentWindowRemote = class {
   close() {
     this.proxy.close();
   }
-  createWindow(z_order, priority) {
-    return this.$.createWindow(z_order, priority);
+  createWindow(arg_z_order, arg_priority) {
+    return this.$.createWindow(arg_z_order, arg_priority);
   }
-  addObserver(observer) {
-    return this.$.addObserver(observer);
+  addObserver(arg_observer) {
+    return this.$.addObserver(arg_observer);
   }
   grantScreenAccess() {
     return this.$.grantScreenAccess();
@@ -365,15 +370,15 @@ chromecast.mojom.CastContentWindowRemote = class {
   revokeScreenAccess() {
     return this.$.revokeScreenAccess();
   }
-  requestVisibility(priority) {
-    return this.$.requestVisibility(priority);
+  requestVisibility(arg_priority) {
+    return this.$.requestVisibility(arg_priority);
   }
-  enableTouchInput(enabled) {
-    return this.$.enableTouchInput(enabled);
+  enableTouchInput(arg_enabled) {
+    return this.$.enableTouchInput(arg_enabled);
   }
 };
 
-chromecast.mojom.CastContentWindowRemoteCallHandler = class {
+mojo.internal.bindings.chromecast.mojom.CastContentWindowRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('CastContentWindow', [
@@ -386,28 +391,28 @@ chromecast.mojom.CastContentWindowRemoteCallHandler = class {
     ]);
   }
 
-  createWindow(z_order, priority) {
+  createWindow(arg_z_order, arg_priority) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec,
+      mojo.internal.bindings.chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec,
       null,
-      [z_order, priority],
+      [arg_z_order, arg_priority],
       false);
   }
 
-  addObserver(observer) {
+  addObserver(arg_observer) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec,
+      mojo.internal.bindings.chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec,
       null,
-      [observer],
+      [arg_observer],
       false);
   }
 
   grantScreenAccess() {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec,
+      mojo.internal.bindings.chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec,
       null,
       [],
       false);
@@ -416,34 +421,34 @@ chromecast.mojom.CastContentWindowRemoteCallHandler = class {
   revokeScreenAccess() {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec,
+      mojo.internal.bindings.chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec,
       null,
       [],
       false);
   }
 
-  requestVisibility(priority) {
+  requestVisibility(arg_priority) {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
-      chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec,
+      mojo.internal.bindings.chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec,
       null,
-      [priority],
+      [arg_priority],
       false);
   }
 
-  enableTouchInput(enabled) {
+  enableTouchInput(arg_enabled) {
     return this.proxy.sendMessage(
       this.ordinals[5],  // ordinal
-      chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec,
+      mojo.internal.bindings.chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec,
       null,
-      [enabled],
+      [arg_enabled],
       false);
   }
 
 };
 
-chromecast.mojom.CastContentWindow.getRemote = function() {
-  let remote = new chromecast.mojom.CastContentWindowRemote();
+mojo.internal.bindings.chromecast.mojom.CastContentWindow.getRemote = function() {
+  let remote = new mojo.internal.bindings.chromecast.mojom.CastContentWindowRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -452,7 +457,7 @@ chromecast.mojom.CastContentWindow.getRemote = function() {
   return remote.$;
 };
 
-chromecast.mojom.CastContentWindowReceiver = class {
+mojo.internal.bindings.chromecast.mojom.CastContentWindowReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -506,7 +511,7 @@ chromecast.mojom.CastContentWindowReceiver = class {
         // Try Method 0: CreateWindow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWindow (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -517,7 +522,7 @@ chromecast.mojom.CastContentWindowReceiver = class {
         // Try Method 1: AddObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -528,7 +533,7 @@ chromecast.mojom.CastContentWindowReceiver = class {
         // Try Method 2: GrantScreenAccess
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GrantScreenAccess (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -539,7 +544,7 @@ chromecast.mojom.CastContentWindowReceiver = class {
         // Try Method 3: RevokeScreenAccess
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RevokeScreenAccess (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -550,7 +555,7 @@ chromecast.mojom.CastContentWindowReceiver = class {
         // Try Method 4: RequestVisibility
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestVisibility (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -561,7 +566,7 @@ chromecast.mojom.CastContentWindowReceiver = class {
         // Try Method 5: EnableTouchInput
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableTouchInput (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -578,44 +583,44 @@ chromecast.mojom.CastContentWindowReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createWindow');
-          const result = this.impl.createWindow(params.z_order, params.priority);
+          const result = this.impl.createWindow(params.arg_z_order, params.arg_priority);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.observer);
+          const result = this.impl.addObserver(params.arg_observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.grantScreenAccess');
           const result = this.impl.grantScreenAccess();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.revokeScreenAccess');
           const result = this.impl.revokeScreenAccess();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestVisibility');
-          const result = this.impl.requestVisibility(params.priority);
+          const result = this.impl.requestVisibility(params.arg_priority);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableTouchInput');
-          const result = this.impl.enableTouchInput(params.enabled);
+          const result = this.impl.enableTouchInput(params.arg_enabled);
           break;
         }
       }
@@ -626,8 +631,8 @@ chromecast.mojom.CastContentWindowReceiver = class {
   }
 };
 
-chromecast.mojom.CastContentWindowReceiver = chromecast.mojom.CastContentWindowReceiver;
+mojo.internal.bindings.chromecast.mojom.CastContentWindowReceiver = mojo.internal.bindings.chromecast.mojom.CastContentWindowReceiver;
 
-chromecast.mojom.CastContentWindowPtr = chromecast.mojom.CastContentWindowRemote;
-chromecast.mojom.CastContentWindowRequest = chromecast.mojom.CastContentWindowPendingReceiver;
+mojo.internal.bindings.chromecast.mojom.CastContentWindowPtr = mojo.internal.bindings.chromecast.mojom.CastContentWindowRemote;
+mojo.internal.bindings.chromecast.mojom.CastContentWindowRequest = mojo.internal.bindings.chromecast.mojom.CastContentWindowPendingReceiver;
 

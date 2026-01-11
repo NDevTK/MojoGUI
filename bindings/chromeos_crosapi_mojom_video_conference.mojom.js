@@ -1,106 +1,111 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/chromeos/crosapi/mojom/video_conference.mojom
-// Module: crosapi.mojom
+ // Source: chromium_src/chromeos/crosapi/mojom/video_conference.mojom
+ // Module: crosapi.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var crosapi = crosapi || {};
-crosapi.mojom = crosapi.mojom || {};
-var mojo_base = mojo_base || {};
-var url = url || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-crosapi.mojom.VideoConferenceAppUpdateSpec = { $: mojo.internal.Enum() };
-crosapi.mojom.VideoConferenceMediaDeviceSpec = { $: mojo.internal.Enum() };
-crosapi.mojom.VideoConferenceAppTypeSpec = { $: mojo.internal.Enum() };
-crosapi.mojom.TitleChangeInfoSpec = { $: {} };
-crosapi.mojom.VideoConferenceClientUpdateSpec = { $: {} };
-crosapi.mojom.VideoConferenceMediaUsageStatusSpec = { $: {} };
-crosapi.mojom.VideoConferenceMediaAppInfoSpec = { $: {} };
-crosapi.mojom.VideoConferenceManagerClient = {};
-crosapi.mojom.VideoConferenceManagerClient.$interfaceName = 'crosapi.mojom.VideoConferenceManagerClient';
-crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec = { $: {} };
-crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec = { $: {} };
-crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec = { $: {} };
-crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec = { $: {} };
-crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec = { $: {} };
-crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec = { $: {} };
-crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec = { $: {} };
+ mojo.internal.bindings.crosapi = mojo.internal.bindings.crosapi || {};
+mojo.internal.bindings.crosapi.mojom = mojo.internal.bindings.crosapi.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+
+mojo.internal.bindings.crosapi.mojom.VideoConferenceAppUpdateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaDeviceSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.crosapi.mojom.VideoConferenceAppTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.crosapi.mojom.TitleChangeInfoSpec = { $: {} };
+mojo.internal.bindings.crosapi.mojom.VideoConferenceClientUpdateSpec = { $: {} };
+mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaUsageStatusSpec = { $: {} };
+mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaAppInfoSpec = { $: {} };
+mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient = {};
+mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient.$interfaceName = 'crosapi.mojom.VideoConferenceManagerClient';
+mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec = { $: {} };
+mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec = { $: {} };
+mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec = { $: {} };
+mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec = { $: {} };
 
 // Enum: VideoConferenceAppUpdate
-crosapi.mojom.VideoConferenceAppUpdate = {
+mojo.internal.bindings.crosapi.mojom.VideoConferenceAppUpdate = {
   kNone: 0,
   kAppAdded: 1,
   kAppRemoved: 2,
 };
 
 // Enum: VideoConferenceMediaDevice
-crosapi.mojom.VideoConferenceMediaDevice = {
+mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaDevice = {
   kUnusedDefault: 0,
   kMicrophone: 1,
   kCamera: 2,
 };
 
 // Enum: VideoConferenceAppType
-crosapi.mojom.VideoConferenceAppType = {
+mojo.internal.bindings.crosapi.mojom.VideoConferenceAppType = {
   kBrowserUnknown: 0,
   kChromeTab: 1,
   kChromeExtension: 2,
@@ -117,105 +122,105 @@ crosapi.mojom.VideoConferenceAppType = {
 
 // Struct: TitleChangeInfo
 mojo.internal.Struct(
-    crosapi.mojom.TitleChangeInfoSpec, 'crosapi.mojom.TitleChangeInfo', [
-      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('new_title', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+    mojo.internal.bindings.crosapi.mojom.TitleChangeInfoSpec, 'crosapi.mojom.TitleChangeInfo', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_title', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: VideoConferenceClientUpdate
 mojo.internal.Struct(
-    crosapi.mojom.VideoConferenceClientUpdateSpec, 'crosapi.mojom.VideoConferenceClientUpdate', [
-      mojo.internal.StructField('added_or_removed_app', 0, 0, crosapi.mojom.VideoConferenceAppUpdateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('title_change_info', 8, 0, crosapi.mojom.TitleChangeInfoSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.crosapi.mojom.VideoConferenceClientUpdateSpec, 'crosapi.mojom.VideoConferenceClientUpdate', [
+      mojo.internal.StructField('arg_added_or_removed_app', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.VideoConferenceAppUpdateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title_change_info', 8, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.TitleChangeInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: VideoConferenceMediaUsageStatus
 mojo.internal.Struct(
-    crosapi.mojom.VideoConferenceMediaUsageStatusSpec, 'crosapi.mojom.VideoConferenceMediaUsageStatus', [
-      mojo.internal.StructField('client_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('has_media_app', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('has_camera_permission', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('has_microphone_permission', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_capturing_camera', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_capturing_microphone', 8, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_capturing_screen', 8, 5, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaUsageStatusSpec, 'crosapi.mojom.VideoConferenceMediaUsageStatus', [
+      mojo.internal.StructField('arg_client_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_has_media_app', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_camera_permission', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_microphone_permission', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_capturing_camera', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_capturing_microphone', 8, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_capturing_screen', 8, 5, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: VideoConferenceMediaAppInfo
 mojo.internal.Struct(
-    crosapi.mojom.VideoConferenceMediaAppInfoSpec, 'crosapi.mojom.VideoConferenceMediaAppInfo', [
-      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('last_activity_time', 8, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('title', 16, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('url', 24, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('is_capturing_camera', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_capturing_microphone', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_capturing_screen', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('app_type', 40, 0, crosapi.mojom.VideoConferenceAppTypeSpec.$, null, false, 1, undefined),
+    mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaAppInfoSpec, 'crosapi.mojom.VideoConferenceMediaAppInfo', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_activity_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_is_capturing_camera', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_capturing_microphone', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_capturing_screen', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_app_type', 40, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.VideoConferenceAppTypeSpec.$, null, false, 1, undefined),
     ],
     [[0, 48], [1, 56]]);
 
 // Interface: VideoConferenceManagerClient
 mojo.internal.Struct(
-    crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_Params', [
+    mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParams', [
-      mojo.internal.StructField('apps', 0, 0, mojo.internal.Array(crosapi.mojom.VideoConferenceMediaAppInfoSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParams', [
+      mojo.internal.StructField('arg_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaAppInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_Params', [
-      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_Params', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParams', [
-      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_Params', [
-      mojo.internal.StructField('device', 0, 0, crosapi.mojom.VideoConferenceMediaDeviceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_Params', [
+      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.mojo.internal.bindings.crosapi.mojom.VideoConferenceMediaDeviceSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParams', [
-      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_Params', [
+    mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_Params', [
     ],
     [[0, 8]]);
 
-crosapi.mojom.VideoConferenceManagerClientPendingReceiver = class {
+mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-crosapi.mojom.VideoConferenceManagerClientRemote = class {
+mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientRemote = class {
   static get $interfaceName() {
     return 'crosapi.mojom.VideoConferenceManagerClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      crosapi.mojom.VideoConferenceManagerClientPendingReceiver,
+      mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientPendingReceiver,
       handle);
-    this.$ = new crosapi.mojom.VideoConferenceManagerClientRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -228,18 +233,18 @@ crosapi.mojom.VideoConferenceManagerClientRemote = class {
   getMediaApps() {
     return this.$.getMediaApps();
   }
-  returnToApp(id) {
-    return this.$.returnToApp(id);
+  returnToApp(arg_id) {
+    return this.$.returnToApp(arg_id);
   }
-  setSystemMediaDeviceStatus(device, enabled) {
-    return this.$.setSystemMediaDeviceStatus(device, enabled);
+  setSystemMediaDeviceStatus(arg_device, arg_enabled) {
+    return this.$.setSystemMediaDeviceStatus(arg_device, arg_enabled);
   }
   stopAllScreenShare() {
     return this.$.stopAllScreenShare();
   }
 };
 
-crosapi.mojom.VideoConferenceManagerClientRemoteCallHandler = class {
+mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('VideoConferenceManagerClient', [
@@ -253,34 +258,34 @@ crosapi.mojom.VideoConferenceManagerClientRemoteCallHandler = class {
   getMediaApps() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec,
-      crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec,
+      mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec,
+      mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec,
       [],
       false);
   }
 
-  returnToApp(id) {
+  returnToApp(arg_id) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec,
-      crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec,
-      [id],
+      mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec,
+      mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec,
+      [arg_id],
       false);
   }
 
-  setSystemMediaDeviceStatus(device, enabled) {
+  setSystemMediaDeviceStatus(arg_device, arg_enabled) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec,
-      crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec,
-      [device, enabled],
+      mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec,
+      mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec,
+      [arg_device, arg_enabled],
       false);
   }
 
   stopAllScreenShare() {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec,
+      mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec,
       null,
       [],
       false);
@@ -288,8 +293,8 @@ crosapi.mojom.VideoConferenceManagerClientRemoteCallHandler = class {
 
 };
 
-crosapi.mojom.VideoConferenceManagerClient.getRemote = function() {
-  let remote = new crosapi.mojom.VideoConferenceManagerClientRemote();
+mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient.getRemote = function() {
+  let remote = new mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -298,7 +303,7 @@ crosapi.mojom.VideoConferenceManagerClient.getRemote = function() {
   return remote.$;
 };
 
-crosapi.mojom.VideoConferenceManagerClientReceiver = class {
+mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -350,7 +355,7 @@ crosapi.mojom.VideoConferenceManagerClientReceiver = class {
         // Try Method 0: GetMediaApps
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMediaApps (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -361,7 +366,7 @@ crosapi.mojom.VideoConferenceManagerClientReceiver = class {
         // Try Method 1: ReturnToApp
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReturnToApp (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -372,7 +377,7 @@ crosapi.mojom.VideoConferenceManagerClientReceiver = class {
         // Try Method 2: SetSystemMediaDeviceStatus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSystemMediaDeviceStatus (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -383,7 +388,7 @@ crosapi.mojom.VideoConferenceManagerClientReceiver = class {
         // Try Method 3: StopAllScreenShare
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopAllScreenShare (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -400,14 +405,14 @@ crosapi.mojom.VideoConferenceManagerClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMediaApps');
           const result = this.impl.getMediaApps();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetMediaApps FAILED:', e));
           }
@@ -415,14 +420,14 @@ crosapi.mojom.VideoConferenceManagerClientReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.returnToApp');
-          const result = this.impl.returnToApp(params.id);
+          const result = this.impl.returnToApp(params.arg_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] ReturnToApp FAILED:', e));
           }
@@ -430,14 +435,14 @@ crosapi.mojom.VideoConferenceManagerClientReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSystemMediaDeviceStatus');
-          const result = this.impl.setSystemMediaDeviceStatus(params.device, params.enabled);
+          const result = this.impl.setSystemMediaDeviceStatus(params.arg_device, params.arg_enabled);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] SetSystemMediaDeviceStatus FAILED:', e));
           }
@@ -445,7 +450,7 @@ crosapi.mojom.VideoConferenceManagerClientReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopAllScreenShare');
           const result = this.impl.stopAllScreenShare();
           break;
@@ -458,8 +463,8 @@ crosapi.mojom.VideoConferenceManagerClientReceiver = class {
   }
 };
 
-crosapi.mojom.VideoConferenceManagerClientReceiver = crosapi.mojom.VideoConferenceManagerClientReceiver;
+mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientReceiver = mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientReceiver;
 
-crosapi.mojom.VideoConferenceManagerClientPtr = crosapi.mojom.VideoConferenceManagerClientRemote;
-crosapi.mojom.VideoConferenceManagerClientRequest = crosapi.mojom.VideoConferenceManagerClientPendingReceiver;
+mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientPtr = mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientRemote;
+mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientRequest = mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientPendingReceiver;
 

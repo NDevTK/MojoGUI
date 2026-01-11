@@ -1,125 +1,130 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/ash/webui/scanning/mojom/scanning.mojom
-// Module: ash.scanning.mojom
+ // Source: chromium_src/ash/webui/scanning/mojom/scanning.mojom
+ // Module: ash.scanning.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var ash = ash || {};
-ash.scanning = ash.scanning || {};
-ash.scanning.mojom = ash.scanning.mojom || {};
-var mojo_base = mojo_base || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-ash.scanning.mojom.ColorModeSpec = { $: mojo.internal.Enum() };
-ash.scanning.mojom.FileTypeSpec = { $: mojo.internal.Enum() };
-ash.scanning.mojom.SourceTypeSpec = { $: mojo.internal.Enum() };
-ash.scanning.mojom.PageSizeSpec = { $: mojo.internal.Enum() };
-ash.scanning.mojom.ScanResultSpec = { $: mojo.internal.Enum() };
-ash.scanning.mojom.ScanSourceSpec = { $: {} };
-ash.scanning.mojom.ScannerCapabilitiesSpec = { $: {} };
-ash.scanning.mojom.ScanSettingsSpec = { $: {} };
-ash.scanning.mojom.ScannerSpec = { $: {} };
-ash.scanning.mojom.ScanJobObserver = {};
-ash.scanning.mojom.ScanJobObserver.$interfaceName = 'ash.scanning.mojom.ScanJobObserver';
-ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec = { $: {} };
-ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec = { $: {} };
-ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec = { $: {} };
-ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec = { $: {} };
-ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec = { $: {} };
-ash.scanning.mojom.ScanService = {};
-ash.scanning.mojom.ScanService.$interfaceName = 'ash.scanning.mojom.ScanService';
-ash.scanning.mojom.ScanService_GetScanners_ParamsSpec = { $: {} };
-ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec = { $: {} };
-ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec = { $: {} };
-ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec = { $: {} };
-ash.scanning.mojom.ScanService_StartScan_ParamsSpec = { $: {} };
-ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec = { $: {} };
-ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec = { $: {} };
-ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec = { $: {} };
-ash.scanning.mojom.ScanService_CancelScan_ParamsSpec = { $: {} };
-ash.scanning.mojom.MultiPageScanController = {};
-ash.scanning.mojom.MultiPageScanController.$interfaceName = 'ash.scanning.mojom.MultiPageScanController';
-ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec = { $: {} };
-ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec = { $: {} };
-ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec = { $: {} };
-ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec = { $: {} };
-ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec = { $: {} };
-ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec = { $: {} };
+ mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.scanning = mojo.internal.bindings.ash.scanning || {};
+mojo.internal.bindings.ash.scanning.mojom = mojo.internal.bindings.ash.scanning.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+
+mojo.internal.bindings.ash.scanning.mojom.ColorModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.scanning.mojom.FileTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.scanning.mojom.SourceTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.scanning.mojom.PageSizeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.scanning.mojom.ScanResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.scanning.mojom.ScanSourceSpec = { $: {} };
+mojo.internal.bindings.ash.scanning.mojom.ScannerCapabilitiesSpec = { $: {} };
+mojo.internal.bindings.ash.scanning.mojom.ScanSettingsSpec = { $: {} };
+mojo.internal.bindings.ash.scanning.mojom.ScannerSpec = { $: {} };
+mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver = {};
+mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver.$interfaceName = 'ash.scanning.mojom.ScanJobObserver';
+mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.scanning.mojom.ScanService = {};
+mojo.internal.bindings.ash.scanning.mojom.ScanService.$interfaceName = 'ash.scanning.mojom.ScanService';
+mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.scanning.mojom.ScanService_CancelScan_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController = {};
+mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController.$interfaceName = 'ash.scanning.mojom.MultiPageScanController';
+mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec = { $: {} };
 
 // Enum: ColorMode
-ash.scanning.mojom.ColorMode = {
+mojo.internal.bindings.ash.scanning.mojom.ColorMode = {
   kBlackAndWhite: 0,
   kGrayscale: 1,
   kColor: 2,
 };
 
 // Enum: FileType
-ash.scanning.mojom.FileType = {
+mojo.internal.bindings.ash.scanning.mojom.FileType = {
   kJpg: 0,
   kPdf: 1,
   kPng: 2,
 };
 
 // Enum: SourceType
-ash.scanning.mojom.SourceType = {
+mojo.internal.bindings.ash.scanning.mojom.SourceType = {
   kUnknown: 0,
   kFlatbed: 1,
   kAdfSimplex: 2,
@@ -128,7 +133,7 @@ ash.scanning.mojom.SourceType = {
 };
 
 // Enum: PageSize
-ash.scanning.mojom.PageSize = {
+mojo.internal.bindings.ash.scanning.mojom.PageSize = {
   kIsoA3: 0,
   kIsoA4: 1,
   kIsoB4: 2,
@@ -139,7 +144,7 @@ ash.scanning.mojom.PageSize = {
 };
 
 // Enum: ScanResult
-ash.scanning.mojom.ScanResult = {
+mojo.internal.bindings.ash.scanning.mojom.ScanResult = {
   kSuccess: 0,
   kUnknownError: 1,
   kDeviceBusy: 2,
@@ -151,92 +156,92 @@ ash.scanning.mojom.ScanResult = {
 
 // Struct: ScanSource
 mojo.internal.Struct(
-    ash.scanning.mojom.ScanSourceSpec, 'ash.scanning.mojom.ScanSource', [
-      mojo.internal.StructField('type', 0, 0, ash.scanning.mojom.SourceTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('page_sizes', 16, 0, mojo.internal.Array(ash.scanning.mojom.PageSizeSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('color_modes', 24, 0, mojo.internal.Array(ash.scanning.mojom.ColorModeSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('resolutions', 32, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+    mojo.internal.bindings.ash.scanning.mojom.ScanSourceSpec, 'ash.scanning.mojom.ScanSource', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.SourceTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_sizes', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.PageSizeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_color_modes', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.ColorModeSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_resolutions', 32, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: ScannerCapabilities
 mojo.internal.Struct(
-    ash.scanning.mojom.ScannerCapabilitiesSpec, 'ash.scanning.mojom.ScannerCapabilities', [
-      mojo.internal.StructField('sources', 0, 0, mojo.internal.Array(ash.scanning.mojom.ScanSourceSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.ash.scanning.mojom.ScannerCapabilitiesSpec, 'ash.scanning.mojom.ScannerCapabilities', [
+      mojo.internal.StructField('arg_sources', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.ScanSourceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: ScanSettings
 mojo.internal.Struct(
-    ash.scanning.mojom.ScanSettingsSpec, 'ash.scanning.mojom.ScanSettings', [
-      mojo.internal.StructField('source_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('scan_to_path', 8, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('file_type', 16, 0, ash.scanning.mojom.FileTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('color_mode', 24, 0, ash.scanning.mojom.ColorModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('page_size', 32, 0, ash.scanning.mojom.PageSizeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('resolution_dpi', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.ash.scanning.mojom.ScanSettingsSpec, 'ash.scanning.mojom.ScanSettings', [
+      mojo.internal.StructField('arg_source_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scan_to_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_type', 16, 0, mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.FileTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_color_mode', 24, 0, mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.ColorModeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_size', 32, 0, mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.PageSizeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_resolution_dpi', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 56]]);
 
 // Struct: Scanner
 mojo.internal.Struct(
-    ash.scanning.mojom.ScannerSpec, 'ash.scanning.mojom.Scanner', [
-      mojo.internal.StructField('id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('display_name', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.scanning.mojom.ScannerSpec, 'ash.scanning.mojom.Scanner', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_display_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: ScanJobObserver
 mojo.internal.Struct(
-    ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec, 'ash.scanning.mojom.ScanJobObserver_OnPageProgress_Params', [
-      mojo.internal.StructField('page_number', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('progress_percent', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec, 'ash.scanning.mojom.ScanJobObserver_OnPageProgress_Params', [
+      mojo.internal.StructField('arg_page_number', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_progress_percent', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec, 'ash.scanning.mojom.ScanJobObserver_OnPageComplete_Params', [
-      mojo.internal.StructField('page_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('new_page_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec, 'ash.scanning.mojom.ScanJobObserver_OnPageComplete_Params', [
+      mojo.internal.StructField('arg_page_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_page_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec, 'ash.scanning.mojom.ScanJobObserver_OnScanComplete_Params', [
-      mojo.internal.StructField('result', 0, 0, ash.scanning.mojom.ScanResultSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('scanned_file_paths', 8, 0, mojo.internal.Array(mojo_base.mojom.FilePathSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec, 'ash.scanning.mojom.ScanJobObserver_OnScanComplete_Params', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.ScanResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scanned_file_paths', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec, 'ash.scanning.mojom.ScanJobObserver_OnCancelComplete_Params', [
-      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec, 'ash.scanning.mojom.ScanJobObserver_OnCancelComplete_Params', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec, 'ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_Params', [
-      mojo.internal.StructField('result', 0, 0, ash.scanning.mojom.ScanResultSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec, 'ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_Params', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.ScanResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-ash.scanning.mojom.ScanJobObserverPendingReceiver = class {
+mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.scanning.mojom.ScanJobObserverRemote = class {
+mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverRemote = class {
   static get $interfaceName() {
     return 'ash.scanning.mojom.ScanJobObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.scanning.mojom.ScanJobObserverPendingReceiver,
+      mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverPendingReceiver,
       handle);
-    this.$ = new ash.scanning.mojom.ScanJobObserverRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -246,24 +251,24 @@ ash.scanning.mojom.ScanJobObserverRemote = class {
   close() {
     this.proxy.close();
   }
-  onPageProgress(page_number, progress_percent) {
-    return this.$.onPageProgress(page_number, progress_percent);
+  onPageProgress(arg_page_number, arg_progress_percent) {
+    return this.$.onPageProgress(arg_page_number, arg_progress_percent);
   }
-  onPageComplete(page_data, new_page_index) {
-    return this.$.onPageComplete(page_data, new_page_index);
+  onPageComplete(arg_page_data, arg_new_page_index) {
+    return this.$.onPageComplete(arg_page_data, arg_new_page_index);
   }
-  onScanComplete(result, scanned_file_paths) {
-    return this.$.onScanComplete(result, scanned_file_paths);
+  onScanComplete(arg_result, arg_scanned_file_paths) {
+    return this.$.onScanComplete(arg_result, arg_scanned_file_paths);
   }
-  onCancelComplete(success) {
-    return this.$.onCancelComplete(success);
+  onCancelComplete(arg_success) {
+    return this.$.onCancelComplete(arg_success);
   }
-  onMultiPageScanFail(result) {
-    return this.$.onMultiPageScanFail(result);
+  onMultiPageScanFail(arg_result) {
+    return this.$.onMultiPageScanFail(arg_result);
   }
 };
 
-ash.scanning.mojom.ScanJobObserverRemoteCallHandler = class {
+mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ScanJobObserver', [
@@ -275,55 +280,55 @@ ash.scanning.mojom.ScanJobObserverRemoteCallHandler = class {
     ]);
   }
 
-  onPageProgress(page_number, progress_percent) {
+  onPageProgress(arg_page_number, arg_progress_percent) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec,
+      mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec,
       null,
-      [page_number, progress_percent],
+      [arg_page_number, arg_progress_percent],
       false);
   }
 
-  onPageComplete(page_data, new_page_index) {
+  onPageComplete(arg_page_data, arg_new_page_index) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec,
+      mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec,
       null,
-      [page_data, new_page_index],
+      [arg_page_data, arg_new_page_index],
       false);
   }
 
-  onScanComplete(result, scanned_file_paths) {
+  onScanComplete(arg_result, arg_scanned_file_paths) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec,
+      mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec,
       null,
-      [result, scanned_file_paths],
+      [arg_result, arg_scanned_file_paths],
       false);
   }
 
-  onCancelComplete(success) {
+  onCancelComplete(arg_success) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec,
+      mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec,
       null,
-      [success],
+      [arg_success],
       false);
   }
 
-  onMultiPageScanFail(result) {
+  onMultiPageScanFail(arg_result) {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
-      ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec,
+      mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec,
       null,
-      [result],
+      [arg_result],
       false);
   }
 
 };
 
-ash.scanning.mojom.ScanJobObserver.getRemote = function() {
-  let remote = new ash.scanning.mojom.ScanJobObserverRemote();
+mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -332,7 +337,7 @@ ash.scanning.mojom.ScanJobObserver.getRemote = function() {
   return remote.$;
 };
 
-ash.scanning.mojom.ScanJobObserverReceiver = class {
+mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -385,7 +390,7 @@ ash.scanning.mojom.ScanJobObserverReceiver = class {
         // Try Method 0: OnPageProgress
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPageProgress (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -396,7 +401,7 @@ ash.scanning.mojom.ScanJobObserverReceiver = class {
         // Try Method 1: OnPageComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPageComplete (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -407,7 +412,7 @@ ash.scanning.mojom.ScanJobObserverReceiver = class {
         // Try Method 2: OnScanComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScanComplete (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -418,7 +423,7 @@ ash.scanning.mojom.ScanJobObserverReceiver = class {
         // Try Method 3: OnCancelComplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCancelComplete (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -429,7 +434,7 @@ ash.scanning.mojom.ScanJobObserverReceiver = class {
         // Try Method 4: OnMultiPageScanFail
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnMultiPageScanFail (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -446,37 +451,37 @@ ash.scanning.mojom.ScanJobObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPageProgress');
-          const result = this.impl.onPageProgress(params.page_number, params.progress_percent);
+          const result = this.impl.onPageProgress(params.arg_page_number, params.arg_progress_percent);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPageComplete');
-          const result = this.impl.onPageComplete(params.page_data, params.new_page_index);
+          const result = this.impl.onPageComplete(params.arg_page_data, params.arg_new_page_index);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScanComplete');
-          const result = this.impl.onScanComplete(params.result, params.scanned_file_paths);
+          const result = this.impl.onScanComplete(params.arg_result, params.arg_scanned_file_paths);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCancelComplete');
-          const result = this.impl.onCancelComplete(params.success);
+          const result = this.impl.onCancelComplete(params.arg_success);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMultiPageScanFail');
-          const result = this.impl.onMultiPageScanFail(params.result);
+          const result = this.impl.onMultiPageScanFail(params.arg_result);
           break;
         }
       }
@@ -487,85 +492,85 @@ ash.scanning.mojom.ScanJobObserverReceiver = class {
   }
 };
 
-ash.scanning.mojom.ScanJobObserverReceiver = ash.scanning.mojom.ScanJobObserverReceiver;
+mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverReceiver = mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverReceiver;
 
-ash.scanning.mojom.ScanJobObserverPtr = ash.scanning.mojom.ScanJobObserverRemote;
-ash.scanning.mojom.ScanJobObserverRequest = ash.scanning.mojom.ScanJobObserverPendingReceiver;
+mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverPtr = mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverRemote;
+mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverRequest = mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverPendingReceiver;
 
 
 // Interface: ScanService
 mojo.internal.Struct(
-    ash.scanning.mojom.ScanService_GetScanners_ParamsSpec, 'ash.scanning.mojom.ScanService_GetScanners_Params', [
+    mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ParamsSpec, 'ash.scanning.mojom.ScanService_GetScanners_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec, 'ash.scanning.mojom.ScanService_GetScanners_ResponseParams', [
-      mojo.internal.StructField('scanners', 0, 0, mojo.internal.Array(ash.scanning.mojom.ScannerSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec, 'ash.scanning.mojom.ScanService_GetScanners_ResponseParams', [
+      mojo.internal.StructField('arg_scanners', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.ScannerSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec, 'ash.scanning.mojom.ScanService_GetScannerCapabilities_Params', [
-      mojo.internal.StructField('scanner_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec, 'ash.scanning.mojom.ScanService_GetScannerCapabilities_Params', [
+      mojo.internal.StructField('arg_scanner_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec, 'ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParams', [
-      mojo.internal.StructField('capabilities', 0, 0, ash.scanning.mojom.ScannerCapabilitiesSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec, 'ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParams', [
+      mojo.internal.StructField('arg_capabilities', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.ScannerCapabilitiesSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.scanning.mojom.ScanService_StartScan_ParamsSpec, 'ash.scanning.mojom.ScanService_StartScan_Params', [
-      mojo.internal.StructField('scanner_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('settings', 8, 0, ash.scanning.mojom.ScanSettingsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('observer', 16, 0, mojo.internal.InterfaceProxy(ash.scanning.mojom.ScanJobObserverSpec), null, false, 0, undefined),
+    mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ParamsSpec, 'ash.scanning.mojom.ScanService_StartScan_Params', [
+      mojo.internal.StructField('arg_scanner_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.ScanSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
-    ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec, 'ash.scanning.mojom.ScanService_StartScan_ResponseParams', [
-      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec, 'ash.scanning.mojom.ScanService_StartScan_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec, 'ash.scanning.mojom.ScanService_StartMultiPageScan_Params', [
-      mojo.internal.StructField('scanner_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('settings', 8, 0, ash.scanning.mojom.ScanSettingsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('observer', 16, 0, mojo.internal.InterfaceProxy(ash.scanning.mojom.ScanJobObserverSpec), null, false, 0, undefined),
+    mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec, 'ash.scanning.mojom.ScanService_StartMultiPageScan_Params', [
+      mojo.internal.StructField('arg_scanner_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.ScanSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
-    ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec, 'ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParams', [
-      mojo.internal.StructField('controller', 0, 0, mojo.internal.InterfaceProxy(ash.scanning.mojom.MultiPageScanControllerSpec), null, true, 0, undefined),
+    mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec, 'ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParams', [
+      mojo.internal.StructField('arg_controller', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerSpec), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.scanning.mojom.ScanService_CancelScan_ParamsSpec, 'ash.scanning.mojom.ScanService_CancelScan_Params', [
+    mojo.internal.bindings.ash.scanning.mojom.ScanService_CancelScan_ParamsSpec, 'ash.scanning.mojom.ScanService_CancelScan_Params', [
     ],
     [[0, 8]]);
 
-ash.scanning.mojom.ScanServicePendingReceiver = class {
+mojo.internal.bindings.ash.scanning.mojom.ScanServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.scanning.mojom.ScanServiceRemote = class {
+mojo.internal.bindings.ash.scanning.mojom.ScanServiceRemote = class {
   static get $interfaceName() {
     return 'ash.scanning.mojom.ScanService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.scanning.mojom.ScanServicePendingReceiver,
+      mojo.internal.bindings.ash.scanning.mojom.ScanServicePendingReceiver,
       handle);
-    this.$ = new ash.scanning.mojom.ScanServiceRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.scanning.mojom.ScanServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -578,21 +583,21 @@ ash.scanning.mojom.ScanServiceRemote = class {
   getScanners() {
     return this.$.getScanners();
   }
-  getScannerCapabilities(scanner_id) {
-    return this.$.getScannerCapabilities(scanner_id);
+  getScannerCapabilities(arg_scanner_id) {
+    return this.$.getScannerCapabilities(arg_scanner_id);
   }
-  startScan(scanner_id, settings, observer) {
-    return this.$.startScan(scanner_id, settings, observer);
+  startScan(arg_scanner_id, arg_settings, arg_observer) {
+    return this.$.startScan(arg_scanner_id, arg_settings, arg_observer);
   }
-  startMultiPageScan(scanner_id, settings, observer) {
-    return this.$.startMultiPageScan(scanner_id, settings, observer);
+  startMultiPageScan(arg_scanner_id, arg_settings, arg_observer) {
+    return this.$.startMultiPageScan(arg_scanner_id, arg_settings, arg_observer);
   }
   cancelScan() {
     return this.$.cancelScan();
   }
 };
 
-ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
+mojo.internal.bindings.ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ScanService', [
@@ -607,43 +612,43 @@ ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
   getScanners() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.scanning.mojom.ScanService_GetScanners_ParamsSpec,
-      ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec,
+      mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ParamsSpec,
+      mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec,
       [],
       false);
   }
 
-  getScannerCapabilities(scanner_id) {
+  getScannerCapabilities(arg_scanner_id) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec,
-      ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec,
-      [scanner_id],
+      mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec,
+      mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec,
+      [arg_scanner_id],
       false);
   }
 
-  startScan(scanner_id, settings, observer) {
+  startScan(arg_scanner_id, arg_settings, arg_observer) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      ash.scanning.mojom.ScanService_StartScan_ParamsSpec,
-      ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec,
-      [scanner_id, settings, observer],
+      mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ParamsSpec,
+      mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec,
+      [arg_scanner_id, arg_settings, arg_observer],
       false);
   }
 
-  startMultiPageScan(scanner_id, settings, observer) {
+  startMultiPageScan(arg_scanner_id, arg_settings, arg_observer) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec,
-      ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec,
-      [scanner_id, settings, observer],
+      mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec,
+      mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec,
+      [arg_scanner_id, arg_settings, arg_observer],
       false);
   }
 
   cancelScan() {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
-      ash.scanning.mojom.ScanService_CancelScan_ParamsSpec,
+      mojo.internal.bindings.ash.scanning.mojom.ScanService_CancelScan_ParamsSpec,
       null,
       [],
       false);
@@ -651,8 +656,8 @@ ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
 
 };
 
-ash.scanning.mojom.ScanService.getRemote = function() {
-  let remote = new ash.scanning.mojom.ScanServiceRemote();
+mojo.internal.bindings.ash.scanning.mojom.ScanService.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.scanning.mojom.ScanServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -661,7 +666,7 @@ ash.scanning.mojom.ScanService.getRemote = function() {
   return remote.$;
 };
 
-ash.scanning.mojom.ScanServiceReceiver = class {
+mojo.internal.bindings.ash.scanning.mojom.ScanServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -714,7 +719,7 @@ ash.scanning.mojom.ScanServiceReceiver = class {
         // Try Method 0: GetScanners
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.scanning.mojom.ScanService_GetScanners_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetScanners (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -725,7 +730,7 @@ ash.scanning.mojom.ScanServiceReceiver = class {
         // Try Method 1: GetScannerCapabilities
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetScannerCapabilities (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -736,7 +741,7 @@ ash.scanning.mojom.ScanServiceReceiver = class {
         // Try Method 2: StartScan
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.scanning.mojom.ScanService_StartScan_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartScan (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -747,7 +752,7 @@ ash.scanning.mojom.ScanServiceReceiver = class {
         // Try Method 3: StartMultiPageScan
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartMultiPageScan (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -758,7 +763,7 @@ ash.scanning.mojom.ScanServiceReceiver = class {
         // Try Method 4: CancelScan
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.scanning.mojom.ScanService_CancelScan_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanService_CancelScan_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelScan (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -775,14 +780,14 @@ ash.scanning.mojom.ScanServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.scanning.mojom.ScanService_GetScanners_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getScanners');
           const result = this.impl.getScanners();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetScanners FAILED:', e));
           }
@@ -790,14 +795,14 @@ ash.scanning.mojom.ScanServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getScannerCapabilities');
-          const result = this.impl.getScannerCapabilities(params.scanner_id);
+          const result = this.impl.getScannerCapabilities(params.arg_scanner_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetScannerCapabilities FAILED:', e));
           }
@@ -805,14 +810,14 @@ ash.scanning.mojom.ScanServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.scanning.mojom.ScanService_StartScan_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startScan');
-          const result = this.impl.startScan(params.scanner_id, params.settings, params.observer);
+          const result = this.impl.startScan(params.arg_scanner_id, params.arg_settings, params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] StartScan FAILED:', e));
           }
@@ -820,14 +825,14 @@ ash.scanning.mojom.ScanServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startMultiPageScan');
-          const result = this.impl.startMultiPageScan(params.scanner_id, params.settings, params.observer);
+          const result = this.impl.startMultiPageScan(params.arg_scanner_id, params.arg_settings, params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] StartMultiPageScan FAILED:', e));
           }
@@ -835,7 +840,7 @@ ash.scanning.mojom.ScanServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.scanning.mojom.ScanService_CancelScan_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.ScanService_CancelScan_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelScan');
           const result = this.impl.cancelScan();
           break;
@@ -848,67 +853,67 @@ ash.scanning.mojom.ScanServiceReceiver = class {
   }
 };
 
-ash.scanning.mojom.ScanServiceReceiver = ash.scanning.mojom.ScanServiceReceiver;
+mojo.internal.bindings.ash.scanning.mojom.ScanServiceReceiver = mojo.internal.bindings.ash.scanning.mojom.ScanServiceReceiver;
 
-ash.scanning.mojom.ScanServicePtr = ash.scanning.mojom.ScanServiceRemote;
-ash.scanning.mojom.ScanServiceRequest = ash.scanning.mojom.ScanServicePendingReceiver;
+mojo.internal.bindings.ash.scanning.mojom.ScanServicePtr = mojo.internal.bindings.ash.scanning.mojom.ScanServiceRemote;
+mojo.internal.bindings.ash.scanning.mojom.ScanServiceRequest = mojo.internal.bindings.ash.scanning.mojom.ScanServicePendingReceiver;
 
 
 // Interface: MultiPageScanController
 mojo.internal.Struct(
-    ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec, 'ash.scanning.mojom.MultiPageScanController_ScanNextPage_Params', [
-      mojo.internal.StructField('scanner_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('settings', 8, 0, ash.scanning.mojom.ScanSettingsSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec, 'ash.scanning.mojom.MultiPageScanController_ScanNextPage_Params', [
+      mojo.internal.StructField('arg_scanner_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.ScanSettingsSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec, 'ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParams', [
-      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec, 'ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec, 'ash.scanning.mojom.MultiPageScanController_RemovePage_Params', [
-      mojo.internal.StructField('page_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec, 'ash.scanning.mojom.MultiPageScanController_RemovePage_Params', [
+      mojo.internal.StructField('arg_page_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec, 'ash.scanning.mojom.MultiPageScanController_RescanPage_Params', [
-      mojo.internal.StructField('scanner_id', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('settings', 8, 0, ash.scanning.mojom.ScanSettingsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('page_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec, 'ash.scanning.mojom.MultiPageScanController_RescanPage_Params', [
+      mojo.internal.StructField('arg_scanner_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.mojo.internal.bindings.ash.scanning.mojom.ScanSettingsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
-    ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec, 'ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParams', [
-      mojo.internal.StructField('success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec, 'ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec, 'ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_Params', [
+    mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec, 'ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_Params', [
     ],
     [[0, 8]]);
 
-ash.scanning.mojom.MultiPageScanControllerPendingReceiver = class {
+mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.scanning.mojom.MultiPageScanControllerRemote = class {
+mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerRemote = class {
   static get $interfaceName() {
     return 'ash.scanning.mojom.MultiPageScanController';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.scanning.mojom.MultiPageScanControllerPendingReceiver,
+      mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerPendingReceiver,
       handle);
-    this.$ = new ash.scanning.mojom.MultiPageScanControllerRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -918,21 +923,21 @@ ash.scanning.mojom.MultiPageScanControllerRemote = class {
   close() {
     this.proxy.close();
   }
-  scanNextPage(scanner_id, settings) {
-    return this.$.scanNextPage(scanner_id, settings);
+  scanNextPage(arg_scanner_id, arg_settings) {
+    return this.$.scanNextPage(arg_scanner_id, arg_settings);
   }
-  removePage(page_index) {
-    return this.$.removePage(page_index);
+  removePage(arg_page_index) {
+    return this.$.removePage(arg_page_index);
   }
-  rescanPage(scanner_id, settings, page_index) {
-    return this.$.rescanPage(scanner_id, settings, page_index);
+  rescanPage(arg_scanner_id, arg_settings, arg_page_index) {
+    return this.$.rescanPage(arg_scanner_id, arg_settings, arg_page_index);
   }
   completeMultiPageScan() {
     return this.$.completeMultiPageScan();
   }
 };
 
-ash.scanning.mojom.MultiPageScanControllerRemoteCallHandler = class {
+mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('MultiPageScanController', [
@@ -943,37 +948,37 @@ ash.scanning.mojom.MultiPageScanControllerRemoteCallHandler = class {
     ]);
   }
 
-  scanNextPage(scanner_id, settings) {
+  scanNextPage(arg_scanner_id, arg_settings) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec,
-      ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec,
-      [scanner_id, settings],
+      mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec,
+      mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec,
+      [arg_scanner_id, arg_settings],
       false);
   }
 
-  removePage(page_index) {
+  removePage(arg_page_index) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec,
+      mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec,
       null,
-      [page_index],
+      [arg_page_index],
       false);
   }
 
-  rescanPage(scanner_id, settings, page_index) {
+  rescanPage(arg_scanner_id, arg_settings, arg_page_index) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec,
-      ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec,
-      [scanner_id, settings, page_index],
+      mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec,
+      mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec,
+      [arg_scanner_id, arg_settings, arg_page_index],
       false);
   }
 
   completeMultiPageScan() {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec,
+      mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec,
       null,
       [],
       false);
@@ -981,8 +986,8 @@ ash.scanning.mojom.MultiPageScanControllerRemoteCallHandler = class {
 
 };
 
-ash.scanning.mojom.MultiPageScanController.getRemote = function() {
-  let remote = new ash.scanning.mojom.MultiPageScanControllerRemote();
+mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -991,7 +996,7 @@ ash.scanning.mojom.MultiPageScanController.getRemote = function() {
   return remote.$;
 };
 
-ash.scanning.mojom.MultiPageScanControllerReceiver = class {
+mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -1043,7 +1048,7 @@ ash.scanning.mojom.MultiPageScanControllerReceiver = class {
         // Try Method 0: ScanNextPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ScanNextPage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1054,7 +1059,7 @@ ash.scanning.mojom.MultiPageScanControllerReceiver = class {
         // Try Method 1: RemovePage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemovePage (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1065,7 +1070,7 @@ ash.scanning.mojom.MultiPageScanControllerReceiver = class {
         // Try Method 2: RescanPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RescanPage (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1076,7 +1081,7 @@ ash.scanning.mojom.MultiPageScanControllerReceiver = class {
         // Try Method 3: CompleteMultiPageScan
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CompleteMultiPageScan (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1093,14 +1098,14 @@ ash.scanning.mojom.MultiPageScanControllerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.scanNextPage');
-          const result = this.impl.scanNextPage(params.scanner_id, params.settings);
+          const result = this.impl.scanNextPage(params.arg_scanner_id, params.arg_settings);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] ScanNextPage FAILED:', e));
           }
@@ -1108,21 +1113,21 @@ ash.scanning.mojom.MultiPageScanControllerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removePage');
-          const result = this.impl.removePage(params.page_index);
+          const result = this.impl.removePage(params.arg_page_index);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rescanPage');
-          const result = this.impl.rescanPage(params.scanner_id, params.settings, params.page_index);
+          const result = this.impl.rescanPage(params.arg_scanner_id, params.arg_settings, params.arg_page_index);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] RescanPage FAILED:', e));
           }
@@ -1130,7 +1135,7 @@ ash.scanning.mojom.MultiPageScanControllerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.completeMultiPageScan');
           const result = this.impl.completeMultiPageScan();
           break;
@@ -1143,8 +1148,8 @@ ash.scanning.mojom.MultiPageScanControllerReceiver = class {
   }
 };
 
-ash.scanning.mojom.MultiPageScanControllerReceiver = ash.scanning.mojom.MultiPageScanControllerReceiver;
+mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerReceiver = mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerReceiver;
 
-ash.scanning.mojom.MultiPageScanControllerPtr = ash.scanning.mojom.MultiPageScanControllerRemote;
-ash.scanning.mojom.MultiPageScanControllerRequest = ash.scanning.mojom.MultiPageScanControllerPendingReceiver;
+mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerPtr = mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerRemote;
+mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerRequest = mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerPendingReceiver;
 

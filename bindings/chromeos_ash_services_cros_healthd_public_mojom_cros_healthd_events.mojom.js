@@ -1,161 +1,166 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/chromeos/ash/services/cros_healthd/public/mojom/cros_healthd_events.mojom
-// Module: ash.cros_healthd.mojom
+ // Source: chromium_src/chromeos/ash/services/cros_healthd/public/mojom/cros_healthd_events.mojom
+ // Module: ash.cros_healthd.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var ash = ash || {};
-ash.cros_healthd = ash.cros_healthd || {};
-ash.cros_healthd.mojom = ash.cros_healthd.mojom || {};
-var mojo_base = mojo_base || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
-ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
-ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
-ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
-ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
-ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
-ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
-ash.cros_healthd.mojom.DeviceTypeSpec = { $: mojo.internal.Enum() };
-ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
-ash.cros_healthd.mojom.InputTouchButtonSpec = { $: mojo.internal.Enum() };
-ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
-ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
-ash.cros_healthd.mojom.CrashTypeSpec = { $: mojo.internal.Enum() };
-ash.cros_healthd.mojom.EventCategoryEnumSpec = { $: mojo.internal.Enum() };
-ash.cros_healthd.mojom.TouchpadEventInfoSpec = { $: {} };
-ash.cros_healthd.mojom.TouchscreenEventInfoSpec = { $: {} };
-ash.cros_healthd.mojom.StylusEventInfoSpec = { $: {} };
-ash.cros_healthd.mojom.EventInfoSpec = { $: {} };
-ash.cros_healthd.mojom.UsbEventInfoSpec = { $: {} };
-ash.cros_healthd.mojom.ThunderboltEventInfoSpec = { $: {} };
-ash.cros_healthd.mojom.LidEventInfoSpec = { $: {} };
-ash.cros_healthd.mojom.BluetoothEventInfoSpec = { $: {} };
-ash.cros_healthd.mojom.PowerEventInfoSpec = { $: {} };
-ash.cros_healthd.mojom.AudioEventInfoSpec = { $: {} };
-ash.cros_healthd.mojom.AudioJackEventInfoSpec = { $: {} };
-ash.cros_healthd.mojom.SdCardEventInfoSpec = { $: {} };
-ash.cros_healthd.mojom.TouchpadButtonEventSpec = { $: {} };
-ash.cros_healthd.mojom.TouchPointInfoSpec = { $: {} };
-ash.cros_healthd.mojom.TouchpadTouchEventSpec = { $: {} };
-ash.cros_healthd.mojom.TouchpadConnectedEventSpec = { $: {} };
-ash.cros_healthd.mojom.ExternalDisplayEventInfoSpec = { $: {} };
-ash.cros_healthd.mojom.TouchscreenTouchEventSpec = { $: {} };
-ash.cros_healthd.mojom.TouchscreenConnectedEventSpec = { $: {} };
-ash.cros_healthd.mojom.StylusGarageEventInfoSpec = { $: {} };
-ash.cros_healthd.mojom.StylusTouchPointInfoSpec = { $: {} };
-ash.cros_healthd.mojom.StylusTouchEventSpec = { $: {} };
-ash.cros_healthd.mojom.StylusConnectedEventSpec = { $: {} };
-ash.cros_healthd.mojom.CrashUploadInfoSpec = { $: {} };
-ash.cros_healthd.mojom.CrashEventInfoSpec = { $: {} };
-ash.cros_healthd.mojom.CrosHealthdBluetoothObserver = {};
-ash.cros_healthd.mojom.CrosHealthdBluetoothObserver.$interfaceName = 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver';
-ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec = { $: {} };
-ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec = { $: {} };
-ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_ParamsSpec = { $: {} };
-ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_ParamsSpec = { $: {} };
-ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec = { $: {} };
-ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec = { $: {} };
-ash.cros_healthd.mojom.CrosHealthdLidObserver = {};
-ash.cros_healthd.mojom.CrosHealthdLidObserver.$interfaceName = 'ash.cros_healthd.mojom.CrosHealthdLidObserver';
-ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec = { $: {} };
-ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec = { $: {} };
-ash.cros_healthd.mojom.CrosHealthdPowerObserver = {};
-ash.cros_healthd.mojom.CrosHealthdPowerObserver.$interfaceName = 'ash.cros_healthd.mojom.CrosHealthdPowerObserver';
-ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec = { $: {} };
-ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec = { $: {} };
-ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec = { $: {} };
-ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec = { $: {} };
-ash.cros_healthd.mojom.CrosHealthdAudioObserver = {};
-ash.cros_healthd.mojom.CrosHealthdAudioObserver.$interfaceName = 'ash.cros_healthd.mojom.CrosHealthdAudioObserver';
-ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec = { $: {} };
-ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec = { $: {} };
-ash.cros_healthd.mojom.CrosHealthdThunderboltObserver = {};
-ash.cros_healthd.mojom.CrosHealthdThunderboltObserver.$interfaceName = 'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver';
-ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec = { $: {} };
-ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec = { $: {} };
-ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec = { $: {} };
-ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec = { $: {} };
-ash.cros_healthd.mojom.CrosHealthdUsbObserver = {};
-ash.cros_healthd.mojom.CrosHealthdUsbObserver.$interfaceName = 'ash.cros_healthd.mojom.CrosHealthdUsbObserver';
-ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec = { $: {} };
-ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec = { $: {} };
-ash.cros_healthd.mojom.CrosHealthdSdCardObserver = {};
-ash.cros_healthd.mojom.CrosHealthdSdCardObserver.$interfaceName = 'ash.cros_healthd.mojom.CrosHealthdSdCardObserver';
-ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec = { $: {} };
-ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec = { $: {} };
-ash.cros_healthd.mojom.EventObserver = {};
-ash.cros_healthd.mojom.EventObserver.$interfaceName = 'ash.cros_healthd.mojom.EventObserver';
-ash.cros_healthd.mojom.EventObserver_OnEvent_ParamsSpec = { $: {} };
+ mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.cros_healthd = mojo.internal.bindings.ash.cros_healthd || {};
+mojo.internal.bindings.ash.cros_healthd.mojom = mojo.internal.bindings.ash.cros_healthd.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+
+mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.cros_healthd.mojom.DeviceTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.cros_healthd.mojom.InputTouchButtonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.cros_healthd.mojom.CrashTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.cros_healthd.mojom.EventCategoryEnumSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.cros_healthd.mojom.TouchpadEventInfoSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.TouchscreenEventInfoSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.StylusEventInfoSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.EventInfoSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.UsbEventInfoSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.ThunderboltEventInfoSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.LidEventInfoSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.BluetoothEventInfoSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.PowerEventInfoSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.AudioEventInfoSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.AudioJackEventInfoSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.SdCardEventInfoSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.TouchpadButtonEventSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.TouchPointInfoSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.TouchpadTouchEventSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.TouchpadConnectedEventSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.ExternalDisplayEventInfoSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.TouchscreenTouchEventSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.TouchscreenConnectedEventSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.StylusGarageEventInfoSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.StylusTouchPointInfoSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.StylusTouchEventSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.StylusConnectedEventSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.CrashUploadInfoSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.CrashEventInfoSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver = {};
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver.$interfaceName = 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver';
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserver = {};
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserver.$interfaceName = 'ash.cros_healthd.mojom.CrosHealthdLidObserver';
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver = {};
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver.$interfaceName = 'ash.cros_healthd.mojom.CrosHealthdPowerObserver';
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserver = {};
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserver.$interfaceName = 'ash.cros_healthd.mojom.CrosHealthdAudioObserver';
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver = {};
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver.$interfaceName = 'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver';
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserver = {};
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserver.$interfaceName = 'ash.cros_healthd.mojom.CrosHealthdUsbObserver';
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserver = {};
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserver.$interfaceName = 'ash.cros_healthd.mojom.CrosHealthdSdCardObserver';
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.cros_healthd.mojom.EventObserver = {};
+mojo.internal.bindings.ash.cros_healthd.mojom.EventObserver.$interfaceName = 'ash.cros_healthd.mojom.EventObserver';
+mojo.internal.bindings.ash.cros_healthd.mojom.EventObserver_OnEvent_ParamsSpec = { $: {} };
 
 // Enum: State
-ash.cros_healthd.mojom.State = {
+mojo.internal.bindings.ash.cros_healthd.mojom.State = {
   kUnmappedEnumField: 0,
   kAdd: 1,
   kRemove: 2,
 };
 
 // Enum: State
-ash.cros_healthd.mojom.State = {
+mojo.internal.bindings.ash.cros_healthd.mojom.State = {
   kUnmappedEnumField: 0,
   kAdd: 1,
   kRemove: 2,
@@ -164,14 +169,14 @@ ash.cros_healthd.mojom.State = {
 };
 
 // Enum: State
-ash.cros_healthd.mojom.State = {
+mojo.internal.bindings.ash.cros_healthd.mojom.State = {
   kUnmappedEnumField: 0,
   kClosed: 1,
   kOpened: 2,
 };
 
 // Enum: State
-ash.cros_healthd.mojom.State = {
+mojo.internal.bindings.ash.cros_healthd.mojom.State = {
   kUnmappedEnumField: 0,
   kAdapterAdded: 1,
   kAdapterRemoved: 2,
@@ -182,7 +187,7 @@ ash.cros_healthd.mojom.State = {
 };
 
 // Enum: State
-ash.cros_healthd.mojom.State = {
+mojo.internal.bindings.ash.cros_healthd.mojom.State = {
   kUnmappedEnumField: 0,
   kAcInserted: 1,
   kAcRemoved: 2,
@@ -191,35 +196,35 @@ ash.cros_healthd.mojom.State = {
 };
 
 // Enum: State
-ash.cros_healthd.mojom.State = {
+mojo.internal.bindings.ash.cros_healthd.mojom.State = {
   kUnmappedEnumField: 0,
   kUnderrun: 1,
   kSevereUnderrun: 2,
 };
 
 // Enum: State
-ash.cros_healthd.mojom.State = {
+mojo.internal.bindings.ash.cros_healthd.mojom.State = {
   kUnmappedEnumField: 0,
   kAdd: 1,
   kRemove: 2,
 };
 
 // Enum: DeviceType
-ash.cros_healthd.mojom.DeviceType = {
+mojo.internal.bindings.ash.cros_healthd.mojom.DeviceType = {
   kUnmappedEnumField: 0,
   kHeadphone: 1,
   kMicrophone: 2,
 };
 
 // Enum: State
-ash.cros_healthd.mojom.State = {
+mojo.internal.bindings.ash.cros_healthd.mojom.State = {
   kUnmappedEnumField: 0,
   kAdd: 1,
   kRemove: 2,
 };
 
 // Enum: InputTouchButton
-ash.cros_healthd.mojom.InputTouchButton = {
+mojo.internal.bindings.ash.cros_healthd.mojom.InputTouchButton = {
   kUnmappedEnumField: 0,
   kLeft: 1,
   kMiddle: 2,
@@ -227,21 +232,21 @@ ash.cros_healthd.mojom.InputTouchButton = {
 };
 
 // Enum: State
-ash.cros_healthd.mojom.State = {
+mojo.internal.bindings.ash.cros_healthd.mojom.State = {
   kUnmappedEnumField: 0,
   kAdd: 1,
   kRemove: 2,
 };
 
 // Enum: State
-ash.cros_healthd.mojom.State = {
+mojo.internal.bindings.ash.cros_healthd.mojom.State = {
   kUnmappedEnumField: 0,
   kInserted: 1,
   kRemoved: 2,
 };
 
 // Enum: CrashType
-ash.cros_healthd.mojom.CrashType = {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrashType = {
   kUnknown: 0,
   kKernel: 1,
   kEmbeddedController: 2,
@@ -249,7 +254,7 @@ ash.cros_healthd.mojom.CrashType = {
 };
 
 // Enum: EventCategoryEnum
-ash.cros_healthd.mojom.EventCategoryEnum = {
+mojo.internal.bindings.ash.cros_healthd.mojom.EventCategoryEnum = {
   kUnmappedEnumField: 0,
   kUsb: 1,
   kThunderbolt: 2,
@@ -271,370 +276,401 @@ ash.cros_healthd.mojom.EventCategoryEnum = {
 
 // Union: TouchpadEventInfo
 mojo.internal.Union(
-    ash.cros_healthd.mojom.TouchpadEventInfoSpec, 'ash.cros_healthd.mojom.TouchpadEventInfo', {
-      'default_type': {
+    mojo.internal.bindings.ash.cros_healthd.mojom.TouchpadEventInfoSpec, 'ash.cros_healthd.mojom.TouchpadEventInfo', {
+      'arg_default_type': {
         'ordinal': 0,
         'type': mojo.internal.Uint8,
         'nullable': false,
       },
-      'button_event': {
+      'arg_button_event': {
         'ordinal': 1,
-        'type': ash.cros_healthd.mojom.TouchpadButtonEventSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.TouchpadButtonEventSpec.$,
         'nullable': false,
       },
-      'touch_event': {
+      'arg_touch_event': {
         'ordinal': 2,
-        'type': ash.cros_healthd.mojom.TouchpadTouchEventSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.TouchpadTouchEventSpec.$,
         'nullable': false,
       },
-      'connected_event': {
+      'arg_connected_event': {
         'ordinal': 3,
-        'type': ash.cros_healthd.mojom.TouchpadConnectedEventSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.TouchpadConnectedEventSpec.$,
         'nullable': false,
       },
     });
 
 // Union: TouchscreenEventInfo
 mojo.internal.Union(
-    ash.cros_healthd.mojom.TouchscreenEventInfoSpec, 'ash.cros_healthd.mojom.TouchscreenEventInfo', {
-      'default_type': {
+    mojo.internal.bindings.ash.cros_healthd.mojom.TouchscreenEventInfoSpec, 'ash.cros_healthd.mojom.TouchscreenEventInfo', {
+      'arg_default_type': {
         'ordinal': 0,
         'type': mojo.internal.Uint8,
         'nullable': false,
       },
-      'touch_event': {
+      'arg_touch_event': {
         'ordinal': 1,
-        'type': ash.cros_healthd.mojom.TouchscreenTouchEventSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.TouchscreenTouchEventSpec.$,
         'nullable': false,
       },
-      'connected_event': {
+      'arg_connected_event': {
         'ordinal': 2,
-        'type': ash.cros_healthd.mojom.TouchscreenConnectedEventSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.TouchscreenConnectedEventSpec.$,
         'nullable': false,
       },
     });
 
 // Union: StylusEventInfo
 mojo.internal.Union(
-    ash.cros_healthd.mojom.StylusEventInfoSpec, 'ash.cros_healthd.mojom.StylusEventInfo', {
-      'default_type': {
+    mojo.internal.bindings.ash.cros_healthd.mojom.StylusEventInfoSpec, 'ash.cros_healthd.mojom.StylusEventInfo', {
+      'arg_default_type': {
         'ordinal': 0,
         'type': mojo.internal.Uint8,
         'nullable': false,
       },
-      'touch_event': {
+      'arg_touch_event': {
         'ordinal': 1,
-        'type': ash.cros_healthd.mojom.StylusTouchEventSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.StylusTouchEventSpec.$,
         'nullable': false,
       },
-      'connected_event': {
+      'arg_connected_event': {
         'ordinal': 2,
-        'type': ash.cros_healthd.mojom.StylusConnectedEventSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.StylusConnectedEventSpec.$,
         'nullable': false,
       },
     });
 
 // Union: EventInfo
 mojo.internal.Union(
-    ash.cros_healthd.mojom.EventInfoSpec, 'ash.cros_healthd.mojom.EventInfo', {
-      'default_type': {
+    mojo.internal.bindings.ash.cros_healthd.mojom.EventInfoSpec, 'ash.cros_healthd.mojom.EventInfo', {
+      'arg_default_type': {
         'ordinal': 0,
         'type': mojo.internal.Uint8,
         'nullable': false,
       },
-      'usb_event_info': {
+      'arg_usb_event_info': {
         'ordinal': 1,
-        'type': ash.cros_healthd.mojom.UsbEventInfoSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.UsbEventInfoSpec.$,
         'nullable': false,
       },
-      'thunderbolt_event_info': {
+      'arg_thunderbolt_event_info': {
         'ordinal': 2,
-        'type': ash.cros_healthd.mojom.ThunderboltEventInfoSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.ThunderboltEventInfoSpec.$,
         'nullable': false,
       },
-      'lid_event_info': {
+      'arg_lid_event_info': {
         'ordinal': 3,
-        'type': ash.cros_healthd.mojom.LidEventInfoSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.LidEventInfoSpec.$,
         'nullable': false,
       },
-      'bluetooth_event_info': {
+      'arg_bluetooth_event_info': {
         'ordinal': 4,
-        'type': ash.cros_healthd.mojom.BluetoothEventInfoSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.BluetoothEventInfoSpec.$,
         'nullable': false,
       },
-      'power_event_info': {
+      'arg_power_event_info': {
         'ordinal': 5,
-        'type': ash.cros_healthd.mojom.PowerEventInfoSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.PowerEventInfoSpec.$,
         'nullable': false,
       },
-      'audio_event_info': {
+      'arg_audio_event_info': {
         'ordinal': 6,
-        'type': ash.cros_healthd.mojom.AudioEventInfoSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.AudioEventInfoSpec.$,
         'nullable': false,
       },
-      'audio_jack_event_info': {
+      'arg_audio_jack_event_info': {
         'ordinal': 7,
-        'type': ash.cros_healthd.mojom.AudioJackEventInfoSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.AudioJackEventInfoSpec.$,
         'nullable': false,
       },
-      'sd_card_event_info': {
+      'arg_sd_card_event_info': {
         'ordinal': 8,
-        'type': ash.cros_healthd.mojom.SdCardEventInfoSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.SdCardEventInfoSpec.$,
         'nullable': false,
       },
-      'keyboard_diagnostic_event_info': {
+      'arg_keyboard_diagnostic_event_info': {
         'ordinal': 9,
-        'type': ash.diagnostics.mojom.KeyboardDiagnosticEventInfoSpec.$,
+        'type': mojo.internal.bindings.ash.diagnostics.mojom.KeyboardDiagnosticEventInfoSpec.$,
         'nullable': false,
       },
-      'touchpad_event_info': {
+      'arg_touchpad_event_info': {
         'ordinal': 10,
-        'type': ash.cros_healthd.mojom.TouchpadEventInfoSpec.$,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.TouchpadEventInfoSpec.$,
         'nullable': false,
       },
-      'external_display_event_info': {
+      'arg_external_display_event_info': {
         'ordinal': 11,
-        'type': ash.cros_healthd.mojom.ExternalDisplayEventInfoSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.ExternalDisplayEventInfoSpec.$,
         'nullable': false,
       },
-      'touchscreen_event_info': {
+      'arg_touchscreen_event_info': {
         'ordinal': 12,
-        'type': ash.cros_healthd.mojom.TouchscreenEventInfoSpec.$,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.TouchscreenEventInfoSpec.$,
         'nullable': false,
       },
-      'stylus_garage_event_info': {
+      'arg_stylus_garage_event_info': {
         'ordinal': 13,
-        'type': ash.cros_healthd.mojom.StylusGarageEventInfoSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.StylusGarageEventInfoSpec.$,
         'nullable': false,
       },
-      'stylus_event_info': {
+      'arg_stylus_event_info': {
         'ordinal': 14,
-        'type': ash.cros_healthd.mojom.StylusEventInfoSpec.$,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.StylusEventInfoSpec.$,
         'nullable': false,
       },
-      'crash_event_info': {
+      'arg_crash_event_info': {
         'ordinal': 15,
-        'type': ash.cros_healthd.mojom.CrashEventInfoSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.CrashEventInfoSpec.$,
         'nullable': false,
       },
     });
 
 // Struct: UsbEventInfo
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.UsbEventInfoSpec, 'ash.cros_healthd.mojom.UsbEventInfo', [
-      mojo.internal.StructField('vendor', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('categories', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('kUnmappedEnumField', 24, 0, mojo.internal.Pointer, 0, false, 0, undefined),
-      mojo.internal.StructField('vid', 32, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('pid', 34, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+    mojo.internal.bindings.ash.cros_healthd.mojom.UsbEventInfoSpec, 'ash.cros_healthd.mojom.UsbEventInfo', [
+      mojo.internal.StructField('arg_vendor', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_categories', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_kUnmappedEnumField', 24, 0, mojo.internal.Pointer, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, 1, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 40, 0, mojo.internal.Pointer, 2, false, 0, undefined),
+      mojo.internal.StructField('arg_vid', 48, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pid', 50, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 64]]);
 
 // Struct: ThunderboltEventInfo
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.ThunderboltEventInfoSpec, 'ash.cros_healthd.mojom.ThunderboltEventInfo', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
+    mojo.internal.bindings.ash.cros_healthd.mojom.ThunderboltEventInfoSpec, 'ash.cros_healthd.mojom.ThunderboltEventInfo', [
+      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, 3, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, 4, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 48]]);
 
 // Struct: LidEventInfo
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.LidEventInfoSpec, 'ash.cros_healthd.mojom.LidEventInfo', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
+    mojo.internal.bindings.ash.cros_healthd.mojom.LidEventInfoSpec, 'ash.cros_healthd.mojom.LidEventInfo', [
+      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 32]]);
 
 // Struct: BluetoothEventInfo
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.BluetoothEventInfoSpec, 'ash.cros_healthd.mojom.BluetoothEventInfo', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
+    mojo.internal.bindings.ash.cros_healthd.mojom.BluetoothEventInfoSpec, 'ash.cros_healthd.mojom.BluetoothEventInfo', [
+      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, 3, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, 4, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 40, 0, mojo.internal.Pointer, 5, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 48, 0, mojo.internal.Pointer, 6, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 64]]);
 
 // Struct: PowerEventInfo
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.PowerEventInfoSpec, 'ash.cros_healthd.mojom.PowerEventInfo', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
+    mojo.internal.bindings.ash.cros_healthd.mojom.PowerEventInfoSpec, 'ash.cros_healthd.mojom.PowerEventInfo', [
+      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, 3, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, 4, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 48]]);
 
 // Struct: AudioEventInfo
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.AudioEventInfoSpec, 'ash.cros_healthd.mojom.AudioEventInfo', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
+    mojo.internal.bindings.ash.cros_healthd.mojom.AudioEventInfoSpec, 'ash.cros_healthd.mojom.AudioEventInfo', [
+      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, 1, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, 2, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 32]]);
 
 // Struct: AudioJackEventInfo
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.AudioJackEventInfoSpec, 'ash.cros_healthd.mojom.AudioJackEventInfo', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    mojo.internal.bindings.ash.cros_healthd.mojom.AudioJackEventInfoSpec, 'ash.cros_healthd.mojom.AudioJackEventInfo', [
+      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 32]]);
 
 // Struct: SdCardEventInfo
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.SdCardEventInfoSpec, 'ash.cros_healthd.mojom.SdCardEventInfo', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    mojo.internal.bindings.ash.cros_healthd.mojom.SdCardEventInfoSpec, 'ash.cros_healthd.mojom.SdCardEventInfo', [
+      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 32]]);
 
 // Struct: TouchpadButtonEvent
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.TouchpadButtonEventSpec, 'ash.cros_healthd.mojom.TouchpadButtonEvent', [
-      mojo.internal.StructField('button', 0, 0, ash.cros_healthd.mojom.InputTouchButtonSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('pressed', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.cros_healthd.mojom.TouchpadButtonEventSpec, 'ash.cros_healthd.mojom.TouchpadButtonEvent', [
+      mojo.internal.StructField('arg_button', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.InputTouchButtonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pressed', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: TouchPointInfo
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.TouchPointInfoSpec, 'ash.cros_healthd.mojom.TouchPointInfo', [
-      mojo.internal.StructField('pressure', 0, 0, ash.cros_healthd.mojom.NullableUint32Spec.$, null, true, 0, undefined),
-      mojo.internal.StructField('touch_major', 8, 0, ash.cros_healthd.mojom.NullableUint32Spec.$, null, true, 0, undefined),
-      mojo.internal.StructField('touch_minor', 16, 0, ash.cros_healthd.mojom.NullableUint32Spec.$, null, true, 0, undefined),
-      mojo.internal.StructField('tracking_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('x', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('y', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.ash.cros_healthd.mojom.TouchPointInfoSpec, 'ash.cros_healthd.mojom.TouchPointInfo', [
+      mojo.internal.StructField('arg_pressure', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint32Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_touch_major', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint32Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_touch_minor', 16, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint32Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_tracking_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_x', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_y', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: TouchpadTouchEvent
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.TouchpadTouchEventSpec, 'ash.cros_healthd.mojom.TouchpadTouchEvent', [
-      mojo.internal.StructField('touch_points', 0, 0, mojo.internal.Array(ash.cros_healthd.mojom.TouchPointInfoSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.ash.cros_healthd.mojom.TouchpadTouchEventSpec, 'ash.cros_healthd.mojom.TouchpadTouchEvent', [
+      mojo.internal.StructField('arg_touch_points', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.TouchPointInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: TouchpadConnectedEvent
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.TouchpadConnectedEventSpec, 'ash.cros_healthd.mojom.TouchpadConnectedEvent', [
-      mojo.internal.StructField('buttons', 0, 0, mojo.internal.Array(ash.cros_healthd.mojom.InputTouchButtonSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('max_x', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('max_y', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('max_pressure', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.ash.cros_healthd.mojom.TouchpadConnectedEventSpec, 'ash.cros_healthd.mojom.TouchpadConnectedEvent', [
+      mojo.internal.StructField('arg_buttons', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.InputTouchButtonSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_max_x', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_y', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_pressure', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: ExternalDisplayEventInfo
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.ExternalDisplayEventInfoSpec, 'ash.cros_healthd.mojom.ExternalDisplayEventInfo', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    mojo.internal.bindings.ash.cros_healthd.mojom.ExternalDisplayEventInfoSpec, 'ash.cros_healthd.mojom.ExternalDisplayEventInfo', [
+      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 32]]);
 
 // Struct: TouchscreenTouchEvent
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.TouchscreenTouchEventSpec, 'ash.cros_healthd.mojom.TouchscreenTouchEvent', [
-      mojo.internal.StructField('touch_points', 0, 0, mojo.internal.Array(ash.cros_healthd.mojom.TouchPointInfoSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.ash.cros_healthd.mojom.TouchscreenTouchEventSpec, 'ash.cros_healthd.mojom.TouchscreenTouchEvent', [
+      mojo.internal.StructField('arg_touch_points', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.TouchPointInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: TouchscreenConnectedEvent
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.TouchscreenConnectedEventSpec, 'ash.cros_healthd.mojom.TouchscreenConnectedEvent', [
-      mojo.internal.StructField('max_x', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('max_y', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('max_pressure', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.ash.cros_healthd.mojom.TouchscreenConnectedEventSpec, 'ash.cros_healthd.mojom.TouchscreenConnectedEvent', [
+      mojo.internal.StructField('arg_max_x', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_y', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_pressure', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: StylusGarageEventInfo
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.StylusGarageEventInfoSpec, 'ash.cros_healthd.mojom.StylusGarageEventInfo', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    mojo.internal.bindings.ash.cros_healthd.mojom.StylusGarageEventInfoSpec, 'ash.cros_healthd.mojom.StylusGarageEventInfo', [
+      mojo.internal.StructField('arg_kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 32]]);
 
 // Struct: StylusTouchPointInfo
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.StylusTouchPointInfoSpec, 'ash.cros_healthd.mojom.StylusTouchPointInfo', [
-      mojo.internal.StructField('pressure', 0, 0, ash.cros_healthd.mojom.NullableUint32Spec.$, null, true, 0, undefined),
-      mojo.internal.StructField('x', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('y', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.ash.cros_healthd.mojom.StylusTouchPointInfoSpec, 'ash.cros_healthd.mojom.StylusTouchPointInfo', [
+      mojo.internal.StructField('arg_pressure', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint32Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_x', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_y', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: StylusTouchEvent
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.StylusTouchEventSpec, 'ash.cros_healthd.mojom.StylusTouchEvent', [
-      mojo.internal.StructField('touch_point', 0, 0, ash.cros_healthd.mojom.StylusTouchPointInfoSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.ash.cros_healthd.mojom.StylusTouchEventSpec, 'ash.cros_healthd.mojom.StylusTouchEvent', [
+      mojo.internal.StructField('arg_touch_point', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.StylusTouchPointInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: StylusConnectedEvent
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.StylusConnectedEventSpec, 'ash.cros_healthd.mojom.StylusConnectedEvent', [
-      mojo.internal.StructField('max_x', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('max_y', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('max_pressure', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.ash.cros_healthd.mojom.StylusConnectedEventSpec, 'ash.cros_healthd.mojom.StylusConnectedEvent', [
+      mojo.internal.StructField('arg_max_x', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_y', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_pressure', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: CrashUploadInfo
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.CrashUploadInfoSpec, 'ash.cros_healthd.mojom.CrashUploadInfo', [
-      mojo.internal.StructField('crash_report_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('creation_time', 8, 0, mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('offset', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    mojo.internal.bindings.ash.cros_healthd.mojom.CrashUploadInfoSpec, 'ash.cros_healthd.mojom.CrashUploadInfo', [
+      mojo.internal.StructField('arg_crash_report_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_creation_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_offset', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: CrashEventInfo
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.CrashEventInfoSpec, 'ash.cros_healthd.mojom.CrashEventInfo', [
-      mojo.internal.StructField('kUnknown', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
+    mojo.internal.bindings.ash.cros_healthd.mojom.CrashEventInfoSpec, 'ash.cros_healthd.mojom.CrashEventInfo', [
+      mojo.internal.StructField('arg_kUnknown', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, null, false, 1, undefined),
     ],
-    [[0, 16]]);
+    [[0, 32], [1, 40]]);
 
 // Interface: CrosHealthdBluetoothObserver
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_Params', [
+    mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_Params', [
+    mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_Params', [
+    mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_Params', [
+    mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_Params', [
+    mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_Params', [
+    mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_Params', [
     ],
     [[0, 8]]);
 
-ash.cros_healthd.mojom.CrosHealthdBluetoothObserverPendingReceiver = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemote = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemote = class {
   static get $interfaceName() {
     return 'ash.cros_healthd.mojom.CrosHealthdBluetoothObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cros_healthd.mojom.CrosHealthdBluetoothObserverPendingReceiver,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverPendingReceiver,
       handle);
-    this.$ = new ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -664,7 +700,7 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemote = class {
   }
 };
 
-ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemoteCallHandler = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('CrosHealthdBluetoothObserver', [
@@ -680,7 +716,7 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemoteCallHandler = class {
   onAdapterAdded() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec,
       null,
       [],
       false);
@@ -689,7 +725,7 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemoteCallHandler = class {
   onAdapterRemoved() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec,
       null,
       [],
       false);
@@ -698,7 +734,7 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemoteCallHandler = class {
   onAdapterPropertyChanged() {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_ParamsSpec,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_ParamsSpec,
       null,
       [],
       false);
@@ -707,7 +743,7 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemoteCallHandler = class {
   onDeviceAdded() {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_ParamsSpec,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_ParamsSpec,
       null,
       [],
       false);
@@ -716,7 +752,7 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemoteCallHandler = class {
   onDeviceRemoved() {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
-      ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec,
       null,
       [],
       false);
@@ -725,7 +761,7 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemoteCallHandler = class {
   onDevicePropertyChanged() {
     return this.proxy.sendMessage(
       this.ordinals[5],  // ordinal
-      ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec,
       null,
       [],
       false);
@@ -733,8 +769,8 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemoteCallHandler = class {
 
 };
 
-ash.cros_healthd.mojom.CrosHealthdBluetoothObserver.getRemote = function() {
-  let remote = new ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemote();
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -743,7 +779,7 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserver.getRemote = function() {
   return remote.$;
 };
 
-ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiver = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -797,7 +833,7 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiver = class {
         // Try Method 0: OnAdapterAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAdapterAdded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -808,7 +844,7 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiver = class {
         // Try Method 1: OnAdapterRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAdapterRemoved (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -819,7 +855,7 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiver = class {
         // Try Method 2: OnAdapterPropertyChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAdapterPropertyChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -830,7 +866,7 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiver = class {
         // Try Method 3: OnDeviceAdded
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceAdded (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -841,7 +877,7 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiver = class {
         // Try Method 4: OnDeviceRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceRemoved (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -852,7 +888,7 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiver = class {
         // Try Method 5: OnDevicePropertyChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDevicePropertyChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -869,42 +905,42 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAdapterAdded');
           const result = this.impl.onAdapterAdded();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAdapterRemoved');
           const result = this.impl.onAdapterRemoved();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAdapterPropertyChanged');
           const result = this.impl.onAdapterPropertyChanged();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceAdded');
           const result = this.impl.onDeviceAdded();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceRemoved');
           const result = this.impl.onDeviceRemoved();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDevicePropertyChanged');
           const result = this.impl.onDevicePropertyChanged();
           break;
@@ -917,39 +953,39 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiver = class {
   }
 };
 
-ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiver = ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiver;
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiver = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiver;
 
-ash.cros_healthd.mojom.CrosHealthdBluetoothObserverPtr = ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemote;
-ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRequest = ash.cros_healthd.mojom.CrosHealthdBluetoothObserverPendingReceiver;
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverPtr = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemote;
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRequest = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverPendingReceiver;
 
 
 // Interface: CrosHealthdLidObserver
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_Params', [
+    mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_Params', [
+    mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_Params', [
     ],
     [[0, 8]]);
 
-ash.cros_healthd.mojom.CrosHealthdLidObserverPendingReceiver = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cros_healthd.mojom.CrosHealthdLidObserverRemote = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverRemote = class {
   static get $interfaceName() {
     return 'ash.cros_healthd.mojom.CrosHealthdLidObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cros_healthd.mojom.CrosHealthdLidObserverPendingReceiver,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverPendingReceiver,
       handle);
-    this.$ = new ash.cros_healthd.mojom.CrosHealthdLidObserverRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -967,7 +1003,7 @@ ash.cros_healthd.mojom.CrosHealthdLidObserverRemote = class {
   }
 };
 
-ash.cros_healthd.mojom.CrosHealthdLidObserverRemoteCallHandler = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('CrosHealthdLidObserver', [
@@ -979,7 +1015,7 @@ ash.cros_healthd.mojom.CrosHealthdLidObserverRemoteCallHandler = class {
   onLidClosed() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec,
       null,
       [],
       false);
@@ -988,7 +1024,7 @@ ash.cros_healthd.mojom.CrosHealthdLidObserverRemoteCallHandler = class {
   onLidOpened() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec,
       null,
       [],
       false);
@@ -996,8 +1032,8 @@ ash.cros_healthd.mojom.CrosHealthdLidObserverRemoteCallHandler = class {
 
 };
 
-ash.cros_healthd.mojom.CrosHealthdLidObserver.getRemote = function() {
-  let remote = new ash.cros_healthd.mojom.CrosHealthdLidObserverRemote();
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserver.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1006,7 +1042,7 @@ ash.cros_healthd.mojom.CrosHealthdLidObserver.getRemote = function() {
   return remote.$;
 };
 
-ash.cros_healthd.mojom.CrosHealthdLidObserverReceiver = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -1056,7 +1092,7 @@ ash.cros_healthd.mojom.CrosHealthdLidObserverReceiver = class {
         // Try Method 0: OnLidClosed
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLidClosed (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1067,7 +1103,7 @@ ash.cros_healthd.mojom.CrosHealthdLidObserverReceiver = class {
         // Try Method 1: OnLidOpened
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLidOpened (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1084,14 +1120,14 @@ ash.cros_healthd.mojom.CrosHealthdLidObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLidClosed');
           const result = this.impl.onLidClosed();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLidOpened');
           const result = this.impl.onLidOpened();
           break;
@@ -1104,49 +1140,49 @@ ash.cros_healthd.mojom.CrosHealthdLidObserverReceiver = class {
   }
 };
 
-ash.cros_healthd.mojom.CrosHealthdLidObserverReceiver = ash.cros_healthd.mojom.CrosHealthdLidObserverReceiver;
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverReceiver = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverReceiver;
 
-ash.cros_healthd.mojom.CrosHealthdLidObserverPtr = ash.cros_healthd.mojom.CrosHealthdLidObserverRemote;
-ash.cros_healthd.mojom.CrosHealthdLidObserverRequest = ash.cros_healthd.mojom.CrosHealthdLidObserverPendingReceiver;
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverPtr = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverRemote;
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverRequest = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverPendingReceiver;
 
 
 // Interface: CrosHealthdPowerObserver
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_Params', [
+    mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_Params', [
+    mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_Params', [
+    mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_Params', [
+    mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_Params', [
     ],
     [[0, 8]]);
 
-ash.cros_healthd.mojom.CrosHealthdPowerObserverPendingReceiver = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cros_healthd.mojom.CrosHealthdPowerObserverRemote = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverRemote = class {
   static get $interfaceName() {
     return 'ash.cros_healthd.mojom.CrosHealthdPowerObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cros_healthd.mojom.CrosHealthdPowerObserverPendingReceiver,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverPendingReceiver,
       handle);
-    this.$ = new ash.cros_healthd.mojom.CrosHealthdPowerObserverRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1170,7 +1206,7 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverRemote = class {
   }
 };
 
-ash.cros_healthd.mojom.CrosHealthdPowerObserverRemoteCallHandler = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('CrosHealthdPowerObserver', [
@@ -1184,7 +1220,7 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverRemoteCallHandler = class {
   onAcInserted() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec,
       null,
       [],
       false);
@@ -1193,7 +1229,7 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverRemoteCallHandler = class {
   onAcRemoved() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec,
       null,
       [],
       false);
@@ -1202,7 +1238,7 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverRemoteCallHandler = class {
   onOsSuspend() {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec,
       null,
       [],
       false);
@@ -1211,7 +1247,7 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverRemoteCallHandler = class {
   onOsResume() {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec,
       null,
       [],
       false);
@@ -1219,8 +1255,8 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverRemoteCallHandler = class {
 
 };
 
-ash.cros_healthd.mojom.CrosHealthdPowerObserver.getRemote = function() {
-  let remote = new ash.cros_healthd.mojom.CrosHealthdPowerObserverRemote();
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1229,7 +1265,7 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserver.getRemote = function() {
   return remote.$;
 };
 
-ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -1281,7 +1317,7 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver = class {
         // Try Method 0: OnAcInserted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAcInserted (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1292,7 +1328,7 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver = class {
         // Try Method 1: OnAcRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAcRemoved (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1303,7 +1339,7 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver = class {
         // Try Method 2: OnOsSuspend
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOsSuspend (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1314,7 +1350,7 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver = class {
         // Try Method 3: OnOsResume
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOsResume (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1331,28 +1367,28 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAcInserted');
           const result = this.impl.onAcInserted();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAcRemoved');
           const result = this.impl.onAcRemoved();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onOsSuspend');
           const result = this.impl.onOsSuspend();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onOsResume');
           const result = this.impl.onOsResume();
           break;
@@ -1365,39 +1401,39 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver = class {
   }
 };
 
-ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver = ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver;
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver;
 
-ash.cros_healthd.mojom.CrosHealthdPowerObserverPtr = ash.cros_healthd.mojom.CrosHealthdPowerObserverRemote;
-ash.cros_healthd.mojom.CrosHealthdPowerObserverRequest = ash.cros_healthd.mojom.CrosHealthdPowerObserverPendingReceiver;
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverPtr = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverRemote;
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverRequest = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverPendingReceiver;
 
 
 // Interface: CrosHealthdAudioObserver
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_Params', [
+    mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_Params', [
+    mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_Params', [
     ],
     [[0, 8]]);
 
-ash.cros_healthd.mojom.CrosHealthdAudioObserverPendingReceiver = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cros_healthd.mojom.CrosHealthdAudioObserverRemote = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverRemote = class {
   static get $interfaceName() {
     return 'ash.cros_healthd.mojom.CrosHealthdAudioObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cros_healthd.mojom.CrosHealthdAudioObserverPendingReceiver,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverPendingReceiver,
       handle);
-    this.$ = new ash.cros_healthd.mojom.CrosHealthdAudioObserverRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1415,7 +1451,7 @@ ash.cros_healthd.mojom.CrosHealthdAudioObserverRemote = class {
   }
 };
 
-ash.cros_healthd.mojom.CrosHealthdAudioObserverRemoteCallHandler = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('CrosHealthdAudioObserver', [
@@ -1427,7 +1463,7 @@ ash.cros_healthd.mojom.CrosHealthdAudioObserverRemoteCallHandler = class {
   onUnderrun() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec,
       null,
       [],
       false);
@@ -1436,7 +1472,7 @@ ash.cros_healthd.mojom.CrosHealthdAudioObserverRemoteCallHandler = class {
   onSevereUnderrun() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec,
       null,
       [],
       false);
@@ -1444,8 +1480,8 @@ ash.cros_healthd.mojom.CrosHealthdAudioObserverRemoteCallHandler = class {
 
 };
 
-ash.cros_healthd.mojom.CrosHealthdAudioObserver.getRemote = function() {
-  let remote = new ash.cros_healthd.mojom.CrosHealthdAudioObserverRemote();
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserver.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1454,7 +1490,7 @@ ash.cros_healthd.mojom.CrosHealthdAudioObserver.getRemote = function() {
   return remote.$;
 };
 
-ash.cros_healthd.mojom.CrosHealthdAudioObserverReceiver = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -1504,7 +1540,7 @@ ash.cros_healthd.mojom.CrosHealthdAudioObserverReceiver = class {
         // Try Method 0: OnUnderrun
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUnderrun (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1515,7 +1551,7 @@ ash.cros_healthd.mojom.CrosHealthdAudioObserverReceiver = class {
         // Try Method 1: OnSevereUnderrun
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSevereUnderrun (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1532,14 +1568,14 @@ ash.cros_healthd.mojom.CrosHealthdAudioObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUnderrun');
           const result = this.impl.onUnderrun();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSevereUnderrun');
           const result = this.impl.onSevereUnderrun();
           break;
@@ -1552,49 +1588,49 @@ ash.cros_healthd.mojom.CrosHealthdAudioObserverReceiver = class {
   }
 };
 
-ash.cros_healthd.mojom.CrosHealthdAudioObserverReceiver = ash.cros_healthd.mojom.CrosHealthdAudioObserverReceiver;
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverReceiver = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverReceiver;
 
-ash.cros_healthd.mojom.CrosHealthdAudioObserverPtr = ash.cros_healthd.mojom.CrosHealthdAudioObserverRemote;
-ash.cros_healthd.mojom.CrosHealthdAudioObserverRequest = ash.cros_healthd.mojom.CrosHealthdAudioObserverPendingReceiver;
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverPtr = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverRemote;
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverRequest = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverPendingReceiver;
 
 
 // Interface: CrosHealthdThunderboltObserver
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_Params', [
+    mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_Params', [
+    mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_Params', [
+    mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_Params', [
+    mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_Params', [
     ],
     [[0, 8]]);
 
-ash.cros_healthd.mojom.CrosHealthdThunderboltObserverPendingReceiver = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemote = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemote = class {
   static get $interfaceName() {
     return 'ash.cros_healthd.mojom.CrosHealthdThunderboltObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cros_healthd.mojom.CrosHealthdThunderboltObserverPendingReceiver,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverPendingReceiver,
       handle);
-    this.$ = new ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1618,7 +1654,7 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemote = class {
   }
 };
 
-ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemoteCallHandler = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('CrosHealthdThunderboltObserver', [
@@ -1632,7 +1668,7 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemoteCallHandler = class {
   onAdd() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec,
       null,
       [],
       false);
@@ -1641,7 +1677,7 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemoteCallHandler = class {
   onRemove() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec,
       null,
       [],
       false);
@@ -1650,7 +1686,7 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemoteCallHandler = class {
   onAuthorized() {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec,
       null,
       [],
       false);
@@ -1659,7 +1695,7 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemoteCallHandler = class {
   onUnAuthorized() {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec,
       null,
       [],
       false);
@@ -1667,8 +1703,8 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemoteCallHandler = class {
 
 };
 
-ash.cros_healthd.mojom.CrosHealthdThunderboltObserver.getRemote = function() {
-  let remote = new ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemote();
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1677,7 +1713,7 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserver.getRemote = function() {
   return remote.$;
 };
 
-ash.cros_healthd.mojom.CrosHealthdThunderboltObserverReceiver = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -1729,7 +1765,7 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserverReceiver = class {
         // Try Method 0: OnAdd
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAdd (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1740,7 +1776,7 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserverReceiver = class {
         // Try Method 1: OnRemove
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRemove (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1751,7 +1787,7 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserverReceiver = class {
         // Try Method 2: OnAuthorized
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAuthorized (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1762,7 +1798,7 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserverReceiver = class {
         // Try Method 3: OnUnAuthorized
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUnAuthorized (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1779,28 +1815,28 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAdd');
           const result = this.impl.onAdd();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRemove');
           const result = this.impl.onRemove();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAuthorized');
           const result = this.impl.onAuthorized();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUnAuthorized');
           const result = this.impl.onUnAuthorized();
           break;
@@ -1813,41 +1849,41 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserverReceiver = class {
   }
 };
 
-ash.cros_healthd.mojom.CrosHealthdThunderboltObserverReceiver = ash.cros_healthd.mojom.CrosHealthdThunderboltObserverReceiver;
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverReceiver = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverReceiver;
 
-ash.cros_healthd.mojom.CrosHealthdThunderboltObserverPtr = ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemote;
-ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRequest = ash.cros_healthd.mojom.CrosHealthdThunderboltObserverPendingReceiver;
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverPtr = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemote;
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRequest = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverPendingReceiver;
 
 
 // Interface: CrosHealthdUsbObserver
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_Params', [
-      mojo.internal.StructField('info', 0, 0, ash.cros_healthd.mojom.UsbEventInfoSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_Params', [
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.UsbEventInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_Params', [
-      mojo.internal.StructField('info', 0, 0, ash.cros_healthd.mojom.UsbEventInfoSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_Params', [
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.cros_healthd.mojom.UsbEventInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-ash.cros_healthd.mojom.CrosHealthdUsbObserverPendingReceiver = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cros_healthd.mojom.CrosHealthdUsbObserverRemote = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverRemote = class {
   static get $interfaceName() {
     return 'ash.cros_healthd.mojom.CrosHealthdUsbObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cros_healthd.mojom.CrosHealthdUsbObserverPendingReceiver,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverPendingReceiver,
       handle);
-    this.$ = new ash.cros_healthd.mojom.CrosHealthdUsbObserverRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1857,15 +1893,15 @@ ash.cros_healthd.mojom.CrosHealthdUsbObserverRemote = class {
   close() {
     this.proxy.close();
   }
-  onAdd(info) {
-    return this.$.onAdd(info);
+  onAdd(arg_info) {
+    return this.$.onAdd(arg_info);
   }
-  onRemove(info) {
-    return this.$.onRemove(info);
+  onRemove(arg_info) {
+    return this.$.onRemove(arg_info);
   }
 };
 
-ash.cros_healthd.mojom.CrosHealthdUsbObserverRemoteCallHandler = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('CrosHealthdUsbObserver', [
@@ -1874,28 +1910,28 @@ ash.cros_healthd.mojom.CrosHealthdUsbObserverRemoteCallHandler = class {
     ]);
   }
 
-  onAdd(info) {
+  onAdd(arg_info) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec,
       null,
-      [info],
+      [arg_info],
       false);
   }
 
-  onRemove(info) {
+  onRemove(arg_info) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec,
       null,
-      [info],
+      [arg_info],
       false);
   }
 
 };
 
-ash.cros_healthd.mojom.CrosHealthdUsbObserver.getRemote = function() {
-  let remote = new ash.cros_healthd.mojom.CrosHealthdUsbObserverRemote();
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserver.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1904,7 +1940,7 @@ ash.cros_healthd.mojom.CrosHealthdUsbObserver.getRemote = function() {
   return remote.$;
 };
 
-ash.cros_healthd.mojom.CrosHealthdUsbObserverReceiver = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -1954,7 +1990,7 @@ ash.cros_healthd.mojom.CrosHealthdUsbObserverReceiver = class {
         // Try Method 0: OnAdd
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAdd (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1965,7 +2001,7 @@ ash.cros_healthd.mojom.CrosHealthdUsbObserverReceiver = class {
         // Try Method 1: OnRemove
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRemove (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1982,16 +2018,16 @@ ash.cros_healthd.mojom.CrosHealthdUsbObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAdd');
-          const result = this.impl.onAdd(params.info);
+          const result = this.impl.onAdd(params.arg_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRemove');
-          const result = this.impl.onRemove(params.info);
+          const result = this.impl.onRemove(params.arg_info);
           break;
         }
       }
@@ -2002,39 +2038,39 @@ ash.cros_healthd.mojom.CrosHealthdUsbObserverReceiver = class {
   }
 };
 
-ash.cros_healthd.mojom.CrosHealthdUsbObserverReceiver = ash.cros_healthd.mojom.CrosHealthdUsbObserverReceiver;
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverReceiver = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverReceiver;
 
-ash.cros_healthd.mojom.CrosHealthdUsbObserverPtr = ash.cros_healthd.mojom.CrosHealthdUsbObserverRemote;
-ash.cros_healthd.mojom.CrosHealthdUsbObserverRequest = ash.cros_healthd.mojom.CrosHealthdUsbObserverPendingReceiver;
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverPtr = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverRemote;
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverRequest = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverPendingReceiver;
 
 
 // Interface: CrosHealthdSdCardObserver
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_Params', [
+    mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_Params', [
+    mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_Params', [
     ],
     [[0, 8]]);
 
-ash.cros_healthd.mojom.CrosHealthdSdCardObserverPendingReceiver = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemote = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemote = class {
   static get $interfaceName() {
     return 'ash.cros_healthd.mojom.CrosHealthdSdCardObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cros_healthd.mojom.CrosHealthdSdCardObserverPendingReceiver,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserverPendingReceiver,
       handle);
-    this.$ = new ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -2052,7 +2088,7 @@ ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemote = class {
   }
 };
 
-ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemoteCallHandler = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('CrosHealthdSdCardObserver', [
@@ -2064,7 +2100,7 @@ ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemoteCallHandler = class {
   onAdd() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec,
       null,
       [],
       false);
@@ -2073,7 +2109,7 @@ ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemoteCallHandler = class {
   onRemove() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec,
       null,
       [],
       false);
@@ -2081,8 +2117,8 @@ ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemoteCallHandler = class {
 
 };
 
-ash.cros_healthd.mojom.CrosHealthdSdCardObserver.getRemote = function() {
-  let remote = new ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemote();
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserver.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -2091,7 +2127,7 @@ ash.cros_healthd.mojom.CrosHealthdSdCardObserver.getRemote = function() {
   return remote.$;
 };
 
-ash.cros_healthd.mojom.CrosHealthdSdCardObserverReceiver = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -2141,7 +2177,7 @@ ash.cros_healthd.mojom.CrosHealthdSdCardObserverReceiver = class {
         // Try Method 0: OnAdd
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAdd (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2152,7 +2188,7 @@ ash.cros_healthd.mojom.CrosHealthdSdCardObserverReceiver = class {
         // Try Method 1: OnRemove
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRemove (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -2169,14 +2205,14 @@ ash.cros_healthd.mojom.CrosHealthdSdCardObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAdd');
           const result = this.impl.onAdd();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRemove');
           const result = this.impl.onRemove();
           break;
@@ -2189,35 +2225,35 @@ ash.cros_healthd.mojom.CrosHealthdSdCardObserverReceiver = class {
   }
 };
 
-ash.cros_healthd.mojom.CrosHealthdSdCardObserverReceiver = ash.cros_healthd.mojom.CrosHealthdSdCardObserverReceiver;
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserverReceiver = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserverReceiver;
 
-ash.cros_healthd.mojom.CrosHealthdSdCardObserverPtr = ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemote;
-ash.cros_healthd.mojom.CrosHealthdSdCardObserverRequest = ash.cros_healthd.mojom.CrosHealthdSdCardObserverPendingReceiver;
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserverPtr = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemote;
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserverRequest = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserverPendingReceiver;
 
 
 // Interface: EventObserver
 mojo.internal.Struct(
-    ash.cros_healthd.mojom.EventObserver_OnEvent_ParamsSpec, 'ash.cros_healthd.mojom.EventObserver_OnEvent_Params', [
-      mojo.internal.StructField('info', 0, 0, ash.cros_healthd.mojom.EventInfoSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.cros_healthd.mojom.EventObserver_OnEvent_ParamsSpec, 'ash.cros_healthd.mojom.EventObserver_OnEvent_Params', [
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.EventInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-ash.cros_healthd.mojom.EventObserverPendingReceiver = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.cros_healthd.mojom.EventObserverRemote = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverRemote = class {
   static get $interfaceName() {
     return 'ash.cros_healthd.mojom.EventObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.cros_healthd.mojom.EventObserverPendingReceiver,
+      mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverPendingReceiver,
       handle);
-    this.$ = new ash.cros_healthd.mojom.EventObserverRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -2227,12 +2263,12 @@ ash.cros_healthd.mojom.EventObserverRemote = class {
   close() {
     this.proxy.close();
   }
-  onEvent(info) {
-    return this.$.onEvent(info);
+  onEvent(arg_info) {
+    return this.$.onEvent(arg_info);
   }
 };
 
-ash.cros_healthd.mojom.EventObserverRemoteCallHandler = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('EventObserver', [
@@ -2240,19 +2276,19 @@ ash.cros_healthd.mojom.EventObserverRemoteCallHandler = class {
     ]);
   }
 
-  onEvent(info) {
+  onEvent(arg_info) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.cros_healthd.mojom.EventObserver_OnEvent_ParamsSpec,
+      mojo.internal.bindings.ash.cros_healthd.mojom.EventObserver_OnEvent_ParamsSpec,
       null,
-      [info],
+      [arg_info],
       false);
   }
 
 };
 
-ash.cros_healthd.mojom.EventObserver.getRemote = function() {
-  let remote = new ash.cros_healthd.mojom.EventObserverRemote();
+mojo.internal.bindings.ash.cros_healthd.mojom.EventObserver.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -2261,7 +2297,7 @@ ash.cros_healthd.mojom.EventObserver.getRemote = function() {
   return remote.$;
 };
 
-ash.cros_healthd.mojom.EventObserverReceiver = class {
+mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -2310,7 +2346,7 @@ ash.cros_healthd.mojom.EventObserverReceiver = class {
         // Try Method 0: OnEvent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.cros_healthd.mojom.EventObserver_OnEvent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.EventObserver_OnEvent_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEvent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -2327,9 +2363,9 @@ ash.cros_healthd.mojom.EventObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.EventObserver_OnEvent_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.EventObserver_OnEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEvent');
-          const result = this.impl.onEvent(params.info);
+          const result = this.impl.onEvent(params.arg_info);
           break;
         }
       }
@@ -2340,8 +2376,8 @@ ash.cros_healthd.mojom.EventObserverReceiver = class {
   }
 };
 
-ash.cros_healthd.mojom.EventObserverReceiver = ash.cros_healthd.mojom.EventObserverReceiver;
+mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverReceiver = mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverReceiver;
 
-ash.cros_healthd.mojom.EventObserverPtr = ash.cros_healthd.mojom.EventObserverRemote;
-ash.cros_healthd.mojom.EventObserverRequest = ash.cros_healthd.mojom.EventObserverPendingReceiver;
+mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverPtr = mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverRemote;
+mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverRequest = mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverPendingReceiver;
 

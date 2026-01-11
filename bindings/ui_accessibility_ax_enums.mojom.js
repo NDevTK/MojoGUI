@@ -1,119 +1,124 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/ui/accessibility/ax_enums.mojom
-// Module: ax.mojom
+ // Source: chromium_src/ui/accessibility/ax_enums.mojom
+ // Module: ax.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var ax = ax || {};
-ax.mojom = ax.mojom || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-ax.mojom.EventSpec = { $: mojo.internal.Enum() };
-ax.mojom.RoleSpec = { $: mojo.internal.Enum() };
-ax.mojom.StateSpec = { $: mojo.internal.Enum() };
-ax.mojom.ActionSpec = { $: mojo.internal.Enum() };
-ax.mojom.ActionFlagsSpec = { $: mojo.internal.Enum() };
-ax.mojom.ScrollAlignmentSpec = { $: mojo.internal.Enum() };
-ax.mojom.ScrollBehaviorSpec = { $: mojo.internal.Enum() };
-ax.mojom.DefaultActionVerbSpec = { $: mojo.internal.Enum() };
-ax.mojom.MutationSpec = { $: mojo.internal.Enum() };
-ax.mojom.StringAttributeSpec = { $: mojo.internal.Enum() };
-ax.mojom.IntAttributeSpec = { $: mojo.internal.Enum() };
-ax.mojom.FloatAttributeSpec = { $: mojo.internal.Enum() };
-ax.mojom.BoolAttributeSpec = { $: mojo.internal.Enum() };
-ax.mojom.IntListAttributeSpec = { $: mojo.internal.Enum() };
-ax.mojom.StringListAttributeSpec = { $: mojo.internal.Enum() };
-ax.mojom.ListStyleSpec = { $: mojo.internal.Enum() };
-ax.mojom.MarkerTypeSpec = { $: mojo.internal.Enum() };
-ax.mojom.HighlightTypeSpec = { $: mojo.internal.Enum() };
-ax.mojom.MoveDirectionSpec = { $: mojo.internal.Enum() };
-ax.mojom.CommandSpec = { $: mojo.internal.Enum() };
-ax.mojom.InputEventTypeSpec = { $: mojo.internal.Enum() };
-ax.mojom.TextBoundarySpec = { $: mojo.internal.Enum() };
-ax.mojom.TextAlignSpec = { $: mojo.internal.Enum() };
-ax.mojom.WritingDirectionSpec = { $: mojo.internal.Enum() };
-ax.mojom.TextPositionSpec = { $: mojo.internal.Enum() };
-ax.mojom.TextStyleSpec = { $: mojo.internal.Enum() };
-ax.mojom.TextDecorationStyleSpec = { $: mojo.internal.Enum() };
-ax.mojom.AriaCurrentStateSpec = { $: mojo.internal.Enum() };
-ax.mojom.HasPopupSpec = { $: mojo.internal.Enum() };
-ax.mojom.IsPopupSpec = { $: mojo.internal.Enum() };
-ax.mojom.InvalidStateSpec = { $: mojo.internal.Enum() };
-ax.mojom.RestrictionSpec = { $: mojo.internal.Enum() };
-ax.mojom.CheckedStateSpec = { $: mojo.internal.Enum() };
-ax.mojom.SortDirectionSpec = { $: mojo.internal.Enum() };
-ax.mojom.NameFromSpec = { $: mojo.internal.Enum() };
-ax.mojom.DescriptionFromSpec = { $: mojo.internal.Enum() };
-ax.mojom.DetailsFromSpec = { $: mojo.internal.Enum() };
-ax.mojom.EventFromSpec = { $: mojo.internal.Enum() };
-ax.mojom.GestureSpec = { $: mojo.internal.Enum() };
-ax.mojom.TextAffinitySpec = { $: mojo.internal.Enum() };
-ax.mojom.TreeOrderSpec = { $: mojo.internal.Enum() };
-ax.mojom.AXTreeIDTypeSpec = { $: mojo.internal.Enum() };
-ax.mojom.ImageAnnotationStatusSpec = { $: mojo.internal.Enum() };
-ax.mojom.AriaNotificationInterruptSpec = { $: mojo.internal.Enum() };
-ax.mojom.AriaNotificationPrioritySpec = { $: mojo.internal.Enum() };
+ mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+
+mojo.internal.bindings.ax.mojom.EventSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.RoleSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.StateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.ActionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.ActionFlagsSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.ScrollAlignmentSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.ScrollBehaviorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.DefaultActionVerbSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.MutationSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.StringAttributeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.IntAttributeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.FloatAttributeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.BoolAttributeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.IntListAttributeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.StringListAttributeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.ListStyleSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.MarkerTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.HighlightTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.MoveDirectionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.CommandSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.InputEventTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.TextBoundarySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.TextAlignSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.WritingDirectionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.TextPositionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.TextStyleSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.TextDecorationStyleSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.AriaCurrentStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.HasPopupSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.IsPopupSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.InvalidStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.RestrictionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.CheckedStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.SortDirectionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.NameFromSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.DescriptionFromSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.DetailsFromSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.EventFromSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.GestureSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.TextAffinitySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.TreeOrderSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.AXTreeIDTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.ImageAnnotationStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.AriaNotificationInterruptSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ax.mojom.AriaNotificationPrioritySpec = { $: mojo.internal.Enum() };
 
 // Enum: Event
-ax.mojom.Event = {
+mojo.internal.bindings.ax.mojom.Event = {
   kNone: 0,
   kActiveDescendantChanged: 1,
   kAlert: 2,
@@ -176,7 +181,7 @@ ax.mojom.Event = {
 };
 
 // Enum: Role
-ax.mojom.Role = {
+mojo.internal.bindings.ax.mojom.Role = {
   kUnknown: 181,
   kAbbr: 1,
   kAlert: 2,
@@ -394,7 +399,7 @@ ax.mojom.Role = {
 };
 
 // Enum: State
-ax.mojom.State = {
+mojo.internal.bindings.ax.mojom.State = {
   kNone: 0,
   kAutofillAvailable: 1,
   kCollapsed: 2,
@@ -419,7 +424,7 @@ ax.mojom.State = {
 };
 
 // Enum: Action
-ax.mojom.Action = {
+mojo.internal.bindings.ax.mojom.Action = {
   kNone: 0,
   kAnnotatePageImages: 1,
   kBlur: 2,
@@ -465,14 +470,14 @@ ax.mojom.Action = {
 };
 
 // Enum: ActionFlags
-ax.mojom.ActionFlags = {
+mojo.internal.bindings.ax.mojom.ActionFlags = {
   kNone: 0,
   kRequestImages: 1,
   kRequestInlineTextBoxes: 2,
 };
 
 // Enum: ScrollAlignment
-ax.mojom.ScrollAlignment = {
+mojo.internal.bindings.ax.mojom.ScrollAlignment = {
   kNone: 0,
   kScrollAlignmentCenter: 1,
   kScrollAlignmentTop: 2,
@@ -483,14 +488,14 @@ ax.mojom.ScrollAlignment = {
 };
 
 // Enum: ScrollBehavior
-ax.mojom.ScrollBehavior = {
+mojo.internal.bindings.ax.mojom.ScrollBehavior = {
   kNone: 0,
   kDoNotScrollIfVisible: 1,
   kScrollIfVisible: 2,
 };
 
 // Enum: DefaultActionVerb
-ax.mojom.DefaultActionVerb = {
+mojo.internal.bindings.ax.mojom.DefaultActionVerb = {
   kNone: 0,
   kActivate: 1,
   kCheck: 2,
@@ -506,7 +511,7 @@ ax.mojom.DefaultActionVerb = {
 };
 
 // Enum: Mutation
-ax.mojom.Mutation = {
+mojo.internal.bindings.ax.mojom.Mutation = {
   kNone: 0,
   kNodeCreated: 1,
   kSubtreeCreated: 2,
@@ -517,7 +522,7 @@ ax.mojom.Mutation = {
 };
 
 // Enum: StringAttribute
-ax.mojom.StringAttribute = {
+mojo.internal.bindings.ax.mojom.StringAttribute = {
   kNone: 0,
   kAccessKey: 1,
   kAppId: 2,
@@ -564,7 +569,7 @@ ax.mojom.StringAttribute = {
 };
 
 // Enum: IntAttribute
-ax.mojom.IntAttribute = {
+mojo.internal.bindings.ax.mojom.IntAttribute = {
   kNone: 0,
   kDefaultActionVerb: 1,
   kScrollX: 2,
@@ -638,7 +643,7 @@ ax.mojom.IntAttribute = {
 };
 
 // Enum: FloatAttribute
-ax.mojom.FloatAttribute = {
+mojo.internal.bindings.ax.mojom.FloatAttribute = {
   kNone: 0,
   kValueForRange: 1,
   kMinValueForRange: 2,
@@ -651,7 +656,7 @@ ax.mojom.FloatAttribute = {
 };
 
 // Enum: BoolAttribute
-ax.mojom.BoolAttribute = {
+mojo.internal.bindings.ax.mojom.BoolAttribute = {
   kNone: 0,
   kBusy: 1,
   kNonAtomicTextFieldRoot: 2,
@@ -680,7 +685,7 @@ ax.mojom.BoolAttribute = {
 };
 
 // Enum: IntListAttribute
-ax.mojom.IntListAttribute = {
+mojo.internal.bindings.ax.mojom.IntListAttribute = {
   kNone: 0,
   kIndirectChildIds: 1,
   kControlsIds: 2,
@@ -714,7 +719,7 @@ ax.mojom.IntListAttribute = {
 };
 
 // Enum: StringListAttribute
-ax.mojom.StringListAttribute = {
+mojo.internal.bindings.ax.mojom.StringListAttribute = {
   kNone: 0,
   MinVersion: 0,
   MinVersion: 0,
@@ -722,7 +727,7 @@ ax.mojom.StringListAttribute = {
 };
 
 // Enum: ListStyle
-ax.mojom.ListStyle = {
+mojo.internal.bindings.ax.mojom.ListStyle = {
   kNone: 0,
   kCircle: 1,
   kDisc: 2,
@@ -733,7 +738,7 @@ ax.mojom.ListStyle = {
 };
 
 // Enum: MarkerType
-ax.mojom.MarkerType = {
+mojo.internal.bindings.ax.mojom.MarkerType = {
   kNone: 0,
   kSpelling: 1,
   kGrammar: 2,
@@ -744,7 +749,7 @@ ax.mojom.MarkerType = {
 };
 
 // Enum: HighlightType
-ax.mojom.HighlightType = {
+mojo.internal.bindings.ax.mojom.HighlightType = {
   kNone: 0,
   kHighlight: 1,
   kSpellingError: 2,
@@ -752,14 +757,14 @@ ax.mojom.HighlightType = {
 };
 
 // Enum: MoveDirection
-ax.mojom.MoveDirection = {
+mojo.internal.bindings.ax.mojom.MoveDirection = {
   kNone: 0,
   kBackward: 1,
   kForward: 2,
 };
 
 // Enum: Command
-ax.mojom.Command = {
+mojo.internal.bindings.ax.mojom.Command = {
   kNone: 0,
   kClearSelection: 1,
   kDelete: 2,
@@ -774,7 +779,7 @@ ax.mojom.Command = {
 };
 
 // Enum: InputEventType
-ax.mojom.InputEventType = {
+mojo.internal.bindings.ax.mojom.InputEventType = {
   kNone: 0,
   kInsertText: 1,
   kInsertLineBreak: 2,
@@ -818,7 +823,7 @@ ax.mojom.InputEventType = {
 };
 
 // Enum: TextBoundary
-ax.mojom.TextBoundary = {
+mojo.internal.bindings.ax.mojom.TextBoundary = {
   kNone: 0,
   kCharacter: 1,
   kFormatEnd: 2,
@@ -845,7 +850,7 @@ ax.mojom.TextBoundary = {
 };
 
 // Enum: TextAlign
-ax.mojom.TextAlign = {
+mojo.internal.bindings.ax.mojom.TextAlign = {
   kNone: 0,
   kLeft: 1,
   kRight: 2,
@@ -854,7 +859,7 @@ ax.mojom.TextAlign = {
 };
 
 // Enum: WritingDirection
-ax.mojom.WritingDirection = {
+mojo.internal.bindings.ax.mojom.WritingDirection = {
   kNone: 0,
   kLtr: 1,
   kRtl: 2,
@@ -863,14 +868,14 @@ ax.mojom.WritingDirection = {
 };
 
 // Enum: TextPosition
-ax.mojom.TextPosition = {
+mojo.internal.bindings.ax.mojom.TextPosition = {
   kNone: 0,
   kSubscript: 1,
   kSuperscript: 2,
 };
 
 // Enum: TextStyle
-ax.mojom.TextStyle = {
+mojo.internal.bindings.ax.mojom.TextStyle = {
   kNone: 0,
   kBold: 1,
   kItalic: 2,
@@ -880,7 +885,7 @@ ax.mojom.TextStyle = {
 };
 
 // Enum: TextDecorationStyle
-ax.mojom.TextDecorationStyle = {
+mojo.internal.bindings.ax.mojom.TextDecorationStyle = {
   kNone: 0,
   kDotted: 1,
   kDashed: 2,
@@ -890,7 +895,7 @@ ax.mojom.TextDecorationStyle = {
 };
 
 // Enum: AriaCurrentState
-ax.mojom.AriaCurrentState = {
+mojo.internal.bindings.ax.mojom.AriaCurrentState = {
   kNone: 0,
   kFalse: 1,
   kTrue: 2,
@@ -902,7 +907,7 @@ ax.mojom.AriaCurrentState = {
 };
 
 // Enum: HasPopup
-ax.mojom.HasPopup = {
+mojo.internal.bindings.ax.mojom.HasPopup = {
   kFalse: 0,
   kTrue: 1,
   kMenu: 2,
@@ -914,7 +919,7 @@ ax.mojom.HasPopup = {
 };
 
 // Enum: IsPopup
-ax.mojom.IsPopup = {
+mojo.internal.bindings.ax.mojom.IsPopup = {
   kNone: 0,
   kManual: 1,
   kAuto: 2,
@@ -922,21 +927,21 @@ ax.mojom.IsPopup = {
 };
 
 // Enum: InvalidState
-ax.mojom.InvalidState = {
+mojo.internal.bindings.ax.mojom.InvalidState = {
   kNone: 0,
   kFalse: 1,
   kTrue: 2,
 };
 
 // Enum: Restriction
-ax.mojom.Restriction = {
+mojo.internal.bindings.ax.mojom.Restriction = {
   kNone: 0,
   kReadOnly: 1,
   kDisabled: 2,
 };
 
 // Enum: CheckedState
-ax.mojom.CheckedState = {
+mojo.internal.bindings.ax.mojom.CheckedState = {
   kNone: 0,
   kFalse: 1,
   kTrue: 2,
@@ -944,7 +949,7 @@ ax.mojom.CheckedState = {
 };
 
 // Enum: SortDirection
-ax.mojom.SortDirection = {
+mojo.internal.bindings.ax.mojom.SortDirection = {
   kNone: 0,
   kUnsorted: 1,
   kAscending: 2,
@@ -953,7 +958,7 @@ ax.mojom.SortDirection = {
 };
 
 // Enum: NameFrom
-ax.mojom.NameFrom = {
+mojo.internal.bindings.ax.mojom.NameFrom = {
   kNone: 0,
   kAttribute: 1,
   kAttributeExplicitlyEmpty: 2,
@@ -971,7 +976,7 @@ ax.mojom.NameFrom = {
 };
 
 // Enum: DescriptionFrom
-ax.mojom.DescriptionFrom = {
+mojo.internal.bindings.ax.mojom.DescriptionFrom = {
   kNone: 0,
   kAriaDescription: 1,
   kAttributeExplicitlyEmpty: 2,
@@ -988,7 +993,7 @@ ax.mojom.DescriptionFrom = {
 };
 
 // Enum: DetailsFrom
-ax.mojom.DetailsFrom = {
+mojo.internal.bindings.ax.mojom.DetailsFrom = {
   kAriaDetails: 0,
   kCssAnchor: 1,
   kPopoverTarget: 2,
@@ -998,7 +1003,7 @@ ax.mojom.DetailsFrom = {
 };
 
 // Enum: EventFrom
-ax.mojom.EventFrom = {
+mojo.internal.bindings.ax.mojom.EventFrom = {
   kNone: 0,
   kUser: 1,
   kPage: 2,
@@ -1006,7 +1011,7 @@ ax.mojom.EventFrom = {
 };
 
 // Enum: Gesture
-ax.mojom.Gesture = {
+mojo.internal.bindings.ax.mojom.Gesture = {
   kNone: 0,
   kClick: 1,
   kSwipeLeft1: 2,
@@ -1032,14 +1037,14 @@ ax.mojom.Gesture = {
 };
 
 // Enum: TextAffinity
-ax.mojom.TextAffinity = {
+mojo.internal.bindings.ax.mojom.TextAffinity = {
   kNone: 0,
   kDownstream: 1,
   kUpstream: 2,
 };
 
 // Enum: TreeOrder
-ax.mojom.TreeOrder = {
+mojo.internal.bindings.ax.mojom.TreeOrder = {
   kNone: 0,
   kUndefined: 1,
   kBefore: 2,
@@ -1048,13 +1053,13 @@ ax.mojom.TreeOrder = {
 };
 
 // Enum: AXTreeIDType
-ax.mojom.AXTreeIDType = {
+mojo.internal.bindings.ax.mojom.AXTreeIDType = {
   kUnknown: 0,
   kToken: 1,
 };
 
 // Enum: ImageAnnotationStatus
-ax.mojom.ImageAnnotationStatus = {
+mojo.internal.bindings.ax.mojom.ImageAnnotationStatus = {
   kNone: 0,
   kWillNotAnnotateDueToScheme: 1,
   kIneligibleForAnnotation: 2,
@@ -1068,14 +1073,14 @@ ax.mojom.ImageAnnotationStatus = {
 };
 
 // Enum: AriaNotificationInterrupt
-ax.mojom.AriaNotificationInterrupt = {
+mojo.internal.bindings.ax.mojom.AriaNotificationInterrupt = {
   kNone: 0,
   kAll: 1,
   kPending: 2,
 };
 
 // Enum: AriaNotificationPriority
-ax.mojom.AriaNotificationPriority = {
+mojo.internal.bindings.ax.mojom.AriaNotificationPriority = {
   kNormal: 0,
   kHigh: 1,
 };

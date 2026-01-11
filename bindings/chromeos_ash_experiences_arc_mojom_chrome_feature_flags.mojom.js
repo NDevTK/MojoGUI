@@ -1,79 +1,84 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/chromeos/ash/experiences/arc/mojom/chrome_feature_flags.mojom
-// Module: arc.mojom
+ // Source: chromium_src/chromeos/ash/experiences/arc/mojom/chrome_feature_flags.mojom
+ // Module: arc.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var arc = arc || {};
-arc.mojom = arc.mojom || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-arc.mojom.RoundedWindowCompatStrategySpec = { $: mojo.internal.Enum() };
-arc.mojom.FeatureFlagsSpec = { $: {} };
-arc.mojom.ChromeFeatureFlagsInstance = {};
-arc.mojom.ChromeFeatureFlagsInstance.$interfaceName = 'arc.mojom.ChromeFeatureFlagsInstance';
-arc.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_ParamsSpec = { $: {} };
+ mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
+
+mojo.internal.bindings.arc.mojom.RoundedWindowCompatStrategySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.arc.mojom.FeatureFlagsSpec = { $: {} };
+mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstance = {};
+mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstance.$interfaceName = 'arc.mojom.ChromeFeatureFlagsInstance';
+mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_ParamsSpec = { $: {} };
 
 // Enum: RoundedWindowCompatStrategy
-arc.mojom.RoundedWindowCompatStrategy = {
+mojo.internal.bindings.arc.mojom.RoundedWindowCompatStrategy = {
   kDisabled: 0,
   kBottomOnlyGesture: 1,
   kLeftRightBottomGesture: 2,
@@ -81,50 +86,50 @@ arc.mojom.RoundedWindowCompatStrategy = {
 
 // Struct: FeatureFlags
 mojo.internal.Struct(
-    arc.mojom.FeatureFlagsSpec, 'arc.mojom.FeatureFlags', [
-      mojo.internal.StructField('deprecated_qs_revamp', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('jelly_colors', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('deprecated_trackpad_scroll_touchscreen_emulation', 0, 2, mojo.internal.Bool, false, false, 2, undefined),
-      mojo.internal.StructField('touchscreen_emulation', 0, 3, mojo.internal.Bool, true, false, 2, undefined),
-      mojo.internal.StructField('rounded_window_compat_strategy', 8, 0, arc.mojom.RoundedWindowCompatStrategySpec.$, null, false, 3, undefined),
-      mojo.internal.StructField('rounded_window_radius', 16, 0, mojo.internal.Int32, 0, false, 3, undefined),
-      mojo.internal.StructField('xdg_mode', 20, 0, mojo.internal.Bool, false, false, 4, undefined),
-      mojo.internal.StructField('enable_pip_double_tap', 20, 1, mojo.internal.Bool, false, false, 5, undefined),
-      mojo.internal.StructField('render_arc_notifications_by_chrome', 20, 2, mojo.internal.Bool, false, false, 6, undefined),
-      mojo.internal.StructField('game_dashboard', 20, 3, mojo.internal.Bool, false, false, 7, undefined),
-      mojo.internal.StructField('resize_compat', 20, 4, mojo.internal.Bool, false, false, 8, undefined),
-      mojo.internal.StructField('ignore_hover_event_anr', 20, 5, mojo.internal.Bool, false, false, 9, undefined),
-      mojo.internal.StructField('extend_input_anr_timeout', 20, 6, mojo.internal.Bool, false, false, 10, undefined),
-      mojo.internal.StructField('notification_width_increase', 20, 7, mojo.internal.Bool, false, false, 11, undefined),
-      mojo.internal.StructField('enable_friendlier_error_dialog', 21, 0, mojo.internal.Bool, false, false, 12, undefined),
-      mojo.internal.StructField('extend_service_anr_timeout', 21, 1, mojo.internal.Bool, false, false, 13, undefined),
-      mojo.internal.StructField('extend_intent_anr_timeout', 21, 2, mojo.internal.Bool, false, false, 14, undefined),
+    mojo.internal.bindings.arc.mojom.FeatureFlagsSpec, 'arc.mojom.FeatureFlags', [
+      mojo.internal.StructField('arg_deprecated_qs_revamp', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_jelly_colors', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_deprecated_trackpad_scroll_touchscreen_emulation', 0, 2, mojo.internal.Bool, false, false, 2, undefined),
+      mojo.internal.StructField('arg_touchscreen_emulation', 0, 3, mojo.internal.Bool, true, false, 2, undefined),
+      mojo.internal.StructField('arg_rounded_window_compat_strategy', 8, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.RoundedWindowCompatStrategySpec.$, null, false, 3, undefined),
+      mojo.internal.StructField('arg_rounded_window_radius', 16, 0, mojo.internal.Int32, 0, false, 3, undefined),
+      mojo.internal.StructField('arg_xdg_mode', 20, 0, mojo.internal.Bool, false, false, 4, undefined),
+      mojo.internal.StructField('arg_enable_pip_double_tap', 20, 1, mojo.internal.Bool, false, false, 5, undefined),
+      mojo.internal.StructField('arg_render_arc_notifications_by_chrome', 20, 2, mojo.internal.Bool, false, false, 6, undefined),
+      mojo.internal.StructField('arg_game_dashboard', 20, 3, mojo.internal.Bool, false, false, 7, undefined),
+      mojo.internal.StructField('arg_resize_compat', 20, 4, mojo.internal.Bool, false, false, 8, undefined),
+      mojo.internal.StructField('arg_ignore_hover_event_anr', 20, 5, mojo.internal.Bool, false, false, 9, undefined),
+      mojo.internal.StructField('arg_extend_input_anr_timeout', 20, 6, mojo.internal.Bool, false, false, 10, undefined),
+      mojo.internal.StructField('arg_notification_width_increase', 20, 7, mojo.internal.Bool, false, false, 11, undefined),
+      mojo.internal.StructField('arg_enable_friendlier_error_dialog', 21, 0, mojo.internal.Bool, false, false, 12, undefined),
+      mojo.internal.StructField('arg_extend_service_anr_timeout', 21, 1, mojo.internal.Bool, false, false, 13, undefined),
+      mojo.internal.StructField('arg_extend_intent_anr_timeout', 21, 2, mojo.internal.Bool, false, false, 14, undefined),
     ],
     [[0, 16], [2, 16], [3, 32], [4, 32], [5, 32], [6, 32], [7, 32], [8, 32], [9, 32], [10, 32], [11, 32], [12, 32], [13, 32], [14, 32]]);
 
 // Interface: ChromeFeatureFlagsInstance
 mojo.internal.Struct(
-    arc.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_ParamsSpec, 'arc.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_Params', [
-      mojo.internal.StructField('flags', 0, 0, arc.mojom.FeatureFlagsSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_ParamsSpec, 'arc.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_Params', [
+      mojo.internal.StructField('arg_flags', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.FeatureFlagsSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-arc.mojom.ChromeFeatureFlagsInstancePendingReceiver = class {
+mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-arc.mojom.ChromeFeatureFlagsInstanceRemote = class {
+mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstanceRemote = class {
   static get $interfaceName() {
     return 'arc.mojom.ChromeFeatureFlagsInstance';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      arc.mojom.ChromeFeatureFlagsInstancePendingReceiver,
+      mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstancePendingReceiver,
       handle);
-    this.$ = new arc.mojom.ChromeFeatureFlagsInstanceRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstanceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -134,12 +139,12 @@ arc.mojom.ChromeFeatureFlagsInstanceRemote = class {
   close() {
     this.proxy.close();
   }
-  notifyFeatureFlags(flags) {
-    return this.$.notifyFeatureFlags(flags);
+  notifyFeatureFlags(arg_flags) {
+    return this.$.notifyFeatureFlags(arg_flags);
   }
 };
 
-arc.mojom.ChromeFeatureFlagsInstanceRemoteCallHandler = class {
+mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstanceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ChromeFeatureFlagsInstance', [
@@ -147,19 +152,19 @@ arc.mojom.ChromeFeatureFlagsInstanceRemoteCallHandler = class {
     ]);
   }
 
-  notifyFeatureFlags(flags) {
+  notifyFeatureFlags(arg_flags) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      arc.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_ParamsSpec,
+      mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_ParamsSpec,
       null,
-      [flags],
+      [arg_flags],
       false);
   }
 
 };
 
-arc.mojom.ChromeFeatureFlagsInstance.getRemote = function() {
-  let remote = new arc.mojom.ChromeFeatureFlagsInstanceRemote();
+mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstance.getRemote = function() {
+  let remote = new mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstanceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -168,7 +173,7 @@ arc.mojom.ChromeFeatureFlagsInstance.getRemote = function() {
   return remote.$;
 };
 
-arc.mojom.ChromeFeatureFlagsInstanceReceiver = class {
+mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstanceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -217,7 +222,7 @@ arc.mojom.ChromeFeatureFlagsInstanceReceiver = class {
         // Try Method 0: NotifyFeatureFlags
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(arc.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyFeatureFlags (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -234,9 +239,9 @@ arc.mojom.ChromeFeatureFlagsInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyFeatureFlags');
-          const result = this.impl.notifyFeatureFlags(params.flags);
+          const result = this.impl.notifyFeatureFlags(params.arg_flags);
           break;
         }
       }
@@ -247,8 +252,8 @@ arc.mojom.ChromeFeatureFlagsInstanceReceiver = class {
   }
 };
 
-arc.mojom.ChromeFeatureFlagsInstanceReceiver = arc.mojom.ChromeFeatureFlagsInstanceReceiver;
+mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstanceReceiver = mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstanceReceiver;
 
-arc.mojom.ChromeFeatureFlagsInstancePtr = arc.mojom.ChromeFeatureFlagsInstanceRemote;
-arc.mojom.ChromeFeatureFlagsInstanceRequest = arc.mojom.ChromeFeatureFlagsInstancePendingReceiver;
+mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstancePtr = mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstanceRemote;
+mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstanceRequest = mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstancePendingReceiver;
 

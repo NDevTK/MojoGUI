@@ -1,100 +1,105 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/chromeos/services/machine_learning/public/mojom/text_suggester.mojom
-// Module: chromeos.machine_learning.mojom
+ // Source: chromium_src/chromeos/services/machine_learning/public/mojom/text_suggester.mojom
+ // Module: chromeos.machine_learning.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var chromeos = chromeos || {};
-chromeos.machine_learning = chromeos.machine_learning || {};
-chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-chromeos.machine_learning.mojom.TextSuggestionModeSpec = { $: mojo.internal.Enum() };
-chromeos.machine_learning.mojom.StatusSpec = { $: mojo.internal.Enum() };
-chromeos.machine_learning.mojom.MultiWordExperimentGroupSpec = { $: mojo.internal.Enum() };
-chromeos.machine_learning.mojom.TextSuggestionCandidateSpec = { $: {} };
-chromeos.machine_learning.mojom.NextWordCompletionCandidateSpec = { $: {} };
-chromeos.machine_learning.mojom.TextSuggesterQuerySpec = { $: {} };
-chromeos.machine_learning.mojom.MultiWordSuggestionCandidateSpec = { $: {} };
-chromeos.machine_learning.mojom.TextSuggesterResultSpec = { $: {} };
-chromeos.machine_learning.mojom.TextSuggesterSpecSpec = { $: {} };
-chromeos.machine_learning.mojom.TextSuggester = {};
-chromeos.machine_learning.mojom.TextSuggester.$interfaceName = 'chromeos.machine_learning.mojom.TextSuggester';
-chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec = { $: {} };
-chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec = { $: {} };
+ mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chromeos.machine_learning || {};
+mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
+
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos.machine_learning.mojom.MultiWordExperimentGroupSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionCandidateSpec = { $: {} };
+mojo.internal.bindings.chromeos.machine_learning.mojom.NextWordCompletionCandidateSpec = { $: {} };
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterQuerySpec = { $: {} };
+mojo.internal.bindings.chromeos.machine_learning.mojom.MultiWordSuggestionCandidateSpec = { $: {} };
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterResultSpec = { $: {} };
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterSpecSpec = { $: {} };
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester = {};
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester.$interfaceName = 'chromeos.machine_learning.mojom.TextSuggester';
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec = { $: {} };
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec = { $: {} };
 
 // Enum: TextSuggestionMode
-chromeos.machine_learning.mojom.TextSuggestionMode = {
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionMode = {
   kPrediction: 1,
   kCompletion: 2,
 };
 
 // Enum: Status
-chromeos.machine_learning.mojom.Status = {
+mojo.internal.bindings.chromeos.machine_learning.mojom.Status = {
   OK: 0,
   ERROR: 1,
 };
 
 // Enum: MultiWordExperimentGroup
-chromeos.machine_learning.mojom.MultiWordExperimentGroup = {
+mojo.internal.bindings.chromeos.machine_learning.mojom.MultiWordExperimentGroup = {
   kDefault: 0,
   kGboard: 1,
   MinVersion: 1,
@@ -107,82 +112,83 @@ chromeos.machine_learning.mojom.MultiWordExperimentGroup = {
 
 // Union: TextSuggestionCandidate
 mojo.internal.Union(
-    chromeos.machine_learning.mojom.TextSuggestionCandidateSpec, 'chromeos.machine_learning.mojom.TextSuggestionCandidate', {
-      'multi_word': {
+    mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionCandidateSpec, 'chromeos.machine_learning.mojom.TextSuggestionCandidate', {
+      'arg_multi_word': {
         'ordinal': 0,
-        'type': chromeos.machine_learning.mojom.MultiWordSuggestionCandidateSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.MultiWordSuggestionCandidateSpec.$,
         'nullable': false,
       },
     });
 
 // Struct: NextWordCompletionCandidate
 mojo.internal.Struct(
-    chromeos.machine_learning.mojom.NextWordCompletionCandidateSpec, 'chromeos.machine_learning.mojom.NextWordCompletionCandidate', [
-      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('normalized_score', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+    mojo.internal.bindings.chromeos.machine_learning.mojom.NextWordCompletionCandidateSpec, 'chromeos.machine_learning.mojom.NextWordCompletionCandidate', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_normalized_score', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: TextSuggesterQuery
 mojo.internal.Struct(
-    chromeos.machine_learning.mojom.TextSuggesterQuerySpec, 'chromeos.machine_learning.mojom.TextSuggesterQuery', [
-      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('next_word_candidates', 8, 0, mojo.internal.Array(chromeos.machine_learning.mojom.NextWordCompletionCandidateSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('suggestion_mode', 16, 0, chromeos.machine_learning.mojom.TextSuggestionModeSpec.$, null, false, 1, undefined),
+    mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterQuerySpec, 'chromeos.machine_learning.mojom.TextSuggesterQuery', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_next_word_candidates', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.NextWordCompletionCandidateSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestion_mode', 16, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionModeSpec.$, null, false, 1, undefined),
     ],
     [[0, 24], [1, 32]]);
 
 // Struct: MultiWordSuggestionCandidate
 mojo.internal.Struct(
-    chromeos.machine_learning.mojom.MultiWordSuggestionCandidateSpec, 'chromeos.machine_learning.mojom.MultiWordSuggestionCandidate', [
-      mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('normalized_score', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+    mojo.internal.bindings.chromeos.machine_learning.mojom.MultiWordSuggestionCandidateSpec, 'chromeos.machine_learning.mojom.MultiWordSuggestionCandidate', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_normalized_score', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: TextSuggesterResult
 mojo.internal.Struct(
-    chromeos.machine_learning.mojom.TextSuggesterResultSpec, 'chromeos.machine_learning.mojom.TextSuggesterResult', [
-      mojo.internal.StructField('OK', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
+    mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterResultSpec, 'chromeos.machine_learning.mojom.TextSuggesterResult', [
+      mojo.internal.StructField('arg_OK', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.ERRORSpec.$, 1, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: TextSuggesterSpec
 mojo.internal.Struct(
-    chromeos.machine_learning.mojom.TextSuggesterSpecSpec, 'chromeos.machine_learning.mojom.TextSuggesterSpec', [
-      mojo.internal.StructField('multi_word_experiment', 0, 0, chromeos.machine_learning.mojom.MultiWordExperimentGroupSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterSpecSpec, 'chromeos.machine_learning.mojom.TextSuggesterSpec', [
+      mojo.internal.StructField('arg_multi_word_experiment', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.MultiWordExperimentGroupSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Interface: TextSuggester
 mojo.internal.Struct(
-    chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec, 'chromeos.machine_learning.mojom.TextSuggester_Suggest_Params', [
-      mojo.internal.StructField('query', 0, 0, chromeos.machine_learning.mojom.TextSuggesterQuerySpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec, 'chromeos.machine_learning.mojom.TextSuggester_Suggest_Params', [
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterQuerySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec, 'chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, chromeos.machine_learning.mojom.TextSuggesterResultSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec, 'chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-chromeos.machine_learning.mojom.TextSuggesterPendingReceiver = class {
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-chromeos.machine_learning.mojom.TextSuggesterRemote = class {
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterRemote = class {
   static get $interfaceName() {
     return 'chromeos.machine_learning.mojom.TextSuggester';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      chromeos.machine_learning.mojom.TextSuggesterPendingReceiver,
+      mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterPendingReceiver,
       handle);
-    this.$ = new chromeos.machine_learning.mojom.TextSuggesterRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -192,12 +198,12 @@ chromeos.machine_learning.mojom.TextSuggesterRemote = class {
   close() {
     this.proxy.close();
   }
-  suggest(query) {
-    return this.$.suggest(query);
+  suggest(arg_query) {
+    return this.$.suggest(arg_query);
   }
 };
 
-chromeos.machine_learning.mojom.TextSuggesterRemoteCallHandler = class {
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('TextSuggester', [
@@ -205,19 +211,19 @@ chromeos.machine_learning.mojom.TextSuggesterRemoteCallHandler = class {
     ]);
   }
 
-  suggest(query) {
+  suggest(arg_query) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec,
-      chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec,
-      [query],
+      mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec,
+      mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec,
+      [arg_query],
       false);
   }
 
 };
 
-chromeos.machine_learning.mojom.TextSuggester.getRemote = function() {
-  let remote = new chromeos.machine_learning.mojom.TextSuggesterRemote();
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester.getRemote = function() {
+  let remote = new mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -226,7 +232,7 @@ chromeos.machine_learning.mojom.TextSuggester.getRemote = function() {
   return remote.$;
 };
 
-chromeos.machine_learning.mojom.TextSuggesterReceiver = class {
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -275,7 +281,7 @@ chromeos.machine_learning.mojom.TextSuggesterReceiver = class {
         // Try Method 0: Suggest
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Suggest (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -292,14 +298,14 @@ chromeos.machine_learning.mojom.TextSuggesterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.suggest');
-          const result = this.impl.suggest(params.query);
+          const result = this.impl.suggest(params.arg_query);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] Suggest FAILED:', e));
           }
@@ -313,8 +319,8 @@ chromeos.machine_learning.mojom.TextSuggesterReceiver = class {
   }
 };
 
-chromeos.machine_learning.mojom.TextSuggesterReceiver = chromeos.machine_learning.mojom.TextSuggesterReceiver;
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterReceiver = mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterReceiver;
 
-chromeos.machine_learning.mojom.TextSuggesterPtr = chromeos.machine_learning.mojom.TextSuggesterRemote;
-chromeos.machine_learning.mojom.TextSuggesterRequest = chromeos.machine_learning.mojom.TextSuggesterPendingReceiver;
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterPtr = mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterRemote;
+mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterRequest = mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterPendingReceiver;
 

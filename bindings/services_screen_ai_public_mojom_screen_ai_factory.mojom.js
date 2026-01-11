@@ -1,107 +1,112 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/services/screen_ai/public/mojom/screen_ai_factory.mojom
-// Module: screen_ai.mojom
+ // Source: chromium_src/services/screen_ai/public/mojom/screen_ai_factory.mojom
+ // Module: screen_ai.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var screen_ai = screen_ai || {};
-screen_ai.mojom = screen_ai.mojom || {};
-var mojo_base = mojo_base || {};
-var sandbox = sandbox || {};
-var ax = ax || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-screen_ai.mojom.ScreenAIServiceShutdownHandler = {};
-screen_ai.mojom.ScreenAIServiceShutdownHandler.$interfaceName = 'screen_ai.mojom.ScreenAIServiceShutdownHandler';
-screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec = { $: {} };
-screen_ai.mojom.ScreenAIServiceFactory = {};
-screen_ai.mojom.ScreenAIServiceFactory.$interfaceName = 'screen_ai.mojom.ScreenAIServiceFactory';
-screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec = { $: {} };
-screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec = { $: {} };
-screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec = { $: {} };
-screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParamsSpec = { $: {} };
-screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec = { $: {} };
+ mojo.internal.bindings.screen_ai = mojo.internal.bindings.screen_ai || {};
+mojo.internal.bindings.screen_ai.mojom = mojo.internal.bindings.screen_ai.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandler = {};
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandler.$interfaceName = 'screen_ai.mojom.ScreenAIServiceShutdownHandler';
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec = { $: {} };
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory = {};
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory.$interfaceName = 'screen_ai.mojom.ScreenAIServiceFactory';
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec = { $: {} };
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec = { $: {} };
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec = { $: {} };
 
 // Interface: ScreenAIServiceShutdownHandler
 mojo.internal.Struct(
-    screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec, 'screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_Params', [
+    mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec, 'screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_Params', [
     ],
     [[0, 8]]);
 
-screen_ai.mojom.ScreenAIServiceShutdownHandlerPendingReceiver = class {
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-screen_ai.mojom.ScreenAIServiceShutdownHandlerRemote = class {
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandlerRemote = class {
   static get $interfaceName() {
     return 'screen_ai.mojom.ScreenAIServiceShutdownHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      screen_ai.mojom.ScreenAIServiceShutdownHandlerPendingReceiver,
+      mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandlerPendingReceiver,
       handle);
-    this.$ = new screen_ai.mojom.ScreenAIServiceShutdownHandlerRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -116,7 +121,7 @@ screen_ai.mojom.ScreenAIServiceShutdownHandlerRemote = class {
   }
 };
 
-screen_ai.mojom.ScreenAIServiceShutdownHandlerRemoteCallHandler = class {
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ScreenAIServiceShutdownHandler', [
@@ -127,7 +132,7 @@ screen_ai.mojom.ScreenAIServiceShutdownHandlerRemoteCallHandler = class {
   shuttingDownOnIdle() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec,
+      mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec,
       null,
       [],
       false);
@@ -135,8 +140,8 @@ screen_ai.mojom.ScreenAIServiceShutdownHandlerRemoteCallHandler = class {
 
 };
 
-screen_ai.mojom.ScreenAIServiceShutdownHandler.getRemote = function() {
-  let remote = new screen_ai.mojom.ScreenAIServiceShutdownHandlerRemote();
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandler.getRemote = function() {
+  let remote = new mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -145,7 +150,7 @@ screen_ai.mojom.ScreenAIServiceShutdownHandler.getRemote = function() {
   return remote.$;
 };
 
-screen_ai.mojom.ScreenAIServiceShutdownHandlerReceiver = class {
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -194,7 +199,7 @@ screen_ai.mojom.ScreenAIServiceShutdownHandlerReceiver = class {
         // Try Method 0: ShuttingDownOnIdle
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShuttingDownOnIdle (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -211,7 +216,7 @@ screen_ai.mojom.ScreenAIServiceShutdownHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.shuttingDownOnIdle');
           const result = this.impl.shuttingDownOnIdle();
           break;
@@ -224,63 +229,63 @@ screen_ai.mojom.ScreenAIServiceShutdownHandlerReceiver = class {
   }
 };
 
-screen_ai.mojom.ScreenAIServiceShutdownHandlerReceiver = screen_ai.mojom.ScreenAIServiceShutdownHandlerReceiver;
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandlerReceiver = mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandlerReceiver;
 
-screen_ai.mojom.ScreenAIServiceShutdownHandlerPtr = screen_ai.mojom.ScreenAIServiceShutdownHandlerRemote;
-screen_ai.mojom.ScreenAIServiceShutdownHandlerRequest = screen_ai.mojom.ScreenAIServiceShutdownHandlerPendingReceiver;
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandlerPtr = mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandlerRemote;
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandlerRequest = mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandlerPendingReceiver;
 
 
 // Interface: ScreenAIServiceFactory
 mojo.internal.Struct(
-    screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec, 'screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_Params', [
-      mojo.internal.StructField('library_path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('model_files', 8, 0, mojo.internal.Map(mojo_base.mojom.RelativeFilePathSpec.$, mojo_base.mojom.ReadOnlyFileSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('ocr_service_receiver', 16, 0, mojo.internal.InterfaceRequest(screen_ai.mojom.OCRServiceRemote), null, true, 0, undefined),
+    mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec, 'screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_Params', [
+      mojo.internal.StructField('arg_library_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_model_files', 8, 0, mojo.internal.Map(mojo.internal.bindings.mojo_base.mojom.RelativeFilePathSpec.$, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_ocr_service_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.screen_ai.mojom.OCRServiceRemote), null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
-    screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec, 'screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParams', [
-      mojo.internal.StructField('initialized', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec, 'screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParams', [
+      mojo.internal.StructField('arg_initialized', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec, 'screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_Params', [
-      mojo.internal.StructField('library_path', 0, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('model_files', 8, 0, mojo.internal.Map(mojo_base.mojom.RelativeFilePathSpec.$, mojo_base.mojom.ReadOnlyFileSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('main_content_extractor_service', 16, 0, mojo.internal.InterfaceRequest(screen_ai.mojom.MainContentExtractionServiceRemote), null, true, 0, undefined),
+    mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec, 'screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_Params', [
+      mojo.internal.StructField('arg_library_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_model_files', 8, 0, mojo.internal.Map(mojo.internal.bindings.mojo_base.mojom.RelativeFilePathSpec.$, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_main_content_extractor_service', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceRemote), null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
-    screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParamsSpec, 'screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParams', [
-      mojo.internal.StructField('initialized', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParamsSpec, 'screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParams', [
+      mojo.internal.StructField('arg_initialized', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec, 'screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_Params', [
-      mojo.internal.StructField('shutdown_handler', 0, 0, mojo.internal.InterfaceProxy(screen_ai.mojom.ScreenAIServiceShutdownHandlerSpec), null, false, 0, undefined),
+    mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec, 'screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_Params', [
+      mojo.internal.StructField('arg_shutdown_handler', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-screen_ai.mojom.ScreenAIServiceFactoryPendingReceiver = class {
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-screen_ai.mojom.ScreenAIServiceFactoryRemote = class {
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryRemote = class {
   static get $interfaceName() {
     return 'screen_ai.mojom.ScreenAIServiceFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      screen_ai.mojom.ScreenAIServiceFactoryPendingReceiver,
+      mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryPendingReceiver,
       handle);
-    this.$ = new screen_ai.mojom.ScreenAIServiceFactoryRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -290,18 +295,18 @@ screen_ai.mojom.ScreenAIServiceFactoryRemote = class {
   close() {
     this.proxy.close();
   }
-  initializeOCR(library_path, model_files, ocr_service_receiver) {
-    return this.$.initializeOCR(library_path, model_files, ocr_service_receiver);
+  initializeOCR(arg_library_path, arg_model_files, arg_ocr_service_receiver) {
+    return this.$.initializeOCR(arg_library_path, arg_model_files, arg_ocr_service_receiver);
   }
-  initializeMainContentExtraction(library_path, model_files, main_content_extractor_service) {
-    return this.$.initializeMainContentExtraction(library_path, model_files, main_content_extractor_service);
+  initializeMainContentExtraction(arg_library_path, arg_model_files, arg_main_content_extractor_service) {
+    return this.$.initializeMainContentExtraction(arg_library_path, arg_model_files, arg_main_content_extractor_service);
   }
-  bindShutdownHandler(shutdown_handler) {
-    return this.$.bindShutdownHandler(shutdown_handler);
+  bindShutdownHandler(arg_shutdown_handler) {
+    return this.$.bindShutdownHandler(arg_shutdown_handler);
   }
 };
 
-screen_ai.mojom.ScreenAIServiceFactoryRemoteCallHandler = class {
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ScreenAIServiceFactory', [
@@ -311,37 +316,37 @@ screen_ai.mojom.ScreenAIServiceFactoryRemoteCallHandler = class {
     ]);
   }
 
-  initializeOCR(library_path, model_files, ocr_service_receiver) {
+  initializeOCR(arg_library_path, arg_model_files, arg_ocr_service_receiver) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec,
-      screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec,
-      [library_path, model_files, ocr_service_receiver],
+      mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec,
+      mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec,
+      [arg_library_path, arg_model_files, arg_ocr_service_receiver],
       false);
   }
 
-  initializeMainContentExtraction(library_path, model_files, main_content_extractor_service) {
+  initializeMainContentExtraction(arg_library_path, arg_model_files, arg_main_content_extractor_service) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec,
-      screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParamsSpec,
-      [library_path, model_files, main_content_extractor_service],
+      mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec,
+      mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParamsSpec,
+      [arg_library_path, arg_model_files, arg_main_content_extractor_service],
       false);
   }
 
-  bindShutdownHandler(shutdown_handler) {
+  bindShutdownHandler(arg_shutdown_handler) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec,
+      mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec,
       null,
-      [shutdown_handler],
+      [arg_shutdown_handler],
       false);
   }
 
 };
 
-screen_ai.mojom.ScreenAIServiceFactory.getRemote = function() {
-  let remote = new screen_ai.mojom.ScreenAIServiceFactoryRemote();
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory.getRemote = function() {
+  let remote = new mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -350,7 +355,7 @@ screen_ai.mojom.ScreenAIServiceFactory.getRemote = function() {
   return remote.$;
 };
 
-screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -401,7 +406,7 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
         // Try Method 0: InitializeOCR
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeOCR (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -412,7 +417,7 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
         // Try Method 1: InitializeMainContentExtraction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeMainContentExtraction (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -423,7 +428,7 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
         // Try Method 2: BindShutdownHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindShutdownHandler (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -440,14 +445,14 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initializeOCR');
-          const result = this.impl.initializeOCR(params.library_path, params.model_files, params.ocr_service_receiver);
+          const result = this.impl.initializeOCR(params.arg_library_path, params.arg_model_files, params.arg_ocr_service_receiver);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] InitializeOCR FAILED:', e));
           }
@@ -455,14 +460,14 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initializeMainContentExtraction');
-          const result = this.impl.initializeMainContentExtraction(params.library_path, params.model_files, params.main_content_extractor_service);
+          const result = this.impl.initializeMainContentExtraction(params.arg_library_path, params.arg_model_files, params.arg_main_content_extractor_service);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] InitializeMainContentExtraction FAILED:', e));
           }
@@ -470,9 +475,9 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindShutdownHandler');
-          const result = this.impl.bindShutdownHandler(params.shutdown_handler);
+          const result = this.impl.bindShutdownHandler(params.arg_shutdown_handler);
           break;
         }
       }
@@ -483,8 +488,8 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
   }
 };
 
-screen_ai.mojom.ScreenAIServiceFactoryReceiver = screen_ai.mojom.ScreenAIServiceFactoryReceiver;
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryReceiver = mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryReceiver;
 
-screen_ai.mojom.ScreenAIServiceFactoryPtr = screen_ai.mojom.ScreenAIServiceFactoryRemote;
-screen_ai.mojom.ScreenAIServiceFactoryRequest = screen_ai.mojom.ScreenAIServiceFactoryPendingReceiver;
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryPtr = mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryRemote;
+mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryRequest = mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryPendingReceiver;
 

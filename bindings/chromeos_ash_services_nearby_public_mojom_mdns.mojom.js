@@ -1,125 +1,130 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/chromeos/ash/services/nearby/public/mojom/mdns.mojom
-// Module: sharing.mojom
+ // Source: chromium_src/chromeos/ash/services/nearby/public/mojom/mdns.mojom
+ // Module: sharing.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var sharing = sharing || {};
-sharing.mojom = sharing.mojom || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-sharing.mojom.NsdServiceInfoSpec = { $: {} };
-sharing.mojom.MdnsObserver = {};
-sharing.mojom.MdnsObserver.$interfaceName = 'sharing.mojom.MdnsObserver';
-sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec = { $: {} };
-sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec = { $: {} };
-sharing.mojom.MdnsManager = {};
-sharing.mojom.MdnsManager.$interfaceName = 'sharing.mojom.MdnsManager';
-sharing.mojom.MdnsManager_AddObserver_ParamsSpec = { $: {} };
-sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec = { $: {} };
-sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec = { $: {} };
-sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec = { $: {} };
-sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec = { $: {} };
+ mojo.internal.bindings.sharing = mojo.internal.bindings.sharing || {};
+mojo.internal.bindings.sharing.mojom = mojo.internal.bindings.sharing.mojom || {};
+
+mojo.internal.bindings.sharing.mojom.NsdServiceInfoSpec = { $: {} };
+mojo.internal.bindings.sharing.mojom.MdnsObserver = {};
+mojo.internal.bindings.sharing.mojom.MdnsObserver.$interfaceName = 'sharing.mojom.MdnsObserver';
+mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec = { $: {} };
+mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec = { $: {} };
+mojo.internal.bindings.sharing.mojom.MdnsManager = {};
+mojo.internal.bindings.sharing.mojom.MdnsManager.$interfaceName = 'sharing.mojom.MdnsManager';
+mojo.internal.bindings.sharing.mojom.MdnsManager_AddObserver_ParamsSpec = { $: {} };
+mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec = { $: {} };
+mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec = { $: {} };
+mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec = { $: {} };
 
 // Struct: NsdServiceInfo
 mojo.internal.Struct(
-    sharing.mojom.NsdServiceInfoSpec, 'sharing.mojom.NsdServiceInfo', [
-      mojo.internal.StructField('service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('service_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('txt_records', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('ip_address', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('port_$value', 32, 0, mojo.internal.Int16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'port_$flag', originalFieldName: 'port' }),
-      mojo.internal.StructField('port_$flag', 34, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'port_$value', originalFieldName: 'port' }),
+    mojo.internal.bindings.sharing.mojom.NsdServiceInfoSpec, 'sharing.mojom.NsdServiceInfo', [
+      mojo.internal.StructField('arg_service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_service_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_txt_records', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_ip_address', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_port_$value', 32, 0, mojo.internal.Int16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_port_$flag', originalFieldName: 'arg_port' }),
+      mojo.internal.StructField('arg_port_$flag', 34, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_port_$value', originalFieldName: 'arg_port' }),
     ],
     [[0, 48]]);
 
 // Interface: MdnsObserver
 mojo.internal.Struct(
-    sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec, 'sharing.mojom.MdnsObserver_ServiceFound_Params', [
-      mojo.internal.StructField('service_info', 0, 0, sharing.mojom.NsdServiceInfoSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec, 'sharing.mojom.MdnsObserver_ServiceFound_Params', [
+      mojo.internal.StructField('arg_service_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.sharing.mojom.NsdServiceInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec, 'sharing.mojom.MdnsObserver_ServiceLost_Params', [
-      mojo.internal.StructField('service_info', 0, 0, sharing.mojom.NsdServiceInfoSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec, 'sharing.mojom.MdnsObserver_ServiceLost_Params', [
+      mojo.internal.StructField('arg_service_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.sharing.mojom.NsdServiceInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-sharing.mojom.MdnsObserverPendingReceiver = class {
+mojo.internal.bindings.sharing.mojom.MdnsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-sharing.mojom.MdnsObserverRemote = class {
+mojo.internal.bindings.sharing.mojom.MdnsObserverRemote = class {
   static get $interfaceName() {
     return 'sharing.mojom.MdnsObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      sharing.mojom.MdnsObserverPendingReceiver,
+      mojo.internal.bindings.sharing.mojom.MdnsObserverPendingReceiver,
       handle);
-    this.$ = new sharing.mojom.MdnsObserverRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.sharing.mojom.MdnsObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -129,15 +134,15 @@ sharing.mojom.MdnsObserverRemote = class {
   close() {
     this.proxy.close();
   }
-  serviceFound(service_info) {
-    return this.$.serviceFound(service_info);
+  serviceFound(arg_service_info) {
+    return this.$.serviceFound(arg_service_info);
   }
-  serviceLost(service_info) {
-    return this.$.serviceLost(service_info);
+  serviceLost(arg_service_info) {
+    return this.$.serviceLost(arg_service_info);
   }
 };
 
-sharing.mojom.MdnsObserverRemoteCallHandler = class {
+mojo.internal.bindings.sharing.mojom.MdnsObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('MdnsObserver', [
@@ -146,28 +151,28 @@ sharing.mojom.MdnsObserverRemoteCallHandler = class {
     ]);
   }
 
-  serviceFound(service_info) {
+  serviceFound(arg_service_info) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec,
+      mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec,
       null,
-      [service_info],
+      [arg_service_info],
       false);
   }
 
-  serviceLost(service_info) {
+  serviceLost(arg_service_info) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec,
+      mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec,
       null,
-      [service_info],
+      [arg_service_info],
       false);
   }
 
 };
 
-sharing.mojom.MdnsObserver.getRemote = function() {
-  let remote = new sharing.mojom.MdnsObserverRemote();
+mojo.internal.bindings.sharing.mojom.MdnsObserver.getRemote = function() {
+  let remote = new mojo.internal.bindings.sharing.mojom.MdnsObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -176,7 +181,7 @@ sharing.mojom.MdnsObserver.getRemote = function() {
   return remote.$;
 };
 
-sharing.mojom.MdnsObserverReceiver = class {
+mojo.internal.bindings.sharing.mojom.MdnsObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -226,7 +231,7 @@ sharing.mojom.MdnsObserverReceiver = class {
         // Try Method 0: ServiceFound
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ServiceFound (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -237,7 +242,7 @@ sharing.mojom.MdnsObserverReceiver = class {
         // Try Method 1: ServiceLost
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ServiceLost (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -254,16 +259,16 @@ sharing.mojom.MdnsObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.serviceFound');
-          const result = this.impl.serviceFound(params.service_info);
+          const result = this.impl.serviceFound(params.arg_service_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.serviceLost');
-          const result = this.impl.serviceLost(params.service_info);
+          const result = this.impl.serviceLost(params.arg_service_info);
           break;
         }
       }
@@ -274,59 +279,59 @@ sharing.mojom.MdnsObserverReceiver = class {
   }
 };
 
-sharing.mojom.MdnsObserverReceiver = sharing.mojom.MdnsObserverReceiver;
+mojo.internal.bindings.sharing.mojom.MdnsObserverReceiver = mojo.internal.bindings.sharing.mojom.MdnsObserverReceiver;
 
-sharing.mojom.MdnsObserverPtr = sharing.mojom.MdnsObserverRemote;
-sharing.mojom.MdnsObserverRequest = sharing.mojom.MdnsObserverPendingReceiver;
+mojo.internal.bindings.sharing.mojom.MdnsObserverPtr = mojo.internal.bindings.sharing.mojom.MdnsObserverRemote;
+mojo.internal.bindings.sharing.mojom.MdnsObserverRequest = mojo.internal.bindings.sharing.mojom.MdnsObserverPendingReceiver;
 
 
 // Interface: MdnsManager
 mojo.internal.Struct(
-    sharing.mojom.MdnsManager_AddObserver_ParamsSpec, 'sharing.mojom.MdnsManager_AddObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(sharing.mojom.MdnsObserverSpec), null, false, 0, undefined),
+    mojo.internal.bindings.sharing.mojom.MdnsManager_AddObserver_ParamsSpec, 'sharing.mojom.MdnsManager_AddObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.MdnsObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec, 'sharing.mojom.MdnsManager_StartDiscoverySession_Params', [
-      mojo.internal.StructField('service_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec, 'sharing.mojom.MdnsManager_StartDiscoverySession_Params', [
+      mojo.internal.StructField('arg_service_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec, 'sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec, 'sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec, 'sharing.mojom.MdnsManager_StopDiscoverySession_Params', [
-      mojo.internal.StructField('service_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec, 'sharing.mojom.MdnsManager_StopDiscoverySession_Params', [
+      mojo.internal.StructField('arg_service_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec, 'sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec, 'sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
-sharing.mojom.MdnsManagerPendingReceiver = class {
+mojo.internal.bindings.sharing.mojom.MdnsManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-sharing.mojom.MdnsManagerRemote = class {
+mojo.internal.bindings.sharing.mojom.MdnsManagerRemote = class {
   static get $interfaceName() {
     return 'sharing.mojom.MdnsManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      sharing.mojom.MdnsManagerPendingReceiver,
+      mojo.internal.bindings.sharing.mojom.MdnsManagerPendingReceiver,
       handle);
-    this.$ = new sharing.mojom.MdnsManagerRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.sharing.mojom.MdnsManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -336,18 +341,18 @@ sharing.mojom.MdnsManagerRemote = class {
   close() {
     this.proxy.close();
   }
-  addObserver(observer) {
-    return this.$.addObserver(observer);
+  addObserver(arg_observer) {
+    return this.$.addObserver(arg_observer);
   }
-  startDiscoverySession(service_type) {
-    return this.$.startDiscoverySession(service_type);
+  startDiscoverySession(arg_service_type) {
+    return this.$.startDiscoverySession(arg_service_type);
   }
-  stopDiscoverySession(service_type) {
-    return this.$.stopDiscoverySession(service_type);
+  stopDiscoverySession(arg_service_type) {
+    return this.$.stopDiscoverySession(arg_service_type);
   }
 };
 
-sharing.mojom.MdnsManagerRemoteCallHandler = class {
+mojo.internal.bindings.sharing.mojom.MdnsManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('MdnsManager', [
@@ -357,37 +362,37 @@ sharing.mojom.MdnsManagerRemoteCallHandler = class {
     ]);
   }
 
-  addObserver(observer) {
+  addObserver(arg_observer) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      sharing.mojom.MdnsManager_AddObserver_ParamsSpec,
+      mojo.internal.bindings.sharing.mojom.MdnsManager_AddObserver_ParamsSpec,
       null,
-      [observer],
+      [arg_observer],
       false);
   }
 
-  startDiscoverySession(service_type) {
+  startDiscoverySession(arg_service_type) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec,
-      sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec,
-      [service_type],
+      mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec,
+      mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec,
+      [arg_service_type],
       false);
   }
 
-  stopDiscoverySession(service_type) {
+  stopDiscoverySession(arg_service_type) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec,
-      sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec,
-      [service_type],
+      mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec,
+      mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec,
+      [arg_service_type],
       false);
   }
 
 };
 
-sharing.mojom.MdnsManager.getRemote = function() {
-  let remote = new sharing.mojom.MdnsManagerRemote();
+mojo.internal.bindings.sharing.mojom.MdnsManager.getRemote = function() {
+  let remote = new mojo.internal.bindings.sharing.mojom.MdnsManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -396,7 +401,7 @@ sharing.mojom.MdnsManager.getRemote = function() {
   return remote.$;
 };
 
-sharing.mojom.MdnsManagerReceiver = class {
+mojo.internal.bindings.sharing.mojom.MdnsManagerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -447,7 +452,7 @@ sharing.mojom.MdnsManagerReceiver = class {
         // Try Method 0: AddObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(sharing.mojom.MdnsManager_AddObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.MdnsManager_AddObserver_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -458,7 +463,7 @@ sharing.mojom.MdnsManagerReceiver = class {
         // Try Method 1: StartDiscoverySession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartDiscoverySession (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -469,7 +474,7 @@ sharing.mojom.MdnsManagerReceiver = class {
         // Try Method 2: StopDiscoverySession
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopDiscoverySession (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -486,21 +491,21 @@ sharing.mojom.MdnsManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(sharing.mojom.MdnsManager_AddObserver_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.MdnsManager_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.observer);
+          const result = this.impl.addObserver(params.arg_observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startDiscoverySession');
-          const result = this.impl.startDiscoverySession(params.service_type);
+          const result = this.impl.startDiscoverySession(params.arg_service_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] StartDiscoverySession FAILED:', e));
           }
@@ -508,14 +513,14 @@ sharing.mojom.MdnsManagerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopDiscoverySession');
-          const result = this.impl.stopDiscoverySession(params.service_type);
+          const result = this.impl.stopDiscoverySession(params.arg_service_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] StopDiscoverySession FAILED:', e));
           }
@@ -529,8 +534,8 @@ sharing.mojom.MdnsManagerReceiver = class {
   }
 };
 
-sharing.mojom.MdnsManagerReceiver = sharing.mojom.MdnsManagerReceiver;
+mojo.internal.bindings.sharing.mojom.MdnsManagerReceiver = mojo.internal.bindings.sharing.mojom.MdnsManagerReceiver;
 
-sharing.mojom.MdnsManagerPtr = sharing.mojom.MdnsManagerRemote;
-sharing.mojom.MdnsManagerRequest = sharing.mojom.MdnsManagerPendingReceiver;
+mojo.internal.bindings.sharing.mojom.MdnsManagerPtr = mojo.internal.bindings.sharing.mojom.MdnsManagerRemote;
+mojo.internal.bindings.sharing.mojom.MdnsManagerRequest = mojo.internal.bindings.sharing.mojom.MdnsManagerPendingReceiver;
 

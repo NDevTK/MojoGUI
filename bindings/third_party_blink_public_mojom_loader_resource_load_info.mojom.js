@@ -1,81 +1,86 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/third_party/blink/public/mojom/loader/resource_load_info.mojom
-// Module: blink.mojom
+ // Source: chromium_src/third_party/blink/public/mojom/loader/resource_load_info.mojom
+ // Module: blink.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var blink = blink || {};
-blink.mojom = blink.mojom || {};
-var mojo_base = mojo_base || {};
-var network = network || {};
-var url = url || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-blink.mojom.ResourceTypeSpec = { $: mojo.internal.Enum() };
-blink.mojom.CommonNetworkInfoSpec = { $: {} };
-blink.mojom.RedirectInfoSpec = { $: {} };
-blink.mojom.ResourceLoadInfoSpec = { $: {} };
+ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+
+mojo.internal.bindings.blink.mojom.ResourceTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.blink.mojom.CommonNetworkInfoSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.RedirectInfoSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.ResourceLoadInfoSpec = { $: {} };
 
 // Enum: ResourceType
-blink.mojom.ResourceType = {
+mojo.internal.bindings.blink.mojom.ResourceType = {
   kMainFrame: 0,
   kSubFrame: 1,
   kStylesheet: 2,
@@ -101,41 +106,41 @@ blink.mojom.ResourceType = {
 
 // Struct: CommonNetworkInfo
 mojo.internal.Struct(
-    blink.mojom.CommonNetworkInfoSpec, 'blink.mojom.CommonNetworkInfo', [
-      mojo.internal.StructField('remote_endpoint', 0, 0, network.mojom.IPEndPointSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('network_accessed', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('always_access_network', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.CommonNetworkInfoSpec, 'blink.mojom.CommonNetworkInfo', [
+      mojo.internal.StructField('arg_remote_endpoint', 0, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_network_accessed', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_always_access_network', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: RedirectInfo
 mojo.internal.Struct(
-    blink.mojom.RedirectInfoSpec, 'blink.mojom.RedirectInfo', [
-      mojo.internal.StructField('origin_of_new_url', 0, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('network_info', 8, 0, blink.mojom.CommonNetworkInfoSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.RedirectInfoSpec, 'blink.mojom.RedirectInfo', [
+      mojo.internal.StructField('arg_origin_of_new_url', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_network_info', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CommonNetworkInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ResourceLoadInfo
 mojo.internal.Struct(
-    blink.mojom.ResourceLoadInfoSpec, 'blink.mojom.ResourceLoadInfo', [
-      mojo.internal.StructField('request_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('final_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('referrer', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('original_url', 24, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('method', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('request_destination', 40, 0, network.mojom.RequestDestinationSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('request_priority', 48, 0, network.mojom.RequestPrioritySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('mime_type', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('network_info', 64, 0, blink.mojom.CommonNetworkInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('proxy_chain', 72, 0, network.mojom.ProxyChainSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('load_timing_info', 80, 0, network.mojom.LoadTimingInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('raw_body_bytes', 88, 0, mojo_base.mojom.ByteCountSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('total_received_bytes', 96, 0, mojo_base.mojom.ByteCountSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('redirect_info_chain', 104, 0, mojo.internal.Array(blink.mojom.RedirectInfoSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('net_error', 112, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('http_status_code', 116, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('was_cached', 120, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('did_use_server_http_auth', 120, 1, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.ResourceLoadInfoSpec, 'blink.mojom.ResourceLoadInfo', [
+      mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_final_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_referrer', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_original_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_method', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_destination', 40, 0, mojo.internal.bindings.network.mojom.RequestDestinationSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_priority', 48, 0, mojo.internal.bindings.network.mojom.RequestPrioritySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mime_type', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_network_info', 64, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.CommonNetworkInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_proxy_chain', 72, 0, mojo.internal.bindings.network.mojom.ProxyChainSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_load_timing_info', 80, 0, mojo.internal.bindings.network.mojom.LoadTimingInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_raw_body_bytes', 88, 0, mojo.internal.bindings.mojo_base.mojom.ByteCountSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_total_received_bytes', 96, 0, mojo.internal.bindings.mojo_base.mojom.ByteCountSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_redirect_info_chain', 104, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.blink.mojom.RedirectInfoSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_net_error', 112, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_http_status_code', 116, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_was_cached', 120, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_did_use_server_http_auth', 120, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 136]]);

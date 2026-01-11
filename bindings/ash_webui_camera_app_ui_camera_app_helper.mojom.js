@@ -1,206 +1,211 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/ash/webui/camera_app_ui/camera_app_helper.mojom
-// Module: ash.camera_app.mojom
+ // Source: chromium_src/ash/webui/camera_app_ui/camera_app_helper.mojom
+ // Module: ash.camera_app.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var ash = ash || {};
-ash.camera_app = ash.camera_app || {};
-ash.camera_app.mojom = ash.camera_app.mojom || {};
-var arc = arc || {};
-var chromeos = chromeos || {};
-var mojo_base = mojo_base || {};
-var gfx = gfx || {};
-var url = url || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-ash.camera_app.mojom.ScreenStateSpec = { $: mojo.internal.Enum() };
-ash.camera_app.mojom.LidStateSpec = { $: mojo.internal.Enum() };
-ash.camera_app.mojom.WindowStateTypeSpec = { $: mojo.internal.Enum() };
-ash.camera_app.mojom.FileMonitorResultSpec = { $: mojo.internal.Enum() };
-ash.camera_app.mojom.StorageMonitorStatusSpec = { $: mojo.internal.Enum() };
-ash.camera_app.mojom.AspectRatioSpec = { $: mojo.internal.Enum() };
-ash.camera_app.mojom.FileTypeSpec = { $: mojo.internal.Enum() };
-ash.camera_app.mojom.CaptureDestinationSpec = { $: {} };
-ash.camera_app.mojom.WifiConfigSpec = { $: {} };
-ash.camera_app.mojom.CloudUploadSpec = { $: {} };
-ash.camera_app.mojom.LocalFileSpec = { $: {} };
-ash.camera_app.mojom.TabletModeMonitor = {};
-ash.camera_app.mojom.TabletModeMonitor.$interfaceName = 'ash.camera_app.mojom.TabletModeMonitor';
-ash.camera_app.mojom.TabletModeMonitor_Update_ParamsSpec = { $: {} };
-ash.camera_app.mojom.ScreenStateMonitor = {};
-ash.camera_app.mojom.ScreenStateMonitor.$interfaceName = 'ash.camera_app.mojom.ScreenStateMonitor';
-ash.camera_app.mojom.ScreenStateMonitor_Update_ParamsSpec = { $: {} };
-ash.camera_app.mojom.ScreenLockedMonitor = {};
-ash.camera_app.mojom.ScreenLockedMonitor.$interfaceName = 'ash.camera_app.mojom.ScreenLockedMonitor';
-ash.camera_app.mojom.ScreenLockedMonitor_Update_ParamsSpec = { $: {} };
-ash.camera_app.mojom.ExternalScreenMonitor = {};
-ash.camera_app.mojom.ExternalScreenMonitor.$interfaceName = 'ash.camera_app.mojom.ExternalScreenMonitor';
-ash.camera_app.mojom.ExternalScreenMonitor_Update_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraUsageOwnershipMonitor = {};
-ash.camera_app.mojom.CameraUsageOwnershipMonitor.$interfaceName = 'ash.camera_app.mojom.CameraUsageOwnershipMonitor';
-ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.LidStateMonitor = {};
-ash.camera_app.mojom.LidStateMonitor.$interfaceName = 'ash.camera_app.mojom.LidStateMonitor';
-ash.camera_app.mojom.LidStateMonitor_Update_ParamsSpec = { $: {} };
-ash.camera_app.mojom.SWPrivacySwitchMonitor = {};
-ash.camera_app.mojom.SWPrivacySwitchMonitor.$interfaceName = 'ash.camera_app.mojom.SWPrivacySwitchMonitor';
-ash.camera_app.mojom.SWPrivacySwitchMonitor_Update_ParamsSpec = { $: {} };
-ash.camera_app.mojom.WindowStateMonitor = {};
-ash.camera_app.mojom.WindowStateMonitor.$interfaceName = 'ash.camera_app.mojom.WindowStateMonitor';
-ash.camera_app.mojom.WindowStateMonitor_OnWindowStateChanged_ParamsSpec = { $: {} };
-ash.camera_app.mojom.WindowStateMonitor_OnWindowFocusChanged_ParamsSpec = { $: {} };
-ash.camera_app.mojom.StorageMonitor = {};
-ash.camera_app.mojom.StorageMonitor.$interfaceName = 'ash.camera_app.mojom.StorageMonitor';
-ash.camera_app.mojom.StorageMonitor_Update_ParamsSpec = { $: {} };
-ash.camera_app.mojom.WindowStateController = {};
-ash.camera_app.mojom.WindowStateController.$interfaceName = 'ash.camera_app.mojom.WindowStateController';
-ash.camera_app.mojom.WindowStateController_AddMonitor_ParamsSpec = { $: {} };
-ash.camera_app.mojom.WindowStateController_AddMonitor_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.WindowStateController_GetWindowState_ParamsSpec = { $: {} };
-ash.camera_app.mojom.WindowStateController_GetWindowState_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.WindowStateController_Minimize_ParamsSpec = { $: {} };
-ash.camera_app.mojom.WindowStateController_Minimize_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.WindowStateController_Restore_ParamsSpec = { $: {} };
-ash.camera_app.mojom.WindowStateController_Restore_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.WindowStateController_Maximize_ParamsSpec = { $: {} };
-ash.camera_app.mojom.WindowStateController_Maximize_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.WindowStateController_Fullscreen_ParamsSpec = { $: {} };
-ash.camera_app.mojom.WindowStateController_Fullscreen_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.WindowStateController_Focus_ParamsSpec = { $: {} };
-ash.camera_app.mojom.WindowStateController_Focus_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper = {};
-ash.camera_app.mojom.CameraAppHelper.$interfaceName = 'ash.camera_app.mojom.CameraAppHelper';
-ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_StartPerfEventTrace_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_StopPerfEventTrace_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_OpenFileInGallery_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_OpenFeedbackDialog_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_MaybeTriggerSurvey_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_StopStorageMonitor_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_OpenStorageManagement_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_PerformOcr_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_PerformOcr_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ResponseParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ParamsSpec = { $: {} };
-ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ResponseParamsSpec = { $: {} };
+ mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.camera_app = mojo.internal.bindings.ash.camera_app || {};
+mojo.internal.bindings.ash.camera_app.mojom = mojo.internal.bindings.ash.camera_app.mojom || {};
+mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
+mojo.internal.bindings.chromeos = mojo.internal.bindings.chromeos || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+
+mojo.internal.bindings.ash.camera_app.mojom.ScreenStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.camera_app.mojom.LidStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.camera_app.mojom.FileMonitorResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.camera_app.mojom.StorageMonitorStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.camera_app.mojom.AspectRatioSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.camera_app.mojom.FileTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.camera_app.mojom.CaptureDestinationSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.WifiConfigSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CloudUploadSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.LocalFileSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.TabletModeMonitor = {};
+mojo.internal.bindings.ash.camera_app.mojom.TabletModeMonitor.$interfaceName = 'ash.camera_app.mojom.TabletModeMonitor';
+mojo.internal.bindings.ash.camera_app.mojom.TabletModeMonitor_Update_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.ScreenStateMonitor = {};
+mojo.internal.bindings.ash.camera_app.mojom.ScreenStateMonitor.$interfaceName = 'ash.camera_app.mojom.ScreenStateMonitor';
+mojo.internal.bindings.ash.camera_app.mojom.ScreenStateMonitor_Update_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.ScreenLockedMonitor = {};
+mojo.internal.bindings.ash.camera_app.mojom.ScreenLockedMonitor.$interfaceName = 'ash.camera_app.mojom.ScreenLockedMonitor';
+mojo.internal.bindings.ash.camera_app.mojom.ScreenLockedMonitor_Update_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.ExternalScreenMonitor = {};
+mojo.internal.bindings.ash.camera_app.mojom.ExternalScreenMonitor.$interfaceName = 'ash.camera_app.mojom.ExternalScreenMonitor';
+mojo.internal.bindings.ash.camera_app.mojom.ExternalScreenMonitor_Update_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitor = {};
+mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitor.$interfaceName = 'ash.camera_app.mojom.CameraUsageOwnershipMonitor';
+mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.LidStateMonitor = {};
+mojo.internal.bindings.ash.camera_app.mojom.LidStateMonitor.$interfaceName = 'ash.camera_app.mojom.LidStateMonitor';
+mojo.internal.bindings.ash.camera_app.mojom.LidStateMonitor_Update_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.SWPrivacySwitchMonitor = {};
+mojo.internal.bindings.ash.camera_app.mojom.SWPrivacySwitchMonitor.$interfaceName = 'ash.camera_app.mojom.SWPrivacySwitchMonitor';
+mojo.internal.bindings.ash.camera_app.mojom.SWPrivacySwitchMonitor_Update_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitor = {};
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitor.$interfaceName = 'ash.camera_app.mojom.WindowStateMonitor';
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitor_OnWindowStateChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitor_OnWindowFocusChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.StorageMonitor = {};
+mojo.internal.bindings.ash.camera_app.mojom.StorageMonitor.$interfaceName = 'ash.camera_app.mojom.StorageMonitor';
+mojo.internal.bindings.ash.camera_app.mojom.StorageMonitor_Update_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateController = {};
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateController.$interfaceName = 'ash.camera_app.mojom.WindowStateController';
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_AddMonitor_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_AddMonitor_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_GetWindowState_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_GetWindowState_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Minimize_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Minimize_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Restore_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Restore_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Maximize_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Maximize_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Fullscreen_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Fullscreen_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Focus_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Focus_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper = {};
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper.$interfaceName = 'ash.camera_app.mojom.CameraAppHelper';
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StartPerfEventTrace_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StopPerfEventTrace_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenFileInGallery_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenFeedbackDialog_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_MaybeTriggerSurvey_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StopStorageMonitor_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenStorageManagement_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_PerformOcr_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_PerformOcr_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ResponseParamsSpec = { $: {} };
 
 // Enum: ScreenState
-ash.camera_app.mojom.ScreenState = {
+mojo.internal.bindings.ash.camera_app.mojom.ScreenState = {
   kOn: 0,
   kOff: 1,
   kOffAuto: 2,
 };
 
 // Enum: LidState
-ash.camera_app.mojom.LidState = {
+mojo.internal.bindings.ash.camera_app.mojom.LidState = {
   kOpen: 0,
   kClosed: 1,
   kNotPresent: 2,
 };
 
 // Enum: WindowStateType
-ash.camera_app.mojom.WindowStateType = {
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateType = {
   kMinimized: 0,
   kMaximized: 1,
   kFullscreen: 2,
@@ -208,14 +213,14 @@ ash.camera_app.mojom.WindowStateType = {
 };
 
 // Enum: FileMonitorResult
-ash.camera_app.mojom.FileMonitorResult = {
+mojo.internal.bindings.ash.camera_app.mojom.FileMonitorResult = {
   kDeleted: 0,
   kCanceled: 1,
   kError: 2,
 };
 
 // Enum: StorageMonitorStatus
-ash.camera_app.mojom.StorageMonitorStatus = {
+mojo.internal.bindings.ash.camera_app.mojom.StorageMonitorStatus = {
   kNormal: 0,
   kLow: 1,
   kCriticallyLow: 2,
@@ -224,14 +229,14 @@ ash.camera_app.mojom.StorageMonitorStatus = {
 };
 
 // Enum: AspectRatio
-ash.camera_app.mojom.AspectRatio = {
+mojo.internal.bindings.ash.camera_app.mojom.AspectRatio = {
   kOthers: 0,
   k4To3: 1,
   k16To9: 2,
 };
 
 // Enum: FileType
-ash.camera_app.mojom.FileType = {
+mojo.internal.bindings.ash.camera_app.mojom.FileType = {
   kPhoto: 0,
   kVideo: 1,
   kGif: 2,
@@ -239,70 +244,70 @@ ash.camera_app.mojom.FileType = {
 
 // Union: CaptureDestination
 mojo.internal.Union(
-    ash.camera_app.mojom.CaptureDestinationSpec, 'ash.camera_app.mojom.CaptureDestination', {
-      'cloud_upload': {
+    mojo.internal.bindings.ash.camera_app.mojom.CaptureDestinationSpec, 'ash.camera_app.mojom.CaptureDestination', {
+      'arg_cloud_upload': {
         'ordinal': 0,
-        'type': ash.camera_app.mojom.CloudUploadSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.CloudUploadSpec.$,
         'nullable': false,
       },
-      'local_file': {
+      'arg_local_file': {
         'ordinal': 1,
-        'type': ash.camera_app.mojom.LocalFileSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.LocalFileSpec.$,
         'nullable': false,
       },
     });
 
 // Struct: WifiConfig
 mojo.internal.Struct(
-    ash.camera_app.mojom.WifiConfigSpec, 'ash.camera_app.mojom.WifiConfig', [
-      mojo.internal.StructField('ssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('security', 8, 0, ash.camera_app.mojom.WifiSecurityTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('password', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('eap_method', 24, 0, ash.camera_app.mojom.WifiEapMethodSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('eap_phase2_method', 32, 0, ash.camera_app.mojom.WifiEapPhase2MethodSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('eap_identity', 40, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('eap_anonymous_identity', 48, 0, mojo.internal.String, null, true, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.WifiConfigSpec, 'ash.camera_app.mojom.WifiConfig', [
+      mojo.internal.StructField('arg_ssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_security', 8, 0, mojo.internal.bindings.ash.camera_app.mojom.WifiSecurityTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_password', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_eap_method', 24, 0, mojo.internal.bindings.ash.camera_app.mojom.WifiEapMethodSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_eap_phase2_method', 32, 0, mojo.internal.bindings.ash.camera_app.mojom.WifiEapPhase2MethodSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_eap_identity', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_eap_anonymous_identity', 48, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 64]]);
 
 // Struct: CloudUpload
 mojo.internal.Struct(
-    ash.camera_app.mojom.CloudUploadSpec, 'ash.camera_app.mojom.CloudUpload', [
-      mojo.internal.StructField('file_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('thumbnail', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CloudUploadSpec, 'ash.camera_app.mojom.CloudUpload', [
+      mojo.internal.StructField('arg_file_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_thumbnail', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: LocalFile
 mojo.internal.Struct(
-    ash.camera_app.mojom.LocalFileSpec, 'ash.camera_app.mojom.LocalFile', [
-      mojo.internal.StructField('file_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.LocalFileSpec, 'ash.camera_app.mojom.LocalFile', [
+      mojo.internal.StructField('arg_file_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Interface: TabletModeMonitor
 mojo.internal.Struct(
-    ash.camera_app.mojom.TabletModeMonitor_Update_ParamsSpec, 'ash.camera_app.mojom.TabletModeMonitor_Update_Params', [
-      mojo.internal.StructField('is_tablet_mode', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.TabletModeMonitor_Update_ParamsSpec, 'ash.camera_app.mojom.TabletModeMonitor_Update_Params', [
+      mojo.internal.StructField('arg_is_tablet_mode', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
-ash.camera_app.mojom.TabletModeMonitorPendingReceiver = class {
+mojo.internal.bindings.ash.camera_app.mojom.TabletModeMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.camera_app.mojom.TabletModeMonitorRemote = class {
+mojo.internal.bindings.ash.camera_app.mojom.TabletModeMonitorRemote = class {
   static get $interfaceName() {
     return 'ash.camera_app.mojom.TabletModeMonitor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.camera_app.mojom.TabletModeMonitorPendingReceiver,
+      mojo.internal.bindings.ash.camera_app.mojom.TabletModeMonitorPendingReceiver,
       handle);
-    this.$ = new ash.camera_app.mojom.TabletModeMonitorRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.camera_app.mojom.TabletModeMonitorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -312,12 +317,12 @@ ash.camera_app.mojom.TabletModeMonitorRemote = class {
   close() {
     this.proxy.close();
   }
-  update(is_tablet_mode) {
-    return this.$.update(is_tablet_mode);
+  update(arg_is_tablet_mode) {
+    return this.$.update(arg_is_tablet_mode);
   }
 };
 
-ash.camera_app.mojom.TabletModeMonitorRemoteCallHandler = class {
+mojo.internal.bindings.ash.camera_app.mojom.TabletModeMonitorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('TabletModeMonitor', [
@@ -325,19 +330,19 @@ ash.camera_app.mojom.TabletModeMonitorRemoteCallHandler = class {
     ]);
   }
 
-  update(is_tablet_mode) {
+  update(arg_is_tablet_mode) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.camera_app.mojom.TabletModeMonitor_Update_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.TabletModeMonitor_Update_ParamsSpec,
       null,
-      [is_tablet_mode],
+      [arg_is_tablet_mode],
       false);
   }
 
 };
 
-ash.camera_app.mojom.TabletModeMonitor.getRemote = function() {
-  let remote = new ash.camera_app.mojom.TabletModeMonitorRemote();
+mojo.internal.bindings.ash.camera_app.mojom.TabletModeMonitor.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.camera_app.mojom.TabletModeMonitorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -346,7 +351,7 @@ ash.camera_app.mojom.TabletModeMonitor.getRemote = function() {
   return remote.$;
 };
 
-ash.camera_app.mojom.TabletModeMonitorReceiver = class {
+mojo.internal.bindings.ash.camera_app.mojom.TabletModeMonitorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -395,7 +400,7 @@ ash.camera_app.mojom.TabletModeMonitorReceiver = class {
         // Try Method 0: Update
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.TabletModeMonitor_Update_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.TabletModeMonitor_Update_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Update (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -412,9 +417,9 @@ ash.camera_app.mojom.TabletModeMonitorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.TabletModeMonitor_Update_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.TabletModeMonitor_Update_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.update');
-          const result = this.impl.update(params.is_tablet_mode);
+          const result = this.impl.update(params.arg_is_tablet_mode);
           break;
         }
       }
@@ -425,35 +430,35 @@ ash.camera_app.mojom.TabletModeMonitorReceiver = class {
   }
 };
 
-ash.camera_app.mojom.TabletModeMonitorReceiver = ash.camera_app.mojom.TabletModeMonitorReceiver;
+mojo.internal.bindings.ash.camera_app.mojom.TabletModeMonitorReceiver = mojo.internal.bindings.ash.camera_app.mojom.TabletModeMonitorReceiver;
 
-ash.camera_app.mojom.TabletModeMonitorPtr = ash.camera_app.mojom.TabletModeMonitorRemote;
-ash.camera_app.mojom.TabletModeMonitorRequest = ash.camera_app.mojom.TabletModeMonitorPendingReceiver;
+mojo.internal.bindings.ash.camera_app.mojom.TabletModeMonitorPtr = mojo.internal.bindings.ash.camera_app.mojom.TabletModeMonitorRemote;
+mojo.internal.bindings.ash.camera_app.mojom.TabletModeMonitorRequest = mojo.internal.bindings.ash.camera_app.mojom.TabletModeMonitorPendingReceiver;
 
 
 // Interface: ScreenStateMonitor
 mojo.internal.Struct(
-    ash.camera_app.mojom.ScreenStateMonitor_Update_ParamsSpec, 'ash.camera_app.mojom.ScreenStateMonitor_Update_Params', [
-      mojo.internal.StructField('state', 0, 0, ash.camera_app.mojom.ScreenStateSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.ScreenStateMonitor_Update_ParamsSpec, 'ash.camera_app.mojom.ScreenStateMonitor_Update_Params', [
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.ScreenStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-ash.camera_app.mojom.ScreenStateMonitorPendingReceiver = class {
+mojo.internal.bindings.ash.camera_app.mojom.ScreenStateMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.camera_app.mojom.ScreenStateMonitorRemote = class {
+mojo.internal.bindings.ash.camera_app.mojom.ScreenStateMonitorRemote = class {
   static get $interfaceName() {
     return 'ash.camera_app.mojom.ScreenStateMonitor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.camera_app.mojom.ScreenStateMonitorPendingReceiver,
+      mojo.internal.bindings.ash.camera_app.mojom.ScreenStateMonitorPendingReceiver,
       handle);
-    this.$ = new ash.camera_app.mojom.ScreenStateMonitorRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.camera_app.mojom.ScreenStateMonitorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -463,12 +468,12 @@ ash.camera_app.mojom.ScreenStateMonitorRemote = class {
   close() {
     this.proxy.close();
   }
-  update(state) {
-    return this.$.update(state);
+  update(arg_state) {
+    return this.$.update(arg_state);
   }
 };
 
-ash.camera_app.mojom.ScreenStateMonitorRemoteCallHandler = class {
+mojo.internal.bindings.ash.camera_app.mojom.ScreenStateMonitorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ScreenStateMonitor', [
@@ -476,19 +481,19 @@ ash.camera_app.mojom.ScreenStateMonitorRemoteCallHandler = class {
     ]);
   }
 
-  update(state) {
+  update(arg_state) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.camera_app.mojom.ScreenStateMonitor_Update_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.ScreenStateMonitor_Update_ParamsSpec,
       null,
-      [state],
+      [arg_state],
       false);
   }
 
 };
 
-ash.camera_app.mojom.ScreenStateMonitor.getRemote = function() {
-  let remote = new ash.camera_app.mojom.ScreenStateMonitorRemote();
+mojo.internal.bindings.ash.camera_app.mojom.ScreenStateMonitor.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.camera_app.mojom.ScreenStateMonitorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -497,7 +502,7 @@ ash.camera_app.mojom.ScreenStateMonitor.getRemote = function() {
   return remote.$;
 };
 
-ash.camera_app.mojom.ScreenStateMonitorReceiver = class {
+mojo.internal.bindings.ash.camera_app.mojom.ScreenStateMonitorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -546,7 +551,7 @@ ash.camera_app.mojom.ScreenStateMonitorReceiver = class {
         // Try Method 0: Update
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.ScreenStateMonitor_Update_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.ScreenStateMonitor_Update_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Update (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -563,9 +568,9 @@ ash.camera_app.mojom.ScreenStateMonitorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.ScreenStateMonitor_Update_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.ScreenStateMonitor_Update_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.update');
-          const result = this.impl.update(params.state);
+          const result = this.impl.update(params.arg_state);
           break;
         }
       }
@@ -576,35 +581,35 @@ ash.camera_app.mojom.ScreenStateMonitorReceiver = class {
   }
 };
 
-ash.camera_app.mojom.ScreenStateMonitorReceiver = ash.camera_app.mojom.ScreenStateMonitorReceiver;
+mojo.internal.bindings.ash.camera_app.mojom.ScreenStateMonitorReceiver = mojo.internal.bindings.ash.camera_app.mojom.ScreenStateMonitorReceiver;
 
-ash.camera_app.mojom.ScreenStateMonitorPtr = ash.camera_app.mojom.ScreenStateMonitorRemote;
-ash.camera_app.mojom.ScreenStateMonitorRequest = ash.camera_app.mojom.ScreenStateMonitorPendingReceiver;
+mojo.internal.bindings.ash.camera_app.mojom.ScreenStateMonitorPtr = mojo.internal.bindings.ash.camera_app.mojom.ScreenStateMonitorRemote;
+mojo.internal.bindings.ash.camera_app.mojom.ScreenStateMonitorRequest = mojo.internal.bindings.ash.camera_app.mojom.ScreenStateMonitorPendingReceiver;
 
 
 // Interface: ScreenLockedMonitor
 mojo.internal.Struct(
-    ash.camera_app.mojom.ScreenLockedMonitor_Update_ParamsSpec, 'ash.camera_app.mojom.ScreenLockedMonitor_Update_Params', [
-      mojo.internal.StructField('is_screen_locked', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.ScreenLockedMonitor_Update_ParamsSpec, 'ash.camera_app.mojom.ScreenLockedMonitor_Update_Params', [
+      mojo.internal.StructField('arg_is_screen_locked', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
-ash.camera_app.mojom.ScreenLockedMonitorPendingReceiver = class {
+mojo.internal.bindings.ash.camera_app.mojom.ScreenLockedMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.camera_app.mojom.ScreenLockedMonitorRemote = class {
+mojo.internal.bindings.ash.camera_app.mojom.ScreenLockedMonitorRemote = class {
   static get $interfaceName() {
     return 'ash.camera_app.mojom.ScreenLockedMonitor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.camera_app.mojom.ScreenLockedMonitorPendingReceiver,
+      mojo.internal.bindings.ash.camera_app.mojom.ScreenLockedMonitorPendingReceiver,
       handle);
-    this.$ = new ash.camera_app.mojom.ScreenLockedMonitorRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.camera_app.mojom.ScreenLockedMonitorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -614,12 +619,12 @@ ash.camera_app.mojom.ScreenLockedMonitorRemote = class {
   close() {
     this.proxy.close();
   }
-  update(is_screen_locked) {
-    return this.$.update(is_screen_locked);
+  update(arg_is_screen_locked) {
+    return this.$.update(arg_is_screen_locked);
   }
 };
 
-ash.camera_app.mojom.ScreenLockedMonitorRemoteCallHandler = class {
+mojo.internal.bindings.ash.camera_app.mojom.ScreenLockedMonitorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ScreenLockedMonitor', [
@@ -627,19 +632,19 @@ ash.camera_app.mojom.ScreenLockedMonitorRemoteCallHandler = class {
     ]);
   }
 
-  update(is_screen_locked) {
+  update(arg_is_screen_locked) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.camera_app.mojom.ScreenLockedMonitor_Update_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.ScreenLockedMonitor_Update_ParamsSpec,
       null,
-      [is_screen_locked],
+      [arg_is_screen_locked],
       false);
   }
 
 };
 
-ash.camera_app.mojom.ScreenLockedMonitor.getRemote = function() {
-  let remote = new ash.camera_app.mojom.ScreenLockedMonitorRemote();
+mojo.internal.bindings.ash.camera_app.mojom.ScreenLockedMonitor.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.camera_app.mojom.ScreenLockedMonitorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -648,7 +653,7 @@ ash.camera_app.mojom.ScreenLockedMonitor.getRemote = function() {
   return remote.$;
 };
 
-ash.camera_app.mojom.ScreenLockedMonitorReceiver = class {
+mojo.internal.bindings.ash.camera_app.mojom.ScreenLockedMonitorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -697,7 +702,7 @@ ash.camera_app.mojom.ScreenLockedMonitorReceiver = class {
         // Try Method 0: Update
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.ScreenLockedMonitor_Update_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.ScreenLockedMonitor_Update_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Update (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -714,9 +719,9 @@ ash.camera_app.mojom.ScreenLockedMonitorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.ScreenLockedMonitor_Update_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.ScreenLockedMonitor_Update_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.update');
-          const result = this.impl.update(params.is_screen_locked);
+          const result = this.impl.update(params.arg_is_screen_locked);
           break;
         }
       }
@@ -727,35 +732,35 @@ ash.camera_app.mojom.ScreenLockedMonitorReceiver = class {
   }
 };
 
-ash.camera_app.mojom.ScreenLockedMonitorReceiver = ash.camera_app.mojom.ScreenLockedMonitorReceiver;
+mojo.internal.bindings.ash.camera_app.mojom.ScreenLockedMonitorReceiver = mojo.internal.bindings.ash.camera_app.mojom.ScreenLockedMonitorReceiver;
 
-ash.camera_app.mojom.ScreenLockedMonitorPtr = ash.camera_app.mojom.ScreenLockedMonitorRemote;
-ash.camera_app.mojom.ScreenLockedMonitorRequest = ash.camera_app.mojom.ScreenLockedMonitorPendingReceiver;
+mojo.internal.bindings.ash.camera_app.mojom.ScreenLockedMonitorPtr = mojo.internal.bindings.ash.camera_app.mojom.ScreenLockedMonitorRemote;
+mojo.internal.bindings.ash.camera_app.mojom.ScreenLockedMonitorRequest = mojo.internal.bindings.ash.camera_app.mojom.ScreenLockedMonitorPendingReceiver;
 
 
 // Interface: ExternalScreenMonitor
 mojo.internal.Struct(
-    ash.camera_app.mojom.ExternalScreenMonitor_Update_ParamsSpec, 'ash.camera_app.mojom.ExternalScreenMonitor_Update_Params', [
-      mojo.internal.StructField('has_external_screen', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.ExternalScreenMonitor_Update_ParamsSpec, 'ash.camera_app.mojom.ExternalScreenMonitor_Update_Params', [
+      mojo.internal.StructField('arg_has_external_screen', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
-ash.camera_app.mojom.ExternalScreenMonitorPendingReceiver = class {
+mojo.internal.bindings.ash.camera_app.mojom.ExternalScreenMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.camera_app.mojom.ExternalScreenMonitorRemote = class {
+mojo.internal.bindings.ash.camera_app.mojom.ExternalScreenMonitorRemote = class {
   static get $interfaceName() {
     return 'ash.camera_app.mojom.ExternalScreenMonitor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.camera_app.mojom.ExternalScreenMonitorPendingReceiver,
+      mojo.internal.bindings.ash.camera_app.mojom.ExternalScreenMonitorPendingReceiver,
       handle);
-    this.$ = new ash.camera_app.mojom.ExternalScreenMonitorRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.camera_app.mojom.ExternalScreenMonitorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -765,12 +770,12 @@ ash.camera_app.mojom.ExternalScreenMonitorRemote = class {
   close() {
     this.proxy.close();
   }
-  update(has_external_screen) {
-    return this.$.update(has_external_screen);
+  update(arg_has_external_screen) {
+    return this.$.update(arg_has_external_screen);
   }
 };
 
-ash.camera_app.mojom.ExternalScreenMonitorRemoteCallHandler = class {
+mojo.internal.bindings.ash.camera_app.mojom.ExternalScreenMonitorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ExternalScreenMonitor', [
@@ -778,19 +783,19 @@ ash.camera_app.mojom.ExternalScreenMonitorRemoteCallHandler = class {
     ]);
   }
 
-  update(has_external_screen) {
+  update(arg_has_external_screen) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.camera_app.mojom.ExternalScreenMonitor_Update_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.ExternalScreenMonitor_Update_ParamsSpec,
       null,
-      [has_external_screen],
+      [arg_has_external_screen],
       false);
   }
 
 };
 
-ash.camera_app.mojom.ExternalScreenMonitor.getRemote = function() {
-  let remote = new ash.camera_app.mojom.ExternalScreenMonitorRemote();
+mojo.internal.bindings.ash.camera_app.mojom.ExternalScreenMonitor.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.camera_app.mojom.ExternalScreenMonitorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -799,7 +804,7 @@ ash.camera_app.mojom.ExternalScreenMonitor.getRemote = function() {
   return remote.$;
 };
 
-ash.camera_app.mojom.ExternalScreenMonitorReceiver = class {
+mojo.internal.bindings.ash.camera_app.mojom.ExternalScreenMonitorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -848,7 +853,7 @@ ash.camera_app.mojom.ExternalScreenMonitorReceiver = class {
         // Try Method 0: Update
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.ExternalScreenMonitor_Update_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.ExternalScreenMonitor_Update_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Update (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -865,9 +870,9 @@ ash.camera_app.mojom.ExternalScreenMonitorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.ExternalScreenMonitor_Update_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.ExternalScreenMonitor_Update_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.update');
-          const result = this.impl.update(params.has_external_screen);
+          const result = this.impl.update(params.arg_has_external_screen);
           break;
         }
       }
@@ -878,40 +883,40 @@ ash.camera_app.mojom.ExternalScreenMonitorReceiver = class {
   }
 };
 
-ash.camera_app.mojom.ExternalScreenMonitorReceiver = ash.camera_app.mojom.ExternalScreenMonitorReceiver;
+mojo.internal.bindings.ash.camera_app.mojom.ExternalScreenMonitorReceiver = mojo.internal.bindings.ash.camera_app.mojom.ExternalScreenMonitorReceiver;
 
-ash.camera_app.mojom.ExternalScreenMonitorPtr = ash.camera_app.mojom.ExternalScreenMonitorRemote;
-ash.camera_app.mojom.ExternalScreenMonitorRequest = ash.camera_app.mojom.ExternalScreenMonitorPendingReceiver;
+mojo.internal.bindings.ash.camera_app.mojom.ExternalScreenMonitorPtr = mojo.internal.bindings.ash.camera_app.mojom.ExternalScreenMonitorRemote;
+mojo.internal.bindings.ash.camera_app.mojom.ExternalScreenMonitorRequest = mojo.internal.bindings.ash.camera_app.mojom.ExternalScreenMonitorPendingReceiver;
 
 
 // Interface: CameraUsageOwnershipMonitor
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ParamsSpec, 'ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_Params', [
-      mojo.internal.StructField('has_usage', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ParamsSpec, 'ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_Params', [
+      mojo.internal.StructField('arg_has_usage', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ResponseParamsSpec, 'ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ResponseParams', [
+    mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ResponseParamsSpec, 'ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ResponseParams', [
     ],
     [[0, 8]]);
 
-ash.camera_app.mojom.CameraUsageOwnershipMonitorPendingReceiver = class {
+mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.camera_app.mojom.CameraUsageOwnershipMonitorRemote = class {
+mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitorRemote = class {
   static get $interfaceName() {
     return 'ash.camera_app.mojom.CameraUsageOwnershipMonitor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.camera_app.mojom.CameraUsageOwnershipMonitorPendingReceiver,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitorPendingReceiver,
       handle);
-    this.$ = new ash.camera_app.mojom.CameraUsageOwnershipMonitorRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -921,12 +926,12 @@ ash.camera_app.mojom.CameraUsageOwnershipMonitorRemote = class {
   close() {
     this.proxy.close();
   }
-  onCameraUsageOwnershipChanged(has_usage) {
-    return this.$.onCameraUsageOwnershipChanged(has_usage);
+  onCameraUsageOwnershipChanged(arg_has_usage) {
+    return this.$.onCameraUsageOwnershipChanged(arg_has_usage);
   }
 };
 
-ash.camera_app.mojom.CameraUsageOwnershipMonitorRemoteCallHandler = class {
+mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('CameraUsageOwnershipMonitor', [
@@ -934,19 +939,19 @@ ash.camera_app.mojom.CameraUsageOwnershipMonitorRemoteCallHandler = class {
     ]);
   }
 
-  onCameraUsageOwnershipChanged(has_usage) {
+  onCameraUsageOwnershipChanged(arg_has_usage) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ParamsSpec,
-      ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ResponseParamsSpec,
-      [has_usage],
+      mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ResponseParamsSpec,
+      [arg_has_usage],
       false);
   }
 
 };
 
-ash.camera_app.mojom.CameraUsageOwnershipMonitor.getRemote = function() {
-  let remote = new ash.camera_app.mojom.CameraUsageOwnershipMonitorRemote();
+mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitor.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -955,7 +960,7 @@ ash.camera_app.mojom.CameraUsageOwnershipMonitor.getRemote = function() {
   return remote.$;
 };
 
-ash.camera_app.mojom.CameraUsageOwnershipMonitorReceiver = class {
+mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -1004,7 +1009,7 @@ ash.camera_app.mojom.CameraUsageOwnershipMonitorReceiver = class {
         // Try Method 0: OnCameraUsageOwnershipChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCameraUsageOwnershipChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1021,14 +1026,14 @@ ash.camera_app.mojom.CameraUsageOwnershipMonitorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCameraUsageOwnershipChanged');
-          const result = this.impl.onCameraUsageOwnershipChanged(params.has_usage);
+          const result = this.impl.onCameraUsageOwnershipChanged(params.arg_has_usage);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] OnCameraUsageOwnershipChanged FAILED:', e));
           }
@@ -1042,35 +1047,35 @@ ash.camera_app.mojom.CameraUsageOwnershipMonitorReceiver = class {
   }
 };
 
-ash.camera_app.mojom.CameraUsageOwnershipMonitorReceiver = ash.camera_app.mojom.CameraUsageOwnershipMonitorReceiver;
+mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitorReceiver = mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitorReceiver;
 
-ash.camera_app.mojom.CameraUsageOwnershipMonitorPtr = ash.camera_app.mojom.CameraUsageOwnershipMonitorRemote;
-ash.camera_app.mojom.CameraUsageOwnershipMonitorRequest = ash.camera_app.mojom.CameraUsageOwnershipMonitorPendingReceiver;
+mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitorPtr = mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitorRemote;
+mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitorRequest = mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitorPendingReceiver;
 
 
 // Interface: LidStateMonitor
 mojo.internal.Struct(
-    ash.camera_app.mojom.LidStateMonitor_Update_ParamsSpec, 'ash.camera_app.mojom.LidStateMonitor_Update_Params', [
-      mojo.internal.StructField('lid_status', 0, 0, ash.camera_app.mojom.LidStateSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.LidStateMonitor_Update_ParamsSpec, 'ash.camera_app.mojom.LidStateMonitor_Update_Params', [
+      mojo.internal.StructField('arg_lid_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.LidStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-ash.camera_app.mojom.LidStateMonitorPendingReceiver = class {
+mojo.internal.bindings.ash.camera_app.mojom.LidStateMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.camera_app.mojom.LidStateMonitorRemote = class {
+mojo.internal.bindings.ash.camera_app.mojom.LidStateMonitorRemote = class {
   static get $interfaceName() {
     return 'ash.camera_app.mojom.LidStateMonitor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.camera_app.mojom.LidStateMonitorPendingReceiver,
+      mojo.internal.bindings.ash.camera_app.mojom.LidStateMonitorPendingReceiver,
       handle);
-    this.$ = new ash.camera_app.mojom.LidStateMonitorRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.camera_app.mojom.LidStateMonitorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1080,12 +1085,12 @@ ash.camera_app.mojom.LidStateMonitorRemote = class {
   close() {
     this.proxy.close();
   }
-  update(lid_status) {
-    return this.$.update(lid_status);
+  update(arg_lid_status) {
+    return this.$.update(arg_lid_status);
   }
 };
 
-ash.camera_app.mojom.LidStateMonitorRemoteCallHandler = class {
+mojo.internal.bindings.ash.camera_app.mojom.LidStateMonitorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('LidStateMonitor', [
@@ -1093,19 +1098,19 @@ ash.camera_app.mojom.LidStateMonitorRemoteCallHandler = class {
     ]);
   }
 
-  update(lid_status) {
+  update(arg_lid_status) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.camera_app.mojom.LidStateMonitor_Update_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.LidStateMonitor_Update_ParamsSpec,
       null,
-      [lid_status],
+      [arg_lid_status],
       false);
   }
 
 };
 
-ash.camera_app.mojom.LidStateMonitor.getRemote = function() {
-  let remote = new ash.camera_app.mojom.LidStateMonitorRemote();
+mojo.internal.bindings.ash.camera_app.mojom.LidStateMonitor.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.camera_app.mojom.LidStateMonitorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1114,7 +1119,7 @@ ash.camera_app.mojom.LidStateMonitor.getRemote = function() {
   return remote.$;
 };
 
-ash.camera_app.mojom.LidStateMonitorReceiver = class {
+mojo.internal.bindings.ash.camera_app.mojom.LidStateMonitorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -1163,7 +1168,7 @@ ash.camera_app.mojom.LidStateMonitorReceiver = class {
         // Try Method 0: Update
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.LidStateMonitor_Update_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.LidStateMonitor_Update_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Update (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1180,9 +1185,9 @@ ash.camera_app.mojom.LidStateMonitorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.LidStateMonitor_Update_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.LidStateMonitor_Update_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.update');
-          const result = this.impl.update(params.lid_status);
+          const result = this.impl.update(params.arg_lid_status);
           break;
         }
       }
@@ -1193,35 +1198,35 @@ ash.camera_app.mojom.LidStateMonitorReceiver = class {
   }
 };
 
-ash.camera_app.mojom.LidStateMonitorReceiver = ash.camera_app.mojom.LidStateMonitorReceiver;
+mojo.internal.bindings.ash.camera_app.mojom.LidStateMonitorReceiver = mojo.internal.bindings.ash.camera_app.mojom.LidStateMonitorReceiver;
 
-ash.camera_app.mojom.LidStateMonitorPtr = ash.camera_app.mojom.LidStateMonitorRemote;
-ash.camera_app.mojom.LidStateMonitorRequest = ash.camera_app.mojom.LidStateMonitorPendingReceiver;
+mojo.internal.bindings.ash.camera_app.mojom.LidStateMonitorPtr = mojo.internal.bindings.ash.camera_app.mojom.LidStateMonitorRemote;
+mojo.internal.bindings.ash.camera_app.mojom.LidStateMonitorRequest = mojo.internal.bindings.ash.camera_app.mojom.LidStateMonitorPendingReceiver;
 
 
 // Interface: SWPrivacySwitchMonitor
 mojo.internal.Struct(
-    ash.camera_app.mojom.SWPrivacySwitchMonitor_Update_ParamsSpec, 'ash.camera_app.mojom.SWPrivacySwitchMonitor_Update_Params', [
-      mojo.internal.StructField('is_sw_privacy_switch_on', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.SWPrivacySwitchMonitor_Update_ParamsSpec, 'ash.camera_app.mojom.SWPrivacySwitchMonitor_Update_Params', [
+      mojo.internal.StructField('arg_is_sw_privacy_switch_on', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
-ash.camera_app.mojom.SWPrivacySwitchMonitorPendingReceiver = class {
+mojo.internal.bindings.ash.camera_app.mojom.SWPrivacySwitchMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.camera_app.mojom.SWPrivacySwitchMonitorRemote = class {
+mojo.internal.bindings.ash.camera_app.mojom.SWPrivacySwitchMonitorRemote = class {
   static get $interfaceName() {
     return 'ash.camera_app.mojom.SWPrivacySwitchMonitor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.camera_app.mojom.SWPrivacySwitchMonitorPendingReceiver,
+      mojo.internal.bindings.ash.camera_app.mojom.SWPrivacySwitchMonitorPendingReceiver,
       handle);
-    this.$ = new ash.camera_app.mojom.SWPrivacySwitchMonitorRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.camera_app.mojom.SWPrivacySwitchMonitorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1231,12 +1236,12 @@ ash.camera_app.mojom.SWPrivacySwitchMonitorRemote = class {
   close() {
     this.proxy.close();
   }
-  update(is_sw_privacy_switch_on) {
-    return this.$.update(is_sw_privacy_switch_on);
+  update(arg_is_sw_privacy_switch_on) {
+    return this.$.update(arg_is_sw_privacy_switch_on);
   }
 };
 
-ash.camera_app.mojom.SWPrivacySwitchMonitorRemoteCallHandler = class {
+mojo.internal.bindings.ash.camera_app.mojom.SWPrivacySwitchMonitorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('SWPrivacySwitchMonitor', [
@@ -1244,19 +1249,19 @@ ash.camera_app.mojom.SWPrivacySwitchMonitorRemoteCallHandler = class {
     ]);
   }
 
-  update(is_sw_privacy_switch_on) {
+  update(arg_is_sw_privacy_switch_on) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.camera_app.mojom.SWPrivacySwitchMonitor_Update_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.SWPrivacySwitchMonitor_Update_ParamsSpec,
       null,
-      [is_sw_privacy_switch_on],
+      [arg_is_sw_privacy_switch_on],
       false);
   }
 
 };
 
-ash.camera_app.mojom.SWPrivacySwitchMonitor.getRemote = function() {
-  let remote = new ash.camera_app.mojom.SWPrivacySwitchMonitorRemote();
+mojo.internal.bindings.ash.camera_app.mojom.SWPrivacySwitchMonitor.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.camera_app.mojom.SWPrivacySwitchMonitorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1265,7 +1270,7 @@ ash.camera_app.mojom.SWPrivacySwitchMonitor.getRemote = function() {
   return remote.$;
 };
 
-ash.camera_app.mojom.SWPrivacySwitchMonitorReceiver = class {
+mojo.internal.bindings.ash.camera_app.mojom.SWPrivacySwitchMonitorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -1314,7 +1319,7 @@ ash.camera_app.mojom.SWPrivacySwitchMonitorReceiver = class {
         // Try Method 0: Update
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.SWPrivacySwitchMonitor_Update_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.SWPrivacySwitchMonitor_Update_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Update (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1331,9 +1336,9 @@ ash.camera_app.mojom.SWPrivacySwitchMonitorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.SWPrivacySwitchMonitor_Update_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.SWPrivacySwitchMonitor_Update_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.update');
-          const result = this.impl.update(params.is_sw_privacy_switch_on);
+          const result = this.impl.update(params.arg_is_sw_privacy_switch_on);
           break;
         }
       }
@@ -1344,41 +1349,41 @@ ash.camera_app.mojom.SWPrivacySwitchMonitorReceiver = class {
   }
 };
 
-ash.camera_app.mojom.SWPrivacySwitchMonitorReceiver = ash.camera_app.mojom.SWPrivacySwitchMonitorReceiver;
+mojo.internal.bindings.ash.camera_app.mojom.SWPrivacySwitchMonitorReceiver = mojo.internal.bindings.ash.camera_app.mojom.SWPrivacySwitchMonitorReceiver;
 
-ash.camera_app.mojom.SWPrivacySwitchMonitorPtr = ash.camera_app.mojom.SWPrivacySwitchMonitorRemote;
-ash.camera_app.mojom.SWPrivacySwitchMonitorRequest = ash.camera_app.mojom.SWPrivacySwitchMonitorPendingReceiver;
+mojo.internal.bindings.ash.camera_app.mojom.SWPrivacySwitchMonitorPtr = mojo.internal.bindings.ash.camera_app.mojom.SWPrivacySwitchMonitorRemote;
+mojo.internal.bindings.ash.camera_app.mojom.SWPrivacySwitchMonitorRequest = mojo.internal.bindings.ash.camera_app.mojom.SWPrivacySwitchMonitorPendingReceiver;
 
 
 // Interface: WindowStateMonitor
 mojo.internal.Struct(
-    ash.camera_app.mojom.WindowStateMonitor_OnWindowStateChanged_ParamsSpec, 'ash.camera_app.mojom.WindowStateMonitor_OnWindowStateChanged_Params', [
-      mojo.internal.StructField('states', 0, 0, mojo.internal.Array(ash.camera_app.mojom.WindowStateTypeSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitor_OnWindowStateChanged_ParamsSpec, 'ash.camera_app.mojom.WindowStateMonitor_OnWindowStateChanged_Params', [
+      mojo.internal.StructField('arg_states', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.WindowStateTypeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.WindowStateMonitor_OnWindowFocusChanged_ParamsSpec, 'ash.camera_app.mojom.WindowStateMonitor_OnWindowFocusChanged_Params', [
-      mojo.internal.StructField('is_focus', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitor_OnWindowFocusChanged_ParamsSpec, 'ash.camera_app.mojom.WindowStateMonitor_OnWindowFocusChanged_Params', [
+      mojo.internal.StructField('arg_is_focus', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
-ash.camera_app.mojom.WindowStateMonitorPendingReceiver = class {
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.camera_app.mojom.WindowStateMonitorRemote = class {
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitorRemote = class {
   static get $interfaceName() {
     return 'ash.camera_app.mojom.WindowStateMonitor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.camera_app.mojom.WindowStateMonitorPendingReceiver,
+      mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitorPendingReceiver,
       handle);
-    this.$ = new ash.camera_app.mojom.WindowStateMonitorRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1388,15 +1393,15 @@ ash.camera_app.mojom.WindowStateMonitorRemote = class {
   close() {
     this.proxy.close();
   }
-  onWindowStateChanged(states) {
-    return this.$.onWindowStateChanged(states);
+  onWindowStateChanged(arg_states) {
+    return this.$.onWindowStateChanged(arg_states);
   }
-  onWindowFocusChanged(is_focus) {
-    return this.$.onWindowFocusChanged(is_focus);
+  onWindowFocusChanged(arg_is_focus) {
+    return this.$.onWindowFocusChanged(arg_is_focus);
   }
 };
 
-ash.camera_app.mojom.WindowStateMonitorRemoteCallHandler = class {
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('WindowStateMonitor', [
@@ -1405,28 +1410,28 @@ ash.camera_app.mojom.WindowStateMonitorRemoteCallHandler = class {
     ]);
   }
 
-  onWindowStateChanged(states) {
+  onWindowStateChanged(arg_states) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.camera_app.mojom.WindowStateMonitor_OnWindowStateChanged_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitor_OnWindowStateChanged_ParamsSpec,
       null,
-      [states],
+      [arg_states],
       false);
   }
 
-  onWindowFocusChanged(is_focus) {
+  onWindowFocusChanged(arg_is_focus) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      ash.camera_app.mojom.WindowStateMonitor_OnWindowFocusChanged_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitor_OnWindowFocusChanged_ParamsSpec,
       null,
-      [is_focus],
+      [arg_is_focus],
       false);
   }
 
 };
 
-ash.camera_app.mojom.WindowStateMonitor.getRemote = function() {
-  let remote = new ash.camera_app.mojom.WindowStateMonitorRemote();
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitor.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1435,7 +1440,7 @@ ash.camera_app.mojom.WindowStateMonitor.getRemote = function() {
   return remote.$;
 };
 
-ash.camera_app.mojom.WindowStateMonitorReceiver = class {
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -1485,7 +1490,7 @@ ash.camera_app.mojom.WindowStateMonitorReceiver = class {
         // Try Method 0: OnWindowStateChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.WindowStateMonitor_OnWindowStateChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitor_OnWindowStateChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWindowStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1496,7 +1501,7 @@ ash.camera_app.mojom.WindowStateMonitorReceiver = class {
         // Try Method 1: OnWindowFocusChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.WindowStateMonitor_OnWindowFocusChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitor_OnWindowFocusChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWindowFocusChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1513,16 +1518,16 @@ ash.camera_app.mojom.WindowStateMonitorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.WindowStateMonitor_OnWindowStateChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitor_OnWindowStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWindowStateChanged');
-          const result = this.impl.onWindowStateChanged(params.states);
+          const result = this.impl.onWindowStateChanged(params.arg_states);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.WindowStateMonitor_OnWindowFocusChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitor_OnWindowFocusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWindowFocusChanged');
-          const result = this.impl.onWindowFocusChanged(params.is_focus);
+          const result = this.impl.onWindowFocusChanged(params.arg_is_focus);
           break;
         }
       }
@@ -1533,35 +1538,35 @@ ash.camera_app.mojom.WindowStateMonitorReceiver = class {
   }
 };
 
-ash.camera_app.mojom.WindowStateMonitorReceiver = ash.camera_app.mojom.WindowStateMonitorReceiver;
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitorReceiver = mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitorReceiver;
 
-ash.camera_app.mojom.WindowStateMonitorPtr = ash.camera_app.mojom.WindowStateMonitorRemote;
-ash.camera_app.mojom.WindowStateMonitorRequest = ash.camera_app.mojom.WindowStateMonitorPendingReceiver;
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitorPtr = mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitorRemote;
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitorRequest = mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitorPendingReceiver;
 
 
 // Interface: StorageMonitor
 mojo.internal.Struct(
-    ash.camera_app.mojom.StorageMonitor_Update_ParamsSpec, 'ash.camera_app.mojom.StorageMonitor_Update_Params', [
-      mojo.internal.StructField('status', 0, 0, ash.camera_app.mojom.StorageMonitorStatusSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.StorageMonitor_Update_ParamsSpec, 'ash.camera_app.mojom.StorageMonitor_Update_Params', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.StorageMonitorStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-ash.camera_app.mojom.StorageMonitorPendingReceiver = class {
+mojo.internal.bindings.ash.camera_app.mojom.StorageMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.camera_app.mojom.StorageMonitorRemote = class {
+mojo.internal.bindings.ash.camera_app.mojom.StorageMonitorRemote = class {
   static get $interfaceName() {
     return 'ash.camera_app.mojom.StorageMonitor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.camera_app.mojom.StorageMonitorPendingReceiver,
+      mojo.internal.bindings.ash.camera_app.mojom.StorageMonitorPendingReceiver,
       handle);
-    this.$ = new ash.camera_app.mojom.StorageMonitorRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.camera_app.mojom.StorageMonitorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1571,12 +1576,12 @@ ash.camera_app.mojom.StorageMonitorRemote = class {
   close() {
     this.proxy.close();
   }
-  update(status) {
-    return this.$.update(status);
+  update(arg_status) {
+    return this.$.update(arg_status);
   }
 };
 
-ash.camera_app.mojom.StorageMonitorRemoteCallHandler = class {
+mojo.internal.bindings.ash.camera_app.mojom.StorageMonitorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('StorageMonitor', [
@@ -1584,19 +1589,19 @@ ash.camera_app.mojom.StorageMonitorRemoteCallHandler = class {
     ]);
   }
 
-  update(status) {
+  update(arg_status) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.camera_app.mojom.StorageMonitor_Update_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.StorageMonitor_Update_ParamsSpec,
       null,
-      [status],
+      [arg_status],
       false);
   }
 
 };
 
-ash.camera_app.mojom.StorageMonitor.getRemote = function() {
-  let remote = new ash.camera_app.mojom.StorageMonitorRemote();
+mojo.internal.bindings.ash.camera_app.mojom.StorageMonitor.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.camera_app.mojom.StorageMonitorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1605,7 +1610,7 @@ ash.camera_app.mojom.StorageMonitor.getRemote = function() {
   return remote.$;
 };
 
-ash.camera_app.mojom.StorageMonitorReceiver = class {
+mojo.internal.bindings.ash.camera_app.mojom.StorageMonitorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -1654,7 +1659,7 @@ ash.camera_app.mojom.StorageMonitorReceiver = class {
         // Try Method 0: Update
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.StorageMonitor_Update_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.StorageMonitor_Update_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Update (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1671,9 +1676,9 @@ ash.camera_app.mojom.StorageMonitorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.StorageMonitor_Update_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.StorageMonitor_Update_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.update');
-          const result = this.impl.update(params.status);
+          const result = this.impl.update(params.arg_status);
           break;
         }
       }
@@ -1684,102 +1689,102 @@ ash.camera_app.mojom.StorageMonitorReceiver = class {
   }
 };
 
-ash.camera_app.mojom.StorageMonitorReceiver = ash.camera_app.mojom.StorageMonitorReceiver;
+mojo.internal.bindings.ash.camera_app.mojom.StorageMonitorReceiver = mojo.internal.bindings.ash.camera_app.mojom.StorageMonitorReceiver;
 
-ash.camera_app.mojom.StorageMonitorPtr = ash.camera_app.mojom.StorageMonitorRemote;
-ash.camera_app.mojom.StorageMonitorRequest = ash.camera_app.mojom.StorageMonitorPendingReceiver;
+mojo.internal.bindings.ash.camera_app.mojom.StorageMonitorPtr = mojo.internal.bindings.ash.camera_app.mojom.StorageMonitorRemote;
+mojo.internal.bindings.ash.camera_app.mojom.StorageMonitorRequest = mojo.internal.bindings.ash.camera_app.mojom.StorageMonitorPendingReceiver;
 
 
 // Interface: WindowStateController
 mojo.internal.Struct(
-    ash.camera_app.mojom.WindowStateController_AddMonitor_ParamsSpec, 'ash.camera_app.mojom.WindowStateController_AddMonitor_Params', [
-      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.WindowStateMonitorSpec), null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_AddMonitor_ParamsSpec, 'ash.camera_app.mojom.WindowStateController_AddMonitor_Params', [
+      mojo.internal.StructField('arg_monitor', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitorSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.WindowStateController_AddMonitor_ResponseParamsSpec, 'ash.camera_app.mojom.WindowStateController_AddMonitor_ResponseParams', [
-      mojo.internal.StructField('states', 0, 0, mojo.internal.Array(ash.camera_app.mojom.WindowStateTypeSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_AddMonitor_ResponseParamsSpec, 'ash.camera_app.mojom.WindowStateController_AddMonitor_ResponseParams', [
+      mojo.internal.StructField('arg_states', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.WindowStateTypeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.WindowStateController_GetWindowState_ParamsSpec, 'ash.camera_app.mojom.WindowStateController_GetWindowState_Params', [
+    mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_GetWindowState_ParamsSpec, 'ash.camera_app.mojom.WindowStateController_GetWindowState_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.WindowStateController_GetWindowState_ResponseParamsSpec, 'ash.camera_app.mojom.WindowStateController_GetWindowState_ResponseParams', [
-      mojo.internal.StructField('states', 0, 0, mojo.internal.Array(ash.camera_app.mojom.WindowStateTypeSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_GetWindowState_ResponseParamsSpec, 'ash.camera_app.mojom.WindowStateController_GetWindowState_ResponseParams', [
+      mojo.internal.StructField('arg_states', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.WindowStateTypeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.WindowStateController_Minimize_ParamsSpec, 'ash.camera_app.mojom.WindowStateController_Minimize_Params', [
+    mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Minimize_ParamsSpec, 'ash.camera_app.mojom.WindowStateController_Minimize_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.WindowStateController_Minimize_ResponseParamsSpec, 'ash.camera_app.mojom.WindowStateController_Minimize_ResponseParams', [
+    mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Minimize_ResponseParamsSpec, 'ash.camera_app.mojom.WindowStateController_Minimize_ResponseParams', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.WindowStateController_Restore_ParamsSpec, 'ash.camera_app.mojom.WindowStateController_Restore_Params', [
+    mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Restore_ParamsSpec, 'ash.camera_app.mojom.WindowStateController_Restore_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.WindowStateController_Restore_ResponseParamsSpec, 'ash.camera_app.mojom.WindowStateController_Restore_ResponseParams', [
+    mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Restore_ResponseParamsSpec, 'ash.camera_app.mojom.WindowStateController_Restore_ResponseParams', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.WindowStateController_Maximize_ParamsSpec, 'ash.camera_app.mojom.WindowStateController_Maximize_Params', [
+    mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Maximize_ParamsSpec, 'ash.camera_app.mojom.WindowStateController_Maximize_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.WindowStateController_Maximize_ResponseParamsSpec, 'ash.camera_app.mojom.WindowStateController_Maximize_ResponseParams', [
+    mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Maximize_ResponseParamsSpec, 'ash.camera_app.mojom.WindowStateController_Maximize_ResponseParams', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.WindowStateController_Fullscreen_ParamsSpec, 'ash.camera_app.mojom.WindowStateController_Fullscreen_Params', [
+    mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Fullscreen_ParamsSpec, 'ash.camera_app.mojom.WindowStateController_Fullscreen_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.WindowStateController_Fullscreen_ResponseParamsSpec, 'ash.camera_app.mojom.WindowStateController_Fullscreen_ResponseParams', [
+    mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Fullscreen_ResponseParamsSpec, 'ash.camera_app.mojom.WindowStateController_Fullscreen_ResponseParams', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.WindowStateController_Focus_ParamsSpec, 'ash.camera_app.mojom.WindowStateController_Focus_Params', [
+    mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Focus_ParamsSpec, 'ash.camera_app.mojom.WindowStateController_Focus_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.WindowStateController_Focus_ResponseParamsSpec, 'ash.camera_app.mojom.WindowStateController_Focus_ResponseParams', [
+    mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Focus_ResponseParamsSpec, 'ash.camera_app.mojom.WindowStateController_Focus_ResponseParams', [
     ],
     [[0, 8]]);
 
-ash.camera_app.mojom.WindowStateControllerPendingReceiver = class {
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.camera_app.mojom.WindowStateControllerRemote = class {
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateControllerRemote = class {
   static get $interfaceName() {
     return 'ash.camera_app.mojom.WindowStateController';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.camera_app.mojom.WindowStateControllerPendingReceiver,
+      mojo.internal.bindings.ash.camera_app.mojom.WindowStateControllerPendingReceiver,
       handle);
-    this.$ = new ash.camera_app.mojom.WindowStateControllerRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.camera_app.mojom.WindowStateControllerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1789,8 +1794,8 @@ ash.camera_app.mojom.WindowStateControllerRemote = class {
   close() {
     this.proxy.close();
   }
-  addMonitor(monitor) {
-    return this.$.addMonitor(monitor);
+  addMonitor(arg_monitor) {
+    return this.$.addMonitor(arg_monitor);
   }
   getWindowState() {
     return this.$.getWindowState();
@@ -1812,7 +1817,7 @@ ash.camera_app.mojom.WindowStateControllerRemote = class {
   }
 };
 
-ash.camera_app.mojom.WindowStateControllerRemoteCallHandler = class {
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('WindowStateController', [
@@ -1826,20 +1831,20 @@ ash.camera_app.mojom.WindowStateControllerRemoteCallHandler = class {
     ]);
   }
 
-  addMonitor(monitor) {
+  addMonitor(arg_monitor) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.camera_app.mojom.WindowStateController_AddMonitor_ParamsSpec,
-      ash.camera_app.mojom.WindowStateController_AddMonitor_ResponseParamsSpec,
-      [monitor],
+      mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_AddMonitor_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_AddMonitor_ResponseParamsSpec,
+      [arg_monitor],
       false);
   }
 
   getWindowState() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      ash.camera_app.mojom.WindowStateController_GetWindowState_ParamsSpec,
-      ash.camera_app.mojom.WindowStateController_GetWindowState_ResponseParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_GetWindowState_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_GetWindowState_ResponseParamsSpec,
       [],
       false);
   }
@@ -1847,8 +1852,8 @@ ash.camera_app.mojom.WindowStateControllerRemoteCallHandler = class {
   minimize() {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      ash.camera_app.mojom.WindowStateController_Minimize_ParamsSpec,
-      ash.camera_app.mojom.WindowStateController_Minimize_ResponseParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Minimize_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Minimize_ResponseParamsSpec,
       [],
       false);
   }
@@ -1856,8 +1861,8 @@ ash.camera_app.mojom.WindowStateControllerRemoteCallHandler = class {
   restore() {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      ash.camera_app.mojom.WindowStateController_Restore_ParamsSpec,
-      ash.camera_app.mojom.WindowStateController_Restore_ResponseParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Restore_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Restore_ResponseParamsSpec,
       [],
       false);
   }
@@ -1865,8 +1870,8 @@ ash.camera_app.mojom.WindowStateControllerRemoteCallHandler = class {
   maximize() {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
-      ash.camera_app.mojom.WindowStateController_Maximize_ParamsSpec,
-      ash.camera_app.mojom.WindowStateController_Maximize_ResponseParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Maximize_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Maximize_ResponseParamsSpec,
       [],
       false);
   }
@@ -1874,8 +1879,8 @@ ash.camera_app.mojom.WindowStateControllerRemoteCallHandler = class {
   fullscreen() {
     return this.proxy.sendMessage(
       this.ordinals[5],  // ordinal
-      ash.camera_app.mojom.WindowStateController_Fullscreen_ParamsSpec,
-      ash.camera_app.mojom.WindowStateController_Fullscreen_ResponseParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Fullscreen_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Fullscreen_ResponseParamsSpec,
       [],
       false);
   }
@@ -1883,16 +1888,16 @@ ash.camera_app.mojom.WindowStateControllerRemoteCallHandler = class {
   focus() {
     return this.proxy.sendMessage(
       this.ordinals[6],  // ordinal
-      ash.camera_app.mojom.WindowStateController_Focus_ParamsSpec,
-      ash.camera_app.mojom.WindowStateController_Focus_ResponseParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Focus_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Focus_ResponseParamsSpec,
       [],
       false);
   }
 
 };
 
-ash.camera_app.mojom.WindowStateController.getRemote = function() {
-  let remote = new ash.camera_app.mojom.WindowStateControllerRemote();
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateController.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.camera_app.mojom.WindowStateControllerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1901,7 +1906,7 @@ ash.camera_app.mojom.WindowStateController.getRemote = function() {
   return remote.$;
 };
 
-ash.camera_app.mojom.WindowStateControllerReceiver = class {
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateControllerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -1956,7 +1961,7 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
         // Try Method 0: AddMonitor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.WindowStateController_AddMonitor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_AddMonitor_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddMonitor (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1967,7 +1972,7 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
         // Try Method 1: GetWindowState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.WindowStateController_GetWindowState_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_GetWindowState_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWindowState (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1978,7 +1983,7 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
         // Try Method 2: Minimize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.WindowStateController_Minimize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Minimize_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Minimize (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1989,7 +1994,7 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
         // Try Method 3: Restore
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.WindowStateController_Restore_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Restore_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Restore (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -2000,7 +2005,7 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
         // Try Method 4: Maximize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.WindowStateController_Maximize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Maximize_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Maximize (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -2011,7 +2016,7 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
         // Try Method 5: Fullscreen
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.WindowStateController_Fullscreen_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Fullscreen_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Fullscreen (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -2022,7 +2027,7 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
         // Try Method 6: Focus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.WindowStateController_Focus_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Focus_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Focus (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -2039,14 +2044,14 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.WindowStateController_AddMonitor_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_AddMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addMonitor');
-          const result = this.impl.addMonitor(params.monitor);
+          const result = this.impl.addMonitor(params.arg_monitor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_AddMonitor_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_AddMonitor_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] AddMonitor FAILED:', e));
           }
@@ -2054,14 +2059,14 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.WindowStateController_GetWindowState_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_GetWindowState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getWindowState');
           const result = this.impl.getWindowState();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_GetWindowState_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_GetWindowState_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetWindowState FAILED:', e));
           }
@@ -2069,14 +2074,14 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.WindowStateController_Minimize_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Minimize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.minimize');
           const result = this.impl.minimize();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_Minimize_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Minimize_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] Minimize FAILED:', e));
           }
@@ -2084,14 +2089,14 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.WindowStateController_Restore_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Restore_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.restore');
           const result = this.impl.restore();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_Restore_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Restore_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] Restore FAILED:', e));
           }
@@ -2099,14 +2104,14 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.WindowStateController_Maximize_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Maximize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.maximize');
           const result = this.impl.maximize();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_Maximize_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Maximize_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] Maximize FAILED:', e));
           }
@@ -2114,14 +2119,14 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.WindowStateController_Fullscreen_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Fullscreen_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fullscreen');
           const result = this.impl.fullscreen();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_Fullscreen_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Fullscreen_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] Fullscreen FAILED:', e));
           }
@@ -2129,14 +2134,14 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.WindowStateController_Focus_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Focus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.focus');
           const result = this.impl.focus();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_Focus_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Focus_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] Focus FAILED:', e));
           }
@@ -2150,348 +2155,348 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
   }
 };
 
-ash.camera_app.mojom.WindowStateControllerReceiver = ash.camera_app.mojom.WindowStateControllerReceiver;
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateControllerReceiver = mojo.internal.bindings.ash.camera_app.mojom.WindowStateControllerReceiver;
 
-ash.camera_app.mojom.WindowStateControllerPtr = ash.camera_app.mojom.WindowStateControllerRemote;
-ash.camera_app.mojom.WindowStateControllerRequest = ash.camera_app.mojom.WindowStateControllerPendingReceiver;
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateControllerPtr = mojo.internal.bindings.ash.camera_app.mojom.WindowStateControllerRemote;
+mojo.internal.bindings.ash.camera_app.mojom.WindowStateControllerRequest = mojo.internal.bindings.ash.camera_app.mojom.WindowStateControllerPendingReceiver;
 
 
 // Interface: CameraAppHelper
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_Params', [
-      mojo.internal.StructField('action', 0, 0, arc.mojom.CameraIntentActionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('intent_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_Params', [
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.arc.mojom.CameraIntentActionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_intent_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ResponseParams', [
-      mojo.internal.StructField('is_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ResponseParams', [
+      mojo.internal.StructField('arg_is_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_IsTabletMode_Params', [
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_IsTabletMode_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ResponseParams', [
-      mojo.internal.StructField('is_tablet_mode', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ResponseParams', [
+      mojo.internal.StructField('arg_is_tablet_mode', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_StartPerfEventTrace_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_StartPerfEventTrace_Params', [
-      mojo.internal.StructField('event', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StartPerfEventTrace_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_StartPerfEventTrace_Params', [
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_StopPerfEventTrace_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_StopPerfEventTrace_Params', [
-      mojo.internal.StructField('event', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StopPerfEventTrace_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_StopPerfEventTrace_Params', [
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_Params', [
-      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.TabletModeMonitorSpec), null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_Params', [
+      mojo.internal.StructField('arg_monitor', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.camera_app.mojom.TabletModeMonitorSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ResponseParams', [
-      mojo.internal.StructField('is_tablet_mode', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ResponseParams', [
+      mojo.internal.StructField('arg_is_tablet_mode', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_Params', [
-      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.ScreenStateMonitorSpec), null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_Params', [
+      mojo.internal.StructField('arg_monitor', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.camera_app.mojom.ScreenStateMonitorSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ResponseParams', [
-      mojo.internal.StructField('initial_state', 0, 0, ash.camera_app.mojom.ScreenStateSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ResponseParams', [
+      mojo.internal.StructField('arg_initial_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.ScreenStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_Params', [
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ResponseParams', [
-      mojo.internal.StructField('is_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ResponseParams', [
+      mojo.internal.StructField('arg_is_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_Params', [
-      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.ExternalScreenMonitorSpec), null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_Params', [
+      mojo.internal.StructField('arg_monitor', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.camera_app.mojom.ExternalScreenMonitorSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ResponseParams', [
-      mojo.internal.StructField('has_external_screen', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ResponseParams', [
+      mojo.internal.StructField('arg_has_external_screen', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_OpenFileInGallery_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_OpenFileInGallery_Params', [
-      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenFileInGallery_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_OpenFileInGallery_Params', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_OpenFeedbackDialog_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_OpenFeedbackDialog_Params', [
-      mojo.internal.StructField('placeholder', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenFeedbackDialog_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_OpenFeedbackDialog_Params', [
+      mojo.internal.StructField('arg_placeholder', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_Params', [
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ResponseParams', [
-      mojo.internal.StructField('controller', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.WindowStateControllerSpec), null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ResponseParams', [
+      mojo.internal.StructField('arg_controller', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.camera_app.mojom.WindowStateControllerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_Params', [
-      mojo.internal.StructField('file_type', 0, 0, ash.camera_app.mojom.FileTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('destination', 8, 0, ash.camera_app.mojom.CaptureDestinationSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_Params', [
+      mojo.internal.StructField('arg_file_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.FileTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_destination', 8, 0, mojo.internal.bindings.ash.camera_app.mojom.CaptureDestinationSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ResponseParams', [
-      mojo.internal.StructField('succeeded', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ResponseParams', [
+      mojo.internal.StructField('arg_succeeded', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_Params', [
-      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_Params', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, ash.camera_app.mojom.FileMonitorResultSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.FileMonitorResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_Params', [
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ResponseParams', [
-      mojo.internal.StructField('is_supported', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ResponseParams', [
+      mojo.internal.StructField('arg_is_supported', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_Params', [
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ResponseParams', [
-      mojo.internal.StructField('is_loaded', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ResponseParams', [
+      mojo.internal.StructField('arg_is_loaded', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_Params', [
-      mojo.internal.StructField('jpeg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_Params', [
+      mojo.internal.StructField('arg_jpeg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ResponseParams', [
-      mojo.internal.StructField('corners', 0, 0, mojo.internal.Array(gfx.mojom.PointFSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ResponseParams', [
+      mojo.internal.StructField('arg_corners', 0, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.PointFSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_Params', [
-      mojo.internal.StructField('jpeg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('corners', 8, 0, mojo.internal.Array(gfx.mojom.PointFSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('rotation', 16, 0, chromeos.machine_learning.mojom.RotationSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_Params', [
+      mojo.internal.StructField('arg_jpeg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_corners', 8, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.PointFSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_rotation', 16, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.RotationSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ResponseParams', [
-      mojo.internal.StructField('doc_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ResponseParams', [
+      mojo.internal.StructField('arg_doc_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_MaybeTriggerSurvey_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_MaybeTriggerSurvey_Params', [
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_MaybeTriggerSurvey_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_MaybeTriggerSurvey_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_Params', [
-      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.StorageMonitorSpec), null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_Params', [
+      mojo.internal.StructField('arg_monitor', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.camera_app.mojom.StorageMonitorSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ResponseParams', [
-      mojo.internal.StructField('initial_status', 0, 0, ash.camera_app.mojom.StorageMonitorStatusSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ResponseParams', [
+      mojo.internal.StructField('arg_initial_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.StorageMonitorStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_StopStorageMonitor_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_StopStorageMonitor_Params', [
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StopStorageMonitor_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_StopStorageMonitor_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_OpenStorageManagement_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_OpenStorageManagement_Params', [
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenStorageManagement_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_OpenStorageManagement_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_Params', [
-      mojo.internal.StructField('config', 0, 0, ash.camera_app.mojom.WifiConfigSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_Params', [
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.WifiConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_Params', [
-      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.LidStateMonitorSpec), null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_Params', [
+      mojo.internal.StructField('arg_monitor', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.camera_app.mojom.LidStateMonitorSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ResponseParams', [
-      mojo.internal.StructField('lid_status', 0, 0, ash.camera_app.mojom.LidStateSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ResponseParams', [
+      mojo.internal.StructField('arg_lid_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.LidStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_Params', [
-      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.SWPrivacySwitchMonitorSpec), null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_Params', [
+      mojo.internal.StructField('arg_monitor', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.camera_app.mojom.SWPrivacySwitchMonitorSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ResponseParams', [
-      mojo.internal.StructField('is_sw_privacy_switch_on', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ResponseParams', [
+      mojo.internal.StructField('arg_is_sw_privacy_switch_on', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_GetEventsSender_Params', [
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_GetEventsSender_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ResponseParams', [
-      mojo.internal.StructField('events_sender', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.EventsSenderRemote), null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ResponseParams', [
+      mojo.internal.StructField('arg_events_sender', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.camera_app.mojom.EventsSenderRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_Params', [
-      mojo.internal.StructField('monitor', 0, 0, mojo.internal.InterfaceProxy(ash.camera_app.mojom.ScreenLockedMonitorSpec), null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_Params', [
+      mojo.internal.StructField('arg_monitor', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.camera_app.mojom.ScreenLockedMonitorSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ResponseParams', [
-      mojo.internal.StructField('is_screen_locked', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ResponseParams', [
+      mojo.internal.StructField('arg_is_screen_locked', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_Params', [
-      mojo.internal.StructField('pdf_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_Params', [
+      mojo.internal.StructField('arg_pdf_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ResponseParams', [
-      mojo.internal.StructField('jpeg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ResponseParams', [
+      mojo.internal.StructField('arg_jpeg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_PerformOcr_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_PerformOcr_Params', [
-      mojo.internal.StructField('jpeg_data', 0, 0, mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_PerformOcr_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_PerformOcr_Params', [
+      mojo.internal.StructField('arg_jpeg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_PerformOcr_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_PerformOcr_ResponseParams', [
-      mojo.internal.StructField('ocr_result', 0, 0, ash.camera_app.mojom.OcrResultSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_PerformOcr_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_PerformOcr_ResponseParams', [
+      mojo.internal.StructField('arg_ocr_result', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.OcrResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_Params', [
-      mojo.internal.StructField('jpeg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_Params', [
+      mojo.internal.StructField('arg_jpeg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ResponseParams', [
-      mojo.internal.StructField('ocr_result', 0, 0, ash.camera_app.mojom.OcrResultSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ResponseParams', [
+      mojo.internal.StructField('arg_ocr_result', 0, 0, mojo.internal.bindings.ash.camera_app.mojom.OcrResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_Params', [
-      mojo.internal.StructField('builder', 0, 0, mojo.internal.InterfaceRequest(ash.camera_app.mojom.PdfBuilderRemote), null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_Params', [
+      mojo.internal.StructField('arg_builder', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_Params', [
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ResponseParams', [
-      mojo.internal.StructField('order', 0, 0, mojo.internal.Array(ash.camera_app.mojom.AspectRatioSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ResponseParamsSpec, 'ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ResponseParams', [
+      mojo.internal.StructField('arg_order', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.camera_app.mojom.AspectRatioSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-ash.camera_app.mojom.CameraAppHelperPendingReceiver = class {
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.camera_app.mojom.CameraAppHelperRemote = class {
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemote = class {
   static get $interfaceName() {
     return 'ash.camera_app.mojom.CameraAppHelper';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.camera_app.mojom.CameraAppHelperPendingReceiver,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperPendingReceiver,
       handle);
-    this.$ = new ash.camera_app.mojom.CameraAppHelperRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -2501,47 +2506,47 @@ ash.camera_app.mojom.CameraAppHelperRemote = class {
   close() {
     this.proxy.close();
   }
-  handleCameraResult(intent_id, action, data) {
-    return this.$.handleCameraResult(intent_id, action, data);
+  handleCameraResult(arg_intent_id, arg_action, arg_data) {
+    return this.$.handleCameraResult(arg_intent_id, arg_action, arg_data);
   }
   isTabletMode() {
     return this.$.isTabletMode();
   }
-  startPerfEventTrace(event) {
-    return this.$.startPerfEventTrace(event);
+  startPerfEventTrace(arg_event) {
+    return this.$.startPerfEventTrace(arg_event);
   }
-  stopPerfEventTrace(event) {
-    return this.$.stopPerfEventTrace(event);
+  stopPerfEventTrace(arg_event) {
+    return this.$.stopPerfEventTrace(arg_event);
   }
-  setTabletMonitor(monitor) {
-    return this.$.setTabletMonitor(monitor);
+  setTabletMonitor(arg_monitor) {
+    return this.$.setTabletMonitor(arg_monitor);
   }
-  setScreenStateMonitor(monitor) {
-    return this.$.setScreenStateMonitor(monitor);
+  setScreenStateMonitor(arg_monitor) {
+    return this.$.setScreenStateMonitor(arg_monitor);
   }
   isMetricsAndCrashReportingEnabled() {
     return this.$.isMetricsAndCrashReportingEnabled();
   }
-  setExternalScreenMonitor(monitor) {
-    return this.$.setExternalScreenMonitor(monitor);
+  setExternalScreenMonitor(arg_monitor) {
+    return this.$.setExternalScreenMonitor(arg_monitor);
   }
-  openFileInGallery(name) {
-    return this.$.openFileInGallery(name);
+  openFileInGallery(arg_name) {
+    return this.$.openFileInGallery(arg_name);
   }
-  openFeedbackDialog(placeholder) {
-    return this.$.openFeedbackDialog(placeholder);
+  openFeedbackDialog(arg_placeholder) {
+    return this.$.openFeedbackDialog(arg_placeholder);
   }
-  openUrlInBrowser(url) {
-    return this.$.openUrlInBrowser(url);
+  openUrlInBrowser(arg_url) {
+    return this.$.openUrlInBrowser(arg_url);
   }
   getWindowStateController() {
     return this.$.getWindowStateController();
   }
-  processCapturedFile(file_type, destination) {
-    return this.$.processCapturedFile(file_type, destination);
+  processCapturedFile(arg_file_type, arg_destination) {
+    return this.$.processCapturedFile(arg_file_type, arg_destination);
   }
-  monitorFileDeletion(name) {
-    return this.$.monitorFileDeletion(name);
+  monitorFileDeletion(arg_name) {
+    return this.$.monitorFileDeletion(arg_name);
   }
   isDocumentScannerSupported() {
     return this.$.isDocumentScannerSupported();
@@ -2549,17 +2554,17 @@ ash.camera_app.mojom.CameraAppHelperRemote = class {
   checkDocumentModeReadiness() {
     return this.$.checkDocumentModeReadiness();
   }
-  scanDocumentCorners(jpeg_data) {
-    return this.$.scanDocumentCorners(jpeg_data);
+  scanDocumentCorners(arg_jpeg_data) {
+    return this.$.scanDocumentCorners(arg_jpeg_data);
   }
-  convertToDocument(jpeg_data, corners, rotation) {
-    return this.$.convertToDocument(jpeg_data, corners, rotation);
+  convertToDocument(arg_jpeg_data, arg_corners, arg_rotation) {
+    return this.$.convertToDocument(arg_jpeg_data, arg_corners, arg_rotation);
   }
   maybeTriggerSurvey() {
     return this.$.maybeTriggerSurvey();
   }
-  startStorageMonitor(monitor) {
-    return this.$.startStorageMonitor(monitor);
+  startStorageMonitor(arg_monitor) {
+    return this.$.startStorageMonitor(arg_monitor);
   }
   stopStorageMonitor() {
     return this.$.stopStorageMonitor();
@@ -2567,39 +2572,39 @@ ash.camera_app.mojom.CameraAppHelperRemote = class {
   openStorageManagement() {
     return this.$.openStorageManagement();
   }
-  openWifiDialog(config) {
-    return this.$.openWifiDialog(config);
+  openWifiDialog(arg_config) {
+    return this.$.openWifiDialog(arg_config);
   }
-  setLidStateMonitor(monitor) {
-    return this.$.setLidStateMonitor(monitor);
+  setLidStateMonitor(arg_monitor) {
+    return this.$.setLidStateMonitor(arg_monitor);
   }
-  setSWPrivacySwitchMonitor(monitor) {
-    return this.$.setSWPrivacySwitchMonitor(monitor);
+  setSWPrivacySwitchMonitor(arg_monitor) {
+    return this.$.setSWPrivacySwitchMonitor(arg_monitor);
   }
   getEventsSender() {
     return this.$.getEventsSender();
   }
-  setScreenLockedMonitor(monitor) {
-    return this.$.setScreenLockedMonitor(monitor);
+  setScreenLockedMonitor(arg_monitor) {
+    return this.$.setScreenLockedMonitor(arg_monitor);
   }
-  renderPdfAsJpeg(pdf_data) {
-    return this.$.renderPdfAsJpeg(pdf_data);
+  renderPdfAsJpeg(arg_pdf_data) {
+    return this.$.renderPdfAsJpeg(arg_pdf_data);
   }
-  performOcr(jpeg_data) {
-    return this.$.performOcr(jpeg_data);
+  performOcr(arg_jpeg_data) {
+    return this.$.performOcr(arg_jpeg_data);
   }
-  performOcrInline(jpeg_data) {
-    return this.$.performOcrInline(jpeg_data);
+  performOcrInline(arg_jpeg_data) {
+    return this.$.performOcrInline(arg_jpeg_data);
   }
-  createPdfBuilder(builder) {
-    return this.$.createPdfBuilder(builder);
+  createPdfBuilder(arg_builder) {
+    return this.$.createPdfBuilder(arg_builder);
   }
   getAspectRatioOrder() {
     return this.$.getAspectRatioOrder();
   }
 };
 
-ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('CameraAppHelper', [
@@ -2638,137 +2643,137 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
     ]);
   }
 
-  handleCameraResult(intent_id, action, data) {
+  handleCameraResult(arg_intent_id, arg_action, arg_data) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec,
-      ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ResponseParamsSpec,
-      [intent_id, action, data],
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ResponseParamsSpec,
+      [arg_intent_id, arg_action, arg_data],
       false);
   }
 
   isTabletMode() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ParamsSpec,
-      ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ResponseParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ResponseParamsSpec,
       [],
       false);
   }
 
-  startPerfEventTrace(event) {
+  startPerfEventTrace(arg_event) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_StartPerfEventTrace_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StartPerfEventTrace_ParamsSpec,
       null,
-      [event],
+      [arg_event],
       false);
   }
 
-  stopPerfEventTrace(event) {
+  stopPerfEventTrace(arg_event) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_StopPerfEventTrace_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StopPerfEventTrace_ParamsSpec,
       null,
-      [event],
+      [arg_event],
       false);
   }
 
-  setTabletMonitor(monitor) {
+  setTabletMonitor(arg_monitor) {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ParamsSpec,
-      ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ResponseParamsSpec,
-      [monitor],
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ResponseParamsSpec,
+      [arg_monitor],
       false);
   }
 
-  setScreenStateMonitor(monitor) {
+  setScreenStateMonitor(arg_monitor) {
     return this.proxy.sendMessage(
       this.ordinals[5],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ParamsSpec,
-      ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ResponseParamsSpec,
-      [monitor],
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ResponseParamsSpec,
+      [arg_monitor],
       false);
   }
 
   isMetricsAndCrashReportingEnabled() {
     return this.proxy.sendMessage(
       this.ordinals[6],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ParamsSpec,
-      ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ResponseParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ResponseParamsSpec,
       [],
       false);
   }
 
-  setExternalScreenMonitor(monitor) {
+  setExternalScreenMonitor(arg_monitor) {
     return this.proxy.sendMessage(
       this.ordinals[7],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ParamsSpec,
-      ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ResponseParamsSpec,
-      [monitor],
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ResponseParamsSpec,
+      [arg_monitor],
       false);
   }
 
-  openFileInGallery(name) {
+  openFileInGallery(arg_name) {
     return this.proxy.sendMessage(
       this.ordinals[8],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_OpenFileInGallery_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenFileInGallery_ParamsSpec,
       null,
-      [name],
+      [arg_name],
       false);
   }
 
-  openFeedbackDialog(placeholder) {
+  openFeedbackDialog(arg_placeholder) {
     return this.proxy.sendMessage(
       this.ordinals[9],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_OpenFeedbackDialog_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenFeedbackDialog_ParamsSpec,
       null,
-      [placeholder],
+      [arg_placeholder],
       false);
   }
 
-  openUrlInBrowser(url) {
+  openUrlInBrowser(arg_url) {
     return this.proxy.sendMessage(
       this.ordinals[10],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_ParamsSpec,
       null,
-      [url],
+      [arg_url],
       false);
   }
 
   getWindowStateController() {
     return this.proxy.sendMessage(
       this.ordinals[11],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ParamsSpec,
-      ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ResponseParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ResponseParamsSpec,
       [],
       false);
   }
 
-  processCapturedFile(file_type, destination) {
+  processCapturedFile(arg_file_type, arg_destination) {
     return this.proxy.sendMessage(
       this.ordinals[12],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec,
-      ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ResponseParamsSpec,
-      [file_type, destination],
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ResponseParamsSpec,
+      [arg_file_type, arg_destination],
       false);
   }
 
-  monitorFileDeletion(name) {
+  monitorFileDeletion(arg_name) {
     return this.proxy.sendMessage(
       this.ordinals[13],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ParamsSpec,
-      ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ResponseParamsSpec,
-      [name],
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ResponseParamsSpec,
+      [arg_name],
       false);
   }
 
   isDocumentScannerSupported() {
     return this.proxy.sendMessage(
       this.ordinals[14],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ParamsSpec,
-      ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ResponseParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ResponseParamsSpec,
       [],
       false);
   }
@@ -2776,52 +2781,52 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
   checkDocumentModeReadiness() {
     return this.proxy.sendMessage(
       this.ordinals[15],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ParamsSpec,
-      ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ResponseParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ResponseParamsSpec,
       [],
       false);
   }
 
-  scanDocumentCorners(jpeg_data) {
+  scanDocumentCorners(arg_jpeg_data) {
     return this.proxy.sendMessage(
       this.ordinals[16],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ParamsSpec,
-      ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ResponseParamsSpec,
-      [jpeg_data],
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ResponseParamsSpec,
+      [arg_jpeg_data],
       false);
   }
 
-  convertToDocument(jpeg_data, corners, rotation) {
+  convertToDocument(arg_jpeg_data, arg_corners, arg_rotation) {
     return this.proxy.sendMessage(
       this.ordinals[17],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec,
-      ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ResponseParamsSpec,
-      [jpeg_data, corners, rotation],
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ResponseParamsSpec,
+      [arg_jpeg_data, arg_corners, arg_rotation],
       false);
   }
 
   maybeTriggerSurvey() {
     return this.proxy.sendMessage(
       this.ordinals[18],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_MaybeTriggerSurvey_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_MaybeTriggerSurvey_ParamsSpec,
       null,
       [],
       false);
   }
 
-  startStorageMonitor(monitor) {
+  startStorageMonitor(arg_monitor) {
     return this.proxy.sendMessage(
       this.ordinals[19],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ParamsSpec,
-      ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ResponseParamsSpec,
-      [monitor],
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ResponseParamsSpec,
+      [arg_monitor],
       false);
   }
 
   stopStorageMonitor() {
     return this.proxy.sendMessage(
       this.ordinals[20],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_StopStorageMonitor_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StopStorageMonitor_ParamsSpec,
       null,
       [],
       false);
@@ -2830,106 +2835,106 @@ ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = class {
   openStorageManagement() {
     return this.proxy.sendMessage(
       this.ordinals[21],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_OpenStorageManagement_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenStorageManagement_ParamsSpec,
       null,
       [],
       false);
   }
 
-  openWifiDialog(config) {
+  openWifiDialog(arg_config) {
     return this.proxy.sendMessage(
       this.ordinals[22],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_ParamsSpec,
       null,
-      [config],
+      [arg_config],
       false);
   }
 
-  setLidStateMonitor(monitor) {
+  setLidStateMonitor(arg_monitor) {
     return this.proxy.sendMessage(
       this.ordinals[23],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ParamsSpec,
-      ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ResponseParamsSpec,
-      [monitor],
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ResponseParamsSpec,
+      [arg_monitor],
       false);
   }
 
-  setSWPrivacySwitchMonitor(monitor) {
+  setSWPrivacySwitchMonitor(arg_monitor) {
     return this.proxy.sendMessage(
       this.ordinals[24],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ParamsSpec,
-      ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ResponseParamsSpec,
-      [monitor],
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ResponseParamsSpec,
+      [arg_monitor],
       false);
   }
 
   getEventsSender() {
     return this.proxy.sendMessage(
       this.ordinals[25],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ParamsSpec,
-      ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ResponseParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ResponseParamsSpec,
       [],
       false);
   }
 
-  setScreenLockedMonitor(monitor) {
+  setScreenLockedMonitor(arg_monitor) {
     return this.proxy.sendMessage(
       this.ordinals[26],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ParamsSpec,
-      ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ResponseParamsSpec,
-      [monitor],
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ResponseParamsSpec,
+      [arg_monitor],
       false);
   }
 
-  renderPdfAsJpeg(pdf_data) {
+  renderPdfAsJpeg(arg_pdf_data) {
     return this.proxy.sendMessage(
       this.ordinals[27],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ParamsSpec,
-      ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ResponseParamsSpec,
-      [pdf_data],
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ResponseParamsSpec,
+      [arg_pdf_data],
       false);
   }
 
-  performOcr(jpeg_data) {
+  performOcr(arg_jpeg_data) {
     return this.proxy.sendMessage(
       this.ordinals[28],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_PerformOcr_ParamsSpec,
-      ash.camera_app.mojom.CameraAppHelper_PerformOcr_ResponseParamsSpec,
-      [jpeg_data],
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_PerformOcr_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_PerformOcr_ResponseParamsSpec,
+      [arg_jpeg_data],
       false);
   }
 
-  performOcrInline(jpeg_data) {
+  performOcrInline(arg_jpeg_data) {
     return this.proxy.sendMessage(
       this.ordinals[29],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ParamsSpec,
-      ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ResponseParamsSpec,
-      [jpeg_data],
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ResponseParamsSpec,
+      [arg_jpeg_data],
       false);
   }
 
-  createPdfBuilder(builder) {
+  createPdfBuilder(arg_builder) {
     return this.proxy.sendMessage(
       this.ordinals[30],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_ParamsSpec,
       null,
-      [builder],
+      [arg_builder],
       false);
   }
 
   getAspectRatioOrder() {
     return this.proxy.sendMessage(
       this.ordinals[31],  // ordinal
-      ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ParamsSpec,
-      ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ResponseParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ParamsSpec,
+      mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ResponseParamsSpec,
       [],
       false);
   }
 
 };
 
-ash.camera_app.mojom.CameraAppHelper.getRemote = function() {
-  let remote = new ash.camera_app.mojom.CameraAppHelperRemote();
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -2938,7 +2943,7 @@ ash.camera_app.mojom.CameraAppHelper.getRemote = function() {
   return remote.$;
 };
 
-ash.camera_app.mojom.CameraAppHelperReceiver = class {
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -3018,7 +3023,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 0: HandleCameraResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleCameraResult (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -3029,7 +3034,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 1: IsTabletMode
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsTabletMode (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -3040,7 +3045,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 2: StartPerfEventTrace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_StartPerfEventTrace_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StartPerfEventTrace_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartPerfEventTrace (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -3051,7 +3056,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 3: StopPerfEventTrace
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_StopPerfEventTrace_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StopPerfEventTrace_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopPerfEventTrace (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -3062,7 +3067,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 4: SetTabletMonitor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTabletMonitor (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -3073,7 +3078,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 5: SetScreenStateMonitor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetScreenStateMonitor (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -3084,7 +3089,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 6: IsMetricsAndCrashReportingEnabled
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsMetricsAndCrashReportingEnabled (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -3095,7 +3100,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 7: SetExternalScreenMonitor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetExternalScreenMonitor (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -3106,7 +3111,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 8: OpenFileInGallery
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_OpenFileInGallery_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenFileInGallery_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenFileInGallery (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -3117,7 +3122,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 9: OpenFeedbackDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_OpenFeedbackDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenFeedbackDialog_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenFeedbackDialog (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -3128,7 +3133,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 10: OpenUrlInBrowser
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenUrlInBrowser (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -3139,7 +3144,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 11: GetWindowStateController
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetWindowStateController (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -3150,7 +3155,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 12: ProcessCapturedFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ProcessCapturedFile (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -3161,7 +3166,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 13: MonitorFileDeletion
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MonitorFileDeletion (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -3172,7 +3177,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 14: IsDocumentScannerSupported
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsDocumentScannerSupported (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -3183,7 +3188,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 15: CheckDocumentModeReadiness
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckDocumentModeReadiness (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -3194,7 +3199,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 16: ScanDocumentCorners
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ScanDocumentCorners (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -3205,7 +3210,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 17: ConvertToDocument
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConvertToDocument (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -3216,7 +3221,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 18: MaybeTriggerSurvey
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_MaybeTriggerSurvey_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_MaybeTriggerSurvey_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MaybeTriggerSurvey (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -3227,7 +3232,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 19: StartStorageMonitor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartStorageMonitor (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -3238,7 +3243,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 20: StopStorageMonitor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_StopStorageMonitor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StopStorageMonitor_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopStorageMonitor (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -3249,7 +3254,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 21: OpenStorageManagement
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_OpenStorageManagement_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenStorageManagement_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenStorageManagement (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -3260,7 +3265,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 22: OpenWifiDialog
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenWifiDialog (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
@@ -3271,7 +3276,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 23: SetLidStateMonitor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetLidStateMonitor (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
@@ -3282,7 +3287,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 24: SetSWPrivacySwitchMonitor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSWPrivacySwitchMonitor (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
@@ -3293,7 +3298,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 25: GetEventsSender
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetEventsSender (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
@@ -3304,7 +3309,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 26: SetScreenLockedMonitor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetScreenLockedMonitor (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
@@ -3315,7 +3320,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 27: RenderPdfAsJpeg
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RenderPdfAsJpeg (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
@@ -3326,7 +3331,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 28: PerformOcr
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_PerformOcr_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_PerformOcr_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformOcr (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
@@ -3337,7 +3342,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 29: PerformOcrInline
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformOcrInline (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
@@ -3348,7 +3353,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 30: CreatePdfBuilder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePdfBuilder (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
@@ -3359,7 +3364,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         // Try Method 31: GetAspectRatioOrder
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAspectRatioOrder (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
@@ -3376,14 +3381,14 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleCameraResult');
-          const result = this.impl.handleCameraResult(params.intent_id, params.action, params.data);
+          const result = this.impl.handleCameraResult(params.arg_intent_id, params.arg_action, params.arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] HandleCameraResult FAILED:', e));
           }
@@ -3391,14 +3396,14 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isTabletMode');
           const result = this.impl.isTabletMode();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] IsTabletMode FAILED:', e));
           }
@@ -3406,28 +3411,28 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_StartPerfEventTrace_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StartPerfEventTrace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startPerfEventTrace');
-          const result = this.impl.startPerfEventTrace(params.event);
+          const result = this.impl.startPerfEventTrace(params.arg_event);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_StopPerfEventTrace_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StopPerfEventTrace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopPerfEventTrace');
-          const result = this.impl.stopPerfEventTrace(params.event);
+          const result = this.impl.stopPerfEventTrace(params.arg_event);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTabletMonitor');
-          const result = this.impl.setTabletMonitor(params.monitor);
+          const result = this.impl.setTabletMonitor(params.arg_monitor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] SetTabletMonitor FAILED:', e));
           }
@@ -3435,14 +3440,14 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setScreenStateMonitor');
-          const result = this.impl.setScreenStateMonitor(params.monitor);
+          const result = this.impl.setScreenStateMonitor(params.arg_monitor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] SetScreenStateMonitor FAILED:', e));
           }
@@ -3450,14 +3455,14 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isMetricsAndCrashReportingEnabled');
           const result = this.impl.isMetricsAndCrashReportingEnabled();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] IsMetricsAndCrashReportingEnabled FAILED:', e));
           }
@@ -3465,14 +3470,14 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setExternalScreenMonitor');
-          const result = this.impl.setExternalScreenMonitor(params.monitor);
+          const result = this.impl.setExternalScreenMonitor(params.arg_monitor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] SetExternalScreenMonitor FAILED:', e));
           }
@@ -3480,35 +3485,35 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_OpenFileInGallery_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenFileInGallery_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openFileInGallery');
-          const result = this.impl.openFileInGallery(params.name);
+          const result = this.impl.openFileInGallery(params.arg_name);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_OpenFeedbackDialog_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenFeedbackDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openFeedbackDialog');
-          const result = this.impl.openFeedbackDialog(params.placeholder);
+          const result = this.impl.openFeedbackDialog(params.arg_placeholder);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openUrlInBrowser');
-          const result = this.impl.openUrlInBrowser(params.url);
+          const result = this.impl.openUrlInBrowser(params.arg_url);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getWindowStateController');
           const result = this.impl.getWindowStateController();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetWindowStateController FAILED:', e));
           }
@@ -3516,14 +3521,14 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.processCapturedFile');
-          const result = this.impl.processCapturedFile(params.file_type, params.destination);
+          const result = this.impl.processCapturedFile(params.arg_file_type, params.arg_destination);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] ProcessCapturedFile FAILED:', e));
           }
@@ -3531,14 +3536,14 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.monitorFileDeletion');
-          const result = this.impl.monitorFileDeletion(params.name);
+          const result = this.impl.monitorFileDeletion(params.arg_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] MonitorFileDeletion FAILED:', e));
           }
@@ -3546,14 +3551,14 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isDocumentScannerSupported');
           const result = this.impl.isDocumentScannerSupported();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] IsDocumentScannerSupported FAILED:', e));
           }
@@ -3561,14 +3566,14 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkDocumentModeReadiness');
           const result = this.impl.checkDocumentModeReadiness();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] CheckDocumentModeReadiness FAILED:', e));
           }
@@ -3576,14 +3581,14 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.scanDocumentCorners');
-          const result = this.impl.scanDocumentCorners(params.jpeg_data);
+          const result = this.impl.scanDocumentCorners(params.arg_jpeg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] ScanDocumentCorners FAILED:', e));
           }
@@ -3591,14 +3596,14 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.convertToDocument');
-          const result = this.impl.convertToDocument(params.jpeg_data, params.corners, params.rotation);
+          const result = this.impl.convertToDocument(params.arg_jpeg_data, params.arg_corners, params.arg_rotation);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] ConvertToDocument FAILED:', e));
           }
@@ -3606,21 +3611,21 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_MaybeTriggerSurvey_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_MaybeTriggerSurvey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.maybeTriggerSurvey');
           const result = this.impl.maybeTriggerSurvey();
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startStorageMonitor');
-          const result = this.impl.startStorageMonitor(params.monitor);
+          const result = this.impl.startStorageMonitor(params.arg_monitor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] StartStorageMonitor FAILED:', e));
           }
@@ -3628,35 +3633,35 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_StopStorageMonitor_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StopStorageMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopStorageMonitor');
           const result = this.impl.stopStorageMonitor();
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_OpenStorageManagement_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenStorageManagement_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openStorageManagement');
           const result = this.impl.openStorageManagement();
           break;
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openWifiDialog');
-          const result = this.impl.openWifiDialog(params.config);
+          const result = this.impl.openWifiDialog(params.arg_config);
           break;
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setLidStateMonitor');
-          const result = this.impl.setLidStateMonitor(params.monitor);
+          const result = this.impl.setLidStateMonitor(params.arg_monitor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] SetLidStateMonitor FAILED:', e));
           }
@@ -3664,14 +3669,14 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSWPrivacySwitchMonitor');
-          const result = this.impl.setSWPrivacySwitchMonitor(params.monitor);
+          const result = this.impl.setSWPrivacySwitchMonitor(params.arg_monitor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] SetSWPrivacySwitchMonitor FAILED:', e));
           }
@@ -3679,14 +3684,14 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getEventsSender');
           const result = this.impl.getEventsSender();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetEventsSender FAILED:', e));
           }
@@ -3694,14 +3699,14 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setScreenLockedMonitor');
-          const result = this.impl.setScreenLockedMonitor(params.monitor);
+          const result = this.impl.setScreenLockedMonitor(params.arg_monitor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] SetScreenLockedMonitor FAILED:', e));
           }
@@ -3709,14 +3714,14 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.renderPdfAsJpeg');
-          const result = this.impl.renderPdfAsJpeg(params.pdf_data);
+          const result = this.impl.renderPdfAsJpeg(params.arg_pdf_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] RenderPdfAsJpeg FAILED:', e));
           }
@@ -3724,14 +3729,14 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_PerformOcr_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_PerformOcr_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.performOcr');
-          const result = this.impl.performOcr(params.jpeg_data);
+          const result = this.impl.performOcr(params.arg_jpeg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_PerformOcr_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_PerformOcr_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] PerformOcr FAILED:', e));
           }
@@ -3739,14 +3744,14 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.performOcrInline');
-          const result = this.impl.performOcrInline(params.jpeg_data);
+          const result = this.impl.performOcrInline(params.arg_jpeg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] PerformOcrInline FAILED:', e));
           }
@@ -3754,21 +3759,21 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPdfBuilder');
-          const result = this.impl.createPdfBuilder(params.builder);
+          const result = this.impl.createPdfBuilder(params.arg_builder);
           break;
         }
         case 31: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAspectRatioOrder');
           const result = this.impl.getAspectRatioOrder();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetAspectRatioOrder FAILED:', e));
           }
@@ -3782,8 +3787,8 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
   }
 };
 
-ash.camera_app.mojom.CameraAppHelperReceiver = ash.camera_app.mojom.CameraAppHelperReceiver;
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperReceiver = mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperReceiver;
 
-ash.camera_app.mojom.CameraAppHelperPtr = ash.camera_app.mojom.CameraAppHelperRemote;
-ash.camera_app.mojom.CameraAppHelperRequest = ash.camera_app.mojom.CameraAppHelperPendingReceiver;
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperPtr = mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemote;
+mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRequest = mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperPendingReceiver;
 

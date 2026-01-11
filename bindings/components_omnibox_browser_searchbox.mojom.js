@@ -1,162 +1,167 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/components/omnibox/browser/searchbox.mojom
-// Module: searchbox.mojom
+ // Source: chromium_src/components/omnibox/browser/searchbox.mojom
+ // Module: searchbox.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var searchbox = searchbox || {};
-searchbox.mojom = searchbox.mojom || {};
-var omnibox = omnibox || {};
-var composebox_query = composebox_query || {};
-var mojo_base = mojo_base || {};
-var gfx = gfx || {};
-var url = url || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-searchbox.mojom.ToolModeSpec = { $: mojo.internal.Enum() };
-searchbox.mojom.SideTypeSpec = { $: mojo.internal.Enum() };
-searchbox.mojom.RenderTypeSpec = { $: mojo.internal.Enum() };
-searchbox.mojom.SelectionLineStateSpec = { $: mojo.internal.Enum() };
-searchbox.mojom.SearchContextAttachmentSpec = { $: {} };
-searchbox.mojom.ACMatchClassificationSpec = { $: {} };
-searchbox.mojom.ActionSpec = { $: {} };
-searchbox.mojom.SuggestionAnswerSpec = { $: {} };
-searchbox.mojom.AutocompleteMatchSpec = { $: {} };
-searchbox.mojom.TabInfoSpec = { $: {} };
-searchbox.mojom.FileAttachmentSpec = { $: {} };
-searchbox.mojom.TabAttachmentSpec = { $: {} };
-searchbox.mojom.SearchContextSpec = { $: {} };
-searchbox.mojom.SelectedFileInfoSpec = { $: {} };
-searchbox.mojom.SuggestionGroupSpec = { $: {} };
-searchbox.mojom.AutocompleteResultSpec = { $: {} };
-searchbox.mojom.OmniboxPopupSelectionSpec = { $: {} };
-searchbox.mojom.PlaceholderConfigSpec = { $: {} };
-searchbox.mojom.PageHandler = {};
-searchbox.mojom.PageHandler.$interfaceName = 'searchbox.mojom.PageHandler';
-searchbox.mojom.PageHandler_SetPage_ParamsSpec = { $: {} };
-searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec = { $: {} };
-searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec = { $: {} };
-searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec = { $: {} };
-searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec = { $: {} };
-searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec = { $: {} };
-searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec = { $: {} };
-searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec = { $: {} };
-searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec = { $: {} };
-searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec = { $: {} };
-searchbox.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec = { $: {} };
-searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec = { $: {} };
-searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec = { $: {} };
-searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec = { $: {} };
-searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec = { $: {} };
-searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec = { $: {} };
-searchbox.mojom.PageHandler_GetTabPreview_ResponseParamsSpec = { $: {} };
-searchbox.mojom.PageHandler_NotifySessionStarted_ParamsSpec = { $: {} };
-searchbox.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec = { $: {} };
-searchbox.mojom.PageHandler_AddFileContext_ParamsSpec = { $: {} };
-searchbox.mojom.PageHandler_AddFileContext_ResponseParamsSpec = { $: {} };
-searchbox.mojom.PageHandler_AddTabContext_ParamsSpec = { $: {} };
-searchbox.mojom.PageHandler_AddTabContext_ResponseParamsSpec = { $: {} };
-searchbox.mojom.PageHandler_DeleteContext_ParamsSpec = { $: {} };
-searchbox.mojom.PageHandler_ClearFiles_ParamsSpec = { $: {} };
-searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec = { $: {} };
-searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec = { $: {} };
-searchbox.mojom.Page = {};
-searchbox.mojom.Page.$interfaceName = 'searchbox.mojom.Page';
-searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec = { $: {} };
-searchbox.mojom.Page_UpdateSelection_ParamsSpec = { $: {} };
-searchbox.mojom.Page_SetKeywordSelected_ParamsSpec = { $: {} };
-searchbox.mojom.Page_OnShow_ParamsSpec = { $: {} };
-searchbox.mojom.Page_SetInputText_ParamsSpec = { $: {} };
-searchbox.mojom.Page_SetThumbnail_ParamsSpec = { $: {} };
-searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec = { $: {} };
-searchbox.mojom.Page_OnTabStripChanged_ParamsSpec = { $: {} };
-searchbox.mojom.Page_AddFileContext_ParamsSpec = { $: {} };
-searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec = { $: {} };
-searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec = { $: {} };
-searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec = { $: {} };
-searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec = { $: {} };
-searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec = { $: {} };
+ mojo.internal.bindings.searchbox = mojo.internal.bindings.searchbox || {};
+mojo.internal.bindings.searchbox.mojom = mojo.internal.bindings.searchbox.mojom || {};
+mojo.internal.bindings.omnibox = mojo.internal.bindings.omnibox || {};
+mojo.internal.bindings.composebox_query = mojo.internal.bindings.composebox_query || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+
+mojo.internal.bindings.searchbox.mojom.ToolModeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.searchbox.mojom.SideTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.searchbox.mojom.RenderTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.searchbox.mojom.SelectionLineStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.searchbox.mojom.SearchContextAttachmentSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.ACMatchClassificationSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.ActionSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.SuggestionAnswerSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.AutocompleteMatchSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.TabInfoSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.FileAttachmentSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.TabAttachmentSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.SearchContextSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.SelectedFileInfoSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.SuggestionGroupSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.AutocompleteResultSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.OmniboxPopupSelectionSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PlaceholderConfigSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PageHandler = {};
+mojo.internal.bindings.searchbox.mojom.PageHandler.$interfaceName = 'searchbox.mojom.PageHandler';
+mojo.internal.bindings.searchbox.mojom.PageHandler_SetPage_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PageHandler_GetTabPreview_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PageHandler_NotifySessionStarted_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PageHandler_AddFileContext_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PageHandler_AddFileContext_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PageHandler_AddTabContext_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PageHandler_AddTabContext_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PageHandler_DeleteContext_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PageHandler_ClearFiles_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.Page = {};
+mojo.internal.bindings.searchbox.mojom.Page.$interfaceName = 'searchbox.mojom.Page';
+mojo.internal.bindings.searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.Page_UpdateSelection_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.Page_SetKeywordSelected_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.Page_OnShow_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.Page_SetInputText_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.Page_SetThumbnail_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.Page_OnTabStripChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.Page_AddFileContext_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec = { $: {} };
+mojo.internal.bindings.searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec = { $: {} };
 
 // Enum: ToolMode
-searchbox.mojom.ToolMode = {
+mojo.internal.bindings.searchbox.mojom.ToolMode = {
   kDefault: 0,
   kDeepSearch: 1,
   kCreateImage: 4,
 };
 
 // Enum: SideType
-searchbox.mojom.SideType = {
+mojo.internal.bindings.searchbox.mojom.SideType = {
   kDefaultPrimary: 0,
   kSecondary: 1,
 };
 
 // Enum: RenderType
-searchbox.mojom.RenderType = {
+mojo.internal.bindings.searchbox.mojom.RenderType = {
   kDefaultVertical: 0,
   kHorizontal: 1,
   kGrid: 2,
 };
 
 // Enum: SelectionLineState
-searchbox.mojom.SelectionLineState = {
+mojo.internal.bindings.searchbox.mojom.SelectionLineState = {
   kNormal: 1,
   kKeywordMode: 2,
   kFocusedButtonAction: 3,
@@ -165,372 +170,372 @@ searchbox.mojom.SelectionLineState = {
 
 // Union: SearchContextAttachment
 mojo.internal.Union(
-    searchbox.mojom.SearchContextAttachmentSpec, 'searchbox.mojom.SearchContextAttachment', {
-      'file_attachment': {
+    mojo.internal.bindings.searchbox.mojom.SearchContextAttachmentSpec, 'searchbox.mojom.SearchContextAttachment', {
+      'arg_file_attachment': {
         'ordinal': 0,
-        'type': searchbox.mojom.FileAttachmentSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.FileAttachmentSpec.$,
         'nullable': false,
       },
-      'tab_attachment': {
+      'arg_tab_attachment': {
         'ordinal': 1,
-        'type': searchbox.mojom.TabAttachmentSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.TabAttachmentSpec.$,
         'nullable': false,
       },
     });
 
 // Struct: ACMatchClassification
 mojo.internal.Struct(
-    searchbox.mojom.ACMatchClassificationSpec, 'searchbox.mojom.ACMatchClassification', [
-      mojo.internal.StructField('offset', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('style', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.ACMatchClassificationSpec, 'searchbox.mojom.ACMatchClassification', [
+      mojo.internal.StructField('arg_offset', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_style', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: Action
 mojo.internal.Struct(
-    searchbox.mojom.ActionSpec, 'searchbox.mojom.Action', [
-      mojo.internal.StructField('hint', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('suggestion_contents', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('icon_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('a11y_label', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.ActionSpec, 'searchbox.mojom.Action', [
+      mojo.internal.StructField('arg_hint', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestion_contents', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_a11y_label', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: SuggestionAnswer
 mojo.internal.Struct(
-    searchbox.mojom.SuggestionAnswerSpec, 'searchbox.mojom.SuggestionAnswer', [
-      mojo.internal.StructField('first_line', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('second_line', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.SuggestionAnswerSpec, 'searchbox.mojom.SuggestionAnswer', [
+      mojo.internal.StructField('arg_first_line', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_second_line', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: AutocompleteMatch
 mojo.internal.Struct(
-    searchbox.mojom.AutocompleteMatchSpec, 'searchbox.mojom.AutocompleteMatch', [
-      mojo.internal.StructField('a11y_label', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('actions', 8, 0, mojo.internal.Array(searchbox.mojom.ActionSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('answer', 16, 0, searchbox.mojom.SuggestionAnswerSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('contents', 24, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('contents_class', 32, 0, mojo.internal.Array(searchbox.mojom.ACMatchClassificationSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('description', 40, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('description_class', 48, 0, mojo.internal.Array(searchbox.mojom.ACMatchClassificationSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('destination_url', 56, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('inline_autocompletion', 64, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('fill_into_edit', 72, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('icon_path', 80, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('icon_url', 88, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('image_dominant_color', 96, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('image_url', 104, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('type', 112, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('remove_button_a11y_label', 120, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('tail_suggest_common_prefix', 128, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
-      mojo.internal.StructField('keyword_chip_hint', 136, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('keyword_chip_a11y', 144, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('suggestion_group_id', 152, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('is_hidden', 156, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('allowed_to_be_default_match', 156, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_weather_answer_suggestion_$flag', 156, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'is_weather_answer_suggestion_$value', originalFieldName: 'is_weather_answer_suggestion' }),
-      mojo.internal.StructField('is_weather_answer_suggestion_$value', 156, 3, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'is_weather_answer_suggestion_$flag', originalFieldName: 'is_weather_answer_suggestion' }),
-      mojo.internal.StructField('is_noncanned_aim_suggestion', 156, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_rich_suggestion', 156, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_search_type', 156, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('is_enterprise_search_aggregator_people_type', 156, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('swap_contents_and_description', 157, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('supports_deletion', 157, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('has_instant_keyword', 157, 2, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.AutocompleteMatchSpec, 'searchbox.mojom.AutocompleteMatch', [
+      mojo.internal.StructField('arg_a11y_label', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_actions', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.ActionSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_answer', 16, 0, mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.SuggestionAnswerSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_contents', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_contents_class', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.ACMatchClassificationSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 40, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description_class', 48, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.ACMatchClassificationSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_destination_url', 56, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_inline_autocompletion', 64, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fill_into_edit', 72, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon_path', 80, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon_url', 88, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_dominant_color', 96, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_url', 104, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 112, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_remove_button_a11y_label', 120, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tail_suggest_common_prefix', 128, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_keyword_chip_hint', 136, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_keyword_chip_a11y', 144, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestion_group_id', 152, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_hidden', 156, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_allowed_to_be_default_match', 156, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_weather_answer_suggestion_$flag', 156, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_is_weather_answer_suggestion_$value', originalFieldName: 'arg_is_weather_answer_suggestion' }),
+      mojo.internal.StructField('arg_is_weather_answer_suggestion_$value', 156, 3, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_is_weather_answer_suggestion_$flag', originalFieldName: 'arg_is_weather_answer_suggestion' }),
+      mojo.internal.StructField('arg_is_noncanned_aim_suggestion', 156, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_rich_suggestion', 156, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_search_type', 156, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_enterprise_search_aggregator_people_type', 156, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_swap_contents_and_description', 157, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_deletion', 157, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_instant_keyword', 157, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 168]]);
 
 // Struct: TabInfo
 mojo.internal.Struct(
-    searchbox.mojom.TabInfoSpec, 'searchbox.mojom.TabInfo', [
-      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('last_active', 16, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('tab_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('show_in_current_tab_chip', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('show_in_previous_tab_chip', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.TabInfoSpec, 'searchbox.mojom.TabInfo', [
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_active', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tab_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_show_in_current_tab_chip', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_show_in_previous_tab_chip', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: FileAttachment
 mojo.internal.Struct(
-    searchbox.mojom.FileAttachmentSpec, 'searchbox.mojom.FileAttachment', [
-      mojo.internal.StructField('uuid', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('mime_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('image_data_url', 24, 0, mojo.internal.String, null, true, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.FileAttachmentSpec, 'searchbox.mojom.FileAttachment', [
+      mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mime_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_data_url', 24, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: TabAttachment
 mojo.internal.Struct(
-    searchbox.mojom.TabAttachmentSpec, 'searchbox.mojom.TabAttachment', [
-      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('tab_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.TabAttachmentSpec, 'searchbox.mojom.TabAttachment', [
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tab_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: SearchContext
 mojo.internal.Struct(
-    searchbox.mojom.SearchContextSpec, 'searchbox.mojom.SearchContext', [
-      mojo.internal.StructField('input', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('attachments', 8, 0, mojo.internal.Array(searchbox.mojom.SearchContextAttachmentSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('tool_mode', 16, 0, searchbox.mojom.ToolModeSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.SearchContextSpec, 'searchbox.mojom.SearchContext', [
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_attachments', 8, 0, mojo.internal.Array(mojo.internal.bindings.searchbox.mojom.SearchContextAttachmentSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tool_mode', 16, 0, mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.ToolModeSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: SelectedFileInfo
 mojo.internal.Struct(
-    searchbox.mojom.SelectedFileInfoSpec, 'searchbox.mojom.SelectedFileInfo', [
-      mojo.internal.StructField('file_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('mime_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('image_data_url', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('selection_time', 24, 0, mojo_base.mojom.JSTimeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('is_deletable', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.SelectedFileInfoSpec, 'searchbox.mojom.SelectedFileInfo', [
+      mojo.internal.StructField('arg_file_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mime_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_data_url', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_selection_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.JSTimeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_deletable', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: SuggestionGroup
 mojo.internal.Struct(
-    searchbox.mojom.SuggestionGroupSpec, 'searchbox.mojom.SuggestionGroup', [
-      mojo.internal.StructField('header', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('render_type', 8, 0, searchbox.mojom.RenderTypeSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('side_type', 16, 0, searchbox.mojom.SideTypeSpec.$, 0, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.SuggestionGroupSpec, 'searchbox.mojom.SuggestionGroup', [
+      mojo.internal.StructField('arg_header', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_render_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.RenderTypeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_side_type', 16, 0, mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.SideTypeSpec.$, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: AutocompleteResult
 mojo.internal.Struct(
-    searchbox.mojom.AutocompleteResultSpec, 'searchbox.mojom.AutocompleteResult', [
-      mojo.internal.StructField('input', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('suggestion_groups_map', 8, 0, mojo.internal.Map(mojo.internal.Int32, searchbox.mojom.SuggestionGroupSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('matches', 16, 0, mojo.internal.Array(searchbox.mojom.AutocompleteMatchSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('smart_compose_inline_hint', 24, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.AutocompleteResultSpec, 'searchbox.mojom.AutocompleteResult', [
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestion_groups_map', 8, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.SuggestionGroupSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_matches', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.AutocompleteMatchSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_smart_compose_inline_hint', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
     ],
     [[0, 40]]);
 
 // Struct: OmniboxPopupSelection
 mojo.internal.Struct(
-    searchbox.mojom.OmniboxPopupSelectionSpec, 'searchbox.mojom.OmniboxPopupSelection', [
-      mojo.internal.StructField('state', 0, 0, searchbox.mojom.SelectionLineStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('line', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('action_index', 9, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.OmniboxPopupSelectionSpec, 'searchbox.mojom.OmniboxPopupSelection', [
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.SelectionLineStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_line', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_action_index', 9, 0, mojo.internal.Uint8, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: PlaceholderConfig
 mojo.internal.Struct(
-    searchbox.mojom.PlaceholderConfigSpec, 'searchbox.mojom.PlaceholderConfig', [
-      mojo.internal.StructField('texts', 0, 0, mojo.internal.Array(mojo_base.mojom.String16Spec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('change_text_animation_interval', 8, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('fade_text_animation_duration', 16, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.PlaceholderConfigSpec, 'searchbox.mojom.PlaceholderConfig', [
+      mojo.internal.StructField('arg_texts', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_change_text_animation_interval', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fade_text_animation_duration', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Interface: PageHandler
 mojo.internal.Struct(
-    searchbox.mojom.PageHandler_SetPage_ParamsSpec, 'searchbox.mojom.PageHandler_SetPage_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(searchbox.mojom.PageSpec), null, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.PageHandler_SetPage_ParamsSpec, 'searchbox.mojom.PageHandler_SetPage_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.searchbox.mojom.PageSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec, 'searchbox.mojom.PageHandler_OnFocusChanged_Params', [
-      mojo.internal.StructField('focused', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec, 'searchbox.mojom.PageHandler_OnFocusChanged_Params', [
+      mojo.internal.StructField('arg_focused', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec, 'searchbox.mojom.PageHandler_QueryAutocomplete_Params', [
-      mojo.internal.StructField('input', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('prevent_inline_autocomplete', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec, 'searchbox.mojom.PageHandler_QueryAutocomplete_Params', [
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_prevent_inline_autocomplete', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec, 'searchbox.mojom.PageHandler_StopAutocomplete_Params', [
-      mojo.internal.StructField('clear_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec, 'searchbox.mojom.PageHandler_StopAutocomplete_Params', [
+      mojo.internal.StructField('arg_clear_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec, 'searchbox.mojom.PageHandler_OpenAutocompleteMatch_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('line', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('are_matches_showing', 9, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('mouse_button', 10, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('alt_key', 11, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('ctrl_key', 11, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('meta_key', 11, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('shift_key', 11, 3, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec, 'searchbox.mojom.PageHandler_OpenAutocompleteMatch_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_line', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_are_matches_showing', 9, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_mouse_button', 10, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_alt_key', 11, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_ctrl_key', 11, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_meta_key', 11, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_shift_key', 11, 3, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec, 'searchbox.mojom.PageHandler_OnNavigationLikely_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('navigation_predictor', 8, 0, omnibox.mojom.NavigationPredictorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('line', 16, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec, 'searchbox.mojom.PageHandler_OnNavigationLikely_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_navigation_predictor', 8, 0, mojo.internal.bindings.omnibox.mojom.NavigationPredictorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_line', 16, 0, mojo.internal.Uint8, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec, 'searchbox.mojom.PageHandler_DeleteAutocompleteMatch_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('line', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec, 'searchbox.mojom.PageHandler_DeleteAutocompleteMatch_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_line', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec, 'searchbox.mojom.PageHandler_ActivateKeyword_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('match_selection_timestamp', 8, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('line', 16, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('is_mouse_event', 17, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec, 'searchbox.mojom.PageHandler_ActivateKeyword_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_match_selection_timestamp', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_line', 16, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_mouse_event', 17, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec, 'searchbox.mojom.PageHandler_ShowContextMenu_Params', [
-      mojo.internal.StructField('point', 0, 0, gfx.mojom.PointSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec, 'searchbox.mojom.PageHandler_ShowContextMenu_Params', [
+      mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec, 'searchbox.mojom.PageHandler_ExecuteAction_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('match_selection_timestamp', 8, 0, mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('line', 16, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('action_index', 17, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('mouse_button', 18, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('alt_key', 19, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('ctrl_key', 19, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('meta_key', 19, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('shift_key', 19, 3, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec, 'searchbox.mojom.PageHandler_ExecuteAction_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_match_selection_timestamp', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_line', 16, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_action_index', 17, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_mouse_button', 18, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_alt_key', 19, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_ctrl_key', 19, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_meta_key', 19, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_shift_key', 19, 3, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec, 'searchbox.mojom.PageHandler_OnThumbnailRemoved_Params', [
+    mojo.internal.bindings.searchbox.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec, 'searchbox.mojom.PageHandler_OnThumbnailRemoved_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec, 'searchbox.mojom.PageHandler_GetPlaceholderConfig_Params', [
+    mojo.internal.bindings.searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec, 'searchbox.mojom.PageHandler_GetPlaceholderConfig_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec, 'searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParams', [
-      mojo.internal.StructField('config', 0, 0, searchbox.mojom.PlaceholderConfigSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec, 'searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParams', [
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.PlaceholderConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec, 'searchbox.mojom.PageHandler_GetRecentTabs_Params', [
+    mojo.internal.bindings.searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec, 'searchbox.mojom.PageHandler_GetRecentTabs_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec, 'searchbox.mojom.PageHandler_GetRecentTabs_ResponseParams', [
-      mojo.internal.StructField('tabs', 0, 0, mojo.internal.Array(searchbox.mojom.TabInfoSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec, 'searchbox.mojom.PageHandler_GetRecentTabs_ResponseParams', [
+      mojo.internal.StructField('arg_tabs', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.TabInfoSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec, 'searchbox.mojom.PageHandler_GetTabPreview_Params', [
-      mojo.internal.StructField('tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec, 'searchbox.mojom.PageHandler_GetTabPreview_Params', [
+      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.PageHandler_GetTabPreview_ResponseParamsSpec, 'searchbox.mojom.PageHandler_GetTabPreview_ResponseParams', [
-      mojo.internal.StructField('preview_data_url', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.PageHandler_GetTabPreview_ResponseParamsSpec, 'searchbox.mojom.PageHandler_GetTabPreview_ResponseParams', [
+      mojo.internal.StructField('arg_preview_data_url', 0, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.PageHandler_NotifySessionStarted_ParamsSpec, 'searchbox.mojom.PageHandler_NotifySessionStarted_Params', [
+    mojo.internal.bindings.searchbox.mojom.PageHandler_NotifySessionStarted_ParamsSpec, 'searchbox.mojom.PageHandler_NotifySessionStarted_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec, 'searchbox.mojom.PageHandler_NotifySessionAbandoned_Params', [
+    mojo.internal.bindings.searchbox.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec, 'searchbox.mojom.PageHandler_NotifySessionAbandoned_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.PageHandler_AddFileContext_ParamsSpec, 'searchbox.mojom.PageHandler_AddFileContext_Params', [
-      mojo.internal.StructField('file_info', 0, 0, searchbox.mojom.SelectedFileInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('file_bytes', 8, 0, mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.PageHandler_AddFileContext_ParamsSpec, 'searchbox.mojom.PageHandler_AddFileContext_Params', [
+      mojo.internal.StructField('arg_file_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.SelectedFileInfoSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_bytes', 8, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.PageHandler_AddFileContext_ResponseParamsSpec, 'searchbox.mojom.PageHandler_AddFileContext_ResponseParams', [
-      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.PageHandler_AddFileContext_ResponseParamsSpec, 'searchbox.mojom.PageHandler_AddFileContext_ResponseParams', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.PageHandler_AddTabContext_ParamsSpec, 'searchbox.mojom.PageHandler_AddTabContext_Params', [
-      mojo.internal.StructField('tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('delay_upload', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.PageHandler_AddTabContext_ParamsSpec, 'searchbox.mojom.PageHandler_AddTabContext_Params', [
+      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_delay_upload', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.PageHandler_AddTabContext_ResponseParamsSpec, 'searchbox.mojom.PageHandler_AddTabContext_ResponseParams', [
-      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.PageHandler_AddTabContext_ResponseParamsSpec, 'searchbox.mojom.PageHandler_AddTabContext_ResponseParams', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.PageHandler_DeleteContext_ParamsSpec, 'searchbox.mojom.PageHandler_DeleteContext_Params', [
-      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('from_automatic_chip', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.PageHandler_DeleteContext_ParamsSpec, 'searchbox.mojom.PageHandler_DeleteContext_Params', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_from_automatic_chip', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.PageHandler_ClearFiles_ParamsSpec, 'searchbox.mojom.PageHandler_ClearFiles_Params', [
+    mojo.internal.bindings.searchbox.mojom.PageHandler_ClearFiles_ParamsSpec, 'searchbox.mojom.PageHandler_ClearFiles_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec, 'searchbox.mojom.PageHandler_SubmitQuery_Params', [
-      mojo.internal.StructField('query_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('mouse_button', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('alt_key', 9, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('ctrl_key', 9, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('meta_key', 9, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('shift_key', 9, 3, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec, 'searchbox.mojom.PageHandler_SubmitQuery_Params', [
+      mojo.internal.StructField('arg_query_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mouse_button', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_alt_key', 9, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_ctrl_key', 9, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_meta_key', 9, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_shift_key', 9, 3, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec, 'searchbox.mojom.PageHandler_OpenLensSearch_Params', [
+    mojo.internal.bindings.searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec, 'searchbox.mojom.PageHandler_OpenLensSearch_Params', [
     ],
     [[0, 8]]);
 
-searchbox.mojom.PageHandlerPendingReceiver = class {
+mojo.internal.bindings.searchbox.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-searchbox.mojom.PageHandlerRemote = class {
+mojo.internal.bindings.searchbox.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'searchbox.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      searchbox.mojom.PageHandlerPendingReceiver,
+      mojo.internal.bindings.searchbox.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new searchbox.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -540,35 +545,35 @@ searchbox.mojom.PageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
-  setPage(page) {
-    return this.$.setPage(page);
+  setPage(arg_page) {
+    return this.$.setPage(arg_page);
   }
-  onFocusChanged(focused) {
-    return this.$.onFocusChanged(focused);
+  onFocusChanged(arg_focused) {
+    return this.$.onFocusChanged(arg_focused);
   }
-  queryAutocomplete(input, prevent_inline_autocomplete) {
-    return this.$.queryAutocomplete(input, prevent_inline_autocomplete);
+  queryAutocomplete(arg_input, arg_prevent_inline_autocomplete) {
+    return this.$.queryAutocomplete(arg_input, arg_prevent_inline_autocomplete);
   }
-  stopAutocomplete(clear_result) {
-    return this.$.stopAutocomplete(clear_result);
+  stopAutocomplete(arg_clear_result) {
+    return this.$.stopAutocomplete(arg_clear_result);
   }
-  openAutocompleteMatch(line, url, are_matches_showing, mouse_button, alt_key, ctrl_key, meta_key, shift_key) {
-    return this.$.openAutocompleteMatch(line, url, are_matches_showing, mouse_button, alt_key, ctrl_key, meta_key, shift_key);
+  openAutocompleteMatch(arg_line, arg_url, arg_are_matches_showing, arg_mouse_button, arg_alt_key, arg_ctrl_key, arg_meta_key, arg_shift_key) {
+    return this.$.openAutocompleteMatch(arg_line, arg_url, arg_are_matches_showing, arg_mouse_button, arg_alt_key, arg_ctrl_key, arg_meta_key, arg_shift_key);
   }
-  onNavigationLikely(line, url, navigation_predictor) {
-    return this.$.onNavigationLikely(line, url, navigation_predictor);
+  onNavigationLikely(arg_line, arg_url, arg_navigation_predictor) {
+    return this.$.onNavigationLikely(arg_line, arg_url, arg_navigation_predictor);
   }
-  deleteAutocompleteMatch(line, url) {
-    return this.$.deleteAutocompleteMatch(line, url);
+  deleteAutocompleteMatch(arg_line, arg_url) {
+    return this.$.deleteAutocompleteMatch(arg_line, arg_url);
   }
-  activateKeyword(line, url, match_selection_timestamp, is_mouse_event) {
-    return this.$.activateKeyword(line, url, match_selection_timestamp, is_mouse_event);
+  activateKeyword(arg_line, arg_url, arg_match_selection_timestamp, arg_is_mouse_event) {
+    return this.$.activateKeyword(arg_line, arg_url, arg_match_selection_timestamp, arg_is_mouse_event);
   }
-  showContextMenu(point) {
-    return this.$.showContextMenu(point);
+  showContextMenu(arg_point) {
+    return this.$.showContextMenu(arg_point);
   }
-  executeAction(line, action_index, url, match_selection_timestamp, mouse_button, alt_key, ctrl_key, meta_key, shift_key) {
-    return this.$.executeAction(line, action_index, url, match_selection_timestamp, mouse_button, alt_key, ctrl_key, meta_key, shift_key);
+  executeAction(arg_line, arg_action_index, arg_url, arg_match_selection_timestamp, arg_mouse_button, arg_alt_key, arg_ctrl_key, arg_meta_key, arg_shift_key) {
+    return this.$.executeAction(arg_line, arg_action_index, arg_url, arg_match_selection_timestamp, arg_mouse_button, arg_alt_key, arg_ctrl_key, arg_meta_key, arg_shift_key);
   }
   onThumbnailRemoved() {
     return this.$.onThumbnailRemoved();
@@ -579,8 +584,8 @@ searchbox.mojom.PageHandlerRemote = class {
   getRecentTabs() {
     return this.$.getRecentTabs();
   }
-  getTabPreview(tab_id) {
-    return this.$.getTabPreview(tab_id);
+  getTabPreview(arg_tab_id) {
+    return this.$.getTabPreview(arg_tab_id);
   }
   notifySessionStarted() {
     return this.$.notifySessionStarted();
@@ -588,27 +593,27 @@ searchbox.mojom.PageHandlerRemote = class {
   notifySessionAbandoned() {
     return this.$.notifySessionAbandoned();
   }
-  addFileContext(file_info, file_bytes) {
-    return this.$.addFileContext(file_info, file_bytes);
+  addFileContext(arg_file_info, arg_file_bytes) {
+    return this.$.addFileContext(arg_file_info, arg_file_bytes);
   }
-  addTabContext(tab_id, delay_upload) {
-    return this.$.addTabContext(tab_id, delay_upload);
+  addTabContext(arg_tab_id, arg_delay_upload) {
+    return this.$.addTabContext(arg_tab_id, arg_delay_upload);
   }
-  deleteContext(token, from_automatic_chip) {
-    return this.$.deleteContext(token, from_automatic_chip);
+  deleteContext(arg_token, arg_from_automatic_chip) {
+    return this.$.deleteContext(arg_token, arg_from_automatic_chip);
   }
   clearFiles() {
     return this.$.clearFiles();
   }
-  submitQuery(query_text, mouse_button, alt_key, ctrl_key, meta_key, shift_key) {
-    return this.$.submitQuery(query_text, mouse_button, alt_key, ctrl_key, meta_key, shift_key);
+  submitQuery(arg_query_text, arg_mouse_button, arg_alt_key, arg_ctrl_key, arg_meta_key, arg_shift_key) {
+    return this.$.submitQuery(arg_query_text, arg_mouse_button, arg_alt_key, arg_ctrl_key, arg_meta_key, arg_shift_key);
   }
   openLensSearch() {
     return this.$.openLensSearch();
   }
 };
 
-searchbox.mojom.PageHandlerRemoteCallHandler = class {
+mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
@@ -637,100 +642,100 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
     ]);
   }
 
-  setPage(page) {
+  setPage(arg_page) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      searchbox.mojom.PageHandler_SetPage_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.PageHandler_SetPage_ParamsSpec,
       null,
-      [page],
+      [arg_page],
       false);
   }
 
-  onFocusChanged(focused) {
+  onFocusChanged(arg_focused) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec,
       null,
-      [focused],
+      [arg_focused],
       false);
   }
 
-  queryAutocomplete(input, prevent_inline_autocomplete) {
+  queryAutocomplete(arg_input, arg_prevent_inline_autocomplete) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec,
       null,
-      [input, prevent_inline_autocomplete],
+      [arg_input, arg_prevent_inline_autocomplete],
       false);
   }
 
-  stopAutocomplete(clear_result) {
+  stopAutocomplete(arg_clear_result) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec,
       null,
-      [clear_result],
+      [arg_clear_result],
       false);
   }
 
-  openAutocompleteMatch(line, url, are_matches_showing, mouse_button, alt_key, ctrl_key, meta_key, shift_key) {
+  openAutocompleteMatch(arg_line, arg_url, arg_are_matches_showing, arg_mouse_button, arg_alt_key, arg_ctrl_key, arg_meta_key, arg_shift_key) {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
-      searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec,
       null,
-      [line, url, are_matches_showing, mouse_button, alt_key, ctrl_key, meta_key, shift_key],
+      [arg_line, arg_url, arg_are_matches_showing, arg_mouse_button, arg_alt_key, arg_ctrl_key, arg_meta_key, arg_shift_key],
       false);
   }
 
-  onNavigationLikely(line, url, navigation_predictor) {
+  onNavigationLikely(arg_line, arg_url, arg_navigation_predictor) {
     return this.proxy.sendMessage(
       this.ordinals[5],  // ordinal
-      searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec,
       null,
-      [line, url, navigation_predictor],
+      [arg_line, arg_url, arg_navigation_predictor],
       false);
   }
 
-  deleteAutocompleteMatch(line, url) {
+  deleteAutocompleteMatch(arg_line, arg_url) {
     return this.proxy.sendMessage(
       this.ordinals[6],  // ordinal
-      searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec,
       null,
-      [line, url],
+      [arg_line, arg_url],
       false);
   }
 
-  activateKeyword(line, url, match_selection_timestamp, is_mouse_event) {
+  activateKeyword(arg_line, arg_url, arg_match_selection_timestamp, arg_is_mouse_event) {
     return this.proxy.sendMessage(
       this.ordinals[7],  // ordinal
-      searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec,
       null,
-      [line, url, match_selection_timestamp, is_mouse_event],
+      [arg_line, arg_url, arg_match_selection_timestamp, arg_is_mouse_event],
       false);
   }
 
-  showContextMenu(point) {
+  showContextMenu(arg_point) {
     return this.proxy.sendMessage(
       this.ordinals[8],  // ordinal
-      searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec,
       null,
-      [point],
+      [arg_point],
       false);
   }
 
-  executeAction(line, action_index, url, match_selection_timestamp, mouse_button, alt_key, ctrl_key, meta_key, shift_key) {
+  executeAction(arg_line, arg_action_index, arg_url, arg_match_selection_timestamp, arg_mouse_button, arg_alt_key, arg_ctrl_key, arg_meta_key, arg_shift_key) {
     return this.proxy.sendMessage(
       this.ordinals[9],  // ordinal
-      searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec,
       null,
-      [line, action_index, url, match_selection_timestamp, mouse_button, alt_key, ctrl_key, meta_key, shift_key],
+      [arg_line, arg_action_index, arg_url, arg_match_selection_timestamp, arg_mouse_button, arg_alt_key, arg_ctrl_key, arg_meta_key, arg_shift_key],
       false);
   }
 
   onThumbnailRemoved() {
     return this.proxy.sendMessage(
       this.ordinals[10],  // ordinal
-      searchbox.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec,
       null,
       [],
       false);
@@ -739,8 +744,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
   getPlaceholderConfig() {
     return this.proxy.sendMessage(
       this.ordinals[11],  // ordinal
-      searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec,
-      searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec,
       [],
       false);
   }
@@ -748,25 +753,25 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
   getRecentTabs() {
     return this.proxy.sendMessage(
       this.ordinals[12],  // ordinal
-      searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec,
-      searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec,
       [],
       false);
   }
 
-  getTabPreview(tab_id) {
+  getTabPreview(arg_tab_id) {
     return this.proxy.sendMessage(
       this.ordinals[13],  // ordinal
-      searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec,
-      searchbox.mojom.PageHandler_GetTabPreview_ResponseParamsSpec,
-      [tab_id],
+      mojo.internal.bindings.searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.PageHandler_GetTabPreview_ResponseParamsSpec,
+      [arg_tab_id],
       false);
   }
 
   notifySessionStarted() {
     return this.proxy.sendMessage(
       this.ordinals[14],  // ordinal
-      searchbox.mojom.PageHandler_NotifySessionStarted_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.PageHandler_NotifySessionStarted_ParamsSpec,
       null,
       [],
       false);
@@ -775,61 +780,61 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
   notifySessionAbandoned() {
     return this.proxy.sendMessage(
       this.ordinals[15],  // ordinal
-      searchbox.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec,
       null,
       [],
       false);
   }
 
-  addFileContext(file_info, file_bytes) {
+  addFileContext(arg_file_info, arg_file_bytes) {
     return this.proxy.sendMessage(
       this.ordinals[16],  // ordinal
-      searchbox.mojom.PageHandler_AddFileContext_ParamsSpec,
-      searchbox.mojom.PageHandler_AddFileContext_ResponseParamsSpec,
-      [file_info, file_bytes],
+      mojo.internal.bindings.searchbox.mojom.PageHandler_AddFileContext_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.PageHandler_AddFileContext_ResponseParamsSpec,
+      [arg_file_info, arg_file_bytes],
       false);
   }
 
-  addTabContext(tab_id, delay_upload) {
+  addTabContext(arg_tab_id, arg_delay_upload) {
     return this.proxy.sendMessage(
       this.ordinals[17],  // ordinal
-      searchbox.mojom.PageHandler_AddTabContext_ParamsSpec,
-      searchbox.mojom.PageHandler_AddTabContext_ResponseParamsSpec,
-      [tab_id, delay_upload],
+      mojo.internal.bindings.searchbox.mojom.PageHandler_AddTabContext_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.PageHandler_AddTabContext_ResponseParamsSpec,
+      [arg_tab_id, arg_delay_upload],
       false);
   }
 
-  deleteContext(token, from_automatic_chip) {
+  deleteContext(arg_token, arg_from_automatic_chip) {
     return this.proxy.sendMessage(
       this.ordinals[18],  // ordinal
-      searchbox.mojom.PageHandler_DeleteContext_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.PageHandler_DeleteContext_ParamsSpec,
       null,
-      [token, from_automatic_chip],
+      [arg_token, arg_from_automatic_chip],
       false);
   }
 
   clearFiles() {
     return this.proxy.sendMessage(
       this.ordinals[19],  // ordinal
-      searchbox.mojom.PageHandler_ClearFiles_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.PageHandler_ClearFiles_ParamsSpec,
       null,
       [],
       false);
   }
 
-  submitQuery(query_text, mouse_button, alt_key, ctrl_key, meta_key, shift_key) {
+  submitQuery(arg_query_text, arg_mouse_button, arg_alt_key, arg_ctrl_key, arg_meta_key, arg_shift_key) {
     return this.proxy.sendMessage(
       this.ordinals[20],  // ordinal
-      searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec,
       null,
-      [query_text, mouse_button, alt_key, ctrl_key, meta_key, shift_key],
+      [arg_query_text, arg_mouse_button, arg_alt_key, arg_ctrl_key, arg_meta_key, arg_shift_key],
       false);
   }
 
   openLensSearch() {
     return this.proxy.sendMessage(
       this.ordinals[21],  // ordinal
-      searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec,
       null,
       [],
       false);
@@ -837,8 +842,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
 
 };
 
-searchbox.mojom.PageHandler.getRemote = function() {
-  let remote = new searchbox.mojom.PageHandlerRemote();
+mojo.internal.bindings.searchbox.mojom.PageHandler.getRemote = function() {
+  let remote = new mojo.internal.bindings.searchbox.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -847,7 +852,7 @@ searchbox.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-searchbox.mojom.PageHandlerReceiver = class {
+mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -917,7 +922,7 @@ searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 0: SetPage
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.PageHandler_SetPage_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_SetPage_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPage (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -928,7 +933,7 @@ searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 1: OnFocusChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFocusChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -939,7 +944,7 @@ searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 2: QueryAutocomplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueryAutocomplete (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -950,7 +955,7 @@ searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 3: StopAutocomplete
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopAutocomplete (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -961,7 +966,7 @@ searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 4: OpenAutocompleteMatch
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenAutocompleteMatch (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -972,7 +977,7 @@ searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 5: OnNavigationLikely
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNavigationLikely (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -983,7 +988,7 @@ searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 6: DeleteAutocompleteMatch
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteAutocompleteMatch (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -994,7 +999,7 @@ searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 7: ActivateKeyword
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActivateKeyword (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1005,7 +1010,7 @@ searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 8: ShowContextMenu
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowContextMenu (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1016,7 +1021,7 @@ searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 9: ExecuteAction
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteAction (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1027,7 +1032,7 @@ searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 10: OnThumbnailRemoved
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnThumbnailRemoved (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1038,7 +1043,7 @@ searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 11: GetPlaceholderConfig
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPlaceholderConfig (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1049,7 +1054,7 @@ searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 12: GetRecentTabs
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRecentTabs (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1060,7 +1065,7 @@ searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 13: GetTabPreview
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTabPreview (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1071,7 +1076,7 @@ searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 14: NotifySessionStarted
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.PageHandler_NotifySessionStarted_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_NotifySessionStarted_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifySessionStarted (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
@@ -1082,7 +1087,7 @@ searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 15: NotifySessionAbandoned
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifySessionAbandoned (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
@@ -1093,7 +1098,7 @@ searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 16: AddFileContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.PageHandler_AddFileContext_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_AddFileContext_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddFileContext (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
@@ -1104,7 +1109,7 @@ searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 17: AddTabContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.PageHandler_AddTabContext_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_AddTabContext_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddTabContext (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
@@ -1115,7 +1120,7 @@ searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 18: DeleteContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.PageHandler_DeleteContext_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_DeleteContext_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteContext (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
@@ -1126,7 +1131,7 @@ searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 19: ClearFiles
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.PageHandler_ClearFiles_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_ClearFiles_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearFiles (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
@@ -1137,7 +1142,7 @@ searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 20: SubmitQuery
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubmitQuery (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
@@ -1148,7 +1153,7 @@ searchbox.mojom.PageHandlerReceiver = class {
         // Try Method 21: OpenLensSearch
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenLensSearch (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
@@ -1165,91 +1170,91 @@ searchbox.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.PageHandler_SetPage_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_SetPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPage');
-          const result = this.impl.setPage(params.page);
+          const result = this.impl.setPage(params.arg_page);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFocusChanged');
-          const result = this.impl.onFocusChanged(params.focused);
+          const result = this.impl.onFocusChanged(params.arg_focused);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queryAutocomplete');
-          const result = this.impl.queryAutocomplete(params.input, params.prevent_inline_autocomplete);
+          const result = this.impl.queryAutocomplete(params.arg_input, params.arg_prevent_inline_autocomplete);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopAutocomplete');
-          const result = this.impl.stopAutocomplete(params.clear_result);
+          const result = this.impl.stopAutocomplete(params.arg_clear_result);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openAutocompleteMatch');
-          const result = this.impl.openAutocompleteMatch(params.line, params.url, params.are_matches_showing, params.mouse_button, params.alt_key, params.ctrl_key, params.meta_key, params.shift_key);
+          const result = this.impl.openAutocompleteMatch(params.arg_line, params.arg_url, params.arg_are_matches_showing, params.arg_mouse_button, params.arg_alt_key, params.arg_ctrl_key, params.arg_meta_key, params.arg_shift_key);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNavigationLikely');
-          const result = this.impl.onNavigationLikely(params.line, params.url, params.navigation_predictor);
+          const result = this.impl.onNavigationLikely(params.arg_line, params.arg_url, params.arg_navigation_predictor);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteAutocompleteMatch');
-          const result = this.impl.deleteAutocompleteMatch(params.line, params.url);
+          const result = this.impl.deleteAutocompleteMatch(params.arg_line, params.arg_url);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.activateKeyword');
-          const result = this.impl.activateKeyword(params.line, params.url, params.match_selection_timestamp, params.is_mouse_event);
+          const result = this.impl.activateKeyword(params.arg_line, params.arg_url, params.arg_match_selection_timestamp, params.arg_is_mouse_event);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showContextMenu');
-          const result = this.impl.showContextMenu(params.point);
+          const result = this.impl.showContextMenu(params.arg_point);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeAction');
-          const result = this.impl.executeAction(params.line, params.action_index, params.url, params.match_selection_timestamp, params.mouse_button, params.alt_key, params.ctrl_key, params.meta_key, params.shift_key);
+          const result = this.impl.executeAction(params.arg_line, params.arg_action_index, params.arg_url, params.arg_match_selection_timestamp, params.arg_mouse_button, params.arg_alt_key, params.arg_ctrl_key, params.arg_meta_key, params.arg_shift_key);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onThumbnailRemoved');
           const result = this.impl.onThumbnailRemoved();
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPlaceholderConfig');
           const result = this.impl.getPlaceholderConfig();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetPlaceholderConfig FAILED:', e));
           }
@@ -1257,14 +1262,14 @@ searchbox.mojom.PageHandlerReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRecentTabs');
           const result = this.impl.getRecentTabs();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetRecentTabs FAILED:', e));
           }
@@ -1272,14 +1277,14 @@ searchbox.mojom.PageHandlerReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getTabPreview');
-          const result = this.impl.getTabPreview(params.tab_id);
+          const result = this.impl.getTabPreview(params.arg_tab_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, searchbox.mojom.PageHandler_GetTabPreview_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.searchbox.mojom.PageHandler_GetTabPreview_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetTabPreview FAILED:', e));
           }
@@ -1287,28 +1292,28 @@ searchbox.mojom.PageHandlerReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.PageHandler_NotifySessionStarted_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_NotifySessionStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifySessionStarted');
           const result = this.impl.notifySessionStarted();
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifySessionAbandoned');
           const result = this.impl.notifySessionAbandoned();
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.PageHandler_AddFileContext_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_AddFileContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addFileContext');
-          const result = this.impl.addFileContext(params.file_info, params.file_bytes);
+          const result = this.impl.addFileContext(params.arg_file_info, params.arg_file_bytes);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, searchbox.mojom.PageHandler_AddFileContext_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.searchbox.mojom.PageHandler_AddFileContext_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] AddFileContext FAILED:', e));
           }
@@ -1316,14 +1321,14 @@ searchbox.mojom.PageHandlerReceiver = class {
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.PageHandler_AddTabContext_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_AddTabContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addTabContext');
-          const result = this.impl.addTabContext(params.tab_id, params.delay_upload);
+          const result = this.impl.addTabContext(params.arg_tab_id, params.arg_delay_upload);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, searchbox.mojom.PageHandler_AddTabContext_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.searchbox.mojom.PageHandler_AddTabContext_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] AddTabContext FAILED:', e));
           }
@@ -1331,28 +1336,28 @@ searchbox.mojom.PageHandlerReceiver = class {
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.PageHandler_DeleteContext_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_DeleteContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteContext');
-          const result = this.impl.deleteContext(params.token, params.from_automatic_chip);
+          const result = this.impl.deleteContext(params.arg_token, params.arg_from_automatic_chip);
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.PageHandler_ClearFiles_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_ClearFiles_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearFiles');
           const result = this.impl.clearFiles();
           break;
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submitQuery');
-          const result = this.impl.submitQuery(params.query_text, params.mouse_button, params.alt_key, params.ctrl_key, params.meta_key, params.shift_key);
+          const result = this.impl.submitQuery(params.arg_query_text, params.arg_mouse_button, params.arg_alt_key, params.arg_ctrl_key, params.arg_meta_key, params.arg_shift_key);
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openLensSearch');
           const result = this.impl.openLensSearch();
           break;
@@ -1365,116 +1370,116 @@ searchbox.mojom.PageHandlerReceiver = class {
   }
 };
 
-searchbox.mojom.PageHandlerReceiver = searchbox.mojom.PageHandlerReceiver;
+mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver;
 
-searchbox.mojom.PageHandlerPtr = searchbox.mojom.PageHandlerRemote;
-searchbox.mojom.PageHandlerRequest = searchbox.mojom.PageHandlerPendingReceiver;
+mojo.internal.bindings.searchbox.mojom.PageHandlerPtr = mojo.internal.bindings.searchbox.mojom.PageHandlerRemote;
+mojo.internal.bindings.searchbox.mojom.PageHandlerRequest = mojo.internal.bindings.searchbox.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
 mojo.internal.Struct(
-    searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec, 'searchbox.mojom.Page_AutocompleteResultChanged_Params', [
-      mojo.internal.StructField('result', 0, 0, searchbox.mojom.AutocompleteResultSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec, 'searchbox.mojom.Page_AutocompleteResultChanged_Params', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.AutocompleteResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.Page_UpdateSelection_ParamsSpec, 'searchbox.mojom.Page_UpdateSelection_Params', [
-      mojo.internal.StructField('old_selection', 0, 0, searchbox.mojom.OmniboxPopupSelectionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('selection', 8, 0, searchbox.mojom.OmniboxPopupSelectionSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.Page_UpdateSelection_ParamsSpec, 'searchbox.mojom.Page_UpdateSelection_Params', [
+      mojo.internal.StructField('arg_old_selection', 0, 0, mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.OmniboxPopupSelectionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_selection', 8, 0, mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.OmniboxPopupSelectionSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.Page_SetKeywordSelected_ParamsSpec, 'searchbox.mojom.Page_SetKeywordSelected_Params', [
-      mojo.internal.StructField('is_keyword_selected', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.Page_SetKeywordSelected_ParamsSpec, 'searchbox.mojom.Page_SetKeywordSelected_Params', [
+      mojo.internal.StructField('arg_is_keyword_selected', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.Page_OnShow_ParamsSpec, 'searchbox.mojom.Page_OnShow_Params', [
+    mojo.internal.bindings.searchbox.mojom.Page_OnShow_ParamsSpec, 'searchbox.mojom.Page_OnShow_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.Page_SetInputText_ParamsSpec, 'searchbox.mojom.Page_SetInputText_Params', [
-      mojo.internal.StructField('input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.Page_SetInputText_ParamsSpec, 'searchbox.mojom.Page_SetInputText_Params', [
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.Page_SetThumbnail_ParamsSpec, 'searchbox.mojom.Page_SetThumbnail_Params', [
-      mojo.internal.StructField('thumbnail_url', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('is_deletable', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.Page_SetThumbnail_ParamsSpec, 'searchbox.mojom.Page_SetThumbnail_Params', [
+      mojo.internal.StructField('arg_thumbnail_url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_deletable', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec, 'searchbox.mojom.Page_OnContextualInputStatusChanged_Params', [
-      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('status', 8, 0, composebox_query.mojom.FileUploadStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('error_type', 16, 0, composebox_query.mojom.FileUploadErrorTypeSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec, 'searchbox.mojom.Page_OnContextualInputStatusChanged_Params', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.composebox_query.mojom.FileUploadStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_type', 16, 0, mojo.internal.bindings.composebox_query.mojom.FileUploadErrorTypeSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.Page_OnTabStripChanged_ParamsSpec, 'searchbox.mojom.Page_OnTabStripChanged_Params', [
+    mojo.internal.bindings.searchbox.mojom.Page_OnTabStripChanged_ParamsSpec, 'searchbox.mojom.Page_OnTabStripChanged_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.Page_AddFileContext_ParamsSpec, 'searchbox.mojom.Page_AddFileContext_Params', [
-      mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('file_info', 8, 0, searchbox.mojom.SelectedFileInfoSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.Page_AddFileContext_ParamsSpec, 'searchbox.mojom.Page_AddFileContext_Params', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_info', 8, 0, mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.SelectedFileInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec, 'searchbox.mojom.Page_UpdateAutoSuggestedTabContext_Params', [
-      mojo.internal.StructField('tab', 0, 0, searchbox.mojom.TabInfoSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec, 'searchbox.mojom.Page_UpdateAutoSuggestedTabContext_Params', [
+      mojo.internal.StructField('arg_tab', 0, 0, mojo.internal.bindings.mojo.internal.bindings.searchbox.mojom.TabInfoSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec, 'searchbox.mojom.Page_UpdateLensSearchEligibility_Params', [
-      mojo.internal.StructField('eligible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec, 'searchbox.mojom.Page_UpdateLensSearchEligibility_Params', [
+      mojo.internal.StructField('arg_eligible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec, 'searchbox.mojom.Page_UpdateContentSharingPolicy_Params', [
-      mojo.internal.StructField('enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec, 'searchbox.mojom.Page_UpdateContentSharingPolicy_Params', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec, 'searchbox.mojom.Page_UpdateAimEligibility_Params', [
-      mojo.internal.StructField('eligible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec, 'searchbox.mojom.Page_UpdateAimEligibility_Params', [
+      mojo.internal.StructField('arg_eligible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec, 'searchbox.mojom.Page_OnShowAiModePrefChanged_Params', [
-      mojo.internal.StructField('canShow', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec, 'searchbox.mojom.Page_OnShowAiModePrefChanged_Params', [
+      mojo.internal.StructField('arg_canShow', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
-searchbox.mojom.PagePendingReceiver = class {
+mojo.internal.bindings.searchbox.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-searchbox.mojom.PageRemote = class {
+mojo.internal.bindings.searchbox.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'searchbox.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      searchbox.mojom.PagePendingReceiver,
+      mojo.internal.bindings.searchbox.mojom.PagePendingReceiver,
       handle);
-    this.$ = new searchbox.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.searchbox.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1484,51 +1489,51 @@ searchbox.mojom.PageRemote = class {
   close() {
     this.proxy.close();
   }
-  autocompleteResultChanged(result) {
-    return this.$.autocompleteResultChanged(result);
+  autocompleteResultChanged(arg_result) {
+    return this.$.autocompleteResultChanged(arg_result);
   }
-  updateSelection(old_selection, selection) {
-    return this.$.updateSelection(old_selection, selection);
+  updateSelection(arg_old_selection, arg_selection) {
+    return this.$.updateSelection(arg_old_selection, arg_selection);
   }
-  setKeywordSelected(is_keyword_selected) {
-    return this.$.setKeywordSelected(is_keyword_selected);
+  setKeywordSelected(arg_is_keyword_selected) {
+    return this.$.setKeywordSelected(arg_is_keyword_selected);
   }
   onShow() {
     return this.$.onShow();
   }
-  setInputText(input) {
-    return this.$.setInputText(input);
+  setInputText(arg_input) {
+    return this.$.setInputText(arg_input);
   }
-  setThumbnail(thumbnail_url, is_deletable) {
-    return this.$.setThumbnail(thumbnail_url, is_deletable);
+  setThumbnail(arg_thumbnail_url, arg_is_deletable) {
+    return this.$.setThumbnail(arg_thumbnail_url, arg_is_deletable);
   }
-  onContextualInputStatusChanged(token, status, error_type) {
-    return this.$.onContextualInputStatusChanged(token, status, error_type);
+  onContextualInputStatusChanged(arg_token, arg_status, arg_error_type) {
+    return this.$.onContextualInputStatusChanged(arg_token, arg_status, arg_error_type);
   }
   onTabStripChanged() {
     return this.$.onTabStripChanged();
   }
-  addFileContext(token, file_info) {
-    return this.$.addFileContext(token, file_info);
+  addFileContext(arg_token, arg_file_info) {
+    return this.$.addFileContext(arg_token, arg_file_info);
   }
-  updateAutoSuggestedTabContext(tab) {
-    return this.$.updateAutoSuggestedTabContext(tab);
+  updateAutoSuggestedTabContext(arg_tab) {
+    return this.$.updateAutoSuggestedTabContext(arg_tab);
   }
-  updateLensSearchEligibility(eligible) {
-    return this.$.updateLensSearchEligibility(eligible);
+  updateLensSearchEligibility(arg_eligible) {
+    return this.$.updateLensSearchEligibility(arg_eligible);
   }
-  updateContentSharingPolicy(enabled) {
-    return this.$.updateContentSharingPolicy(enabled);
+  updateContentSharingPolicy(arg_enabled) {
+    return this.$.updateContentSharingPolicy(arg_enabled);
   }
-  updateAimEligibility(eligible) {
-    return this.$.updateAimEligibility(eligible);
+  updateAimEligibility(arg_eligible) {
+    return this.$.updateAimEligibility(arg_eligible);
   }
-  onShowAiModePrefChanged(canShow) {
-    return this.$.onShowAiModePrefChanged(canShow);
+  onShowAiModePrefChanged(arg_canShow) {
+    return this.$.onShowAiModePrefChanged(arg_canShow);
   }
 };
 
-searchbox.mojom.PageRemoteCallHandler = class {
+mojo.internal.bindings.searchbox.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('Page', [
@@ -1549,136 +1554,136 @@ searchbox.mojom.PageRemoteCallHandler = class {
     ]);
   }
 
-  autocompleteResultChanged(result) {
+  autocompleteResultChanged(arg_result) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec,
       null,
-      [result],
+      [arg_result],
       false);
   }
 
-  updateSelection(old_selection, selection) {
+  updateSelection(arg_old_selection, arg_selection) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      searchbox.mojom.Page_UpdateSelection_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.Page_UpdateSelection_ParamsSpec,
       null,
-      [old_selection, selection],
+      [arg_old_selection, arg_selection],
       false);
   }
 
-  setKeywordSelected(is_keyword_selected) {
+  setKeywordSelected(arg_is_keyword_selected) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      searchbox.mojom.Page_SetKeywordSelected_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.Page_SetKeywordSelected_ParamsSpec,
       null,
-      [is_keyword_selected],
+      [arg_is_keyword_selected],
       false);
   }
 
   onShow() {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      searchbox.mojom.Page_OnShow_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.Page_OnShow_ParamsSpec,
       null,
       [],
       false);
   }
 
-  setInputText(input) {
+  setInputText(arg_input) {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
-      searchbox.mojom.Page_SetInputText_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.Page_SetInputText_ParamsSpec,
       null,
-      [input],
+      [arg_input],
       false);
   }
 
-  setThumbnail(thumbnail_url, is_deletable) {
+  setThumbnail(arg_thumbnail_url, arg_is_deletable) {
     return this.proxy.sendMessage(
       this.ordinals[5],  // ordinal
-      searchbox.mojom.Page_SetThumbnail_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.Page_SetThumbnail_ParamsSpec,
       null,
-      [thumbnail_url, is_deletable],
+      [arg_thumbnail_url, arg_is_deletable],
       false);
   }
 
-  onContextualInputStatusChanged(token, status, error_type) {
+  onContextualInputStatusChanged(arg_token, arg_status, arg_error_type) {
     return this.proxy.sendMessage(
       this.ordinals[6],  // ordinal
-      searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec,
       null,
-      [token, status, error_type],
+      [arg_token, arg_status, arg_error_type],
       false);
   }
 
   onTabStripChanged() {
     return this.proxy.sendMessage(
       this.ordinals[7],  // ordinal
-      searchbox.mojom.Page_OnTabStripChanged_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.Page_OnTabStripChanged_ParamsSpec,
       null,
       [],
       false);
   }
 
-  addFileContext(token, file_info) {
+  addFileContext(arg_token, arg_file_info) {
     return this.proxy.sendMessage(
       this.ordinals[8],  // ordinal
-      searchbox.mojom.Page_AddFileContext_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.Page_AddFileContext_ParamsSpec,
       null,
-      [token, file_info],
+      [arg_token, arg_file_info],
       false);
   }
 
-  updateAutoSuggestedTabContext(tab) {
+  updateAutoSuggestedTabContext(arg_tab) {
     return this.proxy.sendMessage(
       this.ordinals[9],  // ordinal
-      searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec,
       null,
-      [tab],
+      [arg_tab],
       false);
   }
 
-  updateLensSearchEligibility(eligible) {
+  updateLensSearchEligibility(arg_eligible) {
     return this.proxy.sendMessage(
       this.ordinals[10],  // ordinal
-      searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec,
       null,
-      [eligible],
+      [arg_eligible],
       false);
   }
 
-  updateContentSharingPolicy(enabled) {
+  updateContentSharingPolicy(arg_enabled) {
     return this.proxy.sendMessage(
       this.ordinals[11],  // ordinal
-      searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec,
       null,
-      [enabled],
+      [arg_enabled],
       false);
   }
 
-  updateAimEligibility(eligible) {
+  updateAimEligibility(arg_eligible) {
     return this.proxy.sendMessage(
       this.ordinals[12],  // ordinal
-      searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec,
       null,
-      [eligible],
+      [arg_eligible],
       false);
   }
 
-  onShowAiModePrefChanged(canShow) {
+  onShowAiModePrefChanged(arg_canShow) {
     return this.proxy.sendMessage(
       this.ordinals[13],  // ordinal
-      searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec,
       null,
-      [canShow],
+      [arg_canShow],
       false);
   }
 
 };
 
-searchbox.mojom.Page.getRemote = function() {
-  let remote = new searchbox.mojom.PageRemote();
+mojo.internal.bindings.searchbox.mojom.Page.getRemote = function() {
+  let remote = new mojo.internal.bindings.searchbox.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1687,7 +1692,7 @@ searchbox.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-searchbox.mojom.PageReceiver = class {
+mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -1749,7 +1754,7 @@ searchbox.mojom.PageReceiver = class {
         // Try Method 0: AutocompleteResultChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AutocompleteResultChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1760,7 +1765,7 @@ searchbox.mojom.PageReceiver = class {
         // Try Method 1: UpdateSelection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.Page_UpdateSelection_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateSelection_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateSelection (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1771,7 +1776,7 @@ searchbox.mojom.PageReceiver = class {
         // Try Method 2: SetKeywordSelected
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.Page_SetKeywordSelected_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_SetKeywordSelected_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetKeywordSelected (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -1782,7 +1787,7 @@ searchbox.mojom.PageReceiver = class {
         // Try Method 3: OnShow
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.Page_OnShow_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_OnShow_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnShow (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -1793,7 +1798,7 @@ searchbox.mojom.PageReceiver = class {
         // Try Method 4: SetInputText
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.Page_SetInputText_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_SetInputText_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInputText (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -1804,7 +1809,7 @@ searchbox.mojom.PageReceiver = class {
         // Try Method 5: SetThumbnail
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.Page_SetThumbnail_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_SetThumbnail_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetThumbnail (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -1815,7 +1820,7 @@ searchbox.mojom.PageReceiver = class {
         // Try Method 6: OnContextualInputStatusChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnContextualInputStatusChanged (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -1826,7 +1831,7 @@ searchbox.mojom.PageReceiver = class {
         // Try Method 7: OnTabStripChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.Page_OnTabStripChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_OnTabStripChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTabStripChanged (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
@@ -1837,7 +1842,7 @@ searchbox.mojom.PageReceiver = class {
         // Try Method 8: AddFileContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.Page_AddFileContext_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_AddFileContext_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddFileContext (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
@@ -1848,7 +1853,7 @@ searchbox.mojom.PageReceiver = class {
         // Try Method 9: UpdateAutoSuggestedTabContext
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateAutoSuggestedTabContext (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
@@ -1859,7 +1864,7 @@ searchbox.mojom.PageReceiver = class {
         // Try Method 10: UpdateLensSearchEligibility
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateLensSearchEligibility (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
@@ -1870,7 +1875,7 @@ searchbox.mojom.PageReceiver = class {
         // Try Method 11: UpdateContentSharingPolicy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateContentSharingPolicy (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
@@ -1881,7 +1886,7 @@ searchbox.mojom.PageReceiver = class {
         // Try Method 12: UpdateAimEligibility
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateAimEligibility (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
@@ -1892,7 +1897,7 @@ searchbox.mojom.PageReceiver = class {
         // Try Method 13: OnShowAiModePrefChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnShowAiModePrefChanged (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
@@ -1909,100 +1914,100 @@ searchbox.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.autocompleteResultChanged');
-          const result = this.impl.autocompleteResultChanged(params.result);
+          const result = this.impl.autocompleteResultChanged(params.arg_result);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.Page_UpdateSelection_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateSelection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateSelection');
-          const result = this.impl.updateSelection(params.old_selection, params.selection);
+          const result = this.impl.updateSelection(params.arg_old_selection, params.arg_selection);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.Page_SetKeywordSelected_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_SetKeywordSelected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setKeywordSelected');
-          const result = this.impl.setKeywordSelected(params.is_keyword_selected);
+          const result = this.impl.setKeywordSelected(params.arg_is_keyword_selected);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.Page_OnShow_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_OnShow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onShow');
           const result = this.impl.onShow();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.Page_SetInputText_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_SetInputText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInputText');
-          const result = this.impl.setInputText(params.input);
+          const result = this.impl.setInputText(params.arg_input);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.Page_SetThumbnail_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_SetThumbnail_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setThumbnail');
-          const result = this.impl.setThumbnail(params.thumbnail_url, params.is_deletable);
+          const result = this.impl.setThumbnail(params.arg_thumbnail_url, params.arg_is_deletable);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onContextualInputStatusChanged');
-          const result = this.impl.onContextualInputStatusChanged(params.token, params.status, params.error_type);
+          const result = this.impl.onContextualInputStatusChanged(params.arg_token, params.arg_status, params.arg_error_type);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.Page_OnTabStripChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_OnTabStripChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTabStripChanged');
           const result = this.impl.onTabStripChanged();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.Page_AddFileContext_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_AddFileContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addFileContext');
-          const result = this.impl.addFileContext(params.token, params.file_info);
+          const result = this.impl.addFileContext(params.arg_token, params.arg_file_info);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateAutoSuggestedTabContext');
-          const result = this.impl.updateAutoSuggestedTabContext(params.tab);
+          const result = this.impl.updateAutoSuggestedTabContext(params.arg_tab);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateLensSearchEligibility');
-          const result = this.impl.updateLensSearchEligibility(params.eligible);
+          const result = this.impl.updateLensSearchEligibility(params.arg_eligible);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateContentSharingPolicy');
-          const result = this.impl.updateContentSharingPolicy(params.enabled);
+          const result = this.impl.updateContentSharingPolicy(params.arg_enabled);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateAimEligibility');
-          const result = this.impl.updateAimEligibility(params.eligible);
+          const result = this.impl.updateAimEligibility(params.arg_eligible);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onShowAiModePrefChanged');
-          const result = this.impl.onShowAiModePrefChanged(params.canShow);
+          const result = this.impl.onShowAiModePrefChanged(params.arg_canShow);
           break;
         }
       }
@@ -2013,8 +2018,8 @@ searchbox.mojom.PageReceiver = class {
   }
 };
 
-searchbox.mojom.PageReceiver = searchbox.mojom.PageReceiver;
+mojo.internal.bindings.searchbox.mojom.PageReceiver = mojo.internal.bindings.searchbox.mojom.PageReceiver;
 
-searchbox.mojom.PagePtr = searchbox.mojom.PageRemote;
-searchbox.mojom.PageRequest = searchbox.mojom.PagePendingReceiver;
+mojo.internal.bindings.searchbox.mojom.PagePtr = mojo.internal.bindings.searchbox.mojom.PageRemote;
+mojo.internal.bindings.searchbox.mojom.PageRequest = mojo.internal.bindings.searchbox.mojom.PagePendingReceiver;
 

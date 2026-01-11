@@ -1,112 +1,117 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/chrome/browser/ui/webui/tab_strip_internals/tab_strip_internals.mojom
-// Module: tab_strip_internals.mojom
+ // Source: chromium_src/chrome/browser/ui/webui/tab_strip_internals/tab_strip_internals.mojom
+ // Module: tab_strip_internals.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var tab_strip_internals = tab_strip_internals || {};
-tab_strip_internals.mojom = tab_strip_internals.mojom || {};
-var tabs = tabs || {};
-var tab_groups = tab_groups || {};
-var mojo_base = mojo_base || {};
-var url = url || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-tab_strip_internals.mojom.TypeSpec = { $: mojo.internal.Enum() };
-tab_strip_internals.mojom.LayoutSpec = { $: mojo.internal.Enum() };
-tab_strip_internals.mojom.DataSpec = { $: {} };
-tab_strip_internals.mojom.TabRestoreEntrySpec = { $: {} };
-tab_strip_internals.mojom.ContainerSpec = { $: {} };
-tab_strip_internals.mojom.TabStripTreeSpec = { $: {} };
-tab_strip_internals.mojom.WindowNodeSpec = { $: {} };
-tab_strip_internals.mojom.NodeIdSpec = { $: {} };
-tab_strip_internals.mojom.TabStripModelSpec = { $: {} };
-tab_strip_internals.mojom.NodeSpec = { $: {} };
-tab_strip_internals.mojom.TabSpec = { $: {} };
-tab_strip_internals.mojom.TabStripCollectionSpec = { $: {} };
-tab_strip_internals.mojom.PinnedCollectionSpec = { $: {} };
-tab_strip_internals.mojom.UnpinnedCollectionSpec = { $: {} };
-tab_strip_internals.mojom.GroupCollectionSpec = { $: {} };
-tab_strip_internals.mojom.TabGroupVisualDataSpec = { $: {} };
-tab_strip_internals.mojom.SplitCollectionSpec = { $: {} };
-tab_strip_internals.mojom.SplitTabVisualDataSpec = { $: {} };
-tab_strip_internals.mojom.SelectionModelSpec = { $: {} };
-tab_strip_internals.mojom.TabRestoreDataSpec = { $: {} };
-tab_strip_internals.mojom.TabRestoreEntryBaseSpec = { $: {} };
-tab_strip_internals.mojom.TabRestoreTabSpec = { $: {} };
-tab_strip_internals.mojom.TabRestoreGroupSpec = { $: {} };
-tab_strip_internals.mojom.TabRestoreWindowSpec = { $: {} };
-tab_strip_internals.mojom.PageHandlerFactory = {};
-tab_strip_internals.mojom.PageHandlerFactory.$interfaceName = 'tab_strip_internals.mojom.PageHandlerFactory';
-tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-tab_strip_internals.mojom.PageHandler = {};
-tab_strip_internals.mojom.PageHandler.$interfaceName = 'tab_strip_internals.mojom.PageHandler';
-tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec = { $: {} };
-tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec = { $: {} };
-tab_strip_internals.mojom.Page = {};
-tab_strip_internals.mojom.Page.$interfaceName = 'tab_strip_internals.mojom.Page';
-tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec = { $: {} };
+ mojo.internal.bindings.tab_strip_internals = mojo.internal.bindings.tab_strip_internals || {};
+mojo.internal.bindings.tab_strip_internals.mojom = mojo.internal.bindings.tab_strip_internals.mojom || {};
+mojo.internal.bindings.tabs = mojo.internal.bindings.tabs || {};
+mojo.internal.bindings.tab_groups = mojo.internal.bindings.tab_groups || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+
+mojo.internal.bindings.tab_strip_internals.mojom.TypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.tab_strip_internals.mojom.LayoutSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.tab_strip_internals.mojom.DataSpec = { $: {} };
+mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreEntrySpec = { $: {} };
+mojo.internal.bindings.tab_strip_internals.mojom.ContainerSpec = { $: {} };
+mojo.internal.bindings.tab_strip_internals.mojom.TabStripTreeSpec = { $: {} };
+mojo.internal.bindings.tab_strip_internals.mojom.WindowNodeSpec = { $: {} };
+mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec = { $: {} };
+mojo.internal.bindings.tab_strip_internals.mojom.TabStripModelSpec = { $: {} };
+mojo.internal.bindings.tab_strip_internals.mojom.NodeSpec = { $: {} };
+mojo.internal.bindings.tab_strip_internals.mojom.TabSpec = { $: {} };
+mojo.internal.bindings.tab_strip_internals.mojom.TabStripCollectionSpec = { $: {} };
+mojo.internal.bindings.tab_strip_internals.mojom.PinnedCollectionSpec = { $: {} };
+mojo.internal.bindings.tab_strip_internals.mojom.UnpinnedCollectionSpec = { $: {} };
+mojo.internal.bindings.tab_strip_internals.mojom.GroupCollectionSpec = { $: {} };
+mojo.internal.bindings.tab_strip_internals.mojom.TabGroupVisualDataSpec = { $: {} };
+mojo.internal.bindings.tab_strip_internals.mojom.SplitCollectionSpec = { $: {} };
+mojo.internal.bindings.tab_strip_internals.mojom.SplitTabVisualDataSpec = { $: {} };
+mojo.internal.bindings.tab_strip_internals.mojom.SelectionModelSpec = { $: {} };
+mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreDataSpec = { $: {} };
+mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreEntryBaseSpec = { $: {} };
+mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreTabSpec = { $: {} };
+mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreGroupSpec = { $: {} };
+mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreWindowSpec = { $: {} };
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactory = {};
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactory.$interfaceName = 'tab_strip_internals.mojom.PageHandlerFactory';
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandler = {};
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandler.$interfaceName = 'tab_strip_internals.mojom.PageHandler';
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec = { $: {} };
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.tab_strip_internals.mojom.Page = {};
+mojo.internal.bindings.tab_strip_internals.mojom.Page.$interfaceName = 'tab_strip_internals.mojom.Page';
+mojo.internal.bindings.tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec = { $: {} };
 
 // Enum: Type
-tab_strip_internals.mojom.Type = {
+mojo.internal.bindings.tab_strip_internals.mojom.Type = {
   kTab: 0,
   kCollection: 1,
   kWindow: 2,
@@ -116,265 +121,271 @@ tab_strip_internals.mojom.Type = {
 };
 
 // Enum: Layout
-tab_strip_internals.mojom.Layout = {
+mojo.internal.bindings.tab_strip_internals.mojom.Layout = {
   kVertical: 0,
   kHorizontal: 1,
 };
 
 // Union: Data
 mojo.internal.Union(
-    tab_strip_internals.mojom.DataSpec, 'tab_strip_internals.mojom.Data', {
-      'tab': {
+    mojo.internal.bindings.tab_strip_internals.mojom.DataSpec, 'tab_strip_internals.mojom.Data', {
+      'arg_tab': {
         'ordinal': 0,
-        'type': tab_strip_internals.mojom.TabSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabSpec.$,
         'nullable': false,
       },
-      'tab_strip_collection': {
+      'arg_tab_strip_collection': {
         'ordinal': 1,
-        'type': tab_strip_internals.mojom.TabStripCollectionSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabStripCollectionSpec.$,
         'nullable': false,
       },
-      'pinned_tab_collection': {
+      'arg_pinned_tab_collection': {
         'ordinal': 2,
-        'type': tab_strip_internals.mojom.PinnedCollectionSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.PinnedCollectionSpec.$,
         'nullable': false,
       },
-      'unpinned_tab_collection': {
+      'arg_unpinned_tab_collection': {
         'ordinal': 3,
-        'type': tab_strip_internals.mojom.UnpinnedCollectionSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.UnpinnedCollectionSpec.$,
         'nullable': false,
       },
-      'tab_group_collection': {
+      'arg_tab_group_collection': {
         'ordinal': 4,
-        'type': tab_strip_internals.mojom.GroupCollectionSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.GroupCollectionSpec.$,
         'nullable': false,
       },
-      'split_tab_collection': {
+      'arg_split_tab_collection': {
         'ordinal': 5,
-        'type': tab_strip_internals.mojom.SplitCollectionSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.SplitCollectionSpec.$,
         'nullable': false,
       },
     });
 
 // Union: TabRestoreEntry
 mojo.internal.Union(
-    tab_strip_internals.mojom.TabRestoreEntrySpec, 'tab_strip_internals.mojom.TabRestoreEntry', {
-      'tab': {
+    mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreEntrySpec, 'tab_strip_internals.mojom.TabRestoreEntry', {
+      'arg_tab': {
         'ordinal': 0,
-        'type': tab_strip_internals.mojom.TabRestoreTabSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreTabSpec.$,
         'nullable': false,
       },
-      'window': {
+      'arg_window': {
         'ordinal': 1,
-        'type': tab_strip_internals.mojom.TabRestoreWindowSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreWindowSpec.$,
         'nullable': false,
       },
-      'group': {
+      'arg_group': {
         'ordinal': 2,
-        'type': tab_strip_internals.mojom.TabRestoreGroupSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreGroupSpec.$,
         'nullable': false,
       },
     });
 
 // Struct: Container
 mojo.internal.Struct(
-    tab_strip_internals.mojom.ContainerSpec, 'tab_strip_internals.mojom.Container', [
-      mojo.internal.StructField('tabstrip_tree', 0, 0, tab_strip_internals.mojom.TabStripTreeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('tab_restore', 8, 0, tab_strip_internals.mojom.TabRestoreDataSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.tab_strip_internals.mojom.ContainerSpec, 'tab_strip_internals.mojom.Container', [
+      mojo.internal.StructField('arg_tabstrip_tree', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabStripTreeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tab_restore', 8, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: TabStripTree
 mojo.internal.Struct(
-    tab_strip_internals.mojom.TabStripTreeSpec, 'tab_strip_internals.mojom.TabStripTree', [
-      mojo.internal.StructField('windows', 0, 0, mojo.internal.Array(tab_strip_internals.mojom.WindowNodeSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.tab_strip_internals.mojom.TabStripTreeSpec, 'tab_strip_internals.mojom.TabStripTree', [
+      mojo.internal.StructField('arg_windows', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.WindowNodeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: WindowNode
 mojo.internal.Struct(
-    tab_strip_internals.mojom.WindowNodeSpec, 'tab_strip_internals.mojom.WindowNode', [
-      mojo.internal.StructField('id', 0, 0, tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('tabstrip_model', 8, 0, tab_strip_internals.mojom.TabStripModelSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('selection_model', 16, 0, tab_strip_internals.mojom.SelectionModelSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.tab_strip_internals.mojom.WindowNodeSpec, 'tab_strip_internals.mojom.WindowNode', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tabstrip_model', 8, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabStripModelSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_selection_model', 16, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.SelectionModelSpec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: NodeId
 mojo.internal.Struct(
-    tab_strip_internals.mojom.NodeIdSpec, 'tab_strip_internals.mojom.NodeId', [
-      mojo.internal.StructField('kTab', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec, 'tab_strip_internals.mojom.NodeId', [
+      mojo.internal.StructField('arg_kTab', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 40, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 56]]);
 
 // Struct: TabStripModel
 mojo.internal.Struct(
-    tab_strip_internals.mojom.TabStripModelSpec, 'tab_strip_internals.mojom.TabStripModel', [
-      mojo.internal.StructField('root', 0, 0, tab_strip_internals.mojom.NodeSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.tab_strip_internals.mojom.TabStripModelSpec, 'tab_strip_internals.mojom.TabStripModel', [
+      mojo.internal.StructField('arg_root', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.NodeSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: Node
 mojo.internal.Struct(
-    tab_strip_internals.mojom.NodeSpec, 'tab_strip_internals.mojom.Node', [
-      mojo.internal.StructField('data', 0, 0, tab_strip_internals.mojom.DataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('children', 8, 0, mojo.internal.Array(tab_strip_internals.mojom.NodeSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.tab_strip_internals.mojom.NodeSpec, 'tab_strip_internals.mojom.Node', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.tab_strip_internals.mojom.DataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_children', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.NodeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: Tab
 mojo.internal.Struct(
-    tab_strip_internals.mojom.TabSpec, 'tab_strip_internals.mojom.Tab', [
-      mojo.internal.StructField('id', 0, 0, tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('alert_states', 24, 0, mojo.internal.Array(tabs.mojom.TabAlertStateSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('active', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('visible', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('selected', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('pinned', 32, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('split', 32, 4, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.tab_strip_internals.mojom.TabSpec, 'tab_strip_internals.mojom.Tab', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_alert_states', 24, 0, mojo.internal.Array(mojo.internal.bindings.tabs.mojom.TabAlertStateSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_active', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_visible', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_selected', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_pinned', 32, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_split', 32, 4, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: TabStripCollection
 mojo.internal.Struct(
-    tab_strip_internals.mojom.TabStripCollectionSpec, 'tab_strip_internals.mojom.TabStripCollection', [
-      mojo.internal.StructField('id', 0, 0, tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.tab_strip_internals.mojom.TabStripCollectionSpec, 'tab_strip_internals.mojom.TabStripCollection', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: PinnedCollection
 mojo.internal.Struct(
-    tab_strip_internals.mojom.PinnedCollectionSpec, 'tab_strip_internals.mojom.PinnedCollection', [
-      mojo.internal.StructField('id', 0, 0, tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.tab_strip_internals.mojom.PinnedCollectionSpec, 'tab_strip_internals.mojom.PinnedCollection', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: UnpinnedCollection
 mojo.internal.Struct(
-    tab_strip_internals.mojom.UnpinnedCollectionSpec, 'tab_strip_internals.mojom.UnpinnedCollection', [
-      mojo.internal.StructField('id', 0, 0, tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.tab_strip_internals.mojom.UnpinnedCollectionSpec, 'tab_strip_internals.mojom.UnpinnedCollection', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: GroupCollection
 mojo.internal.Struct(
-    tab_strip_internals.mojom.GroupCollectionSpec, 'tab_strip_internals.mojom.GroupCollection', [
-      mojo.internal.StructField('id', 0, 0, tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('visualData', 8, 0, tab_strip_internals.mojom.TabGroupVisualDataSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.tab_strip_internals.mojom.GroupCollectionSpec, 'tab_strip_internals.mojom.GroupCollection', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visualData', 8, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabGroupVisualDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: TabGroupVisualData
 mojo.internal.Struct(
-    tab_strip_internals.mojom.TabGroupVisualDataSpec, 'tab_strip_internals.mojom.TabGroupVisualData', [
-      mojo.internal.StructField('title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('color', 8, 0, tab_groups.mojom.ColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('is_collapsed', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.tab_strip_internals.mojom.TabGroupVisualDataSpec, 'tab_strip_internals.mojom.TabGroupVisualData', [
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_color', 8, 0, mojo.internal.bindings.tab_groups.mojom.ColorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_collapsed', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: SplitCollection
 mojo.internal.Struct(
-    tab_strip_internals.mojom.SplitCollectionSpec, 'tab_strip_internals.mojom.SplitCollection', [
-      mojo.internal.StructField('id', 0, 0, tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('visualData', 8, 0, tab_strip_internals.mojom.SplitTabVisualDataSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.tab_strip_internals.mojom.SplitCollectionSpec, 'tab_strip_internals.mojom.SplitCollection', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visualData', 8, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.SplitTabVisualDataSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: SplitTabVisualData
 mojo.internal.Struct(
-    tab_strip_internals.mojom.SplitTabVisualDataSpec, 'tab_strip_internals.mojom.SplitTabVisualData', [
-      mojo.internal.StructField('kVertical', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    mojo.internal.bindings.tab_strip_internals.mojom.SplitTabVisualDataSpec, 'tab_strip_internals.mojom.SplitTabVisualData', [
+      mojo.internal.StructField('arg_kVertical', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: SelectionModel
 mojo.internal.Struct(
-    tab_strip_internals.mojom.SelectionModelSpec, 'tab_strip_internals.mojom.SelectionModel', [
-      mojo.internal.StructField('selected_indices', 0, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
-      mojo.internal.StructField('active_index', 8, 0, mojo.internal.Int32, -1, false, 0, undefined),
-      mojo.internal.StructField('anchor_index', 12, 0, mojo.internal.Int32, -1, false, 0, undefined),
+    mojo.internal.bindings.tab_strip_internals.mojom.SelectionModelSpec, 'tab_strip_internals.mojom.SelectionModel', [
+      mojo.internal.StructField('arg_selected_indices', 0, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_active_index', 8, 0, mojo.internal.Int32, -1, false, 0, undefined),
+      mojo.internal.StructField('arg_anchor_index', 12, 0, mojo.internal.Int32, -1, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: TabRestoreData
 mojo.internal.Struct(
-    tab_strip_internals.mojom.TabRestoreDataSpec, 'tab_strip_internals.mojom.TabRestoreData', [
-      mojo.internal.StructField('entries', 0, 0, mojo.internal.Array(tab_strip_internals.mojom.TabRestoreEntrySpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreDataSpec, 'tab_strip_internals.mojom.TabRestoreData', [
+      mojo.internal.StructField('arg_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreEntrySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: TabRestoreEntryBase
 mojo.internal.Struct(
-    tab_strip_internals.mojom.TabRestoreEntryBaseSpec, 'tab_strip_internals.mojom.TabRestoreEntryBase', [
-      mojo.internal.StructField('timestamp', 0, 0, mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('original_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreEntryBaseSpec, 'tab_strip_internals.mojom.TabRestoreEntryBase', [
+      mojo.internal.StructField('arg_timestamp', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_original_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: TabRestoreTab
 mojo.internal.Struct(
-    tab_strip_internals.mojom.TabRestoreTabSpec, 'tab_strip_internals.mojom.TabRestoreTab', [
-      mojo.internal.StructField('id', 0, 0, tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('restore_entry', 8, 0, tab_strip_internals.mojom.TabRestoreEntryBaseSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('group_id', 16, 0, mojo_base.mojom.TokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('group_visual_data', 24, 0, tab_strip_internals.mojom.TabGroupVisualDataSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('title', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('url', 40, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('browser_id', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('tabstrip_index', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('pinned', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreTabSpec, 'tab_strip_internals.mojom.TabRestoreTab', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_restore_entry', 8, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreEntryBaseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_group_id', 16, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_group_visual_data', 24, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabGroupVisualDataSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_title', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 40, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_browser_id', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tabstrip_index', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pinned', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 72]]);
 
 // Struct: TabRestoreGroup
 mojo.internal.Struct(
-    tab_strip_internals.mojom.TabRestoreGroupSpec, 'tab_strip_internals.mojom.TabRestoreGroup', [
-      mojo.internal.StructField('id', 0, 0, tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('restore_entry', 8, 0, tab_strip_internals.mojom.TabRestoreEntryBaseSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('group_id', 16, 0, mojo_base.mojom.TokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('visual_data', 24, 0, tab_strip_internals.mojom.TabGroupVisualDataSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('tabs', 32, 0, mojo.internal.Array(tab_strip_internals.mojom.TabRestoreTabSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('browser_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreGroupSpec, 'tab_strip_internals.mojom.TabRestoreGroup', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_restore_entry', 8, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreEntryBaseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_group_id', 16, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visual_data', 24, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabGroupVisualDataSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tabs', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreTabSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_browser_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 56]]);
 
 // Struct: TabRestoreWindow
 mojo.internal.Struct(
-    tab_strip_internals.mojom.TabRestoreWindowSpec, 'tab_strip_internals.mojom.TabRestoreWindow', [
-      mojo.internal.StructField('id', 0, 0, tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('restore_entry', 8, 0, tab_strip_internals.mojom.TabRestoreEntryBaseSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('tabs', 16, 0, mojo.internal.Array(tab_strip_internals.mojom.TabRestoreTabSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('selected_tab_index', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreWindowSpec, 'tab_strip_internals.mojom.TabRestoreWindow', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.NodeIdSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_restore_entry', 8, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreEntryBaseSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tabs', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreTabSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_selected_tab_index', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Interface: PageHandlerFactory
 mojo.internal.Struct(
-    tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(tab_strip_internals.mojom.PageSpec), null, false, 0, undefined),
-      mojo.internal.StructField('handler', 8, 0, mojo.internal.InterfaceRequest(tab_strip_internals.mojom.PageHandlerSpec), null, false, 0, undefined),
+    mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tab_strip_internals.mojom.PageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
-tab_strip_internals.mojom.PageHandlerFactoryPendingReceiver = class {
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-tab_strip_internals.mojom.PageHandlerFactoryRemote = class {
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'tab_strip_internals.mojom.PageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      tab_strip_internals.mojom.PageHandlerFactoryPendingReceiver,
+      mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new tab_strip_internals.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -384,12 +395,12 @@ tab_strip_internals.mojom.PageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
-  createPageHandler(page, handler) {
-    return this.$.createPageHandler(page, handler);
+  createPageHandler(arg_page, arg_handler) {
+    return this.$.createPageHandler(arg_page, arg_handler);
   }
 };
 
-tab_strip_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('PageHandlerFactory', [
@@ -397,19 +408,19 @@ tab_strip_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
     ]);
   }
 
-  createPageHandler(page, handler) {
+  createPageHandler(arg_page, arg_handler) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler],
+      [arg_page, arg_handler],
       false);
   }
 
 };
 
-tab_strip_internals.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new tab_strip_internals.mojom.PageHandlerFactoryRemote();
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -418,7 +429,7 @@ tab_strip_internals.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-tab_strip_internals.mojom.PageHandlerFactoryReceiver = class {
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -467,7 +478,7 @@ tab_strip_internals.mojom.PageHandlerFactoryReceiver = class {
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -484,9 +495,9 @@ tab_strip_internals.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.page, params.handler);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
           break;
         }
       }
@@ -497,40 +508,40 @@ tab_strip_internals.mojom.PageHandlerFactoryReceiver = class {
   }
 };
 
-tab_strip_internals.mojom.PageHandlerFactoryReceiver = tab_strip_internals.mojom.PageHandlerFactoryReceiver;
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryReceiver = mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryReceiver;
 
-tab_strip_internals.mojom.PageHandlerFactoryPtr = tab_strip_internals.mojom.PageHandlerFactoryRemote;
-tab_strip_internals.mojom.PageHandlerFactoryRequest = tab_strip_internals.mojom.PageHandlerFactoryPendingReceiver;
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryPtr = mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryRemote;
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryRequest = mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryPendingReceiver;
 
 
 // Interface: PageHandler
 mojo.internal.Struct(
-    tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec, 'tab_strip_internals.mojom.PageHandler_GetTabStripData_Params', [
+    mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec, 'tab_strip_internals.mojom.PageHandler_GetTabStripData_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec, 'tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParams', [
-      mojo.internal.StructField('data', 0, 0, tab_strip_internals.mojom.ContainerSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec, 'tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParams', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.ContainerSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-tab_strip_internals.mojom.PageHandlerPendingReceiver = class {
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-tab_strip_internals.mojom.PageHandlerRemote = class {
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerRemote = class {
   static get $interfaceName() {
     return 'tab_strip_internals.mojom.PageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      tab_strip_internals.mojom.PageHandlerPendingReceiver,
+      mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerPendingReceiver,
       handle);
-    this.$ = new tab_strip_internals.mojom.PageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -545,7 +556,7 @@ tab_strip_internals.mojom.PageHandlerRemote = class {
   }
 };
 
-tab_strip_internals.mojom.PageHandlerRemoteCallHandler = class {
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('PageHandler', [
@@ -556,16 +567,16 @@ tab_strip_internals.mojom.PageHandlerRemoteCallHandler = class {
   getTabStripData() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec,
-      tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec,
+      mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec,
+      mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec,
       [],
       false);
   }
 
 };
 
-tab_strip_internals.mojom.PageHandler.getRemote = function() {
-  let remote = new tab_strip_internals.mojom.PageHandlerRemote();
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandler.getRemote = function() {
+  let remote = new mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -574,7 +585,7 @@ tab_strip_internals.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
-tab_strip_internals.mojom.PageHandlerReceiver = class {
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -623,7 +634,7 @@ tab_strip_internals.mojom.PageHandlerReceiver = class {
         // Try Method 0: GetTabStripData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTabStripData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -640,14 +651,14 @@ tab_strip_internals.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getTabStripData');
           const result = this.impl.getTabStripData();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetTabStripData FAILED:', e));
           }
@@ -661,35 +672,35 @@ tab_strip_internals.mojom.PageHandlerReceiver = class {
   }
 };
 
-tab_strip_internals.mojom.PageHandlerReceiver = tab_strip_internals.mojom.PageHandlerReceiver;
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerReceiver = mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerReceiver;
 
-tab_strip_internals.mojom.PageHandlerPtr = tab_strip_internals.mojom.PageHandlerRemote;
-tab_strip_internals.mojom.PageHandlerRequest = tab_strip_internals.mojom.PageHandlerPendingReceiver;
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerPtr = mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerRemote;
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerRequest = mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerPendingReceiver;
 
 
 // Interface: Page
 mojo.internal.Struct(
-    tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec, 'tab_strip_internals.mojom.Page_OnTabStripUpdated_Params', [
-      mojo.internal.StructField('data', 0, 0, tab_strip_internals.mojom.ContainerSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec, 'tab_strip_internals.mojom.Page_OnTabStripUpdated_Params', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo.internal.bindings.tab_strip_internals.mojom.ContainerSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-tab_strip_internals.mojom.PagePendingReceiver = class {
+mojo.internal.bindings.tab_strip_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-tab_strip_internals.mojom.PageRemote = class {
+mojo.internal.bindings.tab_strip_internals.mojom.PageRemote = class {
   static get $interfaceName() {
     return 'tab_strip_internals.mojom.Page';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      tab_strip_internals.mojom.PagePendingReceiver,
+      mojo.internal.bindings.tab_strip_internals.mojom.PagePendingReceiver,
       handle);
-    this.$ = new tab_strip_internals.mojom.PageRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.tab_strip_internals.mojom.PageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -699,12 +710,12 @@ tab_strip_internals.mojom.PageRemote = class {
   close() {
     this.proxy.close();
   }
-  onTabStripUpdated(data) {
-    return this.$.onTabStripUpdated(data);
+  onTabStripUpdated(arg_data) {
+    return this.$.onTabStripUpdated(arg_data);
   }
 };
 
-tab_strip_internals.mojom.PageRemoteCallHandler = class {
+mojo.internal.bindings.tab_strip_internals.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('Page', [
@@ -712,19 +723,19 @@ tab_strip_internals.mojom.PageRemoteCallHandler = class {
     ]);
   }
 
-  onTabStripUpdated(data) {
+  onTabStripUpdated(arg_data) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec,
+      mojo.internal.bindings.tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec,
       null,
-      [data],
+      [arg_data],
       false);
   }
 
 };
 
-tab_strip_internals.mojom.Page.getRemote = function() {
-  let remote = new tab_strip_internals.mojom.PageRemote();
+mojo.internal.bindings.tab_strip_internals.mojom.Page.getRemote = function() {
+  let remote = new mojo.internal.bindings.tab_strip_internals.mojom.PageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -733,7 +744,7 @@ tab_strip_internals.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
-tab_strip_internals.mojom.PageReceiver = class {
+mojo.internal.bindings.tab_strip_internals.mojom.PageReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -782,7 +793,7 @@ tab_strip_internals.mojom.PageReceiver = class {
         // Try Method 0: OnTabStripUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTabStripUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -799,9 +810,9 @@ tab_strip_internals.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTabStripUpdated');
-          const result = this.impl.onTabStripUpdated(params.data);
+          const result = this.impl.onTabStripUpdated(params.arg_data);
           break;
         }
       }
@@ -812,8 +823,8 @@ tab_strip_internals.mojom.PageReceiver = class {
   }
 };
 
-tab_strip_internals.mojom.PageReceiver = tab_strip_internals.mojom.PageReceiver;
+mojo.internal.bindings.tab_strip_internals.mojom.PageReceiver = mojo.internal.bindings.tab_strip_internals.mojom.PageReceiver;
 
-tab_strip_internals.mojom.PagePtr = tab_strip_internals.mojom.PageRemote;
-tab_strip_internals.mojom.PageRequest = tab_strip_internals.mojom.PagePendingReceiver;
+mojo.internal.bindings.tab_strip_internals.mojom.PagePtr = mojo.internal.bindings.tab_strip_internals.mojom.PageRemote;
+mojo.internal.bindings.tab_strip_internals.mojom.PageRequest = mojo.internal.bindings.tab_strip_internals.mojom.PagePendingReceiver;
 

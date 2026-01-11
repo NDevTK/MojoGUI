@@ -1,117 +1,122 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/components/safe_browsing/content/common/safe_browsing.mojom
-// Module: safe_browsing.mojom
+ // Source: chromium_src/components/safe_browsing/content/common/safe_browsing.mojom
+ // Module: safe_browsing.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var safe_browsing = safe_browsing || {};
-safe_browsing.mojom = safe_browsing.mojom || {};
-var mojo_base = mojo_base || {};
-var network = network || {};
-var blink = blink || {};
-var url = url || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-safe_browsing.mojom.PhishingDetectorResultSpec = { $: mojo.internal.Enum() };
-safe_browsing.mojom.ClientSideDetectionTypeSpec = { $: mojo.internal.Enum() };
-safe_browsing.mojom.PhishingImageEmbeddingResultSpec = { $: mojo.internal.Enum() };
-safe_browsing.mojom.WebRequestProtocolTypeSpec = { $: mojo.internal.Enum() };
-safe_browsing.mojom.WebRequestContactInitiatorTypeSpec = { $: mojo.internal.Enum() };
-safe_browsing.mojom.AttributeNameValueSpec = { $: {} };
-safe_browsing.mojom.ThreatDOMDetailsNodeSpec = { $: {} };
-safe_browsing.mojom.SafeBrowsing = {};
-safe_browsing.mojom.SafeBrowsing.$interfaceName = 'safe_browsing.mojom.SafeBrowsing';
-safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec = { $: {} };
-safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec = { $: {} };
-safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec = { $: {} };
-safe_browsing.mojom.ThreatReporter = {};
-safe_browsing.mojom.ThreatReporter.$interfaceName = 'safe_browsing.mojom.ThreatReporter';
-safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec = { $: {} };
-safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec = { $: {} };
-safe_browsing.mojom.PhishingDetector = {};
-safe_browsing.mojom.PhishingDetector.$interfaceName = 'safe_browsing.mojom.PhishingDetector';
-safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec = { $: {} };
-safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec = { $: {} };
-safe_browsing.mojom.PhishingModelSetter = {};
-safe_browsing.mojom.PhishingModelSetter.$interfaceName = 'safe_browsing.mojom.PhishingModelSetter';
-safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec = { $: {} };
-safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec = { $: {} };
-safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec = { $: {} };
-safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec = { $: {} };
-safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec = { $: {} };
-safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ResponseParamsSpec = { $: {} };
-safe_browsing.mojom.PhishingModelSetterTestObserver = {};
-safe_browsing.mojom.PhishingModelSetterTestObserver.$interfaceName = 'safe_browsing.mojom.PhishingModelSetterTestObserver';
-safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec = { $: {} };
-safe_browsing.mojom.PhishingImageEmbedderDetector = {};
-safe_browsing.mojom.PhishingImageEmbedderDetector.$interfaceName = 'safe_browsing.mojom.PhishingImageEmbedderDetector';
-safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec = { $: {} };
-safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec = { $: {} };
-safe_browsing.mojom.ExtensionWebRequestReporter = {};
-safe_browsing.mojom.ExtensionWebRequestReporter.$interfaceName = 'safe_browsing.mojom.ExtensionWebRequestReporter';
-safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec = { $: {} };
-safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec = { $: {} };
+ mojo.internal.bindings.safe_browsing = mojo.internal.bindings.safe_browsing || {};
+mojo.internal.bindings.safe_browsing.mojom = mojo.internal.bindings.safe_browsing.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+
+mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.safe_browsing.mojom.ClientSideDetectionTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbeddingResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.safe_browsing.mojom.WebRequestProtocolTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.safe_browsing.mojom.WebRequestContactInitiatorTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.safe_browsing.mojom.AttributeNameValueSpec = { $: {} };
+mojo.internal.bindings.safe_browsing.mojom.ThreatDOMDetailsNodeSpec = { $: {} };
+mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing = {};
+mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing.$interfaceName = 'safe_browsing.mojom.SafeBrowsing';
+mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec = { $: {} };
+mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec = { $: {} };
+mojo.internal.bindings.safe_browsing.mojom.ThreatReporter = {};
+mojo.internal.bindings.safe_browsing.mojom.ThreatReporter.$interfaceName = 'safe_browsing.mojom.ThreatReporter';
+mojo.internal.bindings.safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec = { $: {} };
+mojo.internal.bindings.safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.safe_browsing.mojom.PhishingDetector = {};
+mojo.internal.bindings.safe_browsing.mojom.PhishingDetector.$interfaceName = 'safe_browsing.mojom.PhishingDetector';
+mojo.internal.bindings.safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec = { $: {} };
+mojo.internal.bindings.safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter = {};
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter.$interfaceName = 'safe_browsing.mojom.PhishingModelSetter';
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec = { $: {} };
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec = { $: {} };
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec = { $: {} };
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec = { $: {} };
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec = { $: {} };
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserver = {};
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserver.$interfaceName = 'safe_browsing.mojom.PhishingModelSetterTestObserver';
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec = { $: {} };
+mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetector = {};
+mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetector.$interfaceName = 'safe_browsing.mojom.PhishingImageEmbedderDetector';
+mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec = { $: {} };
+mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter = {};
+mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter.$interfaceName = 'safe_browsing.mojom.ExtensionWebRequestReporter';
+mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec = { $: {} };
+mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec = { $: {} };
 
 // Enum: PhishingDetectorResult
-safe_browsing.mojom.PhishingDetectorResult = {
+mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorResult = {
   SUCCESS: 0,
   CLASSIFIER_NOT_READY: 1,
   CANCELLED: 2,
@@ -126,7 +131,7 @@ safe_browsing.mojom.PhishingDetectorResult = {
 };
 
 // Enum: ClientSideDetectionType
-safe_browsing.mojom.ClientSideDetectionType = {
+mojo.internal.bindings.safe_browsing.mojom.ClientSideDetectionType = {
   kForceRequest: 0,
   kTriggerModels: 1,
   kNotificationPermissionPrompt: 2,
@@ -141,7 +146,7 @@ safe_browsing.mojom.ClientSideDetectionType = {
 };
 
 // Enum: PhishingImageEmbeddingResult
-safe_browsing.mojom.PhishingImageEmbeddingResult = {
+mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbeddingResult = {
   kSuccess: 0,
   kImageEmbedderNotReady: 1,
   kCancelled: 2,
@@ -150,84 +155,84 @@ safe_browsing.mojom.PhishingImageEmbeddingResult = {
 };
 
 // Enum: WebRequestProtocolType
-safe_browsing.mojom.WebRequestProtocolType = {
+mojo.internal.bindings.safe_browsing.mojom.WebRequestProtocolType = {
   kHttpHttps: 0,
   kWebSocket: 1,
 };
 
 // Enum: WebRequestContactInitiatorType
-safe_browsing.mojom.WebRequestContactInitiatorType = {
+mojo.internal.bindings.safe_browsing.mojom.WebRequestContactInitiatorType = {
   kExtension: 0,
   kContentScript: 1,
 };
 
 // Struct: AttributeNameValue
 mojo.internal.Struct(
-    safe_browsing.mojom.AttributeNameValueSpec, 'safe_browsing.mojom.AttributeNameValue', [
-      mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('value', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    mojo.internal.bindings.safe_browsing.mojom.AttributeNameValueSpec, 'safe_browsing.mojom.AttributeNameValue', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ThreatDOMDetailsNode
 mojo.internal.Struct(
-    safe_browsing.mojom.ThreatDOMDetailsNodeSpec, 'safe_browsing.mojom.ThreatDOMDetailsNode', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('tag_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('parent', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('children', 24, 0, mojo.internal.Array(url.mojom.UrlSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('child_node_ids', 32, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
-      mojo.internal.StructField('attributes', 40, 0, mojo.internal.Array(safe_browsing.mojom.AttributeNameValueSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('child_frame_token', 48, 0, blink.mojom.FrameTokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('inner_html', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('node_id', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('parent_node_id', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    mojo.internal.bindings.safe_browsing.mojom.ThreatDOMDetailsNodeSpec, 'safe_browsing.mojom.ThreatDOMDetailsNode', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tag_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_parent', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_children', 24, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_child_node_ids', 32, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_attributes', 40, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.safe_browsing.mojom.AttributeNameValueSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_child_frame_token', 48, 0, mojo.internal.bindings.blink.mojom.FrameTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_inner_html', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_node_id', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_parent_node_id', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 80]]);
 
 // Interface: SafeBrowsing
 mojo.internal.Struct(
-    safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec, 'safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_Params', [
-      mojo.internal.StructField('frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(safe_browsing.mojom.SafeBrowsingUrlCheckerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('method', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('headers', 32, 0, network.mojom.HttpRequestHeadersSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('load_flags', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('has_user_gesture', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('originated_from_service_worker', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec, 'safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_Params', [
+      mojo.internal.StructField('arg_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlCheckerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_method', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_headers', 32, 0, mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_load_flags', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_has_user_gesture', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_originated_from_service_worker', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);
 
 mojo.internal.Struct(
-    safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec, 'safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParams', [
-      mojo.internal.StructField('proceed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('showed_interstitial', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec, 'safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParams', [
+      mojo.internal.StructField('arg_proceed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_showed_interstitial', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec, 'safe_browsing.mojom.SafeBrowsing_Clone_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(safe_browsing.mojom.SafeBrowsingSpec), null, false, 0, undefined),
+    mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec, 'safe_browsing.mojom.SafeBrowsing_Clone_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-safe_browsing.mojom.SafeBrowsingPendingReceiver = class {
+mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-safe_browsing.mojom.SafeBrowsingRemote = class {
+mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingRemote = class {
   static get $interfaceName() {
     return 'safe_browsing.mojom.SafeBrowsing';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      safe_browsing.mojom.SafeBrowsingPendingReceiver,
+      mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingPendingReceiver,
       handle);
-    this.$ = new safe_browsing.mojom.SafeBrowsingRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -237,15 +242,15 @@ safe_browsing.mojom.SafeBrowsingRemote = class {
   close() {
     this.proxy.close();
   }
-  createCheckerAndCheck(frame_token, receiver, url, method, headers, load_flags, has_user_gesture, originated_from_service_worker) {
-    return this.$.createCheckerAndCheck(frame_token, receiver, url, method, headers, load_flags, has_user_gesture, originated_from_service_worker);
+  createCheckerAndCheck(arg_frame_token, arg_receiver, arg_url, arg_method, arg_headers, arg_load_flags, arg_has_user_gesture, arg_originated_from_service_worker) {
+    return this.$.createCheckerAndCheck(arg_frame_token, arg_receiver, arg_url, arg_method, arg_headers, arg_load_flags, arg_has_user_gesture, arg_originated_from_service_worker);
   }
-  clone(receiver) {
-    return this.$.clone(receiver);
+  clone(arg_receiver) {
+    return this.$.clone(arg_receiver);
   }
 };
 
-safe_browsing.mojom.SafeBrowsingRemoteCallHandler = class {
+mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('SafeBrowsing', [
@@ -254,28 +259,28 @@ safe_browsing.mojom.SafeBrowsingRemoteCallHandler = class {
     ]);
   }
 
-  createCheckerAndCheck(frame_token, receiver, url, method, headers, load_flags, has_user_gesture, originated_from_service_worker) {
+  createCheckerAndCheck(arg_frame_token, arg_receiver, arg_url, arg_method, arg_headers, arg_load_flags, arg_has_user_gesture, arg_originated_from_service_worker) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec,
-      safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec,
-      [frame_token, receiver, url, method, headers, load_flags, has_user_gesture, originated_from_service_worker],
+      mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec,
+      mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec,
+      [arg_frame_token, arg_receiver, arg_url, arg_method, arg_headers, arg_load_flags, arg_has_user_gesture, arg_originated_from_service_worker],
       false);
   }
 
-  clone(receiver) {
+  clone(arg_receiver) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec,
+      mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec,
       null,
-      [receiver],
+      [arg_receiver],
       false);
   }
 
 };
 
-safe_browsing.mojom.SafeBrowsing.getRemote = function() {
-  let remote = new safe_browsing.mojom.SafeBrowsingRemote();
+mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing.getRemote = function() {
+  let remote = new mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -284,7 +289,7 @@ safe_browsing.mojom.SafeBrowsing.getRemote = function() {
   return remote.$;
 };
 
-safe_browsing.mojom.SafeBrowsingReceiver = class {
+mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -334,7 +339,7 @@ safe_browsing.mojom.SafeBrowsingReceiver = class {
         // Try Method 0: CreateCheckerAndCheck
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateCheckerAndCheck (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -345,7 +350,7 @@ safe_browsing.mojom.SafeBrowsingReceiver = class {
         // Try Method 1: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -362,14 +367,14 @@ safe_browsing.mojom.SafeBrowsingReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCheckerAndCheck');
-          const result = this.impl.createCheckerAndCheck(params.frame_token, params.receiver, params.url, params.method, params.headers, params.load_flags, params.has_user_gesture, params.originated_from_service_worker);
+          const result = this.impl.createCheckerAndCheck(params.arg_frame_token, params.arg_receiver, params.arg_url, params.arg_method, params.arg_headers, params.arg_load_flags, params.arg_has_user_gesture, params.arg_originated_from_service_worker);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] CreateCheckerAndCheck FAILED:', e));
           }
@@ -377,9 +382,9 @@ safe_browsing.mojom.SafeBrowsingReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.receiver);
+          const result = this.impl.clone(params.arg_receiver);
           break;
         }
       }
@@ -390,40 +395,40 @@ safe_browsing.mojom.SafeBrowsingReceiver = class {
   }
 };
 
-safe_browsing.mojom.SafeBrowsingReceiver = safe_browsing.mojom.SafeBrowsingReceiver;
+mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingReceiver = mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingReceiver;
 
-safe_browsing.mojom.SafeBrowsingPtr = safe_browsing.mojom.SafeBrowsingRemote;
-safe_browsing.mojom.SafeBrowsingRequest = safe_browsing.mojom.SafeBrowsingPendingReceiver;
+mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingPtr = mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingRemote;
+mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingRequest = mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingPendingReceiver;
 
 
 // Interface: ThreatReporter
 mojo.internal.Struct(
-    safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec, 'safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_Params', [
+    mojo.internal.bindings.safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec, 'safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec, 'safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParams', [
-      mojo.internal.StructField('nodes', 0, 0, mojo.internal.Array(safe_browsing.mojom.ThreatDOMDetailsNodeSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec, 'safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParams', [
+      mojo.internal.StructField('arg_nodes', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.safe_browsing.mojom.ThreatDOMDetailsNodeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-safe_browsing.mojom.ThreatReporterPendingReceiver = class {
+mojo.internal.bindings.safe_browsing.mojom.ThreatReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-safe_browsing.mojom.ThreatReporterRemote = class {
+mojo.internal.bindings.safe_browsing.mojom.ThreatReporterRemote = class {
   static get $interfaceName() {
     return 'safe_browsing.mojom.ThreatReporter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      safe_browsing.mojom.ThreatReporterPendingReceiver,
+      mojo.internal.bindings.safe_browsing.mojom.ThreatReporterPendingReceiver,
       handle);
-    this.$ = new safe_browsing.mojom.ThreatReporterRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.safe_browsing.mojom.ThreatReporterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -438,7 +443,7 @@ safe_browsing.mojom.ThreatReporterRemote = class {
   }
 };
 
-safe_browsing.mojom.ThreatReporterRemoteCallHandler = class {
+mojo.internal.bindings.safe_browsing.mojom.ThreatReporterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ThreatReporter', [
@@ -449,16 +454,16 @@ safe_browsing.mojom.ThreatReporterRemoteCallHandler = class {
   getThreatDOMDetails() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec,
-      safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec,
+      mojo.internal.bindings.safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec,
+      mojo.internal.bindings.safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec,
       [],
       false);
   }
 
 };
 
-safe_browsing.mojom.ThreatReporter.getRemote = function() {
-  let remote = new safe_browsing.mojom.ThreatReporterRemote();
+mojo.internal.bindings.safe_browsing.mojom.ThreatReporter.getRemote = function() {
+  let remote = new mojo.internal.bindings.safe_browsing.mojom.ThreatReporterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -467,7 +472,7 @@ safe_browsing.mojom.ThreatReporter.getRemote = function() {
   return remote.$;
 };
 
-safe_browsing.mojom.ThreatReporterReceiver = class {
+mojo.internal.bindings.safe_browsing.mojom.ThreatReporterReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -516,7 +521,7 @@ safe_browsing.mojom.ThreatReporterReceiver = class {
         // Try Method 0: GetThreatDOMDetails
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetThreatDOMDetails (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -533,14 +538,14 @@ safe_browsing.mojom.ThreatReporterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getThreatDOMDetails');
           const result = this.impl.getThreatDOMDetails();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetThreatDOMDetails FAILED:', e));
           }
@@ -554,43 +559,43 @@ safe_browsing.mojom.ThreatReporterReceiver = class {
   }
 };
 
-safe_browsing.mojom.ThreatReporterReceiver = safe_browsing.mojom.ThreatReporterReceiver;
+mojo.internal.bindings.safe_browsing.mojom.ThreatReporterReceiver = mojo.internal.bindings.safe_browsing.mojom.ThreatReporterReceiver;
 
-safe_browsing.mojom.ThreatReporterPtr = safe_browsing.mojom.ThreatReporterRemote;
-safe_browsing.mojom.ThreatReporterRequest = safe_browsing.mojom.ThreatReporterPendingReceiver;
+mojo.internal.bindings.safe_browsing.mojom.ThreatReporterPtr = mojo.internal.bindings.safe_browsing.mojom.ThreatReporterRemote;
+mojo.internal.bindings.safe_browsing.mojom.ThreatReporterRequest = mojo.internal.bindings.safe_browsing.mojom.ThreatReporterPendingReceiver;
 
 
 // Interface: PhishingDetector
 mojo.internal.Struct(
-    safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec, 'safe_browsing.mojom.PhishingDetector_StartPhishingDetection_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('request_type', 8, 0, safe_browsing.mojom.ClientSideDetectionTypeSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec, 'safe_browsing.mojom.PhishingDetector_StartPhishingDetection_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.safe_browsing.mojom.ClientSideDetectionTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec, 'safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, safe_browsing.mojom.PhishingDetectorResultSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('request', 8, 0, mojo_base.mojom.ProtoWrapperSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec, 'safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 8, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
-safe_browsing.mojom.PhishingDetectorPendingReceiver = class {
+mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-safe_browsing.mojom.PhishingDetectorRemote = class {
+mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorRemote = class {
   static get $interfaceName() {
     return 'safe_browsing.mojom.PhishingDetector';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      safe_browsing.mojom.PhishingDetectorPendingReceiver,
+      mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorPendingReceiver,
       handle);
-    this.$ = new safe_browsing.mojom.PhishingDetectorRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -600,12 +605,12 @@ safe_browsing.mojom.PhishingDetectorRemote = class {
   close() {
     this.proxy.close();
   }
-  startPhishingDetection(url, request_type) {
-    return this.$.startPhishingDetection(url, request_type);
+  startPhishingDetection(arg_url, arg_request_type) {
+    return this.$.startPhishingDetection(arg_url, arg_request_type);
   }
 };
 
-safe_browsing.mojom.PhishingDetectorRemoteCallHandler = class {
+mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('PhishingDetector', [
@@ -613,19 +618,19 @@ safe_browsing.mojom.PhishingDetectorRemoteCallHandler = class {
     ]);
   }
 
-  startPhishingDetection(url, request_type) {
+  startPhishingDetection(arg_url, arg_request_type) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec,
-      safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec,
-      [url, request_type],
+      mojo.internal.bindings.safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec,
+      mojo.internal.bindings.safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec,
+      [arg_url, arg_request_type],
       false);
   }
 
 };
 
-safe_browsing.mojom.PhishingDetector.getRemote = function() {
-  let remote = new safe_browsing.mojom.PhishingDetectorRemote();
+mojo.internal.bindings.safe_browsing.mojom.PhishingDetector.getRemote = function() {
+  let remote = new mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -634,7 +639,7 @@ safe_browsing.mojom.PhishingDetector.getRemote = function() {
   return remote.$;
 };
 
-safe_browsing.mojom.PhishingDetectorReceiver = class {
+mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -683,7 +688,7 @@ safe_browsing.mojom.PhishingDetectorReceiver = class {
         // Try Method 0: StartPhishingDetection
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartPhishingDetection (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -700,14 +705,14 @@ safe_browsing.mojom.PhishingDetectorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startPhishingDetection');
-          const result = this.impl.startPhishingDetection(params.url, params.request_type);
+          const result = this.impl.startPhishingDetection(params.arg_url, params.arg_request_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] StartPhishingDetection FAILED:', e));
           }
@@ -721,66 +726,66 @@ safe_browsing.mojom.PhishingDetectorReceiver = class {
   }
 };
 
-safe_browsing.mojom.PhishingDetectorReceiver = safe_browsing.mojom.PhishingDetectorReceiver;
+mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorReceiver = mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorReceiver;
 
-safe_browsing.mojom.PhishingDetectorPtr = safe_browsing.mojom.PhishingDetectorRemote;
-safe_browsing.mojom.PhishingDetectorRequest = safe_browsing.mojom.PhishingDetectorPendingReceiver;
+mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorPtr = mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorRemote;
+mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorRequest = mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorPendingReceiver;
 
 
 // Interface: PhishingModelSetter
 mojo.internal.Struct(
-    safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_Params', [
-      mojo.internal.StructField('region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('tflite_model', 8, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('image_embedding_model', 16, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_Params', [
+      mojo.internal.StructField('arg_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tflite_model', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_image_embedding_model', 16, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
-    safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_Params', [
-      mojo.internal.StructField('image_embedding_model', 0, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_Params', [
+      mojo.internal.StructField('arg_image_embedding_model', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_Params', [
-      mojo.internal.StructField('region', 0, 0, mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('tflite_model', 8, 0, mojo_base.mojom.ReadOnlyFileSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_Params', [
+      mojo.internal.StructField('arg_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tflite_model', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
-    safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_ClearScorer_Params', [
+    mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_ClearScorer_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_SetTestObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(safe_browsing.mojom.PhishingModelSetterTestObserverSpec), null, true, 0, undefined),
+    mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_SetTestObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserverSpec), null, true, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ResponseParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ResponseParams', [
+    mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ResponseParamsSpec, 'safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ResponseParams', [
     ],
     [[0, 8]]);
 
-safe_browsing.mojom.PhishingModelSetterPendingReceiver = class {
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-safe_browsing.mojom.PhishingModelSetterRemote = class {
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterRemote = class {
   static get $interfaceName() {
     return 'safe_browsing.mojom.PhishingModelSetter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      safe_browsing.mojom.PhishingModelSetterPendingReceiver,
+      mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterPendingReceiver,
       handle);
-    this.$ = new safe_browsing.mojom.PhishingModelSetterRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -790,24 +795,24 @@ safe_browsing.mojom.PhishingModelSetterRemote = class {
   close() {
     this.proxy.close();
   }
-  setImageEmbeddingAndPhishingFlatBufferModel(region, tflite_model, image_embedding_model) {
-    return this.$.setImageEmbeddingAndPhishingFlatBufferModel(region, tflite_model, image_embedding_model);
+  setImageEmbeddingAndPhishingFlatBufferModel(arg_region, arg_tflite_model, arg_image_embedding_model) {
+    return this.$.setImageEmbeddingAndPhishingFlatBufferModel(arg_region, arg_tflite_model, arg_image_embedding_model);
   }
-  attachImageEmbeddingModel(image_embedding_model) {
-    return this.$.attachImageEmbeddingModel(image_embedding_model);
+  attachImageEmbeddingModel(arg_image_embedding_model) {
+    return this.$.attachImageEmbeddingModel(arg_image_embedding_model);
   }
-  setPhishingFlatBufferModel(region, tflite_model) {
-    return this.$.setPhishingFlatBufferModel(region, tflite_model);
+  setPhishingFlatBufferModel(arg_region, arg_tflite_model) {
+    return this.$.setPhishingFlatBufferModel(arg_region, arg_tflite_model);
   }
   clearScorer() {
     return this.$.clearScorer();
   }
-  setTestObserver(observer) {
-    return this.$.setTestObserver(observer);
+  setTestObserver(arg_observer) {
+    return this.$.setTestObserver(arg_observer);
   }
 };
 
-safe_browsing.mojom.PhishingModelSetterRemoteCallHandler = class {
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('PhishingModelSetter', [
@@ -819,55 +824,55 @@ safe_browsing.mojom.PhishingModelSetterRemoteCallHandler = class {
     ]);
   }
 
-  setImageEmbeddingAndPhishingFlatBufferModel(region, tflite_model, image_embedding_model) {
+  setImageEmbeddingAndPhishingFlatBufferModel(arg_region, arg_tflite_model, arg_image_embedding_model) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec,
+      mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec,
       null,
-      [region, tflite_model, image_embedding_model],
+      [arg_region, arg_tflite_model, arg_image_embedding_model],
       false);
   }
 
-  attachImageEmbeddingModel(image_embedding_model) {
+  attachImageEmbeddingModel(arg_image_embedding_model) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec,
+      mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec,
       null,
-      [image_embedding_model],
+      [arg_image_embedding_model],
       false);
   }
 
-  setPhishingFlatBufferModel(region, tflite_model) {
+  setPhishingFlatBufferModel(arg_region, arg_tflite_model) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec,
+      mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec,
       null,
-      [region, tflite_model],
+      [arg_region, arg_tflite_model],
       false);
   }
 
   clearScorer() {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec,
+      mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec,
       null,
       [],
       false);
   }
 
-  setTestObserver(observer) {
+  setTestObserver(arg_observer) {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
-      safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec,
-      safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ResponseParamsSpec,
-      [observer],
+      mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec,
+      mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ResponseParamsSpec,
+      [arg_observer],
       false);
   }
 
 };
 
-safe_browsing.mojom.PhishingModelSetter.getRemote = function() {
-  let remote = new safe_browsing.mojom.PhishingModelSetterRemote();
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter.getRemote = function() {
+  let remote = new mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -876,7 +881,7 @@ safe_browsing.mojom.PhishingModelSetter.getRemote = function() {
   return remote.$;
 };
 
-safe_browsing.mojom.PhishingModelSetterReceiver = class {
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -929,7 +934,7 @@ safe_browsing.mojom.PhishingModelSetterReceiver = class {
         // Try Method 0: SetImageEmbeddingAndPhishingFlatBufferModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetImageEmbeddingAndPhishingFlatBufferModel (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -940,7 +945,7 @@ safe_browsing.mojom.PhishingModelSetterReceiver = class {
         // Try Method 1: AttachImageEmbeddingModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AttachImageEmbeddingModel (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -951,7 +956,7 @@ safe_browsing.mojom.PhishingModelSetterReceiver = class {
         // Try Method 2: SetPhishingFlatBufferModel
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPhishingFlatBufferModel (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -962,7 +967,7 @@ safe_browsing.mojom.PhishingModelSetterReceiver = class {
         // Try Method 3: ClearScorer
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearScorer (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -973,7 +978,7 @@ safe_browsing.mojom.PhishingModelSetterReceiver = class {
         // Try Method 4: SetTestObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTestObserver (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -990,42 +995,42 @@ safe_browsing.mojom.PhishingModelSetterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setImageEmbeddingAndPhishingFlatBufferModel');
-          const result = this.impl.setImageEmbeddingAndPhishingFlatBufferModel(params.region, params.tflite_model, params.image_embedding_model);
+          const result = this.impl.setImageEmbeddingAndPhishingFlatBufferModel(params.arg_region, params.arg_tflite_model, params.arg_image_embedding_model);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.attachImageEmbeddingModel');
-          const result = this.impl.attachImageEmbeddingModel(params.image_embedding_model);
+          const result = this.impl.attachImageEmbeddingModel(params.arg_image_embedding_model);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPhishingFlatBufferModel');
-          const result = this.impl.setPhishingFlatBufferModel(params.region, params.tflite_model);
+          const result = this.impl.setPhishingFlatBufferModel(params.arg_region, params.arg_tflite_model);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearScorer');
           const result = this.impl.clearScorer();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTestObserver');
-          const result = this.impl.setTestObserver(params.observer);
+          const result = this.impl.setTestObserver(params.arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] SetTestObserver FAILED:', e));
           }
@@ -1039,34 +1044,34 @@ safe_browsing.mojom.PhishingModelSetterReceiver = class {
   }
 };
 
-safe_browsing.mojom.PhishingModelSetterReceiver = safe_browsing.mojom.PhishingModelSetterReceiver;
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterReceiver = mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterReceiver;
 
-safe_browsing.mojom.PhishingModelSetterPtr = safe_browsing.mojom.PhishingModelSetterRemote;
-safe_browsing.mojom.PhishingModelSetterRequest = safe_browsing.mojom.PhishingModelSetterPendingReceiver;
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterPtr = mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterRemote;
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterRequest = mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterPendingReceiver;
 
 
 // Interface: PhishingModelSetterTestObserver
 mojo.internal.Struct(
-    safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_Params', [
+    mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec, 'safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_Params', [
     ],
     [[0, 8]]);
 
-safe_browsing.mojom.PhishingModelSetterTestObserverPendingReceiver = class {
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-safe_browsing.mojom.PhishingModelSetterTestObserverRemote = class {
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserverRemote = class {
   static get $interfaceName() {
     return 'safe_browsing.mojom.PhishingModelSetterTestObserver';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      safe_browsing.mojom.PhishingModelSetterTestObserverPendingReceiver,
+      mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserverPendingReceiver,
       handle);
-    this.$ = new safe_browsing.mojom.PhishingModelSetterTestObserverRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserverRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1081,7 +1086,7 @@ safe_browsing.mojom.PhishingModelSetterTestObserverRemote = class {
   }
 };
 
-safe_browsing.mojom.PhishingModelSetterTestObserverRemoteCallHandler = class {
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('PhishingModelSetterTestObserver', [
@@ -1092,7 +1097,7 @@ safe_browsing.mojom.PhishingModelSetterTestObserverRemoteCallHandler = class {
   phishingModelUpdated() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec,
+      mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec,
       null,
       [],
       false);
@@ -1100,8 +1105,8 @@ safe_browsing.mojom.PhishingModelSetterTestObserverRemoteCallHandler = class {
 
 };
 
-safe_browsing.mojom.PhishingModelSetterTestObserver.getRemote = function() {
-  let remote = new safe_browsing.mojom.PhishingModelSetterTestObserverRemote();
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserver.getRemote = function() {
+  let remote = new mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserverRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1110,7 +1115,7 @@ safe_browsing.mojom.PhishingModelSetterTestObserver.getRemote = function() {
   return remote.$;
 };
 
-safe_browsing.mojom.PhishingModelSetterTestObserverReceiver = class {
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserverReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -1159,7 +1164,7 @@ safe_browsing.mojom.PhishingModelSetterTestObserverReceiver = class {
         // Try Method 0: PhishingModelUpdated
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PhishingModelUpdated (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1176,7 +1181,7 @@ safe_browsing.mojom.PhishingModelSetterTestObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.phishingModelUpdated');
           const result = this.impl.phishingModelUpdated();
           break;
@@ -1189,42 +1194,42 @@ safe_browsing.mojom.PhishingModelSetterTestObserverReceiver = class {
   }
 };
 
-safe_browsing.mojom.PhishingModelSetterTestObserverReceiver = safe_browsing.mojom.PhishingModelSetterTestObserverReceiver;
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserverReceiver = mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserverReceiver;
 
-safe_browsing.mojom.PhishingModelSetterTestObserverPtr = safe_browsing.mojom.PhishingModelSetterTestObserverRemote;
-safe_browsing.mojom.PhishingModelSetterTestObserverRequest = safe_browsing.mojom.PhishingModelSetterTestObserverPendingReceiver;
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserverPtr = mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserverRemote;
+mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserverRequest = mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserverPendingReceiver;
 
 
 // Interface: PhishingImageEmbedderDetector
 mojo.internal.Struct(
-    safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec, 'safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_Params', [
-      mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec, 'safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec, 'safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParams', [
-      mojo.internal.StructField('result', 0, 0, safe_browsing.mojom.PhishingImageEmbeddingResultSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('image_embedding_request', 8, 0, mojo_base.mojom.ProtoWrapperSpec.$, null, true, 0, undefined),
+    mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec, 'safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbeddingResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_embedding_request', 8, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec.$, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
-safe_browsing.mojom.PhishingImageEmbedderDetectorPendingReceiver = class {
+mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-safe_browsing.mojom.PhishingImageEmbedderDetectorRemote = class {
+mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetectorRemote = class {
   static get $interfaceName() {
     return 'safe_browsing.mojom.PhishingImageEmbedderDetector';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      safe_browsing.mojom.PhishingImageEmbedderDetectorPendingReceiver,
+      mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetectorPendingReceiver,
       handle);
-    this.$ = new safe_browsing.mojom.PhishingImageEmbedderDetectorRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetectorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1234,12 +1239,12 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorRemote = class {
   close() {
     this.proxy.close();
   }
-  startImageEmbedding(url) {
-    return this.$.startImageEmbedding(url);
+  startImageEmbedding(arg_url) {
+    return this.$.startImageEmbedding(arg_url);
   }
 };
 
-safe_browsing.mojom.PhishingImageEmbedderDetectorRemoteCallHandler = class {
+mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetectorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('PhishingImageEmbedderDetector', [
@@ -1247,19 +1252,19 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorRemoteCallHandler = class {
     ]);
   }
 
-  startImageEmbedding(url) {
+  startImageEmbedding(arg_url) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec,
-      safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec,
-      [url],
+      mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec,
+      mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec,
+      [arg_url],
       false);
   }
 
 };
 
-safe_browsing.mojom.PhishingImageEmbedderDetector.getRemote = function() {
-  let remote = new safe_browsing.mojom.PhishingImageEmbedderDetectorRemote();
+mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetector.getRemote = function() {
+  let remote = new mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetectorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1268,7 +1273,7 @@ safe_browsing.mojom.PhishingImageEmbedderDetector.getRemote = function() {
   return remote.$;
 };
 
-safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver = class {
+mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -1317,7 +1322,7 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver = class {
         // Try Method 0: StartImageEmbedding
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartImageEmbedding (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1334,14 +1339,14 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startImageEmbedding');
-          const result = this.impl.startImageEmbedding(params.url);
+          const result = this.impl.startImageEmbedding(params.arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] StartImageEmbedding FAILED:', e));
           }
@@ -1355,44 +1360,44 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver = class {
   }
 };
 
-safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver = safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver;
+mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver = mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver;
 
-safe_browsing.mojom.PhishingImageEmbedderDetectorPtr = safe_browsing.mojom.PhishingImageEmbedderDetectorRemote;
-safe_browsing.mojom.PhishingImageEmbedderDetectorRequest = safe_browsing.mojom.PhishingImageEmbedderDetectorPendingReceiver;
+mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetectorPtr = mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetectorRemote;
+mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetectorRequest = mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetectorPendingReceiver;
 
 
 // Interface: ExtensionWebRequestReporter
 mojo.internal.Struct(
-    safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec, 'safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_Params', [
-      mojo.internal.StructField('origin_extension_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('telemetry_url', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('protocol_type', 16, 0, safe_browsing.mojom.WebRequestProtocolTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('contact_initiator_type', 24, 0, safe_browsing.mojom.WebRequestContactInitiatorTypeSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec, 'safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_Params', [
+      mojo.internal.StructField('arg_origin_extension_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_telemetry_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_protocol_type', 16, 0, mojo.internal.bindings.mojo.internal.bindings.safe_browsing.mojom.WebRequestProtocolTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_contact_initiator_type', 24, 0, mojo.internal.bindings.mojo.internal.bindings.safe_browsing.mojom.WebRequestContactInitiatorTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
-    safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec, 'safe_browsing.mojom.ExtensionWebRequestReporter_Clone_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.InterfaceRequest(safe_browsing.mojom.ExtensionWebRequestReporterSpec), null, false, 0, undefined),
+    mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec, 'safe_browsing.mojom.ExtensionWebRequestReporter_Clone_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporterSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-safe_browsing.mojom.ExtensionWebRequestReporterPendingReceiver = class {
+mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-safe_browsing.mojom.ExtensionWebRequestReporterRemote = class {
+mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporterRemote = class {
   static get $interfaceName() {
     return 'safe_browsing.mojom.ExtensionWebRequestReporter';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      safe_browsing.mojom.ExtensionWebRequestReporterPendingReceiver,
+      mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporterPendingReceiver,
       handle);
-    this.$ = new safe_browsing.mojom.ExtensionWebRequestReporterRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporterRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -1402,15 +1407,15 @@ safe_browsing.mojom.ExtensionWebRequestReporterRemote = class {
   close() {
     this.proxy.close();
   }
-  sendWebRequestData(origin_extension_id, telemetry_url, protocol_type, contact_initiator_type) {
-    return this.$.sendWebRequestData(origin_extension_id, telemetry_url, protocol_type, contact_initiator_type);
+  sendWebRequestData(arg_origin_extension_id, arg_telemetry_url, arg_protocol_type, arg_contact_initiator_type) {
+    return this.$.sendWebRequestData(arg_origin_extension_id, arg_telemetry_url, arg_protocol_type, arg_contact_initiator_type);
   }
-  clone(receiver) {
-    return this.$.clone(receiver);
+  clone(arg_receiver) {
+    return this.$.clone(arg_receiver);
   }
 };
 
-safe_browsing.mojom.ExtensionWebRequestReporterRemoteCallHandler = class {
+mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporterRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ExtensionWebRequestReporter', [
@@ -1419,28 +1424,28 @@ safe_browsing.mojom.ExtensionWebRequestReporterRemoteCallHandler = class {
     ]);
   }
 
-  sendWebRequestData(origin_extension_id, telemetry_url, protocol_type, contact_initiator_type) {
+  sendWebRequestData(arg_origin_extension_id, arg_telemetry_url, arg_protocol_type, arg_contact_initiator_type) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec,
+      mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec,
       null,
-      [origin_extension_id, telemetry_url, protocol_type, contact_initiator_type],
+      [arg_origin_extension_id, arg_telemetry_url, arg_protocol_type, arg_contact_initiator_type],
       false);
   }
 
-  clone(receiver) {
+  clone(arg_receiver) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec,
+      mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec,
       null,
-      [receiver],
+      [arg_receiver],
       false);
   }
 
 };
 
-safe_browsing.mojom.ExtensionWebRequestReporter.getRemote = function() {
-  let remote = new safe_browsing.mojom.ExtensionWebRequestReporterRemote();
+mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter.getRemote = function() {
+  let remote = new mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporterRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -1449,7 +1454,7 @@ safe_browsing.mojom.ExtensionWebRequestReporter.getRemote = function() {
   return remote.$;
 };
 
-safe_browsing.mojom.ExtensionWebRequestReporterReceiver = class {
+mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporterReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -1499,7 +1504,7 @@ safe_browsing.mojom.ExtensionWebRequestReporterReceiver = class {
         // Try Method 0: SendWebRequestData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendWebRequestData (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -1510,7 +1515,7 @@ safe_browsing.mojom.ExtensionWebRequestReporterReceiver = class {
         // Try Method 1: Clone
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -1527,16 +1532,16 @@ safe_browsing.mojom.ExtensionWebRequestReporterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendWebRequestData');
-          const result = this.impl.sendWebRequestData(params.origin_extension_id, params.telemetry_url, params.protocol_type, params.contact_initiator_type);
+          const result = this.impl.sendWebRequestData(params.arg_origin_extension_id, params.arg_telemetry_url, params.arg_protocol_type, params.arg_contact_initiator_type);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.receiver);
+          const result = this.impl.clone(params.arg_receiver);
           break;
         }
       }
@@ -1547,8 +1552,8 @@ safe_browsing.mojom.ExtensionWebRequestReporterReceiver = class {
   }
 };
 
-safe_browsing.mojom.ExtensionWebRequestReporterReceiver = safe_browsing.mojom.ExtensionWebRequestReporterReceiver;
+mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporterReceiver = mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporterReceiver;
 
-safe_browsing.mojom.ExtensionWebRequestReporterPtr = safe_browsing.mojom.ExtensionWebRequestReporterRemote;
-safe_browsing.mojom.ExtensionWebRequestReporterRequest = safe_browsing.mojom.ExtensionWebRequestReporterPendingReceiver;
+mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporterPtr = mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporterRemote;
+mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporterRequest = mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporterPendingReceiver;
 

@@ -1,93 +1,98 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/chromeos/components/mahi/public/mojom/content_extraction.mojom
-// Module: mahi.mojom
+ // Source: chromium_src/chromeos/components/mahi/public/mojom/content_extraction.mojom
+ // Module: mahi.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var mahi = mahi || {};
-mahi.mojom = mahi.mojom || {};
-var screen_ai = screen_ai || {};
-var mojo_base = mojo_base || {};
-var sandbox = sandbox || {};
-var ax = ax || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-mahi.mojom.ResponseStatusSpec = { $: mojo.internal.Enum() };
-mahi.mojom.ExtractionMethodsSpec = { $: {} };
-mahi.mojom.ExtractionRequestSpec = { $: {} };
-mahi.mojom.ExtractionResponseSpec = { $: {} };
-mahi.mojom.ContentSizeResponseSpec = { $: {} };
-mahi.mojom.ContentExtractionService = {};
-mahi.mojom.ContentExtractionService.$interfaceName = 'mahi.mojom.ContentExtractionService';
-mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec = { $: {} };
-mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec = { $: {} };
-mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec = { $: {} };
-mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec = { $: {} };
-mahi.mojom.ContentExtractionServiceFactory = {};
-mahi.mojom.ContentExtractionServiceFactory.$interfaceName = 'mahi.mojom.ContentExtractionServiceFactory';
-mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec = { $: {} };
-mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec = { $: {} };
+ mojo.internal.bindings.mahi = mojo.internal.bindings.mahi || {};
+mojo.internal.bindings.mahi.mojom = mojo.internal.bindings.mahi.mojom || {};
+mojo.internal.bindings.screen_ai = mojo.internal.bindings.screen_ai || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+
+mojo.internal.bindings.mahi.mojom.ResponseStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.mahi.mojom.ExtractionMethodsSpec = { $: {} };
+mojo.internal.bindings.mahi.mojom.ExtractionRequestSpec = { $: {} };
+mojo.internal.bindings.mahi.mojom.ExtractionResponseSpec = { $: {} };
+mojo.internal.bindings.mahi.mojom.ContentSizeResponseSpec = { $: {} };
+mojo.internal.bindings.mahi.mojom.ContentExtractionService = {};
+mojo.internal.bindings.mahi.mojom.ContentExtractionService.$interfaceName = 'mahi.mojom.ContentExtractionService';
+mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec = { $: {} };
+mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec = { $: {} };
+mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory = {};
+mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory.$interfaceName = 'mahi.mojom.ContentExtractionServiceFactory';
+mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec = { $: {} };
+mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec = { $: {} };
 
 // Enum: ResponseStatus
-mahi.mojom.ResponseStatus = {
+mojo.internal.bindings.mahi.mojom.ResponseStatus = {
   kSuccess: 0,
   kUnknownError: 1,
   kScreen2xNotAvailable: 2,
@@ -95,80 +100,80 @@ mahi.mojom.ResponseStatus = {
 
 // Struct: ExtractionMethods
 mojo.internal.Struct(
-    mahi.mojom.ExtractionMethodsSpec, 'mahi.mojom.ExtractionMethods', [
-      mojo.internal.StructField('use_algorithm', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('use_screen2x', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.mahi.mojom.ExtractionMethodsSpec, 'mahi.mojom.ExtractionMethods', [
+      mojo.internal.StructField('arg_use_algorithm', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_use_screen2x', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: ExtractionRequest
 mojo.internal.Struct(
-    mahi.mojom.ExtractionRequestSpec, 'mahi.mojom.ExtractionRequest', [
-      mojo.internal.StructField('deprecated_ukm_source_id_$value', 0, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'deprecated_ukm_source_id_$flag', originalFieldName: 'deprecated_ukm_source_id' }),
-      mojo.internal.StructField('snapshot', 8, 0, ax.mojom.AXTreeUpdateSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('extraction_methods', 16, 0, mahi.mojom.ExtractionMethodsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('updates', 24, 0, mojo.internal.Array(ax.mojom.AXTreeUpdateSpec.$, false), null, true, 0, undefined),
-      mojo.internal.StructField('deprecated_ukm_source_id_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'deprecated_ukm_source_id_$value', originalFieldName: 'deprecated_ukm_source_id' }),
+    mojo.internal.bindings.mahi.mojom.ExtractionRequestSpec, 'mahi.mojom.ExtractionRequest', [
+      mojo.internal.StructField('arg_deprecated_ukm_source_id_$value', 0, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_deprecated_ukm_source_id_$flag', originalFieldName: 'arg_deprecated_ukm_source_id' }),
+      mojo.internal.StructField('arg_snapshot', 8, 0, mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_extraction_methods', 16, 0, mojo.internal.bindings.mojo.internal.bindings.mahi.mojom.ExtractionMethodsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_updates', 24, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_deprecated_ukm_source_id_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_deprecated_ukm_source_id_$value', originalFieldName: 'arg_deprecated_ukm_source_id' }),
     ],
     [[0, 48]]);
 
 // Struct: ExtractionResponse
 mojo.internal.Struct(
-    mahi.mojom.ExtractionResponseSpec, 'mahi.mojom.ExtractionResponse', [
-      mojo.internal.StructField('contents', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('status', 8, 0, mahi.mojom.ResponseStatusSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.mahi.mojom.ExtractionResponseSpec, 'mahi.mojom.ExtractionResponse', [
+      mojo.internal.StructField('arg_contents', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.mojo.internal.bindings.mahi.mojom.ResponseStatusSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: ContentSizeResponse
 mojo.internal.Struct(
-    mahi.mojom.ContentSizeResponseSpec, 'mahi.mojom.ContentSizeResponse', [
-      mojo.internal.StructField('status', 0, 0, mahi.mojom.ResponseStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('word_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    mojo.internal.bindings.mahi.mojom.ContentSizeResponseSpec, 'mahi.mojom.ContentSizeResponse', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mahi.mojom.ResponseStatusSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_word_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: ContentExtractionService
 mojo.internal.Struct(
-    mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec, 'mahi.mojom.ContentExtractionService_ExtractContent_Params', [
-      mojo.internal.StructField('extraction_request', 0, 0, mahi.mojom.ExtractionRequestSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec, 'mahi.mojom.ContentExtractionService_ExtractContent_Params', [
+      mojo.internal.StructField('arg_extraction_request', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mahi.mojom.ExtractionRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec, 'mahi.mojom.ContentExtractionService_ExtractContent_ResponseParams', [
-      mojo.internal.StructField('extraction_response', 0, 0, mahi.mojom.ExtractionResponseSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec, 'mahi.mojom.ContentExtractionService_ExtractContent_ResponseParams', [
+      mojo.internal.StructField('arg_extraction_response', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mahi.mojom.ExtractionResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec, 'mahi.mojom.ContentExtractionService_GetContentSize_Params', [
-      mojo.internal.StructField('extraction_request', 0, 0, mahi.mojom.ExtractionRequestSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec, 'mahi.mojom.ContentExtractionService_GetContentSize_Params', [
+      mojo.internal.StructField('arg_extraction_request', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mahi.mojom.ExtractionRequestSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec, 'mahi.mojom.ContentExtractionService_GetContentSize_ResponseParams', [
-      mojo.internal.StructField('contents_size_response', 0, 0, mahi.mojom.ContentSizeResponseSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec, 'mahi.mojom.ContentExtractionService_GetContentSize_ResponseParams', [
+      mojo.internal.StructField('arg_contents_size_response', 0, 0, mojo.internal.bindings.mojo.internal.bindings.mahi.mojom.ContentSizeResponseSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-mahi.mojom.ContentExtractionServicePendingReceiver = class {
+mojo.internal.bindings.mahi.mojom.ContentExtractionServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-mahi.mojom.ContentExtractionServiceRemote = class {
+mojo.internal.bindings.mahi.mojom.ContentExtractionServiceRemote = class {
   static get $interfaceName() {
     return 'mahi.mojom.ContentExtractionService';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mahi.mojom.ContentExtractionServicePendingReceiver,
+      mojo.internal.bindings.mahi.mojom.ContentExtractionServicePendingReceiver,
       handle);
-    this.$ = new mahi.mojom.ContentExtractionServiceRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.mahi.mojom.ContentExtractionServiceRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -178,15 +183,15 @@ mahi.mojom.ContentExtractionServiceRemote = class {
   close() {
     this.proxy.close();
   }
-  extractContent(extraction_request) {
-    return this.$.extractContent(extraction_request);
+  extractContent(arg_extraction_request) {
+    return this.$.extractContent(arg_extraction_request);
   }
-  getContentSize(extraction_request) {
-    return this.$.getContentSize(extraction_request);
+  getContentSize(arg_extraction_request) {
+    return this.$.getContentSize(arg_extraction_request);
   }
 };
 
-mahi.mojom.ContentExtractionServiceRemoteCallHandler = class {
+mojo.internal.bindings.mahi.mojom.ContentExtractionServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ContentExtractionService', [
@@ -195,28 +200,28 @@ mahi.mojom.ContentExtractionServiceRemoteCallHandler = class {
     ]);
   }
 
-  extractContent(extraction_request) {
+  extractContent(arg_extraction_request) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec,
-      mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec,
-      [extraction_request],
+      mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec,
+      mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec,
+      [arg_extraction_request],
       false);
   }
 
-  getContentSize(extraction_request) {
+  getContentSize(arg_extraction_request) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec,
-      mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec,
-      [extraction_request],
+      mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec,
+      mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec,
+      [arg_extraction_request],
       false);
   }
 
 };
 
-mahi.mojom.ContentExtractionService.getRemote = function() {
-  let remote = new mahi.mojom.ContentExtractionServiceRemote();
+mojo.internal.bindings.mahi.mojom.ContentExtractionService.getRemote = function() {
+  let remote = new mojo.internal.bindings.mahi.mojom.ContentExtractionServiceRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -225,7 +230,7 @@ mahi.mojom.ContentExtractionService.getRemote = function() {
   return remote.$;
 };
 
-mahi.mojom.ContentExtractionServiceReceiver = class {
+mojo.internal.bindings.mahi.mojom.ContentExtractionServiceReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -275,7 +280,7 @@ mahi.mojom.ContentExtractionServiceReceiver = class {
         // Try Method 0: ExtractContent
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExtractContent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -286,7 +291,7 @@ mahi.mojom.ContentExtractionServiceReceiver = class {
         // Try Method 1: GetContentSize
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetContentSize (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -303,14 +308,14 @@ mahi.mojom.ContentExtractionServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.extractContent');
-          const result = this.impl.extractContent(params.extraction_request);
+          const result = this.impl.extractContent(params.arg_extraction_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] ExtractContent FAILED:', e));
           }
@@ -318,14 +323,14 @@ mahi.mojom.ContentExtractionServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getContentSize');
-          const result = this.impl.getContentSize(params.extraction_request);
+          const result = this.impl.getContentSize(params.arg_extraction_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetContentSize FAILED:', e));
           }
@@ -339,41 +344,41 @@ mahi.mojom.ContentExtractionServiceReceiver = class {
   }
 };
 
-mahi.mojom.ContentExtractionServiceReceiver = mahi.mojom.ContentExtractionServiceReceiver;
+mojo.internal.bindings.mahi.mojom.ContentExtractionServiceReceiver = mojo.internal.bindings.mahi.mojom.ContentExtractionServiceReceiver;
 
-mahi.mojom.ContentExtractionServicePtr = mahi.mojom.ContentExtractionServiceRemote;
-mahi.mojom.ContentExtractionServiceRequest = mahi.mojom.ContentExtractionServicePendingReceiver;
+mojo.internal.bindings.mahi.mojom.ContentExtractionServicePtr = mojo.internal.bindings.mahi.mojom.ContentExtractionServiceRemote;
+mojo.internal.bindings.mahi.mojom.ContentExtractionServiceRequest = mojo.internal.bindings.mahi.mojom.ContentExtractionServicePendingReceiver;
 
 
 // Interface: ContentExtractionServiceFactory
 mojo.internal.Struct(
-    mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec, 'mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_Params', [
-      mojo.internal.StructField('content_extraction_service', 0, 0, mojo.internal.InterfaceRequest(mahi.mojom.ContentExtractionServiceSpec), null, false, 0, undefined),
+    mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec, 'mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_Params', [
+      mojo.internal.StructField('arg_content_extraction_service', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.mahi.mojom.ContentExtractionServiceSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec, 'mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_Params', [
-      mojo.internal.StructField('extractor', 0, 0, mojo.internal.InterfaceProxy(screen_ai.mojom.Screen2xMainContentExtractorRemote), null, false, 0, undefined),
+    mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec, 'mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_Params', [
+      mojo.internal.StructField('arg_extractor', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-mahi.mojom.ContentExtractionServiceFactoryPendingReceiver = class {
+mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-mahi.mojom.ContentExtractionServiceFactoryRemote = class {
+mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryRemote = class {
   static get $interfaceName() {
     return 'mahi.mojom.ContentExtractionServiceFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mahi.mojom.ContentExtractionServiceFactoryPendingReceiver,
+      mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryPendingReceiver,
       handle);
-    this.$ = new mahi.mojom.ContentExtractionServiceFactoryRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -383,15 +388,15 @@ mahi.mojom.ContentExtractionServiceFactoryRemote = class {
   close() {
     this.proxy.close();
   }
-  bindContentExtractionService(content_extraction_service) {
-    return this.$.bindContentExtractionService(content_extraction_service);
+  bindContentExtractionService(arg_content_extraction_service) {
+    return this.$.bindContentExtractionService(arg_content_extraction_service);
   }
-  onScreen2xReady(extractor) {
-    return this.$.onScreen2xReady(extractor);
+  onScreen2xReady(arg_extractor) {
+    return this.$.onScreen2xReady(arg_extractor);
   }
 };
 
-mahi.mojom.ContentExtractionServiceFactoryRemoteCallHandler = class {
+mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ContentExtractionServiceFactory', [
@@ -400,28 +405,28 @@ mahi.mojom.ContentExtractionServiceFactoryRemoteCallHandler = class {
     ]);
   }
 
-  bindContentExtractionService(content_extraction_service) {
+  bindContentExtractionService(arg_content_extraction_service) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec,
+      mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec,
       null,
-      [content_extraction_service],
+      [arg_content_extraction_service],
       false);
   }
 
-  onScreen2xReady(extractor) {
+  onScreen2xReady(arg_extractor) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec,
+      mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec,
       null,
-      [extractor],
+      [arg_extractor],
       false);
   }
 
 };
 
-mahi.mojom.ContentExtractionServiceFactory.getRemote = function() {
-  let remote = new mahi.mojom.ContentExtractionServiceFactoryRemote();
+mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory.getRemote = function() {
+  let remote = new mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -430,7 +435,7 @@ mahi.mojom.ContentExtractionServiceFactory.getRemote = function() {
   return remote.$;
 };
 
-mahi.mojom.ContentExtractionServiceFactoryReceiver = class {
+mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -480,7 +485,7 @@ mahi.mojom.ContentExtractionServiceFactoryReceiver = class {
         // Try Method 0: BindContentExtractionService
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindContentExtractionService (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -491,7 +496,7 @@ mahi.mojom.ContentExtractionServiceFactoryReceiver = class {
         // Try Method 1: OnScreen2xReady
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScreen2xReady (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -508,16 +513,16 @@ mahi.mojom.ContentExtractionServiceFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindContentExtractionService');
-          const result = this.impl.bindContentExtractionService(params.content_extraction_service);
+          const result = this.impl.bindContentExtractionService(params.arg_content_extraction_service);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScreen2xReady');
-          const result = this.impl.onScreen2xReady(params.extractor);
+          const result = this.impl.onScreen2xReady(params.arg_extractor);
           break;
         }
       }
@@ -528,8 +533,8 @@ mahi.mojom.ContentExtractionServiceFactoryReceiver = class {
   }
 };
 
-mahi.mojom.ContentExtractionServiceFactoryReceiver = mahi.mojom.ContentExtractionServiceFactoryReceiver;
+mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryReceiver = mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryReceiver;
 
-mahi.mojom.ContentExtractionServiceFactoryPtr = mahi.mojom.ContentExtractionServiceFactoryRemote;
-mahi.mojom.ContentExtractionServiceFactoryRequest = mahi.mojom.ContentExtractionServiceFactoryPendingReceiver;
+mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryPtr = mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryRemote;
+mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryRequest = mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryPendingReceiver;
 

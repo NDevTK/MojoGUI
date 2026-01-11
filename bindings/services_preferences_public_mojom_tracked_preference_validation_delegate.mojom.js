@@ -1,80 +1,85 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/services/preferences/public/mojom/tracked_preference_validation_delegate.mojom
-// Module: prefs.mojom
+ // Source: chromium_src/services/preferences/public/mojom/tracked_preference_validation_delegate.mojom
+ // Module: prefs.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var prefs = prefs || {};
-prefs.mojom = prefs.mojom || {};
-var mojo_base = mojo_base || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-prefs.mojom.ValueStateSpec = { $: mojo.internal.Enum() };
-prefs.mojom.TrackedPreferenceValidationDelegate = {};
-prefs.mojom.TrackedPreferenceValidationDelegate.$interfaceName = 'prefs.mojom.TrackedPreferenceValidationDelegate';
-prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec = { $: {} };
-prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec = { $: {} };
+ mojo.internal.bindings.prefs = mojo.internal.bindings.prefs || {};
+mojo.internal.bindings.prefs.mojom = mojo.internal.bindings.prefs.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+
+mojo.internal.bindings.prefs.mojom.ValueStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate = {};
+mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate.$interfaceName = 'prefs.mojom.TrackedPreferenceValidationDelegate';
+mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec = { $: {} };
+mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec = { $: {} };
 
 // Enum: ValueState
-prefs.mojom.ValueState = {
+mojo.internal.bindings.prefs.mojom.ValueState = {
   UNCHANGED: 0,
   CLEARED: 1,
   CHANGED: 2,
@@ -92,42 +97,42 @@ prefs.mojom.ValueState = {
 
 // Interface: TrackedPreferenceValidationDelegate
 mojo.internal.Struct(
-    prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec, 'prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_Params', [
-      mojo.internal.StructField('pref_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('value', 8, 0, mojo_base.mojom.ValueSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('value_state', 16, 0, prefs.mojom.ValueStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('external_validation_value_state', 24, 0, prefs.mojom.ValueStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('is_personal', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec, 'prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_Params', [
+      mojo.internal.StructField('arg_pref_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_value_state', 16, 0, mojo.internal.bindings.mojo.internal.bindings.prefs.mojom.ValueStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_external_validation_value_state', 24, 0, mojo.internal.bindings.mojo.internal.bindings.prefs.mojom.ValueStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_personal', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
 
 mojo.internal.Struct(
-    prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec, 'prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_Params', [
-      mojo.internal.StructField('pref_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('invalid_keys', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('external_validation_invalid_keys', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('value_state', 24, 0, prefs.mojom.ValueStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('external_validation_value_state', 32, 0, prefs.mojom.ValueStateSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('is_personal', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec, 'prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_Params', [
+      mojo.internal.StructField('arg_pref_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_invalid_keys', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_external_validation_invalid_keys', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_value_state', 24, 0, mojo.internal.bindings.mojo.internal.bindings.prefs.mojom.ValueStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_external_validation_value_state', 32, 0, mojo.internal.bindings.mojo.internal.bindings.prefs.mojom.ValueStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_personal', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);
 
-prefs.mojom.TrackedPreferenceValidationDelegatePendingReceiver = class {
+mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-prefs.mojom.TrackedPreferenceValidationDelegateRemote = class {
+mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateRemote = class {
   static get $interfaceName() {
     return 'prefs.mojom.TrackedPreferenceValidationDelegate';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      prefs.mojom.TrackedPreferenceValidationDelegatePendingReceiver,
+      mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegatePendingReceiver,
       handle);
-    this.$ = new prefs.mojom.TrackedPreferenceValidationDelegateRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -137,15 +142,15 @@ prefs.mojom.TrackedPreferenceValidationDelegateRemote = class {
   close() {
     this.proxy.close();
   }
-  onAtomicPreferenceValidation(pref_path, value, value_state, external_validation_value_state, is_personal) {
-    return this.$.onAtomicPreferenceValidation(pref_path, value, value_state, external_validation_value_state, is_personal);
+  onAtomicPreferenceValidation(arg_pref_path, arg_value, arg_value_state, arg_external_validation_value_state, arg_is_personal) {
+    return this.$.onAtomicPreferenceValidation(arg_pref_path, arg_value, arg_value_state, arg_external_validation_value_state, arg_is_personal);
   }
-  onSplitPreferenceValidation(pref_path, invalid_keys, external_validation_invalid_keys, value_state, external_validation_value_state, is_personal) {
-    return this.$.onSplitPreferenceValidation(pref_path, invalid_keys, external_validation_invalid_keys, value_state, external_validation_value_state, is_personal);
+  onSplitPreferenceValidation(arg_pref_path, arg_invalid_keys, arg_external_validation_invalid_keys, arg_value_state, arg_external_validation_value_state, arg_is_personal) {
+    return this.$.onSplitPreferenceValidation(arg_pref_path, arg_invalid_keys, arg_external_validation_invalid_keys, arg_value_state, arg_external_validation_value_state, arg_is_personal);
   }
 };
 
-prefs.mojom.TrackedPreferenceValidationDelegateRemoteCallHandler = class {
+mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('TrackedPreferenceValidationDelegate', [
@@ -154,28 +159,28 @@ prefs.mojom.TrackedPreferenceValidationDelegateRemoteCallHandler = class {
     ]);
   }
 
-  onAtomicPreferenceValidation(pref_path, value, value_state, external_validation_value_state, is_personal) {
+  onAtomicPreferenceValidation(arg_pref_path, arg_value, arg_value_state, arg_external_validation_value_state, arg_is_personal) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec,
+      mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec,
       null,
-      [pref_path, value, value_state, external_validation_value_state, is_personal],
+      [arg_pref_path, arg_value, arg_value_state, arg_external_validation_value_state, arg_is_personal],
       false);
   }
 
-  onSplitPreferenceValidation(pref_path, invalid_keys, external_validation_invalid_keys, value_state, external_validation_value_state, is_personal) {
+  onSplitPreferenceValidation(arg_pref_path, arg_invalid_keys, arg_external_validation_invalid_keys, arg_value_state, arg_external_validation_value_state, arg_is_personal) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec,
+      mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec,
       null,
-      [pref_path, invalid_keys, external_validation_invalid_keys, value_state, external_validation_value_state, is_personal],
+      [arg_pref_path, arg_invalid_keys, arg_external_validation_invalid_keys, arg_value_state, arg_external_validation_value_state, arg_is_personal],
       false);
   }
 
 };
 
-prefs.mojom.TrackedPreferenceValidationDelegate.getRemote = function() {
-  let remote = new prefs.mojom.TrackedPreferenceValidationDelegateRemote();
+mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate.getRemote = function() {
+  let remote = new mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -184,7 +189,7 @@ prefs.mojom.TrackedPreferenceValidationDelegate.getRemote = function() {
   return remote.$;
 };
 
-prefs.mojom.TrackedPreferenceValidationDelegateReceiver = class {
+mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -234,7 +239,7 @@ prefs.mojom.TrackedPreferenceValidationDelegateReceiver = class {
         // Try Method 0: OnAtomicPreferenceValidation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAtomicPreferenceValidation (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -245,7 +250,7 @@ prefs.mojom.TrackedPreferenceValidationDelegateReceiver = class {
         // Try Method 1: OnSplitPreferenceValidation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSplitPreferenceValidation (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -262,16 +267,16 @@ prefs.mojom.TrackedPreferenceValidationDelegateReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAtomicPreferenceValidation');
-          const result = this.impl.onAtomicPreferenceValidation(params.pref_path, params.value, params.value_state, params.external_validation_value_state, params.is_personal);
+          const result = this.impl.onAtomicPreferenceValidation(params.arg_pref_path, params.arg_value, params.arg_value_state, params.arg_external_validation_value_state, params.arg_is_personal);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSplitPreferenceValidation');
-          const result = this.impl.onSplitPreferenceValidation(params.pref_path, params.invalid_keys, params.external_validation_invalid_keys, params.value_state, params.external_validation_value_state, params.is_personal);
+          const result = this.impl.onSplitPreferenceValidation(params.arg_pref_path, params.arg_invalid_keys, params.arg_external_validation_invalid_keys, params.arg_value_state, params.arg_external_validation_value_state, params.arg_is_personal);
           break;
         }
       }
@@ -282,8 +287,8 @@ prefs.mojom.TrackedPreferenceValidationDelegateReceiver = class {
   }
 };
 
-prefs.mojom.TrackedPreferenceValidationDelegateReceiver = prefs.mojom.TrackedPreferenceValidationDelegateReceiver;
+mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateReceiver = mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateReceiver;
 
-prefs.mojom.TrackedPreferenceValidationDelegatePtr = prefs.mojom.TrackedPreferenceValidationDelegateRemote;
-prefs.mojom.TrackedPreferenceValidationDelegateRequest = prefs.mojom.TrackedPreferenceValidationDelegatePendingReceiver;
+mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegatePtr = mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateRemote;
+mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateRequest = mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegatePendingReceiver;
 

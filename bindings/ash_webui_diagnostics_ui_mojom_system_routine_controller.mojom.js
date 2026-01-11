@@ -1,88 +1,93 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/ash/webui/diagnostics_ui/mojom/system_routine_controller.mojom
-// Module: ash.diagnostics.mojom
+ // Source: chromium_src/ash/webui/diagnostics_ui/mojom/system_routine_controller.mojom
+ // Module: ash.diagnostics.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var ash = ash || {};
-ash.diagnostics = ash.diagnostics || {};
-ash.diagnostics.mojom = ash.diagnostics.mojom || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-ash.diagnostics.mojom.RoutineTypeSpec = { $: mojo.internal.Enum() };
-ash.diagnostics.mojom.StandardRoutineResultSpec = { $: mojo.internal.Enum() };
-ash.diagnostics.mojom.RoutineResultSpec = { $: {} };
-ash.diagnostics.mojom.PowerRoutineResultSpec = { $: {} };
-ash.diagnostics.mojom.RoutineResultInfoSpec = { $: {} };
-ash.diagnostics.mojom.RoutineRunner = {};
-ash.diagnostics.mojom.RoutineRunner.$interfaceName = 'ash.diagnostics.mojom.RoutineRunner';
-ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec = { $: {} };
-ash.diagnostics.mojom.SystemRoutineController = {};
-ash.diagnostics.mojom.SystemRoutineController.$interfaceName = 'ash.diagnostics.mojom.SystemRoutineController';
-ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec = { $: {} };
-ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec = { $: {} };
-ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec = { $: {} };
+ mojo.internal.bindings.ash = mojo.internal.bindings.ash || {};
+mojo.internal.bindings.ash.diagnostics = mojo.internal.bindings.ash.diagnostics || {};
+mojo.internal.bindings.ash.diagnostics.mojom = mojo.internal.bindings.ash.diagnostics.mojom || {};
+
+mojo.internal.bindings.ash.diagnostics.mojom.RoutineTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.diagnostics.mojom.StandardRoutineResultSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultSpec = { $: {} };
+mojo.internal.bindings.ash.diagnostics.mojom.PowerRoutineResultSpec = { $: {} };
+mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultInfoSpec = { $: {} };
+mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner = {};
+mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner.$interfaceName = 'ash.diagnostics.mojom.RoutineRunner';
+mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController = {};
+mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController.$interfaceName = 'ash.diagnostics.mojom.SystemRoutineController';
+mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec = { $: {} };
+mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec = { $: {} };
 
 // Enum: RoutineType
-ash.diagnostics.mojom.RoutineType = {
+mojo.internal.bindings.ash.diagnostics.mojom.RoutineType = {
   kBatteryCharge: 0,
   kBatteryDischarge: 1,
   kCpuCache: 2,
@@ -107,7 +112,7 @@ ash.diagnostics.mojom.RoutineType = {
 };
 
 // Enum: StandardRoutineResult
-ash.diagnostics.mojom.StandardRoutineResult = {
+mojo.internal.bindings.ash.diagnostics.mojom.StandardRoutineResult = {
   kTestPassed: 0,
   kTestFailed: 1,
   kExecutionError: 2,
@@ -116,59 +121,59 @@ ash.diagnostics.mojom.StandardRoutineResult = {
 
 // Union: RoutineResult
 mojo.internal.Union(
-    ash.diagnostics.mojom.RoutineResultSpec, 'ash.diagnostics.mojom.RoutineResult', {
-      'simple_result': {
+    mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultSpec, 'ash.diagnostics.mojom.RoutineResult', {
+      'arg_simple_result': {
         'ordinal': 0,
-        'type': ash.diagnostics.mojom.StandardRoutineResultSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.diagnostics.mojom.StandardRoutineResultSpec.$,
         'nullable': false,
       },
-      'power_result': {
+      'arg_power_result': {
         'ordinal': 1,
-        'type': ash.diagnostics.mojom.PowerRoutineResultSpec.$,
+        'type': mojo.internal.bindings.mojo.internal.bindings.ash.diagnostics.mojom.PowerRoutineResultSpec.$,
         'nullable': false,
       },
     });
 
 // Struct: PowerRoutineResult
 mojo.internal.Struct(
-    ash.diagnostics.mojom.PowerRoutineResultSpec, 'ash.diagnostics.mojom.PowerRoutineResult', [
-      mojo.internal.StructField('simple_result', 0, 0, ash.diagnostics.mojom.StandardRoutineResultSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('percent_change', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('time_elapsed_seconds', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    mojo.internal.bindings.ash.diagnostics.mojom.PowerRoutineResultSpec, 'ash.diagnostics.mojom.PowerRoutineResult', [
+      mojo.internal.StructField('arg_simple_result', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.diagnostics.mojom.StandardRoutineResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_percent_change', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_time_elapsed_seconds', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
 // Struct: RoutineResultInfo
 mojo.internal.Struct(
-    ash.diagnostics.mojom.RoutineResultInfoSpec, 'ash.diagnostics.mojom.RoutineResultInfo', [
-      mojo.internal.StructField('type', 0, 0, ash.diagnostics.mojom.RoutineTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('result', 8, 0, ash.diagnostics.mojom.RoutineResultSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultInfoSpec, 'ash.diagnostics.mojom.RoutineResultInfo', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.diagnostics.mojom.RoutineTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Interface: RoutineRunner
 mojo.internal.Struct(
-    ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec, 'ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_Params', [
-      mojo.internal.StructField('info', 0, 0, ash.diagnostics.mojom.RoutineResultInfoSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec, 'ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_Params', [
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultInfoSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-ash.diagnostics.mojom.RoutineRunnerPendingReceiver = class {
+mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.diagnostics.mojom.RoutineRunnerRemote = class {
+mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerRemote = class {
   static get $interfaceName() {
     return 'ash.diagnostics.mojom.RoutineRunner';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.diagnostics.mojom.RoutineRunnerPendingReceiver,
+      mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerPendingReceiver,
       handle);
-    this.$ = new ash.diagnostics.mojom.RoutineRunnerRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -178,12 +183,12 @@ ash.diagnostics.mojom.RoutineRunnerRemote = class {
   close() {
     this.proxy.close();
   }
-  onRoutineResult(info) {
-    return this.$.onRoutineResult(info);
+  onRoutineResult(arg_info) {
+    return this.$.onRoutineResult(arg_info);
   }
 };
 
-ash.diagnostics.mojom.RoutineRunnerRemoteCallHandler = class {
+mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('RoutineRunner', [
@@ -191,19 +196,19 @@ ash.diagnostics.mojom.RoutineRunnerRemoteCallHandler = class {
     ]);
   }
 
-  onRoutineResult(info) {
+  onRoutineResult(arg_info) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec,
+      mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec,
       null,
-      [info],
+      [arg_info],
       false);
   }
 
 };
 
-ash.diagnostics.mojom.RoutineRunner.getRemote = function() {
-  let remote = new ash.diagnostics.mojom.RoutineRunnerRemote();
+mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -212,7 +217,7 @@ ash.diagnostics.mojom.RoutineRunner.getRemote = function() {
   return remote.$;
 };
 
-ash.diagnostics.mojom.RoutineRunnerReceiver = class {
+mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -261,7 +266,7 @@ ash.diagnostics.mojom.RoutineRunnerReceiver = class {
         // Try Method 0: OnRoutineResult
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnRoutineResult (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -278,9 +283,9 @@ ash.diagnostics.mojom.RoutineRunnerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRoutineResult');
-          const result = this.impl.onRoutineResult(params.info);
+          const result = this.impl.onRoutineResult(params.arg_info);
           break;
         }
       }
@@ -291,47 +296,47 @@ ash.diagnostics.mojom.RoutineRunnerReceiver = class {
   }
 };
 
-ash.diagnostics.mojom.RoutineRunnerReceiver = ash.diagnostics.mojom.RoutineRunnerReceiver;
+mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerReceiver = mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerReceiver;
 
-ash.diagnostics.mojom.RoutineRunnerPtr = ash.diagnostics.mojom.RoutineRunnerRemote;
-ash.diagnostics.mojom.RoutineRunnerRequest = ash.diagnostics.mojom.RoutineRunnerPendingReceiver;
+mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerPtr = mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerRemote;
+mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerRequest = mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerPendingReceiver;
 
 
 // Interface: SystemRoutineController
 mojo.internal.Struct(
-    ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec, 'ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_Params', [
+    mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec, 'ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec, 'ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParams', [
-      mojo.internal.StructField('routines', 0, 0, mojo.internal.Array(ash.diagnostics.mojom.RoutineTypeSpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec, 'ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParams', [
+      mojo.internal.StructField('arg_routines', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo.internal.bindings.ash.diagnostics.mojom.RoutineTypeSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec, 'ash.diagnostics.mojom.SystemRoutineController_RunRoutine_Params', [
-      mojo.internal.StructField('type', 0, 0, ash.diagnostics.mojom.RoutineTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('runner', 8, 0, mojo.internal.InterfaceProxy(ash.diagnostics.mojom.RoutineRunnerSpec), null, false, 0, undefined),
+    mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec, 'ash.diagnostics.mojom.SystemRoutineController_RunRoutine_Params', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.ash.diagnostics.mojom.RoutineTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_runner', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
-ash.diagnostics.mojom.SystemRoutineControllerPendingReceiver = class {
+mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ash.diagnostics.mojom.SystemRoutineControllerRemote = class {
+mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerRemote = class {
   static get $interfaceName() {
     return 'ash.diagnostics.mojom.SystemRoutineController';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ash.diagnostics.mojom.SystemRoutineControllerPendingReceiver,
+      mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerPendingReceiver,
       handle);
-    this.$ = new ash.diagnostics.mojom.SystemRoutineControllerRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -344,12 +349,12 @@ ash.diagnostics.mojom.SystemRoutineControllerRemote = class {
   getSupportedRoutines() {
     return this.$.getSupportedRoutines();
   }
-  runRoutine(type, runner) {
-    return this.$.runRoutine(type, runner);
+  runRoutine(arg_type, arg_runner) {
+    return this.$.runRoutine(arg_type, arg_runner);
   }
 };
 
-ash.diagnostics.mojom.SystemRoutineControllerRemoteCallHandler = class {
+mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('SystemRoutineController', [
@@ -361,25 +366,25 @@ ash.diagnostics.mojom.SystemRoutineControllerRemoteCallHandler = class {
   getSupportedRoutines() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec,
-      ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec,
+      mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec,
+      mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec,
       [],
       false);
   }
 
-  runRoutine(type, runner) {
+  runRoutine(arg_type, arg_runner) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec,
+      mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec,
       null,
-      [type, runner],
+      [arg_type, arg_runner],
       false);
   }
 
 };
 
-ash.diagnostics.mojom.SystemRoutineController.getRemote = function() {
-  let remote = new ash.diagnostics.mojom.SystemRoutineControllerRemote();
+mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -388,7 +393,7 @@ ash.diagnostics.mojom.SystemRoutineController.getRemote = function() {
   return remote.$;
 };
 
-ash.diagnostics.mojom.SystemRoutineControllerReceiver = class {
+mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -438,7 +443,7 @@ ash.diagnostics.mojom.SystemRoutineControllerReceiver = class {
         // Try Method 0: GetSupportedRoutines
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSupportedRoutines (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -449,7 +454,7 @@ ash.diagnostics.mojom.SystemRoutineControllerReceiver = class {
         // Try Method 1: RunRoutine
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunRoutine (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -466,14 +471,14 @@ ash.diagnostics.mojom.SystemRoutineControllerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSupportedRoutines');
           const result = this.impl.getSupportedRoutines();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetSupportedRoutines FAILED:', e));
           }
@@ -481,9 +486,9 @@ ash.diagnostics.mojom.SystemRoutineControllerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runRoutine');
-          const result = this.impl.runRoutine(params.type, params.runner);
+          const result = this.impl.runRoutine(params.arg_type, params.arg_runner);
           break;
         }
       }
@@ -494,8 +499,8 @@ ash.diagnostics.mojom.SystemRoutineControllerReceiver = class {
   }
 };
 
-ash.diagnostics.mojom.SystemRoutineControllerReceiver = ash.diagnostics.mojom.SystemRoutineControllerReceiver;
+mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerReceiver = mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerReceiver;
 
-ash.diagnostics.mojom.SystemRoutineControllerPtr = ash.diagnostics.mojom.SystemRoutineControllerRemote;
-ash.diagnostics.mojom.SystemRoutineControllerRequest = ash.diagnostics.mojom.SystemRoutineControllerPendingReceiver;
+mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerPtr = mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerRemote;
+mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerRequest = mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerPendingReceiver;
 

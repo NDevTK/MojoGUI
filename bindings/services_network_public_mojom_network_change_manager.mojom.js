@@ -1,86 +1,91 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/services/network/public/mojom/network_change_manager.mojom
-// Module: network.mojom
+ // Source: chromium_src/services/network/public/mojom/network_change_manager.mojom
+ // Module: network.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var network = network || {};
-network.mojom = network.mojom || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-network.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum() };
-network.mojom.ConnectionSubtypeSpec = { $: mojo.internal.Enum() };
-network.mojom.IPAddressChangeTypeSpec = { $: mojo.internal.Enum() };
-network.mojom.NetworkChangeManagerClient = {};
-network.mojom.NetworkChangeManagerClient.$interfaceName = 'network.mojom.NetworkChangeManagerClient';
-network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec = { $: {} };
-network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec = { $: {} };
-network.mojom.NetworkChangeManager = {};
-network.mojom.NetworkChangeManager.$interfaceName = 'network.mojom.NetworkChangeManager';
-network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec = { $: {} };
-network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec = { $: {} };
-network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec = { $: {} };
+ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+
+mojo.internal.bindings.network.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.ConnectionSubtypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.IPAddressChangeTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.NetworkChangeManagerClient = {};
+mojo.internal.bindings.network.mojom.NetworkChangeManagerClient.$interfaceName = 'network.mojom.NetworkChangeManagerClient';
+mojo.internal.bindings.network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.NetworkChangeManager = {};
+mojo.internal.bindings.network.mojom.NetworkChangeManager.$interfaceName = 'network.mojom.NetworkChangeManager';
+mojo.internal.bindings.network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec = { $: {} };
 
 // Enum: ConnectionType
-network.mojom.ConnectionType = {
+mojo.internal.bindings.network.mojom.ConnectionType = {
   CONNECTION_UNKNOWN: 0,
   CONNECTION_ETHERNET: 1,
   CONNECTION_WIFI: 2,
@@ -94,7 +99,7 @@ network.mojom.ConnectionType = {
 };
 
 // Enum: ConnectionSubtype
-network.mojom.ConnectionSubtype = {
+mojo.internal.bindings.network.mojom.ConnectionSubtype = {
   SUBTYPE_UNKNOWN: 0,
   SUBTYPE_NONE: 1,
   SUBTYPE_OTHER: 2,
@@ -132,7 +137,7 @@ network.mojom.ConnectionSubtype = {
 };
 
 // Enum: IPAddressChangeType
-network.mojom.IPAddressChangeType = {
+mojo.internal.bindings.network.mojom.IPAddressChangeType = {
   IP_ADDRESS_CHANGE_NONE: 0,
   IP_ADDRESS_CHANGE_NORMAL: 1,
   IP_ADDRESS_CHANGE_IPV6_TEMPADDR: 2,
@@ -141,33 +146,33 @@ network.mojom.IPAddressChangeType = {
 
 // Interface: NetworkChangeManagerClient
 mojo.internal.Struct(
-    network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec, 'network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_Params', [
-      mojo.internal.StructField('type', 0, 0, network.mojom.ConnectionTypeSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec, 'network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_Params', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ConnectionTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec, 'network.mojom.NetworkChangeManagerClient_OnNetworkChanged_Params', [
-      mojo.internal.StructField('type', 0, 0, network.mojom.ConnectionTypeSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec, 'network.mojom.NetworkChangeManagerClient_OnNetworkChanged_Params', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ConnectionTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-network.mojom.NetworkChangeManagerClientPendingReceiver = class {
+mojo.internal.bindings.network.mojom.NetworkChangeManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.NetworkChangeManagerClientRemote = class {
+mojo.internal.bindings.network.mojom.NetworkChangeManagerClientRemote = class {
   static get $interfaceName() {
     return 'network.mojom.NetworkChangeManagerClient';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.NetworkChangeManagerClientPendingReceiver,
+      mojo.internal.bindings.network.mojom.NetworkChangeManagerClientPendingReceiver,
       handle);
-    this.$ = new network.mojom.NetworkChangeManagerClientRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.network.mojom.NetworkChangeManagerClientRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -177,15 +182,15 @@ network.mojom.NetworkChangeManagerClientRemote = class {
   close() {
     this.proxy.close();
   }
-  onInitialConnectionType(type) {
-    return this.$.onInitialConnectionType(type);
+  onInitialConnectionType(arg_type) {
+    return this.$.onInitialConnectionType(arg_type);
   }
-  onNetworkChanged(type) {
-    return this.$.onNetworkChanged(type);
+  onNetworkChanged(arg_type) {
+    return this.$.onNetworkChanged(arg_type);
   }
 };
 
-network.mojom.NetworkChangeManagerClientRemoteCallHandler = class {
+mojo.internal.bindings.network.mojom.NetworkChangeManagerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('NetworkChangeManagerClient', [
@@ -194,28 +199,28 @@ network.mojom.NetworkChangeManagerClientRemoteCallHandler = class {
     ]);
   }
 
-  onInitialConnectionType(type) {
+  onInitialConnectionType(arg_type) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec,
+      mojo.internal.bindings.network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec,
       null,
-      [type],
+      [arg_type],
       false);
   }
 
-  onNetworkChanged(type) {
+  onNetworkChanged(arg_type) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec,
+      mojo.internal.bindings.network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec,
       null,
-      [type],
+      [arg_type],
       false);
   }
 
 };
 
-network.mojom.NetworkChangeManagerClient.getRemote = function() {
-  let remote = new network.mojom.NetworkChangeManagerClientRemote();
+mojo.internal.bindings.network.mojom.NetworkChangeManagerClient.getRemote = function() {
+  let remote = new mojo.internal.bindings.network.mojom.NetworkChangeManagerClientRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -224,7 +229,7 @@ network.mojom.NetworkChangeManagerClient.getRemote = function() {
   return remote.$;
 };
 
-network.mojom.NetworkChangeManagerClientReceiver = class {
+mojo.internal.bindings.network.mojom.NetworkChangeManagerClientReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -274,7 +279,7 @@ network.mojom.NetworkChangeManagerClientReceiver = class {
         // Try Method 0: OnInitialConnectionType
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInitialConnectionType (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -285,7 +290,7 @@ network.mojom.NetworkChangeManagerClientReceiver = class {
         // Try Method 1: OnNetworkChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -302,16 +307,16 @@ network.mojom.NetworkChangeManagerClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onInitialConnectionType');
-          const result = this.impl.onInitialConnectionType(params.type);
+          const result = this.impl.onInitialConnectionType(params.arg_type);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNetworkChanged');
-          const result = this.impl.onNetworkChanged(params.type);
+          const result = this.impl.onNetworkChanged(params.arg_type);
           break;
         }
       }
@@ -322,52 +327,52 @@ network.mojom.NetworkChangeManagerClientReceiver = class {
   }
 };
 
-network.mojom.NetworkChangeManagerClientReceiver = network.mojom.NetworkChangeManagerClientReceiver;
+mojo.internal.bindings.network.mojom.NetworkChangeManagerClientReceiver = mojo.internal.bindings.network.mojom.NetworkChangeManagerClientReceiver;
 
-network.mojom.NetworkChangeManagerClientPtr = network.mojom.NetworkChangeManagerClientRemote;
-network.mojom.NetworkChangeManagerClientRequest = network.mojom.NetworkChangeManagerClientPendingReceiver;
+mojo.internal.bindings.network.mojom.NetworkChangeManagerClientPtr = mojo.internal.bindings.network.mojom.NetworkChangeManagerClientRemote;
+mojo.internal.bindings.network.mojom.NetworkChangeManagerClientRequest = mojo.internal.bindings.network.mojom.NetworkChangeManagerClientPendingReceiver;
 
 
 // Interface: NetworkChangeManager
 mojo.internal.Struct(
-    network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec, 'network.mojom.NetworkChangeManager_RequestNotifications_Params', [
-      mojo.internal.StructField('client_remote', 0, 0, mojo.internal.InterfaceProxy(network.mojom.NetworkChangeManagerClientSpec), null, false, 0, undefined),
+    mojo.internal.bindings.network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec, 'network.mojom.NetworkChangeManager_RequestNotifications_Params', [
+      mojo.internal.StructField('arg_client_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.NetworkChangeManagerClientSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec, 'network.mojom.NetworkChangeManager_OnNetworkChanged_Params', [
-      mojo.internal.StructField('ip_address_change_type', 0, 0, network.mojom.IPAddressChangeTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('new_connection_type', 8, 0, network.mojom.ConnectionTypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('new_connection_subtype', 16, 0, network.mojom.ConnectionSubtypeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('dns_changed', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('connection_type_changed', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('connection_subtype_changed', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec, 'network.mojom.NetworkChangeManager_OnNetworkChanged_Params', [
+      mojo.internal.StructField('arg_ip_address_change_type', 0, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.IPAddressChangeTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_connection_type', 8, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ConnectionTypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_connection_subtype', 16, 0, mojo.internal.bindings.mojo.internal.bindings.network.mojom.ConnectionSubtypeSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dns_changed', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_connection_type_changed', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_connection_subtype_changed', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
-    network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec, 'network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_Params', [
-      mojo.internal.StructField('notifier', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    mojo.internal.bindings.network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec, 'network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_Params', [
+      mojo.internal.StructField('arg_notifier', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-network.mojom.NetworkChangeManagerPendingReceiver = class {
+mojo.internal.bindings.network.mojom.NetworkChangeManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-network.mojom.NetworkChangeManagerRemote = class {
+mojo.internal.bindings.network.mojom.NetworkChangeManagerRemote = class {
   static get $interfaceName() {
     return 'network.mojom.NetworkChangeManager';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      network.mojom.NetworkChangeManagerPendingReceiver,
+      mojo.internal.bindings.network.mojom.NetworkChangeManagerPendingReceiver,
       handle);
-    this.$ = new network.mojom.NetworkChangeManagerRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.network.mojom.NetworkChangeManagerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -377,18 +382,18 @@ network.mojom.NetworkChangeManagerRemote = class {
   close() {
     this.proxy.close();
   }
-  requestNotifications(client_remote) {
-    return this.$.requestNotifications(client_remote);
+  requestNotifications(arg_client_remote) {
+    return this.$.requestNotifications(arg_client_remote);
   }
-  onNetworkChanged(dns_changed, ip_address_change_type, connection_type_changed, new_connection_type, connection_subtype_changed, new_connection_subtype) {
-    return this.$.onNetworkChanged(dns_changed, ip_address_change_type, connection_type_changed, new_connection_type, connection_subtype_changed, new_connection_subtype);
+  onNetworkChanged(arg_dns_changed, arg_ip_address_change_type, arg_connection_type_changed, arg_new_connection_type, arg_connection_subtype_changed, arg_new_connection_subtype) {
+    return this.$.onNetworkChanged(arg_dns_changed, arg_ip_address_change_type, arg_connection_type_changed, arg_new_connection_type, arg_connection_subtype_changed, arg_new_connection_subtype);
   }
-  bindNetworkInterfaceChangeListener(notifier) {
-    return this.$.bindNetworkInterfaceChangeListener(notifier);
+  bindNetworkInterfaceChangeListener(arg_notifier) {
+    return this.$.bindNetworkInterfaceChangeListener(arg_notifier);
   }
 };
 
-network.mojom.NetworkChangeManagerRemoteCallHandler = class {
+mojo.internal.bindings.network.mojom.NetworkChangeManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('NetworkChangeManager', [
@@ -398,37 +403,37 @@ network.mojom.NetworkChangeManagerRemoteCallHandler = class {
     ]);
   }
 
-  requestNotifications(client_remote) {
+  requestNotifications(arg_client_remote) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec,
+      mojo.internal.bindings.network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec,
       null,
-      [client_remote],
+      [arg_client_remote],
       false);
   }
 
-  onNetworkChanged(dns_changed, ip_address_change_type, connection_type_changed, new_connection_type, connection_subtype_changed, new_connection_subtype) {
+  onNetworkChanged(arg_dns_changed, arg_ip_address_change_type, arg_connection_type_changed, arg_new_connection_type, arg_connection_subtype_changed, arg_new_connection_subtype) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec,
+      mojo.internal.bindings.network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec,
       null,
-      [dns_changed, ip_address_change_type, connection_type_changed, new_connection_type, connection_subtype_changed, new_connection_subtype],
+      [arg_dns_changed, arg_ip_address_change_type, arg_connection_type_changed, arg_new_connection_type, arg_connection_subtype_changed, arg_new_connection_subtype],
       false);
   }
 
-  bindNetworkInterfaceChangeListener(notifier) {
+  bindNetworkInterfaceChangeListener(arg_notifier) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec,
+      mojo.internal.bindings.network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec,
       null,
-      [notifier],
+      [arg_notifier],
       false);
   }
 
 };
 
-network.mojom.NetworkChangeManager.getRemote = function() {
-  let remote = new network.mojom.NetworkChangeManagerRemote();
+mojo.internal.bindings.network.mojom.NetworkChangeManager.getRemote = function() {
+  let remote = new mojo.internal.bindings.network.mojom.NetworkChangeManagerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -437,7 +442,7 @@ network.mojom.NetworkChangeManager.getRemote = function() {
   return remote.$;
 };
 
-network.mojom.NetworkChangeManagerReceiver = class {
+mojo.internal.bindings.network.mojom.NetworkChangeManagerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -488,7 +493,7 @@ network.mojom.NetworkChangeManagerReceiver = class {
         // Try Method 0: RequestNotifications
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestNotifications (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -499,7 +504,7 @@ network.mojom.NetworkChangeManagerReceiver = class {
         // Try Method 1: OnNetworkChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNetworkChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -510,7 +515,7 @@ network.mojom.NetworkChangeManagerReceiver = class {
         // Try Method 2: BindNetworkInterfaceChangeListener
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindNetworkInterfaceChangeListener (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -527,23 +532,23 @@ network.mojom.NetworkChangeManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestNotifications');
-          const result = this.impl.requestNotifications(params.client_remote);
+          const result = this.impl.requestNotifications(params.arg_client_remote);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNetworkChanged');
-          const result = this.impl.onNetworkChanged(params.dns_changed, params.ip_address_change_type, params.connection_type_changed, params.new_connection_type, params.connection_subtype_changed, params.new_connection_subtype);
+          const result = this.impl.onNetworkChanged(params.arg_dns_changed, params.arg_ip_address_change_type, params.arg_connection_type_changed, params.arg_new_connection_type, params.arg_connection_subtype_changed, params.arg_new_connection_subtype);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindNetworkInterfaceChangeListener');
-          const result = this.impl.bindNetworkInterfaceChangeListener(params.notifier);
+          const result = this.impl.bindNetworkInterfaceChangeListener(params.arg_notifier);
           break;
         }
       }
@@ -554,8 +559,8 @@ network.mojom.NetworkChangeManagerReceiver = class {
   }
 };
 
-network.mojom.NetworkChangeManagerReceiver = network.mojom.NetworkChangeManagerReceiver;
+mojo.internal.bindings.network.mojom.NetworkChangeManagerReceiver = mojo.internal.bindings.network.mojom.NetworkChangeManagerReceiver;
 
-network.mojom.NetworkChangeManagerPtr = network.mojom.NetworkChangeManagerRemote;
-network.mojom.NetworkChangeManagerRequest = network.mojom.NetworkChangeManagerPendingReceiver;
+mojo.internal.bindings.network.mojom.NetworkChangeManagerPtr = mojo.internal.bindings.network.mojom.NetworkChangeManagerRemote;
+mojo.internal.bindings.network.mojom.NetworkChangeManagerRequest = mojo.internal.bindings.network.mojom.NetworkChangeManagerPendingReceiver;
 

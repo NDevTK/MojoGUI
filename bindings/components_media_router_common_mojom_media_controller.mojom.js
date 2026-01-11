@@ -1,137 +1,142 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/components/media_router/common/mojom/media_controller.mojom
-// Module: media_router.mojom
+ // Source: chromium_src/components/media_router/common/mojom/media_controller.mojom
+ // Module: media_router.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var media_router = media_router || {};
-media_router.mojom = media_router.mojom || {};
-var mojo_base = mojo_base || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-media_router.mojom.MediaController = {};
-media_router.mojom.MediaController.$interfaceName = 'media_router.mojom.MediaController';
-media_router.mojom.MediaController_Play_ParamsSpec = { $: {} };
-media_router.mojom.MediaController_Pause_ParamsSpec = { $: {} };
-media_router.mojom.MediaController_SetMute_ParamsSpec = { $: {} };
-media_router.mojom.MediaController_SetVolume_ParamsSpec = { $: {} };
-media_router.mojom.MediaController_Seek_ParamsSpec = { $: {} };
-media_router.mojom.MediaController_NextTrack_ParamsSpec = { $: {} };
-media_router.mojom.MediaController_PreviousTrack_ParamsSpec = { $: {} };
+ mojo.internal.bindings.media_router = mojo.internal.bindings.media_router || {};
+mojo.internal.bindings.media_router.mojom = mojo.internal.bindings.media_router.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+
+mojo.internal.bindings.media_router.mojom.MediaController = {};
+mojo.internal.bindings.media_router.mojom.MediaController.$interfaceName = 'media_router.mojom.MediaController';
+mojo.internal.bindings.media_router.mojom.MediaController_Play_ParamsSpec = { $: {} };
+mojo.internal.bindings.media_router.mojom.MediaController_Pause_ParamsSpec = { $: {} };
+mojo.internal.bindings.media_router.mojom.MediaController_SetMute_ParamsSpec = { $: {} };
+mojo.internal.bindings.media_router.mojom.MediaController_SetVolume_ParamsSpec = { $: {} };
+mojo.internal.bindings.media_router.mojom.MediaController_Seek_ParamsSpec = { $: {} };
+mojo.internal.bindings.media_router.mojom.MediaController_NextTrack_ParamsSpec = { $: {} };
+mojo.internal.bindings.media_router.mojom.MediaController_PreviousTrack_ParamsSpec = { $: {} };
 
 // Interface: MediaController
 mojo.internal.Struct(
-    media_router.mojom.MediaController_Play_ParamsSpec, 'media_router.mojom.MediaController_Play_Params', [
+    mojo.internal.bindings.media_router.mojom.MediaController_Play_ParamsSpec, 'media_router.mojom.MediaController_Play_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    media_router.mojom.MediaController_Pause_ParamsSpec, 'media_router.mojom.MediaController_Pause_Params', [
+    mojo.internal.bindings.media_router.mojom.MediaController_Pause_ParamsSpec, 'media_router.mojom.MediaController_Pause_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    media_router.mojom.MediaController_SetMute_ParamsSpec, 'media_router.mojom.MediaController_SetMute_Params', [
-      mojo.internal.StructField('mute', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.media_router.mojom.MediaController_SetMute_ParamsSpec, 'media_router.mojom.MediaController_SetMute_Params', [
+      mojo.internal.StructField('arg_mute', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    media_router.mojom.MediaController_SetVolume_ParamsSpec, 'media_router.mojom.MediaController_SetVolume_Params', [
-      mojo.internal.StructField('volume', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+    mojo.internal.bindings.media_router.mojom.MediaController_SetVolume_ParamsSpec, 'media_router.mojom.MediaController_SetVolume_Params', [
+      mojo.internal.StructField('arg_volume', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    media_router.mojom.MediaController_Seek_ParamsSpec, 'media_router.mojom.MediaController_Seek_Params', [
-      mojo.internal.StructField('time', 0, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.media_router.mojom.MediaController_Seek_ParamsSpec, 'media_router.mojom.MediaController_Seek_Params', [
+      mojo.internal.StructField('arg_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    media_router.mojom.MediaController_NextTrack_ParamsSpec, 'media_router.mojom.MediaController_NextTrack_Params', [
+    mojo.internal.bindings.media_router.mojom.MediaController_NextTrack_ParamsSpec, 'media_router.mojom.MediaController_NextTrack_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    media_router.mojom.MediaController_PreviousTrack_ParamsSpec, 'media_router.mojom.MediaController_PreviousTrack_Params', [
+    mojo.internal.bindings.media_router.mojom.MediaController_PreviousTrack_ParamsSpec, 'media_router.mojom.MediaController_PreviousTrack_Params', [
     ],
     [[0, 8]]);
 
-media_router.mojom.MediaControllerPendingReceiver = class {
+mojo.internal.bindings.media_router.mojom.MediaControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-media_router.mojom.MediaControllerRemote = class {
+mojo.internal.bindings.media_router.mojom.MediaControllerRemote = class {
   static get $interfaceName() {
     return 'media_router.mojom.MediaController';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      media_router.mojom.MediaControllerPendingReceiver,
+      mojo.internal.bindings.media_router.mojom.MediaControllerPendingReceiver,
       handle);
-    this.$ = new media_router.mojom.MediaControllerRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.media_router.mojom.MediaControllerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -147,14 +152,14 @@ media_router.mojom.MediaControllerRemote = class {
   pause() {
     return this.$.pause();
   }
-  setMute(mute) {
-    return this.$.setMute(mute);
+  setMute(arg_mute) {
+    return this.$.setMute(arg_mute);
   }
-  setVolume(volume) {
-    return this.$.setVolume(volume);
+  setVolume(arg_volume) {
+    return this.$.setVolume(arg_volume);
   }
-  seek(time) {
-    return this.$.seek(time);
+  seek(arg_time) {
+    return this.$.seek(arg_time);
   }
   nextTrack() {
     return this.$.nextTrack();
@@ -164,7 +169,7 @@ media_router.mojom.MediaControllerRemote = class {
   }
 };
 
-media_router.mojom.MediaControllerRemoteCallHandler = class {
+mojo.internal.bindings.media_router.mojom.MediaControllerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('MediaController', [
@@ -181,7 +186,7 @@ media_router.mojom.MediaControllerRemoteCallHandler = class {
   play() {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      media_router.mojom.MediaController_Play_ParamsSpec,
+      mojo.internal.bindings.media_router.mojom.MediaController_Play_ParamsSpec,
       null,
       [],
       false);
@@ -190,43 +195,43 @@ media_router.mojom.MediaControllerRemoteCallHandler = class {
   pause() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      media_router.mojom.MediaController_Pause_ParamsSpec,
+      mojo.internal.bindings.media_router.mojom.MediaController_Pause_ParamsSpec,
       null,
       [],
       false);
   }
 
-  setMute(mute) {
+  setMute(arg_mute) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      media_router.mojom.MediaController_SetMute_ParamsSpec,
+      mojo.internal.bindings.media_router.mojom.MediaController_SetMute_ParamsSpec,
       null,
-      [mute],
+      [arg_mute],
       false);
   }
 
-  setVolume(volume) {
+  setVolume(arg_volume) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      media_router.mojom.MediaController_SetVolume_ParamsSpec,
+      mojo.internal.bindings.media_router.mojom.MediaController_SetVolume_ParamsSpec,
       null,
-      [volume],
+      [arg_volume],
       false);
   }
 
-  seek(time) {
+  seek(arg_time) {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
-      media_router.mojom.MediaController_Seek_ParamsSpec,
+      mojo.internal.bindings.media_router.mojom.MediaController_Seek_ParamsSpec,
       null,
-      [time],
+      [arg_time],
       false);
   }
 
   nextTrack() {
     return this.proxy.sendMessage(
       this.ordinals[5],  // ordinal
-      media_router.mojom.MediaController_NextTrack_ParamsSpec,
+      mojo.internal.bindings.media_router.mojom.MediaController_NextTrack_ParamsSpec,
       null,
       [],
       false);
@@ -235,7 +240,7 @@ media_router.mojom.MediaControllerRemoteCallHandler = class {
   previousTrack() {
     return this.proxy.sendMessage(
       this.ordinals[6],  // ordinal
-      media_router.mojom.MediaController_PreviousTrack_ParamsSpec,
+      mojo.internal.bindings.media_router.mojom.MediaController_PreviousTrack_ParamsSpec,
       null,
       [],
       false);
@@ -243,8 +248,8 @@ media_router.mojom.MediaControllerRemoteCallHandler = class {
 
 };
 
-media_router.mojom.MediaController.getRemote = function() {
-  let remote = new media_router.mojom.MediaControllerRemote();
+mojo.internal.bindings.media_router.mojom.MediaController.getRemote = function() {
+  let remote = new mojo.internal.bindings.media_router.mojom.MediaControllerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -253,7 +258,7 @@ media_router.mojom.MediaController.getRemote = function() {
   return remote.$;
 };
 
-media_router.mojom.MediaControllerReceiver = class {
+mojo.internal.bindings.media_router.mojom.MediaControllerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -308,7 +313,7 @@ media_router.mojom.MediaControllerReceiver = class {
         // Try Method 0: Play
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media_router.mojom.MediaController_Play_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_Play_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Play (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -319,7 +324,7 @@ media_router.mojom.MediaControllerReceiver = class {
         // Try Method 1: Pause
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media_router.mojom.MediaController_Pause_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_Pause_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Pause (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -330,7 +335,7 @@ media_router.mojom.MediaControllerReceiver = class {
         // Try Method 2: SetMute
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media_router.mojom.MediaController_SetMute_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_SetMute_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMute (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -341,7 +346,7 @@ media_router.mojom.MediaControllerReceiver = class {
         // Try Method 3: SetVolume
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media_router.mojom.MediaController_SetVolume_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_SetVolume_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVolume (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -352,7 +357,7 @@ media_router.mojom.MediaControllerReceiver = class {
         // Try Method 4: Seek
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media_router.mojom.MediaController_Seek_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_Seek_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Seek (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -363,7 +368,7 @@ media_router.mojom.MediaControllerReceiver = class {
         // Try Method 5: NextTrack
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media_router.mojom.MediaController_NextTrack_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_NextTrack_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NextTrack (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
@@ -374,7 +379,7 @@ media_router.mojom.MediaControllerReceiver = class {
         // Try Method 6: PreviousTrack
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(media_router.mojom.MediaController_PreviousTrack_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_PreviousTrack_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PreviousTrack (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
@@ -391,49 +396,49 @@ media_router.mojom.MediaControllerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media_router.mojom.MediaController_Play_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_Play_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.play');
           const result = this.impl.play();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media_router.mojom.MediaController_Pause_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_Pause_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pause');
           const result = this.impl.pause();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media_router.mojom.MediaController_SetMute_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_SetMute_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMute');
-          const result = this.impl.setMute(params.mute);
+          const result = this.impl.setMute(params.arg_mute);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media_router.mojom.MediaController_SetVolume_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_SetVolume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVolume');
-          const result = this.impl.setVolume(params.volume);
+          const result = this.impl.setVolume(params.arg_volume);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media_router.mojom.MediaController_Seek_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_Seek_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.seek');
-          const result = this.impl.seek(params.time);
+          const result = this.impl.seek(params.arg_time);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media_router.mojom.MediaController_NextTrack_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_NextTrack_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.nextTrack');
           const result = this.impl.nextTrack();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media_router.mojom.MediaController_PreviousTrack_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaController_PreviousTrack_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.previousTrack');
           const result = this.impl.previousTrack();
           break;
@@ -446,8 +451,8 @@ media_router.mojom.MediaControllerReceiver = class {
   }
 };
 
-media_router.mojom.MediaControllerReceiver = media_router.mojom.MediaControllerReceiver;
+mojo.internal.bindings.media_router.mojom.MediaControllerReceiver = mojo.internal.bindings.media_router.mojom.MediaControllerReceiver;
 
-media_router.mojom.MediaControllerPtr = media_router.mojom.MediaControllerRemote;
-media_router.mojom.MediaControllerRequest = media_router.mojom.MediaControllerPendingReceiver;
+mojo.internal.bindings.media_router.mojom.MediaControllerPtr = mojo.internal.bindings.media_router.mojom.MediaControllerRemote;
+mojo.internal.bindings.media_router.mojom.MediaControllerRequest = mojo.internal.bindings.media_router.mojom.MediaControllerPendingReceiver;
 

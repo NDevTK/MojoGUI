@@ -1,128 +1,133 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/chrome/browser/actor/ui/actor_overlay.mojom
-// Module: actor.ui.mojom
+ // Source: chromium_src/chrome/browser/actor/ui/actor_overlay.mojom
+ // Module: actor.ui.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var actor = actor || {};
-actor.ui = actor.ui || {};
-actor.ui.mojom = actor.ui.mojom || {};
-var mojo_base = mojo_base || {};
-var skia = skia || {};
-var gfx = gfx || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-actor.ui.mojom.ThemeSpec = { $: {} };
-actor.ui.mojom.ActorOverlayPageHandlerFactory = {};
-actor.ui.mojom.ActorOverlayPageHandlerFactory.$interfaceName = 'actor.ui.mojom.ActorOverlayPageHandlerFactory';
-actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
-actor.ui.mojom.ActorOverlayPageHandler = {};
-actor.ui.mojom.ActorOverlayPageHandler.$interfaceName = 'actor.ui.mojom.ActorOverlayPageHandler';
-actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec = { $: {} };
-actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec = { $: {} };
-actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec = { $: {} };
-actor.ui.mojom.ActorOverlayPage = {};
-actor.ui.mojom.ActorOverlayPage.$interfaceName = 'actor.ui.mojom.ActorOverlayPage';
-actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec = { $: {} };
-actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec = { $: {} };
-actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec = { $: {} };
-actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec = { $: {} };
-actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec = { $: {} };
-actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec = { $: {} };
-actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec = { $: {} };
+ mojo.internal.bindings.actor = mojo.internal.bindings.actor || {};
+mojo.internal.bindings.actor.ui = mojo.internal.bindings.actor.ui || {};
+mojo.internal.bindings.actor.ui.mojom = mojo.internal.bindings.actor.ui.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+
+mojo.internal.bindings.actor.ui.mojom.ThemeSpec = { $: {} };
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactory = {};
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactory.$interfaceName = 'actor.ui.mojom.ActorOverlayPageHandlerFactory';
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec = { $: {} };
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler = {};
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler.$interfaceName = 'actor.ui.mojom.ActorOverlayPageHandler';
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec = { $: {} };
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec = { $: {} };
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage = {};
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage.$interfaceName = 'actor.ui.mojom.ActorOverlayPage';
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec = { $: {} };
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec = { $: {} };
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec = { $: {} };
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec = { $: {} };
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec = { $: {} };
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec = { $: {} };
 
 // Struct: Theme
 mojo.internal.Struct(
-    actor.ui.mojom.ThemeSpec, 'actor.ui.mojom.Theme', [
-      mojo.internal.StructField('border_color', 0, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('border_glow_color', 8, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('scrim_colors', 16, 0, mojo.internal.Array(skia.mojom.SkColorSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('magic_cursor_color', 24, 0, skia.mojom.SkColorSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.actor.ui.mojom.ThemeSpec, 'actor.ui.mojom.Theme', [
+      mojo.internal.StructField('arg_border_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_border_glow_color', 8, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scrim_colors', 16, 0, mojo.internal.Array(mojo.internal.bindings.skia.mojom.SkColorSpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_magic_cursor_color', 24, 0, mojo.internal.bindings.skia.mojom.SkColorSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 // Interface: ActorOverlayPageHandlerFactory
 mojo.internal.Struct(
-    actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec, 'actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('page', 0, 0, mojo.internal.InterfaceProxy(actor.ui.mojom.ActorOverlayPageSpec), null, false, 0, undefined),
-      mojo.internal.StructField('receiver', 8, 0, mojo.internal.InterfaceRequest(actor.ui.mojom.ActorOverlayPageHandlerSpec), null, false, 0, undefined),
+    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec, 'actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
-actor.ui.mojom.ActorOverlayPageHandlerFactoryPendingReceiver = class {
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-actor.ui.mojom.ActorOverlayPageHandlerFactoryRemote = class {
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactoryRemote = class {
   static get $interfaceName() {
     return 'actor.ui.mojom.ActorOverlayPageHandlerFactory';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      actor.ui.mojom.ActorOverlayPageHandlerFactoryPendingReceiver,
+      mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactoryPendingReceiver,
       handle);
-    this.$ = new actor.ui.mojom.ActorOverlayPageHandlerFactoryRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactoryRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -132,12 +137,12 @@ actor.ui.mojom.ActorOverlayPageHandlerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
-  createPageHandler(page, receiver) {
-    return this.$.createPageHandler(page, receiver);
+  createPageHandler(arg_page, arg_receiver) {
+    return this.$.createPageHandler(arg_page, arg_receiver);
   }
 };
 
-actor.ui.mojom.ActorOverlayPageHandlerFactoryRemoteCallHandler = class {
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ActorOverlayPageHandlerFactory', [
@@ -145,19 +150,19 @@ actor.ui.mojom.ActorOverlayPageHandlerFactoryRemoteCallHandler = class {
     ]);
   }
 
-  createPageHandler(page, receiver) {
+  createPageHandler(arg_page, arg_receiver) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec,
+      mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, receiver],
+      [arg_page, arg_receiver],
       false);
   }
 
 };
 
-actor.ui.mojom.ActorOverlayPageHandlerFactory.getRemote = function() {
-  let remote = new actor.ui.mojom.ActorOverlayPageHandlerFactoryRemote();
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactory.getRemote = function() {
+  let remote = new mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactoryRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -166,7 +171,7 @@ actor.ui.mojom.ActorOverlayPageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
-actor.ui.mojom.ActorOverlayPageHandlerFactoryReceiver = class {
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactoryReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -215,7 +220,7 @@ actor.ui.mojom.ActorOverlayPageHandlerFactoryReceiver = class {
         // Try Method 0: CreatePageHandler
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -232,9 +237,9 @@ actor.ui.mojom.ActorOverlayPageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.page, params.receiver);
+          const result = this.impl.createPageHandler(params.arg_page, params.arg_receiver);
           break;
         }
       }
@@ -245,46 +250,46 @@ actor.ui.mojom.ActorOverlayPageHandlerFactoryReceiver = class {
   }
 };
 
-actor.ui.mojom.ActorOverlayPageHandlerFactoryReceiver = actor.ui.mojom.ActorOverlayPageHandlerFactoryReceiver;
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactoryReceiver = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactoryReceiver;
 
-actor.ui.mojom.ActorOverlayPageHandlerFactoryPtr = actor.ui.mojom.ActorOverlayPageHandlerFactoryRemote;
-actor.ui.mojom.ActorOverlayPageHandlerFactoryRequest = actor.ui.mojom.ActorOverlayPageHandlerFactoryPendingReceiver;
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactoryPtr = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactoryRemote;
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactoryRequest = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactoryPendingReceiver;
 
 
 // Interface: ActorOverlayPageHandler
 mojo.internal.Struct(
-    actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec, 'actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_Params', [
-      mojo.internal.StructField('is_hovering', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec, 'actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_Params', [
+      mojo.internal.StructField('arg_is_hovering', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec, 'actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_Params', [
+    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec, 'actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec, 'actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParams', [
-      mojo.internal.StructField('is_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec, 'actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParams', [
+      mojo.internal.StructField('arg_is_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
-actor.ui.mojom.ActorOverlayPageHandlerPendingReceiver = class {
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-actor.ui.mojom.ActorOverlayPageHandlerRemote = class {
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerRemote = class {
   static get $interfaceName() {
     return 'actor.ui.mojom.ActorOverlayPageHandler';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      actor.ui.mojom.ActorOverlayPageHandlerPendingReceiver,
+      mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerPendingReceiver,
       handle);
-    this.$ = new actor.ui.mojom.ActorOverlayPageHandlerRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -294,15 +299,15 @@ actor.ui.mojom.ActorOverlayPageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
-  onHoverStatusChanged(is_hovering) {
-    return this.$.onHoverStatusChanged(is_hovering);
+  onHoverStatusChanged(arg_is_hovering) {
+    return this.$.onHoverStatusChanged(arg_is_hovering);
   }
   getCurrentBorderGlowVisibility() {
     return this.$.getCurrentBorderGlowVisibility();
   }
 };
 
-actor.ui.mojom.ActorOverlayPageHandlerRemoteCallHandler = class {
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ActorOverlayPageHandler', [
@@ -311,28 +316,28 @@ actor.ui.mojom.ActorOverlayPageHandlerRemoteCallHandler = class {
     ]);
   }
 
-  onHoverStatusChanged(is_hovering) {
+  onHoverStatusChanged(arg_is_hovering) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec,
+      mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec,
       null,
-      [is_hovering],
+      [arg_is_hovering],
       false);
   }
 
   getCurrentBorderGlowVisibility() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec,
-      actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec,
+      mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec,
+      mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec,
       [],
       false);
   }
 
 };
 
-actor.ui.mojom.ActorOverlayPageHandler.getRemote = function() {
-  let remote = new actor.ui.mojom.ActorOverlayPageHandlerRemote();
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler.getRemote = function() {
+  let remote = new mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -341,7 +346,7 @@ actor.ui.mojom.ActorOverlayPageHandler.getRemote = function() {
   return remote.$;
 };
 
-actor.ui.mojom.ActorOverlayPageHandlerReceiver = class {
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -391,7 +396,7 @@ actor.ui.mojom.ActorOverlayPageHandlerReceiver = class {
         // Try Method 0: OnHoverStatusChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHoverStatusChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -402,7 +407,7 @@ actor.ui.mojom.ActorOverlayPageHandlerReceiver = class {
         // Try Method 1: GetCurrentBorderGlowVisibility
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCurrentBorderGlowVisibility (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -419,21 +424,21 @@ actor.ui.mojom.ActorOverlayPageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHoverStatusChanged');
-          const result = this.impl.onHoverStatusChanged(params.is_hovering);
+          const result = this.impl.onHoverStatusChanged(params.arg_is_hovering);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCurrentBorderGlowVisibility');
           const result = this.impl.getCurrentBorderGlowVisibility();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] GetCurrentBorderGlowVisibility FAILED:', e));
           }
@@ -447,68 +452,68 @@ actor.ui.mojom.ActorOverlayPageHandlerReceiver = class {
   }
 };
 
-actor.ui.mojom.ActorOverlayPageHandlerReceiver = actor.ui.mojom.ActorOverlayPageHandlerReceiver;
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerReceiver = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerReceiver;
 
-actor.ui.mojom.ActorOverlayPageHandlerPtr = actor.ui.mojom.ActorOverlayPageHandlerRemote;
-actor.ui.mojom.ActorOverlayPageHandlerRequest = actor.ui.mojom.ActorOverlayPageHandlerPendingReceiver;
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerPtr = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerRemote;
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerRequest = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerPendingReceiver;
 
 
 // Interface: ActorOverlayPage
 mojo.internal.Struct(
-    actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_SetScrimBackground_Params', [
-      mojo.internal.StructField('is_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_SetScrimBackground_Params', [
+      mojo.internal.StructField('arg_is_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_Params', [
-      mojo.internal.StructField('is_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_Params', [
+      mojo.internal.StructField('arg_is_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_SetTheme_Params', [
-      mojo.internal.StructField('theme', 0, 0, actor.ui.mojom.ThemeSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_SetTheme_Params', [
+      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.mojo.internal.bindings.actor.ui.mojom.ThemeSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_MoveCursorTo_Params', [
-      mojo.internal.StructField('point', 0, 0, gfx.mojom.PointSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_MoveCursorTo_Params', [
+      mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec, 'actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParams', [
+    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec, 'actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParams', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_Params', [
+    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_Params', [
     ],
     [[0, 8]]);
 
 mojo.internal.Struct(
-    actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec, 'actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParams', [
+    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec, 'actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParams', [
     ],
     [[0, 8]]);
 
-actor.ui.mojom.ActorOverlayPagePendingReceiver = class {
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-actor.ui.mojom.ActorOverlayPageRemote = class {
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageRemote = class {
   static get $interfaceName() {
     return 'actor.ui.mojom.ActorOverlayPage';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      actor.ui.mojom.ActorOverlayPagePendingReceiver,
+      mojo.internal.bindings.actor.ui.mojom.ActorOverlayPagePendingReceiver,
       handle);
-    this.$ = new actor.ui.mojom.ActorOverlayPageRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -518,24 +523,24 @@ actor.ui.mojom.ActorOverlayPageRemote = class {
   close() {
     this.proxy.close();
   }
-  setScrimBackground(is_visible) {
-    return this.$.setScrimBackground(is_visible);
+  setScrimBackground(arg_is_visible) {
+    return this.$.setScrimBackground(arg_is_visible);
   }
-  setBorderGlowVisibility(is_visible) {
-    return this.$.setBorderGlowVisibility(is_visible);
+  setBorderGlowVisibility(arg_is_visible) {
+    return this.$.setBorderGlowVisibility(arg_is_visible);
   }
-  setTheme(theme) {
-    return this.$.setTheme(theme);
+  setTheme(arg_theme) {
+    return this.$.setTheme(arg_theme);
   }
-  moveCursorTo(point) {
-    return this.$.moveCursorTo(point);
+  moveCursorTo(arg_point) {
+    return this.$.moveCursorTo(arg_point);
   }
   triggerClickAnimation() {
     return this.$.triggerClickAnimation();
   }
 };
 
-actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ActorOverlayPage', [
@@ -547,55 +552,55 @@ actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
     ]);
   }
 
-  setScrimBackground(is_visible) {
+  setScrimBackground(arg_is_visible) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec,
+      mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec,
       null,
-      [is_visible],
+      [arg_is_visible],
       false);
   }
 
-  setBorderGlowVisibility(is_visible) {
+  setBorderGlowVisibility(arg_is_visible) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec,
+      mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec,
       null,
-      [is_visible],
+      [arg_is_visible],
       false);
   }
 
-  setTheme(theme) {
+  setTheme(arg_theme) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
-      actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec,
+      mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec,
       null,
-      [theme],
+      [arg_theme],
       false);
   }
 
-  moveCursorTo(point) {
+  moveCursorTo(arg_point) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec,
-      actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec,
-      [point],
+      mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec,
+      mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec,
+      [arg_point],
       false);
   }
 
   triggerClickAnimation() {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
-      actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec,
-      actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec,
+      mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec,
+      mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec,
       [],
       false);
   }
 
 };
 
-actor.ui.mojom.ActorOverlayPage.getRemote = function() {
-  let remote = new actor.ui.mojom.ActorOverlayPageRemote();
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage.getRemote = function() {
+  let remote = new mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -604,7 +609,7 @@ actor.ui.mojom.ActorOverlayPage.getRemote = function() {
   return remote.$;
 };
 
-actor.ui.mojom.ActorOverlayPageReceiver = class {
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -657,7 +662,7 @@ actor.ui.mojom.ActorOverlayPageReceiver = class {
         // Try Method 0: SetScrimBackground
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetScrimBackground (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -668,7 +673,7 @@ actor.ui.mojom.ActorOverlayPageReceiver = class {
         // Try Method 1: SetBorderGlowVisibility
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBorderGlowVisibility (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -679,7 +684,7 @@ actor.ui.mojom.ActorOverlayPageReceiver = class {
         // Try Method 2: SetTheme
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTheme (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
@@ -690,7 +695,7 @@ actor.ui.mojom.ActorOverlayPageReceiver = class {
         // Try Method 3: MoveCursorTo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MoveCursorTo (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
@@ -701,7 +706,7 @@ actor.ui.mojom.ActorOverlayPageReceiver = class {
         // Try Method 4: TriggerClickAnimation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TriggerClickAnimation (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
@@ -718,35 +723,35 @@ actor.ui.mojom.ActorOverlayPageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setScrimBackground');
-          const result = this.impl.setScrimBackground(params.is_visible);
+          const result = this.impl.setScrimBackground(params.arg_is_visible);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBorderGlowVisibility');
-          const result = this.impl.setBorderGlowVisibility(params.is_visible);
+          const result = this.impl.setBorderGlowVisibility(params.arg_is_visible);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTheme');
-          const result = this.impl.setTheme(params.theme);
+          const result = this.impl.setTheme(params.arg_theme);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.moveCursorTo');
-          const result = this.impl.moveCursorTo(params.point);
+          const result = this.impl.moveCursorTo(params.arg_point);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] MoveCursorTo FAILED:', e));
           }
@@ -754,14 +759,14 @@ actor.ui.mojom.ActorOverlayPageReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.triggerClickAnimation');
           const result = this.impl.triggerClickAnimation();
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
               const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;
-              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec, header, rawHeader);
+              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec, header, rawHeader);
                responder(response);
             }).catch(e => console.error('[GeneratedReceiver] TriggerClickAnimation FAILED:', e));
           }
@@ -775,8 +780,8 @@ actor.ui.mojom.ActorOverlayPageReceiver = class {
   }
 };
 
-actor.ui.mojom.ActorOverlayPageReceiver = actor.ui.mojom.ActorOverlayPageReceiver;
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageReceiver = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageReceiver;
 
-actor.ui.mojom.ActorOverlayPagePtr = actor.ui.mojom.ActorOverlayPageRemote;
-actor.ui.mojom.ActorOverlayPageRequest = actor.ui.mojom.ActorOverlayPagePendingReceiver;
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPagePtr = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageRemote;
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageRequest = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPagePendingReceiver;
 

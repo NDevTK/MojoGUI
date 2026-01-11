@@ -1,138 +1,143 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/third_party/blink/public/mojom/frame/policy_container.mojom
-// Module: blink.mojom
+ // Source: chromium_src/third_party/blink/public/mojom/frame/policy_container.mojom
+ // Module: blink.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var blink = blink || {};
-blink.mojom = blink.mojom || {};
-var network = network || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-blink.mojom.PolicyContainerPoliciesSpec = { $: {} };
-blink.mojom.PolicyContainerSpec = { $: {} };
-blink.mojom.PolicyContainerBindParamsSpec = { $: {} };
-blink.mojom.PolicyContainerHost = {};
-blink.mojom.PolicyContainerHost.$interfaceName = 'blink.mojom.PolicyContainerHost';
-blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec = { $: {} };
-blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec = { $: {} };
+ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+
+mojo.internal.bindings.blink.mojom.PolicyContainerPoliciesSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.PolicyContainerSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.PolicyContainerBindParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.PolicyContainerHost = {};
+mojo.internal.bindings.blink.mojom.PolicyContainerHost.$interfaceName = 'blink.mojom.PolicyContainerHost';
+mojo.internal.bindings.blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec = { $: {} };
+mojo.internal.bindings.blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec = { $: {} };
 
 // Struct: PolicyContainerPolicies
 mojo.internal.Struct(
-    blink.mojom.PolicyContainerPoliciesSpec, 'blink.mojom.PolicyContainerPolicies', [
-      mojo.internal.StructField('connection_allowlists', 0, 0, network.mojom.ConnectionAllowlistsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('cross_origin_embedder_policy', 8, 0, network.mojom.CrossOriginEmbedderPolicySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('integrity_policy', 16, 0, network.mojom.IntegrityPolicySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('integrity_policy_report_only', 24, 0, network.mojom.IntegrityPolicySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('content_security_policies', 32, 0, mojo.internal.Array(network.mojom.ContentSecurityPolicySpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('is_credentialless', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('can_navigate_top_without_user_gesture', 40, 1, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('cross_origin_isolation_enabled_by_dip', 40, 2, mojo.internal.Bool, false, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.PolicyContainerPoliciesSpec, 'blink.mojom.PolicyContainerPolicies', [
+      mojo.internal.StructField('arg_connection_allowlists', 0, 0, mojo.internal.bindings.network.mojom.ConnectionAllowlistsSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cross_origin_embedder_policy', 8, 0, mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_integrity_policy', 16, 0, mojo.internal.bindings.network.mojom.IntegrityPolicySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_integrity_policy_report_only', 24, 0, mojo.internal.bindings.network.mojom.IntegrityPolicySpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content_security_policies', 32, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ContentSecurityPolicySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_credentialless', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_can_navigate_top_without_user_gesture', 40, 1, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_cross_origin_isolation_enabled_by_dip', 40, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);
 
 // Struct: PolicyContainer
 mojo.internal.Struct(
-    blink.mojom.PolicyContainerSpec, 'blink.mojom.PolicyContainer', [
-      mojo.internal.StructField('policies', 0, 0, blink.mojom.PolicyContainerPoliciesSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('remote', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.PolicyContainerSpec, 'blink.mojom.PolicyContainer', [
+      mojo.internal.StructField('arg_policies', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.PolicyContainerPoliciesSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: PolicyContainerBindParams
 mojo.internal.Struct(
-    blink.mojom.PolicyContainerBindParamsSpec, 'blink.mojom.PolicyContainerBindParams', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.PolicyContainerBindParamsSpec, 'blink.mojom.PolicyContainerBindParams', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Interface: PolicyContainerHost
 mojo.internal.Struct(
-    blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec, 'blink.mojom.PolicyContainerHost_SetReferrerPolicy_Params', [
-      mojo.internal.StructField('referrer_policy', 0, 0, network.mojom.ReferrerPolicySpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec, 'blink.mojom.PolicyContainerHost_SetReferrerPolicy_Params', [
+      mojo.internal.StructField('arg_referrer_policy', 0, 0, mojo.internal.bindings.network.mojom.ReferrerPolicySpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec, 'blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_Params', [
-      mojo.internal.StructField('content_security_policies', 0, 0, mojo.internal.Array(network.mojom.ContentSecurityPolicySpec.$, false), null, false, 0, undefined),
+    mojo.internal.bindings.blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec, 'blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_Params', [
+      mojo.internal.StructField('arg_content_security_policies', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ContentSecurityPolicySpec.$, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-blink.mojom.PolicyContainerHostPendingReceiver = class {
+mojo.internal.bindings.blink.mojom.PolicyContainerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-blink.mojom.PolicyContainerHostRemote = class {
+mojo.internal.bindings.blink.mojom.PolicyContainerHostRemote = class {
   static get $interfaceName() {
     return 'blink.mojom.PolicyContainerHost';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      blink.mojom.PolicyContainerHostPendingReceiver,
+      mojo.internal.bindings.blink.mojom.PolicyContainerHostPendingReceiver,
       handle);
-    this.$ = new blink.mojom.PolicyContainerHostRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.blink.mojom.PolicyContainerHostRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -142,15 +147,15 @@ blink.mojom.PolicyContainerHostRemote = class {
   close() {
     this.proxy.close();
   }
-  setReferrerPolicy(referrer_policy) {
-    return this.$.setReferrerPolicy(referrer_policy);
+  setReferrerPolicy(arg_referrer_policy) {
+    return this.$.setReferrerPolicy(arg_referrer_policy);
   }
-  addContentSecurityPolicies(content_security_policies) {
-    return this.$.addContentSecurityPolicies(content_security_policies);
+  addContentSecurityPolicies(arg_content_security_policies) {
+    return this.$.addContentSecurityPolicies(arg_content_security_policies);
   }
 };
 
-blink.mojom.PolicyContainerHostRemoteCallHandler = class {
+mojo.internal.bindings.blink.mojom.PolicyContainerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('PolicyContainerHost', [
@@ -159,28 +164,28 @@ blink.mojom.PolicyContainerHostRemoteCallHandler = class {
     ]);
   }
 
-  setReferrerPolicy(referrer_policy) {
+  setReferrerPolicy(arg_referrer_policy) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec,
       null,
-      [referrer_policy],
+      [arg_referrer_policy],
       false);
   }
 
-  addContentSecurityPolicies(content_security_policies) {
+  addContentSecurityPolicies(arg_content_security_policies) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec,
       null,
-      [content_security_policies],
+      [arg_content_security_policies],
       false);
   }
 
 };
 
-blink.mojom.PolicyContainerHost.getRemote = function() {
-  let remote = new blink.mojom.PolicyContainerHostRemote();
+mojo.internal.bindings.blink.mojom.PolicyContainerHost.getRemote = function() {
+  let remote = new mojo.internal.bindings.blink.mojom.PolicyContainerHostRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -189,7 +194,7 @@ blink.mojom.PolicyContainerHost.getRemote = function() {
   return remote.$;
 };
 
-blink.mojom.PolicyContainerHostReceiver = class {
+mojo.internal.bindings.blink.mojom.PolicyContainerHostReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -239,7 +244,7 @@ blink.mojom.PolicyContainerHostReceiver = class {
         // Try Method 0: SetReferrerPolicy
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetReferrerPolicy (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -250,7 +255,7 @@ blink.mojom.PolicyContainerHostReceiver = class {
         // Try Method 1: AddContentSecurityPolicies
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddContentSecurityPolicies (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -267,16 +272,16 @@ blink.mojom.PolicyContainerHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setReferrerPolicy');
-          const result = this.impl.setReferrerPolicy(params.referrer_policy);
+          const result = this.impl.setReferrerPolicy(params.arg_referrer_policy);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addContentSecurityPolicies');
-          const result = this.impl.addContentSecurityPolicies(params.content_security_policies);
+          const result = this.impl.addContentSecurityPolicies(params.arg_content_security_policies);
           break;
         }
       }
@@ -287,8 +292,8 @@ blink.mojom.PolicyContainerHostReceiver = class {
   }
 };
 
-blink.mojom.PolicyContainerHostReceiver = blink.mojom.PolicyContainerHostReceiver;
+mojo.internal.bindings.blink.mojom.PolicyContainerHostReceiver = mojo.internal.bindings.blink.mojom.PolicyContainerHostReceiver;
 
-blink.mojom.PolicyContainerHostPtr = blink.mojom.PolicyContainerHostRemote;
-blink.mojom.PolicyContainerHostRequest = blink.mojom.PolicyContainerHostPendingReceiver;
+mojo.internal.bindings.blink.mojom.PolicyContainerHostPtr = mojo.internal.bindings.blink.mojom.PolicyContainerHostRemote;
+mojo.internal.bindings.blink.mojom.PolicyContainerHostRequest = mojo.internal.bindings.blink.mojom.PolicyContainerHostPendingReceiver;
 

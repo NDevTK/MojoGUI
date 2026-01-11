@@ -1,113 +1,118 @@
 // Auto-generated MojoJS binding
-// Source: chromium_src/ui/ozone/platform/drm/mojom/device_cursor.mojom
-// Module: ui.ozone.mojom
+ // Source: chromium_src/ui/ozone/platform/drm/mojom/device_cursor.mojom
+ // Module: ui.ozone.mojom
 
-'use strict';
-(function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
+ 'use strict';
+ (function() {
+   const SHA256 = (s) => {
+     const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
+     const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+     const m = new TextEncoder().encode(s);
+     const l = m.length;
+     const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
+     for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
+     b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
+     b[b.length - 1] = l * 8;
+     for (let i = 0; i < b.length; i += 16) {
+       let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
+       const w = new Uint32Array(64);
+       for (let j = 0; j < 64; j++) {
+         if (j < 16) w[j] = b[i + j];
+         else {
+           const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
+           const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
+           w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
+         }
+         const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
+         const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
+         h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
+       }
+       h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
+       h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
+     }
+     return h[0];
+   };
+   window.mojoScrambler = window.mojoScrambler || {
+     getOrdinals: (ifaceName, methodSpecs) => {
+       const params = new URLSearchParams(window.location.search);
+       const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
+       
+       const seen = new Set();
+       methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
+       let i = 0;
+       return methodSpecs.map((ms, idx) => {
+         if (ms.explicit !== null) return ms.explicit;
+         if (forceNoScramble) return idx;
 
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
-})();
+         const p = window.mojoVersion.split('.');
+         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+         console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
+         
+         while (true) {
+           i++;
+           const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
+           const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
+           if (!seen.has(ord)) {
+             seen.add(ord);
+             return ord;
+           }
+         }
+       });
+     }
+   };
+ })();
 
-// Module namespace
-var ui = ui || {};
-ui.ozone = ui.ozone || {};
-ui.ozone.mojom = ui.ozone.mojom || {};
-var mojo_base = mojo_base || {};
-var skia = skia || {};
-var gfx = gfx || {};
+ // Module namespace
+ var mojo = mojo || {};
+ mojo.internal = mojo.internal || {};
+ mojo.internal.bindings = mojo.internal.bindings || {};
+ 
 
-ui.ozone.mojom.DeviceCursor = {};
-ui.ozone.mojom.DeviceCursor.$interfaceName = 'ui.ozone.mojom.DeviceCursor';
-ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec = { $: {} };
-ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec = { $: {} };
+ mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.ozone = mojo.internal.bindings.ui.ozone || {};
+mojo.internal.bindings.ui.ozone.mojom = mojo.internal.bindings.ui.ozone.mojom || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+
+mojo.internal.bindings.ui.ozone.mojom.DeviceCursor = {};
+mojo.internal.bindings.ui.ozone.mojom.DeviceCursor.$interfaceName = 'ui.ozone.mojom.DeviceCursor';
+mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec = { $: {} };
+mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec = { $: {} };
 
 // Interface: DeviceCursor
 mojo.internal.Struct(
-    ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec, 'ui.ozone.mojom.DeviceCursor_SetCursor_Params', [
-      mojo.internal.StructField('window', 0, 0, gfx.mojom.AcceleratedWidgetSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('bitmaps', 8, 0, mojo.internal.Array(skia.mojom.BitmapN32Spec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('point', 16, 0, gfx.mojom.PointSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('frame_delay', 24, 0, mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec, 'ui.ozone.mojom.DeviceCursor_SetCursor_Params', [
+      mojo.internal.StructField('arg_window', 0, 0, mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bitmaps', 8, 0, mojo.internal.Array(mojo.internal.bindings.skia.mojom.BitmapN32Spec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_point', 16, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_frame_delay', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
-    ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec, 'ui.ozone.mojom.DeviceCursor_MoveCursor_Params', [
-      mojo.internal.StructField('window', 0, 0, gfx.mojom.AcceleratedWidgetSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('point', 8, 0, gfx.mojom.PointSpec.$, null, false, 0, undefined),
+    mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec, 'ui.ozone.mojom.DeviceCursor_MoveCursor_Params', [
+      mojo.internal.StructField('arg_window', 0, 0, mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
-ui.ozone.mojom.DeviceCursorPendingReceiver = class {
+mojo.internal.bindings.ui.ozone.mojom.DeviceCursorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
   }
 };
 
-ui.ozone.mojom.DeviceCursorRemote = class {
+mojo.internal.bindings.ui.ozone.mojom.DeviceCursorRemote = class {
   static get $interfaceName() {
     return 'ui.ozone.mojom.DeviceCursor';
   }
 
   constructor(handle = undefined) {
     this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      ui.ozone.mojom.DeviceCursorPendingReceiver,
+      mojo.internal.bindings.ui.ozone.mojom.DeviceCursorPendingReceiver,
       handle);
-    this.$ = new ui.ozone.mojom.DeviceCursorRemoteCallHandler(this.proxy);
+    this.$ = new mojo.internal.bindings.ui.ozone.mojom.DeviceCursorRemoteCallHandler(this.proxy);
   }
 
   bindNewPipeAndPassReceiver() {
@@ -117,15 +122,15 @@ ui.ozone.mojom.DeviceCursorRemote = class {
   close() {
     this.proxy.close();
   }
-  setCursor(window, bitmaps, point, frame_delay) {
-    return this.$.setCursor(window, bitmaps, point, frame_delay);
+  setCursor(arg_window, arg_bitmaps, arg_point, arg_frame_delay) {
+    return this.$.setCursor(arg_window, arg_bitmaps, arg_point, arg_frame_delay);
   }
-  moveCursor(window, point) {
-    return this.$.moveCursor(window, point);
+  moveCursor(arg_window, arg_point) {
+    return this.$.moveCursor(arg_window, arg_point);
   }
 };
 
-ui.ozone.mojom.DeviceCursorRemoteCallHandler = class {
+mojo.internal.bindings.ui.ozone.mojom.DeviceCursorRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('DeviceCursor', [
@@ -134,28 +139,28 @@ ui.ozone.mojom.DeviceCursorRemoteCallHandler = class {
     ]);
   }
 
-  setCursor(window, bitmaps, point, frame_delay) {
+  setCursor(arg_window, arg_bitmaps, arg_point, arg_frame_delay) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
-      ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec,
+      mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec,
       null,
-      [window, bitmaps, point, frame_delay],
+      [arg_window, arg_bitmaps, arg_point, arg_frame_delay],
       false);
   }
 
-  moveCursor(window, point) {
+  moveCursor(arg_window, arg_point) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec,
+      mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec,
       null,
-      [window, point],
+      [arg_window, arg_point],
       false);
   }
 
 };
 
-ui.ozone.mojom.DeviceCursor.getRemote = function() {
-  let remote = new ui.ozone.mojom.DeviceCursorRemote();
+mojo.internal.bindings.ui.ozone.mojom.DeviceCursor.getRemote = function() {
+  let remote = new mojo.internal.bindings.ui.ozone.mojom.DeviceCursorRemote();
   let receiver = remote.bindNewPipeAndPassReceiver();
   mojo.internal.interfaceSupport.bind(
     receiver.handle,
@@ -164,7 +169,7 @@ ui.ozone.mojom.DeviceCursor.getRemote = function() {
   return remote.$;
 };
 
-ui.ozone.mojom.DeviceCursorReceiver = class {
+mojo.internal.bindings.ui.ozone.mojom.DeviceCursorReceiver = class {
   constructor(impl) {
     this.impl = impl;
     this.endpoint = null;
@@ -214,7 +219,7 @@ ui.ozone.mojom.DeviceCursorReceiver = class {
         // Try Method 0: SetCursor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCursor (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
@@ -225,7 +230,7 @@ ui.ozone.mojom.DeviceCursorReceiver = class {
         // Try Method 1: MoveCursor
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec);
+             decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec);
              console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MoveCursor (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
@@ -242,16 +247,16 @@ ui.ozone.mojom.DeviceCursorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCursor');
-          const result = this.impl.setCursor(params.window, params.bitmaps, params.point, params.frame_delay);
+          const result = this.impl.setCursor(params.arg_window, params.arg_bitmaps, params.arg_point, params.arg_frame_delay);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec.$.structSpec);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.moveCursor');
-          const result = this.impl.moveCursor(params.window, params.point);
+          const result = this.impl.moveCursor(params.arg_window, params.arg_point);
           break;
         }
       }
@@ -262,8 +267,8 @@ ui.ozone.mojom.DeviceCursorReceiver = class {
   }
 };
 
-ui.ozone.mojom.DeviceCursorReceiver = ui.ozone.mojom.DeviceCursorReceiver;
+mojo.internal.bindings.ui.ozone.mojom.DeviceCursorReceiver = mojo.internal.bindings.ui.ozone.mojom.DeviceCursorReceiver;
 
-ui.ozone.mojom.DeviceCursorPtr = ui.ozone.mojom.DeviceCursorRemote;
-ui.ozone.mojom.DeviceCursorRequest = ui.ozone.mojom.DeviceCursorPendingReceiver;
+mojo.internal.bindings.ui.ozone.mojom.DeviceCursorPtr = mojo.internal.bindings.ui.ozone.mojom.DeviceCursorRemote;
+mojo.internal.bindings.ui.ozone.mojom.DeviceCursorRequest = mojo.internal.bindings.ui.ozone.mojom.DeviceCursorPendingReceiver;
 
