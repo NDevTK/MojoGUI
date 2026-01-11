@@ -49,6 +49,13 @@
                             Force No Scramble
                         </label>
                     </div>
+                    <button class="btn btn-secondary btn-small" id="viewTrafficBtn" title="View Captured Mojo Traffic">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
+                            height="16">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                        Traffic Log <span class="badge" id="trafficBadge" style="display: none;">0</span>
+                    </button>
                     <a href="https://github.com/NDevTK/MojoGUI/tree/main" target="_blank" class="nav-link">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
                             height="16">
@@ -265,10 +272,35 @@
     <!-- Scripts -->
     <!-- Mojo runtime (order matters: mojo_bindings.js defines mojo namespace first) -->
     <script src="bindings/mojo_bindings.js"></script>
+    <script src="bindings/mojo_public_interfaces_bindings_pipe_control_messages.mojom.js"></script>
+    <script src="bindings/mojo_public_interfaces_bindings_interface_control_messages.mojom.js"></script>
     <script>
-        // Initialize mojo.internal.interfaceSupport namespace before files that need it
-        if (typeof mojo !== 'undefined' && mojo.internal) {
+        // Initialize namespaces and fix name mismatches in the Lite bindings
+        if (typeof mojo !== 'undefined') {
+            mojo.internal = mojo.internal || {};
             mojo.internal.interfaceSupport = mojo.internal.interfaceSupport || {};
+
+            const b = mojo.internal.bindings && mojo.internal.bindings.mojo;
+
+            // Map pipe_control to the short name expected by interface_support.js
+            if (b && b.pipe_control) {
+                mojo.pipeControl = b.pipe_control;
+                mojo.pipeControl.RUN_OR_CLOSE_PIPE_MESSAGE_ID = b.pipe_control.kRunOrClosePipeMessageId || 0xFFFFFFFE;
+            } else {
+                mojo.pipeControl = mojo.pipeControl || { RUN_OR_CLOSE_PIPE_MESSAGE_ID: 0xFFFFFFFE };
+            }
+
+            // Map interface_control
+            if (b && b.interface_control) {
+                mojo.interfaceControl = b.interface_control;
+                mojo.interfaceControl.RUN_MESSAGE_ID = b.interface_control.kRunMessageId || 0xFFFFFFFF;
+                mojo.interfaceControl.RUN_OUTPUT_MESSAGE_ID = b.interface_control.kRunMessageId || 0xFFFFFFFF;
+            } else {
+                mojo.interfaceControl = mojo.interfaceControl || {
+                    RUN_MESSAGE_ID: 0xFFFFFFFF,
+                    RUN_OUTPUT_MESSAGE_ID: 0xFFFFFFFF
+                };
+            }
         }
     </script>
     <script src="bindings/bindings_lite.js"></script>

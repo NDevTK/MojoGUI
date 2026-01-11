@@ -14,7 +14,9 @@
         selectedInterface: null,
         selectedMethod: null,
         paramValues: {},
-        mojoAvailable: false
+        mojoAvailable: false,
+        panelVisible: false,
+        trafficCount: 0
     };
 
     // ========================================
@@ -99,6 +101,8 @@
         interceptToggleBtn: document.getElementById('interceptToggleBtn'),
         interceptStatusDot: document.getElementById('interceptStatusDot'),
         noScrambleToggle: document.getElementById('noScrambleToggle'),
+        viewTrafficBtn: document.getElementById('viewTrafficBtn'),
+        trafficBadge: document.getElementById('trafficBadge'),
         interceptorPanel: document.getElementById('interceptorPanel'),
         interceptorTableBody: document.getElementById('interceptorTableBody'),
         interceptorDetails: document.getElementById('interceptorDetails'),
@@ -317,6 +321,11 @@
         if (elements.monitorAllBtn) {
             elements.monitorAllBtn.addEventListener('click', toggleMonitorAll);
         }
+        // Traffic View
+        if (elements.viewTrafficBtn) {
+            elements.viewTrafficBtn.addEventListener('click', () => showInterceptorPanel(!state.panelVisible));
+        }
+
         if (elements.closeInterceptorBtn) {
             elements.closeInterceptorBtn.addEventListener('click', () => showInterceptorPanel(false));
         }
@@ -337,24 +346,13 @@
 
         const btn = elements.monitorAllBtn;
         const isMonitoring = btn.classList.contains('active');
-        const isPanelVisible = elements.interceptorPanel.style.display === 'flex';
 
         if (isMonitoring && !quiet) {
-            if (!isPanelVisible) {
-                // Just show the panel if it's hidden
-                showInterceptorPanel(true);
-                return;
-            }
-            // Stop monitoring if panel was already visible
-            state.interfaces.forEach(iface => {
-                if (InterceptorManager.getMode(iface.name) === 'LOG') InterceptorManager.stop(iface.name);
-                const fqn = iface.module ? `${iface.module}.${iface.name}` : null;
-                if (fqn && fqn !== iface.name && InterceptorManager.getMode(fqn) === 'LOG') InterceptorManager.stop(fqn);
-            });
-            btn.classList.remove('active');
-            showToast('Stopped monitoring all interfaces', 'info');
-        } else if (!isMonitoring) {
-            // Start monitoring all
+            showInterceptorPanel(!state.panelVisible);
+            return;
+        }
+
+        if (!isMonitoring) {
             let count = 0;
             state.interfaces.forEach(iface => {
                 let started = false;
@@ -1125,7 +1123,12 @@
     }
 
     function showInterceptorPanel(show) {
+        state.panelVisible = show;
+
         if (show) {
+            // Update header button to look active
+            elements.viewTrafficBtn?.classList.add('active');
+
             // Hide standard panels
             elements.interfacePanel.style.display = 'none';
             elements.paramsPanel.style.display = 'none';
@@ -1133,6 +1136,9 @@
             // Show Interceptor Panel (Full Width)
             elements.interceptorPanel.style.display = 'flex';
         } else {
+            // Update header button
+            elements.viewTrafficBtn?.classList.remove('active');
+
             // Show standard panels
             elements.interfacePanel.style.display = 'block';
             elements.paramsPanel.style.display = 'block';
@@ -1204,6 +1210,12 @@
     }
 
     function handleMojoIntercept(e) {
+        state.trafficCount++;
+        if (elements.trafficBadge) {
+            elements.trafficBadge.textContent = state.trafficCount;
+            elements.trafficBadge.style.display = 'inline-block';
+        }
+
         // Forward to unified handler
         addActivityRow({
             ...e.detail,

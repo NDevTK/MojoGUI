@@ -297,6 +297,41 @@ body::before {
     border-radius: var(--radius-xl);
 }
 
+.interface-item {
+    position: relative;
+    padding-right: 40px;
+}
+
+/* Traffic Activity Badge */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    margin-left: 8px;
+    background: var(--accent-primary);
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+#viewTrafficBtn.active {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+    color: white;
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+#viewTrafficBtn.active .badge {
+    background: white;
+    color: var(--accent-primary);
+    box-shadow: none;
+}
+
 .search-box {
     position: relative;
     padding: var(--space-md);
