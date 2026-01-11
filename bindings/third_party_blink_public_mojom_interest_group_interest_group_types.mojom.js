@@ -465,7 +465,7 @@ mojo.internal.Struct(
   mojo.internal.StructField('arg_component_auctions', 200, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AuctionAdConfigSpec.$, false), null, false, 0, undefined),
   mojo.internal.StructField('arg_deprecated_render_url_replacements', 208, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseDeprecatedRenderURLReplacementsSpec.$, null, false, 0, undefined),
   mojo.internal.StructField('arg_trusted_scoring_signals_coordinator', 216, 0, mojo.internal.bindings.url.mojom.OriginSpec.$, null, true, 0, undefined),
-  mojo.internal.StructField('arg_execution_mode', 224, 0, mojo.internal.bindings.InterestGroup.ExecutionModeSpec.$, 0, false, 0, undefined),
+  mojo.internal.StructField('arg_execution_mode', 224, 0, mojo.internal.bindings.blink.mojom.ExecutionModeSpec.$, 0, false, 0, undefined),
   mojo.internal.StructField('arg_max_trusted_scoring_signals_url_length', 232, 0, mojo.internal.Int32, 0, false, 0, undefined),
   mojo.internal.StructField('arg_all_buyers_group_limit', 236, 0, mojo.internal.Uint16, 65535, false, 0, undefined),
   mojo.internal.StructField('arg_all_buyers_multi_bid_limit', 238, 0, mojo.internal.Uint16, 0, false, 0, undefined),

@@ -507,6 +507,18 @@ jobs:
                   
                   # Check local types or imports
                   clean_name = type_name.replace('?', '').strip()
+
+                  # Universal Fix 3.0: Scoped Local Type Resolution
+                  # Handle cases like "InterestGroup.ExecutionMode" where "ExecutionMode" is a local Enum/Struct.
+                  # Since MojoJS flattens definitions, we should check if the leaf name is valid locally.
+                  if '.' in clean_name:
+                      leaf_name = clean_name.split('.')[-1]
+                      if leaf_name in valid_types:
+                          # It's a local type referenced with scope!
+                          fqn = f"{module}.{leaf_name}"
+                          if global_kind_map.get(fqn) == 'interface':
+                               return f"{current_ns}.{leaf_name}Remote"
+                          return f"{current_ns}.{leaf_name}Spec.$"
                   
                   # Explicit FQN?
                   if '.' in clean_name and not clean_name.startswith('mojo.'):
