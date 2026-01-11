@@ -339,19 +339,24 @@
 
                                     console.log(`[MojoProxy] Arg[${idx}] extracted raw handle:`, rawHandle);
 
-                                    // FIX 3.0: Use a lightweight Mock Remote instead of re-instantiating the class.
-                                    // Re-instantiating the Remote/Receiver class might reset internal state (like sequence IDs) via new Router(),
-                                    // which could cause BAD_MESSAGE if the browser expects continuity.
-                                    // A Mock Remote just holds the handle and gives it back when asked, avoiding side effects.
+                                    // FIX 4.0: Mock the Endpoint too.
+                                    // bindings_lite.js expects unbind() to return an Endpoint, then calls releasePipe() on it.
+                                    const mockEndpoint = {
+                                        releasePipe: () => {
+                                            console.log(`[MojoProxy] MockEndpoint.releasePipe returning handle`);
+                                            return rawHandle;
+                                        }
+                                    };
+
                                     const mockRemote = {
                                         unbind: () => {
                                             console.log(`[MojoProxy] Mock unbind called for Arg[${idx}]`);
-                                            return rawHandle;
+                                            return mockEndpoint;
                                         },
                                         proxy: {
                                             unbind: () => {
                                                 console.log(`[MojoProxy] Mock proxy.unbind called for Arg[${idx}]`);
-                                                return rawHandle;
+                                                return mockEndpoint;
                                             }
                                         }
                                     };
@@ -469,16 +474,23 @@
 
                                     console.log(`[MojoProxy] Resume Arg[${idx}] extracted raw handle:`, rawHandle);
 
-                                    // FIX 3.0: Use a lightweight Mock Remote instead of re-instantiating the class.
+                                    // FIX 4.0: Mock the Endpoint too.
+                                    const mockEndpoint = {
+                                        releasePipe: () => {
+                                            console.log(`[MojoProxy] MockEndpoint.releasePipe returning handle`);
+                                            return rawHandle;
+                                        }
+                                    };
+
                                     const mockRemote = {
                                         unbind: () => {
                                             console.log(`[MojoProxy] Mock unbind called for Arg[${idx}]`);
-                                            return rawHandle;
+                                            return mockEndpoint;
                                         },
                                         proxy: {
                                             unbind: () => {
                                                 console.log(`[MojoProxy] Mock proxy.unbind called for Arg[${idx}]`);
-                                                return rawHandle;
+                                                return mockEndpoint;
                                             }
                                         }
                                     };
