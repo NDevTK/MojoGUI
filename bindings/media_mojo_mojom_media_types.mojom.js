@@ -116,6 +116,8 @@ mojo.internal.bindings.media.mojom.DecoderBufferSideDataNextConfigSpec = { $: {}
 mojo.internal.bindings.media.mojom.DecoderBufferSpec = { $: {} };
 mojo.internal.bindings.media.mojom.VideoFrameDataSpec = { $: {} };
 mojo.internal.bindings.media.mojom.MediaLogRecordSpec = { $: {} };
+mojo.internal.bindings.media.mojom.SubsampleEntrySpec = { $: {} };
+mojo.internal.bindings.media.mojom.MediaLogRecordSpec = { $: {} };
 mojo.internal.bindings.media.mojom.VideoTransformationSpec = { $: {} };
 mojo.internal.bindings.media.mojom.VideoAspectRatioSpec = { $: {} };
 mojo.internal.bindings.media.mojom.VideoColorSpaceSpec = { $: {} };
@@ -476,6 +478,18 @@ mojo.internal.Union(
         'nullable': false,
       },
     });
+
+// Struct: MediaLogRecord
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.MediaLogRecordSpec, 'media.mojom.MediaLogRecord', [
+    ],
+    [[0, 8]]);
+
+// Struct: SubsampleEntry
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.SubsampleEntrySpec, 'media.mojom.SubsampleEntry', [
+    ],
+    [[0, 8]]);
 
 // Struct: MediaLogRecord
 mojo.internal.Struct(

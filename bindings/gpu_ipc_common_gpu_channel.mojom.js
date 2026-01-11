@@ -87,6 +87,7 @@ mojo.internal.bindings.gpu.mojom.ContextCreationAttribsSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.DeferredRequestParamsSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.DeferredCommandBufferRequestParamsSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.DeferredSharedImageRequestSpec = { $: {} };
+mojo.internal.bindings.gpu.mojom.SwapBuffersCompleteParamsSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.RasterCreationAttribsSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.GLESCreationAttribsSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.WebGPUCreationAttribsSpec = { $: {} };
@@ -334,6 +335,12 @@ mojo.internal.Union(
         'nullable': false,
       },
     });
+
+// Struct: SwapBuffersCompleteParams
+mojo.internal.Struct(
+    mojo.internal.bindings.gpu.mojom.SwapBuffersCompleteParamsSpec, 'gpu.mojom.SwapBuffersCompleteParams', [
+    ],
+    [[0, 8]]);
 
 // Struct: RasterCreationAttribs
 mojo.internal.Struct(
