@@ -378,6 +378,7 @@
                                         });
 
                                         // Persist routers to prevent GC
+                                        if (!this.activeBridges) this.activeBridges = new Set();
                                         this.activeBridges.add(routerLocal);
                                         this.activeBridges.add(routerOriginal);
 
@@ -583,6 +584,7 @@
                                         });
 
                                         // Persist routers to prevent GC
+                                        if (!this.activeBridges) this.activeBridges = new Set();
                                         this.activeBridges.add(routerLocal);
                                         this.activeBridges.add(routerOriginal);
 
