@@ -79,7 +79,7 @@ mojo.internal.bindings.extensions.mojom.RendererAutomationRegistry_BindAutomatio
 // Interface: RendererAutomationRegistry
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec, 'extensions.mojom.RendererAutomationRegistry_BindAutomation_Params', [
-      mojo.internal.StructField('arg_automation', 0, 0, mojo.internal.bindings.pending_associated_remote<ax.mojom.Automation>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_automation', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ax.mojom.AutomationRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

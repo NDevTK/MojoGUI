@@ -233,8 +233,8 @@ mojo.internal.bindings.blink.mojom.BroadcastChannelClientRequest = mojo.internal
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BroadcastChannelProvider_ConnectToChannel_ParamsSpec, 'blink.mojom.BroadcastChannelProvider_ConnectToChannel_Params', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_connection', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.BroadcastChannelClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_connection', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.BroadcastChannelClientSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

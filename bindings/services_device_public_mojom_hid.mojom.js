@@ -648,7 +648,7 @@ mojo.internal.bindings.device.mojom.HidManagerClientRequest = mojo.internal.bind
 // Interface: HidManager
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec, 'device.mojom.HidManager_GetDevicesAndSetClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.HidManagerClientSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -235,7 +235,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateOutputStream_ParamsSpec, 'media.mojom.AudioStreamFactory_CreateOutputStream_Params', [
       mojo.internal.StructField('arg_stream', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioOutputStreamRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.bindings.pending_associated_remote<media.mojom.AudioOutputStreamObserver>Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.AudioOutputStreamObserverRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_log', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioLogRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_device_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_params', 32, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec.$, null, false, 0, undefined),
@@ -253,7 +253,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ParamsSpec, 'media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_Params', [
       mojo.internal.StructField('arg_stream', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioOutputStreamRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_device_switch_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.DeviceSwitchInterfaceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 16, 0, mojo.internal.bindings.pending_associated_remote<media.mojom.AudioOutputStreamObserver>Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_observer', 16, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.AudioOutputStreamObserverRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_log', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioLogRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_device_id', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_params', 40, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec.$, null, false, 0, undefined),
@@ -269,7 +269,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioStreamFactory_BindMuter_ParamsSpec, 'media.mojom.AudioStreamFactory_BindMuter_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.media.mojom.LocalMuterSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_group_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

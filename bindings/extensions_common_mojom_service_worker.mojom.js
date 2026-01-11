@@ -92,8 +92,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_channel_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_tab_info', 24, 0, mojo.internal.bindings.extensions.mojom.TabConnectionInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_external_connection_info', 32, 0, mojo.internal.bindings.extensions.mojom.ExternalConnectionInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_port', 40, 0, mojo.internal.bindings.pending_associated_receiver<extensions.mojom.MessagePort>Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_port_host', 48, 0, mojo.internal.bindings.pending_associated_remote<extensions.mojom.MessagePortHost>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_port', 40, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.extensions.mojom.MessagePortRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_port_host', 48, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.extensions.mojom.MessagePortHostRemote), null, false, 0, undefined),
     ],
     [[0, 64]]);
 

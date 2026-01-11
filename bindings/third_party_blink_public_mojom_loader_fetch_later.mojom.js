@@ -84,7 +84,7 @@ mojo.internal.bindings.blink.mojom.FetchLaterLoader_Cancel_ParamsSpec = { $: {} 
 // Interface: FetchLaterLoaderFactory
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactory_CreateLoader_ParamsSpec, 'blink.mojom.FetchLaterLoaderFactory_CreateLoader_Params', [
-      mojo.internal.StructField('arg_loader', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_loader', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.FetchLaterLoaderSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_request', 8, 0, mojo.internal.bindings.network.mojom.URLRequestSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_traffic_annotation', 16, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_request_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -94,7 +94,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactory_Clone_ParamsSpec, 'blink.mojom.FetchLaterLoaderFactory_Clone_Params', [
-      mojo.internal.StructField('arg_factory', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_factory', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactorySpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

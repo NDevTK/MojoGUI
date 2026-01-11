@@ -105,8 +105,8 @@ mojo.internal.bindings.blink.mojom.ControllerServiceWorkerPurpose = {
 // Struct: ServiceWorkerContainerInfoForClient
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerContainerInfoForClientSpec, 'blink.mojom.ServiceWorkerContainerInfoForClient', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_receiver', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerContainerSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

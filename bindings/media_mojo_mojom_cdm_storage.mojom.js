@@ -107,7 +107,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.CdmStorage_Open_ResponseParamsSpec, 'media.mojom.CdmStorage_Open_ResponseParams', [
       mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.StatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cdm_file', 8, 0, mojo.internal.Pointer, null, true, 0, undefined),
+      mojo.internal.StructField('arg_cdm_file', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.CdmFileSpec), null, true, 0, undefined),
     ],
     [[0, 24]]);
 

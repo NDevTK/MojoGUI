@@ -84,7 +84,7 @@ mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_Resp
 // Struct: CreateGraphSuccess
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.CreateGraphSuccessSpec, 'webnn.mojom.CreateGraphSuccess', [
-      mojo.internal.StructField('arg_graph_remote', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_graph_remote', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.webnn.mojom.WebNNGraphRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_devices', 8, 0, mojo.internal.Array(mojo.internal.bindings.webnn.mojom.DeviceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);

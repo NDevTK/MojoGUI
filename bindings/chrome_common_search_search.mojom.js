@@ -92,8 +92,8 @@ mojo.internal.bindings.search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec
 // Interface: EmbeddedSearchConnector
 mojo.internal.Struct(
     mojo.internal.bindings.search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec, 'search.mojom.EmbeddedSearchConnector_Connect_Params', [
-      mojo.internal.StructField('arg_embedded_search', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_embedded_search', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.search.mojom.EmbeddedSearchSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.search.mojom.EmbeddedSearchClientSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

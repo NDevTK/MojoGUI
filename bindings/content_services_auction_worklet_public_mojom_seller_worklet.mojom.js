@@ -392,7 +392,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.auction_worklet.mojom.SellerWorklet_ConnectDevToolsAgent_ParamsSpec, 'auction_worklet.mojom.SellerWorklet_ConnectDevToolsAgent_Params', [
-      mojo.internal.StructField('arg_agent', 0, 0, mojo.internal.bindings.pending_associated_receiver<blink.mojom.DevToolsAgent>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_agent', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsAgentRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_thread_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);

@@ -194,7 +194,7 @@ mojo.internal.bindings.blink.mojom.AssociatedInterfaceRequest = mojo.internal.bi
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_ParamsSpec, 'blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_Params', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.AssociatedInterfaceSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

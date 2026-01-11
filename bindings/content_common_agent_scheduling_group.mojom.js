@@ -236,8 +236,8 @@ mojo.internal.bindings.content.mojom.AgentSchedulingGroupHostRequest = mojo.inte
 // Interface: AgentSchedulingGroup
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec, 'content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_Params', [
-      mojo.internal.StructField('arg_remote_host', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_route_provider_receiver', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote_host', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.content.mojom.AgentSchedulingGroupHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_route_provider_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.content.mojom.RouteProviderRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

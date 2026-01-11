@@ -122,7 +122,7 @@ mojo.internal.Union(
 mojo.internal.Struct(
     mojo.internal.bindings.tabs_api.mojom.TabsSnapshotSpec, 'tabs_api.mojom.TabsSnapshot', [
       mojo.internal.StructField('arg_tab_strip', 0, 0, mojo.internal.bindings.tabs_api.mojom.ContainerSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_stream', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stream', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.tabs_api.mojom.TabsObserverSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

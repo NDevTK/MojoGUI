@@ -366,7 +366,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.SearchController_Search_ResponseParamsSpec, 'crosapi.mojom.SearchController_Search_ResponseParams', [
-      mojo.internal.StructField('arg_publisher', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_publisher', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.crosapi.mojom.SearchResultsPublisherSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

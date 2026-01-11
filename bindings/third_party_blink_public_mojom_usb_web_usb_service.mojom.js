@@ -136,7 +136,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebUsbService_SetClient_ParamsSpec, 'blink.mojom.WebUsbService_SetClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.bindings.pending_associated_remote<device.mojom.UsbDeviceManagerClient>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.UsbDeviceManagerClientRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

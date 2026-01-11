@@ -945,14 +945,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PrintRenderFrame_InitiatePrintPreview_ParamsSpec, 'printing.mojom.PrintRenderFrame_InitiatePrintPreview_Params', [
-      mojo.internal.StructField('arg_print_renderer', 0, 0, mojo.internal.Pointer, null, true, 0, undefined),
+      mojo.internal.StructField('arg_print_renderer', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.printing.mojom.PrintRendererSpec), null, true, 0, undefined),
       mojo.internal.StructField('arg_has_selection', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PrintRenderFrame_SetPrintPreviewUI_ParamsSpec, 'printing.mojom.PrintRenderFrame_SetPrintPreviewUI_Params', [
-      mojo.internal.StructField('arg_preview', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_preview', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.printing.mojom.PrintPreviewUISpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

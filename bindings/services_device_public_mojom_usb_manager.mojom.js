@@ -91,7 +91,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManager_SetClient_ParamsSpec = { $:
 // Interface: UsbDeviceManager
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec, 'device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.UsbDeviceManagerClientRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -170,7 +170,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.UsbDeviceManager_SetClient_ParamsSpec, 'device.mojom.UsbDeviceManager_SetClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.UsbDeviceManagerClientRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

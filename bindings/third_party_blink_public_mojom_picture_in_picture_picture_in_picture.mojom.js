@@ -281,7 +281,7 @@ mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserverRequest = mojo
 // Interface: PictureInPictureSession
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PictureInPictureSession_Update_ParamsSpec, 'blink.mojom.PictureInPictureSession_Update_Params', [
-      mojo.internal.StructField('arg_player_remote', 0, 0, mojo.internal.bindings.pending_associated_remote<media.mojom.MediaPlayer>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_player_remote', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.MediaPlayerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_surface_id', 8, 0, mojo.internal.bindings.viz.mojom.SurfaceIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_natural_size', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_player_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
@@ -524,7 +524,7 @@ mojo.internal.bindings.blink.mojom.PictureInPictureSessionRequest = mojo.interna
 // Interface: PictureInPictureService
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PictureInPictureService_StartSession_ParamsSpec, 'blink.mojom.PictureInPictureService_StartSession_Params', [
-      mojo.internal.StructField('arg_player_remote', 0, 0, mojo.internal.bindings.pending_associated_remote<media.mojom.MediaPlayer>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_player_remote', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.MediaPlayerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_surface_id', 8, 0, mojo.internal.bindings.viz.mojom.SurfaceIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_natural_size', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_observer', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserverSpec), null, false, 0, undefined),

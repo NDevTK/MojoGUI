@@ -177,7 +177,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_container_info', 64, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerContainerInfoForClientSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_subresource_proxying_loader_factory', 72, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_keep_alive_loader_factory', 80, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_fetch_later_loader_factory', 88, 0, mojo.internal.bindings.pending_associated_remote<blink.mojom.FetchLaterLoaderFactory>Spec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_fetch_later_loader_factory', 88, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactoryRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_document_token', 96, 0, mojo.internal.bindings.blink.mojom.DocumentTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_devtools_navigation_token', 104, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_base_auction_nonce', 112, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec.$, null, false, 0, undefined),

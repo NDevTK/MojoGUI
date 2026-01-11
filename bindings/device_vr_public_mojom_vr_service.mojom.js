@@ -1988,7 +1988,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsSpec, 'device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_Params', [
-      mojo.internal.StructField('arg_environment_provider', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_environment_provider', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

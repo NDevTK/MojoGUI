@@ -137,7 +137,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoDecoder_Initialize_ParamsSpec, 'arc.mojom.VideoDecoder_Initialize_Params', [
       mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.mojo.internal.bindings.arc.mojom.VideoDecoderConfigSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.VideoDecoderClientSpec), null, false, 0, undefined),
-      mojo.internal.StructField('arg_video_frame_pool', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_video_frame_pool', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.arc.mojom.VideoFramePoolRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

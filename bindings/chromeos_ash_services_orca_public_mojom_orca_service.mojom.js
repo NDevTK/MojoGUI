@@ -1958,10 +1958,10 @@ mojo.internal.bindings.ash.orca.mojom.TextQueryProviderRequest = mojo.internal.b
 // Interface: OrcaService
 mojo.internal.Struct(
     mojo.internal.bindings.ash.orca.mojom.OrcaService_BindEditor_ParamsSpec, 'ash.orca.mojom.OrcaService_BindEditor_Params', [
-      mojo.internal.StructField('arg_system_actuator', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_query_provider', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_connector', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_sink', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_system_actuator', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ash.orca.mojom.SystemActuatorSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_query_provider', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ash.orca.mojom.TextQueryProviderSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_connector', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.ash.orca.mojom.EditorClientConnectorSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_sink', 24, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.ash.orca.mojom.EditorEventSinkSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_editor_config', 32, 0, mojo.internal.bindings.mojo.internal.bindings.ash.orca.mojom.EditorConfigSpec.$, null, true, 9, undefined),
     ],
     [[0, 40], [9, 48]]);

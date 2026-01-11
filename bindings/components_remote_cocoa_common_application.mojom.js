@@ -214,17 +214,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec, 'remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_Params', [
       mojo.internal.StructField('arg_bridge_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_window_receiver', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_host', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_input_host', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_window_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 16, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_input_host', 24, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemote), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec, 'remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_Params', [
       mojo.internal.StructField('arg_view_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_view_receiver', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_view_receiver', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -238,8 +238,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec, 'remote_cocoa.mojom.Application_CreateWebContentsNSView_Params', [
       mojo.internal.StructField('arg_view_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_view_receiver', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_view_receiver', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceSpec), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

@@ -79,7 +79,7 @@ mojo.internal.bindings.blink.mojom.kNavigation_ServiceWorkerSpec = "navigation:s
 // Struct: ServiceWorkerProviderInfoForStartWorker
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerProviderInfoForStartWorkerSpec, 'blink.mojom.ServiceWorkerProviderInfoForStartWorker', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.ServiceWorkerContainerHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_script_loader_factory_remote', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_cache_storage', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.CacheStorageRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_browser_interface_broker', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerRemote), null, false, 0, undefined),

@@ -233,7 +233,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec, 'chrome.mojom.ChromeRenderFrame_StartActorJournal_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.bindings.pending_associated_remote<actor.mojom.JournalClient>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.actor.mojom.JournalClientRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
