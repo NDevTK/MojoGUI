@@ -884,7 +884,7 @@ var {module_parts[0]} = {module_parts[0]} || {{}};
         js_code += "        if (payload instanceof ArrayBuffer) {\n"
         js_code += "           payload = new DataView(payload, headerSize);\n"
         js_code += "        }\n"
-        js_code += "        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};\n"
+        js_code += "        message = { header: args[1], payload: payload, handles: args[3] || [] };\n"
         js_code += "      }\n"
         js_code += "      const header = message && message.header;\n"
         js_code += "      if (!header) return;\n"
@@ -930,7 +930,7 @@ var {module_parts[0]} = {module_parts[0]} || {{}};
         
         js_code += "      }\n"
         js_code += "      } catch (err) {}\n"
-        js_code += "    }});\n"
+        js_code += "    });\n"
         js_code += "  }\n"
         js_code += "};\n\n"
         
