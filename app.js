@@ -104,7 +104,13 @@
         codeContainer: document.getElementById('codeContainer'),
         // resultsSection duplicate in original, keeping last
         resultsSection: document.getElementById('resultsSection'),
-        clearActivityBtn: document.getElementById('clearActivityBtn')
+        clearActivityBtn: document.getElementById('clearActivityBtn'),
+
+        // New UI Elements
+        monitorAllBtn: document.getElementById('monitorAllBtn'),
+        closeInterceptorBtn: document.getElementById('closeInterceptorBtn'),
+        interfacePanel: document.getElementById('interfacePanel'),
+        paramsPanel: document.getElementById('paramsPanel')
     };
 
     // ========================================
@@ -231,11 +237,60 @@
         elements.interceptToggleBtn.addEventListener('click', toggleInterceptor);
         elements.clearActivityBtn?.addEventListener('click', clearActivityLog);
 
+        // Monitor All & Traffic View
+        if (elements.monitorAllBtn) {
+            elements.monitorAllBtn.addEventListener('click', toggleMonitorAll);
+        }
+        if (elements.closeInterceptorBtn) {
+            elements.closeInterceptorBtn.addEventListener('click', () => showInterceptorPanel(false));
+        }
+
         // Global functions for inline handlers
         window.resumeIntercept = resumeIntercept;
         window.addEventListener('mojo-intercept', handleMojoIntercept);
         window.addEventListener('mojo-response', handleMojoResponse);
         window.addEventListener('mojo-error', handleMojoError);
+        window.switchToInterceptMode = switchToInterceptMode;
+    }
+
+    function toggleMonitorAll() {
+        if (!state.mojoAvailable) {
+            showToast('MojoJS not available', 'error');
+            return;
+        }
+
+        const btn = elements.monitorAllBtn;
+        const isMonitoring = btn.classList.contains('active');
+
+        if (isMonitoring) {
+            // Stop monitoring
+            state.interfaces.forEach(iface => {
+                // Only stop if currently in LOG mode to avoid disrupting active intercepts
+                if (InterceptorManager.getMode(iface.name) === 'LOG') {
+                    InterceptorManager.stop(iface.name);
+                }
+            });
+            btn.classList.remove('active');
+            showToast('Stopped monitoring all interfaces', 'info');
+        } else {
+            // Start monitoring all
+            let count = 0;
+            state.interfaces.forEach(iface => {
+                if (!InterceptorManager.isActive(iface.name)) {
+                    InterceptorManager.start(iface.name, 'LOG');
+                    count++;
+                }
+            });
+            btn.classList.add('active');
+            showToast(`Started monitoring ${count} interfaces`, 'success');
+            showInterceptorPanel(true);
+        }
+    }
+
+    function switchToInterceptMode(interfaceName) {
+        InterceptorManager.start(interfaceName, 'INTERCEPT');
+        showToast(`Switched ${interfaceName} to Intercept Mode`, 'success');
+        // Update UI if needed
     }
 
     function handleSearch(e) {
@@ -968,15 +1023,19 @@
     }
 
     function showInterceptorPanel(show) {
-        // Toggle between code/results and interceptor panel
-        // Or specific layout
         if (show) {
-            elements.codeContainer.style.display = 'none';
-            elements.resultsSection.style.display = 'none';
+            // Hide standard panels
+            elements.interfacePanel.style.display = 'none';
+            elements.paramsPanel.style.display = 'none';
+
+            // Show Interceptor Panel (Full Width)
             elements.interceptorPanel.style.display = 'flex';
         } else {
-            elements.codeContainer.style.display = 'block';
-            elements.resultsSection.style.display = 'flex';
+            // Show standard panels
+            elements.interfacePanel.style.display = 'block';
+            elements.paramsPanel.style.display = 'block';
+
+            // Hide Interceptor Panel
             elements.interceptorPanel.style.display = 'none';
         }
     }
@@ -992,13 +1051,25 @@
 
         // Visual indicator for manual vs intercept
         const typeIcon = type === 'MANUAL' ? '🛠️' : '📡';
-        const displayStatus = status || 'Pending';
-        const statusClass = displayStatus === 'Done' ? 'active' : (displayStatus === 'Error' ? 'error' : '');
+        let displayStatus = status || 'Pending';
+        let statusClass = displayStatus === 'Done' ? 'active' : (displayStatus === 'Error' ? 'error' : '');
+
+        // Check mode
+        let currentMode = 'INTERCEPT';
+        if (data.mode === 'LOG' && type !== 'MANUAL') {
+            displayStatus = 'Logged';
+            statusClass = 'logged'; // Make sure to add CSS for this
+        }
 
         row.innerHTML = safeHTML(`
             <td>${new Date(timestamp).toLocaleTimeString()}</td>
-            <td><span class="type-icon">${typeIcon}</span> ${escapeHtml(method)}</td>
+            <td><span class="type-icon">${typeIcon}</span> ${escapeHtml(iface)}.${escapeHtml(method)}</td>
             <td><span class="status-dot ${statusClass}"></span> ${escapeHtml(displayStatus)}</td>
+            <td>
+                ${(data.mode === 'LOG') ?
+                `<button class="btn btn-small" onclick="event.stopPropagation(); switchToInterceptMode('${escapeHtml(iface)}')">Intercept</button>` :
+                ''}
+            </td>
         `);
 
         // Attach full details for the details view

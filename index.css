@@ -234,6 +234,13 @@ body::before {
     animation: none;
 }
 
+.status-badge.logged .status-dot,
+.status-dot.logged {
+    background: var(--info);
+    animation: none;
+    box-shadow: 0 0 5px var(--info);
+}
+
 @keyframes pulse {
 
     0%,

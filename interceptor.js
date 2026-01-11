@@ -283,6 +283,9 @@
 
         async interceptCall(methodName, args) {
             const callId = Math.random().toString(36).substr(2, 9);
+            const mode = global.InterceptorManager ? global.InterceptorManager.getMode(this.interfaceName) : 'INTERCEPT';
+
+            console.log(`[MojoProxy] Intercepted ${this.interfaceName}.${methodName} (Mode: ${mode})`, args);
 
             // Notify UI
             const event = new CustomEvent('mojo-intercept', {
@@ -292,15 +295,38 @@
                     method: methodName,
                     params: args,
                     timestamp: Date.now(),
-                    proxyId: this.id
+                    proxyId: this.id,
+                    mode: mode
                 }
             });
             window.dispatchEvent(event);
 
-            console.log(`[MojoProxy] Intercepted ${this.interfaceName}.${methodName}`, args);
+            if (mode === 'LOG') {
+                // Pass-through without pausing
+                try {
+                    const result = await this.realRemote[methodName](...args);
+                    
+                    window.dispatchEvent(new CustomEvent('mojo-response', {
+                        detail: {
+                            id: callId,
+                            result: result,
+                            timestamp: Date.now()
+                        }
+                    }));
+                    return result;
+                } catch (e) {
+                    window.dispatchEvent(new CustomEvent('mojo-error', {
+                        detail: {
+                            id: callId,
+                            error: e.toString(),
+                            timestamp: Date.now()
+                        }
+                    }));
+                    throw e;
+                }
+            }
 
-            // Create a Promise that we will manually resolve later
-            // This effectively PAUSES execution here until the UI calls resume
+            // 'INTERCEPT' Mode: Pause and wait for UI
             return new Promise((resolve, reject) => {
                 this.pendingMessages.set(callId, {
                     resolve,
@@ -535,6 +561,7 @@
     // ========================================
     const InterceptorManager = {
         interceptors: new Map(), // interfaceName -> MojoInterfaceInterceptor
+        modes: new Map(), // interfaceName -> 'INTERCEPT' | 'LOG'
         activeProxies: [],
 
         handleRequest(interfaceName, clientHandle) {
@@ -583,7 +610,10 @@
             }
         },
 
-        start(interfaceName) {
+        start(interfaceName, mode = 'INTERCEPT') {
+            // Update mode if already running
+            this.modes.set(interfaceName, mode);
+
             if (this.interceptors.has(interfaceName)) return true;
 
             if (typeof MojoInterfaceInterceptor === 'undefined') {
@@ -611,7 +641,7 @@
 
                 interceptor.start();
                 this.interceptors.set(interfaceName, interceptor);
-                console.log(`[Interceptor] Started for ${interfaceName} (scope: ${scope})`);
+                console.log(`[Interceptor] Started for ${interfaceName} (scope: ${scope}, mode: ${mode})`);
                 return true;
             } catch (e) {
                 console.error(`[Interceptor] Failed to start for ${interfaceName}:`, e);
@@ -624,6 +654,7 @@
             if (interceptor) {
                 interceptor.stop();
                 this.interceptors.delete(interfaceName);
+                this.modes.delete(interfaceName);
                 console.log(`[Interceptor] Stopped for ${interfaceName}`);
             }
         },
@@ -639,6 +670,14 @@
 
         isActive(interfaceName) {
             return this.interceptors.has(interfaceName);
+        },
+
+        getMode(interfaceName) {
+            return this.modes.get(interfaceName) || 'INTERCEPT';
+        },
+        
+        setMode(interfaceName, mode) {
+            this.modes.set(interfaceName, mode);
         }
     };
 

@@ -65,7 +65,15 @@
             <aside class="sidebar">
                 <div class="sidebar-header">
                     <h2>Interfaces</h2>
-                    <span class="interface-count" id="interfaceCount">0</span>
+                    <div style="display: flex; gap: 8px;">
+                        <button class="btn btn-icon btn-small" id="monitorAllBtn" title="Monitor All Interfaces (Passive)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </button>
+                        <span class="interface-count" id="interfaceCount">0</span>
+                    </div>
                 </div>
 
                 <div class="search-box">
@@ -138,6 +146,50 @@
                         </div>
                     </div>
                 </section>
+
+                <!-- Interceptor Panel (Moved to Main Panel) -->
+                <section class="panel interceptor-panel" id="interceptorPanel" style="display: none; flex: 1; flex-direction: column;">
+                    <div class="panel-header">
+                        <div class="panel-title">
+                            <h4>Traffic Log</h4>
+                        </div>
+                        <div class="panel-actions">
+                            <button class="btn btn-icon btn-small" id="clearActivityBtn" title="Clear History">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                    height="14">
+                                    <line x1="18" y1="6" x2="6" y2="18" />
+                                    <line x1="6" y1="6" x2="18" y2="18" />
+                                </svg>
+                            </button>
+                            <button class="btn btn-icon btn-small" id="closeInterceptorBtn" title="Close Traffic View">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="interceptor-list-container" style="flex: 1; overflow: auto; border-bottom: 1px solid var(--border-subtle);">
+                        <table class="interceptor-table" style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="text-align: left; border-bottom: 1px solid var(--border-subtle); background: rgba(0,0,0,0.1);">
+                                    <th style="padding: 8px;">Time</th>
+                                    <th style="padding: 8px;">Interface.Method</th>
+                                    <th style="padding: 8px;">Status</th>
+                                    <th style="padding: 8px;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="interceptorTableBody">
+                                <!-- Items will be added here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="interceptor-details" id="interceptorDetails" style="height: 300px; overflow: auto; padding: 16px; border-top: 1px solid var(--border-subtle);">
+                        <div class="empty-state small">
+                            <p>Select a request to view details</p>
+                        </div>
+                    </div>
+                </section>
             </div>
 
             <!-- Code Panel -->
@@ -169,40 +221,7 @@
                         class="code-block"><code id="generatedCode">// Select an interface and method to generate code</code></pre>
                 </div>
 
-                <!-- Interceptor Panel (Hidden by default) -->
-                <div class="interceptor-panel" id="interceptorPanel" style="display: none;">
-                    <div class="panel-header"
-                        style="background: var(--bg-primary); border-bottom: 1px solid var(--border-subtle); padding: 8px 16px;">
-                        <h4 style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Activity Log
-                        </h4>
-                        <button class="btn btn-icon btn-small" id="clearActivityBtn" title="Clear History">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
-                                height="14">
-                                <line x1="18" y1="6" x2="6" y2="18" />
-                                <line x1="6" y1="6" x2="18" y2="18" />
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="interceptor-list-container">
-                        <table class="interceptor-table">
-                            <thead>
-                                <tr>
-                                    <th>Time</th>
-                                    <th>Method</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody id="interceptorTableBody">
-                                <!-- Items will be added here -->
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="interceptor-details" id="interceptorDetails">
-                        <div class="empty-state small">
-                            <p>Select a request to view details</p>
-                        </div>
-                    </div>
-                </div>
+                <!-- Interceptor Panel (Removed from here) -->
 
                 <!-- Results Section -->
                 <div class="results-section" id="resultsSection">
