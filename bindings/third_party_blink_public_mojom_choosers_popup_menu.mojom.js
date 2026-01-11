@@ -96,12 +96,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_tool_tip', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.blink.mojom.TypeSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_action', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_has_text_direction_override', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enabled', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_checked', 28, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_text_direction', 24, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_has_text_direction_override', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enabled', 36, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_checked', 36, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Interface: PopupMenuClient
 mojo.internal.Struct(

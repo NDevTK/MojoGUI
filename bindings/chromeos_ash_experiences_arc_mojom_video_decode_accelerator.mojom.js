@@ -674,7 +674,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoDecodeClient_NotifyError_ParamsSpec, 'arc.mojom.VideoDecodeClient_NotifyError_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.VideoDecodeAccelerator.ResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.arc.mojom.ResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

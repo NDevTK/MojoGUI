@@ -79,6 +79,7 @@ mojo.internal.bindings.blink.mojom.WorkerOptionsSpec = { $: {} };
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WorkerOptionsSpec, 'blink.mojom.WorkerOptions', [
       mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.blink.mojom.ScriptTypeSpec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_credentials', 8, 0, mojo.internal.bindings.network.mojom.CredentialsModeSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);

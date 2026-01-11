@@ -113,8 +113,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_wifilan_dependencies', 16, 0, mojo.internal.bindings.sharing.mojom.WifiLanDependenciesSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_wifidirect_dependencies', 24, 0, mojo.internal.bindings.sharing.mojom.WifiDirectDependenciesSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_nearby_presence_credential_storage', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_min_log_severity', 40, 0, mojo.internal.bindings.nearby.connections.mojom.LogSeveritySpec.$, 0, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 56]]);
 
 // Interface: Sharing
 mojo.internal.Struct(

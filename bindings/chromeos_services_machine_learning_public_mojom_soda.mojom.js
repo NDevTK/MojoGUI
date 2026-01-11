@@ -207,7 +207,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_speaker_change_detection', 48, 1, mojo.internal.Bool, false, false, 5, undefined),
       mojo.internal.StructField('arg_include_logging_output', 48, 2, mojo.internal.Bool, false, false, 6, undefined),
       mojo.internal.StructField('arg_multi_lang_config', 56, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.SodaMultilangConfigSpec.$, null, true, 7, undefined),
-      mojo.internal.StructField('arg_kSpeakerDiarizationModeOffDefault', 64, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.SpeakerDiarizationMode speaker_diarization_mode =Spec.$, 0, false, 9, undefined),
+      mojo.internal.StructField('arg_speaker_diarization_mode', 64, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.SpeakerDiarizationModeSpec.$, 0, false, 9, undefined),
       mojo.internal.StructField('arg_max_speaker_count', 72, 0, mojo.internal.Uint32, 2, false, 9, undefined),
     ],
     [[0, 40], [2, 48], [3, 56], [4, 64], [5, 64], [6, 64], [7, 72], [9, 88]]);
