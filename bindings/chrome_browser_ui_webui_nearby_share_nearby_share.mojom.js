@@ -253,6 +253,9 @@ nearby_share.mojom.ShareTargetListenerReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -394,6 +397,9 @@ nearby_share.mojom.TransferUpdateListenerReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -540,6 +546,9 @@ nearby_share.mojom.DiscoveryObserverReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -783,6 +792,9 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -1041,6 +1053,9 @@ nearby_share.mojom.ConfirmationManagerReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -1271,6 +1286,9 @@ nearby_share.mojom.ReceiveObserverReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -1584,6 +1602,9 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {

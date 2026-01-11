@@ -150,6 +150,9 @@ arc.mojom.MidisClientReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -341,6 +344,9 @@ arc.mojom.MidisServerReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -507,6 +513,9 @@ arc.mojom.MidisHostReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -639,6 +648,9 @@ arc.mojom.MidisInstanceReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {

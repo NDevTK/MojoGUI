@@ -244,6 +244,9 @@ blink.mojom.BackgroundFetchRegistrationObserverReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -489,6 +492,9 @@ blink.mojom.BackgroundFetchServiceReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -759,6 +765,9 @@ blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {

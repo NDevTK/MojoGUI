@@ -241,6 +241,9 @@ ash.media_app_ui.mojom.UntrustedServiceFactoryReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -460,6 +463,9 @@ ash.media_app_ui.mojom.OcrUntrustedServiceReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -659,6 +665,9 @@ ash.media_app_ui.mojom.OcrUntrustedPageReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -877,6 +886,9 @@ ash.media_app_ui.mojom.MahiUntrustedServiceReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -1068,6 +1080,9 @@ ash.media_app_ui.mojom.MahiUntrustedPageReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -1358,6 +1373,9 @@ ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -1586,6 +1604,9 @@ ash.media_app_ui.mojom.MantisUntrustedPageReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {

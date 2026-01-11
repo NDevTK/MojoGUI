@@ -243,6 +243,9 @@ cros.mojom.CameraAppDeviceProviderReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -499,6 +502,9 @@ cros.mojom.CameraAppDeviceBridgeReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -996,6 +1002,9 @@ cros.mojom.CameraAppDeviceReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -1357,6 +1366,9 @@ cros.mojom.ResultMetadataObserverReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -1483,6 +1495,9 @@ cros.mojom.CameraEventObserverReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -1610,6 +1625,9 @@ cros.mojom.DocumentCornersObserverReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -1737,6 +1755,9 @@ cros.mojom.CameraInfoObserverReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
@@ -1866,6 +1887,9 @@ cros.mojom.StillCaptureResultObserverReceiver = class {
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.router_.onConnectionError.addListener(() => {
+       console.error(`[GeneratedReceiver] Connection for ${iface_name} CLOSED.`);
+    });
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
