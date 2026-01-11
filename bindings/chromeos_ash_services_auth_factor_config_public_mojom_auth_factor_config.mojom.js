@@ -313,6 +313,10 @@ mojo.internal.bindings.ash.auth.mojom.FactorObserverReceiver = class {
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
@@ -647,6 +651,10 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigReceiver = class {
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
@@ -872,6 +880,10 @@ mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditorReceiver = class {
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
@@ -1188,6 +1200,10 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorReceiver = class {
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
@@ -1602,6 +1618,10 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);

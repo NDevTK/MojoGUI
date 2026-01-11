@@ -911,6 +911,10 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiv
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
@@ -1126,6 +1130,10 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverReceiver = c
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
@@ -1373,6 +1381,10 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver =
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
@@ -1574,6 +1586,10 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverReceiver =
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
@@ -1821,6 +1837,10 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRece
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
@@ -2024,6 +2044,10 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverReceiver = c
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
@@ -2211,6 +2235,10 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserverReceiver 
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
@@ -2369,6 +2397,10 @@ mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverReceiver = class {
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);

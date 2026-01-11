@@ -434,6 +434,10 @@ mojo.internal.bindings.printing.mojom.PrintRendererReceiver = class {
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
@@ -853,6 +857,10 @@ mojo.internal.bindings.printing.mojom.PrintPreviewUIReceiver = class {
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
@@ -1373,6 +1381,10 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameReceiver = class {
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
@@ -2015,6 +2027,10 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);

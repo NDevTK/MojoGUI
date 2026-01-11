@@ -807,6 +807,10 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerHostReceiver = class {
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
@@ -2041,6 +2045,10 @@ mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerReceiver = class {
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
@@ -2954,6 +2962,10 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerReceiver = class {
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);

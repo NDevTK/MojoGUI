@@ -386,6 +386,10 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceProviderReceiver = class {
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
@@ -693,6 +697,10 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeReceiver = class {
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
@@ -1336,6 +1344,10 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceReceiver = class {
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
@@ -1675,6 +1687,10 @@ mojo.internal.bindings.cros.mojom.ResultMetadataObserverReceiver = class {
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
@@ -1825,6 +1841,10 @@ mojo.internal.bindings.cros.mojom.CameraEventObserverReceiver = class {
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
@@ -1976,6 +1996,10 @@ mojo.internal.bindings.cros.mojom.DocumentCornersObserverReceiver = class {
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
@@ -2127,6 +2151,10 @@ mojo.internal.bindings.cros.mojom.CameraInfoObserverReceiver = class {
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
@@ -2280,6 +2308,10 @@ mojo.internal.bindings.cros.mojom.StillCaptureResultObserverReceiver = class {
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);

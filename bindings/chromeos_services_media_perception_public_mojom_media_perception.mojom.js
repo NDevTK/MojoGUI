@@ -175,6 +175,10 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionReceiver =
         }
       }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
       switch (dispatchId) {
       }
       } catch (err) {
