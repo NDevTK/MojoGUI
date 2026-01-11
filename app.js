@@ -452,12 +452,14 @@
             attributes = `name="${escapeHtml(param.name)}" data-type="${escapeHtml(param.type)}"`;
         }
 
+        const displayName = escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '');
+
         if (inputType === 'checkbox') {
             return `
                 <div class="form-group">
                     <label>
                         <input type="checkbox" ${attributes} ${displayValue ? 'checked' : ''}>
-                        ${escapeHtml(param.name)}
+                        ${displayName}
                         <span class="type">${escapeHtml(param.type)}</span>
                         ${param.optional ? '<span class="optional">(optional)</span>' : ''}
                     </label>
@@ -467,7 +469,7 @@
             return `
                 <div class="form-group">
                     <label>
-                        ${escapeHtml(param.name)}
+                        ${displayName}
                         <span class="type">${escapeHtml(param.type)}</span>
                         ${param.optional ? '<span class="optional">(optional)</span>' : ''}
                     </label>
@@ -478,7 +480,7 @@
             return `
                 <div class="form-group">
                     <label>
-                        ${escapeHtml(param.name)}
+                        ${displayName}
                         <span class="type">${escapeHtml(param.type)}</span>
                         ${param.optional ? '<span class="optional">(optional)</span>' : ''}
                     </label>
@@ -741,27 +743,38 @@
         code += `}\n\n`;
 
         // Generate method call with params
-        const params = Object.entries(state.paramValues);
+        // Generate method call with params
+        const paramsDef = getMethodParams(state.selectedInterface.name, method);
+        const args = [];
 
-        if (params.length > 0) {
+        if (paramsDef && paramsDef.length > 0) {
             code += `// Method parameters\n`;
-            params.forEach(([key, value]) => {
+            paramsDef.forEach(p => {
+                const key = p.name;
+                const cleanName = key.replace(/^arg_/, '');
+                const value = state.paramValues[key];
+
                 let valueStr;
                 if (typeof value === 'bigint') {
                     valueStr = value.toString() + 'n';
                 } else {
                     valueStr = typeof value === 'string' ? `"${value}"` : safeStringify(value);
                 }
-                code += `const ${key} = ${valueStr};\n`;
+
+                // If value is undefined (optional/skipped), we might want to pass null or undefined
+                // But for the generated code, let's show what's in the state or null
+                const safeValue = valueStr === undefined ? 'null' : valueStr;
+
+                code += `const ${cleanName} = ${safeValue};\n`;
+                args.push(cleanName);
             });
             code += `\n`;
         }
 
         code += `// Call the method\n`;
         code += `try {\n`;
-        if (params.length > 0) {
-            const paramNames = params.map(([key]) => key).join(', ');
-            code += `  const result = await ${remoteName}.${methodName}(${paramNames});\n`;
+        if (args.length > 0) {
+            code += `  const result = await ${remoteName}.${methodName}(${args.join(', ')});\n`;
         } else {
             code += `  const result = await ${remoteName}.${methodName}();\n`;
         }

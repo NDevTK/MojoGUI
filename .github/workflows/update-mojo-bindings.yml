@@ -897,7 +897,18 @@ jobs:
 
               # Generate constants
               for const in parsed.get('constants', []):
-                  js_code += f"\n{current_ns}.{const['name']} = {const['value']};\n"
+                  val = str(const['value'])
+                  # Heuristic for FQN references
+                  if not val.startswith(('0x', "'", '"', 'true', 'false')) and not val[0].isdigit() and val not in ('Infinity', 'NaN'):
+                      if '.mojom.' in val and not val.startswith('mojo.'):
+                          val = f"mojo.internal.bindings.{val}"
+                      elif '.' in val and not val.startswith('mojo.'):
+                           # Local Enum? MyEnum.VAL
+                           val = f"{current_ns}.{val}"
+                      elif ' ' not in val: # Simple identifier kFoo
+                           val = f"{current_ns}.{val}"
+
+                  js_code += f"\n{current_ns}.{const['name']} = {val};\n"
 
               # Generate enums
               for enum in parsed.get('enums', []):
