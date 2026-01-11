@@ -450,6 +450,14 @@ jobs:
                       inner = type_name[17:-1].strip()
                       return f"mojo.internal.InterfaceRequest({resolve_mojo_type_raw(inner)})"
                   
+                  if type_name.startswith('pending_associated_remote<'):
+                      inner = type_name[26:-1].strip()
+                      return f"mojo.internal.AssociatedInterfaceProxy({resolve_mojo_type_raw(inner)})"
+
+                  if type_name.startswith('pending_associated_receiver<'):
+                      inner = type_name[28:-1].strip()
+                      return f"mojo.internal.AssociatedInterfaceRequest({resolve_mojo_type_raw(inner)})"
+                  
                   # Check local types or imports
                   clean_name = type_name.replace('?', '').strip()
                   
