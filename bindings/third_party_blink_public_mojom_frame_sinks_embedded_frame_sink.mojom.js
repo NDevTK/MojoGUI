@@ -142,7 +142,7 @@ blink.mojom.SurfaceEmbedderReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -180,7 +180,7 @@ blink.mojom.SurfaceEmbedderReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -282,7 +282,7 @@ blink.mojom.EmbeddedFrameSinkClientReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -307,7 +307,7 @@ blink.mojom.EmbeddedFrameSinkClientReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -563,7 +563,7 @@ blink.mojom.EmbeddedFrameSinkProviderReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -679,7 +679,7 @@ blink.mojom.EmbeddedFrameSinkProviderReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

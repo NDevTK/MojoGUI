@@ -234,7 +234,7 @@ webxr.mojom.WebXrInternalsHandlerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -297,7 +297,7 @@ webxr.mojom.WebXrInternalsHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -539,7 +539,7 @@ webxr.mojom.XRInternalsSessionListenerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -655,7 +655,7 @@ webxr.mojom.XRInternalsSessionListenerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

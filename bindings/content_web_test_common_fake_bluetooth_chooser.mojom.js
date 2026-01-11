@@ -180,7 +180,7 @@ content.mojom.FakeBluetoothChooserReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -231,7 +231,7 @@ content.mojom.FakeBluetoothChooserReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -339,7 +339,7 @@ content.mojom.FakeBluetoothChooserFactoryReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -370,7 +370,7 @@ content.mojom.FakeBluetoothChooserFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -472,7 +472,7 @@ content.mojom.FakeBluetoothChooserClientReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -497,7 +497,7 @@ content.mojom.FakeBluetoothChooserClientReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

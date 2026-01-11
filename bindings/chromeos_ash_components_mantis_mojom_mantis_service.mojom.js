@@ -132,7 +132,7 @@ mantis.mojom.PlatformModelProgressObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -157,7 +157,7 @@ mantis.mojom.PlatformModelProgressObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -293,7 +293,7 @@ mantis.mojom.MantisServiceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -343,7 +343,7 @@ mantis.mojom.MantisServiceReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

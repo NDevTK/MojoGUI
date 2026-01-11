@@ -152,7 +152,7 @@ video_capture.mojom.SharedMemoryVirtualDeviceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -196,7 +196,7 @@ video_capture.mojom.SharedMemoryVirtualDeviceReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -360,7 +360,7 @@ video_capture.mojom.TextureVirtualDeviceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -424,7 +424,7 @@ video_capture.mojom.TextureVirtualDeviceReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -588,7 +588,7 @@ video_capture.mojom.GpuMemoryBufferVirtualDeviceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -652,7 +652,7 @@ video_capture.mojom.GpuMemoryBufferVirtualDeviceReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

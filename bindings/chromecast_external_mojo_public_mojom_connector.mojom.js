@@ -137,7 +137,7 @@ chromecast.external_mojo.mojom.ExternalServiceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -162,7 +162,7 @@ chromecast.external_mojo.mojom.ExternalServiceReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -351,7 +351,7 @@ chromecast.external_mojo.mojom.ExternalConnectorReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -434,7 +434,7 @@ chromecast.external_mojo.mojom.ExternalConnectorReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

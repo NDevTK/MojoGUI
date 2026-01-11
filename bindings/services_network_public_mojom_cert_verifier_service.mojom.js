@@ -144,7 +144,7 @@ cert_verifier.mojom.URLLoaderFactoryConnectorReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -169,7 +169,7 @@ cert_verifier.mojom.URLLoaderFactoryConnectorReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -343,7 +343,7 @@ cert_verifier.mojom.CertVerifierServiceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -413,7 +413,7 @@ cert_verifier.mojom.CertVerifierServiceReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -514,7 +514,7 @@ cert_verifier.mojom.CertVerifierServiceClientReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -539,7 +539,7 @@ cert_verifier.mojom.CertVerifierServiceClientReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -642,7 +642,7 @@ cert_verifier.mojom.CertVerifierRequestReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -667,7 +667,7 @@ cert_verifier.mojom.CertVerifierRequestReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

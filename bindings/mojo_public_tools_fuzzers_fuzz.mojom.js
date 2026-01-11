@@ -269,7 +269,7 @@ fuzz.mojom.FuzzDummyInterfaceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -294,7 +294,7 @@ fuzz.mojom.FuzzDummyInterfaceReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -536,7 +536,7 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -663,7 +663,7 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

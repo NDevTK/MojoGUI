@@ -1476,7 +1476,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -2305,7 +2305,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -3519,7 +3519,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -4348,7 +4348,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -4480,7 +4480,7 @@ content.optional_numerics_unittest.mojom.InterfaceV0Receiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -4530,7 +4530,7 @@ content.optional_numerics_unittest.mojom.InterfaceV0Receiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -4708,7 +4708,7 @@ content.optional_numerics_unittest.mojom.InterfaceV2Receiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -4758,7 +4758,7 @@ content.optional_numerics_unittest.mojom.InterfaceV2Receiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

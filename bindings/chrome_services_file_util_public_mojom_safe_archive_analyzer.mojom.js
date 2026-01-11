@@ -280,7 +280,7 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -406,7 +406,7 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -513,7 +513,7 @@ chrome.mojom.TemporaryFileGetterReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -544,7 +544,7 @@ chrome.mojom.TemporaryFileGetterReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

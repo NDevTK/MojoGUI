@@ -177,7 +177,7 @@ chromeos.tts.mojom.TtsServiceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -221,7 +221,7 @@ chromeos.tts.mojom.TtsServiceReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -460,7 +460,7 @@ chromeos.tts.mojom.GoogleTtsStreamReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -581,7 +581,7 @@ chromeos.tts.mojom.GoogleTtsStreamReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -787,7 +787,7 @@ chromeos.tts.mojom.PlaybackTtsStreamReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -883,7 +883,7 @@ chromeos.tts.mojom.PlaybackTtsStreamReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -1042,7 +1042,7 @@ chromeos.tts.mojom.TtsEventObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -1106,7 +1106,7 @@ chromeos.tts.mojom.TtsEventObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

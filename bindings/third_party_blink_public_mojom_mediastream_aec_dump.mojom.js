@@ -131,7 +131,7 @@ blink.mojom.AecDumpAgentReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -169,7 +169,7 @@ blink.mojom.AecDumpAgentReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -271,7 +271,7 @@ blink.mojom.AecDumpManagerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -296,7 +296,7 @@ blink.mojom.AecDumpManagerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

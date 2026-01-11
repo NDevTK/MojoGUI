@@ -290,7 +290,7 @@ auction_worklet.mojom.GenerateBidClientReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -334,7 +334,7 @@ auction_worklet.mojom.GenerateBidClientReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -443,7 +443,7 @@ auction_worklet.mojom.GenerateBidFinalizerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -468,7 +468,7 @@ auction_worklet.mojom.GenerateBidFinalizerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -690,7 +690,7 @@ auction_worklet.mojom.BidderWorkletReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -760,7 +760,7 @@ auction_worklet.mojom.BidderWorkletReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

@@ -145,7 +145,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryReceiver = cla
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -183,7 +183,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryReceiver = cla
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -344,7 +344,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -408,7 +408,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

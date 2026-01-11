@@ -167,7 +167,7 @@ chrome.mojom.BoundSessionRequestThrottledHandlerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -198,7 +198,7 @@ chrome.mojom.BoundSessionRequestThrottledHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -299,7 +299,7 @@ chrome.mojom.ChromeOSListenerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -324,7 +324,7 @@ chrome.mojom.ChromeOSListenerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -469,7 +469,7 @@ chrome.mojom.RendererConfigurationReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -520,7 +520,7 @@ chrome.mojom.RendererConfigurationReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

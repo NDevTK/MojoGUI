@@ -220,7 +220,7 @@ cast_streaming.mojom.AudioBufferRequesterReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -270,7 +270,7 @@ cast_streaming.mojom.AudioBufferRequesterReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -402,7 +402,7 @@ cast_streaming.mojom.VideoBufferRequesterReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -452,7 +452,7 @@ cast_streaming.mojom.VideoBufferRequesterReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -579,7 +579,7 @@ cast_streaming.mojom.DemuxerConnectorReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -623,7 +623,7 @@ cast_streaming.mojom.DemuxerConnectorReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

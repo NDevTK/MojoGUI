@@ -192,7 +192,7 @@ nearby.connections.mojom.EndpointDiscoveryListenerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -230,7 +230,7 @@ nearby.connections.mojom.EndpointDiscoveryListenerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -415,7 +415,7 @@ nearby.connections.mojom.ConnectionLifecycleListenerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -492,7 +492,7 @@ nearby.connections.mojom.ConnectionLifecycleListenerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -616,7 +616,7 @@ nearby.connections.mojom.PayloadListenerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -654,7 +654,7 @@ nearby.connections.mojom.PayloadListenerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -819,7 +819,7 @@ nearby.connections.mojom.ConnectionListenerV3Receiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -883,7 +883,7 @@ nearby.connections.mojom.ConnectionListenerV3Receiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -1007,7 +1007,7 @@ nearby.connections.mojom.PayloadListenerV3Receiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -1045,7 +1045,7 @@ nearby.connections.mojom.PayloadListenerV3Receiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -1645,7 +1645,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -2012,7 +2012,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

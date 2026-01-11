@@ -115,7 +115,7 @@ metrics.mojom.SingleSampleMetricsProviderReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -140,7 +140,7 @@ metrics.mojom.SingleSampleMetricsProviderReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -242,7 +242,7 @@ metrics.mojom.SingleSampleMetricReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -267,7 +267,7 @@ metrics.mojom.SingleSampleMetricReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

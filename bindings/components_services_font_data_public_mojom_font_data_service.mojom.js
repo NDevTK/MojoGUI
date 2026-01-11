@@ -274,7 +274,7 @@ font_data_service.mojom.FontDataServiceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -362,7 +362,7 @@ font_data_service.mojom.FontDataServiceReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

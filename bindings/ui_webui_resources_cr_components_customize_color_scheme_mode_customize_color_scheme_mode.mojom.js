@@ -123,7 +123,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryReceiver
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -148,7 +148,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryReceiver
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -269,7 +269,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerReceiver = clas
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -307,7 +307,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerReceiver = clas
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -409,7 +409,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientReceiver = class
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -434,7 +434,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientReceiver = class
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

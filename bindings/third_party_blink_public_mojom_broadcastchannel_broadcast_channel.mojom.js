@@ -110,7 +110,7 @@ blink.mojom.BroadcastChannelClientReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -135,7 +135,7 @@ blink.mojom.BroadcastChannelClientReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -239,7 +239,7 @@ blink.mojom.BroadcastChannelProviderReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -264,7 +264,7 @@ blink.mojom.BroadcastChannelProviderReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

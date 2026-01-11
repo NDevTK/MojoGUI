@@ -232,7 +232,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandlerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -309,7 +309,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -512,7 +512,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -602,7 +602,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -779,7 +779,7 @@ ash.screens_login.mojom.EncryptionMigrationPageHandlerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -856,7 +856,7 @@ ash.screens_login.mojom.EncryptionMigrationPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -1061,7 +1061,7 @@ ash.screens_login.mojom.EncryptionMigrationPageReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -1151,7 +1151,7 @@ ash.screens_login.mojom.EncryptionMigrationPageReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

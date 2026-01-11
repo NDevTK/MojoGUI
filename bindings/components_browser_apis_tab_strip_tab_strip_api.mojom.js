@@ -280,7 +280,7 @@ tabs_api.mojom.TabStripServiceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -383,7 +383,7 @@ tabs_api.mojom.TabStripServiceReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -485,7 +485,7 @@ tabs_api.mojom.TabsObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -510,7 +510,7 @@ tabs_api.mojom.TabsObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

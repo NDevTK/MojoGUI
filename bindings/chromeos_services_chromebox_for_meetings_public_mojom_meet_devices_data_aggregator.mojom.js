@@ -138,7 +138,7 @@ ash.cfm.mojom.DataWatchDogReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -163,7 +163,7 @@ ash.cfm.mojom.DataWatchDogReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -316,7 +316,7 @@ ash.cfm.mojom.DataSourceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -379,7 +379,7 @@ ash.cfm.mojom.DataSourceReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -541,7 +541,7 @@ ash.cfm.mojom.DataAggregatorReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -610,7 +610,7 @@ ash.cfm.mojom.DataAggregatorReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

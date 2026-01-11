@@ -470,7 +470,7 @@ blink.mojom.MediaStreamDeviceObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -560,7 +560,7 @@ blink.mojom.MediaStreamDeviceObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -967,7 +967,7 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -1190,7 +1190,7 @@ blink.mojom.MediaStreamDispatcherHostReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -1314,7 +1314,7 @@ blink.mojom.MediaStreamTrackMetricsHostReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -1352,7 +1352,7 @@ blink.mojom.MediaStreamTrackMetricsHostReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

@@ -160,7 +160,7 @@ extensions.mime_handler.MimeHandlerServiceReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -204,7 +204,7 @@ extensions.mime_handler.MimeHandlerServiceReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -311,7 +311,7 @@ extensions.mime_handler.BeforeUnloadControlReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -342,7 +342,7 @@ extensions.mime_handler.BeforeUnloadControlReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

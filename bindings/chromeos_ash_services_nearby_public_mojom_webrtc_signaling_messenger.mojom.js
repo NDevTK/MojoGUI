@@ -153,7 +153,7 @@ sharing.mojom.IncomingMessagesListenerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -191,7 +191,7 @@ sharing.mojom.IncomingMessagesListenerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -292,7 +292,7 @@ sharing.mojom.ReceiveMessagesSessionReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -317,7 +317,7 @@ sharing.mojom.ReceiveMessagesSessionReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -457,7 +457,7 @@ sharing.mojom.WebRtcSignalingMessengerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -507,7 +507,7 @@ sharing.mojom.WebRtcSignalingMessengerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

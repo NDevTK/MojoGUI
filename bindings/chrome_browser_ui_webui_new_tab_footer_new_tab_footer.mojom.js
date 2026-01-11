@@ -153,7 +153,7 @@ new_tab_footer.mojom.NewTabFooterHandlerFactoryReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -178,7 +178,7 @@ new_tab_footer.mojom.NewTabFooterHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -433,7 +433,7 @@ new_tab_footer.mojom.NewTabFooterHandlerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -562,7 +562,7 @@ new_tab_footer.mojom.NewTabFooterHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -725,7 +725,7 @@ new_tab_footer.mojom.NewTabFooterDocumentReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -789,7 +789,7 @@ new_tab_footer.mojom.NewTabFooterDocumentReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

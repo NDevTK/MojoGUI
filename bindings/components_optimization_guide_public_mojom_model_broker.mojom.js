@@ -203,7 +203,7 @@ optimization_guide.mojom.ModelSolutionReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -254,7 +254,7 @@ optimization_guide.mojom.ModelSolutionReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -377,7 +377,7 @@ optimization_guide.mojom.ModelSubscriberReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -415,7 +415,7 @@ optimization_guide.mojom.ModelSubscriberReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -518,7 +518,7 @@ optimization_guide.mojom.ModelBrokerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -543,7 +543,7 @@ optimization_guide.mojom.ModelBrokerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

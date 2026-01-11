@@ -712,7 +712,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -1080,7 +1080,7 @@ viz.mojom.FrameSinkManagerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -1312,7 +1312,7 @@ viz.mojom.FrameSinkManagerClientReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -1421,7 +1421,7 @@ viz.mojom.FrameSinkManagerClientReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -1525,7 +1525,7 @@ viz.mojom.RendererInputRouterDelegateRegistryReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -1550,7 +1550,7 @@ viz.mojom.RendererInputRouterDelegateRegistryReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

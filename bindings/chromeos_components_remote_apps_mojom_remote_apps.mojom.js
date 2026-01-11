@@ -270,7 +270,7 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -377,7 +377,7 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -481,7 +481,7 @@ chromeos.remote_apps.mojom.RemoteAppsFactoryReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -506,7 +506,7 @@ chromeos.remote_apps.mojom.RemoteAppsFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -609,7 +609,7 @@ chromeos.remote_apps.mojom.RemoteAppLaunchObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -634,7 +634,7 @@ chromeos.remote_apps.mojom.RemoteAppLaunchObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

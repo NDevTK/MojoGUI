@@ -279,7 +279,7 @@ viz.mojom.CompositorFrameSinkReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -382,7 +382,7 @@ viz.mojom.CompositorFrameSinkReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -586,7 +586,7 @@ viz.mojom.CompositorFrameSinkClientReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -676,7 +676,7 @@ viz.mojom.CompositorFrameSinkClientReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

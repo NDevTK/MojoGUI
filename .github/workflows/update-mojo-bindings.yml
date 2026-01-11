@@ -8,6 +8,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/update-mojo-bindings.yml'
+      - 'generate_bindings.py'
 
 permissions:
   contents: write

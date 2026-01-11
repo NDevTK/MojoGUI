@@ -229,7 +229,7 @@ ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -298,7 +298,7 @@ ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -431,7 +431,7 @@ ash.wifi_direct.mojom.WifiDirectConnectionReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -481,7 +481,7 @@ ash.wifi_direct.mojom.WifiDirectConnectionReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

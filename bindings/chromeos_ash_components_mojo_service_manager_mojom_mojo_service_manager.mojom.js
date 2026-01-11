@@ -292,7 +292,7 @@ chromeos.mojo_service_manager.mojom.ServiceManagerReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -362,7 +362,7 @@ chromeos.mojo_service_manager.mojom.ServiceManagerReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -465,7 +465,7 @@ chromeos.mojo_service_manager.mojom.ServiceProviderReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -490,7 +490,7 @@ chromeos.mojo_service_manager.mojom.ServiceProviderReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -592,7 +592,7 @@ chromeos.mojo_service_manager.mojom.ServiceObserverReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -617,7 +617,7 @@ chromeos.mojo_service_manager.mojom.ServiceObserverReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 

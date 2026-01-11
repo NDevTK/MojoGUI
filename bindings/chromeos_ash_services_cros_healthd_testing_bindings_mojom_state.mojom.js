@@ -165,7 +165,7 @@ ash.cros_healthd.connectivity.mojom.StateReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -228,7 +228,7 @@ ash.cros_healthd.connectivity.mojom.StateReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
@@ -352,7 +352,7 @@ ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderReceiver = class {
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
+        message = { header: args[1], payload: payload, handles: args[3] || [] };
       }
       const header = message && message.header;
       if (!header) return;
@@ -390,7 +390,7 @@ ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderReceiver = class {
         }
       }
       } catch (err) {}
-    }});
+    });
   }
 };
 
