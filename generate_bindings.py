@@ -637,11 +637,6 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
 // Source: {parsed['path']}
 // Module: {module}
 
-'use strict';
-(function() {{
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-}})();
-
 // Module namespace
 var {module_parts[0]} = {module_parts[0]} || {{}};
 '''
@@ -930,7 +925,7 @@ var {module_parts[0]} = {module_parts[0]} || {{}};
         
         js_code += "      }\n"
         js_code += "      } catch (err) {}\n"
-        js_code += "    });\n"
+        js_code += "    }});\n"
         js_code += "  }\n"
         js_code += "};\n\n"
         
