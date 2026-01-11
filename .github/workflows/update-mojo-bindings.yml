@@ -294,6 +294,8 @@ jobs:
               if param_str.endswith('&'):
                   param_str = f"pending_receiver<{param_str[:-1].strip()}>"
               
+              parts = param_str.split()
+              
               if len(parts) >= 2:
                   param_type = ' '.join(parts[:-1])
                   param_name = "arg_" + parts[-1] 
