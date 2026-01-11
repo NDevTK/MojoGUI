@@ -518,7 +518,19 @@
                 if (!current) break;
                 current = current[part];
             }
-            return current;
+            if (current) return current;
+
+            // New Scope Fallback: Search in mojo.internal.bindings
+            if (global.mojo && global.mojo.internal && global.mojo.internal.bindings) {
+                let scoped = global.mojo.internal.bindings;
+                for (const part of fallbackParts) {
+                    if (!scoped) break;
+                    scoped = scoped[part];
+                }
+                if (scoped) return scoped;
+            }
+
+            return undefined;
         }
     }
 
