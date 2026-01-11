@@ -364,15 +364,30 @@
                                                 routerOriginal.close();
                                             }
                                         });
-                                        // Bidirectional bridging for replies?
                                         const endpointOriginal = new mojo.internal.interfaceSupport.Endpoint(routerOriginal, 0);
                                         endpointOriginal.start({
                                             onMessageReceived: (endpoint, header, buffer, handles) => {
                                                 // App -> Browser
                                                 routerLocal.pipe.writeMessage(buffer, handles);
                                             },
-                                            onError: () => routerLocal.close()
+                                            onError: () => {
+                                                routerLocal.close();
+                                                this.activeBridges.delete(routerOriginal);
+                                                this.activeBridges.delete(routerLocal);
+                                            }
                                         });
+
+                                        // Persist routers to prevent GC
+                                        this.activeBridges.add(routerLocal);
+                                        this.activeBridges.add(routerOriginal);
+
+                                        // Update local error handler to cleanup
+                                        endpointLocal.onError = () => {
+                                            console.log('[MojoProxy] Bridge source closed');
+                                            routerOriginal.close();
+                                            this.activeBridges.delete(routerLocal);
+                                            this.activeBridges.delete(routerOriginal);
+                                        };
 
                                         bridgedHandle = browserHandle;
                                         console.log(`[MojoProxy] Created BIDIRECTIONAL bridge.`);
@@ -553,22 +568,34 @@
                                             }
                                         });
 
-                                        // If original closes, close local
-                                        // We can't easy listen to original because we are acting as strict writer?
-                                        // But Router sets up a reader by default.
-                                        // If we want to capture reverse traffic (App -> Browser, e.g. sync replies?):
-                                        /*
+                                        // Bidirectional bridging for replies?
                                         const endpointOriginal = new mojo.internal.interfaceSupport.Endpoint(routerOriginal, 0);
                                         endpointOriginal.start({
                                             onMessageReceived: (endpoint, header, buffer, handles) => {
+                                                // App -> Browser
                                                 routerLocal.pipe.writeMessage(buffer, handles);
                                             },
-                                            onError: () => routerLocal.close()
+                                            onError: () => {
+                                                routerLocal.close();
+                                                this.activeBridges.delete(routerOriginal);
+                                                this.activeBridges.delete(routerLocal);
+                                            }
                                         });
-                                        */
+
+                                        // Persist routers to prevent GC
+                                        this.activeBridges.add(routerLocal);
+                                        this.activeBridges.add(routerOriginal);
+
+                                        // Update local error handler to cleanup
+                                        endpointLocal.onError = () => {
+                                            console.log('[MojoProxy] Bridge source closed');
+                                            routerOriginal.close();
+                                            this.activeBridges.delete(routerLocal);
+                                            this.activeBridges.delete(routerOriginal);
+                                        };
 
                                         bridgedHandle = browserHandle;
-                                        console.log(`[MojoProxy] Created bridge. Original:`, rawHandle, `Bridged:`, bridgedHandle);
+                                        console.log(`[MojoProxy] Created BIDIRECTIONAL bridge.`);
 
                                     } catch (err) {
                                         console.error('[MojoProxy] Failed to create bridge:', err);
