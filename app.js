@@ -252,20 +252,24 @@
                 iface = state.interfaces.find(i => i.name === 'device.mojom.VibrationManager');
             }
 
-            // ENSURE COMMON DEPENDENCIES (mojo_base)
-            // Many interfaces (like SpellCheckHost) depend on mojo_base for String16 etc.
+            // Hybrid Loading Strategy: Ensure critical foundation types are always present 
+            // while relying on automated recursive discovery for everything else.
+            // MojoBindings.loadBinding deduplicates loads, so this is safe and efficient.
             if (typeof MojoBindings !== 'undefined') {
-                const mojoBaseFiles = [
+                const foundationFiles = [
                     'mojo_public_mojom_base_string16.mojom.js',
                     'mojo_public_mojom_base_big_buffer.mojom.js',
-                    'mojo_public_mojom_base_big_string.mojom.js',
+                    'mojo_public_mojom_base_file.mojom.js', // Includes ReadOnlyFile
+                    'mojo_public_mojom_base_read_only_buffer.mojom.js',
                     'mojo_public_mojom_base_time.mojom.js',
-                    'mojo_public_mojom_base_unguessable_token.mojom.js'
+                    'ui_gfx_range_mojom_range.mojom.js',
+                    'ui_gfx_geometry_mojom_geometry.mojom.js'
                 ];
-                for (const file of mojoBaseFiles) {
+                for (const file of foundationFiles) {
                     try { await MojoBindings.loadBinding(file); } catch (e) { }
                 }
             }
+
 
             if (iface && iface.file && typeof MojoBindings !== 'undefined') {
                 try {

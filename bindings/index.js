@@ -46,7 +46,7 @@
         return this._loadedModules[filename];
       }
 
-      const loadPromise = (async () => {
+      this._loadedModules[filename] = (async () => {
         // Load index to resolve dependencies
         const data = await this.loadIndex();
         const fileEntry = data.files.find(f => f.filename === filename);
@@ -85,9 +85,9 @@
         });
       })();
 
-      this._loadedModules[filename] = loadPromise;
-      return loadPromise;
+      return this._loadedModules[filename];
     },
+
 
     getMetadata() {
       return this._indexData;
