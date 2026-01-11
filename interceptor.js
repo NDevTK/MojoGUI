@@ -75,6 +75,37 @@
         };
     }
 
+    // --- HOOK: Router Error Handling (The Safety Net) ---
+    // Catches "invalid size" and other decoding errors from version mismatches
+    function patchRouterSafeguards() {
+        if (typeof mojo !== 'undefined' && mojo.internal && mojo.internal.interfaceSupport && mojo.internal.interfaceSupport.Router) {
+            const Router = mojo.internal.interfaceSupport.Router;
+            if (Router.prototype.onMessageReceived_ && !Router.prototype._safeguard_patched) {
+                const originalOnMessage = Router.prototype.onMessageReceived_;
+                Router.prototype.onMessageReceived_ = function (buffer, handles) {
+                    try {
+                        return originalOnMessage.call(this, buffer, handles);
+                    } catch (e) {
+                        console.warn("[MojoGUI] Caught Protocol Error:", e.message);
+                        window.dispatchEvent(new CustomEvent('mojo-error', {
+                            detail: {
+                                id: 'PROTOCOL_ERR', // Special ID
+                                error: 'Protocol Mismatch: ' + e.message,
+                                timestamp: Date.now()
+                            }
+                        }));
+                        // Prevent crash propagation
+                    }
+                };
+                Router.prototype._safeguard_patched = true;
+                // console.log("[MojoGUI] Router safeguards installed");
+            }
+        }
+    }
+    // Attempt patch immediately and after delay
+    patchRouterSafeguards();
+    setTimeout(patchRouterSafeguards, 1000);
+
     // ========================================
     // MojoProxy
     // ========================================
