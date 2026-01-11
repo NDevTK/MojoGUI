@@ -316,8 +316,9 @@ mojo.internal.Struct(
 // Struct: HttpAuthStaticNetworkContextParams
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.HttpAuthStaticNetworkContextParamsSpec, 'network.mojom.HttpAuthStaticNetworkContextParams', [
+      mojo.internal.StructField('arg_allow_default_credentials', 0, 0, mojo.internal.bindings.network.mojom.DefaultCredentialsSpec.$, 0, false, 0, undefined),
     ],
-    [[0, 8]]);
+    [[0, 16]]);
 
 // Struct: NetworkContextFilePaths
 mojo.internal.Struct(
@@ -497,8 +498,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_url_loader_network_observer', 88, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_devtools_observer', 96, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.DevToolsObserverRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_device_bound_session_observer', 104, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserverRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_kPotentiallyPermit', 112, 0, mojo.internal.bindings.network.mojom.TrustTokenOperationPolicyVerdict trust_token_issuance_policy =Spec.$, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_kPotentiallyPermit', 120, 0, mojo.internal.bindings.network.mojom.TrustTokenOperationPolicyVerdict trust_token_redemption_policy =Spec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_trust_token_issuance_policy', 112, 0, mojo.internal.bindings.network.mojom.TrustTokenOperationPolicyVerdictSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_trust_token_redemption_policy', 120, 0, mojo.internal.bindings.network.mojom.TrustTokenOperationPolicyVerdictSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_debug_tag', 128, 0, mojo.internal.String, 0, false, 0, undefined),
       mojo.internal.StructField('arg_cookie_setting_overrides', 136, 0, mojo.internal.bindings.network.mojom.CookieSettingOverridesSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_devtools_cookie_setting_overrides', 144, 0, mojo.internal.bindings.network.mojom.CookieSettingOverridesSpec.$, null, false, 0, undefined),

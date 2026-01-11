@@ -227,14 +227,15 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_sandbox', 24, 0, mojo.internal.bindings.network.mojom.WebSandboxFlagsSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_header', 32, 0, mojo.internal.bindings.network.mojom.ContentSecurityPolicyHeaderSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_report_endpoints', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_trusted_types', 48, 0, mojo.internal.bindings.network.mojom.CSPTrustedTypesSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_parsing_errors', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_upgrade_insecure_requests', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_treat_as_public_address', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_block_all_mixed_content', 64, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_use_reporting_api', 64, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_require_trusted_types_for', 48, 0, mojo.internal.bindings.network.mojom.CSPRequireTrustedTypesForSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_trusted_types', 56, 0, mojo.internal.bindings.network.mojom.CSPTrustedTypesSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_parsing_errors', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_upgrade_insecure_requests', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_treat_as_public_address', 72, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_block_all_mixed_content', 72, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_use_reporting_api', 72, 3, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 88]]);
 
 // Struct: CSPViolation
 mojo.internal.Struct(

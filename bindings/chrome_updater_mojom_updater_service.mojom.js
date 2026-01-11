@@ -225,13 +225,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_next_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_downloaded_bytes', 24, 0, mojo.internal.Int64, -1, false, 0, undefined),
       mojo.internal.StructField('arg_total_bytes', 32, 0, mojo.internal.Int64, -1, false, 0, undefined),
-      mojo.internal.StructField('arg_installer_text', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_installer_cmd_line', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_code', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_extra_code1', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_install_progress', 64, 0, mojo.internal.Int8, -1, false, 0, undefined),
+      mojo.internal.StructField('arg_error_category', 40, 0, mojo.internal.bindings.updater.mojom.ErrorCategorySpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_installer_text', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_installer_cmd_line', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_extra_code1', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_install_progress', 72, 0, mojo.internal.Int8, -1, false, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 88]]);
 
 // Struct: AppState
 mojo.internal.Struct(
@@ -1263,7 +1264,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.StateChangeObserver_OnComplete_ParamsSpec, 'updater.mojom.StateChangeObserver_OnComplete_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.UpdateService.ResultSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.updater.mojom.ResultSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

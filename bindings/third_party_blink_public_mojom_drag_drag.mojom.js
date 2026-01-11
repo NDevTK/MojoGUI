@@ -155,9 +155,10 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DragDataSpec, 'blink.mojom.DragData', [
       mojo.internal.StructField('arg_items', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.DragItemSpec.$, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_file_system_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_force_default_action', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_referrer_policy', 16, 0, mojo.internal.bindings.network.mojom.ReferrerPolicySpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_force_default_action', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: DragEventSourceInfo
 mojo.internal.Struct(

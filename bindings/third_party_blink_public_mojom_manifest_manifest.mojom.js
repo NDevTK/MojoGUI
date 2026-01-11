@@ -244,7 +244,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ManifestLocalizedTextObjectSpec, 'blink.mojom.ManifestLocalizedTextObject', [
       mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dir', 8, 0, mojo.internal.bindings.Manifest.TextDirectionSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('arg_dir', 8, 0, mojo.internal.bindings.blink.mojom.TextDirectionSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_lang', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
     ],
     [[0, 32]]);

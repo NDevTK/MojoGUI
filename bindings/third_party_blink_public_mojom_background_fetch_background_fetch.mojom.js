@@ -168,8 +168,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_download_total', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_downloaded', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_result', 40, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchResultSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_failure_reason', 48, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchFailureReasonSpec.$, 0, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 64]]);
 
 // Struct: BackgroundFetchRegistration
 mojo.internal.Struct(

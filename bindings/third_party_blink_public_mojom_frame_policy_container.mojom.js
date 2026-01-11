@@ -89,12 +89,15 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_cross_origin_embedder_policy', 8, 0, mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_integrity_policy', 16, 0, mojo.internal.bindings.network.mojom.IntegrityPolicySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_integrity_policy_report_only', 24, 0, mojo.internal.bindings.network.mojom.IntegrityPolicySpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_content_security_policies', 32, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ContentSecurityPolicySpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_credentialless', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_can_navigate_top_without_user_gesture', 40, 1, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_cross_origin_isolation_enabled_by_dip', 40, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_referrer_policy', 32, 0, mojo.internal.bindings.network.mojom.ReferrerPolicySpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_content_security_policies', 40, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ContentSecurityPolicySpec.$, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_sandbox_flags', 48, 0, mojo.internal.bindings.network.mojom.WebSandboxFlagsSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_ip_address_space', 56, 0, mojo.internal.bindings.network.mojom.IPAddressSpaceSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_credentialless', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_can_navigate_top_without_user_gesture', 64, 1, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_cross_origin_isolation_enabled_by_dip', 64, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 80]]);
 
 // Struct: PolicyContainer
 mojo.internal.Struct(
