@@ -897,6 +897,7 @@ jobs:
 
               # Generate constants
               for const in parsed.get('constants', []):
+                  val = str(const['value'])
                   # Heuristic for FQN references
                   if not val.startswith(('0x', "'", '"', 'true', 'false')) and not val[0].isdigit() and val not in ('Infinity', 'NaN'):
                       # Use regex to replace all occurrences of `mod.mojom.Type` with `mojo.internal.bindings.mod.mojom.Type`
