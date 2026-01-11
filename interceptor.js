@@ -353,9 +353,13 @@
 
             // Add lifecycle logging
             if (this.realRemote && this.realRemote.proxy && this.realRemote.proxy.onConnectionError) {
-                this.realRemote.proxy.onConnectionError.addListener(() => {
-                    console.error(`[MojoProxy] realRemote connection for ${this.interfaceName} CLOSED.`);
-                });
+                try {
+                    this.realRemote.proxy.onConnectionError.addListener(() => {
+                        console.error(`[MojoProxy] realRemote connection for ${this.interfaceName} CLOSED.`);
+                    });
+                } catch (e) {
+                    console.warn(`[MojoProxy] Could not add onConnectionError listener to realRemote for ${this.interfaceName}`);
+                }
             }
 
             // Register globally so UI can access it easily via ID
@@ -546,16 +550,20 @@
                 // PIN BOTH ENDS to the proxy instance to prevent GC
                 proxyImpl.browserSideHandle = pipe.handle1;
 
-                // Lifecycle logging
-                if (proxyImpl.receiver && proxyImpl.receiver.router_) {
-                    proxyImpl.receiver.router_.onConnectionError.addListener(() => {
-                        console.error(`[MojoProxy] Client-side connection for ${interfaceName} CLOSED.`);
-                    });
+                // Lifecycle logging - Defensively guard against missing onConnectionError
+                if (proxyImpl.receiver && proxyImpl.receiver.router_ && proxyImpl.receiver.router_.onConnectionError) {
+                    try {
+                        proxyImpl.receiver.router_.onConnectionError.addListener(() => {
+                            console.error(`[MojoProxy] Client-side connection for ${interfaceName} CLOSED.`);
+                        });
+                    } catch (e) { console.warn("[MojoProxy] Failed to add client-side error listener"); }
                 }
                 if (proxyImpl.realRemote && proxyImpl.realRemote.proxy && proxyImpl.realRemote.proxy.onConnectionError) {
-                    proxyImpl.realRemote.proxy.onConnectionError.addListener(() => {
-                        console.error(`[MojoProxy] Browser-side connection for ${interfaceName} CLOSED.`);
-                    });
+                    try {
+                        proxyImpl.realRemote.proxy.onConnectionError.addListener(() => {
+                            console.error(`[MojoProxy] Browser-side connection for ${interfaceName} CLOSED.`);
+                        });
+                    } catch (e) { console.warn("[MojoProxy] Failed to add browser-side error listener"); }
                 }
             } catch (e) {
                 console.error("[MojoProxy] Failed to bind receiver:", e);
