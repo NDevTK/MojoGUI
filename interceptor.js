@@ -322,15 +322,22 @@
                     // Or we can construct a valid Remote if we can find the class.
                     // Let's try to mock the Remote object that generated bindings expect.
 
+                    const mockEndpoint = {
+                        releasePipe: () => {
+                            console.log('[MojoProxy] Test: MockEndpoint.releasePipe returning fresh pipe handle');
+                            return handle1;
+                        }
+                    };
+
                     const fakeRemote = {
                         unbind: () => {
                             console.log('[MojoProxy] Test: Unbinding FAKE remote');
-                            return handle1;
+                            return mockEndpoint;
                         },
                         proxy: {
                             unbind: () => {
                                 console.log('[MojoProxy] Test: Unbinding FAKE proxy');
-                                return handle1;
+                                return mockEndpoint;
                             }
                         }
                     };
