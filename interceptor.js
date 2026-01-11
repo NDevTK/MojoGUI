@@ -304,85 +304,11 @@
             window.dispatchEvent(event);
 
             if (mode === 'LOG') {
-                // Pass-through without pausing
+                // Pass-through without pausing (NATIVE)
                 try {
-                    // Fix: Unbind any Mojo Remotes/Receivers to release their handles for forwarding via realRemote.
-                    // IMPORTANT: We must re-wrap the handle in a fresh instance of the same class (e.g. Remote),
-                    // because the serializer (bindings_lite.js) expects an object with an 'unbind()' method.
-                    const forwardedArgs = args.map((arg, idx) => {
-                        try {
-                            if (arg && typeof arg === 'object') {
-                                let h = null;
-                                let objClass = null;
-
-                                // Case 1: Remote (InterfaceProxy)
-                                if (arg.proxy && typeof arg.proxy.unbind === 'function') {
-                                    h = arg.proxy.unbind();
-                                    objClass = arg.constructor;
-                                }
-                                // Case 2: PendingReceiver or InterfaceRequest
-                                else if (typeof arg.unbind === 'function') {
-                                    h = arg.unbind();
-                                    objClass = arg.constructor;
-                                }
-
-                                if (h) {
-                                    // DEEP EXTRACTION TRIALS
-                                    let rawHandle = h;
-                                    if (typeof h === 'object') {
-                                        // Priority: specific detach method
-                                        if (typeof h.releasePipe === 'function') {
-                                            console.log(`[MojoProxy] Arg[${idx}] Calling releasePipe() to detach handle.`);
-                                            rawHandle = h.releasePipe();
-                                        }
-                                        else if (h.handle !== undefined) rawHandle = h.handle;
-                                        else if (h.router_ && h.router_.connector_ && h.router_.connector_.handle_ !== undefined) rawHandle = h.router_.connector_.handle_;
-                                        else if (h.router_ && h.router_.pipe_ !== undefined) rawHandle = h.router_.pipe_;
-                                        else if (h.router_ && h.router_.reader_ && h.router_.reader_.handle_ !== undefined) rawHandle = h.router_.reader_.handle_;
-                                        else if (h.router_ && h.router_.handle_ !== undefined) rawHandle = h.router_.handle_;
-                                    }
-
-                                    console.log(`[MojoProxy] Arg[${idx}] extracted raw handle:`, rawHandle);
-
-                                    // FIX 5.0: GENERIC PIPE BRIDGE
-                                    let bridgedHandle = rawHandle;
-                                    // BRIDGE DISABLED: Pass-Through Test
-                                    // try { ... bridge logic removed ... } catch (err) {}
-
-                                    // FIX 4.0: Mock the Endpoint too.
-                                    const mockEndpoint = {
-                                        releasePipe: () => {
-                                            console.log(`[MojoProxy] MockEndpoint.releasePipe returning bridged handle`);
-                                            return bridgedHandle;
-                                        }
-                                    };
-
-                                    const mockRemote = {
-                                        unbind: () => {
-                                            console.log(`[MojoProxy] Mock unbind called for Arg[${idx}]`);
-                                            return mockEndpoint;
-                                        },
-                                        proxy: {
-                                            unbind: () => {
-                                                console.log(`[MojoProxy] Mock proxy.unbind called for Arg[${idx}]`);
-                                                return mockEndpoint;
-                                            }
-                                        }
-                                    };
-
-                                    // Satisfy both legacy and new bindings checks
-                                    mockRemote.proxy.proxy = mockRemote.proxy;
-
-                                    return mockRemote;
-                                }
-                            }
-                        } catch (err) {
-                            console.error(`[MojoProxy] Error re-wrapping arg[${idx}]:`, err);
-                        }
-                        return arg;
-                    });
-
-                    const result = await this.realRemote[methodName](...forwardedArgs);
+                    // Native bindings should automatically unbind handles from 'args' wrapper objects
+                    // when they are passed to the 'realRemote' proxy methods.
+                    const result = await this.realRemote[methodName](...args);
 
                     window.dispatchEvent(new CustomEvent('mojo-response', {
                         detail: {
