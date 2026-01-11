@@ -361,11 +361,12 @@
 
                                     return mockRemote;
                                 }
-                            } catch (err) {
-                                console.error(`[MojoProxy] Error re-wrapping arg[${idx}]:`, err);
                             }
-                            return arg;
-                        });
+                        } catch (err) {
+                            console.error(`[MojoProxy] Error re-wrapping arg[${idx}]:`, err);
+                        }
+                        return arg;
+                    });
 
                     const result = await this.realRemote[methodName](...forwardedArgs);
 
