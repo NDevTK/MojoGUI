@@ -455,6 +455,28 @@
             try {
                 if (comps.Receiver) {
                     const receiver = new comps.Receiver(proxyImpl);
+
+                    // EXPERIMENTAL: Sync discovered ordinals from Receiver to Remote
+                    // If the Receiver discovers that ordinal 0 maps to Method A, force the Remote
+                    // to use ordinal 0 for Method A as well.
+                    if (receiver.ordinalMap && proxyImpl.realRemote && proxyImpl.realRemote.$ && proxyImpl.realRemote.$.ordinals) {
+                        const remoteOrdinals = proxyImpl.realRemote.$.ordinals;
+
+                        // We need to hook into the receiver's mapOrdinal or poll it
+                        // Since GeneratedReceiver has mapOrdinal, let's monkey-patch it specific to this instance
+                        const originalMapOrdinal = receiver.mapOrdinal.bind(receiver);
+                        receiver.mapOrdinal = function (hash, id) {
+                            originalMapOrdinal(hash, id);
+                            // Hash is the wire-ordinal (e.g. 0), id is the method index (e.g. 0)
+                            // If we discovered a mapping, update the Remote to use this wire-ordinal
+                            // The Remote stores ordinals in `this.ordinals` array where index = method index
+                            if (remoteOrdinals[id] !== undefined) {
+                                console.log(`[MojoProxy] Syncing discovered ordinal for method ${id}: ${hash}`);
+                                remoteOrdinals[id] = hash;
+                            }
+                        };
+                    }
+
                     receiver.bind(handle);
                 } else if (typeof mojo !== 'undefined' && mojo.Binding) {
                     // Fallback to generic mojo.Binding for standard/old bindings
