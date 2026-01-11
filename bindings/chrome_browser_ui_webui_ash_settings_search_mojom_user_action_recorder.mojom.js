@@ -336,79 +336,128 @@ mojo.internal.bindings.ash.settings.mojom.UserActionRecorderReceiver = class {
         // Try Method 0: RecordPageFocus
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordPageFocus (0)');
-             this.mapOrdinal(header.ordinal, 0);
-             dispatchId = 0;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordPageFocus (0)');
+               this.mapOrdinal(header.ordinal, 0);
+               dispatchId = 0;
+             }
+           } catch (e) { }
         }
         // Try Method 1: RecordPageBlur
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordPageBlur (1)');
-             this.mapOrdinal(header.ordinal, 1);
-             dispatchId = 1;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordPageBlur (1)');
+               this.mapOrdinal(header.ordinal, 1);
+               dispatchId = 1;
+             }
+           } catch (e) { }
         }
         // Try Method 2: RecordClick
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordClick (2)');
-             this.mapOrdinal(header.ordinal, 2);
-             dispatchId = 2;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordClick (2)');
+               this.mapOrdinal(header.ordinal, 2);
+               dispatchId = 2;
+             }
+           } catch (e) { }
         }
         // Try Method 3: RecordNavigation
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordNavigation (3)');
-             this.mapOrdinal(header.ordinal, 3);
-             dispatchId = 3;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordNavigation (3)');
+               this.mapOrdinal(header.ordinal, 3);
+               dispatchId = 3;
+             }
+           } catch (e) { }
         }
         // Try Method 4: RecordSearch
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordSearch (4)');
-             this.mapOrdinal(header.ordinal, 4);
-             dispatchId = 4;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordSearch (4)');
+               this.mapOrdinal(header.ordinal, 4);
+               dispatchId = 4;
+             }
+           } catch (e) { }
         }
         // Try Method 5: RecordSettingChange
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordSettingChange (5)');
-             this.mapOrdinal(header.ordinal, 5);
-             dispatchId = 5;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 5 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordSettingChange (5)');
+               this.mapOrdinal(header.ordinal, 5);
+               dispatchId = 5;
+             }
+           } catch (e) { }
         }
         // Try Method 6: RecordSettingChangeWithDetails
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordSettingChangeWithDetails (6)');
-             this.mapOrdinal(header.ordinal, 6);
-             dispatchId = 6;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 6 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordSettingChangeWithDetails (6)');
+               this.mapOrdinal(header.ordinal, 6);
+               dispatchId = 6;
+             }
+           } catch (e) { }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);

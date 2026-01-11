@@ -262,46 +262,74 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageReceiver = clas
         // Try Method 0: Clear
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clear (0)');
-             this.mapOrdinal(header.ordinal, 0);
-             dispatchId = 0;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clear (0)');
+               this.mapOrdinal(header.ordinal, 0);
+               dispatchId = 0;
+             }
+           } catch (e) { }
         }
         // Try Method 1: Undo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Undo (1)');
-             this.mapOrdinal(header.ordinal, 1);
-             dispatchId = 1;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Undo (1)');
+               this.mapOrdinal(header.ordinal, 1);
+               dispatchId = 1;
+             }
+           } catch (e) { }
         }
         // Try Method 2: Redo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Redo (2)');
-             this.mapOrdinal(header.ordinal, 2);
-             dispatchId = 2;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Redo (2)');
+               this.mapOrdinal(header.ordinal, 2);
+               dispatchId = 2;
+             }
+           } catch (e) { }
         }
         // Try Method 3: SetTool
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTool (3)');
-             this.mapOrdinal(header.ordinal, 3);
-             dispatchId = 3;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTool (3)');
+               this.mapOrdinal(header.ordinal, 3);
+               dispatchId = 3;
+             }
+           } catch (e) { }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -492,24 +520,38 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerReceiver
         // Try Method 0: OnUndoRedoAvailabilityChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUndoRedoAvailabilityChanged (0)');
-             this.mapOrdinal(header.ordinal, 0);
-             dispatchId = 0;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUndoRedoAvailabilityChanged (0)');
+               this.mapOrdinal(header.ordinal, 0);
+               dispatchId = 0;
+             }
+           } catch (e) { }
         }
         // Try Method 1: OnCanvasInitialized
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCanvasInitialized (1)');
-             this.mapOrdinal(header.ordinal, 1);
-             dispatchId = 1;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCanvasInitialized (1)');
+               this.mapOrdinal(header.ordinal, 1);
+               dispatchId = 1;
+             }
+           } catch (e) { }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -666,13 +708,20 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryR
         // Try Method 0: Create
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Create (0)');
-             this.mapOrdinal(header.ordinal, 0);
-             dispatchId = 0;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Create (0)');
+               this.mapOrdinal(header.ordinal, 0);
+               dispatchId = 0;
+             }
+           } catch (e) { }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);

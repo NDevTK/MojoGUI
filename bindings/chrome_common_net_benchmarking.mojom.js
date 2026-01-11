@@ -275,46 +275,74 @@ mojo.internal.bindings.chrome.mojom.NetBenchmarkingReceiver = class {
         // Try Method 0: CloseCurrentConnections
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseCurrentConnections (0)');
-             this.mapOrdinal(header.ordinal, 0);
-             dispatchId = 0;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseCurrentConnections (0)');
+               this.mapOrdinal(header.ordinal, 0);
+               dispatchId = 0;
+             }
+           } catch (e) { }
         }
         // Try Method 1: ClearCache
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearCache (1)');
-             this.mapOrdinal(header.ordinal, 1);
-             dispatchId = 1;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearCache (1)');
+               this.mapOrdinal(header.ordinal, 1);
+               dispatchId = 1;
+             }
+           } catch (e) { }
         }
         // Try Method 2: ClearHostResolverCache
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearHostResolverCache (2)');
-             this.mapOrdinal(header.ordinal, 2);
-             dispatchId = 2;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearHostResolverCache (2)');
+               this.mapOrdinal(header.ordinal, 2);
+               dispatchId = 2;
+             }
+           } catch (e) { }
         }
         // Try Method 3: ClearPredictorCache
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearPredictorCache (3)');
-             this.mapOrdinal(header.ordinal, 3);
-             dispatchId = 3;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearPredictorCache (3)');
+               this.mapOrdinal(header.ordinal, 3);
+               dispatchId = 3;
+             }
+           } catch (e) { }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);

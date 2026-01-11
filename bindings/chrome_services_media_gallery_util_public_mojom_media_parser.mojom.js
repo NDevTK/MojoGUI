@@ -369,46 +369,74 @@ mojo.internal.bindings.chrome.mojom.MediaParserReceiver = class {
         // Try Method 0: ParseMediaMetadata
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseMediaMetadata (0)');
-             this.mapOrdinal(header.ordinal, 0);
-             dispatchId = 0;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseMediaMetadata (0)');
+               this.mapOrdinal(header.ordinal, 0);
+               dispatchId = 0;
+             }
+           } catch (e) { }
         }
         // Try Method 1: ExtractVideoFrame
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExtractVideoFrame (1)');
-             this.mapOrdinal(header.ordinal, 1);
-             dispatchId = 1;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExtractVideoFrame (1)');
+               this.mapOrdinal(header.ordinal, 1);
+               dispatchId = 1;
+             }
+           } catch (e) { }
         }
         // Try Method 2: CheckMediaFile
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckMediaFile (2)');
-             this.mapOrdinal(header.ordinal, 2);
-             dispatchId = 2;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckMediaFile (2)');
+               this.mapOrdinal(header.ordinal, 2);
+               dispatchId = 2;
+             }
+           } catch (e) { }
         }
         // Try Method 3: GetCpuInfo
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCpuInfo (3)');
-             this.mapOrdinal(header.ordinal, 3);
-             dispatchId = 3;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCpuInfo (3)');
+               this.mapOrdinal(header.ordinal, 3);
+               dispatchId = 3;
+             }
+           } catch (e) { }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -609,13 +637,20 @@ mojo.internal.bindings.chrome.mojom.MediaParserFactoryReceiver = class {
         // Try Method 0: CreateMediaParser
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateMediaParser (0)');
-             this.mapOrdinal(header.ordinal, 0);
-             dispatchId = 0;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateMediaParser (0)');
+               this.mapOrdinal(header.ordinal, 0);
+               dispatchId = 0;
+             }
+           } catch (e) { }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -777,13 +812,20 @@ mojo.internal.bindings.chrome.mojom.MediaDataSourceReceiver = class {
         // Try Method 0: Read
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Read (0)');
-             this.mapOrdinal(header.ordinal, 0);
-             dispatchId = 0;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Read (0)');
+               this.mapOrdinal(header.ordinal, 0);
+               dispatchId = 0;
+             }
+           } catch (e) { }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);

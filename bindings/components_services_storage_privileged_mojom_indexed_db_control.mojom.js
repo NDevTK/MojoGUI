@@ -243,24 +243,38 @@ mojo.internal.bindings.storage.mojom.IndexedDBObserverReceiver = class {
         // Try Method 0: OnIndexedDBListChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnIndexedDBListChanged (0)');
-             this.mapOrdinal(header.ordinal, 0);
-             dispatchId = 0;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnIndexedDBListChanged (0)');
+               this.mapOrdinal(header.ordinal, 0);
+               dispatchId = 0;
+             }
+           } catch (e) { }
         }
         // Try Method 1: OnIndexedDBContentChanged
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnIndexedDBContentChanged (1)');
-             this.mapOrdinal(header.ordinal, 1);
-             dispatchId = 1;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnIndexedDBContentChanged (1)');
+               this.mapOrdinal(header.ordinal, 1);
+               dispatchId = 1;
+             }
+           } catch (e) { }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -629,112 +643,182 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlReceiver = class {
         // Try Method 0: BindIndexedDB
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindIndexedDB (0)');
-             this.mapOrdinal(header.ordinal, 0);
-             dispatchId = 0;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindIndexedDB (0)');
+               this.mapOrdinal(header.ordinal, 0);
+               dispatchId = 0;
+             }
+           } catch (e) { }
         }
         // Try Method 1: ForceClose
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceClose (1)');
-             this.mapOrdinal(header.ordinal, 1);
-             dispatchId = 1;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceClose (1)');
+               this.mapOrdinal(header.ordinal, 1);
+               dispatchId = 1;
+             }
+           } catch (e) { }
         }
         // Try Method 2: DownloadBucketData
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DownloadBucketData (2)');
-             this.mapOrdinal(header.ordinal, 2);
-             dispatchId = 2;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DownloadBucketData (2)');
+               this.mapOrdinal(header.ordinal, 2);
+               dispatchId = 2;
+             }
+           } catch (e) { }
         }
         // Try Method 3: GetAllBucketsDetails
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllBucketsDetails (3)');
-             this.mapOrdinal(header.ordinal, 3);
-             dispatchId = 3;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllBucketsDetails (3)');
+               this.mapOrdinal(header.ordinal, 3);
+               dispatchId = 3;
+             }
+           } catch (e) { }
         }
         // Try Method 4: StartMetadataRecording
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartMetadataRecording (4)');
-             this.mapOrdinal(header.ordinal, 4);
-             dispatchId = 4;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartMetadataRecording (4)');
+               this.mapOrdinal(header.ordinal, 4);
+               dispatchId = 4;
+             }
+           } catch (e) { }
         }
         // Try Method 5: StopMetadataRecording
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopMetadataRecording (5)');
-             this.mapOrdinal(header.ordinal, 5);
-             dispatchId = 5;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 5 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopMetadataRecording (5)');
+               this.mapOrdinal(header.ordinal, 5);
+               dispatchId = 5;
+             }
+           } catch (e) { }
         }
         // Try Method 6: SetForceKeepSessionState
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetForceKeepSessionState (6)');
-             this.mapOrdinal(header.ordinal, 6);
-             dispatchId = 6;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 6 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetForceKeepSessionState (6)');
+               this.mapOrdinal(header.ordinal, 6);
+               dispatchId = 6;
+             }
+           } catch (e) { }
         }
         // Try Method 7: AddObserver
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_AddObserver_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (7)');
-             this.mapOrdinal(header.ordinal, 7);
-             dispatchId = 7;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 7 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.storage.mojom.IndexedDBControl_AddObserver_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (7)');
+               this.mapOrdinal(header.ordinal, 7);
+               dispatchId = 7;
+             }
+           } catch (e) { }
         }
         // Try Method 8: ApplyPolicyUpdates
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ApplyPolicyUpdates (8)');
-             this.mapOrdinal(header.ordinal, 8);
-             dispatchId = 8;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 8 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ApplyPolicyUpdates (8)');
+               this.mapOrdinal(header.ordinal, 8);
+               dispatchId = 8;
+             }
+           } catch (e) { }
         }
         // Try Method 9: BindTestInterfaceForTesting
         if (dispatchId === undefined) {
            try {
-             decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec.$.structSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindTestInterfaceForTesting (9)');
-             this.mapOrdinal(header.ordinal, 9);
-             dispatchId = 9;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 9 failed:', e);
-           }
+             const structSpec = mojo.internal.bindings.storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec.$.structSpec;
+             const size = decoder.decodeUint32(0);
+             const version = decoder.decodeUint32(4);
+             let sizeMatch = false;
+             for (const v of structSpec.versions) {
+               if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
+             }
+             if (sizeMatch) {
+               decoder.decodeStructInline(structSpec);
+               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindTestInterfaceForTesting (9)');
+               this.mapOrdinal(header.ordinal, 9);
+               dispatchId = 9;
+             }
+           } catch (e) { }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
