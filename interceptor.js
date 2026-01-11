@@ -511,24 +511,18 @@
                 }
             }
 
-            // Fallback: Try traversing dotted path in global scope
-            const fallbackParts = name.split('.');
-            let current = global;
-            for (const part of fallbackParts) {
-                if (!current) break;
-                current = current[part];
-            }
-            if (current) return current;
-
-            // New Scope Fallback: Search in mojo.internal.bindings
+            // Priority 1: Search in mojo.internal.bindings (Universal Fix)
             if (global.mojo && global.mojo.internal && global.mojo.internal.bindings) {
                 let scoped = global.mojo.internal.bindings;
+                const fallbackParts = name.split('.');
                 for (const part of fallbackParts) {
                     if (!scoped) break;
                     scoped = scoped[part];
                 }
                 if (scoped) return scoped;
             }
+
+
 
             return undefined;
         }

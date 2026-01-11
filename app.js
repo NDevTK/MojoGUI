@@ -571,15 +571,23 @@
 
     function resolveNamespace(moduleName) {
         const parts = moduleName.split('.');
-        let current = window;
-        for (const part of parts) {
-            if (current[part]) {
-                current = current[part];
-            } else {
-                return null;
+
+        // Try safe scope first (Universal Fix)
+        if (typeof mojo !== 'undefined' && mojo.internal && mojo.internal.bindings) {
+            let current = mojo.internal.bindings;
+            let found = true;
+            for (const part of parts) {
+                if (current[part]) {
+                    current = current[part];
+                } else {
+                    found = false;
+                    break;
+                }
             }
+            if (found) return current;
         }
-        return current;
+
+        return null;
     }
 
     function inferTypeFromMojomType(mojomType) {
@@ -697,15 +705,14 @@
 
         if (!method) {
             code += `// Step 1: Get the interface remote\n`;
-            code += `// The binding file defines the interface in the global scope\n`;
-            code += `// after being loaded via <script> tag\n\n`;
-            code += `// Step 2: Create a remote and bind it\n`;
-            code += `// Namespace depends on binding version (mojo vs global)\n`;
+            code += `// The binding file defines the interface strictly in 'mojo.internal.bindings'\n`;
+            code += `const root = mojo.internal.bindings.${namespace};\n\n`;
+
             code += `let ${iface.name.toLowerCase()}Remote;\n`;
-            code += `if (typeof ${namespace}.${iface.name}.getRemote === 'function') {\n`;
-            code += `    ${iface.name.toLowerCase()}Remote = ${namespace}.${iface.name}.getRemote();\n`;
+            code += `if (typeof root.${iface.name}.getRemote === 'function') {\n`;
+            code += `    ${iface.name.toLowerCase()}Remote = root.${iface.name}.getRemote();\n`;
             code += `} else {\n`;
-            code += `    ${iface.name.toLowerCase()}Remote = new ${namespace}.${iface.name}Remote();\n`;
+            code += `    ${iface.name.toLowerCase()}Remote = new root.${iface.name}Remote();\n`;
             code += `    const receiver = ${iface.name.toLowerCase()}Remote.bindNewPipeAndPassReceiver();\n`;
             code += `    const handle = receiver.handle || receiver;\n`;
             code += `    Mojo.bindInterface("${iface.module + '.' + iface.name}", handle, "context");\n`;
@@ -717,13 +724,16 @@
         const remoteName = iface.name.charAt(0).toLowerCase() + iface.name.slice(1) + 'Remote';
         const methodName = method.charAt(0).toLowerCase() + method.slice(1);
 
+        code += `// Define Root Namespace\n`;
+        code += `const root = mojo.internal.bindings.${namespace};\n\n`;
+
         code += `// Get remote for the interface\n`;
         code += `let ${remoteName};\n`;
-        code += `if (typeof ${namespace}.${iface.name}.getRemote === 'function') {\n`;
-        code += `    ${remoteName} = ${namespace}.${iface.name}.getRemote();\n`;
+        code += `if (typeof root.${iface.name}.getRemote === 'function') {\n`;
+        code += `    ${remoteName} = root.${iface.name}.getRemote();\n`;
         code += `} else {\n`;
         code += `    // Manual binding for Lite bindings without getRemote()\n`;
-        code += `    ${remoteName} = new ${namespace}.${iface.name}Remote();\n`;
+        code += `    ${remoteName} = new root.${iface.name}Remote();\n`;
         code += `    const receiver = ${remoteName}.bindNewPipeAndPassReceiver();\n`;
         code += `    const handle = receiver.handle || receiver;\n`;
         code += `    // Default to 'context' scope for safety, can be 'process'\n`;

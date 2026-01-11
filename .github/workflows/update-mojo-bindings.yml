@@ -462,7 +462,7 @@ jobs:
                       suffix = 'Spec'
                       if kind == 'interface': suffix = 'Remote' # Use Remote as the type reference usually
                       
-                      res_type = f"{mod_prefix}.{iface_name}{suffix}"
+                      res_type = f"mojo.internal.bindings.{mod_prefix}.{iface_name}{suffix}"
                       if kind != 'interface': res_type += '.$'
                       
                       if kind == 'interface': return f"mojo.internal.InterfaceProxy({res_type})"
@@ -477,7 +477,7 @@ jobs:
                       suffix = 'Spec'
                       if kind == 'interface': suffix = 'Remote'
                       
-                      res_type = f"{target_mod}.{clean_name}{suffix}"
+                      res_type = f"mojo.internal.bindings.{target_mod}.{clean_name}{suffix}"
                       if kind != 'interface': res_type += '.$'
                       
                       if kind == 'interface': return f"mojo.internal.InterfaceProxy({res_type})"
@@ -508,7 +508,7 @@ jobs:
                       suffix = 'Spec'
                       if kind == 'interface': suffix = 'Remote'
                       
-                      return f"{mod_prefix}.{iface_name}{suffix}"
+                      return f"mojo.internal.bindings.{mod_prefix}.{iface_name}{suffix}"
 
                   # Local or Imported
                   if clean_name in valid_types:
@@ -530,7 +530,7 @@ jobs:
                       kind = global_kind_map.get(fqn)
                       suffix = 'Spec'
                       if kind == 'interface': suffix = 'Remote'
-                      return f"{target_mod}.{clean_name}{suffix}"
+                      return f"mojo.internal.bindings.{target_mod}.{clean_name}{suffix}"
 
                   # Fallback heuristic
                   if clean_name and clean_name[0].isupper():
@@ -836,17 +836,12 @@ jobs:
            mojo.internal = mojo.internal || {{}};
            mojo.internal.bindings = mojo.internal.bindings || {{}};
            
-           // Universal Prefixing for Global Safety
-           // We use mojo.internal.bindings as the root.
-           mojo.internal.bindings.{module_parts[0]} = mojo.internal.bindings.{module_parts[0]} || {{}};
-           var {module_parts[0]} = mojo.internal.bindings.{module_parts[0]};
+
            '''
                
-              current_ns = module_parts[0]
-              for part in module_parts[1:]:
-                  js_code += f"mojo.internal.bindings.{current_ns}.{part} = mojo.internal.bindings.{current_ns}.{part} || {{}};\n"
-                  # Create local alias for ease of generation
-                  js_code += f"{current_ns}.{part} = mojo.internal.bindings.{current_ns}.{part};\n"
+              current_ns = "mojo.internal.bindings"
+              for part in module_parts:
+                  js_code += f"{current_ns}.{part} = {current_ns}.{part} || {{}};\n"
                   current_ns += f".{part}"
               
               # Declare external namespaces from imports (dynamic)
@@ -870,7 +865,6 @@ jobs:
                       root = mod.split('.')[0]
                       if root not in declared_roots:
                           js_code += f"mojo.internal.bindings.{root} = mojo.internal.bindings.{root} || {{}};\n"
-                          js_code += f"var {root} = mojo.internal.bindings.{root};\n"
                           declared_roots.add(root)
                   else:
                        # Fallback heuristic for standard libraries if not in file list
@@ -879,7 +873,6 @@ jobs:
                        for r in roots:
                            if r in parts and r not in declared_roots:
                                js_code += f"mojo.internal.bindings.{r} = mojo.internal.bindings.{r} || {{}};\n"
-                               js_code += f"var {r} = mojo.internal.bindings.{r};\n"
                                declared_roots.add(r)
               
               js_code += "\n"
