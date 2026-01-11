@@ -14,10 +14,8 @@
             const chrome = ua.fullVersionList.find(item => item.brand === 'Google Chrome' || item.brand === 'Chromium');
             if (chrome) {
                 console.log('[Interceptor] Detected Full Chrome Version:', chrome.version);
+                // Set global override for MojoScrambler to pick up
                 window.mojoVersion = chrome.version;
-                if (window.mojoScrambler && window.mojoScrambler.updateSalt) {
-                    window.mojoScrambler.updateSalt(chrome.version);
-                }
             }
         }
     } catch (e) {
@@ -83,118 +81,16 @@
 
         // Inspect interfaceSupport
         if (mojo.internal.interfaceSupport) {
-            // console.log('[Interceptor] mojo.internal.interfaceSupport keys:', Object.keys(mojo.internal.interfaceSupport));
-
-            // Mapping of Endpoint -> { header, rawHeader } to store context for createResponder
-            const _endpointContexts = new WeakMap();
-
-            // MojoScrambler is now provided by bindings/support.js
-            if (!window.mojoScrambler) {
-                console.warn('[Interceptor] window.mojoScrambler not found. Ordinal discovery might fail.');
-            }
-
-            // 1. Ensure getControlMessageHandler exists (Polyfill if missing in this environment)
-            if (typeof mojo.internal.interfaceSupport.getControlMessageHandler !== 'function') {
-                console.log('[Interceptor] Polyfilling missing getControlMessageHandler');
-                mojo.internal.interfaceSupport.getControlMessageHandler = function (endpoint) {
-                    if (!endpoint._control_handler_) {
-                        const CMH = mojo.internal.interfaceSupport.ControlMessageHandler;
-                        if (CMH) {
-                            endpoint._control_handler_ = new CMH(endpoint);
-                        }
-                    }
-                    return endpoint._control_handler_;
-                };
-            }
-
-            // 2. Patch getControlMessageHandler (Original or Polyfilled) to capture headers
-            const origGetHandler = mojo.internal.interfaceSupport.getControlMessageHandler;
-            mojo.internal.interfaceSupport.getControlMessageHandler = function (endpoint) {
-                const handler = origGetHandler(endpoint);
-                if (handler && !handler._interceptor_patched) {
-                    handler._interceptor_patched = true;
-
-                    // Helper to get raw ArrayBuffer from message (could be Message object, Uint8Array, etc)
-                    const normalizeBuffer = (obj) => {
-                        if (!obj) return null;
-
-                        // Cross-context safe check
-                        const isArrayBuffer = (v) => v && (v instanceof ArrayBuffer || v.constructor?.name === 'ArrayBuffer');
-                        const isView = (v) => v && (v.buffer && isArrayBuffer(v.buffer));
-
-                        if (isArrayBuffer(obj)) return obj;
-                        if (isView(obj)) return obj.buffer;
-
-                        // Recurse into common Mojo property names
-                        if (obj.buffer) return normalizeBuffer(obj.buffer);
-                        if (obj.payload) return normalizeBuffer(obj.payload);
-                        if (obj.data) return normalizeBuffer(obj.data);
-
-                        return null;
-                    };
-
-                    // Ensure decodeMessageHeader exists (Polyfill if missing on the handler)
-                    if (typeof handler.decodeMessageHeader !== 'function') {
-                        handler.decodeMessageHeader = function (message) {
-                            try {
-                                const rawBuf = normalizeBuffer(message);
-                                if (!rawBuf) throw new Error('Invalid buffer');
-
-                                const view = new DataView(rawBuf);
-                                const headerSize = view.getUint32(0, true);
-                                const headerVersion = view.getUint32(4, true);
-                                const interfaceId = view.getUint32(8, true);
-                                const ordinal = view.getUint32(12, true);
-                                const flags = view.getUint32(16, true);
-                                let requestId = 0n;
-                                if (headerSize >= 32) {
-                                    requestId = view.getBigUint64(24, true);
-                                }
-                                return {
-                                    headerSize, headerVersion, interfaceId, ordinal, flags, requestId,
-                                    expectsResponse: !!(flags & 1),
-                                    controlMessage: false
-                                };
-                            } catch (e) {
-                                console.error('[Interceptor] Robust decodeMessageHeader failed:', e);
-                                return { headerSize: 32, ordinal: 0, flags: 0, controlMessage: false, expectsResponse: false };
-                            }
-                        };
-                    }
-
-                    const origDecode = handler.decodeMessageHeader;
-                    handler.decodeMessageHeader = function (message) {
-                        // Compatibility fix-up: Some envs use .buffer, some use .payload
-                        if (message && !message.payload && message.buffer) message.payload = message.buffer;
-                        if (message && !message.buffer && message.payload) message.buffer = message.payload;
-
-                        const header = origDecode.call(this, message);
-                        if (header) {
-                            if (header.expectsResponse === undefined) {
-                                header.expectsResponse = !!(header.flags & 1);
-                            }
-                            const rawBuf = normalizeBuffer(message);
-                            _endpointContexts.set(endpoint, {
-                                header: header,
-                                rawHeader: rawBuf ? rawBuf.slice(0, header.headerSize) : null
-                            });
-                        }
-                        return header;
-                    };
-                }
-                return handler;
-            };
+            console.log('[Interceptor] mojo.internal.interfaceSupport keys:', Object.keys(mojo.internal.interfaceSupport));
 
             // Polyfill createResponder if missing
             if (typeof mojo.internal.interfaceSupport.createResponder !== 'function') {
-                // console.log('[Interceptor] Polyfilling createResponder');
-                mojo.internal.interfaceSupport.createResponder = function (endpoint, requestId, responseParamsSpec, ordinal) {
+                console.log('[Interceptor] Polyfilling createResponder');
+                mojo.internal.interfaceSupport.createResponder = function (endpoint, requestId, responseParamsSpec, headerOrOrdinal, rawHeaderBuffer) {
                     return function (response) {
                         try {
                             const structSpec = responseParamsSpec.$.structSpec;
-                            const context = _endpointContexts.get(endpoint);
-                            const reqHeader = context ? context.header : { ordinal: ordinal };
-                            const rawHeaderBuffer = context ? context.rawHeader : null;
+                            const reqHeader = typeof headerOrOrdinal === 'object' ? headerOrOrdinal : { ordinal: headerOrOrdinal };
 
                             // Protocol Symmetry: Match the size and version of the request header
                             const headerSize = reqHeader.headerSize || 32;
@@ -210,13 +106,14 @@
                                 new Uint8Array(buffer).set(new Uint8Array(rawHeaderBuffer));
                             } else {
                                 // Fallback: Manual construction
+                                const ordinal = reqHeader.ordinal || 0;
                                 const interfaceId = (reqHeader.interfaceId !== undefined) ? reqHeader.interfaceId : (endpoint.interfaceId_ || 0);
                                 const version = (reqHeader.headerVersion !== undefined) ? reqHeader.headerVersion : 1;
 
-                                view.setUint32(0, headerSize, true); // Header Size
+                                view.setUint32(0, headerSize, true); // Header Size (confirmed via sniffer)
                                 view.setUint32(4, version, true);
                                 view.setUint32(8, interfaceId, true);
-                                view.setUint32(12, ordinal || 0, true);
+                                view.setUint32(12, ordinal, true);
                                 view.setUint32(20, 0, true); // padding
                             }
 
@@ -315,7 +212,10 @@
                 };
             }
         }
-        // console.log('[Interceptor] mojo.internal.Decoder.prototype:', mojo.internal.Decoder.prototype);
+        // DEBUG: Check Decoder prototype
+        if (mojo.internal && mojo.internal.Decoder) {
+            console.log('[Interceptor] mojo.internal.Decoder.prototype:', mojo.internal.Decoder.prototype);
+        }
 
     }
 
@@ -528,11 +428,9 @@
                 if (comps.Receiver) {
                     const receiver = new comps.Receiver(proxyImpl);
                     receiver.bind(handle);
-                    proxyImpl.receiver_ = receiver; // Keep alive
                 } else if (typeof mojo !== 'undefined' && mojo.Binding) {
                     // Fallback to generic mojo.Binding for standard/old bindings
                     const binding = new mojo.Binding(comps.Interface, proxyImpl, handle);
-                    proxyImpl.binding_ = binding;   // Keep alive
                 } else {
                     // Last resort: If we have Lite bindings, we might just be implementing the methods.
                     // But we need to hook it up to the handle.
