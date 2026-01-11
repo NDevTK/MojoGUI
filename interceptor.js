@@ -327,24 +327,53 @@
                                 }
 
                                 if (h) {
-                                    // DEEP EXTRACTION TRIALS
-                                    let rawHandle = h;
-                                    if (typeof h === 'object') {
-                                        if (h.handle !== undefined) rawHandle = h.handle;
-                                        else if (h.router_ && h.router_.connector_ && h.router_.connector_.handle_ !== undefined) rawHandle = h.router_.connector_.handle_;
-                                        else if (h.router_ && h.router_.pipe_ !== undefined) rawHandle = h.router_.pipe_;
-                                        else if (h.router_ && h.router_.reader_ && h.router_.reader_.handle_ !== undefined) rawHandle = h.router_.reader_.handle_;
-                                        else if (h.router_ && h.router_.handle_ !== undefined) rawHandle = h.router_.handle_;
+                                    // FIX 5.0: GENERIC PIPE BRIDGE
+                                    let bridgedHandle = rawHandle;
+                                    try {
+                                        const { handle0, handle1 } = Mojo.createMessagePipe();
+                                        const browserHandle = handle1;
+                                        const localHandle = handle0;
+
+                                        const routerLocal = new mojo.internal.interfaceSupport.Router(localHandle);
+                                        const routerOriginal = new mojo.internal.interfaceSupport.Router(rawHandle);
+
+                                        const endpointLocal = new mojo.internal.interfaceSupport.Endpoint(routerLocal, 0);
+
+                                        endpointLocal.start({
+                                            onMessageReceived: (endpoint, header, buffer, handles) => {
+                                                console.log(`[MojoProxy] Bridging message to original handle`, header);
+                                                const res = routerOriginal.pipe.writeMessage(buffer, handles);
+                                                if (res !== Mojo.RESULT_OK) {
+                                                    console.warn('[MojoProxy] Bridge write failed:', res);
+                                                }
+                                            },
+                                            onError: () => {
+                                                console.log('[MojoProxy] Bridge source closed');
+                                                routerOriginal.close();
+                                            }
+                                        });
+                                        // Bidirectional bridging for replies?
+                                        const endpointOriginal = new mojo.internal.interfaceSupport.Endpoint(routerOriginal, 0);
+                                        endpointOriginal.start({
+                                            onMessageReceived: (endpoint, header, buffer, handles) => {
+                                                // App -> Browser
+                                                routerLocal.pipe.writeMessage(buffer, handles);
+                                            },
+                                            onError: () => routerLocal.close()
+                                        });
+
+                                        bridgedHandle = browserHandle;
+                                        console.log(`[MojoProxy] Created BIDIRECTIONAL bridge.`);
+
+                                    } catch (err) {
+                                        console.error('[MojoProxy] Failed to create bridge:', err);
                                     }
 
-                                    console.log(`[MojoProxy] Arg[${idx}] extracted raw handle:`, rawHandle);
-
                                     // FIX 4.0: Mock the Endpoint too.
-                                    // bindings_lite.js expects unbind() to return an Endpoint, then calls releasePipe() on it.
                                     const mockEndpoint = {
                                         releasePipe: () => {
-                                            console.log(`[MojoProxy] MockEndpoint.releasePipe returning handle`);
-                                            return rawHandle;
+                                            console.log(`[MojoProxy] MockEndpoint.releasePipe returning bridged handle`);
+                                            return bridgedHandle;
                                         }
                                     };
 
@@ -462,23 +491,71 @@
                                 }
 
                                 if (h) {
-                                    // DEEP EXTRACTION TRIALS
-                                    let rawHandle = h;
-                                    if (typeof h === 'object') {
-                                        if (h.handle !== undefined) rawHandle = h.handle;
-                                        else if (h.router_ && h.router_.connector_ && h.router_.connector_.handle_ !== undefined) rawHandle = h.router_.connector_.handle_;
-                                        else if (h.router_ && h.router_.pipe_ !== undefined) rawHandle = h.router_.pipe_;
-                                        else if (h.router_ && h.router_.reader_ && h.router_.reader_.handle_ !== undefined) rawHandle = h.router_.reader_.handle_;
-                                        else if (h.router_ && h.router_.handle_ !== undefined) rawHandle = h.router_.handle_;
-                                    }
+                                    // FIX 5.0: GENERIC PIPE BRIDGE
+                                    // BAD_MESSAGE is likely due to the browser disliking the reused handle state.
+                                    // mitigate this by creating a fresh pipe for the browser and forwarding messages.
 
-                                    console.log(`[MojoProxy] Resume Arg[${idx}] extracted raw handle:`, rawHandle);
+                                    let bridgedHandle = rawHandle;
+                                    try {
+                                        // 1. Create fresh pipe pair
+                                        const { handle0, handle1 } = Mojo.createMessagePipe();
+                                        const browserHandle = handle1;
+                                        const localHandle = handle0;
+
+                                        // 2. Wrap handles in Routers
+                                        const routerLocal = new mojo.internal.interfaceSupport.Router(localHandle);
+                                        const routerOriginal = new mojo.internal.interfaceSupport.Router(rawHandle);
+
+                                        // 3. Create Endpoints to receive messages
+                                        const endpointLocal = new mojo.internal.interfaceSupport.Endpoint(routerLocal, 0);
+
+                                        // 4. Start forwarding/bridging
+                                        // We assume the Observer is one-way (Browser -> App).
+                                        // TODO: Bidirectional support if needed.
+                                        endpointLocal.start({
+                                            onMessageReceived: (endpoint, header, buffer, handles) => {
+                                                console.log(`[MojoProxy] Bridging message to original handle`, header);
+                                                // Forward raw buffer and handles to original router
+                                                // Note: writeMessage expects buffer and handles
+                                                // We might need to handle 'handles' ownership?
+                                                const res = routerOriginal.pipe.writeMessage(buffer, handles);
+                                                if (res !== Mojo.RESULT_OK) {
+                                                    console.warn('[MojoProxy] Bridge write failed:', res);
+                                                }
+                                            },
+                                            onError: () => {
+                                                console.log('[MojoProxy] Bridge source closed');
+                                                routerOriginal.close();
+                                            }
+                                        });
+
+                                        // If original closes, close local
+                                        // We can't easy listen to original because we are acting as strict writer?
+                                        // But Router sets up a reader by default.
+                                        // If we want to capture reverse traffic (App -> Browser, e.g. sync replies?):
+                                        /*
+                                        const endpointOriginal = new mojo.internal.interfaceSupport.Endpoint(routerOriginal, 0);
+                                        endpointOriginal.start({
+                                            onMessageReceived: (endpoint, header, buffer, handles) => {
+                                                routerLocal.pipe.writeMessage(buffer, handles);
+                                            },
+                                            onError: () => routerLocal.close()
+                                        });
+                                        */
+
+                                        bridgedHandle = browserHandle;
+                                        console.log(`[MojoProxy] Created bridge. Original:`, rawHandle, `Bridged:`, bridgedHandle);
+
+                                    } catch (err) {
+                                        console.error('[MojoProxy] Failed to create bridge:', err);
+                                        // Fallback to rawHandle if bridge fails (though it likely crashes)
+                                    }
 
                                     // FIX 4.0: Mock the Endpoint too.
                                     const mockEndpoint = {
                                         releasePipe: () => {
-                                            console.log(`[MojoProxy] MockEndpoint.releasePipe returning handle`);
-                                            return rawHandle;
+                                            console.log(`[MojoProxy] MockEndpoint.releasePipe returning bridged handle`);
+                                            return bridgedHandle;
                                         }
                                     };
 
