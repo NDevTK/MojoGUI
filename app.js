@@ -765,6 +765,12 @@
                             // Use the runtime type inference
                             type = inferTypeFromMojomType(field.type);
 
+                            // FORCE arg_ prefix to avoid namespace collisions with window object
+                            // e.g. 'location' -> 'arg_location'
+                            if (!originalName.startsWith('arg_')) {
+                                originalName = 'arg_' + originalName;
+                            }
+
                             return {
                                 name: originalName,
                                 type: type,
@@ -853,7 +859,8 @@
             code += `// Method parameters\n`;
             paramsDef.forEach(p => {
                 const key = p.name;
-                const cleanName = key.replace(/^arg_/, '');
+                // DO NOT STRIP arg_ PREFIX!
+                const safeVarName = key;
                 const value = state.paramValues[key];
 
                 let valueStr;
@@ -867,8 +874,8 @@
                 // But for the generated code, let's show what's in the state or null
                 const safeValue = valueStr === undefined ? 'null' : valueStr;
 
-                code += `const ${cleanName} = ${safeValue};\n`;
-                args.push(cleanName);
+                code += `const ${safeVarName} = ${safeValue};\n`;
+                args.push(safeVarName);
             });
             code += `\n`;
         }

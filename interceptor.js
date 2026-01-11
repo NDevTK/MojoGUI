@@ -252,9 +252,11 @@
             // Register globally so UI can access it easily via ID
             const registry = global.MojoProxyRegistry || new Map();
             global.MojoProxyRegistry = registry;
+            global.MojoProxy = MojoProxy; // Export class for MojoLoader
             // Ensure distinct global scope access (window vs global)
             if (typeof window !== 'undefined') {
                 window.MojoProxyRegistry = registry;
+                window.MojoProxy = MojoProxy;
             }
             registry.set(this.id, this);
 
