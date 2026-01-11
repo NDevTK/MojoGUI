@@ -222,6 +222,14 @@ jobs:
 
               # Extract structs (regular and native ;)
               # Fix: Use manual brace counting to handle nested enums/structs correctly
+              
+              # Universal Fix 4.0: Parse Native/Forward-Declared Structs (e.g. "struct Foo;")
+              native_struct_pattern = r'struct\s+(\w+)\s*;'
+              for match in re.finditer(native_struct_pattern, content_no_comments):
+                   struct_name = match.group(1)
+                   # Add as empty struct (opaque handle/native type behavior)
+                   result['structs'].append({'name': struct_name, 'fields': []})
+
               struct_start_pattern = r'struct\s+(\w+)[^{]*\{'
               for match in re.finditer(struct_start_pattern, content_no_comments):
                   struct_name = match.group(1)
