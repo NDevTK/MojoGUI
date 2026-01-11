@@ -439,13 +439,18 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MatchFamilyName (0)');
-               this.mapOrdinal(header.ordinal, 0);
-               dispatchId = 0;
+             const methodExpectsResp = true;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MatchFamilyName (0)');
+                 this.mapOrdinal(header.ordinal, 0);
+                 dispatchId = 0;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for MatchFamilyName failed with TypeError');
+           }
         }
         // Try Method 1: OpenStream
         if (dispatchId === undefined) {
@@ -457,13 +462,18 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenStream (1)');
-               this.mapOrdinal(header.ordinal, 1);
-               dispatchId = 1;
+             const methodExpectsResp = true;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenStream (1)');
+                 this.mapOrdinal(header.ordinal, 1);
+                 dispatchId = 1;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for OpenStream failed with TypeError');
+           }
         }
         // Try Method 2: FallbackFontForCharacter
         if (dispatchId === undefined) {
@@ -475,13 +485,18 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FallbackFontForCharacter (2)');
-               this.mapOrdinal(header.ordinal, 2);
-               dispatchId = 2;
+             const methodExpectsResp = true;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FallbackFontForCharacter (2)');
+                 this.mapOrdinal(header.ordinal, 2);
+                 dispatchId = 2;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for FallbackFontForCharacter failed with TypeError');
+           }
         }
         // Try Method 3: FontRenderStyleForStrike
         if (dispatchId === undefined) {
@@ -493,13 +508,18 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FontRenderStyleForStrike (3)');
-               this.mapOrdinal(header.ordinal, 3);
-               dispatchId = 3;
+             const methodExpectsResp = true;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FontRenderStyleForStrike (3)');
+                 this.mapOrdinal(header.ordinal, 3);
+                 dispatchId = 3;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for FontRenderStyleForStrike failed with TypeError');
+           }
         }
         // Try Method 4: MatchFontByPostscriptNameOrFullFontName
         if (dispatchId === undefined) {
@@ -511,13 +531,18 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MatchFontByPostscriptNameOrFullFontName (4)');
-               this.mapOrdinal(header.ordinal, 4);
-               dispatchId = 4;
+             const methodExpectsResp = true;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MatchFontByPostscriptNameOrFullFontName (4)');
+                 this.mapOrdinal(header.ordinal, 4);
+                 dispatchId = 4;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for MatchFontByPostscriptNameOrFullFontName failed with TypeError');
+           }
         }
         // Try Method 5: ListFamilies
         if (dispatchId === undefined) {
@@ -529,13 +554,18 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListFamilies (5)');
-               this.mapOrdinal(header.ordinal, 5);
-               dispatchId = 5;
+             const methodExpectsResp = true;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListFamilies (5)');
+                 this.mapOrdinal(header.ordinal, 5);
+                 dispatchId = 5;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for ListFamilies failed with TypeError');
+           }
         }
         // Try Method 6: MatchFontWithFallback
         if (dispatchId === undefined) {
@@ -547,13 +577,18 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MatchFontWithFallback (6)');
-               this.mapOrdinal(header.ordinal, 6);
-               dispatchId = 6;
+             const methodExpectsResp = true;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MatchFontWithFallback (6)');
+                 this.mapOrdinal(header.ordinal, 6);
+                 dispatchId = 6;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for MatchFontWithFallback failed with TypeError');
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);

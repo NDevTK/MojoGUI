@@ -233,13 +233,18 @@ mojo.internal.bindings.blink.mojom.ManagedConfigurationObserverReceiver = class 
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConfigurationChanged (0)');
-               this.mapOrdinal(header.ordinal, 0);
-               dispatchId = 0;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConfigurationChanged (0)');
+                 this.mapOrdinal(header.ordinal, 0);
+                 dispatchId = 0;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for OnConfigurationChanged failed with TypeError');
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -500,13 +505,18 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDirectoryId (0)');
-               this.mapOrdinal(header.ordinal, 0);
-               dispatchId = 0;
+             const methodExpectsResp = true;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDirectoryId (0)');
+                 this.mapOrdinal(header.ordinal, 0);
+                 dispatchId = 0;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for GetDirectoryId failed with TypeError');
+           }
         }
         // Try Method 1: GetHostname
         if (dispatchId === undefined) {
@@ -518,13 +528,18 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHostname (1)');
-               this.mapOrdinal(header.ordinal, 1);
-               dispatchId = 1;
+             const methodExpectsResp = true;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHostname (1)');
+                 this.mapOrdinal(header.ordinal, 1);
+                 dispatchId = 1;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for GetHostname failed with TypeError');
+           }
         }
         // Try Method 2: GetSerialNumber
         if (dispatchId === undefined) {
@@ -536,13 +551,18 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSerialNumber (2)');
-               this.mapOrdinal(header.ordinal, 2);
-               dispatchId = 2;
+             const methodExpectsResp = true;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSerialNumber (2)');
+                 this.mapOrdinal(header.ordinal, 2);
+                 dispatchId = 2;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for GetSerialNumber failed with TypeError');
+           }
         }
         // Try Method 3: GetAnnotatedAssetId
         if (dispatchId === undefined) {
@@ -554,13 +574,18 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAnnotatedAssetId (3)');
-               this.mapOrdinal(header.ordinal, 3);
-               dispatchId = 3;
+             const methodExpectsResp = true;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAnnotatedAssetId (3)');
+                 this.mapOrdinal(header.ordinal, 3);
+                 dispatchId = 3;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for GetAnnotatedAssetId failed with TypeError');
+           }
         }
         // Try Method 4: GetAnnotatedLocation
         if (dispatchId === undefined) {
@@ -572,13 +597,18 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAnnotatedLocation (4)');
-               this.mapOrdinal(header.ordinal, 4);
-               dispatchId = 4;
+             const methodExpectsResp = true;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAnnotatedLocation (4)');
+                 this.mapOrdinal(header.ordinal, 4);
+                 dispatchId = 4;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for GetAnnotatedLocation failed with TypeError');
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -818,13 +848,18 @@ mojo.internal.bindings.blink.mojom.ManagedConfigurationServiceReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetManagedConfiguration (0)');
-               this.mapOrdinal(header.ordinal, 0);
-               dispatchId = 0;
+             const methodExpectsResp = true;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetManagedConfiguration (0)');
+                 this.mapOrdinal(header.ordinal, 0);
+                 dispatchId = 0;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for GetManagedConfiguration failed with TypeError');
+           }
         }
         // Try Method 1: SubscribeToManagedConfiguration
         if (dispatchId === undefined) {
@@ -836,13 +871,18 @@ mojo.internal.bindings.blink.mojom.ManagedConfigurationServiceReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubscribeToManagedConfiguration (1)');
-               this.mapOrdinal(header.ordinal, 1);
-               dispatchId = 1;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubscribeToManagedConfiguration (1)');
+                 this.mapOrdinal(header.ordinal, 1);
+                 dispatchId = 1;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for SubscribeToManagedConfiguration failed with TypeError');
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);

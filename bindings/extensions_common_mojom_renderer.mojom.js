@@ -727,13 +727,18 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActivateExtension (0)');
-               this.mapOrdinal(header.ordinal, 0);
-               dispatchId = 0;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActivateExtension (0)');
+                 this.mapOrdinal(header.ordinal, 0);
+                 dispatchId = 0;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for ActivateExtension failed with TypeError');
+           }
         }
         // Try Method 1: SetActivityLoggingEnabled
         if (dispatchId === undefined) {
@@ -745,13 +750,18 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetActivityLoggingEnabled (1)');
-               this.mapOrdinal(header.ordinal, 1);
-               dispatchId = 1;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetActivityLoggingEnabled (1)');
+                 this.mapOrdinal(header.ordinal, 1);
+                 dispatchId = 1;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for SetActivityLoggingEnabled failed with TypeError');
+           }
         }
         // Try Method 2: LoadExtensions
         if (dispatchId === undefined) {
@@ -763,13 +773,18 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadExtensions (2)');
-               this.mapOrdinal(header.ordinal, 2);
-               dispatchId = 2;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadExtensions (2)');
+                 this.mapOrdinal(header.ordinal, 2);
+                 dispatchId = 2;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for LoadExtensions failed with TypeError');
+           }
         }
         // Try Method 3: UnloadExtension
         if (dispatchId === undefined) {
@@ -781,13 +796,18 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UnloadExtension (3)');
-               this.mapOrdinal(header.ordinal, 3);
-               dispatchId = 3;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UnloadExtension (3)');
+                 this.mapOrdinal(header.ordinal, 3);
+                 dispatchId = 3;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for UnloadExtension failed with TypeError');
+           }
         }
         // Try Method 4: SuspendExtension
         if (dispatchId === undefined) {
@@ -799,13 +819,18 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SuspendExtension (4)');
-               this.mapOrdinal(header.ordinal, 4);
-               dispatchId = 4;
+             const methodExpectsResp = true;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SuspendExtension (4)');
+                 this.mapOrdinal(header.ordinal, 4);
+                 dispatchId = 4;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for SuspendExtension failed with TypeError');
+           }
         }
         // Try Method 5: CancelSuspendExtension
         if (dispatchId === undefined) {
@@ -817,13 +842,18 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelSuspendExtension (5)');
-               this.mapOrdinal(header.ordinal, 5);
-               dispatchId = 5;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelSuspendExtension (5)');
+                 this.mapOrdinal(header.ordinal, 5);
+                 dispatchId = 5;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for CancelSuspendExtension failed with TypeError');
+           }
         }
         // Try Method 6: SetDeveloperMode
         if (dispatchId === undefined) {
@@ -835,13 +865,18 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDeveloperMode (6)');
-               this.mapOrdinal(header.ordinal, 6);
-               dispatchId = 6;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDeveloperMode (6)');
+                 this.mapOrdinal(header.ordinal, 6);
+                 dispatchId = 6;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for SetDeveloperMode failed with TypeError');
+           }
         }
         // Try Method 7: SetUserScriptsAllowed
         if (dispatchId === undefined) {
@@ -853,13 +888,18 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUserScriptsAllowed (7)');
-               this.mapOrdinal(header.ordinal, 7);
-               dispatchId = 7;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUserScriptsAllowed (7)');
+                 this.mapOrdinal(header.ordinal, 7);
+                 dispatchId = 7;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for SetUserScriptsAllowed failed with TypeError');
+           }
         }
         // Try Method 8: SetSessionInfo
         if (dispatchId === undefined) {
@@ -871,13 +911,18 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSessionInfo (8)');
-               this.mapOrdinal(header.ordinal, 8);
-               dispatchId = 8;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSessionInfo (8)');
+                 this.mapOrdinal(header.ordinal, 8);
+                 dispatchId = 8;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for SetSessionInfo failed with TypeError');
+           }
         }
         // Try Method 9: SetSystemFont
         if (dispatchId === undefined) {
@@ -889,13 +934,18 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSystemFont (9)');
-               this.mapOrdinal(header.ordinal, 9);
-               dispatchId = 9;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSystemFont (9)');
+                 this.mapOrdinal(header.ordinal, 9);
+                 dispatchId = 9;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for SetSystemFont failed with TypeError');
+           }
         }
         // Try Method 10: SetWebViewPartitionID
         if (dispatchId === undefined) {
@@ -907,13 +957,18 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWebViewPartitionID (10)');
-               this.mapOrdinal(header.ordinal, 10);
-               dispatchId = 10;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWebViewPartitionID (10)');
+                 this.mapOrdinal(header.ordinal, 10);
+                 dispatchId = 10;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for SetWebViewPartitionID failed with TypeError');
+           }
         }
         // Try Method 11: SetScriptingAllowlist
         if (dispatchId === undefined) {
@@ -925,13 +980,18 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetScriptingAllowlist (11)');
-               this.mapOrdinal(header.ordinal, 11);
-               dispatchId = 11;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetScriptingAllowlist (11)');
+                 this.mapOrdinal(header.ordinal, 11);
+                 dispatchId = 11;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for SetScriptingAllowlist failed with TypeError');
+           }
         }
         // Try Method 12: UpdateUserScriptWorlds
         if (dispatchId === undefined) {
@@ -943,13 +1003,18 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateUserScriptWorlds (12)');
-               this.mapOrdinal(header.ordinal, 12);
-               dispatchId = 12;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateUserScriptWorlds (12)');
+                 this.mapOrdinal(header.ordinal, 12);
+                 dispatchId = 12;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for UpdateUserScriptWorlds failed with TypeError');
+           }
         }
         // Try Method 13: ClearUserScriptWorldConfig
         if (dispatchId === undefined) {
@@ -961,13 +1026,18 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearUserScriptWorldConfig (13)');
-               this.mapOrdinal(header.ordinal, 13);
-               dispatchId = 13;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearUserScriptWorldConfig (13)');
+                 this.mapOrdinal(header.ordinal, 13);
+                 dispatchId = 13;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for ClearUserScriptWorldConfig failed with TypeError');
+           }
         }
         // Try Method 14: ShouldSuspend
         if (dispatchId === undefined) {
@@ -979,13 +1049,18 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldSuspend (14)');
-               this.mapOrdinal(header.ordinal, 14);
-               dispatchId = 14;
+             const methodExpectsResp = true;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldSuspend (14)');
+                 this.mapOrdinal(header.ordinal, 14);
+                 dispatchId = 14;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for ShouldSuspend failed with TypeError');
+           }
         }
         // Try Method 15: TransferBlobs
         if (dispatchId === undefined) {
@@ -997,13 +1072,18 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TransferBlobs (15)');
-               this.mapOrdinal(header.ordinal, 15);
-               dispatchId = 15;
+             const methodExpectsResp = true;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TransferBlobs (15)');
+                 this.mapOrdinal(header.ordinal, 15);
+                 dispatchId = 15;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for TransferBlobs failed with TypeError');
+           }
         }
         // Try Method 16: UpdatePermissions
         if (dispatchId === undefined) {
@@ -1015,13 +1095,18 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdatePermissions (16)');
-               this.mapOrdinal(header.ordinal, 16);
-               dispatchId = 16;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdatePermissions (16)');
+                 this.mapOrdinal(header.ordinal, 16);
+                 dispatchId = 16;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for UpdatePermissions failed with TypeError');
+           }
         }
         // Try Method 17: UpdateDefaultPolicyHostRestrictions
         if (dispatchId === undefined) {
@@ -1033,13 +1118,18 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateDefaultPolicyHostRestrictions (17)');
-               this.mapOrdinal(header.ordinal, 17);
-               dispatchId = 17;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateDefaultPolicyHostRestrictions (17)');
+                 this.mapOrdinal(header.ordinal, 17);
+                 dispatchId = 17;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for UpdateDefaultPolicyHostRestrictions failed with TypeError');
+           }
         }
         // Try Method 18: UpdateUserHostRestrictions
         if (dispatchId === undefined) {
@@ -1051,13 +1141,18 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateUserHostRestrictions (18)');
-               this.mapOrdinal(header.ordinal, 18);
-               dispatchId = 18;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateUserHostRestrictions (18)');
+                 this.mapOrdinal(header.ordinal, 18);
+                 dispatchId = 18;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for UpdateUserHostRestrictions failed with TypeError');
+           }
         }
         // Try Method 19: UpdateTabSpecificPermissions
         if (dispatchId === undefined) {
@@ -1069,13 +1164,18 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateTabSpecificPermissions (19)');
-               this.mapOrdinal(header.ordinal, 19);
-               dispatchId = 19;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateTabSpecificPermissions (19)');
+                 this.mapOrdinal(header.ordinal, 19);
+                 dispatchId = 19;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for UpdateTabSpecificPermissions failed with TypeError');
+           }
         }
         // Try Method 20: UpdateUserScripts
         if (dispatchId === undefined) {
@@ -1087,13 +1187,18 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateUserScripts (20)');
-               this.mapOrdinal(header.ordinal, 20);
-               dispatchId = 20;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateUserScripts (20)');
+                 this.mapOrdinal(header.ordinal, 20);
+                 dispatchId = 20;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for UpdateUserScripts failed with TypeError');
+           }
         }
         // Try Method 21: ClearTabSpecificPermissions
         if (dispatchId === undefined) {
@@ -1105,13 +1210,18 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearTabSpecificPermissions (21)');
-               this.mapOrdinal(header.ordinal, 21);
-               dispatchId = 21;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearTabSpecificPermissions (21)');
+                 this.mapOrdinal(header.ordinal, 21);
+                 dispatchId = 21;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for ClearTabSpecificPermissions failed with TypeError');
+           }
         }
         // Try Method 22: WatchPages
         if (dispatchId === undefined) {
@@ -1123,13 +1233,18 @@ mojo.internal.bindings.extensions.mojom.RendererReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WatchPages (22)');
-               this.mapOrdinal(header.ordinal, 22);
-               dispatchId = 22;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WatchPages (22)');
+                 this.mapOrdinal(header.ordinal, 22);
+                 dispatchId = 22;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for WatchPages failed with TypeError');
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);

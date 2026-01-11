@@ -286,13 +286,18 @@ mojo.internal.bindings.device.mojom.XRSessionControllerReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFrameDataRestricted (0)');
-               this.mapOrdinal(header.ordinal, 0);
-               dispatchId = 0;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFrameDataRestricted (0)');
+                 this.mapOrdinal(header.ordinal, 0);
+                 dispatchId = 0;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for SetFrameDataRestricted failed with TypeError');
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -467,13 +472,18 @@ mojo.internal.bindings.device.mojom.XRRuntimeEventListenerReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnVisibilityStateChanged (0)');
-               this.mapOrdinal(header.ordinal, 0);
-               dispatchId = 0;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnVisibilityStateChanged (0)');
+                 this.mapOrdinal(header.ordinal, 0);
+                 dispatchId = 0;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for OnVisibilityStateChanged failed with TypeError');
+           }
         }
         // Try Method 1: OnExitPresent
         if (dispatchId === undefined) {
@@ -485,13 +495,18 @@ mojo.internal.bindings.device.mojom.XRRuntimeEventListenerReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnExitPresent (1)');
-               this.mapOrdinal(header.ordinal, 1);
-               dispatchId = 1;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnExitPresent (1)');
+                 this.mapOrdinal(header.ordinal, 1);
+                 dispatchId = 1;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for OnExitPresent failed with TypeError');
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -704,13 +719,18 @@ mojo.internal.bindings.device.mojom.XRRuntimeReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestSession (0)');
-               this.mapOrdinal(header.ordinal, 0);
-               dispatchId = 0;
+             const methodExpectsResp = true;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestSession (0)');
+                 this.mapOrdinal(header.ordinal, 0);
+                 dispatchId = 0;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for RequestSession failed with TypeError');
+           }
         }
         // Try Method 1: ShutdownSession
         if (dispatchId === undefined) {
@@ -722,13 +742,18 @@ mojo.internal.bindings.device.mojom.XRRuntimeReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShutdownSession (1)');
-               this.mapOrdinal(header.ordinal, 1);
-               dispatchId = 1;
+             const methodExpectsResp = true;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShutdownSession (1)');
+                 this.mapOrdinal(header.ordinal, 1);
+                 dispatchId = 1;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for ShutdownSession failed with TypeError');
+           }
         }
         // Try Method 2: ListenToDeviceChanges
         if (dispatchId === undefined) {
@@ -740,13 +765,18 @@ mojo.internal.bindings.device.mojom.XRRuntimeReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListenToDeviceChanges (2)');
-               this.mapOrdinal(header.ordinal, 2);
-               dispatchId = 2;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListenToDeviceChanges (2)');
+                 this.mapOrdinal(header.ordinal, 2);
+                 dispatchId = 2;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for ListenToDeviceChanges failed with TypeError');
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -1008,13 +1038,18 @@ mojo.internal.bindings.device.mojom.ImmersiveOverlayReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestNextOverlayPose (0)');
-               this.mapOrdinal(header.ordinal, 0);
-               dispatchId = 0;
+             const methodExpectsResp = true;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestNextOverlayPose (0)');
+                 this.mapOrdinal(header.ordinal, 0);
+                 dispatchId = 0;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for RequestNextOverlayPose failed with TypeError');
+           }
         }
         // Try Method 1: SubmitOverlayTexture
         if (dispatchId === undefined) {
@@ -1026,13 +1061,18 @@ mojo.internal.bindings.device.mojom.ImmersiveOverlayReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubmitOverlayTexture (1)');
-               this.mapOrdinal(header.ordinal, 1);
-               dispatchId = 1;
+             const methodExpectsResp = true;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubmitOverlayTexture (1)');
+                 this.mapOrdinal(header.ordinal, 1);
+                 dispatchId = 1;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for SubmitOverlayTexture failed with TypeError');
+           }
         }
         // Try Method 2: SetOverlayAndWebXRVisibility
         if (dispatchId === undefined) {
@@ -1044,13 +1084,18 @@ mojo.internal.bindings.device.mojom.ImmersiveOverlayReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOverlayAndWebXRVisibility (2)');
-               this.mapOrdinal(header.ordinal, 2);
-               dispatchId = 2;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOverlayAndWebXRVisibility (2)');
+                 this.mapOrdinal(header.ordinal, 2);
+                 dispatchId = 2;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for SetOverlayAndWebXRVisibility failed with TypeError');
+           }
         }
         // Try Method 3: RequestNotificationOnWebXrSubmitted
         if (dispatchId === undefined) {
@@ -1062,13 +1107,18 @@ mojo.internal.bindings.device.mojom.ImmersiveOverlayReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestNotificationOnWebXrSubmitted (3)');
-               this.mapOrdinal(header.ordinal, 3);
-               dispatchId = 3;
+             const methodExpectsResp = true;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestNotificationOnWebXrSubmitted (3)');
+                 this.mapOrdinal(header.ordinal, 3);
+                 dispatchId = 3;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for RequestNotificationOnWebXrSubmitted failed with TypeError');
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -1304,13 +1354,18 @@ mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderClientReceiver = cl
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceAdded (0)');
-               this.mapOrdinal(header.ordinal, 0);
-               dispatchId = 0;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceAdded (0)');
+                 this.mapOrdinal(header.ordinal, 0);
+                 dispatchId = 0;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for OnDeviceAdded failed with TypeError');
+           }
         }
         // Try Method 1: OnDeviceRemoved
         if (dispatchId === undefined) {
@@ -1322,13 +1377,18 @@ mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderClientReceiver = cl
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceRemoved (1)');
-               this.mapOrdinal(header.ordinal, 1);
-               dispatchId = 1;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceRemoved (1)');
+                 this.mapOrdinal(header.ordinal, 1);
+                 dispatchId = 1;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for OnDeviceRemoved failed with TypeError');
+           }
         }
         // Try Method 2: OnDevicesEnumerated
         if (dispatchId === undefined) {
@@ -1340,13 +1400,18 @@ mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderClientReceiver = cl
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDevicesEnumerated (2)');
-               this.mapOrdinal(header.ordinal, 2);
-               dispatchId = 2;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDevicesEnumerated (2)');
+                 this.mapOrdinal(header.ordinal, 2);
+                 dispatchId = 2;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for OnDevicesEnumerated failed with TypeError');
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -1516,13 +1581,18 @@ mojo.internal.bindings.device.mojom.IsolatedXRRuntimeProviderReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestDevices (0)');
-               this.mapOrdinal(header.ordinal, 0);
-               dispatchId = 0;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestDevices (0)');
+                 this.mapOrdinal(header.ordinal, 0);
+                 dispatchId = 0;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for RequestDevices failed with TypeError');
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -1699,13 +1769,18 @@ mojo.internal.bindings.device.mojom.XRDeviceServiceReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindRuntimeProvider (0)');
-               this.mapOrdinal(header.ordinal, 0);
-               dispatchId = 0;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindRuntimeProvider (0)');
+                 this.mapOrdinal(header.ordinal, 0);
+                 dispatchId = 0;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for BindRuntimeProvider failed with TypeError');
+           }
         }
         // Try Method 1: BindTestHook
         if (dispatchId === undefined) {
@@ -1717,13 +1792,18 @@ mojo.internal.bindings.device.mojom.XRDeviceServiceReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindTestHook (1)');
-               this.mapOrdinal(header.ordinal, 1);
-               dispatchId = 1;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindTestHook (1)');
+                 this.mapOrdinal(header.ordinal, 1);
+                 dispatchId = 1;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for BindTestHook failed with TypeError');
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
@@ -1886,13 +1966,18 @@ mojo.internal.bindings.device.mojom.XRDeviceServiceHostReceiver = class {
              for (const v of structSpec.versions) {
                if (v.version === version && v.packedSize === size) { sizeMatch = true; break; }
              }
-             if (sizeMatch) {
-               decoder.decodeStructInline(structSpec);
-               console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindGpu (0)');
-               this.mapOrdinal(header.ordinal, 0);
-               dispatchId = 0;
+             const methodExpectsResp = false;
+             if (sizeMatch && (!!(header.flags & 1) === methodExpectsResp)) {
+               if (size > 8 || message.payload.byteLength === 8) {
+                 decoder.decodeStructInline(structSpec);
+                 console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindGpu (0)');
+                 this.mapOrdinal(header.ordinal, 0);
+                 dispatchId = 0;
+               }
              }
-           } catch (e) { }
+           } catch (e) {
+             if (e instanceof TypeError) console.warn('[Discovery] trial for BindGpu failed with TypeError');
+           }
         }
         if (dispatchId === undefined) {
              console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
