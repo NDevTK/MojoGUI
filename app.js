@@ -122,6 +122,21 @@
     // ========================================
     async function init() {
         checkMojoAvailability();
+
+        // Version Extraction for Scrambler
+        if (navigator.userAgentData) {
+            try {
+                const ua = await navigator.userAgentData.getHighEntropyValues(['fullVersionList']);
+                const ver = ua.fullVersionList.find(v => v.brand === 'Google Chrome' || v.brand === 'Chromium');
+                if (ver) {
+                    window.mojoVersion = ver.version;
+                    console.log('[MojoGUI] Detected Chrome Version:', window.mojoVersion);
+                }
+            } catch (e) {
+                console.warn('[MojoGUI] Failed to get version:', e);
+            }
+        }
+
         await loadInterfaces();
         setupEventListeners();
     }
