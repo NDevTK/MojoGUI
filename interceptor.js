@@ -347,7 +347,11 @@
                     // We need to match the signature: addVoiceListObserver(pending_remote<SpeechSynthesisVoiceListObserver>)
                     // passing 'fakeRemote' to realRemote.addVoiceListObserver should work if it calls .unbind()
 
-                    const result = await this.realRemote[methodName](fakeRemote);
+                    // CANCEL TEST
+                    console.log('[MojoProxy] TEST: calling cancel()');
+                    if (this.realRemote.cancel) await this.realRemote.cancel();
+                    return {};
+                    // const result = await this.realRemote[methodName](fakeRemote);
 
                     window.dispatchEvent(new CustomEvent('mojo-response', {
                         detail: {
