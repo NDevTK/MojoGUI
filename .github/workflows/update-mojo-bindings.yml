@@ -842,45 +842,45 @@ jobs:
            var {module_parts[0]} = mojo.internal.bindings.{module_parts[0]};
            '''
                
-               current_ns = module_parts[0]
-               for part in module_parts[1:]:
-                   js_code += f"mojo.internal.bindings.{current_ns}.{part} = mojo.internal.bindings.{current_ns}.{part} || {{}};\n"
-                   # Create local alias for ease of generation
-                   js_code += f"{current_ns}.{part} = mojo.internal.bindings.{current_ns}.{part};\n"
-                   current_ns += f".{part}"
-               
-               # Declare external namespaces from imports (dynamic)
-               declared_roots = set()
-               # Add current module root to avoid redeclaration or logic error
-               declared_roots.add(module_parts[0])
-               
-               for imp in parsed.get('imports', []):
-                   mod = None
-                   # Try exact path match
-                   if imp in file_to_module:
-                       mod = file_to_module[imp]
-                   else:
-                       # Try suffix match
-                       for k, v in file_to_module.items():
-                           if k.endswith(imp):
-                               mod = v
-                               break
-                   
-                   if mod:
-                       root = mod.split('.')[0]
-                       if root not in declared_roots:
-                           js_code += f"mojo.internal.bindings.{root} = mojo.internal.bindings.{root} || {{}};\n"
-                           js_code += f"var {root} = mojo.internal.bindings.{root};\n"
-                           declared_roots.add(root)
-                   else:
-                        # Fallback heuristic for standard libraries if not in file list
-                        parts = imp.split('/')
-                        roots = ['blink', 'ui', 'gfx', 'skia', 'url', 'content', 'ash', 'chromeos', 'components', 'services', 'network', 'media', 'webview']
-                        for r in roots:
-                            if r in parts and r not in declared_roots:
-                                js_code += f"mojo.internal.bindings.{r} = mojo.internal.bindings.{r} || {{}};\n"
-                                js_code += f"var {r} = mojo.internal.bindings.{r};\n"
-                                declared_roots.add(r)
+              current_ns = module_parts[0]
+              for part in module_parts[1:]:
+                  js_code += f"mojo.internal.bindings.{current_ns}.{part} = mojo.internal.bindings.{current_ns}.{part} || {{}};\n"
+                  # Create local alias for ease of generation
+                  js_code += f"{current_ns}.{part} = mojo.internal.bindings.{current_ns}.{part};\n"
+                  current_ns += f".{part}"
+              
+              # Declare external namespaces from imports (dynamic)
+              declared_roots = set()
+              # Add current module root to avoid redeclaration or logic error
+              declared_roots.add(module_parts[0])
+              
+              for imp in parsed.get('imports', []):
+                  mod = None
+                  # Try exact path match
+                  if imp in file_to_module:
+                      mod = file_to_module[imp]
+                  else:
+                      # Try suffix match
+                      for k, v in file_to_module.items():
+                          if k.endswith(imp):
+                              mod = v
+                              break
+                  
+                  if mod:
+                      root = mod.split('.')[0]
+                      if root not in declared_roots:
+                          js_code += f"mojo.internal.bindings.{root} = mojo.internal.bindings.{root} || {{}};\n"
+                          js_code += f"var {root} = mojo.internal.bindings.{root};\n"
+                          declared_roots.add(root)
+                  else:
+                       # Fallback heuristic for standard libraries if not in file list
+                       parts = imp.split('/')
+                       roots = ['blink', 'ui', 'gfx', 'skia', 'url', 'content', 'ash', 'chromeos', 'components', 'services', 'network', 'media', 'webview']
+                       for r in roots:
+                           if r in parts and r not in declared_roots:
+                               js_code += f"mojo.internal.bindings.{r} = mojo.internal.bindings.{r} || {{}};\n"
+                               js_code += f"var {r} = mojo.internal.bindings.{r};\n"
+                               declared_roots.add(r)
               
               js_code += "\n"
               
