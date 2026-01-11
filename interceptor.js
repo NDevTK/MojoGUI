@@ -308,18 +308,33 @@
                 try {
                     // Fix: Unbind any Mojo Remotes/Receivers to release their handles for forwarding
                     // If we pass a bound Remote, the serializer cannot extract the handle, causing BAD_MESSAGE
-                    const forwardedArgs = args.map(arg => {
-                        if (arg && typeof arg === 'object') {
-                            if (arg.proxy && typeof arg.proxy.unbind === 'function') {
-                                return arg.proxy.unbind();
+                    const forwardedArgs = args.map((arg, idx) => {
+                        try {
+                            if (arg && typeof arg === 'object') {
+                                if (arg.proxy && typeof arg.proxy.unbind === 'function') {
+                                    console.log(`[MojoProxy] Arg[${idx}] has proxy.unbind. Calling it.`);
+                                    const h = arg.proxy.unbind();
+                                    console.log(`[MojoProxy] Arg[${idx}] unbind result:`, h);
+                                    if (!h) console.warn(`[MojoProxy] Arg[${idx}] unbind returned falsy!`);
+                                    // If unbind returns existing handle, we verify if we can pass it.
+                                    // If binding expects Remote, we might need to re-wrap or mock?
+                                    // For now, return h if it exists, else original arg to avoid undefined.
+                                    return h || arg;
+                                }
+                                if (typeof arg.unbind === 'function') {
+                                    console.log(`[MojoProxy] Arg[${idx}] has unbind. Calling it.`);
+                                    const h = arg.unbind();
+                                    console.log(`[MojoProxy] Arg[${idx}] unbind result:`, h);
+                                    return h || arg;
+                                }
                             }
-                            if (typeof arg.unbind === 'function') {
-                                return arg.unbind();
-                            }
+                        } catch (err) {
+                            console.error(`[MojoProxy] Error unbinding arg[${idx}]:`, err);
                         }
                         return arg;
                     });
 
+                    console.log(`[MojoProxy] Forwarding args to realRemote:`, forwardedArgs);
                     const result = await this.realRemote[methodName](...forwardedArgs);
 
                     window.dispatchEvent(new CustomEvent('mojo-response', {
@@ -379,18 +394,27 @@
                     console.log(`[MojoProxy] Calling realRemote.${methodName}`);
 
                     // Fix: Unbind any Mojo Remotes/Receivers to release their handles for forwarding
-                    const forwardedArgs = argsToUse.map(arg => {
-                        if (arg && typeof arg === 'object') {
-                            if (arg.proxy && typeof arg.proxy.unbind === 'function') {
-                                return arg.proxy.unbind();
+                    const forwardedArgs = argsToUse.map((arg, idx) => {
+                        try {
+                            if (arg && typeof arg === 'object') {
+                                if (arg.proxy && typeof arg.proxy.unbind === 'function') {
+                                    console.log(`[MojoProxy] Resume Arg[${idx}] has proxy.unbind. Calling it.`);
+                                    const h = arg.proxy.unbind();
+                                    return h || arg;
+                                }
+                                if (typeof arg.unbind === 'function') {
+                                    console.log(`[MojoProxy] Resume Arg[${idx}] has unbind. Calling it.`);
+                                    const h = arg.unbind();
+                                    return h || arg;
+                                }
                             }
-                            if (typeof arg.unbind === 'function') {
-                                return arg.unbind();
-                            }
+                        } catch (err) {
+                            console.error(`[MojoProxy] Error unbinding Resume arg[${idx}]:`, err);
                         }
                         return arg;
                     });
 
+                    console.log(`[MojoProxy] Resuming realRemote.${methodName} with`, forwardedArgs);
                     let result = await this.realRemote[methodName](...forwardedArgs);
 
                     console.log(`[MojoProxy] realRemote.${methodName} resolved in ${Date.now() - startTime}ms`, result);
