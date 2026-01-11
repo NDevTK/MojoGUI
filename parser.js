@@ -28,18 +28,26 @@
                 }
 
                 // Extract interfaces
-                const interfacePattern = /(\w+)\.(\w+)Ptr\s*=\s*class\s*\{/g;
+                // Extract interfaces
+                // Match mojo.internal.bindings.Module.InterfaceRemote = class
+                const interfacePattern = /([\w.]+)\.(\w+)(?:Remote)\s*=\s*class\s*\{/g;
                 let match;
                 while ((match = interfacePattern.exec(content)) !== null) {
-                    const interfaceName = match[2].replace(/Ptr$/, '');
+                    const interfaceName = match[2]; // No need to replace Ptr/Remote as we captured the stem
                     const startPos = match.index;
+
+                    // Clean namespace (remove mojo.internal.bindings prefix if present)
+                    let namespace = match[1];
+                    if (namespace.startsWith('mojo.internal.bindings.')) {
+                        namespace = namespace.substring('mojo.internal.bindings.'.length);
+                    }
 
                     // Find the methods in this class
                     const methods = this.extractMethods(content, startPos);
 
                     result.interfaces.push({
                         name: interfaceName,
-                        namespace: match[1],
+                        namespace: namespace, // Clean namespace
                         methods: methods
                     });
                 }

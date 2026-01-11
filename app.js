@@ -242,7 +242,8 @@
         const query = e.target.value.toLowerCase();
         const filtered = state.interfaces.filter(iface =>
             iface.name.toLowerCase().includes(query) ||
-            iface.module.toLowerCase().includes(query)
+            iface.module.toLowerCase().includes(query) ||
+            (iface.methods && iface.methods.some(m => m.toLowerCase().includes(query)))
         );
         renderInterfaceList(filtered);
     }

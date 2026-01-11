@@ -496,7 +496,10 @@ jobs:
                   # Fallback heuristic
                   if clean_name and clean_name[0].isupper():
                       # Default to current namespace if unknown
-                      return f"{current_ns}.{clean_name}Spec.$"
+                      ns = current_ns
+                      if not ns.startswith('mojo.internal.bindings'):
+                           ns = f"mojo.internal.bindings.{module}"
+                      return f"{ns}.{clean_name}Spec.$"
 
                   return 'mojo.internal.Pointer'
 

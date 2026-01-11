@@ -449,10 +449,13 @@ body::before {
 }
 
 .methods-list {
-    padding: var(--space-md);
+    padding: var(--space-sm);
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-sm);
+    max-height: 250px;
+    overflow-y: auto;
+    align-content: flex-start;
 }
 
 .method-item {
@@ -633,7 +636,7 @@ body::before {
 .results-section {
     border-top: 1px solid var(--border-subtle);
     flex: 1;
-    min-height: 200px;
+    min-height: 150px;
     display: flex;
     flex-direction: column;
 }
@@ -655,7 +658,7 @@ body::before {
 .results-block {
     flex: 1;
     margin: 0;
-    padding: var(--space-md);
+    padding: var(--space-sm);
     background: var(--bg-primary);
     overflow: auto;
     font-family: var(--font-mono);
@@ -914,9 +917,9 @@ body::before {
 .result-details {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--space-sm) var(--space-lg);
-    margin-bottom: var(--space-lg);
-    padding: var(--space-md);
+    gap: var(--space-sm) var(--space-md);
+    margin-bottom: var(--space-md);
+    padding: var(--space-sm);
     background: var(--bg-tertiary);
     border-radius: var(--radius-md);
     border: 1px solid var(--border-subtle);
@@ -992,7 +995,7 @@ body::before {
 }
 
 .interceptor-list-container {
-    height: 40%;
+    height: 30%;
     overflow-y: auto;
     border-bottom: 1px solid var(--border-subtle);
 }
