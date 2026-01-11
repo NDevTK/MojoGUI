@@ -327,14 +327,28 @@
                                 }
 
                                 if (h) {
-                                    // DEEP EXTRACTION: If h is an Endpoint, get the raw handle.
-                                    // Mojo JS bindings are inconsistent: sometimes unbind() returns the raw handle (integer),
-                                    // sometimes it returns an Endpoint object. serializing an Endpoint fails.
+                                    // DEBUG: Dump the structure of h to find the handle
+                                    try {
+                                        const simpleDump = {};
+                                        for (const k in h) {
+                                            if (typeof h[k] !== 'function') simpleDump[k] = h[k];
+                                        }
+                                        if (h.router_) {
+                                            simpleDump.router_keys = Object.keys(h.router_);
+                                            if (h.router_.connector_) {
+                                                simpleDump.connector_keys = Object.keys(h.router_.connector_);
+                                                simpleDump.connector_handle_ = h.router_.connector_.handle_;
+                                            }
+                                        }
+                                        console.log(`[MojoProxy] Arg[${idx}] unbind() returned object. Structure:`, simpleDump);
+                                    } catch (err) { console.error('Error dumping h', err); }
+
+                                    // DEEP EXTRACTION TRIALS
                                     let rawHandle = h;
                                     if (typeof h === 'object') {
-                                        if (h.handle) rawHandle = h.handle;
-                                        else if (h.router_ && h.router_.connector_) rawHandle = h.router_.connector_.handle_;
-                                        // Some endpoints might keep handle in other props?
+                                        if (h.handle !== undefined) rawHandle = h.handle;
+                                        else if (h.router_ && h.router_.connector_ && h.router_.connector_.handle_ !== undefined) rawHandle = h.router_.connector_.handle_;
+                                        else if (h.router_ && h.router_.handle_ !== undefined) rawHandle = h.router_.handle_; // Common in some versions
                                     }
 
                                     console.log(`[MojoProxy] Arg[${idx}] extracted raw handle:`, rawHandle);
