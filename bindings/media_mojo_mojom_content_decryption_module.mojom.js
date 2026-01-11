@@ -72,7 +72,12 @@
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
+mojo.internal.bindings.media.mojom.EmeInitDataTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.CdmSessionTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.CdmMessageTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.media.mojom.CdmKeyStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.HdcpVersionSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.ExceptionSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.media.mojom.CdmConfigSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CdmPromiseResultSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CdmKeyInformationSpec = { $: {} };
@@ -105,6 +110,18 @@ mojo.internal.bindings.media.mojom.CdmFactory.$interfaceName = 'media.mojom.CdmF
 mojo.internal.bindings.media.mojom.CdmFactory_CreateCdm_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec = { $: {} };
 
+// Enum: EmeInitDataType
+mojo.internal.bindings.media.mojom.EmeInitDataType = {
+};
+
+// Enum: CdmSessionType
+mojo.internal.bindings.media.mojom.CdmSessionType = {
+};
+
+// Enum: CdmMessageType
+mojo.internal.bindings.media.mojom.CdmMessageType = {
+};
+
 // Enum: CdmKeyStatus
 mojo.internal.bindings.media.mojom.CdmKeyStatus = {
   USABLE: 0,
@@ -115,6 +132,14 @@ mojo.internal.bindings.media.mojom.CdmKeyStatus = {
   KEY_STATUS_PENDING: 5,
   RELEASED: 6,
   USABLE_IN_FUTURE: 7,
+};
+
+// Enum: HdcpVersion
+mojo.internal.bindings.media.mojom.HdcpVersion = {
+};
+
+// Enum: Exception
+mojo.internal.bindings.media.mojom.Exception = {
 };
 
 // Struct: CdmConfig

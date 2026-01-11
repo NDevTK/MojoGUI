@@ -71,6 +71,8 @@
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 
+mojo.internal.bindings.media.mojom.TypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.StatusSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.media.mojom.DemuxerStream = {};
 mojo.internal.bindings.media.mojom.DemuxerStream.$interfaceName = 'media.mojom.DemuxerStream';
 mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ParamsSpec = { $: {} };
@@ -78,6 +80,14 @@ mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ResponseParamsSpec =
 mojo.internal.bindings.media.mojom.DemuxerStream_Read_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.DemuxerStream_Read_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec = { $: {} };
+
+// Enum: Type
+mojo.internal.bindings.media.mojom.Type = {
+};
+
+// Enum: Status
+mojo.internal.bindings.media.mojom.Status = {
+};
 
 // Interface: DemuxerStream
 mojo.internal.Struct(

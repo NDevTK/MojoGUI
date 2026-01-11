@@ -146,7 +146,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuHost_DidLoseContext_ParamsSpec, 'viz.mojom.GpuHost_DidLoseContext_Params', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.viz.mojom.ContextLostReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.gpu.mojom.ContextLostReasonSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_active_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

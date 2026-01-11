@@ -1,6 +1,6 @@
 // Auto-generated MojoJS binding
- // Source: chromium_src/ui/events/mojom/event_constants.mojom
- // Module: ui.mojom
+ // Source: chromium_src/cc/mojom/browser_controls_state.mojom
+ // Module: cc.mojom
 
  'use strict';
  (function() {
@@ -68,119 +68,11 @@
  mojo.internal.bindings = mojo.internal.bindings || {};
  
 
- mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
-mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+ mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
+mojo.internal.bindings.cc.mojom = mojo.internal.bindings.cc.mojom || {};
 
-mojo.internal.bindings.ui.mojom.AcceleratorPhaseSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ui.mojom.EventTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ui.mojom.EventPointerTypeSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ui.mojom.ScrollEventPhaseSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ui.mojom.EventMomentumPhaseSpec = { $: mojo.internal.Enum() };
-mojo.internal.bindings.ui.mojom.GestureDeviceTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.cc.mojom.BrowserControlsStateSpec = { $: mojo.internal.Enum() };
 
-mojo.internal.bindings.ui.mojom.kEventFlagNone = 0x00000;
-
-mojo.internal.bindings.ui.mojom.kEventFlagIsSynthesized = 0x00001;
-
-mojo.internal.bindings.ui.mojom.kEventFlagShiftDown = 0x00002;
-
-mojo.internal.bindings.ui.mojom.kEventFlagControlDown = 0x00004;
-
-mojo.internal.bindings.ui.mojom.kEventFlagAltDown = 0x00008;
-
-mojo.internal.bindings.ui.mojom.kEventFlagCommandDown = 0x00010;
-
-mojo.internal.bindings.ui.mojom.kEventFlagFunctionDown = 0x00020;
-
-mojo.internal.bindings.ui.mojom.kEventFlagAltgrDown = 0x00040;
-
-mojo.internal.bindings.ui.mojom.kEventFlagMod3Down = 0x00080;
-
-mojo.internal.bindings.ui.mojom.kEventFlagNumLockOn = 0x00100;
-
-mojo.internal.bindings.ui.mojom.kEventFlagCapsLockOn = 0x00200;
-
-mojo.internal.bindings.ui.mojom.kEventFlagScrollLockOn = 0x00400;
-
-mojo.internal.bindings.ui.mojom.kEventFlagLeftMouseButton = 0x00800;
-
-mojo.internal.bindings.ui.mojom.kEventFlagMiddleMouseButton = 0x01000;
-
-mojo.internal.bindings.ui.mojom.kEventFlagRightMouseButton = 0x02000;
-
-mojo.internal.bindings.ui.mojom.kEventFlagBackMouseButton = 0x04000;
-
-mojo.internal.bindings.ui.mojom.kEventFlagForwardMouseButton = 0x08000;
-
-mojo.internal.bindings.ui.mojom.kMouseEventFlagIsDoubleClick = 0x10000;
-
-mojo.internal.bindings.ui.mojom.kMouseEventFlagIsTripleClick = 0x20000;
-
-mojo.internal.bindings.ui.mojom.kMouseEventFlagIsNonClient = 0x40000;
-
-mojo.internal.bindings.ui.mojom.kKeyEventFlagIMEFabricatedKey = 0x10000;
-
-mojo.internal.bindings.ui.mojom.kKeyEventFlagIsRepeat = 0x20000;
-
-// Enum: AcceleratorPhase
-mojo.internal.bindings.ui.mojom.AcceleratorPhase = {
-  PRE_TARGET: 0,
-  POST_TARGET: 1,
-};
-
-// Enum: EventType
-mojo.internal.bindings.ui.mojom.EventType = {
-  UNKNOWN: 0,
-  KEY_PRESSED: 1,
-  KEY_RELEASED: 2,
-  GESTURE_TAP: 3,
-  GESTURE_SWIPE: 4,
-  GESTURE_PINCH_BEGIN: 5,
-  GESTURE_PINCH_END: 6,
-  GESTURE_PINCH_UPDATE: 7,
-  SCROLL: 8,
-  SCROLL_FLING_START: 9,
-  SCROLL_FLING_CANCEL: 10,
-  CANCEL_MODE: 11,
-  MOUSE_PRESSED_EVENT: 12,
-  MOUSE_DRAGGED_EVENT: 13,
-  MOUSE_RELEASED_EVENT: 14,
-  MOUSE_MOVED_EVENT: 15,
-  MOUSE_ENTERED_EVENT: 16,
-  MOUSE_EXITED_EVENT: 17,
-  MOUSE_WHEEL_EVENT: 18,
-  MOUSE_CAPTURE_CHANGED_EVENT: 19,
-  TOUCH_RELEASED: 20,
-  TOUCH_PRESSED: 21,
-  TOUCH_MOVED: 22,
-  TOUCH_CANCELLED: 23,
-};
-
-// Enum: EventPointerType
-mojo.internal.bindings.ui.mojom.EventPointerType = {
-};
-
-// Enum: ScrollEventPhase
-mojo.internal.bindings.ui.mojom.ScrollEventPhase = {
-  kNone: 0,
-  kBegan: 1,
-  kUpdate: 2,
-  kEnd: 3,
-};
-
-// Enum: EventMomentumPhase
-mojo.internal.bindings.ui.mojom.EventMomentumPhase = {
-  NONE: 0,
-  BEGAN: 1,
-  MAY_BEGIN: 2,
-  INERTIAL_UPDATE: 3,
-  END: 4,
-  BLOCKED: 5,
-};
-
-// Enum: GestureDeviceType
-mojo.internal.bindings.ui.mojom.GestureDeviceType = {
-  DEVICE_UNKNOWN: 0,
-  DEVICE_TOUCHPAD: 1,
-  DEVICE_TOUCHSCREEN: 2,
+// Enum: BrowserControlsState
+mojo.internal.bindings.cc.mojom.BrowserControlsState = {
 };

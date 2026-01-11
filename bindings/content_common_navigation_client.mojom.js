@@ -75,6 +75,8 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
+mojo.internal.bindings.content.mojom.NavigationGestureSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.content.mojom.PageTransitionSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.content.mojom.NavigationClientDisconnectReasonSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.DidCommitSameDocumentNavigationParamsSpec = { $: {} };
@@ -86,6 +88,14 @@ mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ParamsSpe
 mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec = { $: {} };
+
+// Enum: NavigationGesture
+mojo.internal.bindings.content.mojom.NavigationGesture = {
+};
+
+// Enum: PageTransition
+mojo.internal.bindings.content.mojom.PageTransition = {
+};
 
 // Enum: NavigationClientDisconnectReason
 mojo.internal.bindings.content.mojom.NavigationClientDisconnectReason = {

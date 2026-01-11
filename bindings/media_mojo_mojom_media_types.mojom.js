@@ -74,11 +74,34 @@ mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
+mojo.internal.bindings.media.mojom.AudioCodecSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.AudioCodecProfileSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.BufferingStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.BufferingStateChangeReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.ChannelLayoutSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.MediaContentTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.OutputDeviceStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.SampleFormatSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.VideoCodecSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.VideoCodecProfileSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.VideoPixelFormatSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.VideoDecoderTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.AudioDecoderTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.media.mojom.VideoRotationSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.FullscreenVideoStatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.WaitingReasonSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.WatchTimeKeySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.MediaContainerNameSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.MediaStatusStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.EncryptionSchemeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.media.mojom.EncryptionTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.media.mojom.SVCScalabilityModeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.media.mojom.SVCInterLayerPredModeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.media.mojom.TypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.PrimaryIDSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.TransferIDSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.MatrixIDSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.RangeIDSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.media.mojom.CdmEventSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.media.mojom.CdmSessionClosedReasonSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.media.mojom.EffectStateSpec = { $: mojo.internal.Enum() };
@@ -121,12 +144,88 @@ mojo.internal.bindings.media.mojom.DecoderStatusSpec = { $: {} };
 mojo.internal.bindings.media.mojom.PipelineStatusSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AutoPipInfoSpec = { $: {} };
 
+// Enum: AudioCodec
+mojo.internal.bindings.media.mojom.AudioCodec = {
+};
+
+// Enum: AudioCodecProfile
+mojo.internal.bindings.media.mojom.AudioCodecProfile = {
+};
+
+// Enum: BufferingState
+mojo.internal.bindings.media.mojom.BufferingState = {
+};
+
+// Enum: BufferingStateChangeReason
+mojo.internal.bindings.media.mojom.BufferingStateChangeReason = {
+};
+
+// Enum: ChannelLayout
+mojo.internal.bindings.media.mojom.ChannelLayout = {
+};
+
+// Enum: MediaContentType
+mojo.internal.bindings.media.mojom.MediaContentType = {
+};
+
+// Enum: OutputDeviceStatus
+mojo.internal.bindings.media.mojom.OutputDeviceStatus = {
+};
+
+// Enum: SampleFormat
+mojo.internal.bindings.media.mojom.SampleFormat = {
+};
+
+// Enum: VideoCodec
+mojo.internal.bindings.media.mojom.VideoCodec = {
+};
+
+// Enum: VideoCodecProfile
+mojo.internal.bindings.media.mojom.VideoCodecProfile = {
+};
+
+// Enum: VideoPixelFormat
+mojo.internal.bindings.media.mojom.VideoPixelFormat = {
+};
+
+// Enum: VideoDecoderType
+mojo.internal.bindings.media.mojom.VideoDecoderType = {
+};
+
+// Enum: AudioDecoderType
+mojo.internal.bindings.media.mojom.AudioDecoderType = {
+};
+
 // Enum: VideoRotation
 mojo.internal.bindings.media.mojom.VideoRotation = {
   kVideoRotation0: 0,
   kVideoRotation90: 1,
   kVideoRotation180: 2,
   kVideoRotation270: 3,
+};
+
+// Enum: FullscreenVideoStatus
+mojo.internal.bindings.media.mojom.FullscreenVideoStatus = {
+};
+
+// Enum: WaitingReason
+mojo.internal.bindings.media.mojom.WaitingReason = {
+};
+
+// Enum: WatchTimeKey
+mojo.internal.bindings.media.mojom.WatchTimeKey = {
+};
+
+// Enum: MediaContainerName
+mojo.internal.bindings.media.mojom.MediaContainerName = {
+};
+
+// Enum: MediaStatusState
+mojo.internal.bindings.media.mojom.MediaStatusState = {
+};
+
+// Enum: EncryptionScheme
+mojo.internal.bindings.media.mojom.EncryptionScheme = {
 };
 
 // Enum: EncryptionType
@@ -189,6 +288,22 @@ mojo.internal.bindings.media.mojom.SVCInterLayerPredMode = {
 mojo.internal.bindings.media.mojom.Type = {
   kDisplay: 0,
   kPixel: 1,
+};
+
+// Enum: PrimaryID
+mojo.internal.bindings.media.mojom.PrimaryID = {
+};
+
+// Enum: TransferID
+mojo.internal.bindings.media.mojom.TransferID = {
+};
+
+// Enum: MatrixID
+mojo.internal.bindings.media.mojom.MatrixID = {
+};
+
+// Enum: RangeID
+mojo.internal.bindings.media.mojom.RangeID = {
 };
 
 // Enum: CdmEvent
@@ -411,7 +526,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec, 'media.mojom.VideoDecoderConfig', [
       mojo.internal.StructField('arg_codec', 0, 0, mojo.internal.bindings.media.mojom.VideoCodecSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_profile', 8, 0, mojo.internal.bindings.gpu.mojom.VideoCodecProfileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_profile', 8, 0, mojo.internal.bindings.media.mojom.VideoCodecProfileSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_transformation', 16, 0, mojo.internal.bindings.media.mojom.VideoTransformationSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_coded_size', 24, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_visible_rect', 32, 0, mojo.internal.bindings.gfx.mojom.RectSpec.$, null, false, 0, undefined),
@@ -624,7 +739,7 @@ mojo.internal.Struct(
 // Struct: PredictionFeatures
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.PredictionFeaturesSpec, 'media.mojom.PredictionFeatures', [
-      mojo.internal.StructField('arg_profile', 0, 0, mojo.internal.bindings.gpu.mojom.VideoCodecProfileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_profile', 0, 0, mojo.internal.bindings.media.mojom.VideoCodecProfileSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_video_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_frames_per_sec', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_key_system', 24, 0, mojo.internal.String, null, false, 0, undefined),

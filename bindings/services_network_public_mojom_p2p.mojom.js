@@ -72,6 +72,8 @@
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
+mojo.internal.bindings.network.mojom.P2PSocketTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.network.mojom.P2PSocketOptionSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.network.mojom.EcnMarkingSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.network.mojom.P2PReceivedPacketSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PSendPacketSpec = { $: {} };
@@ -95,6 +97,14 @@ mojo.internal.bindings.network.mojom.P2PSocketClient_SocketCreated_ParamsSpec = 
 mojo.internal.bindings.network.mojom.P2PSocketClient_SendComplete_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.P2PSocketClient_DataReceived_ParamsSpec = { $: {} };
+
+// Enum: P2PSocketType
+mojo.internal.bindings.network.mojom.P2PSocketType = {
+};
+
+// Enum: P2PSocketOption
+mojo.internal.bindings.network.mojom.P2PSocketOption = {
+};
 
 // Enum: EcnMarking
 mojo.internal.bindings.network.mojom.EcnMarking = {
