@@ -76,7 +76,7 @@ mojo.internal.bindings.viz.mojom.OcclusionCullerSettingsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.RendererSettingsSpec = { $: {} };
 mojo.internal.bindings.viz.mojom.DebugRendererSettingsSpec = { $: {} };
 
-mojo.internal.bindings.viz.mojom.kInvalidDisplayId = -1;
+mojo.internal.bindings.viz.mojom.kInvalidDisplayId = mojo.internal.bindings.viz.mojom.-1;
 
 // Struct: OcclusionCullerSettings
 mojo.internal.Struct(

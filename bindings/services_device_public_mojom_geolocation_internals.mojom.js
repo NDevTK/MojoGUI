@@ -90,11 +90,11 @@ mojo.internal.bindings.device.mojom.GeolocationInternals.$interfaceName = 'devic
 mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec = { $: {} };
 mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec = { $: {} };
 
-mojo.internal.bindings.device.mojom.kInvalidRadioSignalStrength = -2147483648;
+mojo.internal.bindings.device.mojom.kInvalidRadioSignalStrength = mojo.internal.bindings.device.mojom.-2147483648;
 
-mojo.internal.bindings.device.mojom.kInvalidChannel = -2147483648;
+mojo.internal.bindings.device.mojom.kInvalidChannel = mojo.internal.bindings.device.mojom.-2147483648;
 
-mojo.internal.bindings.device.mojom.kInvalidSignalToNoise = -2147483648;
+mojo.internal.bindings.device.mojom.kInvalidSignalToNoise = mojo.internal.bindings.device.mojom.-2147483648;
 
 // Enum: ProviderState
 mojo.internal.bindings.device.mojom.ProviderState = {

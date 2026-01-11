@@ -90,11 +90,11 @@ mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_Cr
 mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ParamsSpec = { $: {} };
 mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ResponseParamsSpec = { $: {} };
 
-mojo.internal.bindings.on_device_translation.mojom.kOnDeviceTranslationSandbox = sandbox.mojom.Sandbox.kOnDeviceTranslation;
+mojo.internal.bindings.on_device_translation.mojom.kOnDeviceTranslationSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kOnDeviceTranslation;
 
-mojo.internal.bindings.on_device_translation.mojom.kOnDeviceTranslationSandbox = sandbox.mojom.Sandbox.kService;
+mojo.internal.bindings.on_device_translation.mojom.kOnDeviceTranslationSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kService;
 
-mojo.internal.bindings.on_device_translation.mojom.kOnDeviceTranslationSandbox = sandbox.mojom.Sandbox.kNoSandbox;
+mojo.internal.bindings.on_device_translation.mojom.kOnDeviceTranslationSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kNoSandbox;
 
 // Enum: CreateTranslatorResult
 mojo.internal.bindings.on_device_translation.mojom.CreateTranslatorResult = {

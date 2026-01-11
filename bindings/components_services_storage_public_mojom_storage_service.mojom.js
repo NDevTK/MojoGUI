@@ -81,9 +81,9 @@ mojo.internal.bindings.storage.mojom.StorageService_BindSessionStorageControl_Pa
 mojo.internal.bindings.storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec = { $: {} };
 mojo.internal.bindings.storage.mojom.StorageService_BindTestApi_ParamsSpec = { $: {} };
 
-mojo.internal.bindings.storage.mojom.kStorageSandbox = sandbox.mojom.Sandbox.kUtility;
+mojo.internal.bindings.storage.mojom.kStorageSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kUtility;
 
-mojo.internal.bindings.storage.mojom.kStorageSandbox = sandbox.mojom.Sandbox.kService;
+mojo.internal.bindings.storage.mojom.kStorageSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kService;
 
 // Interface: StorageService
 mojo.internal.Struct(

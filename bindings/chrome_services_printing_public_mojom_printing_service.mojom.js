@@ -79,9 +79,9 @@ mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToPwgRasterConverte
 mojo.internal.bindings.printing.mojom.PrintingService_BindPdfFlattener_ParamsSpec = { $: {} };
 mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec = { $: {} };
 
-mojo.internal.bindings.printing.mojom.kPrintingServiceSandbox = sandbox.mojom.Sandbox.kPdfConversion;
+mojo.internal.bindings.printing.mojom.kPrintingServiceSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kPdfConversion;
 
-mojo.internal.bindings.printing.mojom.kPrintingServiceSandbox = sandbox.mojom.Sandbox.kUtility;
+mojo.internal.bindings.printing.mojom.kPrintingServiceSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kUtility;
 
 // Interface: PrintingService
 mojo.internal.Struct(

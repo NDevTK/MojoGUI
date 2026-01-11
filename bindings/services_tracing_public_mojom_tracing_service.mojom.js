@@ -79,9 +79,9 @@ mojo.internal.bindings.tracing.mojom.TracingService_Initialize_ParamsSpec = { $:
 mojo.internal.bindings.tracing.mojom.TracingService_AddClient_ParamsSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.TracingService_BindConsumerHost_ParamsSpec = { $: {} };
 
-mojo.internal.bindings.tracing.mojom.kTracingSandbox = sandbox.mojom.Sandbox.kUtility;
+mojo.internal.bindings.tracing.mojom.kTracingSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kUtility;
 
-mojo.internal.bindings.tracing.mojom.kTracingSandbox = sandbox.mojom.Sandbox.kService;
+mojo.internal.bindings.tracing.mojom.kTracingSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kService;
 
 // Struct: ClientInfo
 mojo.internal.Struct(

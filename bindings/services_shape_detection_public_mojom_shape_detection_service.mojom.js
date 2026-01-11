@@ -78,11 +78,11 @@ mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindBarcodeDe
 mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec = { $: {} };
 mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec = { $: {} };
 
-mojo.internal.bindings.shape_detection.mojom.kShapeDetectionSandbox = sandbox.mojom.Sandbox.kShapeDetection;
+mojo.internal.bindings.shape_detection.mojom.kShapeDetectionSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kShapeDetection;
 
-mojo.internal.bindings.shape_detection.mojom.kShapeDetectionSandbox = sandbox.mojom.Sandbox.kUtility;
+mojo.internal.bindings.shape_detection.mojom.kShapeDetectionSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kUtility;
 
-mojo.internal.bindings.shape_detection.mojom.kShapeDetectionSandbox = sandbox.mojom.Sandbox.kGpu;
+mojo.internal.bindings.shape_detection.mojom.kShapeDetectionSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kGpu;
 
 // Interface: ShapeDetectionService
 mojo.internal.Struct(

@@ -79,13 +79,13 @@ mojo.internal.bindings.device.mojom.GeopositionErrorSpec = { $: {} };
 
 mojo.internal.bindings.device.mojom.kBadLatitudeLongitude = 200;
 
-mojo.internal.bindings.device.mojom.kBadAltitude = -10000;
+mojo.internal.bindings.device.mojom.kBadAltitude = mojo.internal.bindings.device.mojom.-10000;
 
-mojo.internal.bindings.device.mojom.kBadAccuracy = -1;
+mojo.internal.bindings.device.mojom.kBadAccuracy = mojo.internal.bindings.device.mojom.-1;
 
-mojo.internal.bindings.device.mojom.kBadHeading = -1;
+mojo.internal.bindings.device.mojom.kBadHeading = mojo.internal.bindings.device.mojom.-1;
 
-mojo.internal.bindings.device.mojom.kBadSpeed = -1;
+mojo.internal.bindings.device.mojom.kBadSpeed = mojo.internal.bindings.device.mojom.-1;
 
 mojo.internal.bindings.device.mojom.kGeoPermissionDeniedErrorMessage = "User denied geolocation permission";
 
