@@ -339,17 +339,33 @@
 
                                     console.log(`[MojoProxy] Arg[${idx}] extracted raw handle:`, rawHandle);
 
-                                    if (objClass) {
-                                        return new objClass(rawHandle);
-                                    }
-                                    return rawHandle;
+                                    // FIX 3.0: Use a lightweight Mock Remote instead of re-instantiating the class.
+                                    // Re-instantiating the Remote/Receiver class might reset internal state (like sequence IDs) via new Router(),
+                                    // which could cause BAD_MESSAGE if the browser expects continuity.
+                                    // A Mock Remote just holds the handle and gives it back when asked, avoiding side effects.
+                                    const mockRemote = {
+                                        unbind: () => {
+                                            console.log(`[MojoProxy] Mock unbind called for Arg[${idx}]`);
+                                            return rawHandle;
+                                        },
+                                        proxy: {
+                                            unbind: () => {
+                                                console.log(`[MojoProxy] Mock proxy.unbind called for Arg[${idx}]`);
+                                                return rawHandle;
+                                            }
+                                        }
+                                    };
+
+                                    // Satisfy both legacy and new bindings checks
+                                    mockRemote.proxy.proxy = mockRemote.proxy;
+
+                                    return mockRemote;
                                 }
+                            } catch (err) {
+                                console.error(`[MojoProxy] Error re-wrapping arg[${idx}]:`, err);
                             }
-                        } catch (err) {
-                            console.error(`[MojoProxy] Error re-wrapping arg[${idx}]:`, err);
-                        }
-                        return arg;
-                    });
+                            return arg;
+                        });
 
                     const result = await this.realRemote[methodName](...forwardedArgs);
 
@@ -409,23 +425,34 @@
                     console.log(`[MojoProxy] Resuming ${callId} with`, argsToUse);
                     console.log(`[MojoProxy] Calling realRemote.${methodName}`);
 
-                    // Fix: Unbind any Mojo Remotes/Receivers to release their handles for forwarding via realRemote.
-                    // We must re-wrap the handle in a fresh instance of the same class.
+                    // Fix: Unbind any Mojo Remotes/Receivers to release their handles.
+                    // If using modifiedArgs, fall back to originalArgs for handles if the modified version is just a plain object.
                     const forwardedArgs = argsToUse.map((arg, idx) => {
                         try {
-                            if (arg && typeof arg === 'object') {
+                            // Check if we should use the original arg (for handles)
+                            let actualArg = arg;
+                            if (modifiedArgs && originalArgs && originalArgs[idx]) {
+                                const orig = originalArgs[idx];
+                                // If original was a Mojo object (has unbind) and current arg is not (e.g. JSON), use original.
+                                const origWasMojo = (orig.proxy && typeof orig.proxy.unbind === 'function') || (typeof orig.unbind === 'function');
+                                const currIsMojo = (arg && ((arg.proxy && typeof arg.proxy.unbind === 'function') || (typeof arg.unbind === 'function')));
+
+                                if (origWasMojo && !currIsMojo) {
+                                    console.log(`[MojoProxy] Arg[${idx}] appears to be a modified Mojo object. Using original handle.`);
+                                    actualArg = orig;
+                                }
+                            }
+
+                            if (actualArg && typeof actualArg === 'object') {
                                 let h = null;
-                                let objClass = null;
 
                                 // Case 1: Remote (InterfaceProxy)
-                                if (arg.proxy && typeof arg.proxy.unbind === 'function') {
-                                    h = arg.proxy.unbind();
-                                    objClass = arg.constructor;
+                                if (actualArg.proxy && typeof actualArg.proxy.unbind === 'function') {
+                                    h = actualArg.proxy.unbind();
                                 }
                                 // Case 2: PendingReceiver or InterfaceRequest
-                                else if (typeof arg.unbind === 'function') {
-                                    h = arg.unbind();
-                                    objClass = arg.constructor;
+                                else if (typeof actualArg.unbind === 'function') {
+                                    h = actualArg.unbind();
                                 }
 
                                 if (h) {
@@ -441,10 +468,22 @@
 
                                     console.log(`[MojoProxy] Resume Arg[${idx}] extracted raw handle:`, rawHandle);
 
-                                    if (objClass) {
-                                        return new objClass(rawHandle);
-                                    }
-                                    return rawHandle;
+                                    // FIX 3.0: Use a lightweight Mock Remote instead of re-instantiating the class.
+                                    const mockRemote = {
+                                        unbind: () => {
+                                            console.log(`[MojoProxy] Mock unbind called for Arg[${idx}]`);
+                                            return rawHandle;
+                                        },
+                                        proxy: {
+                                            unbind: () => {
+                                                console.log(`[MojoProxy] Mock proxy.unbind called for Arg[${idx}]`);
+                                                return rawHandle;
+                                            }
+                                        }
+                                    };
+                                    mockRemote.proxy.proxy = mockRemote.proxy;
+
+                                    return mockRemote;
                                 }
                             }
                         } catch (err) {
