@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-11T04:20:13.138379Z",
+  "generated_at": "2026-01-11T04:36:31.896771Z",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -24789,6 +24789,12 @@
       "imports": []
     },
     {
+      "filename": "cc_mojom_browser_controls_state.mojom.js",
+      "source": "cc/mojom/browser_controls_state.mojom",
+      "module": "cc.mojom",
+      "imports": []
+    },
+    {
       "filename": "cc_mojom_element_id.mojom.js",
       "source": "cc/mojom/element_id.mojom",
       "module": "cc.mojom",
@@ -24864,6 +24870,12 @@
       "imports": [
         "ui/gfx/geometry/mojom/geometry.mojom"
       ]
+    },
+    {
+      "filename": "cc_mojom_touch_action.mojom.js",
+      "source": "cc/mojom/touch_action.mojom",
+      "module": "cc.mojom",
+      "imports": []
     },
     {
       "filename": "cc_mojom_ui_resource_id.mojom.js",
@@ -30564,6 +30576,12 @@
       "imports": []
     },
     {
+      "filename": "content_common_native_types.mojom.js",
+      "source": "content/common/native_types.mojom",
+      "module": "content.mojom",
+      "imports": []
+    },
+    {
       "filename": "content_common_navigation_client.mojom.js",
       "source": "content/common/navigation_client.mojom",
       "module": "content.mojom",
@@ -34184,6 +34202,12 @@
         "services/network/public/mojom/ip_endpoint.mojom",
         "services/network/public/mojom/transferable_socket.mojom"
       ]
+    },
+    {
+      "filename": "services_network_public_mojom_network_types.mojom.js",
+      "source": "services/network/public/mojom/network_types.mojom",
+      "module": "network.mojom",
+      "imports": []
     },
     {
       "filename": "services_network_public_mojom_no_vary_search.mojom.js",
@@ -39909,6 +39933,12 @@
         "mojo/public/mojom/base/time.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
       ]
+    },
+    {
+      "filename": "ui_events_mojom_scroll_granularity.mojom.js",
+      "source": "ui/events/mojom/scroll_granularity.mojom",
+      "module": "ui.mojom",
+      "imports": []
     },
     {
       "filename": "ui_gfx_geometry_mojom_geometry.mojom.js",

@@ -94,7 +94,7 @@ mojo.internal.Union(
       },
       'arg_error': {
         'ordinal': 1,
-        'type': mojo.internal.bindings.mojo_base.mojom.ErrorSpec.$,
+        'type': mojo.internal.bindings.gpu.mojom.ErrorSpec.$,
         'nullable': false,
       },
     });

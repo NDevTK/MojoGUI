@@ -74,6 +74,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
+mojo.internal.bindings.chrome.mojom.ImportItemSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.chrome.mojom.SchemeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.chrome.mojom.ImportedPasswordFormSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ProfileImportObserver = {};
@@ -98,6 +99,10 @@ mojo.internal.bindings.chrome.mojom.ProfileImport.$interfaceName = 'chrome.mojom
 mojo.internal.bindings.chrome.mojom.ProfileImport_StartImport_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ProfileImport_CancelImport_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec = { $: {} };
+
+// Enum: ImportItem
+mojo.internal.bindings.chrome.mojom.ImportItem = {
+};
 
 // Enum: Scheme
 mojo.internal.bindings.chrome.mojom.Scheme = {

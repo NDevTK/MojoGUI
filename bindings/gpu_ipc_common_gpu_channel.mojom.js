@@ -80,6 +80,8 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.gpu.mojom.ContextTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.gpu.mojom.ContextColorSpaceSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.gpu.mojom.SchedulingPrioritySpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.gpu.mojom.ErrorSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.gpu.mojom.ContextLostReasonSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.gpu.mojom.ContextCreationAttribsSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.DeferredRequestParamsSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.DeferredCommandBufferRequestParamsSpec = { $: {} };
@@ -185,6 +187,14 @@ mojo.internal.bindings.gpu.mojom.SchedulingPriority = {
   kHigh: 0,
   kNormal: 1,
   kLow: 2,
+};
+
+// Enum: Error
+mojo.internal.bindings.gpu.mojom.Error = {
+};
+
+// Enum: ContextLostReason
+mojo.internal.bindings.gpu.mojom.ContextLostReason = {
 };
 
 // Union: ContextCreationAttribs
@@ -355,8 +365,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.CommandBufferStateSpec, 'gpu.mojom.CommandBufferState', [
       mojo.internal.StructField('arg_release_count', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.mojo_base.mojom.ErrorSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_context_lost_reason', 16, 0, mojo.internal.bindings.viz.mojom.ContextLostReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.gpu.mojom.ErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_context_lost_reason', 16, 0, mojo.internal.bindings.gpu.mojom.ContextLostReasonSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_get_offset', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_token', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_generation', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
@@ -1769,8 +1779,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnDestroyed_ParamsSpec, 'gpu.mojom.CommandBufferClient_OnDestroyed_Params', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.viz.mojom.ContextLostReasonSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.mojo_base.mojom.ErrorSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.gpu.mojom.ContextLostReasonSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.gpu.mojom.ErrorSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

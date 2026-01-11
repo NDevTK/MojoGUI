@@ -72,6 +72,7 @@
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
+mojo.internal.bindings.media.mojom.KeyTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.media.mojom.SessionDataSpec = { $: {} };
 mojo.internal.bindings.media.mojom.MediaDrmStorage = {};
 mojo.internal.bindings.media.mojom.MediaDrmStorage.$interfaceName = 'media.mojom.MediaDrmStorage';
@@ -85,6 +86,10 @@ mojo.internal.bindings.media.mojom.MediaDrmStorage_LoadPersistentSession_ParamsS
 mojo.internal.bindings.media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec = { $: {} };
+
+// Enum: KeyType
+mojo.internal.bindings.media.mojom.KeyType = {
+};
 
 // Struct: SessionData
 mojo.internal.Struct(

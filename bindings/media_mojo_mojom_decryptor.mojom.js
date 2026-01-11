@@ -71,6 +71,8 @@
  mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 
+mojo.internal.bindings.media.mojom.StatusSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.media.mojom.StreamTypeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.media.mojom.Decryptor = {};
 mojo.internal.bindings.media.mojom.Decryptor.$interfaceName = 'media.mojom.Decryptor';
 mojo.internal.bindings.media.mojom.Decryptor_Initialize_ParamsSpec = { $: {} };
@@ -89,6 +91,14 @@ mojo.internal.bindings.media.mojom.Decryptor_ResetDecoder_ParamsSpec = { $: {} }
 mojo.internal.bindings.media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.FrameResourceReleaser = {};
 mojo.internal.bindings.media.mojom.FrameResourceReleaser.$interfaceName = 'media.mojom.FrameResourceReleaser';
+
+// Enum: Status
+mojo.internal.bindings.media.mojom.Status = {
+};
+
+// Enum: StreamType
+mojo.internal.bindings.media.mojom.StreamType = {
+};
 
 // Interface: Decryptor
 mojo.internal.Struct(

@@ -72,6 +72,9 @@
 mojo.internal.bindings.search.mojom = mojo.internal.bindings.search.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
+mojo.internal.bindings.search.mojom.NTPLoggingEventTypeSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.search.mojom.OmniboxFocusStateSpec = { $: mojo.internal.Enum() };
+mojo.internal.bindings.search.mojom.OmniboxFocusChangeReasonSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.search.mojom.EmbeddedSearchConnector = {};
 mojo.internal.bindings.search.mojom.EmbeddedSearchConnector.$interfaceName = 'search.mojom.EmbeddedSearchConnector';
 mojo.internal.bindings.search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec = { $: {} };
@@ -88,6 +91,18 @@ mojo.internal.bindings.search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec
 mojo.internal.bindings.search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec = { $: {} };
 mojo.internal.bindings.search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec = { $: {} };
 mojo.internal.bindings.search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec = { $: {} };
+
+// Enum: NTPLoggingEventType
+mojo.internal.bindings.search.mojom.NTPLoggingEventType = {
+};
+
+// Enum: OmniboxFocusState
+mojo.internal.bindings.search.mojom.OmniboxFocusState = {
+};
+
+// Enum: OmniboxFocusChangeReason
+mojo.internal.bindings.search.mojom.OmniboxFocusChangeReason = {
+};
 
 // Interface: EmbeddedSearchConnector
 mojo.internal.Struct(
