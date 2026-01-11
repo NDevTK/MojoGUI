@@ -4,62 +4,7 @@
 
 'use strict';
 (function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
-
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
+  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
 })();
 
 // Module namespace
@@ -109,8 +54,8 @@ lens.mojom.SidePanelResultStatus = {
 // Interface: LensSidePanelPageHandlerFactory
 mojo.internal.Struct(
     lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec, 'lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_Params', [
-      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(lens.mojom.LensSidePanelPageHandlerSpec), null, false, 0, undefined),
-      mojo.internal.StructField('page', 8, 0, mojo.internal.InterfaceProxy(lens.mojom.LensSidePanelPageSpec), null, false, 0, undefined),
+      mojo.internal.StructField('handler', 0, 0, mojo.internal.InterfaceRequest(lens.mojom.LensSidePanelPageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('page', 8, 0, mojo.internal.InterfaceProxy(lens.mojom.LensSidePanelPageRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -182,72 +127,48 @@ lens.mojom.LensSidePanelPageHandlerFactoryReceiver = class {
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+      this.ordinalMap.set(ord, idx);
+      this.ordinalMap.set(idx, idx);
     });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
         const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
+        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
-        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
-        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
-        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-        
-        // Try Method 0: CreateSidePanelPageHandler
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSidePanelPageHandler (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
-           }
+           } catch (e) {}
         }
-        if (dispatchId === undefined) {
-             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-             return;
-        }
+        if (dispatchId === undefined) return;
       }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.createSidePanelPageHandler');
           const result = this.impl.createSidePanelPageHandler(params.handler, params.page);
           break;
         }
       }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
+      } catch (err) {}
     }});
   }
 };
@@ -436,127 +357,84 @@ lens.mojom.LensSidePanelPageHandlerReceiver = class {
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+      this.ordinalMap.set(ord, idx);
+      this.ordinalMap.set(idx, idx);
     });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
         const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
+        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
-        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
-        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
-        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-        
-        // Try Method 0: PopAndLoadQueryFromHistory
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PopAndLoadQueryFromHistory (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 1: GetIsContextualSearchbox
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetIsContextualSearchbox (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 2: OnScrollToMessage
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScrollToMessage (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 3: RequestSendFeedback
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestSendFeedback (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 4: OnAimMessage
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAimMessage (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 5: OnImageQueryWithEmptyText
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnImageQueryWithEmptyText (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 5 failed:', e);
-           }
+           } catch (e) {}
         }
-        if (dispatchId === undefined) {
-             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-             return;
-        }
+        if (dispatchId === undefined) return;
       }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.popAndLoadQueryFromHistory');
           const result = this.impl.popAndLoadQueryFromHistory();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getIsContextualSearchbox');
           const result = this.impl.getIsContextualSearchbox();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -569,35 +447,29 @@ lens.mojom.LensSidePanelPageHandlerReceiver = class {
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onScrollToMessage');
           const result = this.impl.onScrollToMessage(params.text_fragments, params.pdf_page_number);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.requestSendFeedback');
           const result = this.impl.requestSendFeedback();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onAimMessage');
           const result = this.impl.onAimMessage(params.message);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onImageQueryWithEmptyText');
           const result = this.impl.onImageQueryWithEmptyText();
           break;
         }
       }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
+      } catch (err) {}
     }});
   }
 };
@@ -940,306 +812,217 @@ lens.mojom.LensSidePanelPageReceiver = class {
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+      this.ordinalMap.set(ord, idx);
+      this.ordinalMap.set(idx, idx);
     });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
         const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
+        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
-        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
-        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
-        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-        
-        // Try Method 0: LoadResultsInFrame
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadResultsInFrame (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 1: SetIsLoadingResults
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIsLoadingResults (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 2: SetPageContentUploadProgress
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPageContentUploadProgress (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 3: SetBackArrowVisible
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBackArrowVisible (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 4: SetShowErrorPage
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetShowErrorPage (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 5: SuppressGhostLoader
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SuppressGhostLoader (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 5 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 6: PageContentTypeChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PageContentTypeChanged (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 6 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 7: ShowToast
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowToast (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 7 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 8: SendClientMessageToAim
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendClientMessageToAim (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 8 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 9: AimHandshakeReceived
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AimHandshakeReceived (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 9 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 10: AimResultsChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AimResultsChanged (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 10 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 11: FocusResultsFrame
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FocusResultsFrame (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 11 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 12: SetIsOverlayShowing
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIsOverlayShowing (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 12 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 13: FocusSearchbox
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FocusSearchbox (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 13 failed:', e);
-           }
+           } catch (e) {}
         }
-        if (dispatchId === undefined) {
-             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-             return;
-        }
+        if (dispatchId === undefined) return;
       }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.loadResultsInFrame');
           const result = this.impl.loadResultsInFrame(params.results_url);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setIsLoadingResults');
           const result = this.impl.setIsLoadingResults(params.is_loading);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setPageContentUploadProgress');
           const result = this.impl.setPageContentUploadProgress(params.progress);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setBackArrowVisible');
           const result = this.impl.setBackArrowVisible(params.visible);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setShowErrorPage');
           const result = this.impl.setShowErrorPage(params.should_show_error_page, params.status);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.suppressGhostLoader');
           const result = this.impl.suppressGhostLoader();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.pageContentTypeChanged');
           const result = this.impl.pageContentTypeChanged(params.new_page_content_type);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.showToast');
           const result = this.impl.showToast(params.message);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.sendClientMessageToAim');
           const result = this.impl.sendClientMessageToAim(params.serialized_message);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.aimHandshakeReceived');
           const result = this.impl.aimHandshakeReceived();
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.aimResultsChanged');
           const result = this.impl.aimResultsChanged(params.on_aim);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.focusResultsFrame');
           const result = this.impl.focusResultsFrame();
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setIsOverlayShowing');
           const result = this.impl.setIsOverlayShowing(params.is_showing);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.focusSearchbox');
           const result = this.impl.focusSearchbox();
           break;
         }
       }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
+      } catch (err) {}
     }});
   }
 };

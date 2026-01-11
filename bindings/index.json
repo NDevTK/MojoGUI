@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-10T16:14:58.898564Z",
+  "generated_at": "2026-01-11T00:13:53.768972Z",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -21427,9 +21427,7 @@
         "RecordWindowProxyUsageMetrics",
         "NotifyDocumentInteractive",
         "SetStorageAccessApiStatus",
-        "InitializeCrashReportStorage",
-        "SetCrashReportStorageKey",
-        "RemoveCrashReportStorageKey"
+        "InitializeCrashReportStorage"
       ]
     },
     {

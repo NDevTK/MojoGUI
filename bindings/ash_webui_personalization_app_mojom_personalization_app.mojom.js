@@ -4,62 +4,7 @@
 
 'use strict';
 (function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
-
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
+  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
 })();
 
 // Module namespace
@@ -656,108 +601,74 @@ ash.personalization_app.mojom.WallpaperObserverReceiver = class {
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+      this.ordinalMap.set(ord, idx);
+      this.ordinalMap.set(idx, idx);
     });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
         const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
+        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
-        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
-        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
-        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-        
-        // Try Method 0: OnWallpaperPreviewEnded
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperObserver_OnWallpaperPreviewEnded_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWallpaperPreviewEnded (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 1: OnAttributionChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperObserver_OnAttributionChanged_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAttributionChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 2: OnWallpaperChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperObserver_OnWallpaperChanged_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWallpaperChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
-           }
+           } catch (e) {}
         }
-        if (dispatchId === undefined) {
-             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-             return;
-        }
+        if (dispatchId === undefined) return;
       }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperObserver_OnWallpaperPreviewEnded_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onWallpaperPreviewEnded');
           const result = this.impl.onWallpaperPreviewEnded();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperObserver_OnAttributionChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onAttributionChanged');
           const result = this.impl.onAttributionChanged(params.attribution);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperObserver_OnWallpaperChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onWallpaperChanged');
           const result = this.impl.onWallpaperChanged(params.image);
           break;
         }
       }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
+      } catch (err) {}
     }});
   }
 };
@@ -887,7 +798,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.WallpaperProvider_SetWallpaperObserver_ParamsSpec, 'ash.personalization_app.mojom.WallpaperProvider_SetWallpaperObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.personalization_app.mojom.WallpaperObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.personalization_app.mojom.WallpaperObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1456,354 +1367,230 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+      this.ordinalMap.set(ord, idx);
+      this.ordinalMap.set(idx, idx);
     });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
         const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
+        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
-        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
-        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
-        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-        
-        // Try Method 0: MakeTransparent
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_MakeTransparent_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MakeTransparent (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 1: MakeOpaque
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_MakeOpaque_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MakeOpaque (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 2: FetchCollections
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchCollections (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 3: FetchImagesForCollection
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchImagesForCollection (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 4: FetchGooglePhotosAlbums
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchGooglePhotosAlbums (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 5: FetchGooglePhotosSharedAlbums
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchGooglePhotosSharedAlbums (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 5 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 6: FetchGooglePhotosEnabled
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchGooglePhotosEnabled (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 6 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 7: FetchGooglePhotosPhotos
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchGooglePhotosPhotos (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 7 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 8: GetLocalImages
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetLocalImages (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 8 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 9: GetDefaultImageThumbnail
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDefaultImageThumbnail (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 9 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 10: GetLocalImageThumbnail
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetLocalImageThumbnail (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 10 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 11: SetWallpaperObserver
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_SetWallpaperObserver_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWallpaperObserver (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 11 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 12: SelectWallpaper
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectWallpaper (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 12 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 13: SelectDefaultImage
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectDefaultImage (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 13 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 14: SelectLocalImage
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectLocalImage (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 14 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 15: SelectGooglePhotosPhoto
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectGooglePhotosPhoto (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 15 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 16: SelectGooglePhotosAlbum
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectGooglePhotosAlbum (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 16 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 17: GetGooglePhotosDailyRefreshAlbumId
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetGooglePhotosDailyRefreshAlbumId (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 17 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 18: SetCurrentWallpaperLayout
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_SetCurrentWallpaperLayout_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCurrentWallpaperLayout (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 18 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 19: SetDailyRefreshCollectionId
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDailyRefreshCollectionId (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 19 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 20: GetDailyRefreshCollectionId
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDailyRefreshCollectionId (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 20 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 21: UpdateDailyRefreshWallpaper
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateDailyRefreshWallpaper (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 21 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 22: IsInTabletMode
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsInTabletMode (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 22 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 23: ConfirmPreviewWallpaper
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_ConfirmPreviewWallpaper_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConfirmPreviewWallpaper (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 23 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 24: CancelPreviewWallpaper
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_CancelPreviewWallpaper_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CancelPreviewWallpaper (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 24 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 25: ShouldShowTimeOfDayWallpaperDialog
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldShowTimeOfDayWallpaperDialog (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 25 failed:', e);
-           }
+           } catch (e) {}
         }
-        if (dispatchId === undefined) {
-             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-             return;
-        }
+        if (dispatchId === undefined) return;
       }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_MakeTransparent_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.makeTransparent');
           const result = this.impl.makeTransparent();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_MakeOpaque_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.makeOpaque');
           const result = this.impl.makeOpaque();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.fetchCollections');
           const result = this.impl.fetchCollections();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1816,7 +1603,6 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.fetchImagesForCollection');
           const result = this.impl.fetchImagesForCollection(params.collection_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1829,7 +1615,6 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.fetchGooglePhotosAlbums');
           const result = this.impl.fetchGooglePhotosAlbums(params.resume_token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1842,7 +1627,6 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.fetchGooglePhotosSharedAlbums');
           const result = this.impl.fetchGooglePhotosSharedAlbums(params.resume_token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1855,7 +1639,6 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.fetchGooglePhotosEnabled');
           const result = this.impl.fetchGooglePhotosEnabled();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1868,7 +1651,6 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.fetchGooglePhotosPhotos');
           const result = this.impl.fetchGooglePhotosPhotos(params.item_id, params.album_id, params.resume_token);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1881,7 +1663,6 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getLocalImages');
           const result = this.impl.getLocalImages();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1894,7 +1675,6 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getDefaultImageThumbnail');
           const result = this.impl.getDefaultImageThumbnail();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1907,7 +1687,6 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getLocalImageThumbnail');
           const result = this.impl.getLocalImageThumbnail(params.file_path);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1920,14 +1699,12 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_SetWallpaperObserver_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setWallpaperObserver');
           const result = this.impl.setWallpaperObserver(params.observer);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.selectWallpaper');
           const result = this.impl.selectWallpaper(params.unit_id, params.preview_mode);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1940,7 +1717,6 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.selectDefaultImage');
           const result = this.impl.selectDefaultImage();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1953,7 +1729,6 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.selectLocalImage');
           const result = this.impl.selectLocalImage(params.path, params.layout, params.preview_mode);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1966,7 +1741,6 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.selectGooglePhotosPhoto');
           const result = this.impl.selectGooglePhotosPhoto(params.id, params.layout, params.preview_mode);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1979,7 +1753,6 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.selectGooglePhotosAlbum');
           const result = this.impl.selectGooglePhotosAlbum(params.id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1992,7 +1765,6 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getGooglePhotosDailyRefreshAlbumId');
           const result = this.impl.getGooglePhotosDailyRefreshAlbumId();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2005,14 +1777,12 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_SetCurrentWallpaperLayout_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setCurrentWallpaperLayout');
           const result = this.impl.setCurrentWallpaperLayout(params.layout);
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setDailyRefreshCollectionId');
           const result = this.impl.setDailyRefreshCollectionId(params.collection_id);
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2025,7 +1795,6 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getDailyRefreshCollectionId');
           const result = this.impl.getDailyRefreshCollectionId();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2038,7 +1807,6 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.updateDailyRefreshWallpaper');
           const result = this.impl.updateDailyRefreshWallpaper();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2051,7 +1819,6 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.isInTabletMode');
           const result = this.impl.isInTabletMode();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2064,21 +1831,18 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_ConfirmPreviewWallpaper_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.confirmPreviewWallpaper');
           const result = this.impl.confirmPreviewWallpaper();
           break;
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_CancelPreviewWallpaper_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.cancelPreviewWallpaper');
           const result = this.impl.cancelPreviewWallpaper();
           break;
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.shouldShowTimeOfDayWallpaperDialog');
           const result = this.impl.shouldShowTimeOfDayWallpaperDialog();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2089,9 +1853,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
           break;
         }
       }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
+      } catch (err) {}
     }});
   }
 };
@@ -2299,180 +2061,126 @@ ash.personalization_app.mojom.ThemeObserverReceiver = class {
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+      this.ordinalMap.set(ord, idx);
+      this.ordinalMap.set(idx, idx);
     });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
         const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
+        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
-        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
-        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
-        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-        
-        // Try Method 0: OnColorModeChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.ThemeObserver_OnColorModeChanged_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnColorModeChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 1: OnColorModeAutoScheduleChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.ThemeObserver_OnColorModeAutoScheduleChanged_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnColorModeAutoScheduleChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 2: OnColorSchemeChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.ThemeObserver_OnColorSchemeChanged_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnColorSchemeChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 3: OnSampleColorSchemesChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.ThemeObserver_OnSampleColorSchemesChanged_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSampleColorSchemesChanged (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 4: OnStaticColorChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.ThemeObserver_OnStaticColorChanged_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnStaticColorChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 5: OnGeolocationPermissionForSystemServicesChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.ThemeObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGeolocationPermissionForSystemServicesChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 5 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 6: OnDaylightTimeChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.ThemeObserver_OnDaylightTimeChanged_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDaylightTimeChanged (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 6 failed:', e);
-           }
+           } catch (e) {}
         }
-        if (dispatchId === undefined) {
-             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-             return;
-        }
+        if (dispatchId === undefined) return;
       }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.ThemeObserver_OnColorModeChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onColorModeChanged');
           const result = this.impl.onColorModeChanged(params.dark_mode_enabled);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.ThemeObserver_OnColorModeAutoScheduleChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onColorModeAutoScheduleChanged');
           const result = this.impl.onColorModeAutoScheduleChanged(params.enabled);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.ThemeObserver_OnColorSchemeChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onColorSchemeChanged');
           const result = this.impl.onColorSchemeChanged(params.color_scheme);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.ThemeObserver_OnSampleColorSchemesChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onSampleColorSchemesChanged');
           const result = this.impl.onSampleColorSchemesChanged(params.sample_color_schemes);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.ThemeObserver_OnStaticColorChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onStaticColorChanged');
           const result = this.impl.onStaticColorChanged(params.color);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.ThemeObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onGeolocationPermissionForSystemServicesChanged');
           const result = this.impl.onGeolocationPermissionForSystemServicesChanged(params.enabled, params.is_user_modifiable);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.ThemeObserver_OnDaylightTimeChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onDaylightTimeChanged');
           const result = this.impl.onDaylightTimeChanged(params.sunrise_time, params.sunset_time);
           break;
         }
       }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
+      } catch (err) {}
     }});
   }
 };
@@ -2486,7 +2194,7 @@ ash.personalization_app.mojom.ThemeObserverRequest = ash.personalization_app.moj
 // Interface: ThemeProvider
 mojo.internal.Struct(
     ash.personalization_app.mojom.ThemeProvider_SetThemeObserver_ParamsSpec, 'ash.personalization_app.mojom.ThemeProvider_SetThemeObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.personalization_app.mojom.ThemeObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.personalization_app.mojom.ThemeObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2832,239 +2540,163 @@ ash.personalization_app.mojom.ThemeProviderReceiver = class {
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+      this.ordinalMap.set(ord, idx);
+      this.ordinalMap.set(idx, idx);
     });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
         const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
+        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
-        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
-        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
-        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-        
-        // Try Method 0: SetThemeObserver
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.ThemeProvider_SetThemeObserver_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetThemeObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 1: SetColorModePref
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.ThemeProvider_SetColorModePref_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetColorModePref (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 2: SetColorModeAutoScheduleEnabled
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.ThemeProvider_SetColorModeAutoScheduleEnabled_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetColorModeAutoScheduleEnabled (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 3: SetColorScheme
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.ThemeProvider_SetColorScheme_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetColorScheme (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 4: SetStaticColor
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.ThemeProvider_SetStaticColor_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetStaticColor (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 5: EnableGeolocationForSystemServices
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.ThemeProvider_EnableGeolocationForSystemServices_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableGeolocationForSystemServices (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 5 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 6: GetColorScheme
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetColorScheme (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 6 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 7: GetStaticColor
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStaticColor (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 7 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 8: GenerateSampleColorSchemes
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenerateSampleColorSchemes (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 8 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 9: IsColorModeAutoScheduleEnabled
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsColorModeAutoScheduleEnabled (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 9 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 10: IsDarkModeEnabled
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsDarkModeEnabled (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 10 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 11: IsGeolocationEnabledForSystemServices
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsGeolocationEnabledForSystemServices (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 11 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 12: IsGeolocationUserModifiable
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsGeolocationUserModifiable (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 12 failed:', e);
-           }
+           } catch (e) {}
         }
-        if (dispatchId === undefined) {
-             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-             return;
-        }
+        if (dispatchId === undefined) return;
       }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.ThemeProvider_SetThemeObserver_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setThemeObserver');
           const result = this.impl.setThemeObserver(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.ThemeProvider_SetColorModePref_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setColorModePref');
           const result = this.impl.setColorModePref(params.dark_mode_enabled);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.ThemeProvider_SetColorModeAutoScheduleEnabled_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setColorModeAutoScheduleEnabled');
           const result = this.impl.setColorModeAutoScheduleEnabled(params.enabled);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.ThemeProvider_SetColorScheme_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setColorScheme');
           const result = this.impl.setColorScheme(params.colorScheme);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.ThemeProvider_SetStaticColor_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setStaticColor');
           const result = this.impl.setStaticColor(params.static_color);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.ThemeProvider_EnableGeolocationForSystemServices_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.enableGeolocationForSystemServices');
           const result = this.impl.enableGeolocationForSystemServices();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getColorScheme');
           const result = this.impl.getColorScheme();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3077,7 +2709,6 @@ ash.personalization_app.mojom.ThemeProviderReceiver = class {
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getStaticColor');
           const result = this.impl.getStaticColor();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3090,7 +2721,6 @@ ash.personalization_app.mojom.ThemeProviderReceiver = class {
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.generateSampleColorSchemes');
           const result = this.impl.generateSampleColorSchemes();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3103,7 +2733,6 @@ ash.personalization_app.mojom.ThemeProviderReceiver = class {
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.isColorModeAutoScheduleEnabled');
           const result = this.impl.isColorModeAutoScheduleEnabled();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3116,7 +2745,6 @@ ash.personalization_app.mojom.ThemeProviderReceiver = class {
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.isDarkModeEnabled');
           const result = this.impl.isDarkModeEnabled();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3129,7 +2757,6 @@ ash.personalization_app.mojom.ThemeProviderReceiver = class {
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.isGeolocationEnabledForSystemServices');
           const result = this.impl.isGeolocationEnabledForSystemServices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3142,7 +2769,6 @@ ash.personalization_app.mojom.ThemeProviderReceiver = class {
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.isGeolocationUserModifiable');
           const result = this.impl.isGeolocationUserModifiable();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3153,9 +2779,7 @@ ash.personalization_app.mojom.ThemeProviderReceiver = class {
           break;
         }
       }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
+      } catch (err) {}
     }});
   }
 };
@@ -3301,126 +2925,87 @@ ash.personalization_app.mojom.UserImageObserverReceiver = class {
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+      this.ordinalMap.set(ord, idx);
+      this.ordinalMap.set(idx, idx);
     });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
         const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
+        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
-        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
-        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
-        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-        
-        // Try Method 0: OnUserImageChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.UserImageObserver_OnUserImageChanged_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUserImageChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 1: OnUserProfileImageUpdated
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.UserImageObserver_OnUserProfileImageUpdated_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUserProfileImageUpdated (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 2: OnCameraPresenceCheckDone
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.UserImageObserver_OnCameraPresenceCheckDone_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCameraPresenceCheckDone (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 3: OnIsEnterpriseManagedChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.UserImageObserver_OnIsEnterpriseManagedChanged_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnIsEnterpriseManagedChanged (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
-           }
+           } catch (e) {}
         }
-        if (dispatchId === undefined) {
-             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-             return;
-        }
+        if (dispatchId === undefined) return;
       }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.UserImageObserver_OnUserImageChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onUserImageChanged');
           const result = this.impl.onUserImageChanged(params.user_image);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.UserImageObserver_OnUserProfileImageUpdated_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onUserProfileImageUpdated');
           const result = this.impl.onUserProfileImageUpdated(params.profile_image);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.UserImageObserver_OnCameraPresenceCheckDone_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onCameraPresenceCheckDone');
           const result = this.impl.onCameraPresenceCheckDone(params.is_camera_present);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.UserImageObserver_OnIsEnterpriseManagedChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onIsEnterpriseManagedChanged');
           const result = this.impl.onIsEnterpriseManagedChanged(params.is_enterprise_managed);
           break;
         }
       }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
+      } catch (err) {}
     }});
   }
 };
@@ -3434,7 +3019,7 @@ ash.personalization_app.mojom.UserImageObserverRequest = ash.personalization_app
 // Interface: UserProvider
 mojo.internal.Struct(
     ash.personalization_app.mojom.UserProvider_SetUserImageObserver_ParamsSpec, 'ash.personalization_app.mojom.UserProvider_SetUserImageObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.personalization_app.mojom.UserImageObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.personalization_app.mojom.UserImageObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3653,149 +3238,98 @@ ash.personalization_app.mojom.UserProviderReceiver = class {
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+      this.ordinalMap.set(ord, idx);
+      this.ordinalMap.set(idx, idx);
     });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
         const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
+        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
-        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
-        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
-        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-        
-        // Try Method 0: SetUserImageObserver
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.UserProvider_SetUserImageObserver_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUserImageObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 1: GetUserInfo
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.UserProvider_GetUserInfo_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetUserInfo (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 2: GetDefaultUserImages
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDefaultUserImages (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 3: SelectDefaultImage
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.UserProvider_SelectDefaultImage_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectDefaultImage (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 4: SelectProfileImage
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.UserProvider_SelectProfileImage_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectProfileImage (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 5: SelectCameraImage
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.UserProvider_SelectCameraImage_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectCameraImage (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 5 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 6: SelectImageFromDisk
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.UserProvider_SelectImageFromDisk_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectImageFromDisk (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 6 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 7: SelectLastExternalUserImage
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.UserProvider_SelectLastExternalUserImage_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectLastExternalUserImage (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 7 failed:', e);
-           }
+           } catch (e) {}
         }
-        if (dispatchId === undefined) {
-             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-             return;
-        }
+        if (dispatchId === undefined) return;
       }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.UserProvider_SetUserImageObserver_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setUserImageObserver');
           const result = this.impl.setUserImageObserver(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.UserProvider_GetUserInfo_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getUserInfo');
           const result = this.impl.getUserInfo();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3808,7 +3342,6 @@ ash.personalization_app.mojom.UserProviderReceiver = class {
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getDefaultUserImages');
           const result = this.impl.getDefaultUserImages();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -3821,42 +3354,35 @@ ash.personalization_app.mojom.UserProviderReceiver = class {
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.UserProvider_SelectDefaultImage_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.selectDefaultImage');
           const result = this.impl.selectDefaultImage(params.index);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.UserProvider_SelectProfileImage_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.selectProfileImage');
           const result = this.impl.selectProfileImage();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.UserProvider_SelectCameraImage_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.selectCameraImage');
           const result = this.impl.selectCameraImage(params.data);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.UserProvider_SelectImageFromDisk_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.selectImageFromDisk');
           const result = this.impl.selectImageFromDisk();
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.UserProvider_SelectLastExternalUserImage_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.selectLastExternalUserImage');
           const result = this.impl.selectLastExternalUserImage();
           break;
         }
       }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
+      } catch (err) {}
     }});
   }
 };
@@ -4123,234 +3649,165 @@ ash.personalization_app.mojom.AmbientObserverReceiver = class {
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+      this.ordinalMap.set(ord, idx);
+      this.ordinalMap.set(idx, idx);
     });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
         const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
+        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
-        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
-        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
-        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-        
-        // Try Method 0: OnAmbientModeEnabledChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.AmbientObserver_OnAmbientModeEnabledChanged_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAmbientModeEnabledChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 1: OnAmbientThemeChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.AmbientObserver_OnAmbientThemeChanged_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAmbientThemeChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 2: OnTopicSourceChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.AmbientObserver_OnTopicSourceChanged_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTopicSourceChanged (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 3: OnScreenSaverDurationChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.AmbientObserver_OnScreenSaverDurationChanged_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnScreenSaverDurationChanged (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 4: OnTemperatureUnitChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.AmbientObserver_OnTemperatureUnitChanged_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTemperatureUnitChanged (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 5: OnAlbumsChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.AmbientObserver_OnAlbumsChanged_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAlbumsChanged (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 5 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 6: OnPreviewsFetched
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.AmbientObserver_OnPreviewsFetched_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPreviewsFetched (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 6 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 7: OnAmbientUiVisibilityChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.AmbientObserver_OnAmbientUiVisibilityChanged_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAmbientUiVisibilityChanged (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 7 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 8: OnGeolocationPermissionForSystemServicesChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.AmbientObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGeolocationPermissionForSystemServicesChanged (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 8 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 9: OnAmbientThemePreviewImagesChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.AmbientObserver_OnAmbientThemePreviewImagesChanged_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAmbientThemePreviewImagesChanged (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 9 failed:', e);
-           }
+           } catch (e) {}
         }
-        if (dispatchId === undefined) {
-             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-             return;
-        }
+        if (dispatchId === undefined) return;
       }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.AmbientObserver_OnAmbientModeEnabledChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onAmbientModeEnabledChanged');
           const result = this.impl.onAmbientModeEnabledChanged(params.ambient_mode_enabled);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.AmbientObserver_OnAmbientThemeChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onAmbientThemeChanged');
           const result = this.impl.onAmbientThemeChanged(params.ambient_theme);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.AmbientObserver_OnTopicSourceChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onTopicSourceChanged');
           const result = this.impl.onTopicSourceChanged(params.topic_source);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.AmbientObserver_OnScreenSaverDurationChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onScreenSaverDurationChanged');
           const result = this.impl.onScreenSaverDurationChanged(params.minutes);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.AmbientObserver_OnTemperatureUnitChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onTemperatureUnitChanged');
           const result = this.impl.onTemperatureUnitChanged(params.temperature_unit);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.AmbientObserver_OnAlbumsChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onAlbumsChanged');
           const result = this.impl.onAlbumsChanged(params.albums);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.AmbientObserver_OnPreviewsFetched_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onPreviewsFetched');
           const result = this.impl.onPreviewsFetched(params.previews);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.AmbientObserver_OnAmbientUiVisibilityChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onAmbientUiVisibilityChanged');
           const result = this.impl.onAmbientUiVisibilityChanged(params.visibility);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.AmbientObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onGeolocationPermissionForSystemServicesChanged');
           const result = this.impl.onGeolocationPermissionForSystemServicesChanged(params.enabled, params.is_user_modifiable);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.AmbientObserver_OnAmbientThemePreviewImagesChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onAmbientThemePreviewImagesChanged');
           const result = this.impl.onAmbientThemePreviewImagesChanged(params.previews);
           break;
         }
       }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
+      } catch (err) {}
     }});
   }
 };
@@ -4381,7 +3838,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.personalization_app.mojom.AmbientProvider_SetAmbientObserver_ParamsSpec, 'ash.personalization_app.mojom.AmbientProvider_SetAmbientObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.personalization_app.mojom.AmbientObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.personalization_app.mojom.AmbientObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -4753,230 +4210,148 @@ ash.personalization_app.mojom.AmbientProviderReceiver = class {
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+      this.ordinalMap.set(ord, idx);
+      this.ordinalMap.set(idx, idx);
     });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
         const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
+        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
-        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
-        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
-        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-        
-        // Try Method 0: IsAmbientModeEnabled
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsAmbientModeEnabled (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 1: SetAmbientModeEnabled
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_SetAmbientModeEnabled_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAmbientModeEnabled (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 2: SetAmbientObserver
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_SetAmbientObserver_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAmbientObserver (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 3: SetAmbientTheme
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_SetAmbientTheme_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAmbientTheme (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 4: SetScreenSaverDuration
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_SetScreenSaverDuration_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetScreenSaverDuration (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 5: SetTopicSource
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_SetTopicSource_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTopicSource (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 5 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 6: SetTemperatureUnit
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_SetTemperatureUnit_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTemperatureUnit (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 6 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 7: SetAlbumSelected
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_SetAlbumSelected_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAlbumSelected (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 7 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 8: SetPageViewed
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_SetPageViewed_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPageViewed (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 8 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 9: FetchSettingsAndAlbums
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_FetchSettingsAndAlbums_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FetchSettingsAndAlbums (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 9 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 10: StartScreenSaverPreview
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_StartScreenSaverPreview_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartScreenSaverPreview (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 10 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 11: ShouldShowTimeOfDayBanner
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldShowTimeOfDayBanner (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 11 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 12: HandleTimeOfDayBannerDismissed
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_HandleTimeOfDayBannerDismissed_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleTimeOfDayBannerDismissed (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 12 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 13: IsGeolocationEnabledForSystemServices
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsGeolocationEnabledForSystemServices (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 13 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 14: IsGeolocationUserModifiable
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsGeolocationUserModifiable (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 14 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 15: EnableGeolocationForSystemServices
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_EnableGeolocationForSystemServices_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableGeolocationForSystemServices (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 15 failed:', e);
-           }
+           } catch (e) {}
         }
-        if (dispatchId === undefined) {
-             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-             return;
-        }
+        if (dispatchId === undefined) return;
       }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.isAmbientModeEnabled');
           const result = this.impl.isAmbientModeEnabled();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -4989,77 +4364,66 @@ ash.personalization_app.mojom.AmbientProviderReceiver = class {
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_SetAmbientModeEnabled_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setAmbientModeEnabled');
           const result = this.impl.setAmbientModeEnabled(params.enabled);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_SetAmbientObserver_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setAmbientObserver');
           const result = this.impl.setAmbientObserver(params.observer);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_SetAmbientTheme_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setAmbientTheme');
           const result = this.impl.setAmbientTheme(params.ambient_theme);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_SetScreenSaverDuration_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setScreenSaverDuration');
           const result = this.impl.setScreenSaverDuration(params.minutes);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_SetTopicSource_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setTopicSource');
           const result = this.impl.setTopicSource(params.topic_source);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_SetTemperatureUnit_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setTemperatureUnit');
           const result = this.impl.setTemperatureUnit(params.temperature_unit);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_SetAlbumSelected_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setAlbumSelected');
           const result = this.impl.setAlbumSelected(params.id, params.topic_source, params.selected);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_SetPageViewed_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setPageViewed');
           const result = this.impl.setPageViewed();
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_FetchSettingsAndAlbums_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.fetchSettingsAndAlbums');
           const result = this.impl.fetchSettingsAndAlbums();
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_StartScreenSaverPreview_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.startScreenSaverPreview');
           const result = this.impl.startScreenSaverPreview();
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.shouldShowTimeOfDayBanner');
           const result = this.impl.shouldShowTimeOfDayBanner();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -5072,14 +4436,12 @@ ash.personalization_app.mojom.AmbientProviderReceiver = class {
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_HandleTimeOfDayBannerDismissed_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.handleTimeOfDayBannerDismissed');
           const result = this.impl.handleTimeOfDayBannerDismissed();
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.isGeolocationEnabledForSystemServices');
           const result = this.impl.isGeolocationEnabledForSystemServices();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -5092,7 +4454,6 @@ ash.personalization_app.mojom.AmbientProviderReceiver = class {
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.isGeolocationUserModifiable');
           const result = this.impl.isGeolocationUserModifiable();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -5105,14 +4466,11 @@ ash.personalization_app.mojom.AmbientProviderReceiver = class {
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.AmbientProvider_EnableGeolocationForSystemServices_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.enableGeolocationForSystemServices');
           const result = this.impl.enableGeolocationForSystemServices();
           break;
         }
       }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
+      } catch (err) {}
     }});
   }
 };
@@ -5218,90 +4576,61 @@ ash.personalization_app.mojom.KeyboardBacklightObserverReceiver = class {
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+      this.ordinalMap.set(ord, idx);
+      this.ordinalMap.set(idx, idx);
     });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
         const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
+        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
-        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
-        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
-        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-        
-        // Try Method 0: OnBacklightStateChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.KeyboardBacklightObserver_OnBacklightStateChanged_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBacklightStateChanged (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 1: OnWallpaperColorChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.KeyboardBacklightObserver_OnWallpaperColorChanged_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnWallpaperColorChanged (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
-           }
+           } catch (e) {}
         }
-        if (dispatchId === undefined) {
-             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-             return;
-        }
+        if (dispatchId === undefined) return;
       }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.KeyboardBacklightObserver_OnBacklightStateChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onBacklightStateChanged');
           const result = this.impl.onBacklightStateChanged(params.currentBacklightState);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.KeyboardBacklightObserver_OnWallpaperColorChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onWallpaperColorChanged');
           const result = this.impl.onWallpaperColorChanged(params.wallpaper_color);
           break;
         }
       }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
+      } catch (err) {}
     }});
   }
 };
@@ -5315,7 +4644,7 @@ ash.personalization_app.mojom.KeyboardBacklightObserverRequest = ash.personaliza
 // Interface: KeyboardBacklightProvider
 mojo.internal.Struct(
     ash.personalization_app.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObserver_ParamsSpec, 'ash.personalization_app.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.personalization_app.mojom.KeyboardBacklightObserverSpec), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.InterfaceProxy(ash.personalization_app.mojom.KeyboardBacklightObserverRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -5472,130 +4801,89 @@ ash.personalization_app.mojom.KeyboardBacklightProviderReceiver = class {
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+      this.ordinalMap.set(ord, idx);
+      this.ordinalMap.set(idx, idx);
     });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
         const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
+        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
-        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
-        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
-        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-        
-        // Try Method 0: SetKeyboardBacklightObserver
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObserver_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetKeyboardBacklightObserver (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 1: SetBacklightColor
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightColor_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBacklightColor (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 2: SetBacklightZoneColor
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightZoneColor_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBacklightZoneColor (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 3: ShouldShowNudge
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldShowNudge (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 4: HandleNudgeShown
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(ash.personalization_app.mojom.KeyboardBacklightProvider_HandleNudgeShown_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleNudgeShown (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
-           }
+           } catch (e) {}
         }
-        if (dispatchId === undefined) {
-             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-             return;
-        }
+        if (dispatchId === undefined) return;
       }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObserver_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setKeyboardBacklightObserver');
           const result = this.impl.setKeyboardBacklightObserver(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightColor_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setBacklightColor');
           const result = this.impl.setBacklightColor(params.backlight_color);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightZoneColor_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setBacklightZoneColor');
           const result = this.impl.setBacklightZoneColor(params.zone, params.backlight_color);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.shouldShowNudge');
           const result = this.impl.shouldShowNudge();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -5608,14 +4896,11 @@ ash.personalization_app.mojom.KeyboardBacklightProviderReceiver = class {
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(ash.personalization_app.mojom.KeyboardBacklightProvider_HandleNudgeShown_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.handleNudgeShown');
           const result = this.impl.handleNudgeShown();
           break;
         }
       }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
+      } catch (err) {}
     }});
   }
 };

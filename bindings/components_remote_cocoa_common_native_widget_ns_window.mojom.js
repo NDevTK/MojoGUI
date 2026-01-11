@@ -4,62 +4,7 @@
 
 'use strict';
 (function() {
-  const SHA256 = (s) => {
-    const K = [0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da, 0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xD5A79147, 0x06CA6351, 0x14292967, 0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13, 0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85, 0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3, 0xD192E819, 0xD6990624, 0xF40E3585,0x106AA070, 0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5, 0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3, 0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208, 0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2];
-    const h = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
-    const m = new TextEncoder().encode(s);
-    const l = m.length;
-    const b = new Uint32Array(((l + 8) >> 6) + 1 << 4);
-    for (let i = 0; i < l; i++) b[i >> 2] |= m[i] << (24 - (i & 3) * 8);
-    b[l >> 2] |= 0x80 << (24 - (l & 3) * 8);
-    b[b.length - 1] = l * 8;
-    for (let i = 0; i < b.length; i += 16) {
-      let [a1, b1, c1, d1, e1, f1, g1, h1] = h;
-      const w = new Uint32Array(64);
-      for (let j = 0; j < 64; j++) {
-        if (j < 16) w[j] = b[i + j];
-        else {
-          const s0 = ((w[j-15]>>>7)|(w[j-15]<<25))^((w[j-15]>>>18)|(w[j-15]<<14))^(w[j-15]>>>3);
-          const s1 = ((w[j-2]>>>17)|(w[j-2]<<15))^((w[j-2]>>>19)|(w[j-2]<<13))^(w[j-2]>>>10);
-          w[j] = (w[j-16]+s0+w[j-7]+s1)|0;
-        }
-        const t1 = (h1 + (((e1>>>6)|(e1<<26))^((e1>>>11)|(e1<<21))^((e1>>>25)|(e1<<7))) + ((e1&f1)^((~e1)&g1)) + K[j] + w[j])|0;
-        const t2 = ((((a1>>>2)|(a1<<30))^((a1>>>13)|(a1<<19))^((a1>>>22)|(a1<<10))) + ((a1&b1)^(a1&c1)^(b1&c1)))|0;
-        h1 = g1; g1 = f1; f1 = e1; e1 = (d1 + t1) | 0; d1 = c1; c1 = b1; b1 = a1; a1 = (t1 + t2) | 0;
-      }
-      h[0] = (h[0] + a1) | 0; h[1] = (h[1] + b1) | 0; h[2] = (h[2] + c1) | 0; h[3] = (h[3] + d1) | 0;
-      h[4] = (h[4] + e1) | 0; h[5] = (h[5] + f1) | 0; h[6] = (h[6] + g1) | 0; h[7] = (h[7] + h1) | 0;
-    }
-    return h[0];
-  };
-  window.mojoScrambler = window.mojoScrambler || {
-    getOrdinals: (ifaceName, methodSpecs) => {
-      const params = new URLSearchParams(window.location.search);
-      const forceNoScramble = params.get('scramble') === '0' || window.mojoNoScramble;
-      
-      const seen = new Set();
-      methodSpecs.forEach(ms => { if (ms.explicit !== null) seen.add(ms.explicit); });
-      let i = 0;
-      return methodSpecs.map((ms, idx) => {
-        if (ms.explicit !== null) return ms.explicit;
-        if (forceNoScramble) return idx;
-
-        const p = window.mojoVersion.split('.');
-        const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
-        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
-        
-        while (true) {
-          i++;
-          const h0 = SHA256(salt + ifaceName.split('.').pop() + i);
-          const ord = (((h0 & 0xFF) << 24) | ((h0 & 0xFF00) << 8) | ((h0 & 0xFF0000) >> 8) | (h0 >>> 24)) & 0x7fffffff;
-          if (!seen.has(ord)) {
-            seen.add(ord);
-            return ord;
-          }
-        }
-      });
-    }
-  };
+  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
 })();
 
 // Module namespace
@@ -1329,704 +1274,462 @@ remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-      this.ordinalMap.set(idx, idx); // Sequential Fallback (Non-scrambled builds)
+      this.ordinalMap.set(ord, idx);
+      this.ordinalMap.set(idx, idx);
     });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
   }
   mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
   bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (...args) => {
       try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
       let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
         let payload = args[2];
         const headerSize = args[1].headerSize;
         if (payload instanceof ArrayBuffer) {
            payload = new DataView(payload, headerSize);
         }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
+        message = {{ header: args[1], payload: payload, handles: args[3] || [] }};
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
       if (dispatchId === undefined) {
-        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
-        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
-        // Decoder uses payload view starting at 0
         const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-        
-        // Try Method 0: CreateWindow
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_CreateWindow_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWindow (0)');
              this.mapOrdinal(header.ordinal, 0);
              dispatchId = 0;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 0 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 1: SetParent
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetParent_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetParent (1)');
              this.mapOrdinal(header.ordinal, 1);
              dispatchId = 1;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 1 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 2: CreateSelectFileDialog
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_CreateSelectFileDialog_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSelectFileDialog (2)');
              this.mapOrdinal(header.ordinal, 2);
              dispatchId = 2;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 2 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 3: ShowCertificateViewer
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_ShowCertificateViewer_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowCertificateViewer (3)');
              this.mapOrdinal(header.ordinal, 3);
              dispatchId = 3;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 3 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 4: StackAbove
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_StackAbove_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StackAbove (4)');
              this.mapOrdinal(header.ordinal, 4);
              dispatchId = 4;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 4 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 5: StackAtTop
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_StackAtTop_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StackAtTop (5)');
              this.mapOrdinal(header.ordinal, 5);
              dispatchId = 5;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 5 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 6: ShowEmojiPanel
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_ShowEmojiPanel_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowEmojiPanel (6)');
              this.mapOrdinal(header.ordinal, 6);
              dispatchId = 6;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 6 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 7: InitWindow
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_InitWindow_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitWindow (7)');
              this.mapOrdinal(header.ordinal, 7);
              dispatchId = 7;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 7 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 8: InitCompositorView
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_InitCompositorView_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitCompositorView (8)');
              this.mapOrdinal(header.ordinal, 8);
              dispatchId = 8;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 8 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 9: CreateContentView
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_CreateContentView_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateContentView (9)');
              this.mapOrdinal(header.ordinal, 9);
              dispatchId = 9;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 9 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 10: DestroyContentView
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_DestroyContentView_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DestroyContentView (10)');
              this.mapOrdinal(header.ordinal, 10);
              dispatchId = 10;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 10 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 11: CloseWindow
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_CloseWindow_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseWindow (11)');
              this.mapOrdinal(header.ordinal, 11);
              dispatchId = 11;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 11 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 12: CloseWindowNow
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_CloseWindowNow_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseWindowNow (12)');
              this.mapOrdinal(header.ordinal, 12);
              dispatchId = 12;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 12 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 13: SetInitialBounds
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetInitialBounds_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInitialBounds (13)');
              this.mapOrdinal(header.ordinal, 13);
              dispatchId = 13;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 13 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 14: SetBounds
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetBounds_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBounds (14)');
              this.mapOrdinal(header.ordinal, 14);
              dispatchId = 14;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 14 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 15: SetSize
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetSize_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSize (15)');
              this.mapOrdinal(header.ordinal, 15);
              dispatchId = 15;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 15 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 16: SetSizeAndCenter
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetSizeAndCenter_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSizeAndCenter (16)');
              this.mapOrdinal(header.ordinal, 16);
              dispatchId = 16;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 16 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 17: SetVisibilityState
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetVisibilityState_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVisibilityState (17)');
              this.mapOrdinal(header.ordinal, 17);
              dispatchId = 17;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 17 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 18: SetAnimationEnabled
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetAnimationEnabled_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAnimationEnabled (18)');
              this.mapOrdinal(header.ordinal, 18);
              dispatchId = 18;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 18 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 19: SetTransitionsToAnimate
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetTransitionsToAnimate_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTransitionsToAnimate (19)');
              this.mapOrdinal(header.ordinal, 19);
              dispatchId = 19;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 19 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 20: SetVisibleOnAllSpaces
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetVisibleOnAllSpaces_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetVisibleOnAllSpaces (20)');
              this.mapOrdinal(header.ordinal, 20);
              dispatchId = 20;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 20 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 21: EnterFullscreen
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_EnterFullscreen_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnterFullscreen (21)');
              this.mapOrdinal(header.ordinal, 21);
              dispatchId = 21;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 21 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 22: ExitFullscreen
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_ExitFullscreen_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExitFullscreen (22)');
              this.mapOrdinal(header.ordinal, 22);
              dispatchId = 22;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 22 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 23: SetCanAppearInExistingFullscreenSpaces
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetCanAppearInExistingFullscreenSpaces_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCanAppearInExistingFullscreenSpaces (23)');
              this.mapOrdinal(header.ordinal, 23);
              dispatchId = 23;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 23 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 24: SetMiniaturized
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetMiniaturized_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMiniaturized (24)');
              this.mapOrdinal(header.ordinal, 24);
              dispatchId = 24;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 24 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 25: SetZoomed
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetZoomed_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetZoomed (25)');
              this.mapOrdinal(header.ordinal, 25);
              dispatchId = 25;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 25 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 26: SetSizeConstraints
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetSizeConstraints_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSizeConstraints (26)');
              this.mapOrdinal(header.ordinal, 26);
              dispatchId = 26;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 26 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 27: SetOpacity
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetOpacity_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOpacity (27)');
              this.mapOrdinal(header.ordinal, 27);
              dispatchId = 27;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 27 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 28: SetWindowLevel
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetWindowLevel_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWindowLevel (28)');
              this.mapOrdinal(header.ordinal, 28);
              dispatchId = 28;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 28 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 29: SetActivationIndependence
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetActivationIndependence_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetActivationIndependence (29)');
              this.mapOrdinal(header.ordinal, 29);
              dispatchId = 29;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 29 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 30: SetAspectRatio
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetAspectRatio_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAspectRatio (30)');
              this.mapOrdinal(header.ordinal, 30);
              dispatchId = 30;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 30 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 31: SetCALayerParams
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetCALayerParams_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCALayerParams (31)');
              this.mapOrdinal(header.ordinal, 31);
              dispatchId = 31;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 31 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 32: SetWindowTitle
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetWindowTitle_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetWindowTitle (32)');
              this.mapOrdinal(header.ordinal, 32);
              dispatchId = 32;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 32 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 33: SetIgnoresMouseEvents
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetIgnoresMouseEvents_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIgnoresMouseEvents (33)');
              this.mapOrdinal(header.ordinal, 33);
              dispatchId = 33;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 33 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 34: MakeFirstResponder
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_MakeFirstResponder_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MakeFirstResponder (34)');
              this.mapOrdinal(header.ordinal, 34);
              dispatchId = 34;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 34 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 35: SortSubviews
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SortSubviews_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SortSubviews (35)');
              this.mapOrdinal(header.ordinal, 35);
              dispatchId = 35;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 35 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 36: ClearTouchBar
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_ClearTouchBar_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearTouchBar (36)');
              this.mapOrdinal(header.ordinal, 36);
              dispatchId = 36;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 36 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 37: UpdateTooltip
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_UpdateTooltip_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateTooltip (37)');
              this.mapOrdinal(header.ordinal, 37);
              dispatchId = 37;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 37 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 38: AcquireCapture
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_AcquireCapture_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AcquireCapture (38)');
              this.mapOrdinal(header.ordinal, 38);
              dispatchId = 38;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 38 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 39: ReleaseCapture
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_ReleaseCapture_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReleaseCapture (39)');
              this.mapOrdinal(header.ordinal, 39);
              dispatchId = 39;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 39 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 40: RedispatchKeyEvent
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_RedispatchKeyEvent_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RedispatchKeyEvent (40)');
              this.mapOrdinal(header.ordinal, 40);
              dispatchId = 40;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 40 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 41: SetLocalEventMonitorEnabled
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetLocalEventMonitorEnabled_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetLocalEventMonitorEnabled (41)');
              this.mapOrdinal(header.ordinal, 41);
              dispatchId = 41;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 41 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 42: SetCursor
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetCursor_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCursor (42)');
              this.mapOrdinal(header.ordinal, 42);
              dispatchId = 42;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 42 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 43: EnableImmersiveFullscreen
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_EnableImmersiveFullscreen_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableImmersiveFullscreen (43)');
              this.mapOrdinal(header.ordinal, 43);
              dispatchId = 43;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 43 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 44: DisableImmersiveFullscreen
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_DisableImmersiveFullscreen_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableImmersiveFullscreen (44)');
              this.mapOrdinal(header.ordinal, 44);
              dispatchId = 44;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 44 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 45: UpdateToolbarVisibility
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_UpdateToolbarVisibility_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateToolbarVisibility (45)');
              this.mapOrdinal(header.ordinal, 45);
              dispatchId = 45;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 45 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 46: OnTopContainerViewBoundsChanged
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_OnTopContainerViewBoundsChanged_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTopContainerViewBoundsChanged (46)');
              this.mapOrdinal(header.ordinal, 46);
              dispatchId = 46;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 46 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 47: ImmersiveFullscreenRevealLock
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_ImmersiveFullscreenRevealLock_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ImmersiveFullscreenRevealLock (47)');
              this.mapOrdinal(header.ordinal, 47);
              dispatchId = 47;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 47 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 48: ImmersiveFullscreenRevealUnlock
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_ImmersiveFullscreenRevealUnlock_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ImmersiveFullscreenRevealUnlock (48)');
              this.mapOrdinal(header.ordinal, 48);
              dispatchId = 48;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 48 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 49: SetCanGoBack
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetCanGoBack_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCanGoBack (49)');
              this.mapOrdinal(header.ordinal, 49);
              dispatchId = 49;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 49 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 50: SetCanGoForward
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetCanGoForward_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCanGoForward (50)');
              this.mapOrdinal(header.ordinal, 50);
              dispatchId = 50;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 50 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 51: DisplayContextMenu
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_DisplayContextMenu_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisplayContextMenu (51)');
              this.mapOrdinal(header.ordinal, 51);
              dispatchId = 51;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 51 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 52: SetAllowScreenshots
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetAllowScreenshots_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAllowScreenshots (52)');
              this.mapOrdinal(header.ordinal, 52);
              dispatchId = 52;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 52 failed:', e);
-           }
+           } catch (e) {}
         }
-        // Try Method 53: SetColorMode
         if (dispatchId === undefined) {
            try {
              decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetColorMode_ParamsSpec);
-             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetColorMode (53)');
              this.mapOrdinal(header.ordinal, 53);
              dispatchId = 53;
-           } catch (e) {
-             console.warn('[GeneratedReceiver] Discovery trial 53 failed:', e);
-           }
+           } catch (e) {}
         }
-        if (dispatchId === undefined) {
-             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-             return;
-        }
+        if (dispatchId === undefined) return;
       }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_CreateWindow_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.createWindow');
           const result = this.impl.createWindow(params.params);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetParent_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setParent');
           const result = this.impl.setParent(params.parent_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_CreateSelectFileDialog_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.createSelectFileDialog');
           const result = this.impl.createSelectFileDialog(params.dialog);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_ShowCertificateViewer_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.showCertificateViewer');
           const result = this.impl.showCertificateViewer(params.certificate);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_StackAbove_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.stackAbove');
           const result = this.impl.stackAbove(params.sibling_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_StackAtTop_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.stackAtTop');
           const result = this.impl.stackAtTop();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_ShowEmojiPanel_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.showEmojiPanel');
           const result = this.impl.showEmojiPanel();
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_InitWindow_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.initWindow');
           const result = this.impl.initWindow(params.params);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_InitCompositorView_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.initCompositorView');
           const result = this.impl.initCompositorView();
           if (header.expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2039,322 +1742,275 @@ remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_CreateContentView_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.createContentView');
           const result = this.impl.createContentView(params.ns_view_id, params.bounds, params.corner_radius);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_DestroyContentView_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.destroyContentView');
           const result = this.impl.destroyContentView();
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_CloseWindow_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.closeWindow');
           const result = this.impl.closeWindow();
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_CloseWindowNow_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.closeWindowNow');
           const result = this.impl.closeWindowNow();
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetInitialBounds_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setInitialBounds');
           const result = this.impl.setInitialBounds(params.new_bounds, params.minimum_content_size);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetBounds_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setBounds');
           const result = this.impl.setBounds(params.new_bounds, params.minimum_content_size, params.maximum_content_size);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetSize_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setSize');
           const result = this.impl.setSize(params.new_size, params.minimum_content_size);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetSizeAndCenter_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setSizeAndCenter');
           const result = this.impl.setSizeAndCenter(params.content_size, params.minimum_content_size);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetVisibilityState_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setVisibilityState');
           const result = this.impl.setVisibilityState(params.new_state);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetAnimationEnabled_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setAnimationEnabled');
           const result = this.impl.setAnimationEnabled(params.animation_enabled);
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetTransitionsToAnimate_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setTransitionsToAnimate');
           const result = this.impl.setTransitionsToAnimate(params.transitions);
           break;
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetVisibleOnAllSpaces_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setVisibleOnAllSpaces');
           const result = this.impl.setVisibleOnAllSpaces(params.always_visible);
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_EnterFullscreen_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.enterFullscreen');
           const result = this.impl.enterFullscreen(params.target_display_id);
           break;
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_ExitFullscreen_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.exitFullscreen');
           const result = this.impl.exitFullscreen();
           break;
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetCanAppearInExistingFullscreenSpaces_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setCanAppearInExistingFullscreenSpaces');
           const result = this.impl.setCanAppearInExistingFullscreenSpaces(params.can_appear_in_existing_fullscreen_spaces);
           break;
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetMiniaturized_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setMiniaturized');
           const result = this.impl.setMiniaturized(params.miniaturized);
           break;
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetZoomed_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setZoomed');
           const result = this.impl.setZoomed(params.zoomed);
           break;
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetSizeConstraints_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setSizeConstraints');
           const result = this.impl.setSizeConstraints(params.min_size, params.max_size, params.is_resizable, params.is_maximizable);
           break;
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetOpacity_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setOpacity');
           const result = this.impl.setOpacity(params.opacity);
           break;
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetWindowLevel_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setWindowLevel');
           const result = this.impl.setWindowLevel(params.level);
           break;
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetActivationIndependence_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setActivationIndependence');
           const result = this.impl.setActivationIndependence(params.independence);
           break;
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetAspectRatio_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setAspectRatio');
           const result = this.impl.setAspectRatio(params.aspect_ratio, params.excluded_margin);
           break;
         }
         case 31: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetCALayerParams_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setCALayerParams');
           const result = this.impl.setCALayerParams(params.ca_layer_params);
           break;
         }
         case 32: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetWindowTitle_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setWindowTitle');
           const result = this.impl.setWindowTitle(params.title);
           break;
         }
         case 33: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetIgnoresMouseEvents_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setIgnoresMouseEvents');
           const result = this.impl.setIgnoresMouseEvents(params.ignores_mouse_events);
           break;
         }
         case 34: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_MakeFirstResponder_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.makeFirstResponder');
           const result = this.impl.makeFirstResponder();
           break;
         }
         case 35: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SortSubviews_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.sortSubviews');
           const result = this.impl.sortSubviews(params.attached_subview_ids);
           break;
         }
         case 36: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_ClearTouchBar_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.clearTouchBar');
           const result = this.impl.clearTouchBar();
           break;
         }
         case 37: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_UpdateTooltip_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.updateTooltip');
           const result = this.impl.updateTooltip();
           break;
         }
         case 38: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_AcquireCapture_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.acquireCapture');
           const result = this.impl.acquireCapture();
           break;
         }
         case 39: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_ReleaseCapture_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.releaseCapture');
           const result = this.impl.releaseCapture();
           break;
         }
         case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_RedispatchKeyEvent_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.redispatchKeyEvent');
           const result = this.impl.redispatchKeyEvent(params.native_event_data);
           break;
         }
         case 41: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetLocalEventMonitorEnabled_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setLocalEventMonitorEnabled');
           const result = this.impl.setLocalEventMonitorEnabled(params.enabled);
           break;
         }
         case 42: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetCursor_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setCursor');
           const result = this.impl.setCursor(params.cursor);
           break;
         }
         case 43: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_EnableImmersiveFullscreen_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.enableImmersiveFullscreen');
           const result = this.impl.enableImmersiveFullscreen(params.fullscreen_overlay_widget_id, params.tab_widget_id);
           break;
         }
         case 44: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_DisableImmersiveFullscreen_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.disableImmersiveFullscreen');
           const result = this.impl.disableImmersiveFullscreen();
           break;
         }
         case 45: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_UpdateToolbarVisibility_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.updateToolbarVisibility');
           const result = this.impl.updateToolbarVisibility(params.style);
           break;
         }
         case 46: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_OnTopContainerViewBoundsChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onTopContainerViewBoundsChanged');
           const result = this.impl.onTopContainerViewBoundsChanged(params.bounds);
           break;
         }
         case 47: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_ImmersiveFullscreenRevealLock_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.immersiveFullscreenRevealLock');
           const result = this.impl.immersiveFullscreenRevealLock();
           break;
         }
         case 48: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_ImmersiveFullscreenRevealUnlock_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.immersiveFullscreenRevealUnlock');
           const result = this.impl.immersiveFullscreenRevealUnlock();
           break;
         }
         case 49: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetCanGoBack_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setCanGoBack');
           const result = this.impl.setCanGoBack(params.can_go_back);
           break;
         }
         case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetCanGoForward_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setCanGoForward');
           const result = this.impl.setCanGoForward(params.can_go_forward);
           break;
         }
         case 51: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_DisplayContextMenu_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.displayContextMenu');
           const result = this.impl.displayContextMenu(params.menu, params.host, params.receiver);
           break;
         }
         case 52: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetAllowScreenshots_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setAllowScreenshots');
           const result = this.impl.setAllowScreenshots(params.allow);
           break;
         }
         case 53: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(remote_cocoa.mojom.NativeWidgetNSWindow_SetColorMode_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setColorMode');
           const result = this.impl.setColorMode(params.color_mode);
           break;
         }
       }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
+      } catch (err) {}
     }});
   }
 };
