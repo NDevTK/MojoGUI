@@ -1,222 +1,78 @@
 /**
  * MojoJS Security Research GUI
  * Interceptor & Proxy Logic
+ * 
+ * Implements Adaptive Ordinal Learning to support Scrambled and Unscrambled environments.
  */
 
 (async function (global) {
     'use strict';
 
-    // Automate Version Detection using High Entropy API
-    try {
-        if (navigator.userAgentData && navigator.userAgentData.getHighEntropyValues) {
-            console.log('[Interceptor] Fetching high-entropy version data...');
-            const ua = await navigator.userAgentData.getHighEntropyValues(['fullVersionList']);
-            const chrome = ua.fullVersionList.find(item => item.brand === 'Google Chrome' || item.brand === 'Chromium');
-            if (chrome) {
-                console.log('[Interceptor] Detected Full Chrome Version:', chrome.version);
-                // Set global override for MojoScrambler to pick up
-                window.mojoVersion = chrome.version;
-            }
-        }
-    } catch (e) {
-        console.warn('[Interceptor] Version detection failed:', e);
+    // ========================================
+    // GLOBAL SETTINGS & STATE
+    // ========================================
+    window.mojoNoScramble = window.mojoNoScramble || false;
+
+    // Stores: InterfaceName -> Map(MethodIndex -> WireOrdinal)
+    global.MojoLearnedProtocols = global.MojoLearnedProtocols || new Map();
+
+    function getLearnedOrdinal(interfaceName, methodIndex) {
+        const mapping = global.MojoLearnedProtocols.get(interfaceName);
+        return mapping ? mapping.get(methodIndex) : undefined;
     }
 
-    // Polyfill for missing PipeControlMessage in some MojoJS environments
-    if (typeof mojo !== 'undefined' && mojo.internal && mojo.internal.interfaceSupport) {
-        if (!mojo.internal.interfaceSupport.PipeControlMessage) {
-            console.warn('[Interceptor] Polyfilling missing PipeControlMessage for Router compatibility');
-            mojo.internal.interfaceSupport.PipeControlMessage = {
-                // RUN_OR_CLOSE_PIPE_MESSAGE_ID
-                RUN_OR_CLOSE_PIPE_MESSAGE_ID: -2 // 0xFFFFFFFE cast to signed int32
-            };
+    function recordLearnedOrdinal(interfaceName, methodIndex, wireOrdinal) {
+        if (!global.MojoLearnedProtocols.has(interfaceName)) {
+            global.MojoLearnedProtocols.set(interfaceName, new Map());
         }
+        const mapping = global.MojoLearnedProtocols.get(interfaceName);
+        if (mapping.get(methodIndex) !== wireOrdinal) {
+            console.log(`[Learner] Learned Truth: ${interfaceName}[${methodIndex}] -> Ordinal ${wireOrdinal}`);
+            mapping.set(methodIndex, wireOrdinal);
+            window.dispatchEvent(new CustomEvent('mojo-protocol-ready', {
+                detail: { interface: interfaceName, methodIndex, wireOrdinal }
+            }));
+        }
+    }
 
-        // MONKEY PATCH: Fix PipeControlMessageHandler crash due to stale closure reference
-        if (mojo.internal.interfaceSupport.PipeControlMessageHandler) {
-            const OriginalHandler = mojo.internal.interfaceSupport.PipeControlMessageHandler;
-            const OriginalProto = OriginalHandler.prototype;
+    // --- HOOK: Receiver.prototype.mapOrdinal (The Teacher) ---
+    // This is where the browser's discovery logic "teaches" the receiver.
+    // We hook this globally so we learn even if an interface isn't explicitly intercepted yet.
+    function patchReceiverClass(cls, interfaceName) {
+        if (!cls || !cls.prototype || cls.prototype._interceptor_patched) return;
+        cls.prototype._interceptor_patched = true;
 
-            if (OriginalProto.maybeHandleMessage) {
-                console.warn('[Interceptor] Monkey-patching PipeControlMessageHandler.maybeHandleMessage to avoid stale reference crash');
-                OriginalProto.maybeHandleMessage = function (message) {
-                    // Safely access the Global polyfill, not the closure one
-                    const PCM = mojo.internal.interfaceSupport.PipeControlMessage;
-                    if (PCM && message && message.header && message.header.type === PCM.RUN_OR_CLOSE_PIPE_MESSAGE_ID) {
-                        // If it IS a control message, try to handle it (if the internal method exists)
-                        // But usually we can just return false for simple interception scenarios to avoid more crashes
-                        // Calling original might crash if it calls other things.
-                        // Let's try to call the private handler if we can found it, otherwise verify strictness.
-                        try {
-                            if (this.handleRunOrClosePipeMessage_) {
-                                return this.handleRunOrClosePipeMessage_(message);
-                            }
-                        } catch (e) { console.warn('Control message handle failed', e); }
-                    }
-                    return false;
-                };
+        const originalMap = cls.prototype.mapOrdinal;
+        cls.prototype.mapOrdinal = function (hash, id) {
+            recordLearnedOrdinal(interfaceName, id, hash);
+            return originalMap.apply(this, arguments);
+        };
+        // console.log(`[Learner] Patched Receiver for ${interfaceName}`);
+    }
+
+    // --- HOOK: mojoScrambler.getOrdinals (The Sync) ---
+    // Ensures Fresh Loaders (Execute button) use the learned truth.
+    if (window.mojoScrambler) {
+        const originalGetOrdinals = window.mojoScrambler.getOrdinals;
+        window.mojoScrambler.getOrdinals = function (interfaceName, methodSpecs) {
+            // Respect Global GUI Toggle
+            if (window.mojoNoScramble) {
+                console.log(`[Scrambler] Force No Scramble active for ${interfaceName}`);
+                return methodSpecs.map((_, idx) => idx);
             }
-        }
 
-        // Polyfill for InterfaceControlMessage (RUN_MESSAGE_ID)
-        if (mojo.internal.interfaceSupport && !mojo.internal.interfaceSupport.InterfaceControlMessage) {
-            console.warn('[Interceptor] Polyfilling missing InterfaceControlMessage');
-            mojo.internal.interfaceSupport.InterfaceControlMessage = {
-                RUN_MESSAGE_ID: 0xFFFFFFFF
-            };
-        }
+            const results = originalGetOrdinals.apply(this, arguments);
 
-        // Monkey-patch ControlMessageHandler to avoid crash if handle is missing
-        if (mojo.internal.interfaceSupport.ControlMessageHandler) {
-            console.log('[Interceptor] Monkey-patching ControlMessageHandler.maybeHandleControlMessage');
-            const originalMaybeHandle = mojo.internal.interfaceSupport.ControlMessageHandler.prototype.maybeHandleControlMessage;
-            mojo.internal.interfaceSupport.ControlMessageHandler.prototype.maybeHandleControlMessage = function (message) {
-                if (!this.router_ || !this.router_.connector_) {
-                    // console.warn('[Interceptor] Skipping control message for disconnected router');
-                    return false;
+            // Overlay Learned Truth
+            methodSpecs.forEach((spec, idx) => {
+                const learned = getLearnedOrdinal(interfaceName, idx);
+                if (learned !== undefined) {
+                    results[idx] = learned;
                 }
-                return originalMaybeHandle.call(this, message);
-            };
-        }
+            });
 
-        // Inspect interfaceSupport
-        if (mojo.internal.interfaceSupport) {
-            console.log('[Interceptor] mojo.internal.interfaceSupport keys:', Object.keys(mojo.internal.interfaceSupport));
-
-            // Polyfill createResponder if missing
-            if (typeof mojo.internal.interfaceSupport.createResponder !== 'function') {
-                console.log('[Interceptor] Polyfilling createResponder');
-                mojo.internal.interfaceSupport.createResponder = function (endpoint, requestId, responseParamsSpec, headerOrOrdinal, rawHeaderBuffer) {
-                    return function (response) {
-                        try {
-                            const structSpec = responseParamsSpec.$.structSpec;
-                            const reqHeader = typeof headerOrOrdinal === 'object' ? headerOrOrdinal : { ordinal: headerOrOrdinal };
-
-                            // Protocol Symmetry: Match the size and version of the request header
-                            const headerSize = reqHeader.headerSize || 32;
-                            const payloadSize = structSpec.packedSize;
-                            const totalSize = headerSize + payloadSize;
-
-                            const buffer = new ArrayBuffer(totalSize);
-                            const view = new DataView(buffer);
-
-                            // 1. Build Mojo Message Header (PERFECT SYMMETRY / HEADER ECHO)
-                            if (rawHeaderBuffer && (rawHeaderBuffer.byteLength === headerSize)) {
-                                // console.log('[Interceptor] Using Header-Echo for perfect symmetry');
-                                new Uint8Array(buffer).set(new Uint8Array(rawHeaderBuffer));
-                            } else {
-                                // Fallback: Manual construction
-                                const ordinal = reqHeader.ordinal || 0;
-                                const interfaceId = (reqHeader.interfaceId !== undefined) ? reqHeader.interfaceId : (endpoint.interfaceId_ || 0);
-                                const version = (reqHeader.headerVersion !== undefined) ? reqHeader.headerVersion : 1;
-
-                                view.setUint32(0, headerSize, true); // Header Size (confirmed via sniffer)
-                                view.setUint32(4, version, true);
-                                view.setUint32(8, interfaceId, true);
-                                view.setUint32(12, ordinal, true);
-                                view.setUint32(20, 0, true); // padding
-                            }
-
-                            // 2. Overwrite Response-Specific Fields
-                            view.setUint32(16, 2, true); // flags (2 = kMessageIsResponse)
-
-                            // requestId (uint64) at offset 24
-                            if (typeof requestId === 'bigint') {
-                                view.setBigUint64(24, requestId, true);
-                            } else {
-                                view.setUint32(24, Number(requestId) & 0xFFFFFFFF, true);
-                                view.setUint32(28, Math.floor(Number(requestId) / 0x100000000), true);
-                            }
-
-                            // 3. Encode Struct Payload
-                            const encoder = new mojo.internal.Encoder(payloadSize, 0);
-                            encoder.buffer_ = buffer;
-                            encoder.data_ = new DataView(buffer, headerSize);
-                            encoder.encodeStructInline(structSpec, response);
-
-                            // DEBUG: Log Hex
-                            const hex = Array.from(new Uint8Array(buffer)).map(b => b.toString(16).padStart(2, '0')).join(' ');
-                            // console.log('[Interceptor] Responder Packet:', hex);
-
-                            // 4. Send using "Cascade of Doom"
-                            let sent = false;
-                            const pipe = endpoint.router_.pipe_ || endpoint.router_.handle_;
-                            const dataView = new Uint8Array(buffer);
-
-                            // Try 1: Instance method (observed in probe)
-                            if (pipe && typeof pipe.writeMessage === 'function') {
-                                try {
-                                    // Some envs prefer Uint8Array over raw ArrayBuffer
-                                    pipe.writeMessage(new Uint8Array(buffer), []);
-                                    sent = true;
-                                } catch (e) {
-                                    try {
-                                        pipe.writeMessage(buffer, []);
-                                        sent = true;
-                                    } catch (e2) { console.warn('[Interceptor] pipe.writeMessage failed:', e2); }
-                                }
-                            }
-
-                            // Try 2: Router.send (Alternative)
-                            if (!sent && endpoint.router_ && typeof endpoint.router_.send === 'function') {
-                                try {
-                                    endpoint.router_.send({ buffer, handles: [], header: { requestId, flags: 2, ordinal } });
-                                    sent = true;
-                                } catch (e) {
-                                    try {
-                                        endpoint.router_.send(buffer, []);
-                                        sent = true;
-                                    } catch (e2) { console.warn('[Interceptor] router.send failed:', e2); }
-                                }
-                            }
-
-                            if (!sent) {
-                                console.error('[Interceptor] FAILED TO SEND RESPONSE. No valid method found.');
-                            }
-                        } catch (e) {
-                            console.error('[Interceptor] createResponder polyfill FAILED:', e);
-                        }
-                    };
-                };
-            }
-
-            // Fix Endpoint crash: "this.client_.onError is not a function"
-            if (mojo.internal.interfaceSupport && mojo.internal.interfaceSupport.Endpoint) {
-                const Proto = mojo.internal.interfaceSupport.Endpoint.prototype;
-                const origOnError = Proto.onError;
-                if (typeof origOnError === 'function' && !Proto._interceptor_patched) {
-                    Proto._interceptor_patched = true;
-                    Proto.onError = function (e) {
-                        if (!this.client_ || typeof this.client_.onError !== 'function') {
-                            console.warn('[Interceptor] Endpoint.onError prevented crash. Client missing onError. Event:', e);
-                            return;
-                        }
-                        return origOnError.apply(this, arguments);
-                    };
-                }
-            }
-        }
-        // MONKEY PATCH: Fix ControlMessageHandler crash (RUN_MESSAGE_ID)
-        if (mojo.internal.interfaceSupport.ControlMessageHandler) {
-            const OriginalHandler = mojo.internal.interfaceSupport.ControlMessageHandler;
-            const OriginalProto = OriginalHandler.prototype;
-            if (OriginalProto.maybeHandleControlMessage) {
-                console.warn('[Interceptor] Monkey-patching ControlMessageHandler.maybeHandleControlMessage');
-                OriginalProto.maybeHandleControlMessage = function (message) {
-                    const ICM = mojo.internal.interfaceSupport.InterfaceControlMessage;
-                    if (ICM && message && message.header && message.header.type === ICM.RUN_MESSAGE_ID) {
-                        // Try to handle or return false
-                        return false; // Safest to ignore in this fragile env
-                    }
-                    return false;
-                };
-            }
-        }
-        // DEBUG: Check Decoder prototype
-        if (mojo.internal && mojo.internal.Decoder) {
-            console.log('[Interceptor] mojo.internal.Decoder.prototype:', mojo.internal.Decoder.prototype);
-        }
-
+            return results;
+        };
     }
 
     // ========================================
@@ -227,606 +83,259 @@
             this.interfaceName = interfaceName;
             this.realHandle = realHandle;
             this.realRemote = null;
-            this.eventTarget = new EventTarget();
+            this.activeBridges = new Set();
+            this.pendingMessages = new Map();
+            this.id = Math.random().toString(36).substr(2, 9);
 
-            // Initialize the real remote using provided components
             if (comps && comps.Remote) {
                 try {
                     this.realRemote = new comps.Remote(realHandle);
-                } catch (e) {
-                    console.error(`[MojoProxy] Error instantiating Remote for ${interfaceName}:`, e);
-                }
-            } else {
-                // Fallback: try finding it again
-                const resolved = MojoProxy.getInterfaceComponents(interfaceName);
-                if (resolved.Remote) {
-                    this.realRemote = new resolved.Remote(realHandle);
-                } else {
-                    console.error(`[MojoProxy] Could not find Remote class for ${interfaceName}`);
-                }
+                    // No need to hookPipe here, we trust the learner + results
+                } catch (e) { console.error(`[MojoProxy] Error instantiating Remote for ${interfaceName}:`, e); }
             }
 
-            this.pendingMessages = new Map(); // id -> { resolve, reject, args }
-            this.id = Math.random().toString(36).substr(2, 9);
+            // Patch the receiver class immediately upon interception
+            if (comps.Receiver) patchReceiverClass(comps.Receiver, interfaceName);
 
-            // Register globally so UI can access it easily via ID
             const registry = global.MojoProxyRegistry || new Map();
             global.MojoProxyRegistry = registry;
-            global.MojoProxy = MojoProxy; // Export class for MojoLoader
-            // Ensure distinct global scope access (window vs global)
-            if (typeof window !== 'undefined') {
-                window.MojoProxyRegistry = registry;
-                window.MojoProxy = MojoProxy;
-            }
             registry.set(this.id, this);
 
-            // We need to return a proxy that traps all method calls
             return new Proxy(this, {
                 get: (target, prop, receiver) => {
-                    // unexpected props
                     if (prop in target) return target[prop];
-
-                    // If it's a known method or generally a function call
                     if (typeof prop === 'string' && target.realRemote) {
-                        // Check if it's a function on the remote directly
-                        if (typeof target.realRemote[prop] === 'function') {
-                            return (...args) => target.interceptCall(prop, args);
-                        }
-                        // Check the handler property ($) which is common in Lite bindings
-                        if (target.realRemote.$ && typeof target.realRemote.$[prop] === 'function') {
-                            return (...args) => target.interceptCall(prop, args);
-                        }
+                        const call = target.realRemote[prop] || (target.realRemote.$ && target.realRemote.$[prop]);
+                        if (typeof call === 'function') return (...args) => target.interceptCall(prop, args);
                     }
-
                     return Reflect.get(target, prop, receiver);
                 }
+            });
+        }
+
+        static getRawHandleFromMojoObject(obj) {
+            if (!obj) return null;
+            const getFromRouter = (r) => {
+                if (!r) return null;
+                return r.connector_ ? r.connector_.handle_ : (r.pipe_ || (r.reader_ ? r.reader_.handle_ : null));
+            };
+            let pipe = getFromRouter(obj.router_);
+            if (pipe) return pipe;
+            if (obj.endpoint_) pipe = getFromRouter(obj.endpoint_.router_);
+            if (pipe) return pipe;
+            if (obj.$ && obj.$.router_) pipe = getFromRouter(obj.$.router_);
+            if (pipe) return pipe;
+            if (obj.proxy) return MojoProxy.getRawHandleFromMojoObject(obj.proxy);
+            return null;
+        }
+
+        bridgeHandle(rawHandle, label) {
+            const { handle0, handle1 } = Mojo.createMessagePipe();
+            const routerOriginal = new mojo.internal.interfaceSupport.Router(rawHandle);
+            const routerLocal = new mojo.internal.interfaceSupport.Router(handle0);
+
+            this.activeBridges.add(routerOriginal);
+            this.activeBridges.add(routerLocal);
+
+            const cleanup = () => {
+                this.activeBridges.delete(routerOriginal);
+                this.activeBridges.delete(routerLocal);
+                try { routerOriginal.close(); } catch (e) { }
+                try { routerLocal.close(); } catch (e) { }
+            };
+
+            routerOriginal.close = cleanup;
+            routerLocal.close = cleanup;
+
+            routerOriginal.onMessageReceived_ = (buffer, handles) => {
+                routerLocal.send({ buffer, handles });
+            };
+
+            routerLocal.onMessageReceived_ = (buffer, handles) => {
+                routerOriginal.send({ buffer, handles });
+            };
+
+            return handle1;
+        }
+
+        processArgs(args) {
+            if (!args) return args;
+            return args.map((arg, idx) => {
+                if (!arg || typeof arg !== 'object') return arg;
+                const isMojo = (typeof arg.unbind === 'function') || (arg.proxy && typeof arg.proxy.unbind === 'function');
+                if (!isMojo) return arg;
+                try {
+                    let h = arg.proxy ? arg.proxy.unbind() : arg.unbind();
+                    if (!h) return arg;
+                    let rawHandle = h.releasePipe ? h.releasePipe() : (h.handle !== undefined ? h.handle : (MojoProxy.getRawHandleFromMojoObject(h) || h));
+                    if (rawHandle && rawHandle.writeMessage) {
+                        const bridgedHandle = this.bridgeHandle(rawHandle, `Arg${idx}`);
+                        const mockEndpoint = { releasePipe: () => bridgedHandle, handle: bridgedHandle };
+                        const mockRemote = { unbind: () => mockEndpoint, proxy: { unbind: () => mockEndpoint } };
+                        mockRemote.proxy.proxy = mockRemote.proxy;
+                        return mockRemote;
+                    }
+                } catch (e) { }
+                return arg;
             });
         }
 
         async interceptCall(methodName, args) {
             const callId = Math.random().toString(36).substr(2, 9);
             const mode = global.InterceptorManager ? global.InterceptorManager.getMode(this.interfaceName) : 'INTERCEPT';
+            console.log(`[MojoProxy] Intercepted ${this.interfaceName}.${methodName} (Mode: ${mode})`);
 
-            console.log(`[MojoProxy] Intercepted ${this.interfaceName}.${methodName} (Mode: ${mode})`, args);
-
-            // Notify UI
-            const event = new CustomEvent('mojo-intercept', {
-                detail: {
-                    id: callId,
-                    interface: this.interfaceName,
-                    method: methodName,
-                    params: args,
-                    timestamp: Date.now(),
-                    proxyId: this.id,
-                    mode: mode
-                }
-            });
-            window.dispatchEvent(event);
+            window.dispatchEvent(new CustomEvent('mojo-intercept', {
+                detail: { id: callId, interface: this.interfaceName, method: methodName, params: args, timestamp: Date.now(), proxyId: this.id, mode: mode }
+            }));
 
             if (mode === 'LOG') {
-                // Pass-through without pausing (NATIVE)
                 try {
-                    // FAKE OBSERVER TEST
-                    // Ignore the real argument. Create a dummy one.
-                    console.log('[MojoProxy] TEST: Creating FAKE VoiceListObserver to send to browser.');
+                    const bridgedArgs = this.processArgs(args);
 
-                    // We need a SpeechSynthesisVoiceListObserverRemote.
-                    // Since we might not have the class loaded comfortably, let's try a lower-level approach:
-                    // Create a fresh pipe. Send one end as the "Remote" (which is just a pipe handle).
+                    // --- SYNC ORDinals ---
+                    if (this.realRemote.$ && this.realRemote.$.ordinals) {
+                        this.realRemote.$.ordinals.forEach((oldOrd, idx) => {
+                            const learned = getLearnedOrdinal(this.interfaceName, idx);
+                            if (learned !== undefined) this.realRemote.$.ordinals[idx] = learned;
+                        });
+                    }
 
-                    const { handle0, handle1 } = Mojo.createMessagePipe();
-                    // handle0 = Receiver (we hold it, but don't bind it, so it's a "hanging" receiver)
-                    // handle1 = Remote (we send it to the browser)
-
-                    // The generated bindings expect an object with a 'handle' property or similar to unbind.
-                    // Or we can construct a valid Remote if we can find the class.
-                    // Let's try to mock the Remote object that generated bindings expect.
-
-                    const mockEndpoint = {
-                        releasePipe: () => {
-                            console.log('[MojoProxy] Test: MockEndpoint.releasePipe returning fresh pipe handle');
-                            return handle1;
-                        }
-                    };
-
-                    const fakeRemote = {
-                        unbind: () => {
-                            console.log('[MojoProxy] Test: Unbinding FAKE remote');
-                            return mockEndpoint;
-                        },
-                        proxy: {
-                            unbind: () => {
-                                console.log('[MojoProxy] Test: Unbinding FAKE proxy');
-                                return mockEndpoint;
-                            }
-                        }
-                    };
-                    // Circular reference to satisfy strict bindings checks
-                    fakeRemote.proxy.proxy = fakeRemote.proxy;
-
-                    // We need to match the signature: addVoiceListObserver(pending_remote<SpeechSynthesisVoiceListObserver>)
-                    // passing 'fakeRemote' to realRemote.addVoiceListObserver should work if it calls .unbind()
-
-                    // CANCEL TEST
-                    console.log('[MojoProxy] TEST: calling cancel()');
-                    if (this.realRemote.cancel) await this.realRemote.cancel();
-                    return {};
-                    // const result = await this.realRemote[methodName](fakeRemote);
-
-                    window.dispatchEvent(new CustomEvent('mojo-response', {
-                        detail: {
-                            id: callId,
-                            result: result,
-                            timestamp: Date.now()
-                        }
-                    }));
+                    const result = await this.realRemote[methodName](...bridgedArgs);
+                    window.dispatchEvent(new CustomEvent('mojo-response', { detail: { id: callId, result: result, timestamp: Date.now() } }));
                     return result;
                 } catch (e) {
-                    window.dispatchEvent(new CustomEvent('mojo-error', {
-                        detail: {
-                            id: callId,
-                            error: e.toString(),
-                            timestamp: Date.now()
-                        }
-                    }));
+                    window.dispatchEvent(new CustomEvent('mojo-error', { detail: { id: callId, error: e.toString(), timestamp: Date.now() } }));
                     throw e;
                 }
             }
 
-            // 'INTERCEPT' Mode: Pause and wait for UI
             return new Promise((resolve, reject) => {
-                this.pendingMessages.set(callId, {
-                    resolve,
-                    reject,
-                    methodName,
-                    originalArgs: args
-                });
+                this.pendingMessages.set(callId, { resolve, reject, methodName, originalArgs: args });
             });
         }
 
         resumeCall(callId, modifiedArgs, shouldDrop = false) {
             const pending = this.pendingMessages.get(callId);
-            if (!pending) {
-                console.warn(`[MojoProxy] No pending call found for ID ${callId}`);
-                return;
-            }
-
+            if (!pending) return;
             this.pendingMessages.delete(callId);
             const { resolve, reject, methodName, originalArgs } = pending;
+            if (shouldDrop) { resolve(undefined); return; }
 
-            if (shouldDrop) {
-                console.log(`[MojoProxy] Dropped ${callId}`);
-                resolve(undefined);
-                return;
-            }
-
-            const argsToUse = modifiedArgs || originalArgs;
-
-            // Execute on real implementation
             (async () => {
-                const startTime = Date.now();
                 try {
-                    console.log(`[MojoProxy] Resuming ${callId} with`, argsToUse);
-                    console.log(`[MojoProxy] Calling realRemote.${methodName}`);
+                    const bridgedArgs = this.processArgs(modifiedArgs || originalArgs);
 
-                    // Fix: Unbind any Mojo Remotes/Receivers to release their handles.
-                    // If using modifiedArgs, fall back to originalArgs for handles if the modified version is just a plain object.
-                    const forwardedArgs = argsToUse.map((arg, idx) => {
-                        try {
-                            // Check if we should use the original arg (for handles)
-                            let actualArg = arg;
-                            if (modifiedArgs && originalArgs && originalArgs[idx]) {
-                                const orig = originalArgs[idx];
-                                // If original was a Mojo object (has unbind) and current arg is not (e.g. JSON), use original.
-                                const origWasMojo = (orig.proxy && typeof orig.proxy.unbind === 'function') || (typeof orig.unbind === 'function');
-                                const currIsMojo = (arg && ((arg.proxy && typeof arg.proxy.unbind === 'function') || (typeof arg.unbind === 'function')));
+                    if (this.realRemote.$ && this.realRemote.$.ordinals) {
+                        this.realRemote.$.ordinals.forEach((oldOrd, idx) => {
+                            const learned = getLearnedOrdinal(this.interfaceName, idx);
+                            if (learned !== undefined) this.realRemote.$.ordinals[idx] = learned;
+                        });
+                    }
 
-                                if (origWasMojo && !currIsMojo) {
-                                    console.log(`[MojoProxy] Arg[${idx}] appears to be a modified Mojo object. Using original handle.`);
-                                    actualArg = orig;
-                                }
-                            }
-
-                            if (actualArg && typeof actualArg === 'object') {
-                                let h = null;
-
-                                // Case 1: Remote (InterfaceProxy)
-                                if (actualArg.proxy && typeof actualArg.proxy.unbind === 'function') {
-                                    h = actualArg.proxy.unbind();
-                                }
-                                // Case 2: PendingReceiver or InterfaceRequest
-                                else if (typeof actualArg.unbind === 'function') {
-                                    h = actualArg.unbind();
-                                }
-
-                                if (h) {
-                                    // FIX 5.0: GENERIC PIPE BRIDGE
-                                    // BAD_MESSAGE is likely due to the browser disliking the reused handle state.
-                                    // mitigate this by creating a fresh pipe for the browser and forwarding messages.
-
-                                    // DEEP EXTRACTION TRIALS
-                                    let rawHandle = h;
-                                    if (typeof h === 'object') {
-                                        // Priority: specific detach method
-                                        if (typeof h.releasePipe === 'function') {
-                                            console.log(`[MojoProxy] Resume Arg[${idx}] Calling releasePipe() to detach handle.`);
-                                            rawHandle = h.releasePipe();
-                                        }
-                                        else if (h.handle !== undefined) rawHandle = h.handle;
-                                        else if (h.router_ && h.router_.connector_ && h.router_.connector_.handle_ !== undefined) rawHandle = h.router_.connector_.handle_;
-                                        else if (h.router_ && h.router_.pipe_ !== undefined) rawHandle = h.router_.pipe_;
-                                        else if (h.router_ && h.router_.reader_ && h.router_.reader_.handle_ !== undefined) rawHandle = h.router_.reader_.handle_;
-                                        else if (h.router_ && h.router_.handle_ !== undefined) rawHandle = h.router_.handle_;
-                                    }
-
-                                    console.log(`[MojoProxy] Resume Arg[${idx}] extracted raw handle:`, rawHandle);
-
-                                    let bridgedHandle = rawHandle;
-                                    // BRIDGE DISABLED: Pass-Through Test
-                                    // try { ... bridge logic removed ... } catch (err) {}
-
-                                    // FIX 4.0: Mock the Endpoint too.
-                                    const mockEndpoint = {
-                                        releasePipe: () => {
-                                            console.log(`[MojoProxy] MockEndpoint.releasePipe returning bridged handle`);
-                                            return bridgedHandle;
-                                        }
-                                    };
-
-                                    const mockRemote = {
-                                        unbind: () => {
-                                            console.log(`[MojoProxy] Mock unbind called for Arg[${idx}]`);
-                                            return mockEndpoint;
-                                        },
-                                        proxy: {
-                                            unbind: () => {
-                                                console.log(`[MojoProxy] Mock proxy.unbind called for Arg[${idx}]`);
-                                                return mockEndpoint;
-                                            }
-                                        }
-                                    };
-                                    mockRemote.proxy.proxy = mockRemote.proxy;
-
-                                    return mockRemote;
-                                }
-                            }
-                        } catch (err) {
-                            console.error(`[MojoProxy] Error re-wrapping Resume arg[${idx}]:`, err);
-                        }
-                        return arg;
-                    });
-
-                    console.log(`[MojoProxy] Resuming realRemote.${methodName}`);
-                    let result = await this.realRemote[methodName](...forwardedArgs);
-
-                    console.log(`[MojoProxy] realRemote.${methodName} resolved in ${Date.now() - startTime}ms`, result);
-
-                    // Reverted: specific generated bindings logic (GeneratedReceiver) might explicitly expect undefined for void
-                    // if (result === undefined) result = {};
-
-                    // Notify UI of response
-                    window.dispatchEvent(new CustomEvent('mojo-response', {
-                        detail: {
-                            id: callId,
-                            result: result,
-                            timestamp: Date.now()
-                        }
-                    }));
-
+                    const result = await this.realRemote[methodName](...bridgedArgs);
+                    window.dispatchEvent(new CustomEvent('mojo-response', { detail: { id: callId, result: result, timestamp: Date.now() } }));
                     resolve(result);
-                    console.log(`[MojoProxy] ${callId} Promise resolved.`);
                 } catch (e) {
-                    console.error(`[MojoProxy] realRemote.${methodName} FAILED`, e);
-                    window.dispatchEvent(new CustomEvent('mojo-error', {
-                        detail: {
-                            id: callId,
-                            error: e.toString(),
-                            timestamp: Date.now()
-                        }
-                    }));
+                    window.dispatchEvent(new CustomEvent('mojo-error', { detail: { id: callId, error: e.toString(), timestamp: Date.now() } }));
                     reject(e);
                 }
             })();
         }
 
-        cleanup() {
-            if (global.MojoProxyRegistry) {
-                global.MojoProxyRegistry.delete(this.id);
-            }
-        }
-
-
         static getInterfaceComponents(name) {
-            const result = {
-                Interface: null, // The namespace/spec object or class
-                Remote: null,
-                Receiver: null,
-                isLite: false
-            };
-
-            result.Interface = MojoProxy.resolveInterface(name);
-
-            // Attempt to resolve Remote
-            if (result.Interface && result.Interface.Remote) {
-                result.Remote = result.Interface.Remote;
-            } else {
-                result.Remote = MojoProxy.resolveInterface(name + "Remote");
-                if (result.Remote) result.isLite = true;
-            }
-
-            // Attempt to resolve Receiver
-            // Standard: Interface.Receiver
-            // Lite: usually doesn't have a specific Receiver class, uses mojo.Binding?
-            // Or maybe InterfaceReceiver?
-            if (result.Interface && result.Interface.Receiver) {
-                result.Receiver = result.Interface.Receiver;
-            } else {
-                result.Receiver = MojoProxy.resolveInterface(name + "Receiver");
-                if (!result.Receiver) {
-                    result.Receiver = MojoProxy.resolveInterface(name + "Binding");
-                }
-            }
-
+            const result = { Interface: MojoProxy.resolveInterface(name), Remote: null, Receiver: null };
+            if (result.Interface && result.Interface.Remote) result.Remote = result.Interface.Remote;
+            else result.Remote = MojoProxy.resolveInterface(name + "Remote");
+            if (result.Interface && result.Interface.Receiver) result.Receiver = result.Interface.Receiver;
+            else result.Receiver = MojoProxy.resolveInterface(name + "Receiver") || MojoProxy.resolveInterface(name + "Binding");
             return result;
         }
 
-        static create(interfaceName, handle) {
-            const comps = MojoProxy.getInterfaceComponents(interfaceName);
-
-            if (!comps.Interface && !comps.Remote) {
-                console.error(`[MojoProxy] Interface ${interfaceName} definition not found.`);
-                return null;
-            }
-
-            // 2. Create a pipe for the *real* implementation
+        static create(ifaceName, handle) {
+            const comps = MojoProxy.getInterfaceComponents(ifaceName);
+            if (!comps.Interface && !comps.Remote) return null;
             const pipe = Mojo.createMessagePipe();
-
-            // 3. Create the Proxy object that implements the interface
-            const proxyImpl = new MojoProxy(interfaceName, pipe.handle0, comps);
-
-            // 4. Bind the *intercepted* handle `handle` to our Proxy implementation
+            const proxyImpl = new MojoProxy(ifaceName, pipe.handle0, comps);
             try {
-                if (comps.Receiver) {
-                    const receiver = new comps.Receiver(proxyImpl);
-                    receiver.bind(handle);
-                } else if (typeof mojo !== 'undefined' && mojo.Binding) {
-                    // Fallback to generic mojo.Binding for standard/old bindings
-                    const binding = new mojo.Binding(comps.Interface, proxyImpl, handle);
-                } else {
-                    // Last resort: If we have Lite bindings, we might just be implementing the methods.
-                    // But we need to hook it up to the handle.
-                    // Lite bindings often use `mojo.internal.interfaceSupport.bind(endpoint, ifaceName, ...)`
-                    // OR `new iface.PendingReceiver(handle).handle`?
-
-                    // If we are strictly "Lite", maybe we can't easily creaate a Binding without the helper?
-                    // Let's try to assume there's a way.
-                    console.warn(`[MojoProxy] No Receiver class found for ${interfaceName}. Trying generic bind.`);
-                    if (comps.Interface) {
-                        // Some systems allow:
-                        // mojo.bindInterface(interfaceName, handle, proxyImpl)? No that's for outgoing.
-                        // For incoming: 
-                        // We might need to construct a Receiver helper.
-                        // For now, let's allow it to fail if we can't find a receiver, 
-                        // but "VibrationManager" likely needs a specific handling if it's pure Lite.
-                    }
-
-                    // If we can't bind, we can't intercept.
-                    // But wait! If we can't bind, we shouldn't have created the proxyImpl either?
-                    // Let's return null to fallback to direct connection.
-                    throw new Error("No Receiver class found");
-                }
+                if (comps.Receiver) (new comps.Receiver(proxyImpl)).bind(handle);
+                else if (typeof mojo !== 'undefined' && mojo.Binding) new mojo.Binding(comps.Interface, proxyImpl, handle);
+                else throw new Error("No Receiver");
             } catch (e) {
-                console.error("[MojoProxy] Failed to bind receiver:", e);
-                // Cleanup
-                pipe.handle0.close();
-                pipe.handle1.close();
+                pipe.handle0.close(); pipe.handle1.close();
                 return null;
             }
-
-            return {
-                proxy: proxyImpl,
-                realHandle: pipe.handle1
-            };
-        }
-
-        static findInterfaceClass(name) {
-            // Legacy support if needed, but we used getInterfaceComponents
-            return MojoProxy.resolveInterface(name);
+            return { proxy: proxyImpl, realHandle: pipe.handle1 };
         }
 
         static resolveInterface(name) {
-            // ... existing resolveInterface logic ...
-            // This is a hacky way to find the class. 
-            // In a better version, we would map interface name to class reference explicitly.
-            const parts = name.split('.');
-            // If it's fully qualified...
-            // Otherwise, we search typical namespaces
-
-            // Try to search in window
-            // We need a robust way to find the constructor for "BlobRegistry" 
-            // which might be blink.mojom.BlobRegistry
-
             if (global.MojoBindings && global.MojoBindings._indexData) {
-                // Determine if 'name' is full or short
                 const isFQN = name.includes('.');
-                const shortName = isFQN ? name.split('.').pop() : name;
-
-                // Try exact match first
-                let iface = global.MojoBindings._indexData.interfaces.find(i => {
-                    return (isFQN && i.module + '.' + i.name === name) || (!isFQN && i.name === name);
-                });
-
-                // If not found, try relaxed match (if name is short)
-                if (!iface && !isFQN) {
-                    iface = global.MojoBindings._indexData.interfaces.find(i => i.name === name);
-                }
-
+                let iface = global.MojoBindings._indexData.interfaces.find(i => (isFQN && i.module + '.' + i.name === name) || (!isFQN && i.name === name));
                 if (iface) {
-                    const moduleParts = iface.module.split('.');
-                    let current = window;
-                    for (const part of moduleParts) {
-                        current = current[part];
-                        if (!current) break;
-                    }
-                    if (current && current[iface.name]) return current[iface.name];
+                    let cur = window;
+                    for (const p of iface.module.split('.')) { cur = cur[p]; if (!cur) break; }
+                    if (cur && cur[iface.name]) return cur[iface.name];
                 }
             }
-
-            // Priority 1: Search in mojo.internal.bindings (Universal Fix)
             if (global.mojo && global.mojo.internal && global.mojo.internal.bindings) {
                 let scoped = global.mojo.internal.bindings;
-                const fallbackParts = name.split('.');
-                for (const part of fallbackParts) {
-                    if (!scoped) break;
-                    scoped = scoped[part];
-                }
+                for (const p of name.split('.')) { if (!scoped) break; scoped = scoped[p]; }
                 if (scoped) return scoped;
             }
-
-
-
             return undefined;
         }
     }
 
-    // Export class globally for app.js access
-    if (typeof window !== 'undefined') {
-        window.MojoProxy = MojoProxy;
-    }
-    global.MojoProxy = MojoProxy;
-
-
     // ========================================
-    // Interceptor Manager
+    // INTERCEPTOR MANAGER
     // ========================================
     const InterceptorManager = {
-        interceptors: new Map(), // interfaceName -> MojoInterfaceInterceptor
-        modes: new Map(), // interfaceName -> 'INTERCEPT' | 'LOG'
-        activeProxies: [],
-
-        async handleRequest(interfaceName, clientHandle) {
-            console.log(`[Interceptor] Caught request for ${interfaceName}`);
-
-            // Try to load binding if missing
-            if (global.MojoLoader) {
-                await global.MojoLoader.ensureBinding(interfaceName);
-            }
-
+        interceptors: new Map(), modes: new Map(),
+        async handleRequest(ifaceName, clientHandle) {
+            if (global.MojoLoader) await global.MojoLoader.ensureBinding(ifaceName);
             try {
-                // Create the proxy: Client -> Proxy -> Real
-                const proxyData = MojoProxy.create(interfaceName, clientHandle);
-
+                const proxyData = MojoProxy.create(ifaceName, clientHandle);
                 if (proxyData) {
-                    // Connect the "Real" side of the proxy to the browser
-                    // CRITICAL: Temporarily stop interception to prevent recursion
-                    // Mojo.bindInterface triggers a new request which we would catch again!
-                    const interceptor = this.interceptors.get(interfaceName);
+                    const interceptor = this.interceptors.get(ifaceName);
                     if (interceptor) interceptor.stop();
-
-                    try {
-                        Mojo.bindInterface(interfaceName, proxyData.realHandle);
-                    } finally {
-                        if (interceptor) interceptor.start();
-                    }
-
-                    // Keep track of active proxies
-                    this.activeProxies.push(proxyData.proxy);
+                    try { Mojo.bindInterface(ifaceName, proxyData.realHandle); }
+                    finally { if (interceptor) interceptor.start(); }
                 } else {
-                    // Fallback: Connect client directly to browser if proxy creation fails
-                    console.warn(`[Interceptor] Proxy creation failed, bypassing for ${interfaceName}`);
-
-                    const interceptor = this.interceptors.get(interfaceName);
+                    const interceptor = this.interceptors.get(ifaceName);
                     if (interceptor) interceptor.stop();
-                    try {
-                        Mojo.bindInterface(interfaceName, clientHandle);
-                    } finally {
-                        if (interceptor) interceptor.start();
-                    }
+                    try { Mojo.bindInterface(ifaceName, clientHandle); }
+                    finally { if (interceptor) interceptor.start(); }
                 }
             } catch (err) {
-                console.error(`[Interceptor] Error handling request for ${interfaceName}:`, err);
-                // Attempt to fallback
-                const interceptor = this.interceptors.get(interfaceName);
+                const interceptor = this.interceptors.get(ifaceName);
                 if (interceptor) interceptor.stop();
-                try {
-                    Mojo.bindInterface(interfaceName, clientHandle);
-                } finally {
-                    if (interceptor) interceptor.start();
-                }
+                try { Mojo.bindInterface(ifaceName, clientHandle); } finally { if (interceptor) interceptor.start(); }
             }
         },
-
-        start(interfaceName, mode = 'INTERCEPT') {
-            // Update mode if already running
-            this.modes.set(interfaceName, mode);
-
-            if (this.interceptors.has(interfaceName)) return true;
-
-            if (typeof MojoInterfaceInterceptor === 'undefined') {
-                console.error('MojoInterfaceInterceptor not available. usage: --enable-blink-features=MojoJS,MojoJSTest');
-                return false;
-            }
-
+        start(ifaceName, mode = 'INTERCEPT') {
+            this.modes.set(ifaceName, mode);
+            if (this.interceptors.has(ifaceName)) return true;
             try {
                 let interceptor;
-                let scope = "context";
-
-                // Try "context" scope first (safer for frame-specific interfaces like VibrationManager)
-                try {
-                    interceptor = new MojoInterfaceInterceptor(interfaceName, "context");
-                } catch (contextError) {
-                    console.warn(`[Interceptor] 'context' scope failed for ${interfaceName}, trying 'process'...`, contextError);
-                    scope = "process";
-                    interceptor = new MojoInterfaceInterceptor(interfaceName, "process");
-                }
-
-                interceptor.oninterfacerequest = (e) => {
-                    // e.handle is the pipe endpoint from the client (renderer)
-                    this.handleRequest(interfaceName, e.handle);
-                };
-
+                try { interceptor = new MojoInterfaceInterceptor(ifaceName, "context"); }
+                catch (e) { interceptor = new MojoInterfaceInterceptor(ifaceName, "process"); }
+                interceptor.oninterfacerequest = (e) => this.handleRequest(ifaceName, e.handle);
                 interceptor.start();
-                this.interceptors.set(interfaceName, interceptor);
-                console.log(`[Interceptor] Started for ${interfaceName} (scope: ${scope}, mode: ${mode})`);
+                this.interceptors.set(ifaceName, interceptor);
+                console.log(`[Interceptor] Monitoring ${ifaceName} (${mode})`);
                 return true;
-            } catch (e) {
-                console.error(`[Interceptor] Failed to start for ${interfaceName}:`, e);
-                return false;
-            }
+            } catch (e) { return false; }
         },
-
-        stop(interfaceName) {
-            const interceptor = this.interceptors.get(interfaceName);
-            if (interceptor) {
-                interceptor.stop();
-                this.interceptors.delete(interfaceName);
-                this.modes.delete(interfaceName);
-                console.log(`[Interceptor] Stopped for ${interfaceName}`);
-            }
+        stop(ifaceName) {
+            const int = this.interceptors.get(ifaceName);
+            if (int) { int.stop(); this.interceptors.delete(ifaceName); this.modes.delete(ifaceName); }
         },
-
-        toggle(interfaceName) {
-            if (this.interceptors.has(interfaceName)) {
-                this.stop(interfaceName);
-                return false;
-            } else {
-                return this.start(interfaceName);
-            }
-        },
-
-        isActive(interfaceName) {
-            return this.interceptors.has(interfaceName);
-        },
-
-        getMode(interfaceName) {
-            return this.modes.get(interfaceName) || 'INTERCEPT';
-        },
-
-        setMode(interfaceName, mode) {
-            this.modes.set(interfaceName, mode);
-        }
+        isActive(ifaceName) { return this.interceptors.has(ifaceName); },
+        getMode(ifaceName) { return this.modes.get(ifaceName) || 'INTERCEPT'; }
     };
 
     global.InterceptorManager = InterceptorManager;
+    global.MojoProxy = MojoProxy;
 
-})(window);
+})(this);

@@ -1138,3 +1138,67 @@ body::before {
     color: var(--text-muted);
     cursor: default;
 }
+
+/* Settings and Toggles */
+.settings-group {
+    display: flex;
+    align-items: center;
+    padding: 0 var(--space-md);
+    border-right: 1px solid var(--border-subtle);
+}
+
+.switch-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    cursor: pointer;
+    user-select: none;
+    transition: color var(--transition-fast);
+}
+
+.switch-label:hover {
+    color: var(--text-primary);
+}
+
+.switch-label input {
+    display: none;
+}
+
+.switch-slider {
+    position: relative;
+    width: 32px;
+    height: 18px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-default);
+    border-radius: 20px;
+    transition: all var(--transition-base);
+}
+
+.switch-slider::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: 2px;
+    top: 2px;
+    background: var(--text-tertiary);
+    border-radius: 50%;
+    transition: all var(--transition-base);
+}
+
+input:checked+.switch-slider {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+input:checked+.switch-slider::before {
+    left: 16px;
+    background: white;
+}
+
+.switch-label:hover .switch-slider {
+    border-color: var(--border-focus);
+}

@@ -98,6 +98,7 @@
         // Interceptor
         interceptToggleBtn: document.getElementById('interceptToggleBtn'),
         interceptStatusDot: document.getElementById('interceptStatusDot'),
+        noScrambleToggle: document.getElementById('noScrambleToggle'),
         interceptorPanel: document.getElementById('interceptorPanel'),
         interceptorTableBody: document.getElementById('interceptorTableBody'),
         interceptorDetails: document.getElementById('interceptorDetails'),
@@ -196,12 +197,15 @@
                 if (interfaces && interfaces.length > 0) {
                     state.interfaces = interfaces;
                     renderInterfaceList(interfaces);
+                    // AUTO-MONITOR ALL (Quietly)
+                    setTimeout(() => toggleMonitorAll(true), 100);
                     return;
                 }
             }
 
             // Fallback: load demo interfaces
             loadDemoInterfaces();
+            setTimeout(() => toggleMonitorAll(true), 100);
         } catch (error) {
             console.error('Error loading interfaces:', error);
             loadDemoInterfaces();
@@ -283,6 +287,32 @@
         elements.interceptToggleBtn.addEventListener('click', toggleInterceptor);
         elements.clearActivityBtn?.addEventListener('click', clearActivityLog);
 
+        // No Scramble Toggle
+        if (elements.noScrambleToggle) {
+            elements.noScrambleToggle.addEventListener('change', (e) => {
+                window.mojoNoScramble = e.target.checked;
+                showToast(`Force No Scramble: ${window.mojoNoScramble ? 'ON' : 'OFF'}`);
+            });
+        }
+
+        // Traffic Events
+        window.addEventListener('mojo-protocol-ready', (e) => {
+            const { interface: iface } = e.detail;
+            showToast(`Protocol Synchronized for ${iface}`, 'success');
+
+            // Update UI if the current interface list is showing this interface
+            const items = elements.interfaceList.querySelectorAll(`[data-name="${iface}"]`);
+            items.forEach(item => {
+                if (!item.querySelector('.sync-badge')) {
+                    const badge = document.createElement('span');
+                    badge.className = 'sync-badge';
+                    badge.title = 'Protocol Synchronized';
+                    badge.innerHTML = '✓';
+                    item.appendChild(badge);
+                }
+            });
+        });
+
         // Monitor All & Traffic View
         if (elements.monitorAllBtn) {
             elements.monitorAllBtn.addEventListener('click', toggleMonitorAll);
@@ -299,54 +329,52 @@
         window.switchToInterceptMode = switchToInterceptMode;
     }
 
-    function toggleMonitorAll() {
+    function toggleMonitorAll(quiet = false) {
         if (!state.mojoAvailable) {
-            showToast('MojoJS not available', 'error');
+            if (!quiet) showToast('MojoJS not available', 'error');
             return;
         }
 
         const btn = elements.monitorAllBtn;
         const isMonitoring = btn.classList.contains('active');
+        const isPanelVisible = elements.interceptorPanel.style.display === 'flex';
 
-        if (isMonitoring) {
-            // Stop monitoring
+        if (isMonitoring && !quiet) {
+            if (!isPanelVisible) {
+                // Just show the panel if it's hidden
+                showInterceptorPanel(true);
+                return;
+            }
+            // Stop monitoring if panel was already visible
             state.interfaces.forEach(iface => {
-                // Stop short name
-                if (InterceptorManager.getMode(iface.name) === 'LOG') {
-                    InterceptorManager.stop(iface.name);
-                }
-                // Stop full name
+                if (InterceptorManager.getMode(iface.name) === 'LOG') InterceptorManager.stop(iface.name);
                 const fqn = iface.module ? `${iface.module}.${iface.name}` : null;
-                if (fqn && fqn !== iface.name && InterceptorManager.getMode(fqn) === 'LOG') {
-                    InterceptorManager.stop(fqn);
-                }
+                if (fqn && fqn !== iface.name && InterceptorManager.getMode(fqn) === 'LOG') InterceptorManager.stop(fqn);
             });
             btn.classList.remove('active');
             showToast('Stopped monitoring all interfaces', 'info');
-        } else {
+        } else if (!isMonitoring) {
             // Start monitoring all
             let count = 0;
             state.interfaces.forEach(iface => {
                 let started = false;
-
-                // Start short name
                 if (!InterceptorManager.isActive(iface.name)) {
                     if (InterceptorManager.start(iface.name, 'LOG')) started = true;
                 }
-
-                // Start full name (FQN)
-                // Browser internals often request the full name (e.g. device.mojom.VibrationManager)
-                // while existing lists might only have VibrationManager.
                 const fqn = iface.module ? `${iface.module}.${iface.name}` : null;
                 if (fqn && fqn !== iface.name && !InterceptorManager.isActive(fqn)) {
                     if (InterceptorManager.start(fqn, 'LOG')) started = true;
                 }
-
                 if (started) count++;
             });
+
             btn.classList.add('active');
-            showToast(`Started monitoring ${count} interfaces (including FQNs)`, 'success');
-            showInterceptorPanel(true);
+            if (!quiet) {
+                showToast(`Started monitoring ${count} interfaces`, 'success');
+                showInterceptorPanel(true);
+            } else {
+                console.log(`[AutoMonitor] Background monitoring active for ${count} interfaces.`);
+            }
         }
     }
 
@@ -381,13 +409,17 @@
             return;
         }
 
-        elements.interfaceList.innerHTML = safeHTML(interfaces.map(iface => `
+        elements.interfaceList.innerHTML = safeHTML(interfaces.map(iface => {
+            const isSynced = window.MojoLearnedProtocols && window.MojoLearnedProtocols.has(iface.name);
+            return `
             <div class="interface-item" data-name="${escapeHtml(iface.name)}" data-module="${escapeHtml(iface.module)}">
                 <span class="name">${escapeHtml(iface.name)}</span>
                 <span class="module">${escapeHtml(iface.module)}</span>
                 <span class="method-count">${iface.methods?.length || 0} methods</span>
+                ${isSynced ? '<span class="sync-badge" title="Protocol Synchronized">✓</span>' : ''}
             </div>
-        `).join(''));
+        `;
+        }).join(''));
 
         // Add click handlers
         elements.interfaceList.querySelectorAll('.interface-item').forEach(item => {
