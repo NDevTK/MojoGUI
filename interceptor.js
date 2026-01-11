@@ -359,10 +359,13 @@
                                         endpointLocal.start({
                                             onMessageReceived: (endpoint, header, buffer, handles) => {
                                                 console.log(`[MojoProxy] Bridging message to original handle`, header);
-                                                const res = routerOriginal.pipe.writeMessage(buffer, handles);
+                                                // Test: Disable forwarding to see if crash stops.
+                                                // const res = routerOriginal.pipe.writeMessage(buffer, handles);
+                                                /*
                                                 if (res !== Mojo.RESULT_OK) {
                                                     console.warn('[MojoProxy] Bridge write failed:', res);
                                                 }
+                                                */
                                             },
                                             onError: () => {
                                                 console.log('[MojoProxy] Bridge source closed');
