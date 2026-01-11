@@ -113,10 +113,13 @@ mojo.internal.Struct(
 // Struct: CrossOriginOpenerPolicy
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicySpec, 'network.mojom.CrossOriginOpenerPolicy', [
-      mojo.internal.StructField('arg_reporting_endpoint', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_report_only_reporting_endpoint', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyValueSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_reporting_endpoint', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_report_only_value', 16, 0, mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyValueSpec.$, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_report_only_reporting_endpoint', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_soap_by_default_value', 32, 0, mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyValueSpec.$, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 48]]);
 
 // Interface: CrossOriginOpenerPolicyReporter
 mojo.internal.Struct(
