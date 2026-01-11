@@ -57,6 +57,7 @@
             // Use suffix matching to handle path discrepancies (e.g. chromium_src/ prefix)
             const importEntry = data.files.find(f => f.source === importPath || f.source.endsWith(importPath) || f.source.endsWith('/' + importPath));
             if (importEntry) {
+              console.log(`[MojoBindings] Found dependency: ${importPath} -> ${importEntry.filename}`);
               await this.loadBinding(importEntry.filename);
             } else {
               console.warn(`[MojoBindings] Import not found in index: ${importPath}`);
