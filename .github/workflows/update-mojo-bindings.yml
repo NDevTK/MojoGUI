@@ -897,15 +897,17 @@ jobs:
 
               # Generate constants
               for const in parsed.get('constants', []):
-                  val = str(const['value'])
                   # Heuristic for FQN references
                   if not val.startswith(('0x', "'", '"', 'true', 'false')) and not val[0].isdigit() and val not in ('Infinity', 'NaN'):
-                      if '.mojom.' in val and not val.startswith('mojo.'):
-                          val = f"mojo.internal.bindings.{val}"
-                      elif '.' in val and not val.startswith('mojo.'):
-                           # Local Enum? MyEnum.VAL
+                      # Use regex to replace all occurrences of `mod.mojom.Type` with `mojo.internal.bindings.mod.mojom.Type`
+                      # This handles bitmasks like `A | B`
+                      val = re.sub(r'(?<!mojo\.internal\.bindings\.)([a-zA-Z0-9_]+\.mojom\.[a-zA-Z0-9_.]+)', r'mojo.internal.bindings.\1', val)
+                      
+                      # Handle local references if no dots/mojo/bindings after replacement
+                      if '.' not in val and ' ' not in val and not val.startswith('mojo'):
                            val = f"{current_ns}.{val}"
-                      elif ' ' not in val: # Simple identifier kFoo
+                      elif '.' in val and '.mojom' not in val and not val.startswith('mojo'):
+                           # Local Enum? MyEnum.VAL
                            val = f"{current_ns}.{val}"
 
                   js_code += f"\n{current_ns}.{const['name']} = {val};\n"
