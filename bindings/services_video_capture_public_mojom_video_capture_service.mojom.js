@@ -88,9 +88,9 @@ mojo.internal.bindings.video_capture.mojom.VideoCaptureService_ConnectToVideoSou
 mojo.internal.bindings.video_capture.mojom.VideoCaptureService_BindControlsForTesting_ParamsSpec = { $: {} };
 mojo.internal.bindings.video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec = { $: {} };
 
-mojo.internal.bindings.video_capture.mojom.kVideoCaptureSandbox = sandbox.mojom.Sandbox.kVideoCapture;
+mojo.internal.bindings.video_capture.mojom.kVideoCaptureSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kVideoCapture;
 
-mojo.internal.bindings.video_capture.mojom.kVideoCaptureSandbox = sandbox.mojom.Sandbox.kNoSandbox;
+mojo.internal.bindings.video_capture.mojom.kVideoCaptureSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kNoSandbox;
 
 // Interface: AcceleratorFactory
 mojo.internal.Struct(

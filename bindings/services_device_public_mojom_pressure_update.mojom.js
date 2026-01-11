@@ -77,7 +77,7 @@ mojo.internal.bindings.device.mojom.PressureStateSpec = { $: mojo.internal.Enum(
 mojo.internal.bindings.device.mojom.PressureUpdateSpec = { $: {} };
 mojo.internal.bindings.device.mojom.PressureDataSpec = { $: {} };
 
-mojo.internal.bindings.device.mojom.kDefaultOwnContributionEstimate = -1.0;
+mojo.internal.bindings.device.mojom.kDefaultOwnContributionEstimate = mojo.internal.bindings.device.mojom.-1.0;
 
 // Enum: PressureSource
 mojo.internal.bindings.device.mojom.PressureSource = {

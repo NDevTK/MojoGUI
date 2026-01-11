@@ -267,7 +267,7 @@ mojo.internal.bindings.network.mojom.kWebSocketOptionBlockThirdPartyCookies = 2;
 
 mojo.internal.bindings.network.mojom.kBrowserProcessId = 0;
 
-mojo.internal.bindings.network.mojom.kInvalidProcessId = -1;
+mojo.internal.bindings.network.mojom.kInvalidProcessId = mojo.internal.bindings.network.mojom.-1;
 
 // Enum: TrustTokenOperationPolicyVerdict
 mojo.internal.bindings.network.mojom.TrustTokenOperationPolicyVerdict = {

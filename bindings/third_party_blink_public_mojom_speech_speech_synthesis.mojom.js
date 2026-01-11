@@ -100,7 +100,7 @@ mojo.internal.bindings.blink.mojom.kSpeechSynthesisDefaultPitch = 1.0;
 
 mojo.internal.bindings.blink.mojom.kSpeechSynthesisDefaultVolume = 1.0;
 
-mojo.internal.bindings.blink.mojom.kSpeechSynthesisDoublePrefNotSet = -1.0;
+mojo.internal.bindings.blink.mojom.kSpeechSynthesisDoublePrefNotSet = mojo.internal.bindings.blink.mojom.-1.0;
 
 // Enum: SpeechSynthesisErrorCode
 mojo.internal.bindings.blink.mojom.SpeechSynthesisErrorCode = {

@@ -82,9 +82,9 @@ mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient.$interfaceName 
 mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec = { $: {} };
 
-mojo.internal.bindings.chrome.mojom.kRemovableStorageWriterSandbox = sandbox.mojom.Sandbox.kNoSandboxAndElevatedPrivileges;
+mojo.internal.bindings.chrome.mojom.kRemovableStorageWriterSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kNoSandboxAndElevatedPrivileges;
 
-mojo.internal.bindings.chrome.mojom.kRemovableStorageWriterSandbox = sandbox.mojom.Sandbox.kNoSandbox;
+mojo.internal.bindings.chrome.mojom.kRemovableStorageWriterSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kNoSandbox;
 
 mojo.internal.bindings.chrome.mojom.kTestDevice = "chrome:
 

@@ -118,9 +118,9 @@ mojo.internal.bindings.device.mojom.XRDeviceServiceHost = {};
 mojo.internal.bindings.device.mojom.XRDeviceServiceHost.$interfaceName = 'device.mojom.XRDeviceServiceHost';
 mojo.internal.bindings.device.mojom.XRDeviceServiceHost_BindGpu_ParamsSpec = { $: {} };
 
-mojo.internal.bindings.device.mojom.kXrSandbox = sandbox.mojom.Sandbox.kXrCompositing;
+mojo.internal.bindings.device.mojom.kXrSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kXrCompositing;
 
-mojo.internal.bindings.device.mojom.kXrSandbox = sandbox.mojom.Sandbox.kUtility;
+mojo.internal.bindings.device.mojom.kXrSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kUtility;
 
 // Struct: XRRuntimeSessionOptions
 mojo.internal.Struct(

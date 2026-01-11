@@ -76,11 +76,11 @@ mojo.internal.bindings.media.mojom.MediaService = {};
 mojo.internal.bindings.media.mojom.MediaService.$interfaceName = 'media.mojom.MediaService';
 mojo.internal.bindings.media.mojom.MediaService_CreateInterfaceFactory_ParamsSpec = { $: {} };
 
-mojo.internal.bindings.media.mojom.kMediaSandbox = sandbox.mojom.Sandbox.kNoSandbox;
+mojo.internal.bindings.media.mojom.kMediaSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kNoSandbox;
 
-mojo.internal.bindings.media.mojom.kMediaSandbox = sandbox.mojom.Sandbox.kGpu;
+mojo.internal.bindings.media.mojom.kMediaSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kGpu;
 
-mojo.internal.bindings.media.mojom.kMediaSandbox = sandbox.mojom.Sandbox.kService;
+mojo.internal.bindings.media.mojom.kMediaSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kService;
 
 // Interface: MediaService
 mojo.internal.Struct(

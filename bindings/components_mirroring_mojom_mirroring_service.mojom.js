@@ -81,11 +81,11 @@ mojo.internal.bindings.mirroring.mojom.MirroringService_SwitchMirroringSourceTab
 mojo.internal.bindings.mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec = { $: {} };
 mojo.internal.bindings.mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec = { $: {} };
 
-mojo.internal.bindings.mirroring.mojom.kMirroringSandbox = sandbox.mojom.Sandbox.kMirroring;
+mojo.internal.bindings.mirroring.mojom.kMirroringSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kMirroring;
 
-mojo.internal.bindings.mirroring.mojom.kMirroringSandbox = sandbox.mojom.Sandbox.kHardwareVideoEncoding;
+mojo.internal.bindings.mirroring.mojom.kMirroringSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kHardwareVideoEncoding;
 
-mojo.internal.bindings.mirroring.mojom.kMirroringSandbox = sandbox.mojom.Sandbox.kService;
+mojo.internal.bindings.mirroring.mojom.kMirroringSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kService;
 
 // Interface: MirroringService
 mojo.internal.Struct(
