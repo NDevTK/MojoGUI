@@ -299,25 +299,10 @@
                 }
             }
         }
-        // MONKEY PATCH: Fix ControlMessageHandler crash (RUN_MESSAGE_ID)
-        if (mojo.internal.interfaceSupport.ControlMessageHandler) {
-            const OriginalHandler = mojo.internal.interfaceSupport.ControlMessageHandler;
-            const OriginalProto = OriginalHandler.prototype;
-            if (OriginalProto.maybeHandleControlMessage) {
-                console.warn('[Interceptor] Monkey-patching ControlMessageHandler.maybeHandleControlMessage');
-                OriginalProto.maybeHandleControlMessage = function (message) {
-                    const ICM = mojo.internal.interfaceSupport.InterfaceControlMessage;
-                    if (ICM && message && message.header && message.header.type === ICM.RUN_MESSAGE_ID) {
-                        // Try to handle or return false
-                        return false; // Safest to ignore in this fragile env
-                    }
-                    return false;
-                };
-            }
-        }
-        // console.log('[Interceptor] mojo.internal.Decoder.prototype:', mojo.internal.Decoder.prototype);
-
     }
+
+    // console.log('[Interceptor] mojo.internal.Decoder.prototype:', mojo.internal.Decoder.prototype);
+
 
     // ========================================
     // MojoProxy
@@ -345,7 +330,7 @@
                     console.error(`[MojoProxy] Could not find Remote class for ${interfaceName}`);
                 }
             }
-
+            this.receiver = null;
             this.pendingMessages = new Map(); // id -> { resolve, reject, args }
             this.id = Math.random().toString(36).substr(2, 9);
 
@@ -526,11 +511,11 @@
             // 4. Bind the *intercepted* handle `handle` to our Proxy implementation
             try {
                 if (comps.Receiver) {
-                    const receiver = new comps.Receiver(proxyImpl);
-                    receiver.bind(handle);
+                    proxyImpl.receiver = new comps.Receiver(proxyImpl);
+                    proxyImpl.receiver.bind(handle);
                 } else if (typeof mojo !== 'undefined' && mojo.Binding) {
                     // Fallback to generic mojo.Binding for standard/old bindings
-                    const binding = new mojo.Binding(comps.Interface, proxyImpl, handle);
+                    proxyImpl.receiver = new mojo.Binding(comps.Interface, proxyImpl, handle);
                 } else {
                     // Last resort: If we have Lite bindings, we might just be implementing the methods.
                     // But we need to hook it up to the handle.
