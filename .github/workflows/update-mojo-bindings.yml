@@ -1201,6 +1201,10 @@ jobs:
                   js_code += "      }\n" # End discovery block
                   
                   js_code += "      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);\n"
+                  js_code += "      \n"
+                  js_code += "      // FEEDBACK LOOP: Report the wire truth to the learner\n"
+                  js_code += "      this.mapOrdinal(header.ordinal, dispatchId);\n"
+                  js_code += "      \n"
                   js_code += "      switch (dispatchId) {\n"
                   
                   for idx, method in enumerate(interface.get('methods', [])):
