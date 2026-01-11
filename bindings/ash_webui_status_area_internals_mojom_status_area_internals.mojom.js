@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/status_area_internals/mojom/status_area_internals.mojom
 // Module: ash.mojom.status_area_internals
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.mojom = ash.mojom || {};
@@ -519,7 +514,7 @@ ash.mojom.status_area_internals.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

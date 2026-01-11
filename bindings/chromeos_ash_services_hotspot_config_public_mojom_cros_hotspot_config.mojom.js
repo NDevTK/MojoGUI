@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/hotspot_config/public/mojom/cros_hotspot_config.mojom
 // Module: ash.hotspot_config.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.hotspot_config = ash.hotspot_config || {};
@@ -471,7 +466,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -597,7 +592,7 @@ ash.hotspot_config.mojom.CrosHotspotConfigObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -756,7 +751,7 @@ ash.hotspot_config.mojom.HotspotEnabledStateObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

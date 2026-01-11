@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/components/sensors/mojom/cros_sensor_service.mojom
 // Module: chromeos.sensors.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.sensors = chromeos.sensors || {};
@@ -136,7 +131,7 @@ chromeos.sensors.mojom.SensorHalServerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -263,7 +258,7 @@ chromeos.sensors.mojom.SensorHalClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

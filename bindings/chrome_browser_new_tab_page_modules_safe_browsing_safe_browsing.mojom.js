@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/new_tab_page/modules/safe_browsing/safe_browsing.mojom
 // Module: ntp.safe_browsing.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ntp = ntp || {};
 ntp.safe_browsing = ntp.safe_browsing || {};
@@ -244,7 +239,7 @@ ntp.safe_browsing.mojom.SafeBrowsingHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

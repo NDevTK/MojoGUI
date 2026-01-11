@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/components/smbfs/mojom/ip_address.mojom
 // Module: smbfs.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var smbfs = smbfs || {};
 smbfs.mojom = smbfs.mojom || {};

@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/sample_system_web_app_ui/mojom/sample_system_web_app_ui.mojom
 // Module: ash.mojom.sample_swa
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.mojom = ash.mojom || {};
@@ -153,7 +148,7 @@ ash.mojom.sample_swa.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -356,7 +351,7 @@ ash.mojom.sample_swa.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -517,7 +512,7 @@ ash.mojom.sample_swa.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

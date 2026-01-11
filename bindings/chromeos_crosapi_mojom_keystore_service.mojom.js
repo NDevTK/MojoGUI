@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/crosapi/mojom/keystore_service.mojom
 // Module: crosapi.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
@@ -1447,7 +1442,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

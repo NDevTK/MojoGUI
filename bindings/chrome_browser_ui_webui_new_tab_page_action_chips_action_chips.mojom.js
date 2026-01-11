@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/new_tab_page/action_chips/action_chips.mojom
 // Module: action_chips.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var action_chips = action_chips || {};
 action_chips.mojom = action_chips.mojom || {};
@@ -170,7 +165,7 @@ action_chips.mojom.ActionChipsHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -297,7 +292,7 @@ action_chips.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -425,7 +420,7 @@ action_chips.mojom.ActionChipsHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

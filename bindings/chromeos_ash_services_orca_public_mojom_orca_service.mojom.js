@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/orca/public/mojom/orca_service.mojom
 // Module: ash.orca.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.orca = ash.orca || {};
@@ -858,7 +853,7 @@ ash.orca.mojom.EditorClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -985,7 +980,7 @@ ash.orca.mojom.EditorClientConnectorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1112,7 +1107,7 @@ ash.orca.mojom.EditorEventSinkReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1499,7 +1494,7 @@ ash.orca.mojom.SystemActuatorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1638,7 +1633,7 @@ ash.orca.mojom.TextQueryProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1769,7 +1764,7 @@ ash.orca.mojom.OrcaServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

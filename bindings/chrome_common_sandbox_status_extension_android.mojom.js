@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/common/sandbox_status_extension_android.mojom
 // Module: chrome.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
@@ -131,7 +126,7 @@ chrome.mojom.SandboxStatusExtensionReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

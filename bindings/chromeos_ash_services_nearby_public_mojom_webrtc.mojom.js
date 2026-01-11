@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/nearby/public/mojom/webrtc.mojom
 // Module: sharing.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var sharing = sharing || {};
 sharing.mojom = sharing.mojom || {};
@@ -170,7 +165,7 @@ sharing.mojom.IceConfigFetcherReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -297,7 +292,7 @@ sharing.mojom.MdnsResponderFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

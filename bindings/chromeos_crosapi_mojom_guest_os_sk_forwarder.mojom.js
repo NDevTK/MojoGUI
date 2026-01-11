@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/crosapi/mojom/guest_os_sk_forwarder.mojom
 // Module: crosapi.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
@@ -136,7 +131,7 @@ crosapi.mojom.GuestOsSkForwarderFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -275,7 +270,7 @@ crosapi.mojom.GuestOsSkForwarderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/ipc/ipc.mojom
 // Module: IPC.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var IPC = IPC || {};
 IPC.mojom = IPC.mojom || {};
@@ -179,7 +174,7 @@ IPC.mojom.ChannelReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -273,7 +268,7 @@ IPC.mojom.ChannelBootstrapReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

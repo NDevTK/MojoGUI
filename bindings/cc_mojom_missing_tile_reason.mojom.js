@@ -2,11 +2,6 @@
 // Source: chromium_src/cc/mojom/missing_tile_reason.mojom
 // Module: cc.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var cc = cc || {};
 cc.mojom = cc.mojom || {};

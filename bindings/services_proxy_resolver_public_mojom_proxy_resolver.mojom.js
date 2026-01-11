@@ -2,11 +2,6 @@
 // Source: chromium_src/services/proxy_resolver/public/mojom/proxy_resolver.mojom
 // Module: proxy_resolver.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var proxy_resolver = proxy_resolver || {};
 proxy_resolver.mojom = proxy_resolver.mojom || {};
@@ -201,7 +196,7 @@ proxy_resolver.mojom.HostResolverRequestClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -330,7 +325,7 @@ proxy_resolver.mojom.ProxyResolverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -561,7 +556,7 @@ proxy_resolver.mojom.ProxyResolverRequestClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -690,7 +685,7 @@ proxy_resolver.mojom.ProxyResolverFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -920,7 +915,7 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1060,7 +1055,7 @@ proxy_resolver.mojom.SystemProxyResolverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/services/machine_learning/public/mojom/graph_executor.mojom
 // Module: chromeos.machine_learning.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.machine_learning = chromeos.machine_learning || {};
@@ -163,7 +158,7 @@ chromeos.machine_learning.mojom.GraphExecutorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

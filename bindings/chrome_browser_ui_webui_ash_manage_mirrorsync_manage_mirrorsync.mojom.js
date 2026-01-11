@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/manage_mirrorsync/manage_mirrorsync.mojom
 // Module: ash.manage_mirrorsync.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.manage_mirrorsync = ash.manage_mirrorsync || {};
@@ -148,7 +143,7 @@ ash.manage_mirrorsync.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -332,7 +327,7 @@ ash.manage_mirrorsync.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

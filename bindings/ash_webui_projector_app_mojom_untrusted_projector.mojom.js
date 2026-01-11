@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/projector_app/mojom/untrusted_projector.mojom
 // Module: ash.projector.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.projector = ash.projector || {};
@@ -628,7 +623,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -885,7 +880,7 @@ ash.projector.mojom.UntrustedProjectorPageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1013,7 +1008,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

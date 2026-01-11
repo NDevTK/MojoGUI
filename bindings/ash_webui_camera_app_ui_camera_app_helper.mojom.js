@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/camera_app_ui/camera_app_helper.mojom
 // Module: ash.camera_app.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.camera_app = ash.camera_app || {};
@@ -342,7 +337,7 @@ ash.camera_app.mojom.TabletModeMonitorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -469,7 +464,7 @@ ash.camera_app.mojom.ScreenStateMonitorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -596,7 +591,7 @@ ash.camera_app.mojom.ScreenLockedMonitorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -723,7 +718,7 @@ ash.camera_app.mojom.ExternalScreenMonitorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -861,7 +856,7 @@ ash.camera_app.mojom.CameraUsageOwnershipMonitorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -988,7 +983,7 @@ ash.camera_app.mojom.LidStateMonitorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1115,7 +1110,7 @@ ash.camera_app.mojom.SWPrivacySwitchMonitorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1275,7 +1270,7 @@ ash.camera_app.mojom.WindowStateMonitorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1402,7 +1397,7 @@ ash.camera_app.mojom.StorageMonitorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1800,7 +1795,7 @@ ash.camera_app.mojom.WindowStateControllerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -3209,7 +3204,7 @@ ash.camera_app.mojom.CameraAppHelperReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

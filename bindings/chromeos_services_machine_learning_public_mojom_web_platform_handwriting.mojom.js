@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/services/machine_learning/public/mojom/web_platform_handwriting.mojom
 // Module: chromeos.machine_learning.web_platform.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.machine_learning = chromeos.machine_learning || {};
@@ -217,7 +212,7 @@ chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerReceiver = cla
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

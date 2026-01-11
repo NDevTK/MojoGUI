@@ -2,11 +2,6 @@
 // Source: chromium_src/services/network/public/mojom/host_resolver.mojom
 // Module: network.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
@@ -284,7 +279,7 @@ network.mojom.ResolveHostHandleReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -480,7 +475,7 @@ network.mojom.ResolveHostClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -713,7 +708,7 @@ network.mojom.MdnsListenClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -890,7 +885,7 @@ network.mojom.HostResolverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1016,7 +1011,7 @@ network.mojom.DnsConfigChangeManagerClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1143,7 +1138,7 @@ network.mojom.DnsConfigChangeManagerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

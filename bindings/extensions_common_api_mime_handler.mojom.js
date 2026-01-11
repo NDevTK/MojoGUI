@@ -2,11 +2,6 @@
 // Source: chromium_src/extensions/common/api/mime_handler.mojom
 // Module: extensions.mime_handler
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var extensions = extensions || {};
 extensions.mime_handler = extensions.mime_handler || {};
@@ -204,7 +199,7 @@ extensions.mime_handler.MimeHandlerServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -342,7 +337,7 @@ extensions.mime_handler.BeforeUnloadControlReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

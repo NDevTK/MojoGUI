@@ -2,11 +2,6 @@
 // Source: chromium_src/ui/ozone/platform/wayland/mojom/wayland_presentation_info.mojom
 // Module: wl.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var wl = wl || {};
 wl.mojom = wl.mojom || {};

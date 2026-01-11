@@ -2,11 +2,6 @@
 // Source: chromium_src/printing/mojom/printing_context.mojom
 // Module: printing.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var printing = printing || {};
 printing.mojom = printing.mojom || {};

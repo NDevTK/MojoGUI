@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/new_tab_page/modules/v2/tab_groups/tab_groups.mojom
 // Module: ntp.tab_groups.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ntp = ntp || {};
 ntp.tab_groups = ntp.tab_groups || {};
@@ -296,7 +291,7 @@ ntp.tab_groups.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

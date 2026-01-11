@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/shimless_rma/mojom/shimless_rma.mojom
 // Module: ash.shimless_rma.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.shimless_rma = ash.shimless_rma || {};
@@ -701,7 +696,7 @@ ash.shimless_rma.mojom.ErrorObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -830,7 +825,7 @@ ash.shimless_rma.mojom.OsUpdateObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -990,7 +985,7 @@ ash.shimless_rma.mojom.CalibrationObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1119,7 +1114,7 @@ ash.shimless_rma.mojom.ProvisioningObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1246,7 +1241,7 @@ ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1373,7 +1368,7 @@ ash.shimless_rma.mojom.PowerCableStateObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1500,7 +1495,7 @@ ash.shimless_rma.mojom.ExternalDiskStateObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1627,7 +1622,7 @@ ash.shimless_rma.mojom.HardwareVerificationStatusObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1756,7 +1751,7 @@ ash.shimless_rma.mojom.FinalizationObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1883,7 +1878,7 @@ ash.shimless_rma.mojom.UpdateRoFirmwareObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -5102,7 +5097,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/services/network/public/mojom/chunked_data_pipe_getter.mojom
 // Module: network.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
@@ -179,7 +174,7 @@ network.mojom.ChunkedDataPipeGetterReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

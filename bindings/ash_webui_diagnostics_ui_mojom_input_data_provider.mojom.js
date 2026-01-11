@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/diagnostics_ui/mojom/input_data_provider.mojom
 // Module: ash.diagnostics.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.diagnostics = ash.diagnostics || {};
@@ -275,7 +270,7 @@ ash.diagnostics.mojom.KeyboardObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -402,7 +397,7 @@ ash.diagnostics.mojom.InternalDisplayPowerStateObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -529,7 +524,7 @@ ash.diagnostics.mojom.TabletModeObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -656,7 +651,7 @@ ash.diagnostics.mojom.LidStateObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -882,7 +877,7 @@ ash.diagnostics.mojom.ConnectedDevicesObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1308,7 +1303,7 @@ ash.diagnostics.mojom.InputDataProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/new_tab_page_third_party/new_tab_page_third_party.mojom
 // Module: new_tab_page_third_party.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var new_tab_page_third_party = new_tab_page_third_party || {};
 new_tab_page_third_party.mojom = new_tab_page_third_party.mojom || {};
@@ -156,7 +151,7 @@ new_tab_page_third_party.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -282,7 +277,7 @@ new_tab_page_third_party.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -409,7 +404,7 @@ new_tab_page_third_party.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

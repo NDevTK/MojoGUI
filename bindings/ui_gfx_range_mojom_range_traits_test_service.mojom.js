@@ -2,11 +2,6 @@
 // Source: chromium_src/ui/gfx/range/mojom/range_traits_test_service.mojom
 // Module: gfx.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
@@ -192,7 +187,7 @@ gfx.mojom.RangeTraitsTestServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

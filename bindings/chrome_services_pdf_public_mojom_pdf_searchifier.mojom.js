@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/services/pdf/public/mojom/pdf_searchifier.mojom
 // Module: pdf.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var pdf = pdf || {};
 pdf.mojom = pdf.mojom || {};
@@ -145,7 +140,7 @@ pdf.mojom.PdfSearchifierReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

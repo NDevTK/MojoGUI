@@ -2,11 +2,6 @@
 // Source: chromium_src/content/services/auction_worklet/public/mojom/trusted_signals_cache.mojom
 // Module: auction_worklet.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var auction_worklet = auction_worklet || {};
 auction_worklet.mojom = auction_worklet.mojom || {};
@@ -188,7 +183,7 @@ auction_worklet.mojom.TrustedSignalsCacheClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -316,7 +311,7 @@ auction_worklet.mojom.TrustedSignalsCacheReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

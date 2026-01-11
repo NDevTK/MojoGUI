@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/web_app_internals/web_app_internals.mojom
 // Module: mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var mojom = mojom || {};
 var mojo_base = mojo_base || {};
@@ -918,7 +913,7 @@ mojom.WebAppInternalsHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/content/public/test/mojo_capability_control_test_interfaces.mojom
 // Module: content.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
@@ -152,7 +147,7 @@ content.mojom.TestInterfaceForDeferReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -246,7 +241,7 @@ content.mojom.TestInterfaceForGrantReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -340,7 +335,7 @@ content.mojom.TestInterfaceForCancelReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -434,7 +429,7 @@ content.mojom.TestInterfaceForUnexpectedReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -560,7 +555,7 @@ content.mojom.MojoContextProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

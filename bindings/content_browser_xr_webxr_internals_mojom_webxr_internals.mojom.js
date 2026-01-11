@@ -2,11 +2,6 @@
 // Source: chromium_src/content/browser/xr/webxr_internals/mojom/webxr_internals.mojom
 // Module: webxr.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var webxr = webxr || {};
 webxr.mojom = webxr.mojom || {};
@@ -297,7 +292,7 @@ webxr.mojom.WebXrInternalsHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -655,7 +650,7 @@ webxr.mojom.XRInternalsSessionListenerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

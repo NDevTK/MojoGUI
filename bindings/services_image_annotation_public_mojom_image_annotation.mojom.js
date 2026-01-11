@@ -2,11 +2,6 @@
 // Source: chromium_src/services/image_annotation/public/mojom/image_annotation.mojom
 // Module: image_annotation.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var image_annotation = image_annotation || {};
 image_annotation.mojom = image_annotation.mojom || {};
@@ -196,7 +191,7 @@ image_annotation.mojom.ImageProcessorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -337,7 +332,7 @@ image_annotation.mojom.AnnotatorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -464,7 +459,7 @@ image_annotation.mojom.ImageAnnotationServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

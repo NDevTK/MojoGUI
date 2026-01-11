@@ -2,11 +2,6 @@
 // Source: chromium_src/services/network/public/mojom/websocket.mojom
 // Module: network.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
@@ -207,7 +202,7 @@ network.mojom.WebSocketAuthenticationHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -406,7 +401,7 @@ network.mojom.WebSocketHandshakeClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -602,7 +597,7 @@ network.mojom.WebSocketClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -796,7 +791,7 @@ network.mojom.WebSocketReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

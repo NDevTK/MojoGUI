@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/public/mojom/hid_preserving_bluetooth_state_controller.mojom
 // Module: ash.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.mojom = ash.mojom || {};
@@ -140,7 +135,7 @@ ash.mojom.HidPreservingBluetoothStateControllerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

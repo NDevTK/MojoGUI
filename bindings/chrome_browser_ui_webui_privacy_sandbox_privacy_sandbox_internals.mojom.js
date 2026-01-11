@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/privacy_sandbox/privacy_sandbox_internals.mojom
 // Module: privacy_sandbox_internals.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var privacy_sandbox_internals = privacy_sandbox_internals || {};
 privacy_sandbox_internals.mojom = privacy_sandbox_internals.mojom || {};
@@ -345,7 +340,7 @@ privacy_sandbox_internals.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -439,7 +434,7 @@ privacy_sandbox_internals.mojom.PageReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

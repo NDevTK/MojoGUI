@@ -2,11 +2,6 @@
 // Source: chromium_src/components/history_clusters/public/mojom/history_cluster_types.mojom
 // Module: history_clusters.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var history_clusters = history_clusters || {};
 history_clusters.mojom = history_clusters.mojom || {};

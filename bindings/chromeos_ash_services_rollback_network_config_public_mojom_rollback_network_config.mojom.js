@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/rollback_network_config/public/mojom/rollback_network_config.mojom
 // Module: ash.rollback_network_config.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.rollback_network_config = ash.rollback_network_config || {};
@@ -192,7 +187,7 @@ ash.rollback_network_config.mojom.RollbackNetworkConfigReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

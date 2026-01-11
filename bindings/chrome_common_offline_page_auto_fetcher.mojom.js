@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/common/offline_page_auto_fetcher.mojom
 // Module: chrome.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
@@ -187,7 +182,7 @@ chrome.mojom.OfflinePageAutoFetcherReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

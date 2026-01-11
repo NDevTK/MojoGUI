@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/location_internals/location_internals.mojom
 // Module: mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var mojom = mojom || {};
 var device = device || {};
@@ -132,7 +127,7 @@ mojom.LocationInternalsHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

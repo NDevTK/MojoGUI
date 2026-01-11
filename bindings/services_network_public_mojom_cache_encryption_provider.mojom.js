@@ -2,11 +2,6 @@
 // Source: chromium_src/services/network/public/mojom/cache_encryption_provider.mojom
 // Module: network.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
@@ -145,7 +140,7 @@ network.mojom.CacheEncryptionProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

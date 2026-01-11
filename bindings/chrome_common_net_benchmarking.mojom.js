@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/common/net_benchmarking.mojom
 // Module: chrome.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
@@ -278,7 +273,7 @@ chrome.mojom.NetBenchmarkingReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

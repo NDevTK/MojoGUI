@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/sensor_info/sensor.mojom
 // Module: sensor.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var sensor = sensor || {};
 sensor.mojom = sensor.mojom || {};
@@ -183,7 +178,7 @@ sensor.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -341,7 +336,7 @@ sensor.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

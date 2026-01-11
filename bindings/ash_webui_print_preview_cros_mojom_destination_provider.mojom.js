@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/print_preview_cros/mojom/destination_provider.mojom
 // Module: ash.printing.print_preview.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.printing = ash.printing || {};
@@ -149,7 +144,7 @@ ash.printing.print_preview.mojom.DestinationProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

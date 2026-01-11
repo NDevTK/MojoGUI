@@ -2,11 +2,6 @@
 // Source: chromium_src/components/commerce/core/internals/mojom/commerce_internals.mojom
 // Module: commerce.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var commerce = commerce || {};
 commerce.mojom = commerce.mojom || {};
@@ -193,7 +188,7 @@ commerce.mojom.CommerceInternalsHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -572,7 +567,7 @@ commerce.mojom.CommerceInternalsHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -699,7 +694,7 @@ commerce.mojom.CommerceInternalsPageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

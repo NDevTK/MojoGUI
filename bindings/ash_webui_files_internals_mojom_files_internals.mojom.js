@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/files_internals/mojom/files_internals.mojom
 // Module: ash.mojom.files_internals
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.mojom = ash.mojom || {};
@@ -694,7 +689,7 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

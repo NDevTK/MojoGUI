@@ -2,11 +2,6 @@
 // Source: chromium_src/services/viz/public/mojom/compositing/compositor_frame_sink.mojom
 // Module: viz.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
@@ -382,7 +377,7 @@ viz.mojom.CompositorFrameSinkReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -676,7 +671,7 @@ viz.mojom.CompositorFrameSinkClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

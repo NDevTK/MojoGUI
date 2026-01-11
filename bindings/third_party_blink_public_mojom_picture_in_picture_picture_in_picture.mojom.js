@@ -2,11 +2,6 @@
 // Source: chromium_src/third_party/blink/public/mojom/picture_in_picture/picture_in_picture.mojom
 // Module: blink.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
@@ -179,7 +174,7 @@ blink.mojom.PictureInPictureSessionObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -386,7 +381,7 @@ blink.mojom.PictureInPictureSessionReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -532,7 +527,7 @@ blink.mojom.PictureInPictureServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

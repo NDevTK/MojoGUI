@@ -2,11 +2,6 @@
 // Source: chromium_src/components/services/storage/privileged/mojom/indexed_db_client_state_checker.mojom
 // Module: storage.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
@@ -192,7 +187,7 @@ storage.mojom.IndexedDBClientStateCheckerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -286,7 +281,7 @@ storage.mojom.IndexedDBClientKeepActiveReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

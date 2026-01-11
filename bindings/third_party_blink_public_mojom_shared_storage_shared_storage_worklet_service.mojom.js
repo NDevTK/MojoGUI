@@ -2,11 +2,6 @@
 // Source: chromium_src/third_party/blink/public/mojom/shared_storage/shared_storage_worklet_service.mojom
 // Module: blink.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
@@ -211,7 +206,7 @@ blink.mojom.SharedStorageEntriesListenerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -713,7 +708,7 @@ blink.mojom.SharedStorageWorkletServiceClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -999,7 +994,7 @@ blink.mojom.SharedStorageWorkletServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

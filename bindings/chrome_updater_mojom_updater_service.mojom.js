@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/updater/mojom/updater_service.mojom
 // Module: updater.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var updater = updater || {};
 updater.mojom = updater.mojom || {};
@@ -906,7 +901,7 @@ updater.mojom.UpdateServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1066,7 +1061,7 @@ updater.mojom.StateChangeObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/experiences/arc/mojom/wake_lock.mojom
 // Module: arc.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
@@ -194,7 +189,7 @@ arc.mojom.WakeLockHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -332,7 +327,7 @@ arc.mojom.WakeLockInstanceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

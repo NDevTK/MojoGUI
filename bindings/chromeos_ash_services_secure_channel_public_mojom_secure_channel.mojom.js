@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/secure_channel/public/mojom/secure_channel.mojom
 // Module: ash.secure_channel.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.secure_channel = ash.secure_channel || {};
@@ -363,7 +358,7 @@ ash.secure_channel.mojom.ChannelReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -490,7 +485,7 @@ ash.secure_channel.mojom.MessageReceiverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -652,7 +647,7 @@ ash.secure_channel.mojom.ConnectionDelegateReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -847,7 +842,7 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1096,7 +1091,7 @@ ash.secure_channel.mojom.SecureChannelReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

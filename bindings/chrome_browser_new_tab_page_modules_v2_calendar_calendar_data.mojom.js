@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/new_tab_page/modules/v2/calendar/calendar_data.mojom
 // Module: ntp.calendar.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ntp = ntp || {};
 ntp.calendar = ntp.calendar || {};

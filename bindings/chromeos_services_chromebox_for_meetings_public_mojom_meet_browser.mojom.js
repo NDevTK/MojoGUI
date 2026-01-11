@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/services/chromebox_for_meetings/public/mojom/meet_browser.mojom
 // Module: ash.cfm.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.cfm = ash.cfm || {};
@@ -146,7 +141,7 @@ ash.cfm.mojom.MeetBrowserReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

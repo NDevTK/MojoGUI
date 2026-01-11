@@ -2,11 +2,6 @@
 // Source: chromium_src/components/cast_streaming/common/public/mojom/demuxer_connector.mojom
 // Module: cast_streaming.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var cast_streaming = cast_streaming || {};
 cast_streaming.mojom = cast_streaming.mojom || {};
@@ -270,7 +265,7 @@ cast_streaming.mojom.AudioBufferRequesterReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -452,7 +447,7 @@ cast_streaming.mojom.VideoBufferRequesterReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -623,7 +618,7 @@ cast_streaming.mojom.DemuxerConnectorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

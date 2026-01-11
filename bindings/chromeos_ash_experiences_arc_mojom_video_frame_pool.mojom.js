@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/experiences/arc/mojom/video_frame_pool.mojom
 // Module: arc.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
@@ -196,7 +191,7 @@ arc.mojom.VideoFramePoolReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -337,7 +332,7 @@ arc.mojom.VideoFramePoolClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

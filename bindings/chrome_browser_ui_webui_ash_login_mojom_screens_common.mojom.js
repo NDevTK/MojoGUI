@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/login/mojom/screens_common.mojom
 // Module: ash.screens_common.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.screens_common = ash.screens_common || {};
@@ -181,7 +176,7 @@ ash.screens_common.mojom.AiIntroPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -308,7 +303,7 @@ ash.screens_common.mojom.AiIntroPageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -434,7 +429,7 @@ ash.screens_common.mojom.AppDownloadingPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -594,7 +589,7 @@ ash.screens_common.mojom.DrivePinningPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -722,7 +717,7 @@ ash.screens_common.mojom.DrivePinningPageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -848,7 +843,7 @@ ash.screens_common.mojom.FjordStationSetupPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1007,7 +1002,7 @@ ash.screens_common.mojom.GaiaInfoPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1133,7 +1128,7 @@ ash.screens_common.mojom.GaiaInfoPageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1324,7 +1319,7 @@ ash.screens_common.mojom.GestureNavigationPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1482,7 +1477,7 @@ ash.screens_common.mojom.GeminiIntroPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

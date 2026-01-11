@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/components/emoji/tenor_types.mojom
 // Module: tenor.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var tenor = tenor || {};
 tenor.mojom = tenor.mojom || {};

@@ -2,11 +2,6 @@
 // Source: chromium_src/components/security_interstitials/core/common/mojom/interstitial_commands.mojom
 // Module: security_interstitials.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var security_interstitials = security_interstitials || {};
 security_interstitials.mojom = security_interstitials.mojom || {};
@@ -791,7 +786,7 @@ security_interstitials.mojom.InterstitialCommandsReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

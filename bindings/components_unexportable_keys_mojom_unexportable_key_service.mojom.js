@@ -2,11 +2,6 @@
 // Source: chromium_src/components/unexportable_keys/mojom/unexportable_key_service.mojom
 // Module: unexportable_keys.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var unexportable_keys = unexportable_keys || {};
 unexportable_keys.mojom = unexportable_keys.mojom || {};
@@ -372,7 +367,7 @@ unexportable_keys.mojom.UnexportableKeyServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

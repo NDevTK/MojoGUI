@@ -2,11 +2,6 @@
 // Source: chromium_src/device/vr/public/mojom/openxr_interaction_profile_type.mojom
 // Module: device.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};

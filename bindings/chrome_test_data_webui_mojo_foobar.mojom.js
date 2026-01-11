@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/test/data/webui/mojo/foobar.mojom
 // Module: test.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var test = test || {};
 test.mojom = test.mojom || {};
@@ -152,7 +147,7 @@ test.mojom.FooReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -290,7 +285,7 @@ test.mojom.BarReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -428,7 +423,7 @@ test.mojom.BazReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

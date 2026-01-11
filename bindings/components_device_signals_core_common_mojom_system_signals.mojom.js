@@ -2,11 +2,6 @@
 // Source: chromium_src/components/device_signals/core/common/mojom/system_signals.mojom
 // Module: device_signals.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var device_signals = device_signals || {};
 device_signals.mojom = device_signals.mojom || {};
@@ -308,7 +303,7 @@ device_signals.mojom.SystemSignalsServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

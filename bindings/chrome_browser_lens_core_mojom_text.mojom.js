@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/lens/core/mojom/text.mojom
 // Module: lens.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var lens = lens || {};
 lens.mojom = lens.mojom || {};

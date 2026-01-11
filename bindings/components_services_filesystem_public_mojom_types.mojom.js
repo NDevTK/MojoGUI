@@ -2,11 +2,6 @@
 // Source: chromium_src/components/services/filesystem/public/mojom/types.mojom
 // Module: filesystem.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var filesystem = filesystem || {};
 filesystem.mojom = filesystem.mojom || {};

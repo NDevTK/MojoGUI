@@ -2,11 +2,6 @@
 // Source: chromium_src/services/passage_embeddings/public/mojom/passage_embeddings.mojom
 // Module: passage_embeddings.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var passage_embeddings = passage_embeddings || {};
 passage_embeddings.mojom = passage_embeddings.mojom || {};
@@ -191,7 +186,7 @@ passage_embeddings.mojom.PassageEmbedderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -332,7 +327,7 @@ passage_embeddings.mojom.PassageEmbeddingsServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

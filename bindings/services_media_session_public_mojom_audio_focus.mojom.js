@@ -2,11 +2,6 @@
 // Source: chromium_src/services/media_session/public/mojom/audio_focus.mojom
 // Module: media_session.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var media_session = media_session || {};
 media_session.mojom = media_session.mojom || {};
@@ -260,7 +255,7 @@ media_session.mojom.AudioFocusObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -464,7 +459,7 @@ media_session.mojom.AudioFocusRequestClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1020,7 +1015,7 @@ media_session.mojom.AudioFocusManagerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1159,7 +1154,7 @@ media_session.mojom.AudioFocusManagerDebugReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

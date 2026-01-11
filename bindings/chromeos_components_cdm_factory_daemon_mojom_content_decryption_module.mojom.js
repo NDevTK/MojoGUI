@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/components/cdm_factory_daemon/mojom/content_decryption_module.mojom
 // Module: chromeos.cdm.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.cdm = chromeos.cdm || {};
@@ -719,7 +714,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -950,7 +945,7 @@ chromeos.cdm.mojom.ContentDecryptionModuleClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

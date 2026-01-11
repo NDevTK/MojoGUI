@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/components/print_management/mojom/printing_manager.mojom
 // Module: chromeos.printing.printing_manager.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.printing = chromeos.printing || {};
@@ -261,7 +256,7 @@ chromeos.printing.printing_manager.mojom.PrintJobsObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -621,7 +616,7 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver = clas
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -781,7 +776,7 @@ chromeos.printing.printing_manager.mojom.PrintManagementHandlerReceiver = class 
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

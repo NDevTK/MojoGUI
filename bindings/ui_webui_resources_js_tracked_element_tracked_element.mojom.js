@@ -2,11 +2,6 @@
 // Source: chromium_src/ui/webui/resources/js/tracked_element/tracked_element.mojom
 // Module: tracked_element.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var tracked_element = tracked_element || {};
 tracked_element.mojom = tracked_element.mojom || {};
@@ -204,7 +199,7 @@ tracked_element.mojom.TrackedElementHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

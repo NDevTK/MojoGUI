@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/actor_internals/actor_internals.mojom
 // Module: actor_internals.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var actor_internals = actor_internals || {};
 actor_internals.mojom = actor_internals.mojom || {};
@@ -155,7 +150,7 @@ actor_internals.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -313,7 +308,7 @@ actor_internals.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -441,7 +436,7 @@ actor_internals.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

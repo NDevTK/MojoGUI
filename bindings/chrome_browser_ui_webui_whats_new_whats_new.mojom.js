@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/whats_new/whats_new.mojom
 // Module: whats_new.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var whats_new = whats_new || {};
 whats_new.mojom = whats_new.mojom || {};
@@ -188,7 +183,7 @@ whats_new.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1023,7 +1018,7 @@ whats_new.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1117,7 +1112,7 @@ whats_new.mojom.PageReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

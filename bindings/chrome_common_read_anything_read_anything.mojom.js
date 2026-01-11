@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/common/read_anything/read_anything.mojom
 // Module: read_anything.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var read_anything = read_anything || {};
 read_anything.mojom = read_anything.mojom || {};
@@ -340,7 +335,7 @@ read_anything.mojom.UntrustedPageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1501,7 +1496,7 @@ read_anything.mojom.UntrustedPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2170,7 +2165,7 @@ read_anything.mojom.UntrustedPageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

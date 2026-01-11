@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/credential_provider/gaiacp/mojom/gaia_credential_provider_win_hid.mojom
 // Module: gcpw_hid.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var gcpw_hid = gcpw_hid || {};
 gcpw_hid.mojom = gcpw_hid.mojom || {};
@@ -146,7 +141,7 @@ gcpw_hid.mojom.GaiaCredentialProviderHidBrokerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

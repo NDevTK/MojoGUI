@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/bluetooth_internals/bluetooth_internals.mojom
 // Module: mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var mojom = mojom || {};
 var bluetooth = bluetooth || {};
@@ -154,7 +149,7 @@ mojom.DebugLogsChangeHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -601,7 +596,7 @@ mojom.BluetoothInternalsHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -739,7 +734,7 @@ mojom.BluetoothBtsnoopReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

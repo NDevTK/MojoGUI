@@ -2,11 +2,6 @@
 // Source: chromium_src/chromecast/external_mojo/public/mojom/test_connector.mojom
 // Module: chromecast.external_mojo.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.external_mojo = chromecast.external_mojo || {};
@@ -135,7 +130,7 @@ chromecast.external_mojo.mojom.TestExternalConnectorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

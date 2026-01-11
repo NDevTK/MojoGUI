@@ -2,11 +2,6 @@
 // Source: chromium_src/content/public/common/resource_usage_reporter.mojom
 // Module: content.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
@@ -179,7 +174,7 @@ content.mojom.ResourceUsageReporterReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

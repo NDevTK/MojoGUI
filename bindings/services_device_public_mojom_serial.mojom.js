@@ -2,11 +2,6 @@
 // Source: chromium_src/services/device/public/mojom/serial.mojom
 // Module: device.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
@@ -392,7 +387,7 @@ device.mojom.SerialPortManagerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -585,7 +580,7 @@ device.mojom.SerialPortManagerClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1054,7 +1049,7 @@ device.mojom.SerialPortReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1214,7 +1209,7 @@ device.mojom.SerialPortClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1308,7 +1303,7 @@ device.mojom.SerialPortConnectionWatcherReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

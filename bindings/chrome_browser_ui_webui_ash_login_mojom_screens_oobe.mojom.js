@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/login/mojom/screens_oobe.mojom
 // Module: ash.screens_oobe.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.screens_oobe = ash.screens_oobe || {};
@@ -252,7 +247,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -512,7 +507,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -670,7 +665,7 @@ ash.screens_oobe.mojom.PackagedLicensePageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

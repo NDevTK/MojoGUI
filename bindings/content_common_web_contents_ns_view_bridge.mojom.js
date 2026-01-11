@@ -2,11 +2,6 @@
 // Source: chromium_src/content/common/web_contents_ns_view_bridge.mojom
 // Module: remote_cocoa.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var remote_cocoa = remote_cocoa || {};
 remote_cocoa.mojom = remote_cocoa.mojom || {};
@@ -420,7 +415,7 @@ remote_cocoa.mojom.WebContentsNSViewReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -896,7 +891,7 @@ remote_cocoa.mojom.WebContentsNSViewHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

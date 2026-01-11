@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/components/mojo_service_manager/mojom/mojo_service_manager.mojom
 // Module: chromeos.mojo_service_manager.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.mojo_service_manager = chromeos.mojo_service_manager || {};
@@ -362,7 +357,7 @@ chromeos.mojo_service_manager.mojom.ServiceManagerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -490,7 +485,7 @@ chromeos.mojo_service_manager.mojom.ServiceProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -617,7 +612,7 @@ chromeos.mojo_service_manager.mojom.ServiceObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

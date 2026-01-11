@@ -2,11 +2,6 @@
 // Source: chromium_src/components/global_media_controls/public/mojom/device_service.mojom
 // Module: global_media_controls.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var global_media_controls = global_media_controls || {};
 global_media_controls.mojom = global_media_controls.mojom || {};
@@ -184,7 +179,7 @@ global_media_controls.mojom.DeviceListHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -343,7 +338,7 @@ global_media_controls.mojom.DeviceListClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -539,7 +534,7 @@ global_media_controls.mojom.DeviceServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -926,7 +921,7 @@ global_media_controls.mojom.DevicePickerProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1148,7 +1143,7 @@ global_media_controls.mojom.DevicePickerObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

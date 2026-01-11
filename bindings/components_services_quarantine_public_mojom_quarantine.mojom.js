@@ -2,11 +2,6 @@
 // Source: chromium_src/components/services/quarantine/public/mojom/quarantine.mojom
 // Module: quarantine.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var quarantine = quarantine || {};
 quarantine.mojom = quarantine.mojom || {};
@@ -164,7 +159,7 @@ quarantine.mojom.QuarantineReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/omnibox_popup/mojom/omnibox_popup_aim.mojom
 // Module: omnibox_popup_aim.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var omnibox_popup_aim = omnibox_popup_aim || {};
 omnibox_popup_aim.mojom = omnibox_popup_aim.mojom || {};
@@ -147,7 +142,7 @@ omnibox_popup_aim.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -306,7 +301,7 @@ omnibox_popup_aim.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -543,7 +538,7 @@ omnibox_popup_aim.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

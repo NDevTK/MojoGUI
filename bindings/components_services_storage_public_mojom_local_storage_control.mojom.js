@@ -2,11 +2,6 @@
 // Source: chromium_src/components/services/storage/public/mojom/local_storage_control.mojom
 // Module: storage.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
@@ -404,7 +399,7 @@ storage.mojom.LocalStorageControlReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

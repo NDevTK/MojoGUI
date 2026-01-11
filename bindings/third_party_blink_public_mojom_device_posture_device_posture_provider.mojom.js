@@ -2,11 +2,6 @@
 // Source: chromium_src/third_party/blink/public/mojom/device_posture/device_posture_provider.mojom
 // Module: blink.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
@@ -222,7 +217,7 @@ blink.mojom.DevicePostureProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -349,7 +344,7 @@ blink.mojom.DevicePostureClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

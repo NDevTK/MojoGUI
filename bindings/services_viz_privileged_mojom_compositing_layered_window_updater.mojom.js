@@ -2,11 +2,6 @@
 // Source: chromium_src/services/viz/privileged/mojom/compositing/layered_window_updater.mojom
 // Module: viz.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
@@ -180,7 +175,7 @@ viz.mojom.LayeredWindowUpdaterReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

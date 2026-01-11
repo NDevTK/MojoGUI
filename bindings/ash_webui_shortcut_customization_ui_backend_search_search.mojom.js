@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/shortcut_customization_ui/backend/search/search.mojom
 // Module: ash.shortcut_customization.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.shortcut_customization = ash.shortcut_customization || {};
@@ -148,7 +143,7 @@ ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverReceiver = cla
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -321,7 +316,7 @@ ash.shortcut_customization.mojom.SearchHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

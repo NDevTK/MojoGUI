@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/actor/ui/actor_overlay.mojom
 // Module: actor.ui.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var actor = actor || {};
 actor.ui = actor.ui || {};
@@ -162,7 +157,7 @@ actor.ui.mojom.ActorOverlayPageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -333,7 +328,7 @@ actor.ui.mojom.ActorOverlayPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -613,7 +608,7 @@ actor.ui.mojom.ActorOverlayPageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

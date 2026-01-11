@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/lens/core/mojom/lens_ghost_loader.mojom
 // Module: lens.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var lens = lens || {};
 lens.mojom = lens.mojom || {};
@@ -135,7 +130,7 @@ lens.mojom.LensGhostLoaderPageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -261,7 +256,7 @@ lens.mojom.LensGhostLoaderPageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

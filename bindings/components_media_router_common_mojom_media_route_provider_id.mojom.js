@@ -2,11 +2,6 @@
 // Source: chromium_src/components/media_router/common/mojom/media_route_provider_id.mojom
 // Module: media_router.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var media_router = media_router || {};
 media_router.mojom = media_router.mojom || {};

@@ -2,11 +2,6 @@
 // Source: chromium_src/third_party/blink/public/mojom/content_extraction/frame_metadata_observer_registry.mojom
 // Module: blink.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
@@ -140,7 +135,7 @@ blink.mojom.PaidContentMetadataObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -267,7 +262,7 @@ blink.mojom.MetaTagsObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -428,7 +423,7 @@ blink.mojom.FrameMetadataObserverRegistryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

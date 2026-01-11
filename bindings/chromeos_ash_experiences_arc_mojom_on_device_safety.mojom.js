@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/experiences/arc/mojom/on_device_safety.mojom
 // Module: arc.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
@@ -162,7 +157,7 @@ arc.mojom.OnDeviceSafetyHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -345,7 +340,7 @@ arc.mojom.OnDeviceSafetyInstanceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

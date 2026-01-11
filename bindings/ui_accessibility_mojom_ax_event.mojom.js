@@ -2,11 +2,6 @@
 // Source: chromium_src/ui/accessibility/mojom/ax_event.mojom
 // Module: ax.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ax = ax || {};
 ax.mojom = ax.mojom || {};

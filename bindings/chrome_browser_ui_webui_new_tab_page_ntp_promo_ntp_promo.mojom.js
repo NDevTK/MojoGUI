@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/new_tab_page/ntp_promo/ntp_promo.mojom
 // Module: ntp_promo.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ntp_promo = ntp_promo || {};
 ntp_promo.mojom = ntp_promo.mojom || {};
@@ -366,7 +361,7 @@ ntp_promo.mojom.NtpPromoHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -494,7 +489,7 @@ ntp_promo.mojom.NtpPromoClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -622,7 +617,7 @@ ntp_promo.mojom.NtpPromoHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/common/net/net_error_page_support.mojom
 // Module: chrome.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
@@ -198,7 +193,7 @@ chrome.mojom.NetErrorPageSupportReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

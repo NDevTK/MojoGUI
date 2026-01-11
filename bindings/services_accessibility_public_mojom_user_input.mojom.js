@@ -2,11 +2,6 @@
 // Source: chromium_src/services/accessibility/public/mojom/user_input.mojom
 // Module: ax.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
@@ -200,7 +195,7 @@ ax.mojom.UserInputReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

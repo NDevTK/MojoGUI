@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/experiences/arc/mojom/audio.mojom
 // Module: arc.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
@@ -202,7 +197,7 @@ arc.mojom.AudioHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -473,7 +468,7 @@ arc.mojom.AudioInstanceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

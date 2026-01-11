@@ -2,11 +2,6 @@
 // Source: chromium_src/services/accessibility/public/mojom/speech_recognition.mojom
 // Module: ax.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
@@ -273,7 +268,7 @@ ax.mojom.SpeechRecognitionEventObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -457,7 +452,7 @@ ax.mojom.SpeechRecognitionReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

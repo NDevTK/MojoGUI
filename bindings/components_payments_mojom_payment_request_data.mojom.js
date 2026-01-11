@@ -2,11 +2,6 @@
 // Source: chromium_src/components/payments/mojom/payment_request_data.mojom
 // Module: payments.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var payments = payments || {};
 payments.mojom = payments.mojom || {};

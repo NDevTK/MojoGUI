@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/services/file_util/public/mojom/safe_archive_analyzer.mojom
 // Module: chrome.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
@@ -406,7 +401,7 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -544,7 +539,7 @@ chrome.mojom.TemporaryFileGetterReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

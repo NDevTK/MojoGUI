@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/crosapi/mojom/telemetry_diagnostic_routine_service.mojom
 // Module: crosapi.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
@@ -708,7 +703,7 @@ crosapi.mojom.TelemetryDiagnosticRoutineControlReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -835,7 +830,7 @@ crosapi.mojom.TelemetryDiagnosticRoutineObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1009,7 +1004,7 @@ crosapi.mojom.TelemetryDiagnosticRoutinesServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/third_party/blink/public/mojom/ai/ai_manager.mojom
 // Module: blink.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
@@ -225,7 +220,7 @@ blink.mojom.AIManagerCreateWriterClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -386,7 +381,7 @@ blink.mojom.AIManagerCreateRewriterClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -547,7 +542,7 @@ blink.mojom.AIManagerCreateSummarizerClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -708,7 +703,7 @@ blink.mojom.AIManagerCreateProofreaderClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1274,7 +1269,7 @@ blink.mojom.AIManagerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

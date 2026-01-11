@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/tab_search/tab_search.mojom
 // Module: tab_search.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var tab_search = tab_search || {};
 tab_search.mojom = tab_search.mojom || {};
@@ -385,7 +380,7 @@ tab_search.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1646,7 +1641,7 @@ tab_search.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2134,7 +2129,7 @@ tab_search.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

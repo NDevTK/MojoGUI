@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/common/wallet/boarding_pass_extractor.mojom
 // Module: wallet.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var wallet = wallet || {};
 wallet.mojom = wallet.mojom || {};
@@ -144,7 +139,7 @@ wallet.mojom.BoardingPassExtractorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

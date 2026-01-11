@@ -2,11 +2,6 @@
 // Source: chromium_src/components/viz/service/debugger/mojom/viz_debugger.mojom
 // Module: viz.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
@@ -133,7 +128,7 @@ viz.mojom.VizDebugOutputReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

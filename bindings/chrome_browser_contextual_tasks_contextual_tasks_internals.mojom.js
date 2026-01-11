@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/contextual_tasks/contextual_tasks_internals.mojom
 // Module: contextual_tasks_internals.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var contextual_tasks_internals = contextual_tasks_internals || {};
 contextual_tasks_internals.mojom = contextual_tasks_internals.mojom || {};
@@ -170,7 +165,7 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactoryRecei
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -309,7 +304,7 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerReceiver = c
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -439,7 +434,7 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

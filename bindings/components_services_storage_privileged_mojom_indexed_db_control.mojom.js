@@ -2,11 +2,6 @@
 // Source: chromium_src/components/services/storage/privileged/mojom/indexed_db_control.mojom
 // Module: storage.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
@@ -195,7 +190,7 @@ storage.mojom.IndexedDBObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -682,7 +677,7 @@ storage.mojom.IndexedDBControlReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

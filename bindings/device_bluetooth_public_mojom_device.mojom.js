@@ -2,11 +2,6 @@
 // Source: chromium_src/device/bluetooth/public/mojom/device.mojom
 // Module: bluetooth.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var bluetooth = bluetooth || {};
 bluetooth.mojom = bluetooth.mojom || {};
@@ -608,7 +603,7 @@ bluetooth.mojom.DeviceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

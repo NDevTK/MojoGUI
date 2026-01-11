@@ -2,11 +2,6 @@
 // Source: chromium_src/components/site_engagement/core/mojom/site_engagement_details.mojom
 // Module: site_engagement.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var site_engagement = site_engagement || {};
 site_engagement.mojom = site_engagement.mojom || {};
@@ -191,7 +186,7 @@ site_engagement.mojom.SiteEngagementDetailsProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

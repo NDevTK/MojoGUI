@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ash/borealis/borealis_types.mojom
 // Module: borealis.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var borealis = borealis || {};
 borealis.mojom = borealis.mojom || {};

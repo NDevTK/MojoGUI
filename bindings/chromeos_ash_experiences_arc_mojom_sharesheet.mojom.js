@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/experiences/arc/mojom/sharesheet.mojom
 // Module: arc.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
@@ -102,7 +97,7 @@ arc.mojom.SharesheetHostReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -240,7 +235,7 @@ arc.mojom.SharesheetInstanceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

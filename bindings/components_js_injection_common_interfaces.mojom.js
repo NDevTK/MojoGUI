@@ -2,11 +2,6 @@
 // Source: chromium_src/components/js_injection/common/interfaces.mojom
 // Module: js_injection.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var js_injection = js_injection || {};
 js_injection.mojom = js_injection.mojom || {};
@@ -234,7 +229,7 @@ js_injection.mojom.JsToBrowserMessagingReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -360,7 +355,7 @@ js_injection.mojom.JsObjectsClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -487,7 +482,7 @@ js_injection.mojom.BrowserToJsMessagingFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -614,7 +609,7 @@ js_injection.mojom.BrowserToJsMessagingReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -808,7 +803,7 @@ js_injection.mojom.JsCommunicationReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

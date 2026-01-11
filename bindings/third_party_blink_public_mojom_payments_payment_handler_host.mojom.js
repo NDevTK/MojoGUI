@@ -2,11 +2,6 @@
 // Source: chromium_src/third_party/blink/public/mojom/payments/payment_handler_host.mojom
 // Module: payments.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var payments = payments || {};
 payments.mojom = payments.mojom || {};
@@ -270,7 +265,7 @@ payments.mojom.PaymentHandlerHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

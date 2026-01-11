@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/nearby/public/mojom/quick_start_decoder.mojom
 // Module: ash.quick_start.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.quick_start = ash.quick_start || {};
@@ -148,7 +143,7 @@ ash.quick_start.mojom.QuickStartDecoderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

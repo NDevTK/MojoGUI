@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/components/memory/userspace_swap/userspace_swap.mojom
 // Module: userspace_swap.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var userspace_swap = userspace_swap || {};
 userspace_swap.mojom = userspace_swap.mojom || {};
@@ -162,7 +157,7 @@ userspace_swap.mojom.UserspaceSwapInitializationReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -368,7 +363,7 @@ userspace_swap.mojom.UserspaceSwapReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

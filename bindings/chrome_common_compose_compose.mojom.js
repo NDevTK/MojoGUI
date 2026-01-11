@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/common/compose/compose.mojom
 // Module: compose.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var compose = compose || {};
 compose.mojom = compose.mojom || {};
@@ -262,7 +257,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -979,7 +974,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1202,7 +1197,7 @@ compose.mojom.ComposeClientUntrustedPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1362,7 +1357,7 @@ compose.mojom.ComposeUntrustedDialogReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

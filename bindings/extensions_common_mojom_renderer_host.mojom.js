@@ -2,11 +2,6 @@
 // Source: chromium_src/extensions/common/mojom/renderer_host.mojom
 // Module: extensions.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
@@ -260,7 +255,7 @@ extensions.mojom.RendererHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

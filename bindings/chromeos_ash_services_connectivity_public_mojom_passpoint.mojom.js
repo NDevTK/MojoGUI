@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/connectivity/public/mojom/passpoint.mojom
 // Module: chromeos.connectivity.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.connectivity = chromeos.connectivity || {};
@@ -189,7 +184,7 @@ chromeos.connectivity.mojom.PasspointEventsListenerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -450,7 +445,7 @@ chromeos.connectivity.mojom.PasspointServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

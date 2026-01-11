@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/signin/history_sync_optin/history_sync_optin.mojom
 // Module: history_sync_optin.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var history_sync_optin = history_sync_optin || {};
 history_sync_optin.mojom = history_sync_optin.mojom || {};
@@ -168,7 +163,7 @@ history_sync_optin.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -391,7 +386,7 @@ history_sync_optin.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -551,7 +546,7 @@ history_sync_optin.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

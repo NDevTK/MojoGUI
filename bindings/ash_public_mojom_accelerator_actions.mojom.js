@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/public/mojom/accelerator_actions.mojom
 // Module: ash.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.mojom = ash.mojom || {};

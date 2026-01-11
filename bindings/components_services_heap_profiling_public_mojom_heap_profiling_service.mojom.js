@@ -2,11 +2,6 @@
 // Source: chromium_src/components/services/heap_profiling/public/mojom/heap_profiling_service.mojom
 // Module: heap_profiling.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var heap_profiling = heap_profiling || {};
 heap_profiling.mojom = heap_profiling.mojom || {};
@@ -205,7 +200,7 @@ heap_profiling.mojom.ProfilingServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

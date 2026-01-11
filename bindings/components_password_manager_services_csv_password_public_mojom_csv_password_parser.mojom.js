@@ -2,11 +2,6 @@
 // Source: chromium_src/components/password_manager/services/csv_password/public/mojom/csv_password_parser.mojom
 // Module: password_manager.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var password_manager = password_manager || {};
 password_manager.mojom = password_manager.mojom || {};
@@ -171,7 +166,7 @@ password_manager.mojom.CSVPasswordParserReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

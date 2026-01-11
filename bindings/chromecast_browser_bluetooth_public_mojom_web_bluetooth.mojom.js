@@ -2,11 +2,6 @@
 // Source: chromium_src/chromecast/browser/bluetooth/public/mojom/web_bluetooth.mojom
 // Module: chromecast.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
@@ -136,7 +131,7 @@ chromecast.mojom.BluetoothDeviceAccessProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -295,7 +290,7 @@ chromecast.mojom.BluetoothDeviceAccessProviderClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

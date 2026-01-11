@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui_browser/bookmark_bar.mojom
 // Module: bookmark_bar.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var bookmark_bar = bookmark_bar || {};
 bookmark_bar.mojom = bookmark_bar.mojom || {};
@@ -166,7 +161,7 @@ bookmark_bar.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -337,7 +332,7 @@ bookmark_bar.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -560,7 +555,7 @@ bookmark_bar.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

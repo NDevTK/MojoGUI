@@ -2,11 +2,6 @@
 // Source: chromium_src/media/capture/video/chromeos/mojom/video_capture_device_info_monitor.mojom
 // Module: cros.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var cros = cros || {};
 cros.mojom = cros.mojom || {};
@@ -136,7 +131,7 @@ cros.mojom.VideoCaptureDeviceInfoObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -263,7 +258,7 @@ cros.mojom.VideoCaptureDeviceInfoMonitorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

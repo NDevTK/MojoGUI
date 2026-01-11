@@ -2,11 +2,6 @@
 // Source: chromium_src/ui/display/mojom/screen_infos.mojom
 // Module: display.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var display = display || {};
 display.mojom = display.mojom || {};

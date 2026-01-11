@@ -2,11 +2,6 @@
 // Source: chromium_src/services/device/public/mojom/wake_lock.mojom
 // Module: device.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
@@ -307,7 +302,7 @@ device.mojom.WakeLockReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

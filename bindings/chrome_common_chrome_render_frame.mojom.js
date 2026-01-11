@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/common/chrome_render_frame.mojom
 // Module: chrome.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
@@ -709,7 +704,7 @@ chrome.mojom.ChromeRenderFrameReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/new_tab_footer/new_tab_footer.mojom
 // Module: new_tab_footer.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var new_tab_footer = new_tab_footer || {};
 new_tab_footer.mojom = new_tab_footer.mojom || {};
@@ -178,7 +173,7 @@ new_tab_footer.mojom.NewTabFooterHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -562,7 +557,7 @@ new_tab_footer.mojom.NewTabFooterHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -789,7 +784,7 @@ new_tab_footer.mojom.NewTabFooterDocumentReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

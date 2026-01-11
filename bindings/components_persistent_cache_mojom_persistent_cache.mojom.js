@@ -2,11 +2,6 @@
 // Source: chromium_src/components/persistent_cache/mojom/persistent_cache.mojom
 // Module: persistent_cache.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var persistent_cache = persistent_cache || {};
 persistent_cache.mojom = persistent_cache.mojom || {};

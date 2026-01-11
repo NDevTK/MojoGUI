@@ -2,11 +2,6 @@
 // Source: chromium_src/components/services/storage/privileged/mojom/indexed_db_control_test.mojom
 // Module: storage.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
@@ -177,7 +172,7 @@ storage.mojom.MockFailureInjectorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -659,7 +654,7 @@ storage.mojom.IndexedDBControlTestReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

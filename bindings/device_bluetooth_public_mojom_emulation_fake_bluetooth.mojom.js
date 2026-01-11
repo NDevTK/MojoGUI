@@ -2,11 +2,6 @@
 // Source: chromium_src/device/bluetooth/public/mojom/emulation/fake_bluetooth.mojom
 // Module: bluetooth.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var bluetooth = bluetooth || {};
 bluetooth.mojom = bluetooth.mojom || {};
@@ -407,7 +402,7 @@ bluetooth.mojom.FakeBluetoothReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1720,7 +1715,7 @@ bluetooth.mojom.FakeCentralReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1919,7 +1914,7 @@ bluetooth.mojom.FakeCentralClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

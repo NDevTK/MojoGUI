@@ -2,11 +2,6 @@
 // Source: chromium_src/device/vr/public/mojom/test/browser_test_interfaces.mojom
 // Module: device_test.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var device_test = device_test || {};
 device_test.mojom = device_test.mojom || {};
@@ -623,7 +618,7 @@ device_test.mojom.XRTestHookReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -804,7 +799,7 @@ device_test.mojom.XRServiceTestHookReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

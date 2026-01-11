@@ -2,11 +2,6 @@
 // Source: chromium_src/codelabs/mojo_examples/mojom/interface.mojom
 // Module: codelabs.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var codelabs = codelabs || {};
 codelabs.mojom = codelabs.mojom || {};
@@ -143,7 +138,7 @@ codelabs.mojom.ObjectAReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -269,7 +264,7 @@ codelabs.mojom.ObjectBReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -396,7 +391,7 @@ codelabs.mojom.AssociatedProcessReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -490,7 +485,7 @@ codelabs.mojom.GenericInterfaceReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -650,7 +645,7 @@ codelabs.mojom.ProcessReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

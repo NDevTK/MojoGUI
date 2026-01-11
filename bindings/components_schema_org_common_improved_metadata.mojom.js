@@ -2,11 +2,6 @@
 // Source: chromium_src/components/schema_org/common/improved_metadata.mojom
 // Module: schema_org.improved.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var schema_org = schema_org || {};
 schema_org.improved = schema_org.improved || {};

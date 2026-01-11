@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/ime/public/mojom/ime_service.mojom
 // Module: ash.ime.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.ime = ash.ime || {};
@@ -208,7 +203,7 @@ ash.ime.mojom.InputEngineManagerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -348,7 +343,7 @@ ash.ime.mojom.PlatformAccessProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -541,7 +536,7 @@ ash.ime.mojom.ImeServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

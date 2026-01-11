@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/components/trash_service/public/mojom/trash_service.mojom
 // Module: ash.trash_service.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.trash_service = ash.trash_service || {};
@@ -150,7 +145,7 @@ ash.trash_service.mojom.TrashServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

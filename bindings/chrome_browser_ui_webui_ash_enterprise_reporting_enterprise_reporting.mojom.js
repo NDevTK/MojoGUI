@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/enterprise_reporting/enterprise_reporting.mojom
 // Module: enterprise_reporting.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var enterprise_reporting = enterprise_reporting || {};
 enterprise_reporting.mojom = enterprise_reporting.mojom || {};
@@ -171,7 +166,7 @@ enterprise_reporting.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -386,7 +381,7 @@ enterprise_reporting.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -513,7 +508,7 @@ enterprise_reporting.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/components/network_hints/common/network_hints.mojom
 // Module: network_hints.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var network_hints = network_hints || {};
 network_hints.mojom = network_hints.mojom || {};
@@ -168,7 +163,7 @@ network_hints.mojom.NetworkHintsHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/third_party/blink/public/mojom/frame_sinks/embedded_frame_sink.mojom
 // Module: blink.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
@@ -180,7 +175,7 @@ blink.mojom.SurfaceEmbedderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -307,7 +302,7 @@ blink.mojom.EmbeddedFrameSinkClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -679,7 +674,7 @@ blink.mojom.EmbeddedFrameSinkProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

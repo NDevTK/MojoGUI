@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/cloud_upload/cloud_upload.mojom
 // Module: ash.cloud_upload.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.cloud_upload = ash.cloud_upload || {};
@@ -283,7 +278,7 @@ ash.cloud_upload.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -970,7 +965,7 @@ ash.cloud_upload.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

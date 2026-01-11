@@ -2,11 +2,6 @@
 // Source: chromium_src/services/service_manager/public/mojom/connector.mojom
 // Module: service_manager.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var service_manager = service_manager || {};
 service_manager.mojom = service_manager.mojom || {};
@@ -178,7 +173,7 @@ service_manager.mojom.ProcessMetadataReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -492,7 +487,7 @@ service_manager.mojom.ConnectorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

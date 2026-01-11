@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/style/mojom/color_scheme.mojom
 // Module: ash.style.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.style = ash.style || {};

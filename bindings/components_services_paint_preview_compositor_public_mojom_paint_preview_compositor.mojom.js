@@ -2,11 +2,6 @@
 // Source: chromium_src/components/services/paint_preview_compositor/public/mojom/paint_preview_compositor.mojom
 // Module: paint_preview.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var paint_preview = paint_preview || {};
 paint_preview.mojom = paint_preview.mojom || {};
@@ -394,7 +389,7 @@ paint_preview.mojom.PaintPreviewCompositorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -610,7 +605,7 @@ paint_preview.mojom.PaintPreviewCompositorCollectionReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

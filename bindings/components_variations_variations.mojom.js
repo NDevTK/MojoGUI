@@ -2,11 +2,6 @@
 // Source: chromium_src/components/variations/variations.mojom
 // Module: variations.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var variations = variations || {};
 variations.mojom = variations.mojom || {};

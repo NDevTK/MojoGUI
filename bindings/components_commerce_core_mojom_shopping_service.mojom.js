@@ -2,11 +2,6 @@
 // Source: chromium_src/components/commerce/core/mojom/shopping_service.mojom
 // Module: shopping_service.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var shopping_service = shopping_service || {};
 shopping_service.mojom = shopping_service.mojom || {};
@@ -292,7 +287,7 @@ shopping_service.mojom.ShoppingServiceHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1235,7 +1230,7 @@ shopping_service.mojom.ShoppingServiceHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

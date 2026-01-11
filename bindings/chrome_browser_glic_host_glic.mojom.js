@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/glic/host/glic.mojom
 // Module: glic.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var glic = glic || {};
 glic.mojom = glic.mojom || {};
@@ -1217,7 +1212,7 @@ glic.mojom.PreloadPageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1409,7 +1404,7 @@ glic.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1547,7 +1542,7 @@ glic.mojom.GlicPreloadHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1675,7 +1670,7 @@ glic.mojom.GlicPreloadHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1803,7 +1798,7 @@ glic.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2301,7 +2296,7 @@ glic.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2428,7 +2423,7 @@ glic.mojom.PinCandidatesObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -5806,7 +5801,7 @@ glic.mojom.WebClientHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -5933,7 +5928,7 @@ glic.mojom.TabDataHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -7189,7 +7184,7 @@ glic.mojom.WebClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -7317,7 +7312,7 @@ glic.mojom.CaptureRegionObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

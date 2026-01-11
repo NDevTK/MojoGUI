@@ -2,11 +2,6 @@
 // Source: chromium_src/components/remote_cocoa/common/native_widget_ns_window.mojom
 // Module: remote_cocoa.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var remote_cocoa = remote_cocoa || {};
 remote_cocoa.mojom = remote_cocoa.mojom || {};
@@ -2011,7 +2006,7 @@ remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

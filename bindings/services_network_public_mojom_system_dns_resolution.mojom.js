@@ -2,11 +2,6 @@
 // Source: chromium_src/services/network/public/mojom/system_dns_resolution.mojom
 // Module: network.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
@@ -150,7 +145,7 @@ network.mojom.SystemDnsResolverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

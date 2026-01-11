@@ -2,11 +2,6 @@
 // Source: chromium_src/components/optimization_guide/content/mojom/page_text_service.mojom
 // Module: optimization_guide.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var optimization_guide = optimization_guide || {};
 optimization_guide.mojom = optimization_guide.mojom || {};
@@ -185,7 +180,7 @@ optimization_guide.mojom.PageTextConsumerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -313,7 +308,7 @@ optimization_guide.mojom.PageTextServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

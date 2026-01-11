@@ -2,11 +2,6 @@
 // Source: chromium_src/content/web_test/common/mojo_optional_numerics_unittest.mojom
 // Module: content.optional_numerics_unittest.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var content = content || {};
 content.optional_numerics_unittest = content.optional_numerics_unittest || {};
@@ -2305,7 +2300,7 @@ content.optional_numerics_unittest.mojom.ParamsReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -4348,7 +4343,7 @@ content.optional_numerics_unittest.mojom.ResponseParamsReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -4530,7 +4525,7 @@ content.optional_numerics_unittest.mojom.InterfaceV0Receiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -4758,7 +4753,7 @@ content.optional_numerics_unittest.mojom.InterfaceV2Receiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

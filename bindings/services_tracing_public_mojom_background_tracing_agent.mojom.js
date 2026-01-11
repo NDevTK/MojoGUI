@@ -2,11 +2,6 @@
 // Source: chromium_src/services/tracing/public/mojom/background_tracing_agent.mojom
 // Module: tracing.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var tracing = tracing || {};
 tracing.mojom = tracing.mojom || {};
@@ -183,7 +178,7 @@ tracing.mojom.BackgroundTracingAgentClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -346,7 +341,7 @@ tracing.mojom.BackgroundTracingAgentReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -475,7 +470,7 @@ tracing.mojom.BackgroundTracingAgentProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

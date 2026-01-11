@@ -2,11 +2,6 @@
 // Source: chromium_src/services/viz/privileged/mojom/compositing/frame_sink_video_capture.mojom
 // Module: viz.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
@@ -227,7 +222,7 @@ viz.mojom.FrameSinkVideoConsumerFrameCallbacksReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -487,7 +482,7 @@ viz.mojom.FrameSinkVideoConsumerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -948,7 +943,7 @@ viz.mojom.FrameSinkVideoCapturerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1142,7 +1137,7 @@ viz.mojom.FrameSinkVideoCaptureOverlayReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

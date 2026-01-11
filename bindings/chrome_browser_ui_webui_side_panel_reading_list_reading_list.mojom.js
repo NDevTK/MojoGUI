@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/side_panel/reading_list/reading_list.mojom
 // Module: reading_list.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var reading_list = reading_list || {};
 reading_list.mojom = reading_list.mojom || {};
@@ -193,7 +188,7 @@ reading_list.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -672,7 +667,7 @@ reading_list.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -832,7 +827,7 @@ reading_list.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

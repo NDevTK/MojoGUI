@@ -2,11 +2,6 @@
 // Source: chromium_src/components/user_data_importer/mojom/bookmark_html_parser.mojom
 // Module: user_data_importer.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var user_data_importer = user_data_importer || {};
 user_data_importer.mojom = user_data_importer.mojom || {};
@@ -193,7 +188,7 @@ user_data_importer.mojom.BookmarkHtmlParserReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

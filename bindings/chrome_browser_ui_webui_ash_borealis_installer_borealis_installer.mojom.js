@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/borealis_installer/borealis_installer.mojom
 // Module: ash.borealis_installer.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.borealis_installer = ash.borealis_installer || {};
@@ -148,7 +143,7 @@ ash.borealis_installer.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -434,7 +429,7 @@ ash.borealis_installer.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -627,7 +622,7 @@ ash.borealis_installer.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

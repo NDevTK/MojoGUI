@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/discards/site_data.mojom
 // Module: discards.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var discards = discards || {};
 discards.mojom = discards.mojom || {};
@@ -249,7 +244,7 @@ discards.mojom.SiteDataProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

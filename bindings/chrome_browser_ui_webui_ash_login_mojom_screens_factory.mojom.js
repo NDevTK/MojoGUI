@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/login/mojom/screens_factory.mojom
 // Module: ash.screens_factory.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.screens_factory = ash.screens_factory || {};
@@ -585,7 +580,7 @@ ash.screens_factory.mojom.ScreensFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

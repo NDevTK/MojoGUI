@@ -2,11 +2,6 @@
 // Source: chromium_src/components/services/storage/public/mojom/service_worker_storage_control.mojom
 // Module: storage.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
@@ -242,7 +237,7 @@ storage.mojom.ServiceWorkerLiveVersionRefReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -471,7 +466,7 @@ storage.mojom.ServiceWorkerResourceReaderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -655,7 +650,7 @@ storage.mojom.ServiceWorkerResourceWriterReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -794,7 +789,7 @@ storage.mojom.ServiceWorkerResourceMetadataWriterReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2820,7 +2815,7 @@ storage.mojom.ServiceWorkerStorageControlReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/ui/gfx/mojom/swap_result.mojom
 // Module: gfx.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};

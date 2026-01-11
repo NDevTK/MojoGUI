@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/cros_safety/public/mojom/cros_safety_service.mojom
 // Module: ash.cros_safety.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.cros_safety = ash.cros_safety || {};
@@ -216,7 +211,7 @@ ash.cros_safety.mojom.CrosSafetyServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

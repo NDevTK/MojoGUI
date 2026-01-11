@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/nearby/public/mojom/nearby_connections.mojom
 // Module: nearby.connections.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var nearby = nearby || {};
 nearby.connections = nearby.connections || {};
@@ -230,7 +225,7 @@ nearby.connections.mojom.EndpointDiscoveryListenerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -492,7 +487,7 @@ nearby.connections.mojom.ConnectionLifecycleListenerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -654,7 +649,7 @@ nearby.connections.mojom.PayloadListenerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -883,7 +878,7 @@ nearby.connections.mojom.ConnectionListenerV3Receiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1045,7 +1040,7 @@ nearby.connections.mojom.PayloadListenerV3Receiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2012,7 +2007,7 @@ nearby.connections.mojom.NearbyConnectionsReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

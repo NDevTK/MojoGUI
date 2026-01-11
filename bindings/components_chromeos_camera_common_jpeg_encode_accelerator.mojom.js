@@ -2,11 +2,6 @@
 // Source: chromium_src/components/chromeos_camera/common/jpeg_encode_accelerator.mojom
 // Module: chromeos_camera.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromeos_camera = chromeos_camera || {};
 chromeos_camera.mojom = chromeos_camera.mojom || {};
@@ -272,7 +267,7 @@ chromeos_camera.mojom.JpegEncodeAcceleratorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

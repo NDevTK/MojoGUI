@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/omnibox/omnibox_internals.mojom
 // Module: mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var mojom = mojom || {};
 var url = url || {};
@@ -420,7 +415,7 @@ mojom.OmniboxPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -652,7 +647,7 @@ mojom.OmniboxPageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

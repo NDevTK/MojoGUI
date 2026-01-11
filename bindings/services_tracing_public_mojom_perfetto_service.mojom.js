@@ -2,11 +2,6 @@
 // Source: chromium_src/services/tracing/public/mojom/perfetto_service.mojom
 // Module: tracing.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var tracing = tracing || {};
 tracing.mojom = tracing.mojom || {};
@@ -512,7 +507,7 @@ tracing.mojom.ProducerHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -793,7 +788,7 @@ tracing.mojom.ProducerClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -923,7 +918,7 @@ tracing.mojom.PerfettoServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1103,7 +1098,7 @@ tracing.mojom.ConsumerHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1398,7 +1393,7 @@ tracing.mojom.TracingSessionHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1557,7 +1552,7 @@ tracing.mojom.TracingSessionClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

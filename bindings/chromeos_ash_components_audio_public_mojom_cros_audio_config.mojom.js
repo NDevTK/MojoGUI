@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/components/audio/public/mojom/cros_audio_config.mojom
 // Module: ash.audio_config.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.audio_config = ash.audio_config || {};
@@ -237,7 +232,7 @@ ash.audio_config.mojom.AudioSystemPropertiesObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -759,7 +754,7 @@ ash.audio_config.mojom.CrosAudioConfigReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

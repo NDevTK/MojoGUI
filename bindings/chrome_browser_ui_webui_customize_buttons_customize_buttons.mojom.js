@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/customize_buttons/customize_buttons.mojom
 // Module: customize_buttons.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var customize_buttons = customize_buttons || {};
 customize_buttons.mojom = customize_buttons.mojom || {};
@@ -149,7 +144,7 @@ customize_buttons.mojom.CustomizeButtonsHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -342,7 +337,7 @@ customize_buttons.mojom.CustomizeButtonsHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -469,7 +464,7 @@ customize_buttons.mojom.CustomizeButtonsDocumentReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

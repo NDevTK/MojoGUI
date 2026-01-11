@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/privacy_sandbox/private_state_tokens/private_state_tokens.mojom
 // Module: private_state_tokens.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var private_state_tokens = private_state_tokens || {};
 private_state_tokens.mojom = private_state_tokens.mojom || {};
@@ -153,7 +148,7 @@ private_state_tokens.mojom.PrivateStateTokensPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

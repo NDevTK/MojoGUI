@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/components/drivefs/mojom/notifications.mojom
 // Module: drivefs.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var drivefs = drivefs || {};
 drivefs.mojom = drivefs.mojom || {};

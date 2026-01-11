@@ -2,11 +2,6 @@
 // Source: chromium_src/components/safe_browsing/content/common/safe_browsing.mojom
 // Module: safe_browsing.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var safe_browsing = safe_browsing || {};
 safe_browsing.mojom = safe_browsing.mojom || {};
@@ -300,7 +295,7 @@ safe_browsing.mojom.SafeBrowsingReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -438,7 +433,7 @@ safe_browsing.mojom.ThreatReporterReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -579,7 +574,7 @@ safe_browsing.mojom.PhishingDetectorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -851,7 +846,7 @@ safe_browsing.mojom.PhishingModelSetterReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -977,7 +972,7 @@ safe_browsing.mojom.PhishingModelSetterTestObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1117,7 +1112,7 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1280,7 +1275,7 @@ safe_browsing.mojom.ExtensionWebRequestReporterReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/services/shape_detection/public/mojom/barcodedetection_provider.mojom
 // Module: shape_detection.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var shape_detection = shape_detection || {};
 shape_detection.mojom = shape_detection.mojom || {};
@@ -187,7 +182,7 @@ shape_detection.mojom.BarcodeDetectionProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

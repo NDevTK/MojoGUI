@@ -2,11 +2,6 @@
 // Source: chromium_src/media/capture/video/chromeos/mojom/camera_app.mojom
 // Module: cros.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var cros = cros || {};
 cros.mojom = cros.mojom || {};
@@ -327,7 +322,7 @@ cros.mojom.CameraAppDeviceProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -602,7 +597,7 @@ cros.mojom.CameraAppDeviceBridgeReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1270,7 +1265,7 @@ cros.mojom.CameraAppDeviceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1397,7 +1392,7 @@ cros.mojom.ResultMetadataObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1523,7 +1518,7 @@ cros.mojom.CameraEventObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1650,7 +1645,7 @@ cros.mojom.DocumentCornersObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1777,7 +1772,7 @@ cros.mojom.CameraInfoObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1906,7 +1901,7 @@ cros.mojom.StillCaptureResultObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/services/metrics/public/mojom/ukm_interface.mojom
 // Module: ukm.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ukm = ukm || {};
 ukm.mojom = ukm.mojom || {};
@@ -161,7 +156,7 @@ ukm.mojom.SingularUkmInterfaceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -288,7 +283,7 @@ ukm.mojom.UkmRecorderClientInterfaceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -449,7 +444,7 @@ ukm.mojom.UkmRecorderInterfaceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -577,7 +572,7 @@ ukm.mojom.UkmRecorderFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

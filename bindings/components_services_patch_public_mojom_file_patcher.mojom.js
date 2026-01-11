@@ -2,11 +2,6 @@
 // Source: chromium_src/components/services/patch/public/mojom/file_patcher.mojom
 // Module: patch.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var patch = patch || {};
 patch.mojom = patch.mojom || {};
@@ -214,7 +209,7 @@ patch.mojom.FilePatcherReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

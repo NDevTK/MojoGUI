@@ -2,11 +2,6 @@
 // Source: chromium_src/content/public/common/font_cache_win.mojom
 // Module: content.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
@@ -178,7 +173,7 @@ content.mojom.FontCacheWinReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

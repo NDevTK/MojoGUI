@@ -2,11 +2,6 @@
 // Source: chromium_src/components/on_device_translation/public/mojom/on_device_translation_service.mojom
 // Module: on_device_translation.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var on_device_translation = on_device_translation || {};
 on_device_translation.mojom = on_device_translation.mojom || {};
@@ -239,7 +234,7 @@ on_device_translation.mojom.FileOperationProxyReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -459,7 +454,7 @@ on_device_translation.mojom.OnDeviceTranslationServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

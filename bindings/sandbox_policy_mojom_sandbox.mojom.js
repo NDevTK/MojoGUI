@@ -2,11 +2,6 @@
 // Source: chromium_src/sandbox/policy/mojom/sandbox.mojom
 // Module: sandbox.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var sandbox = sandbox || {};
 sandbox.mojom = sandbox.mojom || {};

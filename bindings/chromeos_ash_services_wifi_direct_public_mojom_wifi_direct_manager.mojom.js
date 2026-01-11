@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/wifi_direct/public/mojom/wifi_direct_manager.mojom
 // Module: ash.wifi_direct.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.wifi_direct = ash.wifi_direct || {};
@@ -298,7 +293,7 @@ ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -481,7 +476,7 @@ ash.wifi_direct.mojom.WifiDirectConnectionReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

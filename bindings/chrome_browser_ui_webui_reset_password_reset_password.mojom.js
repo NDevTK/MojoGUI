@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/reset_password/reset_password.mojom
 // Module: mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var mojom = mojom || {};
 
@@ -130,7 +125,7 @@ mojom.ResetPasswordHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/services/device/public/mojom/smart_card.mojom
 // Module: device.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
@@ -456,7 +451,7 @@ device.mojom.SmartCardTransactionReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -866,7 +861,7 @@ device.mojom.SmartCardConnectionReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -992,7 +987,7 @@ device.mojom.SmartCardConnectionWatcherReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1268,7 +1263,7 @@ device.mojom.SmartCardContextReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1406,7 +1401,7 @@ device.mojom.SmartCardContextFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

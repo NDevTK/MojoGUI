@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/access_code_cast/access_code_cast.mojom
 // Module: access_code_cast.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var access_code_cast = access_code_cast || {};
 access_code_cast.mojom = access_code_cast.mojom || {};
@@ -169,7 +164,7 @@ access_code_cast.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -353,7 +348,7 @@ access_code_cast.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -447,7 +442,7 @@ access_code_cast.mojom.PageReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

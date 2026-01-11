@@ -2,11 +2,6 @@
 // Source: chromium_src/services/device/public/mojom/time_zone_monitor.mojom
 // Module: device.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
@@ -135,7 +130,7 @@ device.mojom.TimeZoneMonitorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -262,7 +257,7 @@ device.mojom.TimeZoneMonitorClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

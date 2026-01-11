@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/parent_access/parent_access_ui.mojom
 // Module: parent_access_ui.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var parent_access_ui = parent_access_ui || {};
 parent_access_ui.mojom = parent_access_ui.mojom || {};
@@ -472,7 +467,7 @@ parent_access_ui.mojom.ParentAccessUiHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

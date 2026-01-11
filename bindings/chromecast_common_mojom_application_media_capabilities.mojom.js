@@ -2,11 +2,6 @@
 // Source: chromium_src/chromecast/common/mojom/application_media_capabilities.mojom
 // Module: chromecast.shell.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.shell = chromecast.shell || {};
@@ -145,7 +140,7 @@ chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -272,7 +267,7 @@ chromecast.shell.mojom.ApplicationMediaCapabilitiesReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

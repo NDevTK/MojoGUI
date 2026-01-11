@@ -2,11 +2,6 @@
 // Source: chromium_src/ui/webui/resources/js/metrics_reporter/metrics_reporter.mojom
 // Module: metrics_reporter.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var metrics_reporter = metrics_reporter || {};
 metrics_reporter.mojom = metrics_reporter.mojom || {};
@@ -254,7 +249,7 @@ metrics_reporter.mojom.PageMetricsHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -426,7 +421,7 @@ metrics_reporter.mojom.PageMetricsReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

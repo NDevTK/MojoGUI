@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/lobster/lobster.mojom
 // Module: lobster.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var lobster = lobster || {};
 lobster.mojom = lobster.mojom || {};
@@ -593,7 +588,7 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

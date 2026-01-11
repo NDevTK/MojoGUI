@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/components/emoji/emoji_search.mojom
 // Module: emoji_search.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var emoji_search = emoji_search || {};
 emoji_search.mojom = emoji_search.mojom || {};
@@ -190,7 +185,7 @@ emoji_search.mojom.EmojiSearchReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

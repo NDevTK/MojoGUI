@@ -2,11 +2,6 @@
 // Source: chromium_src/components/system_media_controls/mac/remote_cocoa/system_media_controls.mojom
 // Module: system_media_controls.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var system_media_controls = system_media_controls || {};
 system_media_controls.mojom = system_media_controls.mojom || {};
@@ -526,7 +521,7 @@ system_media_controls.mojom.SystemMediaControlsReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -909,7 +904,7 @@ system_media_controls.mojom.SystemMediaControlsObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

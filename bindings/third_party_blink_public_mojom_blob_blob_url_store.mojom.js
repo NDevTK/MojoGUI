@@ -2,11 +2,6 @@
 // Source: chromium_src/third_party/blink/public/mojom/blob/blob_url_store.mojom
 // Module: blink.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
@@ -258,7 +253,7 @@ blink.mojom.BlobURLStoreReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -429,7 +424,7 @@ blink.mojom.BlobURLTokenReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/settings/pages/privacy/mojom/app_permission_handler.mojom
 // Module: ash.settings.app_permission.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.settings = ash.settings || {};
@@ -391,7 +386,7 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -551,7 +546,7 @@ ash.settings.app_permission.mojom.AppPermissionsObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

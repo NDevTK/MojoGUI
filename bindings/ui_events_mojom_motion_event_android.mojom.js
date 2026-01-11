@@ -2,11 +2,6 @@
 // Source: chromium_src/ui/events/mojom/motion_event_android.mojom
 // Module: ui.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ui = ui || {};
 ui.mojom = ui.mojom || {};

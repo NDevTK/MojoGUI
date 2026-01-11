@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/services/printing/public/mojom/printer_xml_parser.mojom
 // Module: printing.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var printing = printing || {};
 printing.mojom = printing.mojom || {};
@@ -133,7 +128,7 @@ printing.mojom.PrinterXmlParserReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

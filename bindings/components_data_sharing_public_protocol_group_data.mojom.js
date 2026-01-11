@@ -2,11 +2,6 @@
 // Source: chromium_src/components/data_sharing/public/protocol/group_data.mojom
 // Module: data_sharing.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var data_sharing = data_sharing || {};
 data_sharing.mojom = data_sharing.mojom || {};

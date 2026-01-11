@@ -2,11 +2,6 @@
 // Source: chromium_src/ui/ozone/public/mojom/gesture_properties_service.mojom
 // Module: ui.ozone.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ui = ui || {};
 ui.ozone = ui.ozone || {};
@@ -332,7 +327,7 @@ ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

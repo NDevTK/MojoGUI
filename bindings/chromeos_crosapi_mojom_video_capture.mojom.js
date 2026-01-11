@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/crosapi/mojom/video_capture.mojom
 // Module: crosapi.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
@@ -235,7 +230,7 @@ crosapi.mojom.ScopedAccessPermissionReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -821,7 +816,7 @@ crosapi.mojom.VideoFrameHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1211,7 +1206,7 @@ crosapi.mojom.VideoCaptureDeviceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1395,7 +1390,7 @@ crosapi.mojom.VideoCaptureDeviceFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

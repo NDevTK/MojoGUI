@@ -2,11 +2,6 @@
 // Source: chromium_src/services/network/public/mojom/proxy_config_with_annotation.mojom
 // Module: network.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
@@ -193,7 +188,7 @@ network.mojom.ProxyConfigClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -319,7 +314,7 @@ network.mojom.ProxyConfigPollerClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -480,7 +475,7 @@ network.mojom.ProxyErrorClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

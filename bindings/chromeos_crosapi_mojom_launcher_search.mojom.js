@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/crosapi/mojom/launcher_search.mojom
 // Module: crosapi.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
@@ -261,7 +256,7 @@ crosapi.mojom.SearchResultsPublisherReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -400,7 +395,7 @@ crosapi.mojom.SearchControllerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -527,7 +522,7 @@ crosapi.mojom.SearchResultConsumerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

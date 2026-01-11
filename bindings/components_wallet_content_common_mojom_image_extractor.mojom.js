@@ -2,11 +2,6 @@
 // Source: chromium_src/components/wallet/content/common/mojom/image_extractor.mojom
 // Module: wallet.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var wallet = wallet || {};
 wallet.mojom = wallet.mojom || {};
@@ -145,7 +140,7 @@ wallet.mojom.ImageExtractorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/app_install/app_install.mojom
 // Module: ash.app_install.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.app_install = ash.app_install || {};
@@ -250,7 +245,7 @@ ash.app_install.mojom.AppInfoActionsReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -376,7 +371,7 @@ ash.app_install.mojom.ConnectionErrorActionsReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -503,7 +498,7 @@ ash.app_install.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -673,7 +668,7 @@ ash.app_install.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

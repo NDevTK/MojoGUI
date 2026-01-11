@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/components/multidevice/mojom/multidevice_types.mojom
 // Module: ash.multidevice.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.multidevice = ash.multidevice || {};

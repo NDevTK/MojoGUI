@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/signin/batch_upload/batch_upload.mojom
 // Module: batch_upload.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var batch_upload = batch_upload || {};
 batch_upload.mojom = batch_upload.mojom || {};
@@ -181,7 +176,7 @@ batch_upload.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -373,7 +368,7 @@ batch_upload.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -500,7 +495,7 @@ batch_upload.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

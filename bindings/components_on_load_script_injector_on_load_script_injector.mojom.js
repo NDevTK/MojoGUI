@@ -2,11 +2,6 @@
 // Source: chromium_src/components/on_load_script_injector/on_load_script_injector.mojom
 // Module: on_load_script_injector.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var on_load_script_injector = on_load_script_injector || {};
 on_load_script_injector.mojom = on_load_script_injector.mojom || {};
@@ -166,7 +161,7 @@ on_load_script_injector.mojom.OnLoadScriptInjectorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

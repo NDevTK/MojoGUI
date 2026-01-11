@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/lens/core/mojom/lens_side_panel.mojom
 // Module: lens.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var lens = lens || {};
 lens.mojom = lens.mojom || {};
@@ -169,7 +164,7 @@ lens.mojom.LensSidePanelPageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -470,7 +465,7 @@ lens.mojom.LensSidePanelPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1023,7 +1018,7 @@ lens.mojom.LensSidePanelPageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

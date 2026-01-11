@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/settings/pages/apps/mojom/app_parental_controls_handler.mojom
 // Module: ash.settings.app_parental_controls.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.settings = ash.settings || {};
@@ -457,7 +452,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerReceiver = cl
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -617,7 +612,7 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsObserverReceiver = c
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

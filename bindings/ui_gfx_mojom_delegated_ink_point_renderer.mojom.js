@@ -2,11 +2,6 @@
 // Source: chromium_src/ui/gfx/mojom/delegated_ink_point_renderer.mojom
 // Module: gfx.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
@@ -165,7 +160,7 @@ gfx.mojom.DelegatedInkPointRendererReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

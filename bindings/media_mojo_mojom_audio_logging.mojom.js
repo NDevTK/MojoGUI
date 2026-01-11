@@ -2,11 +2,6 @@
 // Source: chromium_src/media/mojo/mojom/audio_logging.mojom
 // Module: media.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
@@ -378,7 +373,7 @@ media.mojom.AudioLogReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -507,7 +502,7 @@ media.mojom.AudioLogFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

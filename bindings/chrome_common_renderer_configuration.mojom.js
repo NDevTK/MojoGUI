@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/common/renderer_configuration.mojom
 // Module: chrome.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
@@ -198,7 +193,7 @@ chrome.mojom.BoundSessionRequestThrottledHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -324,7 +319,7 @@ chrome.mojom.ChromeOSListenerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -520,7 +515,7 @@ chrome.mojom.RendererConfigurationReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

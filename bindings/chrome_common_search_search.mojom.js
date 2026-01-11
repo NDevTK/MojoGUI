@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/common/search/search.mojom
 // Module: search.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var search = search || {};
 search.mojom = search.mojom || {};
@@ -147,7 +142,7 @@ search.mojom.EmbeddedSearchConnectorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -376,7 +371,7 @@ search.mojom.EmbeddedSearchReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -636,7 +631,7 @@ search.mojom.EmbeddedSearchClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

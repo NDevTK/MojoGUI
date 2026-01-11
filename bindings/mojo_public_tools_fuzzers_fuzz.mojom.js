@@ -2,11 +2,6 @@
 // Source: chromium_src/mojo/public/tools/fuzzers/fuzz.mojom
 // Module: fuzz.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var fuzz = fuzz || {};
 fuzz.mojom = fuzz.mojom || {};
@@ -294,7 +289,7 @@ fuzz.mojom.FuzzDummyInterfaceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -663,7 +658,7 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

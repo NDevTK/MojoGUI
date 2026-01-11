@@ -2,11 +2,6 @@
 // Source: chromium_src/components/metrics/private_metrics/mojom/private_metrics_interface.mojom
 // Module: metrics.private_metrics.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var metrics = metrics || {};
 metrics.private_metrics = metrics.private_metrics || {};

@@ -2,11 +2,6 @@
 // Source: chromium_src/services/on_device_model/public/mojom/on_device_model_service.mojom
 // Module: on_device_model.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var on_device_model = on_device_model || {};
 on_device_model.mojom = on_device_model.mojom || {};
@@ -296,7 +291,7 @@ on_device_model.mojom.PlatformModelProgressObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -560,7 +555,7 @@ on_device_model.mojom.OnDeviceModelServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -884,7 +879,7 @@ on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

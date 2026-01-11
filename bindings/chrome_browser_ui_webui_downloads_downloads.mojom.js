@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/downloads/downloads.mojom
 // Module: downloads.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var downloads = downloads || {};
 downloads.mojom = downloads.mojom || {};
@@ -258,7 +253,7 @@ downloads.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1150,7 +1145,7 @@ downloads.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1377,7 +1372,7 @@ downloads.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/boca/babelorca/mojom/tachyon_parsing_service.mojom
 // Module: ash.babelorca.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.babelorca = ash.babelorca || {};
@@ -191,7 +186,7 @@ ash.babelorca.mojom.TachyonParsingServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

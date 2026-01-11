@@ -2,11 +2,6 @@
 // Source: chromium_src/remoting/host/mojom/agent_process_broker.mojom
 // Module: remoting.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var remoting = remoting || {};
 remoting.mojom = remoting.mojom || {};
@@ -201,7 +196,7 @@ remoting.mojom.AgentProcessReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -328,7 +323,7 @@ remoting.mojom.AgentProcessBrokerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

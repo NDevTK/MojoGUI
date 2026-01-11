@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/new_tab_page/foo/foo.mojom
 // Module: foo.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var foo = foo || {};
 foo.mojom = foo.mojom || {};
@@ -154,7 +149,7 @@ foo.mojom.FooHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

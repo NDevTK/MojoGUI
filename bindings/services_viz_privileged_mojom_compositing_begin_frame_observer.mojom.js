@@ -2,11 +2,6 @@
 // Source: chromium_src/services/viz/privileged/mojom/compositing/begin_frame_observer.mojom
 // Module: viz.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
@@ -132,7 +127,7 @@ viz.mojom.BeginFrameObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

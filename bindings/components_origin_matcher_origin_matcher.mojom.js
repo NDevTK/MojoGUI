@@ -2,11 +2,6 @@
 // Source: chromium_src/components/origin_matcher/origin_matcher.mojom
 // Module: origin_matcher.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var origin_matcher = origin_matcher || {};
 origin_matcher.mojom = origin_matcher.mojom || {};

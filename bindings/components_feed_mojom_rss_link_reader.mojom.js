@@ -2,11 +2,6 @@
 // Source: chromium_src/components/feed/mojom/rss_link_reader.mojom
 // Module: feed.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var feed = feed || {};
 feed.mojom = feed.mojom || {};
@@ -154,7 +149,7 @@ feed.mojom.RssLinkReaderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

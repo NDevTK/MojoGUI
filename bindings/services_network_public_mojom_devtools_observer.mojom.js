@@ -2,11 +2,6 @@
 // Source: chromium_src/services/network/public/mojom/devtools_observer.mojom
 // Module: network.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
@@ -661,7 +656,7 @@ network.mojom.DevToolsObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

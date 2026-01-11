@@ -2,11 +2,6 @@
 // Source: chromium_src/services/device/public/mojom/device_service.mojom
 // Module: device.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
@@ -779,7 +774,7 @@ device.mojom.DeviceServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/services/network/public/mojom/document_isolation_policy.mojom
 // Module: network.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
@@ -187,7 +182,7 @@ network.mojom.DocumentIsolationPolicyReporterReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

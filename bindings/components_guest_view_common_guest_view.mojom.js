@@ -2,11 +2,6 @@
 // Source: chromium_src/components/guest_view/common/guest_view.mojom
 // Module: guest_view.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var guest_view = guest_view || {};
 guest_view.mojom = guest_view.mojom || {};
@@ -104,7 +99,7 @@ guest_view.mojom.ViewHandleReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -279,7 +274,7 @@ guest_view.mojom.GuestViewHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

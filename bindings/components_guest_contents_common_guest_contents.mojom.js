@@ -2,11 +2,6 @@
 // Source: chromium_src/components/guest_contents/common/guest_contents.mojom
 // Module: guest_contents.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var guest_contents = guest_contents || {};
 guest_contents.mojom = guest_contents.mojom || {};
@@ -148,7 +143,7 @@ guest_contents.mojom.GuestContentsHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

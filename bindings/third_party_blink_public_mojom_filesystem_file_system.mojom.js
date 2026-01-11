@@ -2,11 +2,6 @@
 // Source: chromium_src/third_party/blink/public/mojom/filesystem/file_system.mojom
 // Module: blink.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
@@ -208,7 +203,7 @@ blink.mojom.FileSystemCancellableOperationReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -403,7 +398,7 @@ blink.mojom.FileSystemOperationListenerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -529,7 +524,7 @@ blink.mojom.ReceivedSnapshotListenerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1396,7 +1391,7 @@ blink.mojom.FileSystemManagerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

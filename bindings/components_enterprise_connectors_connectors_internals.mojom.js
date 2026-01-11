@@ -2,11 +2,6 @@
 // Source: chromium_src/components/enterprise/connectors/connectors_internals.mojom
 // Module: connectors_internals.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var connectors_internals = connectors_internals || {};
 connectors_internals.mojom = connectors_internals.mojom || {};
@@ -430,7 +425,7 @@ connectors_internals.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

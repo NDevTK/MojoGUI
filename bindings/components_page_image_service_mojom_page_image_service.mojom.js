@@ -2,11 +2,6 @@
 // Source: chromium_src/components/page_image_service/mojom/page_image_service.mojom
 // Module: page_image_service.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var page_image_service = page_image_service || {};
 page_image_service.mojom = page_image_service.mojom || {};
@@ -177,7 +172,7 @@ page_image_service.mojom.PageImageServiceHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

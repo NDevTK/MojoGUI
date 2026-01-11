@@ -2,11 +2,6 @@
 // Source: chromium_src/services/network/public/mojom/http_cache_backend_file_operations.mojom
 // Module: network.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
@@ -199,7 +194,7 @@ network.mojom.FileEnumeratorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -691,7 +686,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -818,7 +813,7 @@ network.mojom.HttpCacheBackendFileOperationsFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

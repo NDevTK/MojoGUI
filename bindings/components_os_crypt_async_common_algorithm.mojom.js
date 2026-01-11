@@ -2,11 +2,6 @@
 // Source: chromium_src/components/os_crypt/async/common/algorithm.mojom
 // Module: os_crypt_async.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var os_crypt_async = os_crypt_async || {};
 os_crypt_async.mojom = os_crypt_async.mojom || {};

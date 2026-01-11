@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/app_service_internals/app_service_internals.mojom
 // Module: mojom.app_service_internals
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var mojom = mojom || {};
 mojom.app_service_internals = mojom.app_service_internals || {};
@@ -193,7 +188,7 @@ mojom.app_service_internals.AppServiceInternalsPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

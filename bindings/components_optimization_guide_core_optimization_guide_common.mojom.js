@@ -2,11 +2,6 @@
 // Source: chromium_src/components/optimization_guide/core/optimization_guide_common.mojom
 // Module: optimization_guide_common.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var optimization_guide_common = optimization_guide_common || {};
 optimization_guide_common.mojom = optimization_guide_common.mojom || {};

@@ -2,11 +2,6 @@
 // Source: chromium_src/chromecast/browser/webui/mojom/webui.mojom
 // Module: chromecast.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
@@ -145,7 +140,7 @@ chromecast.mojom.MessageCallbackReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -307,7 +302,7 @@ chromecast.mojom.WebUiReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -446,7 +441,7 @@ chromecast.mojom.ResourcesReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -609,7 +604,7 @@ chromecast.mojom.WebUiClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/remoting/host/mojom/remoting_host.mojom
 // Module: remoting.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var remoting = remoting || {};
 remoting.mojom = remoting.mojom || {};
@@ -236,7 +231,7 @@ remoting.mojom.RemotingHostControlReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -398,7 +393,7 @@ remoting.mojom.DesktopSessionConnectionEventsReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -724,7 +719,7 @@ remoting.mojom.HostStatusObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

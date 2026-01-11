@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/media_app_ui/media_app_ui.mojom
 // Module: ash.media_app_ui.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.media_app_ui = ash.media_app_ui || {};
@@ -151,7 +146,7 @@ ash.media_app_ui.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -556,7 +551,7 @@ ash.media_app_ui.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

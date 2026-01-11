@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/nearby/public/mojom/nearby_presence.mojom
 // Module: ash.nearby.presence.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.nearby = ash.nearby || {};
@@ -264,7 +259,7 @@ ash.nearby.presence.mojom.ScanSessionReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -457,7 +452,7 @@ ash.nearby.presence.mojom.ScanObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -801,7 +796,7 @@ ash.nearby.presence.mojom.NearbyPresenceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

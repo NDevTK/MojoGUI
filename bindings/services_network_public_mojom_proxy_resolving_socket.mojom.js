@@ -2,11 +2,6 @@
 // Source: chromium_src/services/network/public/mojom/proxy_resolving_socket.mojom
 // Module: network.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
@@ -163,7 +158,7 @@ network.mojom.ProxyResolvingSocketReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -311,7 +306,7 @@ network.mojom.ProxyResolvingSocketFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

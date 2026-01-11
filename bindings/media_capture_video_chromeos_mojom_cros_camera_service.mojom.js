@@ -2,11 +2,6 @@
 // Source: chromium_src/media/capture/video/chromeos/mojom/cros_camera_service.mojom
 // Module: cros.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var cros = cros || {};
 cros.mojom = cros.mojom || {};
@@ -326,7 +321,7 @@ cros.mojom.KioskVisionObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -467,7 +462,7 @@ cros.mojom.CameraHalDispatcherReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -729,7 +724,7 @@ cros.mojom.CrosCameraServiceObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1167,7 +1162,7 @@ cros.mojom.CrosCameraServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

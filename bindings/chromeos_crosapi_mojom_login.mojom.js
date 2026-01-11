@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/crosapi/mojom/login.mojom
 // Module: crosapi.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
@@ -160,7 +155,7 @@ crosapi.mojom.ExternalLogoutRequestObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -634,7 +629,7 @@ crosapi.mojom.LoginReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

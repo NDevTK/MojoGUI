@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/diagnostics_ui/mojom/system_routine_controller.mojom
 // Module: ash.diagnostics.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.diagnostics = ash.diagnostics || {};
@@ -208,7 +203,7 @@ ash.diagnostics.mojom.RoutineRunnerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -380,7 +375,7 @@ ash.diagnostics.mojom.SystemRoutineControllerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

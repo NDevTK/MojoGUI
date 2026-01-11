@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/omnibox/aim_eligibility/aim_eligibility.mojom
 // Module: aim_eligibility.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var aim_eligibility = aim_eligibility || {};
 aim_eligibility.mojom = aim_eligibility.mojom || {};
@@ -159,7 +154,7 @@ aim_eligibility.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -374,7 +369,7 @@ aim_eligibility.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -502,7 +497,7 @@ aim_eligibility.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

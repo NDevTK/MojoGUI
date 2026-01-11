@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/settings/search/mojom/search_result_icon.mojom
 // Module: ash.settings.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.settings = ash.settings || {};

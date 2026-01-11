@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/side_panel/comments/comments.mojom
 // Module: comments.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var comments = comments || {};
 comments.mojom = comments.mojom || {};
@@ -138,7 +133,7 @@ comments.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -264,7 +259,7 @@ comments.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -358,7 +353,7 @@ comments.mojom.PageReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

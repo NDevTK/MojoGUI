@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/extensions_zero_state_promo/zero_state_promo.mojom
 // Module: zero_state_promo.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var zero_state_promo = zero_state_promo || {};
 zero_state_promo.mojom = zero_state_promo.mojom || {};
@@ -156,7 +151,7 @@ zero_state_promo.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -283,7 +278,7 @@ zero_state_promo.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

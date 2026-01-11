@@ -2,11 +2,6 @@
 // Source: chromium_src/services/screen_ai/public/mojom/screen_ai_factory.mojom
 // Module: screen_ai.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var screen_ai = screen_ai || {};
 screen_ai.mojom = screen_ai.mojom || {};
@@ -141,7 +136,7 @@ screen_ai.mojom.ScreenAIServiceShutdownHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -362,7 +357,7 @@ screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

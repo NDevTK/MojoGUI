@@ -2,11 +2,6 @@
 // Source: chromium_src/mojo/public/interfaces/bindings/pipe_control_messages.mojom
 // Module: mojo.pipe_control
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var mojo = mojo || {};
 mojo.pipe_control = mojo.pipe_control || {};

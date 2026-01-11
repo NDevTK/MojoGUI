@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/keymanagement/public/mojom/cert_store_types.mojom
 // Module: arc.keymanagement.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var arc = arc || {};
 arc.keymanagement = arc.keymanagement || {};

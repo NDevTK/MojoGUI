@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/help_app_ui/search/search.mojom
 // Module: ash.help_app.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.help_app = ash.help_app || {};
@@ -167,7 +162,7 @@ ash.help_app.mojom.SearchResultsObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -384,7 +379,7 @@ ash.help_app.mojom.SearchHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

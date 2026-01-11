@@ -2,11 +2,6 @@
 // Source: chromium_src/components/metrics/structured/mojom/event.mojom
 // Module: metrics.structured.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var metrics = metrics || {};
 metrics.structured = metrics.structured || {};

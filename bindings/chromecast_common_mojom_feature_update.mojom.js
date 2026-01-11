@@ -2,11 +2,6 @@
 // Source: chromium_src/chromecast/common/mojom/feature_update.mojom
 // Module: chromecast.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
@@ -136,7 +131,7 @@ chromecast.mojom.FeatureUpdateObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -263,7 +258,7 @@ chromecast.mojom.FeatureUpdateServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

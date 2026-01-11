@@ -2,11 +2,6 @@
 // Source: chromium_src/device/vr/public/mojom/isolated_xr_service.mojom
 // Module: device.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
@@ -212,7 +207,7 @@ device.mojom.XRSessionControllerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -371,7 +366,7 @@ device.mojom.XRRuntimeEventListenerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -586,7 +581,7 @@ device.mojom.XRRuntimeReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -850,7 +845,7 @@ device.mojom.ImmersiveOverlayReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1044,7 +1039,7 @@ device.mojom.IsolatedXRRuntimeProviderClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1171,7 +1166,7 @@ device.mojom.IsolatedXRRuntimeProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1332,7 +1327,7 @@ device.mojom.XRDeviceServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1459,7 +1454,7 @@ device.mojom.XRDeviceServiceHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

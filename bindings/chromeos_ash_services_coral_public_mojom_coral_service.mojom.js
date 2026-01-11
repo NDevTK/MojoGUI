@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/coral/public/mojom/coral_service.mojom
 // Module: coral.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var coral = coral || {};
 coral.mojom = coral.mojom || {};
@@ -305,7 +300,7 @@ coral.mojom.TitleObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -490,7 +485,7 @@ coral.mojom.CoralProcessorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -742,7 +737,7 @@ coral.mojom.CoralServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

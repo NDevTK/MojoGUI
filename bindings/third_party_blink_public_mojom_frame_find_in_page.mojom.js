@@ -2,11 +2,6 @@
 // Source: chromium_src/third_party/blink/public/mojom/frame/find_in_page.mojom
 // Module: blink.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
@@ -399,7 +394,7 @@ blink.mojom.FindInPageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -564,7 +559,7 @@ blink.mojom.FindInPageClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

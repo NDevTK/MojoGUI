@@ -2,11 +2,6 @@
 // Source: chromium_src/media/mojo/mojom/speech_recognizer.mojom
 // Module: media.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
@@ -182,7 +177,7 @@ media.mojom.SpeechRecognizerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -366,7 +361,7 @@ media.mojom.OnDeviceSpeechRecognitionReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -557,7 +552,7 @@ media.mojom.SpeechRecognitionSessionReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -909,7 +904,7 @@ media.mojom.SpeechRecognitionSessionClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

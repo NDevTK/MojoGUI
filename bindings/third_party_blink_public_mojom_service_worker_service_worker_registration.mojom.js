@@ -2,11 +2,6 @@
 // Source: chromium_src/third_party/blink/public/mojom/service_worker/service_worker_registration.mojom
 // Module: blink.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
@@ -368,7 +363,7 @@ blink.mojom.ServiceWorkerRegistrationObjectHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -563,7 +558,7 @@ blink.mojom.ServiceWorkerRegistrationObjectReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

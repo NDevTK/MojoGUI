@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/nearby_share/nearby_share.mojom
 // Module: nearby_share.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var nearby_share = nearby_share || {};
 nearby_share.mojom = nearby_share.mojom || {};
@@ -306,7 +301,7 @@ nearby_share.mojom.ShareTargetListenerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -434,7 +429,7 @@ nearby_share.mojom.TransferUpdateListenerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -593,7 +588,7 @@ nearby_share.mojom.DiscoveryObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -899,7 +894,7 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1125,7 +1120,7 @@ nearby_share.mojom.ConfirmationManagerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1350,7 +1345,7 @@ nearby_share.mojom.ReceiveObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1732,7 +1727,7 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

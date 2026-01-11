@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/unexportable_keys_internals/unexportable_keys_internals.mojom
 // Module: unexportable_keys_internals.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var unexportable_keys_internals = unexportable_keys_internals || {};
 unexportable_keys_internals.mojom = unexportable_keys_internals.mojom || {};
@@ -162,7 +157,7 @@ unexportable_keys_internals.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -345,7 +340,7 @@ unexportable_keys_internals.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -439,7 +434,7 @@ unexportable_keys_internals.mojom.PageReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/settings/pages/device/display_settings/display_settings_provider.mojom
 // Module: ash.settings.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.settings = ash.settings || {};
@@ -211,7 +206,7 @@ ash.settings.mojom.TabletModeObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -337,7 +332,7 @@ ash.settings.mojom.DisplayConfigurationObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -465,7 +460,7 @@ ash.settings.mojom.DisplayBrightnessSettingsObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -592,7 +587,7 @@ ash.settings.mojom.AmbientLightSensorObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1063,7 +1058,7 @@ ash.settings.mojom.DisplaySettingsProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

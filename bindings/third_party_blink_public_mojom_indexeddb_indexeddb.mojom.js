@@ -2,11 +2,6 @@
 // Source: chromium_src/third_party/blink/public/mojom/indexeddb/indexeddb.mojom
 // Module: blink.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
@@ -747,7 +742,7 @@ blink.mojom.IDBFactoryClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -975,7 +970,7 @@ blink.mojom.IDBDatabaseCallbacksReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1238,7 +1233,7 @@ blink.mojom.IDBCursorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1550,7 +1545,7 @@ blink.mojom.IDBTransactionReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1711,7 +1706,7 @@ blink.mojom.IDBDatabaseGetAllResultSinkReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2453,7 +2448,7 @@ blink.mojom.IDBDatabaseReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2666,7 +2661,7 @@ blink.mojom.IDBFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

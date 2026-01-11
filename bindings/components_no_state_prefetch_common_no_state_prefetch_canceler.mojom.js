@@ -2,11 +2,6 @@
 // Source: chromium_src/components/no_state_prefetch/common/no_state_prefetch_canceler.mojom
 // Module: prerender.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var prerender = prerender || {};
 prerender.mojom = prerender.mojom || {};
@@ -164,7 +159,7 @@ prerender.mojom.NoStatePrefetchCancelerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

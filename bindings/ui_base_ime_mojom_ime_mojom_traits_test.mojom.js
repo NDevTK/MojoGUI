@@ -2,11 +2,6 @@
 // Source: chromium_src/ui/base/ime/mojom/ime_mojom_traits_test.mojom
 // Module: ui.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ui = ui || {};
 ui.mojom = ui.mojom || {};
@@ -145,7 +140,7 @@ ui.mojom.IMEStructTraitsTestReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/components/payments/mojom/payment_app.mojom
 // Module: chromeos.payments.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.payments = chromeos.payments || {};
@@ -287,7 +282,7 @@ chromeos.payments.mojom.PaymentAppInstanceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

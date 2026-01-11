@@ -2,11 +2,6 @@
 // Source: chromium_src/mojo/public/interfaces/bindings/interface_control_messages.mojom
 // Module: mojo.interface_control
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var mojo = mojo || {};
 mojo.interface_control = mojo.interface_control || {};

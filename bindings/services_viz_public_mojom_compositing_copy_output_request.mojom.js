@@ -2,11 +2,6 @@
 // Source: chromium_src/services/viz/public/mojom/compositing/copy_output_request.mojom
 // Module: viz.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
@@ -151,7 +146,7 @@ viz.mojom.CopyOutputResultSenderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

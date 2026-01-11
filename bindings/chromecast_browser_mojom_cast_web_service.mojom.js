@@ -2,11 +2,6 @@
 // Source: chromium_src/chromecast/browser/mojom/cast_web_service.mojom
 // Module: chromecast.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
@@ -317,7 +312,7 @@ chromecast.mojom.CastWebServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

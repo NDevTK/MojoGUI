@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/keymaster/public/mojom/cert_store.mojom
 // Module: arc.keymaster.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var arc = arc || {};
 arc.keymaster = arc.keymaster || {};
@@ -176,7 +171,7 @@ arc.keymaster.mojom.CertStoreInstanceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

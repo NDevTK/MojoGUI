@@ -2,11 +2,6 @@
 // Source: chromium_src/ui/ozone/platform/wayland/mojom/wayland_overlay_config_traits_test_service.mojom
 // Module: wl.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var wl = wl || {};
 wl.mojom = wl.mojom || {};
@@ -145,7 +140,7 @@ wl.mojom.ConfigTraitsTestServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

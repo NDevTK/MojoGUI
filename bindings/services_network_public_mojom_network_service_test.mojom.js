@@ -2,11 +2,6 @@
 // Source: chromium_src/services/network/public/mojom/network_service_test.mojom
 // Module: network.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
@@ -446,7 +441,7 @@ network.mojom.SimpleCacheEntryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -584,7 +579,7 @@ network.mojom.SimpleCacheEntryEnumeratorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -935,7 +930,7 @@ network.mojom.SimpleCacheReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2272,7 +2267,7 @@ network.mojom.NetworkServiceTestReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

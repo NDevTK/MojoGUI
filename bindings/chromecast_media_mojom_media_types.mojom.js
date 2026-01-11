@@ -2,11 +2,6 @@
 // Source: chromium_src/chromecast/media/mojom/media_types.mojom
 // Module: chromecast.media.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.media = chromecast.media || {};

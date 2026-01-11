@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/camera_app_ui/pdf_builder.mojom
 // Module: ash.camera_app.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.camera_app = ash.camera_app || {};
@@ -296,7 +291,7 @@ ash.camera_app.mojom.PdfBuilderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

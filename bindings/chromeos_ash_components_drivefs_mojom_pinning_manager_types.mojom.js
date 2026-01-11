@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/components/drivefs/mojom/pinning_manager_types.mojom
 // Module: drivefs.pinning_manager_types.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var drivefs = drivefs || {};
 drivefs.pinning_manager_types = drivefs.pinning_manager_types || {};

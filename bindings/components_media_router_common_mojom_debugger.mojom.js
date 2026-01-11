@@ -2,11 +2,6 @@
 // Source: chromium_src/components/media_router/common/mojom/debugger.mojom
 // Module: media_router.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var media_router = media_router || {};
 media_router.mojom = media_router.mojom || {};
@@ -213,7 +208,7 @@ media_router.mojom.DebuggerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

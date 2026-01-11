@@ -2,11 +2,6 @@
 // Source: chromium_src/services/on_device_model/public/mojom/on_device_model.mojom
 // Module: on_device_model.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var on_device_model = on_device_model || {};
 on_device_model.mojom = on_device_model.mojom || {};
@@ -449,7 +444,7 @@ on_device_model.mojom.StreamingResponderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -576,7 +571,7 @@ on_device_model.mojom.ContextClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -974,7 +969,7 @@ on_device_model.mojom.SessionReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1238,7 +1233,7 @@ on_device_model.mojom.OnDeviceModelReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1455,7 +1450,7 @@ on_device_model.mojom.TextSafetySessionReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1582,7 +1577,7 @@ on_device_model.mojom.TextSafetyModelReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1709,7 +1704,7 @@ on_device_model.mojom.AsrStreamResponderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1836,7 +1831,7 @@ on_device_model.mojom.AsrStreamInputReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

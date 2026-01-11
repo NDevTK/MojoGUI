@@ -2,11 +2,6 @@
 // Source: chromium_src/third_party/blink/public/mojom/facilitated_payments/payment_link_handler.mojom
 // Module: payments.facilitated.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var payments = payments || {};
 payments.facilitated = payments.facilitated || {};
@@ -134,7 +129,7 @@ payments.facilitated.mojom.PaymentLinkHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

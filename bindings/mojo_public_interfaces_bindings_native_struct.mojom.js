@@ -2,11 +2,6 @@
 // Source: chromium_src/mojo/public/interfaces/bindings/native_struct.mojom
 // Module: mojo.native
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var mojo = mojo || {};
 mojo.native = mojo.native || {};

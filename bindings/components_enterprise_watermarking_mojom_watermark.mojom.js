@@ -2,11 +2,6 @@
 // Source: chromium_src/components/enterprise/watermarking/mojom/watermark.mojom
 // Module: watermark.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var watermark = watermark || {};
 watermark.mojom = watermark.mojom || {};

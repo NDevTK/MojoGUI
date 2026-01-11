@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/new_tab_page/modules/file_suggestion/file_suggestion.mojom
 // Module: file_suggestion.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var file_suggestion = file_suggestion || {};
 file_suggestion.mojom = file_suggestion.mojom || {};

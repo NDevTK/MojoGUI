@@ -2,11 +2,6 @@
 // Source: chromium_src/components/optimization_guide/public/mojom/model_broker.mojom
 // Module: optimization_guide.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var optimization_guide = optimization_guide || {};
 optimization_guide.mojom = optimization_guide.mojom || {};
@@ -254,7 +249,7 @@ optimization_guide.mojom.ModelSolutionReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -415,7 +410,7 @@ optimization_guide.mojom.ModelSubscriberReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -543,7 +538,7 @@ optimization_guide.mojom.ModelBrokerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

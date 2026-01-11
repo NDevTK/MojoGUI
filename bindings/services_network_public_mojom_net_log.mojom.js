@@ -2,11 +2,6 @@
 // Source: chromium_src/services/network/public/mojom/net_log.mojom
 // Module: network.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
@@ -221,7 +216,7 @@ network.mojom.NetLogExporterReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -348,7 +343,7 @@ network.mojom.NetLogProxySourceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -479,7 +474,7 @@ network.mojom.NetLogProxySinkReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

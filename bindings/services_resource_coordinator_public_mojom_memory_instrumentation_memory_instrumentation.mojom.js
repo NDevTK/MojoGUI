@@ -2,11 +2,6 @@
 // Source: chromium_src/services/resource_coordinator/public/mojom/memory_instrumentation/memory_instrumentation.mojom
 // Module: memory_instrumentation.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var memory_instrumentation = memory_instrumentation || {};
 memory_instrumentation.mojom = memory_instrumentation.mojom || {};
@@ -483,7 +478,7 @@ memory_instrumentation.mojom.ClientProcessReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -623,7 +618,7 @@ memory_instrumentation.mojom.HeapProfilerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -762,7 +757,7 @@ memory_instrumentation.mojom.HeapProfilerHelperReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1046,7 +1041,7 @@ memory_instrumentation.mojom.CoordinatorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1174,7 +1169,7 @@ memory_instrumentation.mojom.CoordinatorConnectorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

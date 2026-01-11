@@ -2,11 +2,6 @@
 // Source: chromium_src/ui/webui/resources/cr_components/composebox/composebox.mojom
 // Module: composebox.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var composebox = composebox || {};
 composebox.mojom = composebox.mojom || {};
@@ -147,7 +142,7 @@ composebox.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -439,7 +434,7 @@ composebox.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -533,7 +528,7 @@ composebox.mojom.PageReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

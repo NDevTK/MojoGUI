@@ -2,11 +2,6 @@
 // Source: chromium_src/components/history_clusters/history_clusters_internals/webui/history_clusters_internals.mojom
 // Module: history_clusters_internals.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var history_clusters_internals = history_clusters_internals || {};
 history_clusters_internals.mojom = history_clusters_internals.mojom || {};
@@ -141,7 +136,7 @@ history_clusters_internals.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -311,7 +306,7 @@ history_clusters_internals.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -438,7 +433,7 @@ history_clusters_internals.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

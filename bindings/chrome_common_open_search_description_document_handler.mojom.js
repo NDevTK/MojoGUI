@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/common/open_search_description_document_handler.mojom
 // Module: chrome.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
@@ -134,7 +129,7 @@ chrome.mojom.OpenSearchDescriptionDocumentHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

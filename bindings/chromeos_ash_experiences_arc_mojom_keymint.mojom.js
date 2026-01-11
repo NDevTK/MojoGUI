@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/experiences/arc/mojom/keymint.mojom
 // Module: arc.mojom.keymint
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
@@ -827,7 +822,7 @@ arc.mojom.keymint.KeyMintHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -965,7 +960,7 @@ arc.mojom.keymint.KeyMintInstanceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2247,7 +2242,7 @@ arc.mojom.keymint.KeyMintServerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

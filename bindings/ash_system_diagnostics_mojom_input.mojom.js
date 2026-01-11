@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/system/diagnostics/mojom/input.mojom
 // Module: ash.diagnostics.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.diagnostics = ash.diagnostics || {};

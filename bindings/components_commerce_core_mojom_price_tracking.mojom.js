@@ -2,11 +2,6 @@
 // Source: chromium_src/components/commerce/core/mojom/price_tracking.mojom
 // Module: commerce.price_tracking.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var commerce = commerce || {};
 commerce.price_tracking = commerce.price_tracking || {};
@@ -428,7 +423,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -655,7 +650,7 @@ commerce.price_tracking.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -783,7 +778,7 @@ commerce.price_tracking.mojom.PriceTrackingHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

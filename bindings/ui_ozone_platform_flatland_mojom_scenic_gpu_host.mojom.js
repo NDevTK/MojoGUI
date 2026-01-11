@@ -2,11 +2,6 @@
 // Source: chromium_src/ui/ozone/platform/flatland/mojom/scenic_gpu_host.mojom
 // Module: ui.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ui = ui || {};
 ui.mojom = ui.mojom || {};
@@ -133,7 +128,7 @@ ui.mojom.ScenicGpuHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

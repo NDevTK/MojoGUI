@@ -2,11 +2,6 @@
 // Source: chromium_src/third_party/blink/public/mojom/digital_goods/digital_goods.mojom
 // Module: payments.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var payments = payments || {};
 payments.mojom = payments.mojom || {};
@@ -291,7 +286,7 @@ payments.mojom.DigitalGoodsReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -431,7 +426,7 @@ payments.mojom.DigitalGoodsFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

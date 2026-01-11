@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/services/media_perception/public/mojom/media_perception.mojom
 // Module: chromeos.media_perception.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.media_perception = chromeos.media_perception || {};
@@ -99,7 +94,7 @@ chromeos.media_perception.mojom.MediaPerceptionReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

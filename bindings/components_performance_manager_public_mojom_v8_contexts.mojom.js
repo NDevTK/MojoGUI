@@ -2,11 +2,6 @@
 // Source: chromium_src/components/performance_manager/public/mojom/v8_contexts.mojom
 // Module: performance_manager.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var performance_manager = performance_manager || {};
 performance_manager.mojom = performance_manager.mojom || {};

@@ -2,11 +2,6 @@
 // Source: chromium_src/ui/ozone/platform/drm/mojom/device_cursor.mojom
 // Module: ui.ozone.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ui = ui || {};
 ui.ozone = ui.ozone || {};
@@ -174,7 +169,7 @@ ui.ozone.mojom.DeviceCursorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

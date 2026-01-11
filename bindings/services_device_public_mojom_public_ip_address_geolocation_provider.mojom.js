@@ -2,11 +2,6 @@
 // Source: chromium_src/services/device/public/mojom/public_ip_address_geolocation_provider.mojom
 // Module: device.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
@@ -135,7 +130,7 @@ device.mojom.PublicIpAddressGeolocationProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/components/legion/mojom/oak_session.mojom
 // Module: legion.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var legion = legion || {};
 legion.mojom = legion.mojom || {};
@@ -295,7 +290,7 @@ legion.mojom.OakSessionReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

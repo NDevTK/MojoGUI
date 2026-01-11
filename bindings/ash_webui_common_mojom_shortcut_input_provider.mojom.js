@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/common/mojom/shortcut_input_provider.mojom
 // Module: ash.common.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.common = ash.common || {};
@@ -173,7 +168,7 @@ ash.common.mojom.ShortcutInputObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -332,7 +327,7 @@ ash.common.mojom.ShortcutInputProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

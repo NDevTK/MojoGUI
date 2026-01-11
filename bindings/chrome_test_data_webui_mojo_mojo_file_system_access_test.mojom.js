@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/test/data/webui/mojo/mojo_file_system_access_test.mojom
 // Module: test.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var test = test || {};
 test.mojom = test.mojom || {};
@@ -132,7 +127,7 @@ test.mojom.MojoFileSystemAccessTestReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

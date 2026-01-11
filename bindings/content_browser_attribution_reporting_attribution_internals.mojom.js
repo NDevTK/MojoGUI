@@ -2,11 +2,6 @@
 // Source: chromium_src/content/browser/attribution_reporting/attribution_internals.mojom
 // Module: attribution_internals.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var attribution_internals = attribution_internals || {};
 attribution_internals.mojom = attribution_internals.mojom || {};
@@ -674,7 +669,7 @@ attribution_internals.mojom.ObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -900,7 +895,7 @@ attribution_internals.mojom.HandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1028,7 +1023,7 @@ attribution_internals.mojom.FactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
