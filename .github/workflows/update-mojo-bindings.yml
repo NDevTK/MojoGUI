@@ -1237,9 +1237,7 @@ jobs:
                           js_code += f"          const expectsResponse = header.expectsResponse || (header.flags & 1);\n"
                           js_code += f"          if (expectsResponse) {{\n"
                           js_code += f"            Promise.resolve(result).then(response => {{\n"
-                          js_code += f"              const rawHeader = (args[2] && args[2].slice) ? args[2].slice(0, header.headerSize) : null;\n"
-                          js_code += f"              const responder = mojo.internal.interfaceSupport.createResponder(this.endpoint, header.requestId, {current_ns}.{resp_struct_name}Spec, header, rawHeader);\n"
-                          js_code += "               responder(response);\n"
+                          js_code += f"              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, {current_ns}.{resp_struct_name}Spec, response);\n"
                           js_code += f"            }}).catch(e => console.error('[GeneratedReceiver] {method_name} FAILED:', e));\n"
                           js_code += "          }\n"
                           
