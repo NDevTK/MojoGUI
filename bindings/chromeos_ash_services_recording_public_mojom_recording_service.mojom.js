@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/recording/public/mojom/recording_service.mojom
 // Module: recording.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var recording = recording || {};
 recording.mojom = recording.mojom || {};
@@ -177,7 +172,7 @@ recording.mojom.DriveFsQuotaDelegateReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -305,7 +300,7 @@ recording.mojom.RecordingServiceClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -659,7 +654,7 @@ recording.mojom.RecordingServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

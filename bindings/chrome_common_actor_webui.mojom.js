@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/common/actor_webui.mojom
 // Module: actor.webui.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var actor = actor || {};
 actor.webui = actor.webui || {};

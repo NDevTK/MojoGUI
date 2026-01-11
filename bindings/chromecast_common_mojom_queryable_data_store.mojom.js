@@ -2,11 +2,6 @@
 // Source: chromium_src/chromecast/common/mojom/queryable_data_store.mojom
 // Module: chromecast.shell.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.shell = chromecast.shell || {};
@@ -135,7 +130,7 @@ chromecast.shell.mojom.QueryableDataStoreReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

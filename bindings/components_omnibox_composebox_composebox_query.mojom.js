@@ -2,11 +2,6 @@
 // Source: chromium_src/components/omnibox/composebox/composebox_query.mojom
 // Module: composebox_query.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var composebox_query = composebox_query || {};
 composebox_query.mojom = composebox_query.mojom || {};

@@ -2,11 +2,6 @@
 // Source: chromium_src/services/webnn/public/mojom/webnn_graph.mojom
 // Module: webnn.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var webnn = webnn || {};
 webnn.mojom = webnn.mojom || {};
@@ -1240,7 +1235,7 @@ webnn.mojom.WebNNGraphReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

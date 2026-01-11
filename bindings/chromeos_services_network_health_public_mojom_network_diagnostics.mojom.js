@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/services/network_health/public/mojom/network_diagnostics.mojom
 // Module: chromeos.network_diagnostics.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.network_diagnostics = chromeos.network_diagnostics || {};
@@ -1325,7 +1320,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

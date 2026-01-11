@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/nearby/public/mojom/nearby_presence_credential_storage.mojom
 // Module: ash.nearby.presence.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.nearby = ash.nearby || {};
@@ -292,7 +287,7 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

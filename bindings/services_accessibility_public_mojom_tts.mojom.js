@@ -2,11 +2,6 @@
 // Source: chromium_src/services/accessibility/public/mojom/tts.mojom
 // Module: ax.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
@@ -220,7 +215,7 @@ ax.mojom.TtsUtteranceClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -544,7 +539,7 @@ ax.mojom.TtsReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

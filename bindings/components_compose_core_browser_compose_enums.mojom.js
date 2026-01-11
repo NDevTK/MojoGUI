@@ -2,11 +2,6 @@
 // Source: chromium_src/components/compose/core/browser/compose_enums.mojom
 // Module: compose.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var compose = compose || {};
 compose.mojom = compose.mojom || {};

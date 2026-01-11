@@ -2,11 +2,6 @@
 // Source: chromium_src/components/autofill/core/browser/ml_model/logging/autofill_ml_internals.mojom
 // Module: autofill_ml_internals.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var autofill_ml_internals = autofill_ml_internals || {};
 autofill_ml_internals.mojom = autofill_ml_internals.mojom || {};
@@ -185,7 +180,7 @@ autofill_ml_internals.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -312,7 +307,7 @@ autofill_ml_internals.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

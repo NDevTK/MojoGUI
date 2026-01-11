@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/login/mojom/screens_osauth.mojom
 // Module: ash.screens_osauth.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.screens_osauth = ash.screens_osauth || {};
@@ -231,7 +226,7 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/services/network/public/mojom/network_service.mojom
 // Module: network.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
@@ -266,7 +261,7 @@ network.mojom.GssapiLibraryLoadObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1811,7 +1806,7 @@ network.mojom.NetworkServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2082,7 +2077,7 @@ network.mojom.DurableMessageCollectorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

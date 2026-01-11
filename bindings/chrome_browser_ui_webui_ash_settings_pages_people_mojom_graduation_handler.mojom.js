@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/settings/pages/people/mojom/graduation_handler.mojom
 // Module: ash.settings.graduation.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.settings = ash.settings || {};
@@ -170,7 +165,7 @@ ash.settings.graduation.mojom.GraduationHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -297,7 +292,7 @@ ash.settings.graduation.mojom.GraduationObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

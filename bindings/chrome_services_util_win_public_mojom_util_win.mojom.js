@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/services/util_win/public/mojom/util_win.mojom
 // Module: chrome.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
@@ -548,7 +543,7 @@ chrome.mojom.UtilWinReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -685,7 +680,7 @@ chrome.mojom.ProcessorMetricsReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

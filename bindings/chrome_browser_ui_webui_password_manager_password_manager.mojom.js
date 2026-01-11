@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/password_manager/password_manager.mojom
 // Module: password_manager.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var password_manager = password_manager || {};
 password_manager.mojom = password_manager.mojom || {};
@@ -179,7 +174,7 @@ password_manager.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -789,7 +784,7 @@ password_manager.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -883,7 +878,7 @@ password_manager.mojom.PageReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

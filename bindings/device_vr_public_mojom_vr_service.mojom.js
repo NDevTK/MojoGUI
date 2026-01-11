@@ -2,11 +2,6 @@
 // Source: chromium_src/device/vr/public/mojom/vr_service.mojom
 // Module: device.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
@@ -1194,7 +1189,7 @@ device.mojom.VRServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1321,7 +1316,7 @@ device.mojom.XRSessionMetricsRecorderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1447,7 +1442,7 @@ device.mojom.VRServiceClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1748,7 +1743,7 @@ device.mojom.XREnvironmentIntegrationProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1920,7 +1915,7 @@ device.mojom.XRFrameDataProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2189,7 +2184,7 @@ device.mojom.XRPresentationProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2381,7 +2376,7 @@ device.mojom.XRPresentationClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2540,7 +2535,7 @@ device.mojom.XRSessionClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2779,7 +2774,7 @@ device.mojom.XRLayerManagerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2939,7 +2934,7 @@ device.mojom.WebXrInternalsRendererListenerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

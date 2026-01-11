@@ -2,11 +2,6 @@
 // Source: chromium_src/chromecast/common/mojom/media_caps.mojom
 // Module: chromecast.media.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.media = chromecast.media || {};
@@ -146,7 +141,7 @@ chromecast.media.mojom.MediaCapsReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -273,7 +268,7 @@ chromecast.media.mojom.MediaCapsObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

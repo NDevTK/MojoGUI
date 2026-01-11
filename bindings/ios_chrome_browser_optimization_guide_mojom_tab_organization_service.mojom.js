@@ -2,11 +2,6 @@
 // Source: chromium_src/ios/chrome/browser/optimization_guide/mojom/tab_organization_service.mojom
 // Module: ai.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ai = ai || {};
 ai.mojom = ai.mojom || {};
@@ -146,7 +141,7 @@ ai.mojom.TabOrganizationServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

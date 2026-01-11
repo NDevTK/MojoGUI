@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/components/cdm_factory_daemon/mojom/output_protection.mojom
 // Module: chromeos.cdm.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.cdm = chromeos.cdm || {};
@@ -215,7 +210,7 @@ chromeos.cdm.mojom.OutputProtectionReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

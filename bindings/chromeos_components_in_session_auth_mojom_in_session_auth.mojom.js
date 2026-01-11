@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/components/in_session_auth/mojom/in_session_auth.mojom
 // Module: chromeos.auth.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.auth = chromeos.auth || {};
@@ -296,7 +291,7 @@ chromeos.auth.mojom.InSessionAuthReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

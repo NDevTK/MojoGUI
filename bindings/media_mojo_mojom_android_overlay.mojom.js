@@ -2,11 +2,6 @@
 // Source: chromium_src/media/mojo/mojom/android_overlay.mojom
 // Module: media.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
@@ -157,7 +152,7 @@ media.mojom.AndroidOverlayProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -284,7 +279,7 @@ media.mojom.AndroidOverlayReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -519,7 +514,7 @@ media.mojom.AndroidOverlayClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

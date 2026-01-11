@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/legion_internals/legion_internals.mojom
 // Module: legion_internals.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var legion_internals = legion_internals || {};
 legion_internals.mojom = legion_internals.mojom || {};
@@ -247,7 +242,7 @@ legion_internals.mojom.LegionInternalsPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

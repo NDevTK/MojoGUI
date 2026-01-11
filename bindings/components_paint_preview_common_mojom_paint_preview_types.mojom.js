@@ -2,11 +2,6 @@
 // Source: chromium_src/components/paint_preview/common/mojom/paint_preview_types.mojom
 // Module: paint_preview.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var paint_preview = paint_preview || {};
 paint_preview.mojom = paint_preview.mojom || {};

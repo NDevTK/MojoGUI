@@ -2,11 +2,6 @@
 // Source: chromium_src/services/device/public/mojom/nfc.mojom
 // Module: device.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
@@ -471,7 +466,7 @@ device.mojom.NFCReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -633,7 +628,7 @@ device.mojom.NFCClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -794,7 +789,7 @@ device.mojom.RawNFCClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

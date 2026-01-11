@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/test/data/webui/chromeos/web_ui_test.mojom
 // Module: web_ui_test.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var web_ui_test = web_ui_test || {};
 web_ui_test.mojom = web_ui_test.mojom || {};
@@ -132,7 +127,7 @@ web_ui_test.mojom.TestRunnerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

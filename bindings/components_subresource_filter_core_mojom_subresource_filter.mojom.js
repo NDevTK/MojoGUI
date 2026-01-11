@@ -2,11 +2,6 @@
 // Source: chromium_src/components/subresource_filter/core/mojom/subresource_filter.mojom
 // Module: subresource_filter.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var subresource_filter = subresource_filter || {};
 subresource_filter.mojom = subresource_filter.mojom || {};
@@ -190,7 +185,7 @@ subresource_filter.mojom.SubresourceFilterRulesetObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

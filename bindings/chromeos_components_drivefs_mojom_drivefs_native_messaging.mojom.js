@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/components/drivefs/mojom/drivefs_native_messaging.mojom
 // Module: drivefs.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var drivefs = drivefs || {};
 drivefs.mojom = drivefs.mojom || {};
@@ -152,7 +147,7 @@ drivefs.mojom.NativeMessagingPortReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -279,7 +274,7 @@ drivefs.mojom.NativeMessagingHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

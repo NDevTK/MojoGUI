@@ -2,11 +2,6 @@
 // Source: chromium_src/services/audio/public/mojom/log_factory_manager.mojom
 // Module: audio.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var audio = audio || {};
 audio.mojom = audio.mojom || {};
@@ -134,7 +129,7 @@ audio.mojom.LogFactoryManagerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

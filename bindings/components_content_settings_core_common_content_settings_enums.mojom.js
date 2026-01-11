@@ -2,11 +2,6 @@
 // Source: chromium_src/components/content_settings/core/common/content_settings_enums.mojom
 // Module: content_settings.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var content_settings = content_settings || {};
 content_settings.mojom = content_settings.mojom || {};

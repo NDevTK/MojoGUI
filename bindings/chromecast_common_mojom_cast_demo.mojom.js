@@ -2,11 +2,6 @@
 // Source: chromium_src/chromecast/common/mojom/cast_demo.mojom
 // Module: chromecast.shell.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.shell = chromecast.shell || {};
@@ -154,7 +149,7 @@ chromecast.shell.mojom.CastDemoVolumeChangeObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -732,7 +727,7 @@ chromecast.shell.mojom.CastDemoReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

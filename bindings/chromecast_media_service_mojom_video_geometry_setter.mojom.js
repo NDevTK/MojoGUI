@@ -2,11 +2,6 @@
 // Source: chromium_src/chromecast/media/service/mojom/video_geometry_setter.mojom
 // Module: chromecast.media.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.media = chromecast.media || {};
@@ -143,7 +138,7 @@ chromecast.media.mojom.VideoGeometryChangeClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -282,7 +277,7 @@ chromecast.media.mojom.VideoGeometryChangeSubscriberReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -411,7 +406,7 @@ chromecast.media.mojom.VideoGeometrySetterReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

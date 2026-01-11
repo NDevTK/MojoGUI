@@ -2,11 +2,6 @@
 // Source: chromium_src/content/common/child_process.mojom
 // Module: content.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
@@ -207,7 +202,7 @@ content.mojom.ChildProcessHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -782,7 +777,7 @@ content.mojom.ChildProcessReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

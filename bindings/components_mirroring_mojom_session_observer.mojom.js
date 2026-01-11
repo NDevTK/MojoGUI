@@ -2,11 +2,6 @@
 // Source: chromium_src/components/mirroring/mojom/session_observer.mojom
 // Module: mirroring.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var mirroring = mirroring || {};
 mirroring.mojom = mirroring.mojom || {};
@@ -352,7 +347,7 @@ mirroring.mojom.SessionObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

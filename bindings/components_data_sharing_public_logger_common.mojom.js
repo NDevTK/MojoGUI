@@ -2,11 +2,6 @@
 // Source: chromium_src/components/data_sharing/public/logger_common.mojom
 // Module: logger_common.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var logger_common = logger_common || {};
 logger_common.mojom = logger_common.mojom || {};

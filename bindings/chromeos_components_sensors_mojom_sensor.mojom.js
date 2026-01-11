@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/components/sensors/mojom/sensor.mojom
 // Module: chromeos.sensors.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.sensors = chromeos.sensors || {};
@@ -331,7 +326,7 @@ chromeos.sensors.mojom.SensorServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -748,7 +743,7 @@ chromeos.sensors.mojom.SensorDeviceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -908,7 +903,7 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1036,7 +1031,7 @@ chromeos.sensors.mojom.SensorServiceNewDevicesObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

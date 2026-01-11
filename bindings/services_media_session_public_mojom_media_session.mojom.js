@@ -2,11 +2,6 @@
 // Source: chromium_src/services/media_session/public/mojom/media_session.mojom
 // Module: media_session.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var media_session = media_session || {};
 media_session.mojom = media_session.mojom || {};
@@ -488,7 +483,7 @@ media_session.mojom.MediaSessionObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1538,7 +1533,7 @@ media_session.mojom.MediaSessionReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

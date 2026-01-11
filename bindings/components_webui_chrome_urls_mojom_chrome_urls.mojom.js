@@ -2,11 +2,6 @@
 // Source: chromium_src/components/webui/chrome_urls/mojom/chrome_urls.mojom
 // Module: chrome_urls.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chrome_urls = chrome_urls || {};
 chrome_urls.mojom = chrome_urls.mojom || {};
@@ -162,7 +157,7 @@ chrome_urls.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -344,7 +339,7 @@ chrome_urls.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -438,7 +433,7 @@ chrome_urls.mojom.PageReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

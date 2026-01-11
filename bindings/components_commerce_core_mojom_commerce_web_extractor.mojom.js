@@ -2,11 +2,6 @@
 // Source: chromium_src/components/commerce/core/mojom/commerce_web_extractor.mojom
 // Module: commerce_web_extractor.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var commerce_web_extractor = commerce_web_extractor || {};
 commerce_web_extractor.mojom = commerce_web_extractor.mojom || {};
@@ -145,7 +140,7 @@ commerce_web_extractor.mojom.CommerceWebExtractorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

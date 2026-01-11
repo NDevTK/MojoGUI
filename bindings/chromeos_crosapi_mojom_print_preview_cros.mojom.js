@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/crosapi/mojom/print_preview_cros.mojom
 // Module: crosapi.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
@@ -299,7 +294,7 @@ crosapi.mojom.PrintPreviewCrosDelegateReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -484,7 +479,7 @@ crosapi.mojom.PrintPreviewCrosClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

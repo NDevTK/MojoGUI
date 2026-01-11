@@ -2,11 +2,6 @@
 // Source: chromium_src/cc/mojom/render_frame_metadata.mojom
 // Module: cc.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var cc = cc || {};
 cc.mojom = cc.mojom || {};
@@ -222,7 +217,7 @@ cc.mojom.RenderFrameMetadataObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -416,7 +411,7 @@ cc.mojom.RenderFrameMetadataObserverClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/settings/pages/device/input_device_settings/input_device_settings_provider.mojom
 // Module: ash.settings.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.settings = ash.settings || {};
@@ -257,7 +252,7 @@ ash.settings.mojom.KeyboardSettingsObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -384,7 +379,7 @@ ash.settings.mojom.TouchpadSettingsObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -511,7 +506,7 @@ ash.settings.mojom.PointingStickSettingsObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -671,7 +666,7 @@ ash.settings.mojom.MouseSettingsObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -798,7 +793,7 @@ ash.settings.mojom.ButtonPressObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -925,7 +920,7 @@ ash.settings.mojom.GraphicsTabletSettingsObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1052,7 +1047,7 @@ ash.settings.mojom.KeyboardBrightnessObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1179,7 +1174,7 @@ ash.settings.mojom.KeyboardAmbientLightSensorObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1306,7 +1301,7 @@ ash.settings.mojom.LidStateObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2450,7 +2445,7 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

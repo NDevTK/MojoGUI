@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ash/crostini/crostini_types.mojom
 // Module: crostini.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var crostini = crostini || {};
 crostini.mojom = crostini.mojom || {};

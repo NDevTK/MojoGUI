@@ -2,11 +2,6 @@
 // Source: chromium_src/components/tab_groups/public/mojom/tab_group_types.mojom
 // Module: tab_groups.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var tab_groups = tab_groups || {};
 tab_groups.mojom = tab_groups.mojom || {};

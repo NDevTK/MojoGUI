@@ -2,11 +2,6 @@
 // Source: chromium_src/components/ntp_tiles/tile_source.mojom
 // Module: ntp_tiles.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ntp_tiles = ntp_tiles || {};
 ntp_tiles.mojom = ntp_tiles.mojom || {};

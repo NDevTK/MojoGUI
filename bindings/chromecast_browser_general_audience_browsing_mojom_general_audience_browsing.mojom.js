@@ -2,11 +2,6 @@
 // Source: chromium_src/chromecast/browser/general_audience_browsing/mojom/general_audience_browsing.mojom
 // Module: chromecast.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
@@ -135,7 +130,7 @@ chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -262,7 +257,7 @@ chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

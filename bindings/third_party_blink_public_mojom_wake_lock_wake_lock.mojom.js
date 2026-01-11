@@ -2,11 +2,6 @@
 // Source: chromium_src/third_party/blink/public/mojom/wake_lock/wake_lock.mojom
 // Module: blink.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
@@ -136,7 +131,7 @@ blink.mojom.WakeLockServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

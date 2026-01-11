@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/crosapi/mojom/account_manager.mojom
 // Module: crosapi.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
@@ -379,7 +374,7 @@ crosapi.mojom.AccountManagerObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -852,7 +847,7 @@ crosapi.mojom.AccountManagerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -991,7 +986,7 @@ crosapi.mojom.AccessTokenFetcherReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

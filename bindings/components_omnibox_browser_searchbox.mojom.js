@@ -2,11 +2,6 @@
 // Source: chromium_src/components/omnibox/browser/searchbox.mojom
 // Module: searchbox.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var searchbox = searchbox || {};
 searchbox.mojom = searchbox.mojom || {};
@@ -1167,7 +1162,7 @@ searchbox.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1726,7 +1721,7 @@ searchbox.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/os_feedback_ui/mojom/os_feedback_ui.mojom
 // Module: ash.os_feedback_ui.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.os_feedback_ui = ash.os_feedback_ui || {};
@@ -298,7 +293,7 @@ ash.os_feedback_ui.mojom.HelpContentProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -851,7 +846,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

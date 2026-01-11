@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/settings/public/constants/setting.mojom
 // Module: chromeos.settings.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.settings = chromeos.settings || {};

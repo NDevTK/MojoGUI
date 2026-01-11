@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/services/file_util/public/mojom/constants.mojom
 // Module: chrome.file_util.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chrome = chrome || {};
 chrome.file_util = chrome.file_util || {};

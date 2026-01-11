@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/firmware_update_ui/mojom/firmware_update.mojom
 // Module: ash.firmware_update.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.firmware_update = ash.firmware_update || {};
@@ -229,7 +224,7 @@ ash.firmware_update.mojom.UpdateObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -356,7 +351,7 @@ ash.firmware_update.mojom.DeviceRequestObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -483,7 +478,7 @@ ash.firmware_update.mojom.UpdateProgressObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -699,7 +694,7 @@ ash.firmware_update.mojom.UpdateProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -893,7 +888,7 @@ ash.firmware_update.mojom.InstallControllerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1019,7 +1014,7 @@ ash.firmware_update.mojom.SystemUtilsReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

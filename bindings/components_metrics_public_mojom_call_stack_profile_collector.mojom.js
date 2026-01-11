@@ -2,11 +2,6 @@
 // Source: chromium_src/components/metrics/public/mojom/call_stack_profile_collector.mojom
 // Module: metrics.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var metrics = metrics || {};
 metrics.mojom = metrics.mojom || {};
@@ -150,7 +145,7 @@ metrics.mojom.CallStackProfileCollectorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

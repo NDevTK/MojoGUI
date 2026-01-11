@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/add_supervision/add_supervision.mojom
 // Module: add_supervision.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var add_supervision = add_supervision || {};
 add_supervision.mojom = add_supervision.mojom || {};
@@ -344,7 +339,7 @@ add_supervision.mojom.AddSupervisionHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

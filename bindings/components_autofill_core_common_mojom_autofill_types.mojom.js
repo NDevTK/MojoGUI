@@ -2,11 +2,6 @@
 // Source: chromium_src/components/autofill/core/common/mojom/autofill_types.mojom
 // Module: autofill.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var autofill = autofill || {};
 autofill.mojom = autofill.mojom || {};

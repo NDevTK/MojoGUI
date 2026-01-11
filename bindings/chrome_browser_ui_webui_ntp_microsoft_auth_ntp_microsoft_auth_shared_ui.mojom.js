@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ntp_microsoft_auth/ntp_microsoft_auth_shared_ui.mojom
 // Module: new_tab_page.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var new_tab_page = new_tab_page || {};
 new_tab_page.mojom = new_tab_page.mojom || {};
@@ -204,7 +199,7 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

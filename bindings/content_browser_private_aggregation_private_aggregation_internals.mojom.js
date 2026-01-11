@@ -2,11 +2,6 @@
 // Source: chromium_src/content/browser/private_aggregation/private_aggregation_internals.mojom
 // Module: private_aggregation_internals.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var private_aggregation_internals = private_aggregation_internals || {};
 private_aggregation_internals.mojom = private_aggregation_internals.mojom || {};
@@ -219,7 +214,7 @@ private_aggregation_internals.mojom.ObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -444,7 +439,7 @@ private_aggregation_internals.mojom.HandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -572,7 +567,7 @@ private_aggregation_internals.mojom.FactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

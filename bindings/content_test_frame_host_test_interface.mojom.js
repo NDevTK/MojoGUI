@@ -2,11 +2,6 @@
 // Source: chromium_src/content/test/frame_host_test_interface.mojom
 // Module: content.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
@@ -134,7 +129,7 @@ content.mojom.FrameHostTestInterfaceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

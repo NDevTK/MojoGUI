@@ -2,11 +2,6 @@
 // Source: chromium_src/services/network/public/mojom/web_bundle_handle.mojom
 // Module: network.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
@@ -214,7 +209,7 @@ network.mojom.WebBundleHandleReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

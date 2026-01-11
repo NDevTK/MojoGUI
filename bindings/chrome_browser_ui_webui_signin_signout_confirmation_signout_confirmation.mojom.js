@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/signin/signout_confirmation/signout_confirmation.mojom
 // Module: signout_confirmation.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var signout_confirmation = signout_confirmation || {};
 signout_confirmation.mojom = signout_confirmation.mojom || {};
@@ -166,7 +161,7 @@ signout_confirmation.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -423,7 +418,7 @@ signout_confirmation.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -550,7 +545,7 @@ signout_confirmation.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

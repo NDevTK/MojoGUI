@@ -2,11 +2,6 @@
 // Source: chromium_src/content/common/memory_coordinator/mojom/memory_consumer_traits_test.mojom
 // Module: content.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
@@ -145,7 +140,7 @@ content.mojom.MemoryConsumerTraitsTestReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/common/trusted_vault_encryption_keys_extension.mojom
 // Module: chrome.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
@@ -202,7 +197,7 @@ chrome.mojom.TrustedVaultEncryptionKeysExtensionReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

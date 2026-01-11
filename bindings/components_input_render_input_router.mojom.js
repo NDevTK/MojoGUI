@@ -2,11 +2,6 @@
 // Source: chromium_src/components/input/render_input_router.mojom
 // Module: input.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var input = input || {};
 input.mojom = input.mojom || {};
@@ -338,7 +333,7 @@ input.mojom.RenderInputRouterDelegateReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -600,7 +595,7 @@ input.mojom.RenderInputRouterDelegateClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

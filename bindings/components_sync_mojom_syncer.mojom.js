@@ -2,11 +2,6 @@
 // Source: chromium_src/components/sync/mojom/syncer.mojom
 // Module: syncer.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var syncer = syncer || {};
 syncer.mojom = syncer.mojom || {};

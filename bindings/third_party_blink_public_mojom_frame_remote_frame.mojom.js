@@ -2,11 +2,6 @@
 // Source: chromium_src/third_party/blink/public/mojom/frame/remote_frame.mojom
 // Module: blink.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
@@ -242,7 +237,7 @@ blink.mojom.NavigationStateKeepAliveHandleReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -837,7 +832,7 @@ blink.mojom.RemoteFrameHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2061,7 +2056,7 @@ blink.mojom.RemoteFrameReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2188,7 +2183,7 @@ blink.mojom.RemoteMainFrameReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2423,7 +2418,7 @@ blink.mojom.RemoteMainFrameHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

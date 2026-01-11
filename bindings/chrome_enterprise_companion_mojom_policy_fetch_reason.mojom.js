@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/enterprise_companion/mojom/policy_fetch_reason.mojom
 // Module: enterprise_companion.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var enterprise_companion = enterprise_companion || {};
 enterprise_companion.mojom = enterprise_companion.mojom || {};

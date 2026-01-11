@@ -2,11 +2,6 @@
 // Source: chromium_src/content/common/frame.mojom
 // Module: content.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
@@ -439,7 +434,7 @@ content.mojom.FrameHTMLSerializerHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -866,7 +861,7 @@ content.mojom.FrameReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1093,7 +1088,7 @@ content.mojom.FrameBindingsControlReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1219,7 +1214,7 @@ content.mojom.NavigationRendererCancellationListenerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1839,7 +1834,7 @@ content.mojom.FrameHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

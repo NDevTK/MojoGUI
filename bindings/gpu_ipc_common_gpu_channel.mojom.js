@@ -2,11 +2,6 @@
 // Source: chromium_src/gpu/ipc/common/gpu_channel.mojom
 // Module: gpu.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var gpu = gpu || {};
 gpu.mojom = gpu.mojom || {};
@@ -1203,7 +1198,7 @@ gpu.mojom.GpuChannelReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1511,7 +1506,7 @@ gpu.mojom.CommandBufferReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1771,7 +1766,7 @@ gpu.mojom.CommandBufferClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1976,7 +1971,7 @@ gpu.mojom.DCOMPTextureReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2136,7 +2131,7 @@ gpu.mojom.DCOMPTextureClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2263,7 +2258,7 @@ gpu.mojom.OverlayStateObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

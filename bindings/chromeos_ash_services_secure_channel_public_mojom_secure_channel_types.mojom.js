@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/secure_channel/public/mojom/secure_channel_types.mojom
 // Module: ash.secure_channel.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.secure_channel = ash.secure_channel || {};
@@ -163,7 +158,7 @@ ash.secure_channel.mojom.FilePayloadListenerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

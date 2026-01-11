@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/components/cdm_factory_daemon/mojom/cdm_factory_daemon.mojom
 // Module: chromeos.cdm.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.cdm = chromeos.cdm || {};
@@ -252,7 +247,7 @@ chromeos.cdm.mojom.CdmFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -751,7 +746,7 @@ chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

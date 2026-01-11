@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/new_tab_page/modules/v2/authentication/microsoft_auth.mojom
 // Module: ntp.authentication.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ntp = ntp || {};
 ntp.authentication = ntp.authentication || {};
@@ -211,7 +206,7 @@ ntp.authentication.mojom.MicrosoftAuthPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

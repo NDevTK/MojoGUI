@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/personalization_app/mojom/personalization_app.mojom
 // Module: ash.personalization_app.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.personalization_app = ash.personalization_app || {};
@@ -669,7 +664,7 @@ ash.personalization_app.mojom.WallpaperObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1854,7 +1849,7 @@ ash.personalization_app.mojom.WallpaperProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2181,7 +2176,7 @@ ash.personalization_app.mojom.ThemeObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2780,7 +2775,7 @@ ash.personalization_app.mojom.ThemeProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -3006,7 +3001,7 @@ ash.personalization_app.mojom.UserImageObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -3383,7 +3378,7 @@ ash.personalization_app.mojom.UserProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -3808,7 +3803,7 @@ ash.personalization_app.mojom.AmbientObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -4471,7 +4466,7 @@ ash.personalization_app.mojom.AmbientProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -4631,7 +4626,7 @@ ash.personalization_app.mojom.KeyboardBacklightObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -4901,7 +4896,7 @@ ash.personalization_app.mojom.KeyboardBacklightProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

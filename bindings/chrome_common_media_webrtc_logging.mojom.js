@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/common/media/webrtc_logging.mojom
 // Module: chrome.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
@@ -179,7 +174,7 @@ chrome.mojom.WebRtcLoggingClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -338,7 +333,7 @@ chrome.mojom.WebRtcLoggingAgentReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

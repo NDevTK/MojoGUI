@@ -2,11 +2,6 @@
 // Source: chromium_src/services/device/public/mojom/hid.mojom
 // Module: device.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
@@ -541,7 +536,7 @@ device.mojom.HidManagerClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -806,7 +801,7 @@ device.mojom.HidManagerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1084,7 +1079,7 @@ device.mojom.HidConnectionReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1212,7 +1207,7 @@ device.mojom.HidConnectionClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1306,7 +1301,7 @@ device.mojom.HidConnectionWatcherReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

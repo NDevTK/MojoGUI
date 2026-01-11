@@ -2,11 +2,6 @@
 // Source: chromium_src/services/video_capture/public/mojom/producer.mojom
 // Module: video_capture.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var video_capture = video_capture || {};
 video_capture.mojom = video_capture.mojom || {};
@@ -180,7 +175,7 @@ video_capture.mojom.ProducerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

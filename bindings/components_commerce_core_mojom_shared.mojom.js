@@ -2,11 +2,6 @@
 // Source: chromium_src/components/commerce/core/mojom/shared.mojom
 // Module: commerce.shared.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var commerce = commerce || {};
 commerce.shared = commerce.shared || {};

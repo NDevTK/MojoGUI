@@ -2,11 +2,6 @@
 // Source: chromium_src/media/mojo/mojom/remoting.mojom
 // Module: media.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
@@ -171,7 +166,7 @@ media.mojom.RemoterFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -341,7 +336,7 @@ media.mojom.RemotingDataStreamSenderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -645,7 +640,7 @@ media.mojom.RemoterReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -935,7 +930,7 @@ media.mojom.RemotingSourceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1196,7 +1191,7 @@ media.mojom.RemoteeReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1323,7 +1318,7 @@ media.mojom.RemotingSinkReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1517,7 +1512,7 @@ media.mojom.RemotingDataStreamReceiverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

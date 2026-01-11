@@ -2,11 +2,6 @@
 // Source: chromium_src/remoting/host/mojom/desktop_session.mojom
 // Module: remoting.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var remoting = remoting || {};
 remoting.mojom = remoting.mojom || {};
@@ -637,7 +632,7 @@ remoting.mojom.DesktopSessionRequestHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -833,7 +828,7 @@ remoting.mojom.DesktopSessionManagerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -974,7 +969,7 @@ remoting.mojom.DesktopSessionAgentReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1157,7 +1152,7 @@ remoting.mojom.FileWriterReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1296,7 +1291,7 @@ remoting.mojom.FileReaderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1882,7 +1877,7 @@ remoting.mojom.DesktopSessionControlReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2041,7 +2036,7 @@ remoting.mojom.VideoCapturerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2236,7 +2231,7 @@ remoting.mojom.VideoCapturerEventHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2627,7 +2622,7 @@ remoting.mojom.DesktopSessionEventHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2756,7 +2751,7 @@ remoting.mojom.DesktopSessionStateHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2885,7 +2880,7 @@ remoting.mojom.WorkerProcessControlReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

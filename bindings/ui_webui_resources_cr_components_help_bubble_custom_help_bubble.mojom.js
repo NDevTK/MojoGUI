@@ -2,11 +2,6 @@
 // Source: chromium_src/ui/webui/resources/cr_components/help_bubble/custom_help_bubble.mojom
 // Module: custom_help_bubble.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var custom_help_bubble = custom_help_bubble || {};
 custom_help_bubble.mojom = custom_help_bubble.mojom || {};
@@ -144,7 +139,7 @@ custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -271,7 +266,7 @@ custom_help_bubble.mojom.CustomHelpBubbleHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

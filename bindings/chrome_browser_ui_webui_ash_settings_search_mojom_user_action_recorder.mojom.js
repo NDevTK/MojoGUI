@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/settings/search/mojom/user_action_recorder.mojom
 // Module: ash.settings.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.settings = ash.settings || {};
@@ -354,7 +349,7 @@ ash.settings.mojom.UserActionRecorderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

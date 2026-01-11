@@ -2,11 +2,6 @@
 // Source: chromium_src/components/cast_streaming/common/public/mojom/renderer_controller.mojom
 // Module: cast_streaming.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var cast_streaming = cast_streaming || {};
 cast_streaming.mojom = cast_streaming.mojom || {};
@@ -145,7 +140,7 @@ cast_streaming.mojom.RendererControllerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

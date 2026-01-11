@@ -2,11 +2,6 @@
 // Source: chromium_src/url/mojom/url_test.mojom
 // Module: url.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var url = url || {};
 url.mojom = url.mojom || {};
@@ -192,7 +187,7 @@ url.mojom.UrlTestReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

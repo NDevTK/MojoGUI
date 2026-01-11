@@ -2,11 +2,6 @@
 // Source: chromium_src/services/accessibility/public/mojom/accessibility_service.mojom
 // Module: ax.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
@@ -149,7 +144,7 @@ ax.mojom.AssistiveTechnologyControllerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -344,7 +339,7 @@ ax.mojom.AccessibilityServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -702,7 +697,7 @@ ax.mojom.AccessibilityServiceClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

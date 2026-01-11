@@ -2,11 +2,6 @@
 // Source: chromium_src/media/capture/video/chromeos/mojom/system_event_monitor.mojom
 // Module: cros.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var cros = cros || {};
 cros.mojom = cros.mojom || {};
@@ -172,7 +167,7 @@ cros.mojom.CrosDisplayObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -299,7 +294,7 @@ cros.mojom.CrosLidObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -468,7 +463,7 @@ cros.mojom.CrosPowerObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -695,7 +690,7 @@ cros.mojom.CrosSystemEventMonitorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

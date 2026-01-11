@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/components/proximity_auth/public/mojom/auth_type.mojom
 // Module: proximity_auth.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var proximity_auth = proximity_auth || {};
 proximity_auth.mojom = proximity_auth.mojom || {};

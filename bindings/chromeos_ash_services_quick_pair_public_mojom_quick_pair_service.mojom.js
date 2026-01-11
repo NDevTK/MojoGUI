@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/quick_pair/public/mojom/quick_pair_service.mojom
 // Module: ash.quick_pair.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.quick_pair = ash.quick_pair || {};
@@ -134,7 +129,7 @@ ash.quick_pair.mojom.QuickPairServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

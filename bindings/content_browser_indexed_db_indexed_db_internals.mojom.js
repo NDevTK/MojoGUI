@@ -2,11 +2,6 @@
 // Source: chromium_src/content/browser/indexed_db/indexed_db_internals.mojom
 // Module: storage.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
@@ -391,7 +386,7 @@ storage.mojom.IdbInternalsHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

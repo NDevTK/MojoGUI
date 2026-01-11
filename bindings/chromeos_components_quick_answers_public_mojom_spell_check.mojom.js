@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/components/quick_answers/public/mojom/spell_check.mojom
 // Module: quick_answers.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var quick_answers = quick_answers || {};
 quick_answers.mojom = quick_answers.mojom || {};
@@ -151,7 +146,7 @@ quick_answers.mojom.SpellCheckServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -290,7 +285,7 @@ quick_answers.mojom.SpellCheckDictionaryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

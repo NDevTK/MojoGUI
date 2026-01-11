@@ -2,11 +2,6 @@
 // Source: chromium_src/components/heap_profiling/in_process/mojom/test_connector.mojom
 // Module: heap_profiling.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var heap_profiling = heap_profiling || {};
 heap_profiling.mojom = heap_profiling.mojom || {};
@@ -224,7 +219,7 @@ heap_profiling.mojom.TestConnectorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

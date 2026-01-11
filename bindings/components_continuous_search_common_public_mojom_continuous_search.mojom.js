@@ -2,11 +2,6 @@
 // Source: chromium_src/components/continuous_search/common/public/mojom/continuous_search.mojom
 // Module: continuous_search.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var continuous_search = continuous_search || {};
 continuous_search.mojom = continuous_search.mojom || {};
@@ -197,7 +192,7 @@ continuous_search.mojom.SearchResultExtractorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

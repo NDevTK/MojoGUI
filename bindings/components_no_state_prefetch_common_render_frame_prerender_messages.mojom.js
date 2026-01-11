@@ -2,11 +2,6 @@
 // Source: chromium_src/components/no_state_prefetch/common/render_frame_prerender_messages.mojom
 // Module: prerender.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var prerender = prerender || {};
 prerender.mojom = prerender.mojom || {};
@@ -132,7 +127,7 @@ prerender.mojom.NoStatePrefetchMessagesReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

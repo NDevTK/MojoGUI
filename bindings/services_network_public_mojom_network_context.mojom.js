@@ -2,11 +2,6 @@
 // Source: chromium_src/services/network/public/mojom/network_context.mojom
 // Module: network.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
@@ -611,7 +606,7 @@ network.mojom.CustomProxyConnectionObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -749,7 +744,7 @@ network.mojom.CustomProxyConfigClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -938,7 +933,7 @@ network.mojom.TrustedHeaderClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1100,7 +1095,7 @@ network.mojom.TrustedURLLoaderHeaderClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1194,7 +1189,7 @@ network.mojom.PreloadedSharedDictionaryInfoHandleReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -5032,7 +5027,7 @@ network.mojom.NetworkContextReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

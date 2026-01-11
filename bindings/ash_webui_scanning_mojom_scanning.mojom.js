@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/scanning/mojom/scanning.mojom
 // Module: ash.scanning.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.scanning = ash.scanning || {};
@@ -384,7 +379,7 @@ ash.scanning.mojom.ScanJobObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -693,7 +688,7 @@ ash.scanning.mojom.ScanServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -945,7 +940,7 @@ ash.scanning.mojom.MultiPageScanControllerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

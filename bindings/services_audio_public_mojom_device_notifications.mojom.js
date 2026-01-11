@@ -2,11 +2,6 @@
 // Source: chromium_src/services/audio/public/mojom/device_notifications.mojom
 // Module: audio.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var audio = audio || {};
 audio.mojom = audio.mojom || {};
@@ -134,7 +129,7 @@ audio.mojom.DeviceListenerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -261,7 +256,7 @@ audio.mojom.DeviceNotifierReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

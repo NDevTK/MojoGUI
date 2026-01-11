@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/mall/mall_ui.mojom
 // Module: ash.mall.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.mall = ash.mall || {};
@@ -147,7 +142,7 @@ ash.mall.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/components/local_search_service/public/mojom/types.mojom
 // Module: ash.local_search_service.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.local_search_service = ash.local_search_service || {};

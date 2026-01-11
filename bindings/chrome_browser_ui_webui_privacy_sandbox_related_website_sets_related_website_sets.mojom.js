@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/privacy_sandbox/related_website_sets/related_website_sets.mojom
 // Module: related_website_sets.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var related_website_sets = related_website_sets || {};
 related_website_sets.mojom = related_website_sets.mojom || {};
@@ -187,7 +182,7 @@ related_website_sets.mojom.RelatedWebsiteSetsPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

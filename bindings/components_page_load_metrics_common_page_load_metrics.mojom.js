@@ -2,11 +2,6 @@
 // Source: chromium_src/components/page_load_metrics/common/page_load_metrics.mojom
 // Module: page_load_metrics.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var page_load_metrics = page_load_metrics || {};
 page_load_metrics.mojom = page_load_metrics.mojom || {};
@@ -497,7 +492,7 @@ page_load_metrics.mojom.PageLoadMetricsReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

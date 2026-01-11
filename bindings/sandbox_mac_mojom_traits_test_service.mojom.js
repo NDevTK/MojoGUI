@@ -2,11 +2,6 @@
 // Source: chromium_src/sandbox/mac/mojom/traits_test_service.mojom
 // Module: sandbox.mac.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var sandbox = sandbox || {};
 sandbox.mac = sandbox.mac || {};
@@ -146,7 +141,7 @@ sandbox.mac.mojom.TraitsTestServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

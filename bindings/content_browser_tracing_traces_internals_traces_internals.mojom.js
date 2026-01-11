@@ -2,11 +2,6 @@
 // Source: chromium_src/content/browser/tracing/traces_internals/traces_internals.mojom
 // Module: traces_internals.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var traces_internals = traces_internals || {};
 traces_internals.mojom = traces_internals.mojom || {};
@@ -253,7 +248,7 @@ traces_internals.mojom.TracesInternalsHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1228,7 +1223,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1356,7 +1351,7 @@ traces_internals.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

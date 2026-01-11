@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/reload_button/reload_button.mojom
 // Module: reload_button.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var reload_button = reload_button || {};
 reload_button.mojom = reload_button.mojom || {};
@@ -149,7 +144,7 @@ reload_button.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -343,7 +338,7 @@ reload_button.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -471,7 +466,7 @@ reload_button.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

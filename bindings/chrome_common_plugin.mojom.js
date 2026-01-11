@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/common/plugin.mojom
 // Module: chrome.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
@@ -174,7 +169,7 @@ chrome.mojom.PluginHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -302,7 +297,7 @@ chrome.mojom.PluginAuthHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -443,7 +438,7 @@ chrome.mojom.PluginInfoHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/services/util_win/public/mojom/util_read_icon.mojom
 // Module: chrome.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
@@ -158,7 +153,7 @@ chrome.mojom.UtilReadIconReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

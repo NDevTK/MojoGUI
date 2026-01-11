@@ -2,11 +2,6 @@
 // Source: chromium_src/components/mirroring/mojom/cast_message_channel.mojom
 // Module: mirroring.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var mirroring = mirroring || {};
 mirroring.mojom = mirroring.mojom || {};
@@ -145,7 +140,7 @@ mirroring.mojom.CastMessageChannelReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

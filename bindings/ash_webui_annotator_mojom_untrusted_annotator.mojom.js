@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/annotator/mojom/untrusted_annotator.mojom
 // Module: ash.annotator.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.annotator = ash.annotator || {};
@@ -239,7 +234,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -400,7 +395,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -528,7 +523,7 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

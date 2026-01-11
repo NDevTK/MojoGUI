@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/side_panel/bookmarks/bookmarks.mojom
 // Module: side_panel.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var side_panel = side_panel || {};
 side_panel.mojom = side_panel.mojom || {};
@@ -215,7 +210,7 @@ side_panel.mojom.BookmarksPageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1129,7 +1124,7 @@ side_panel.mojom.BookmarksPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1394,7 +1389,7 @@ side_panel.mojom.BookmarksPageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

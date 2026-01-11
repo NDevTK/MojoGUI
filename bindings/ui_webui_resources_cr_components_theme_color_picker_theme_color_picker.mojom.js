@@ -2,11 +2,6 @@
 // Source: chromium_src/ui/webui/resources/cr_components/theme_color_picker/theme_color_picker.mojom
 // Module: theme_color_picker.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var theme_color_picker = theme_color_picker || {};
 theme_color_picker.mojom = theme_color_picker.mojom || {};
@@ -181,7 +176,7 @@ theme_color_picker.mojom.ThemeColorPickerHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -515,7 +510,7 @@ theme_color_picker.mojom.ThemeColorPickerHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -642,7 +637,7 @@ theme_color_picker.mojom.ThemeColorPickerClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

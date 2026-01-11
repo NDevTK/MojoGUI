@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/secure_channel/public/mojom/nearby_connector.mojom
 // Module: ash.secure_channel.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.secure_channel = ash.secure_channel || {};
@@ -193,7 +188,7 @@ ash.secure_channel.mojom.NearbyConnectionStateListenerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -332,7 +327,7 @@ ash.secure_channel.mojom.NearbyMessageSenderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -459,7 +454,7 @@ ash.secure_channel.mojom.NearbyMessageReceiverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -600,7 +595,7 @@ ash.secure_channel.mojom.NearbyFilePayloadHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -743,7 +738,7 @@ ash.secure_channel.mojom.NearbyConnectorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

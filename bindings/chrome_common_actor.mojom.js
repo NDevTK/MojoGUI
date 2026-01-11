@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/common/actor.mojom
 // Module: actor.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var actor = actor || {};
 actor.mojom = actor.mojom || {};
@@ -456,7 +451,7 @@ actor.mojom.JournalClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -594,7 +589,7 @@ actor.mojom.PageStabilityMonitorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

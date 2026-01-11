@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/dlp_internals/dlp_internals.mojom
 // Module: dlp_internals.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var dlp_internals = dlp_internals || {};
 dlp_internals.mojom = dlp_internals.mojom || {};
@@ -286,7 +281,7 @@ dlp_internals.mojom.ReportingObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -590,7 +585,7 @@ dlp_internals.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

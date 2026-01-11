@@ -2,11 +2,6 @@
 // Source: chromium_src/services/on_device_model/android/downloader_params.mojom
 // Module: on_device_model.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var on_device_model = on_device_model || {};
 on_device_model.mojom = on_device_model.mojom || {};

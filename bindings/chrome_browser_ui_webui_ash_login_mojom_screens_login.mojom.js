@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/login/mojom/screens_login.mojom
 // Module: ash.screens_login.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.screens_login = ash.screens_login || {};
@@ -309,7 +304,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -602,7 +597,7 @@ ash.screens_login.mojom.ArcVmDataMigrationPageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -856,7 +851,7 @@ ash.screens_login.mojom.EncryptionMigrationPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1151,7 +1146,7 @@ ash.screens_login.mojom.EncryptionMigrationPageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

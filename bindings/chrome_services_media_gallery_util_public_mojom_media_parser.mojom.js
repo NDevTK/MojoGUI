@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/services/media_gallery_util/public/mojom/media_parser.mojom
 // Module: chrome.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
@@ -370,7 +365,7 @@ chrome.mojom.MediaParserReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -510,7 +505,7 @@ chrome.mojom.MediaParserFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -650,7 +645,7 @@ chrome.mojom.MediaDataSourceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

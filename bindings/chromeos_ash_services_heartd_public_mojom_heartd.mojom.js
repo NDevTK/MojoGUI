@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/heartd/public/mojom/heartd.mojom
 // Module: ash.heartd.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.heartd = ash.heartd || {};
@@ -265,7 +260,7 @@ ash.heartd.mojom.HeartdControlReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -406,7 +401,7 @@ ash.heartd.mojom.HeartbeatServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -587,7 +582,7 @@ ash.heartd.mojom.PacemakerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

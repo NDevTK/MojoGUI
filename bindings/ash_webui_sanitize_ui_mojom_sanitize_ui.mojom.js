@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/sanitize_ui/mojom/sanitize_ui.mojom
 // Module: ash.sanitize_ui.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.sanitize_ui = ash.sanitize_ui || {};
@@ -133,7 +128,7 @@ ash.sanitize_ui.mojom.SettingsResetterReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/side_panel/customize_chrome/wallpaper_search/wallpaper_search.mojom
 // Module: side_panel.customize_chrome.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var side_panel = side_panel || {};
 side_panel.customize_chrome = side_panel.customize_chrome || {};
@@ -291,7 +286,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryReceiver = class 
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -785,7 +780,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -912,7 +907,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/components/smbfs/mojom/smbfs.mojom
 // Module: smbfs.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var smbfs = smbfs || {};
 smbfs.mojom = smbfs.mojom || {};
@@ -248,7 +243,7 @@ smbfs.mojom.SmbFsBootstrapReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -431,7 +426,7 @@ smbfs.mojom.SmbFsReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -569,7 +564,7 @@ smbfs.mojom.SmbFsDelegateReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/media/midi/midi_service.mojom
 // Module: midi.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var midi = midi || {};
 midi.mojom = midi.mojom || {};
@@ -376,7 +371,7 @@ midi.mojom.MidiSessionClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -504,7 +499,7 @@ midi.mojom.MidiSessionProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -633,7 +628,7 @@ midi.mojom.MidiSessionReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

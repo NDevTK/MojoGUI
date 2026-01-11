@@ -2,11 +2,6 @@
 // Source: chromium_src/services/device/public/mojom/geolocation_internals.mojom
 // Module: device.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
@@ -298,7 +293,7 @@ device.mojom.GeolocationInternalsObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -437,7 +432,7 @@ device.mojom.GeolocationInternalsReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

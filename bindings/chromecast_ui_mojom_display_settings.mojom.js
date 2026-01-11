@@ -2,11 +2,6 @@
 // Source: chromium_src/chromecast/ui/mojom/display_settings.mojom
 // Module: chromecast.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
@@ -408,7 +403,7 @@ chromecast.mojom.DisplaySettingsReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -535,7 +530,7 @@ chromecast.mojom.DisplaySettingsObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

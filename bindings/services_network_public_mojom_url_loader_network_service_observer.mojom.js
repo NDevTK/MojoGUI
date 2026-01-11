@@ -2,11 +2,6 @@
 // Source: chromium_src/services/network/public/mojom/url_loader_network_service_observer.mojom
 // Module: network.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
@@ -259,7 +254,7 @@ network.mojom.ClientCertificateResponderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -400,7 +395,7 @@ network.mojom.SSLPrivateKeyReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -527,7 +522,7 @@ network.mojom.AuthChallengeResponderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1099,7 +1094,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

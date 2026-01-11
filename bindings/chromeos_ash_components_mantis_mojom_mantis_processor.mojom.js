@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/components/mantis/mojom/mantis_processor.mojom
 // Module: mantis.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var mantis = mantis || {};
 mantis.mojom = mantis.mojom || {};
@@ -444,7 +439,7 @@ mantis.mojom.MantisProcessorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

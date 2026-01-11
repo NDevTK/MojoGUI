@@ -2,11 +2,6 @@
 // Source: chromium_src/media/mojo/mojom/stable/native_pixmap_handle.mojom
 // Module: media.stable.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var media = media || {};
 media.stable = media.stable || {};

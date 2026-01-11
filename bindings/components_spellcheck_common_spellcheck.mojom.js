@@ -2,11 +2,6 @@
 // Source: chromium_src/components/spellcheck/common/spellcheck.mojom
 // Module: spellcheck.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var spellcheck = spellcheck || {};
 spellcheck.mojom = spellcheck.mojom || {};
@@ -216,7 +211,7 @@ spellcheck.mojom.SpellCheckerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -342,7 +337,7 @@ spellcheck.mojom.SpellCheckInitializationHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -730,7 +725,7 @@ spellcheck.mojom.SpellCheckHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

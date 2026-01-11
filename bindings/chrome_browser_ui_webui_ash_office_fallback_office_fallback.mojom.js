@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/office_fallback/office_fallback.mojom
 // Module: ash.office_fallback.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.office_fallback = ash.office_fallback || {};
@@ -145,7 +140,7 @@ ash.office_fallback.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -272,7 +267,7 @@ ash.office_fallback.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

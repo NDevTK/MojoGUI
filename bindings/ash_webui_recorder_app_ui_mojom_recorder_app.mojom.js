@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/recorder_app_ui/mojom/recorder_app.mojom
 // Module: ash.recorder_app.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.recorder_app = ash.recorder_app || {};
@@ -223,7 +218,7 @@ ash.recorder_app.mojom.ModelStateMonitorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -350,7 +345,7 @@ ash.recorder_app.mojom.QuietModeMonitorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1179,7 +1174,7 @@ ash.recorder_app.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

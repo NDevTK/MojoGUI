@@ -2,11 +2,6 @@
 // Source: chromium_src/components/visitedlink/common/visitedlink.mojom
 // Module: visitedlink.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var visitedlink = visitedlink || {};
 visitedlink.mojom = visitedlink.mojom || {};
@@ -236,7 +231,7 @@ visitedlink.mojom.VisitedLinkNotificationSinkReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

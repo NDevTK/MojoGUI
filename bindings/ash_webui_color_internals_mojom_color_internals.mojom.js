@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/color_internals/mojom/color_internals.mojom
 // Module: ash.color_internals.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.color_internals = ash.color_internals || {};
@@ -146,7 +141,7 @@ ash.color_internals.mojom.WallpaperColorsObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -273,7 +268,7 @@ ash.color_internals.mojom.WallpaperColorsHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui_browser/extensions_bar.mojom
 // Module: extensions_bar.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var extensions_bar = extensions_bar || {};
 extensions_bar.mojom = extensions_bar.mojom || {};
@@ -158,7 +153,7 @@ extensions_bar.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -351,7 +346,7 @@ extensions_bar.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -554,7 +549,7 @@ extensions_bar.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

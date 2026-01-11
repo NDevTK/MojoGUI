@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/ime/public/mojom/japanese_settings.mojom
 // Module: ash.ime.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.ime = ash.ime || {};
@@ -226,7 +221,7 @@ ash.ime.mojom.JpUnusedReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

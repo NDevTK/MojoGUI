@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/crosapi/mojom/cros_display_config.mojom
 // Module: crosapi.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
@@ -706,7 +701,7 @@ crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -832,7 +827,7 @@ crosapi.mojom.CrosDisplayConfigObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

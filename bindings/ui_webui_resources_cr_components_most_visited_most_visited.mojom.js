@@ -2,11 +2,6 @@
 // Source: chromium_src/ui/webui/resources/cr_components/most_visited/most_visited.mojom
 // Module: most_visited.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var most_visited = most_visited || {};
 most_visited.mojom = most_visited.mojom || {};
@@ -198,7 +193,7 @@ most_visited.mojom.MostVisitedPageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -863,7 +858,7 @@ most_visited.mojom.MostVisitedPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1022,7 +1017,7 @@ most_visited.mojom.MostVisitedPageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

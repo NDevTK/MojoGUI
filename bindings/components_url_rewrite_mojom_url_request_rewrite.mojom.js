@@ -2,11 +2,6 @@
 // Source: chromium_src/components/url_rewrite/mojom/url_request_rewrite.mojom
 // Module: url_rewrite.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var url_rewrite = url_rewrite || {};
 url_rewrite.mojom = url_rewrite.mojom || {};
@@ -246,7 +241,7 @@ url_rewrite.mojom.UrlRequestRulesReceiverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

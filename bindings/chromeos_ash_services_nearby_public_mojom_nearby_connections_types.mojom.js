@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/nearby/public/mojom/nearby_connections_types.mojom
 // Module: nearby.connections.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var nearby = nearby || {};
 nearby.connections = nearby.connections || {};

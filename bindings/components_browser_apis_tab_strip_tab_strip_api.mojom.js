@@ -2,11 +2,6 @@
 // Source: chromium_src/components/browser_apis/tab_strip/tab_strip_api.mojom
 // Module: tabs_api.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var tabs_api = tabs_api || {};
 tabs_api.mojom = tabs_api.mojom || {};
@@ -383,7 +378,7 @@ tabs_api.mojom.TabStripServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -510,7 +505,7 @@ tabs_api.mojom.TabsObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

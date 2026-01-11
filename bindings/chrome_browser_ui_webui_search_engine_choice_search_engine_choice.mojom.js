@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/search_engine_choice/search_engine_choice.mojom
 // Module: search_engine_choice.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var search_engine_choice = search_engine_choice || {};
 search_engine_choice.mojom = search_engine_choice.mojom || {};
@@ -147,7 +142,7 @@ search_engine_choice.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -404,7 +399,7 @@ search_engine_choice.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

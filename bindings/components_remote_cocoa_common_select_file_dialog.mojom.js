@@ -2,11 +2,6 @@
 // Source: chromium_src/components/remote_cocoa/common/select_file_dialog.mojom
 // Module: remote_cocoa.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var remote_cocoa = remote_cocoa || {};
 remote_cocoa.mojom = remote_cocoa.mojom || {};
@@ -176,7 +171,7 @@ remote_cocoa.mojom.SelectFileDialogReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/user_education_internals/user_education_internals.mojom
 // Module: mojom.user_education_internals
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var mojom = mojom || {};
 mojom.user_education_internals = mojom.user_education_internals || {};
@@ -1014,7 +1009,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

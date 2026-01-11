@@ -2,11 +2,6 @@
 // Source: chromium_src/components/web_cache/public/mojom/web_cache.mojom
 // Module: web_cache.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var web_cache = web_cache || {};
 web_cache.mojom = web_cache.mojom || {};
@@ -132,7 +127,7 @@ web_cache.mojom.WebCacheReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

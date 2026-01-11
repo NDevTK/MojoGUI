@@ -2,11 +2,6 @@
 // Source: chromium_src/codelabs/cpp101/solutions/services/math/public/mojom/math_service.mojom
 // Module: math.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var math = math || {};
 math.mojom = math.mojom || {};
@@ -146,7 +141,7 @@ math.mojom.MathServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/remoting/host/mojom/webauthn_proxy.mojom
 // Module: remoting.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var remoting = remoting || {};
 remoting.mojom = remoting.mojom || {};
@@ -193,7 +188,7 @@ remoting.mojom.WebAuthnRequestCancellerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -423,7 +418,7 @@ remoting.mojom.WebAuthnProxyReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

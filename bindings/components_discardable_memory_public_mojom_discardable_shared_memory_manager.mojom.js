@@ -2,11 +2,6 @@
 // Source: chromium_src/components/discardable_memory/public/mojom/discardable_shared_memory_manager.mojom
 // Module: discardable_memory.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var discardable_memory = discardable_memory || {};
 discardable_memory.mojom = discardable_memory.mojom || {};
@@ -181,7 +176,7 @@ discardable_memory.mojom.DiscardableSharedMemoryManagerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

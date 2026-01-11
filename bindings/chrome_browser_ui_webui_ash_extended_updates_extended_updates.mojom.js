@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/extended_updates/extended_updates.mojom
 // Module: ash.extended_updates.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.extended_updates = ash.extended_updates || {};
@@ -152,7 +147,7 @@ ash.extended_updates.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -366,7 +361,7 @@ ash.extended_updates.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -460,7 +455,7 @@ ash.extended_updates.mojom.PageReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

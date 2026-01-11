@@ -2,11 +2,6 @@
 // Source: chromium_src/components/services/storage/public/mojom/file_system_access_context.mojom
 // Module: storage.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
@@ -216,7 +211,7 @@ storage.mojom.FileSystemAccessContextReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

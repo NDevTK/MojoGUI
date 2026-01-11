@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/diagnostics_ui/mojom/system_data_provider.mojom
 // Module: ash.diagnostics.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.diagnostics = ash.diagnostics || {};
@@ -255,7 +250,7 @@ ash.diagnostics.mojom.BatteryChargeStatusObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -382,7 +377,7 @@ ash.diagnostics.mojom.BatteryHealthObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -509,7 +504,7 @@ ash.diagnostics.mojom.MemoryUsageObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -636,7 +631,7 @@ ash.diagnostics.mojom.CpuUsageObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -950,7 +945,7 @@ ash.diagnostics.mojom.SystemDataProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

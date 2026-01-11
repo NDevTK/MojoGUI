@@ -2,11 +2,6 @@
 // Source: chromium_src/ui/webui/resources/cr_components/history/history.mojom
 // Module: history.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var history = history || {};
 history.mojom = history.mojom || {};
@@ -700,7 +695,7 @@ history.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -892,7 +887,7 @@ history.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

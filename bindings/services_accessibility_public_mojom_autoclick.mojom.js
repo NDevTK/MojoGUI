@@ -2,11 +2,6 @@
 // Source: chromium_src/services/accessibility/public/mojom/autoclick.mojom
 // Module: ax.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
@@ -138,7 +133,7 @@ ax.mojom.AutoclickReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -309,7 +304,7 @@ ax.mojom.AutoclickClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

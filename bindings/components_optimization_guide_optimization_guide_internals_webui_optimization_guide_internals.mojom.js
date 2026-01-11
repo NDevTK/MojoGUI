@@ -2,11 +2,6 @@
 // Source: chromium_src/components/optimization_guide/optimization_guide_internals/webui/optimization_guide_internals.mojom
 // Module: optimization_guide_internals.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var optimization_guide_internals = optimization_guide_internals || {};
 optimization_guide_internals.mojom = optimization_guide_internals.mojom || {};
@@ -303,7 +298,7 @@ optimization_guide_internals.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -434,7 +429,7 @@ optimization_guide_internals.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

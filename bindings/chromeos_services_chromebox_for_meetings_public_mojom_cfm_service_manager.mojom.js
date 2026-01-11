@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/services/chromebox_for_meetings/public/mojom/cfm_service_manager.mojom
 // Module: chromeos.cfm.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.cfm = chromeos.cfm || {};
@@ -120,7 +115,7 @@ chromeos.cfm.mojom.DisconnectReasonReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -306,7 +301,7 @@ chromeos.cfm.mojom.CfmServiceContextReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -433,7 +428,7 @@ chromeos.cfm.mojom.CfmServiceAdaptorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

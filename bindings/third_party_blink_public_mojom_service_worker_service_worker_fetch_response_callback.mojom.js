@@ -2,11 +2,6 @@
 // Source: chromium_src/third_party/blink/public/mojom/service_worker/service_worker_fetch_response_callback.mojom
 // Module: blink.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
@@ -215,7 +210,7 @@ blink.mojom.ServiceWorkerFetchResponseCallbackReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

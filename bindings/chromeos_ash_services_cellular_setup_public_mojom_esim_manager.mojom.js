@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/cellular_setup/public/mojom/esim_manager.mojom
 // Module: ash.cellular_setup.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.cellular_setup = ash.cellular_setup || {};
@@ -331,7 +326,7 @@ ash.cellular_setup.mojom.ESimManagerObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -502,7 +497,7 @@ ash.cellular_setup.mojom.ESimManagerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -865,7 +860,7 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1137,7 +1132,7 @@ ash.cellular_setup.mojom.ESimProfileReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

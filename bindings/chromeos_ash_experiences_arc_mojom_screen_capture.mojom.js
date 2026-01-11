@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/experiences/arc/mojom/screen_capture.mojom
 // Module: arc.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
@@ -243,7 +238,7 @@ arc.mojom.ScreenCaptureHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -429,7 +424,7 @@ arc.mojom.ScreenCaptureSessionReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -567,7 +562,7 @@ arc.mojom.ScreenCaptureInstanceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -693,7 +688,7 @@ arc.mojom.ScreenCaptureSessionNotifierReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

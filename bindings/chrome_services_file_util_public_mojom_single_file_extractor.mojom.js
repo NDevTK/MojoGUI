@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/services/file_util/public/mojom/single_file_extractor.mojom
 // Module: chrome.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
@@ -151,7 +146,7 @@ chrome.mojom.SingleFileExtractorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -279,7 +274,7 @@ chrome.mojom.SingleFileExtractorListenerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

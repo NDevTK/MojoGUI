@@ -2,11 +2,6 @@
 // Source: chromium_src/android_webview/common/mojom/frame.mojom
 // Module: android_webview.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var android_webview = android_webview || {};
 android_webview.mojom = android_webview.mojom || {};
@@ -315,7 +310,7 @@ android_webview.mojom.LocalMainFrameReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -523,7 +518,7 @@ android_webview.mojom.FrameHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

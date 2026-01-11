@@ -2,11 +2,6 @@
 // Source: chromium_src/content/common/gin_java_bridge.mojom
 // Module: content.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
@@ -229,7 +224,7 @@ content.mojom.GinJavaBridgeReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -459,7 +454,7 @@ content.mojom.GinJavaBridgeRemoteObjectReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -620,7 +615,7 @@ content.mojom.GinJavaBridgeHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

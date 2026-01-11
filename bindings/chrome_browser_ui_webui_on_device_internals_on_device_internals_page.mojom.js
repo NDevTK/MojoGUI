@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/on_device_internals/on_device_internals_page.mojom
 // Module: on_device_internals.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var on_device_internals = on_device_internals || {};
 on_device_internals.mojom = on_device_internals.mojom || {};
@@ -214,7 +209,7 @@ on_device_internals.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -678,7 +673,7 @@ on_device_internals.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -842,7 +837,7 @@ on_device_internals.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

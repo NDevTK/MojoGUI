@@ -2,11 +2,6 @@
 // Source: chromium_src/components/account_id/mojom/account_id.mojom
 // Module: signin.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var signin = signin || {};
 signin.mojom = signin.mojom || {};

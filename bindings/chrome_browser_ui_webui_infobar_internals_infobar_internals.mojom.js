@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/infobar_internals/infobar_internals.mojom
 // Module: infobar_internals.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var infobar_internals = infobar_internals || {};
 infobar_internals.mojom = infobar_internals.mojom || {};
@@ -125,7 +120,7 @@ infobar_internals.mojom.PageReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -308,7 +303,7 @@ infobar_internals.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -436,7 +431,7 @@ infobar_internals.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

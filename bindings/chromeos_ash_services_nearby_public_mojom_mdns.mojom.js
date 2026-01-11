@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/nearby/public/mojom/mdns.mojom
 // Module: sharing.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var sharing = sharing || {};
 sharing.mojom = sharing.mojom || {};
@@ -186,7 +181,7 @@ sharing.mojom.MdnsObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -403,7 +398,7 @@ sharing.mojom.MdnsManagerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

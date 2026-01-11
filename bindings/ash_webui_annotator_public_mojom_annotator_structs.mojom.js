@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/annotator/public/mojom/annotator_structs.mojom
 // Module: ash.annotator.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.annotator = ash.annotator || {};

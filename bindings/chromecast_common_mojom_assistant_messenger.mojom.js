@@ -2,11 +2,6 @@
 // Source: chromium_src/chromecast/common/mojom/assistant_messenger.mojom
 // Module: chromecast.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
@@ -139,7 +134,7 @@ chromecast.mojom.AssistantMessagePipeReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -266,7 +261,7 @@ chromecast.mojom.AssistantMessageClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -395,7 +390,7 @@ chromecast.mojom.AssistantMessageServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/third_party/blink/public/mojom/permissions/permission.mojom
 // Module: blink.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
@@ -304,7 +299,7 @@ blink.mojom.PermissionObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -432,7 +427,7 @@ blink.mojom.EmbeddedPermissionControlClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -894,7 +889,7 @@ blink.mojom.PermissionServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

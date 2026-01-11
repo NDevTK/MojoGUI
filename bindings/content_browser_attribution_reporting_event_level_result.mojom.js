@@ -2,11 +2,6 @@
 // Source: chromium_src/content/browser/attribution_reporting/event_level_result.mojom
 // Module: attribution_reporting.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var attribution_reporting = attribution_reporting || {};
 attribution_reporting.mojom = attribution_reporting.mojom || {};

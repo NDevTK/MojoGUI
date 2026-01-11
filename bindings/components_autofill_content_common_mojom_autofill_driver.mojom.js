@@ -2,11 +2,6 @@
 // Source: chromium_src/components/autofill/content/common/mojom/autofill_driver.mojom
 // Module: autofill.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var autofill = autofill || {};
 autofill.mojom = autofill.mojom || {};
@@ -682,7 +677,7 @@ autofill.mojom.AutofillDriverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1210,7 +1205,7 @@ autofill.mojom.PasswordManagerDriverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1536,7 +1531,7 @@ autofill.mojom.PasswordGenerationDriverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

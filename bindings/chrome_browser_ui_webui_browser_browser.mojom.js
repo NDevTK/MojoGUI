@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui_browser/browser.mojom
 // Module: webui_browser.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var webui_browser = webui_browser || {};
 webui_browser.mojom = webui_browser.mojom || {};
@@ -239,7 +234,7 @@ webui_browser.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -499,7 +494,7 @@ webui_browser.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -972,7 +967,7 @@ webui_browser.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1391,7 +1386,7 @@ webui_browser.mojom.GuestHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

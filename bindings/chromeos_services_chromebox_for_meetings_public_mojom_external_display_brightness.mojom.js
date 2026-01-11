@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/services/chromebox_for_meetings/public/mojom/external_display_brightness.mojom
 // Module: chromeos.cfm.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.cfm = chromeos.cfm || {};
@@ -259,7 +254,7 @@ chromeos.cfm.mojom.ExternalDisplayBrightnessReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

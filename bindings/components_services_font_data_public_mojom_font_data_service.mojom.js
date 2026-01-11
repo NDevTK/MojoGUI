@@ -2,11 +2,6 @@
 // Source: chromium_src/components/services/font_data/public/mojom/font_data_service.mojom
 // Module: font_data_service.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var font_data_service = font_data_service || {};
 font_data_service.mojom = font_data_service.mojom || {};
@@ -362,7 +357,7 @@ font_data_service.mojom.FontDataServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

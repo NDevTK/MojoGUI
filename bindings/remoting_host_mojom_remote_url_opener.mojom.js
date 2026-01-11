@@ -2,11 +2,6 @@
 // Source: chromium_src/remoting/host/mojom/remote_url_opener.mojom
 // Module: remoting.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var remoting = remoting || {};
 remoting.mojom = remoting.mojom || {};
@@ -155,7 +150,7 @@ remoting.mojom.RemoteUrlOpenerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

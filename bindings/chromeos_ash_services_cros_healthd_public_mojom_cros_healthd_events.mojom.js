@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/cros_healthd/public/mojom/cros_healthd_events.mojom
 // Module: ash.cros_healthd.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.cros_healthd = ash.cros_healthd || {};
@@ -809,7 +804,7 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -967,7 +962,7 @@ ash.cros_healthd.mojom.CrosHealthdLidObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1189,7 +1184,7 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1347,7 +1342,7 @@ ash.cros_healthd.mojom.CrosHealthdAudioObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1569,7 +1564,7 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1729,7 +1724,7 @@ ash.cros_healthd.mojom.CrosHealthdUsbObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1887,7 +1882,7 @@ ash.cros_healthd.mojom.CrosHealthdSdCardObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2014,7 +2009,7 @@ ash.cros_healthd.mojom.EventObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/ui/webui/resources/cr_components/color_change_listener/color_change_listener.mojom
 // Module: color_change_listener.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var color_change_listener = color_change_listener || {};
 color_change_listener.mojom = color_change_listener.mojom || {};
@@ -135,7 +130,7 @@ color_change_listener.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -261,7 +256,7 @@ color_change_listener.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

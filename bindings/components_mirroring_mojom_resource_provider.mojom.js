@@ -2,11 +2,6 @@
 // Source: chromium_src/components/mirroring/mojom/resource_provider.mojom
 // Module: mirroring.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var mirroring = mirroring || {};
 mirroring.mojom = mirroring.mojom || {};
@@ -146,7 +141,7 @@ mirroring.mojom.AudioStreamCreatorClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -441,7 +436,7 @@ mirroring.mojom.ResourceProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

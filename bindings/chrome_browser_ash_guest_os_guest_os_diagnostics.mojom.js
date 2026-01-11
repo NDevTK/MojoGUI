@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ash/guest_os/guest_os_diagnostics.mojom
 // Module: guest_os.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var guest_os = guest_os || {};
 guest_os.mojom = guest_os.mojom || {};

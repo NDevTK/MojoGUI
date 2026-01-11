@@ -2,11 +2,6 @@
 // Source: chromium_src/services/network/public/mojom/cert_verifier_service_updater.mojom
 // Module: cert_verifier.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var cert_verifier = cert_verifier || {};
 cert_verifier.mojom = cert_verifier.mojom || {};
@@ -246,7 +241,7 @@ cert_verifier.mojom.CertVerifierServiceUpdaterReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

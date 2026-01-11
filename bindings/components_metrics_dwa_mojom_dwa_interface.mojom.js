@@ -2,11 +2,6 @@
 // Source: chromium_src/components/metrics/dwa/mojom/dwa_interface.mojom
 // Module: metrics.dwa.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var metrics = metrics || {};
 metrics.dwa = metrics.dwa || {};
@@ -116,7 +111,7 @@ metrics.dwa.mojom.DwaRecorderClientInterfaceReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -243,7 +238,7 @@ metrics.dwa.mojom.DwaRecorderInterfaceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -371,7 +366,7 @@ metrics.dwa.mojom.DwaRecorderFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

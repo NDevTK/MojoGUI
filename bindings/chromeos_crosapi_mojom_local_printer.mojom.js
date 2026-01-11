@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/crosapi/mojom/local_printer.mojom
 // Module: crosapi.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
@@ -576,7 +571,7 @@ crosapi.mojom.PrintServerObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -740,7 +735,7 @@ crosapi.mojom.PrintJobObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -867,7 +862,7 @@ crosapi.mojom.LocalPrintersObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1717,7 +1712,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

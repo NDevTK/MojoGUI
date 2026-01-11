@@ -2,11 +2,6 @@
 // Source: chromium_src/content/browser/process_internals/process_internals.mojom
 // Module: mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var mojom = mojom || {};
 var url = url || {};
@@ -492,7 +487,7 @@ mojom.ProcessInternalsHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

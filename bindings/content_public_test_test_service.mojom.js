@@ -2,11 +2,6 @@
 // Source: chromium_src/content/public/test/test_service.mojom
 // Module: content.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
@@ -688,7 +683,7 @@ content.mojom.TestServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

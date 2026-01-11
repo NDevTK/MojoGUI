@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/print_preview_cros/mojom/printer_capabilities.mojom
 // Module: ash.printing.print_preview.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.printing = ash.printing || {};

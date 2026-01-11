@@ -2,11 +2,6 @@
 // Source: chromium_src/skia/public/mojom/tile_mode.mojom
 // Module: skia.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var skia = skia || {};
 skia.mojom = skia.mojom || {};

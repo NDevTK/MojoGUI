@@ -2,11 +2,6 @@
 // Source: chromium_src/components/metrics/public/mojom/histogram_fetcher.mojom
 // Module: metrics.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var metrics = metrics || {};
 metrics.mojom = metrics.mojom || {};
@@ -155,7 +150,7 @@ metrics.mojom.ChildHistogramFetcherFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -337,7 +332,7 @@ metrics.mojom.ChildHistogramFetcherReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

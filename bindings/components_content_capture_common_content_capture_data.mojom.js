@@ -2,11 +2,6 @@
 // Source: chromium_src/components/content_capture/common/content_capture_data.mojom
 // Module: content_capture.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var content_capture = content_capture || {};
 content_capture.mojom = content_capture.mojom || {};

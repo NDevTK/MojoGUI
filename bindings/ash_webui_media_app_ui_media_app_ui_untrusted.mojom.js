@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/media_app_ui/media_app_ui_untrusted.mojom
 // Module: ash.media_app_ui.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.media_app_ui = ash.media_app_ui || {};
@@ -332,7 +327,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -526,7 +521,7 @@ ash.media_app_ui.mojom.OcrUntrustedServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -731,7 +726,7 @@ ash.media_app_ui.mojom.OcrUntrustedPageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -956,7 +951,7 @@ ash.media_app_ui.mojom.MahiUntrustedServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1127,7 +1122,7 @@ ash.media_app_ui.mojom.MahiUntrustedPageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1499,7 +1494,7 @@ ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1626,7 +1621,7 @@ ash.media_app_ui.mojom.MantisUntrustedPageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/boca_ui/mojom/boca.mojom
 // Module: ash.boca.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.boca = ash.boca || {};
@@ -1922,7 +1917,7 @@ ash.boca.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2343,7 +2338,7 @@ ash.boca.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2471,7 +2466,7 @@ ash.boca.mojom.BocaPageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

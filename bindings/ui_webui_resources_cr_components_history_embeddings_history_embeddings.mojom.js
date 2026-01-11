@@ -2,11 +2,6 @@
 // Source: chromium_src/ui/webui/resources/cr_components/history_embeddings/history_embeddings.mojom
 // Module: history_embeddings.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var history_embeddings = history_embeddings || {};
 history_embeddings.mojom = history_embeddings.mojom || {};
@@ -410,7 +405,7 @@ history_embeddings.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -537,7 +532,7 @@ history_embeddings.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/components/browsing_topics/mojom/browsing_topics_internals.mojom
 // Module: browsing_topics.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var browsing_topics = browsing_topics || {};
 browsing_topics.mojom = browsing_topics.mojom || {};
@@ -382,7 +377,7 @@ browsing_topics.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

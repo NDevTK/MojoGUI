@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/components/enhanced_network_tts/mojom/enhanced_network_tts.mojom
 // Module: ash.enhanced_network_tts.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.enhanced_network_tts = ash.enhanced_network_tts || {};
@@ -209,7 +204,7 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTtsReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -336,7 +331,7 @@ ash.enhanced_network_tts.mojom.AudioDataObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/common/conflicts/module_event_sink_win.mojom
 // Module: mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var mojom = mojom || {};
 
@@ -131,7 +126,7 @@ mojom.ModuleEventSinkReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

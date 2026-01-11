@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/new_tab_page/modules/v2/most_relevant_tab_resumption/most_relevant_tab_resumption.mojom
 // Module: ntp.most_relevant_tab_resumption.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ntp = ntp || {};
 ntp.most_relevant_tab_resumption = ntp.most_relevant_tab_resumption || {};
@@ -327,7 +322,7 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

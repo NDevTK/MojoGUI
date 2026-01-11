@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/segmentation_internals/segmentation_internals.mojom
 // Module: segmentation_internals.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var segmentation_internals = segmentation_internals || {};
 segmentation_internals.mojom = segmentation_internals.mojom || {};
@@ -176,7 +171,7 @@ segmentation_internals.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -403,7 +398,7 @@ segmentation_internals.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -564,7 +559,7 @@ segmentation_internals.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

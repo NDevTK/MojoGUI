@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/tab_strip/tab_strip.mojom
 // Module: tab_strip.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var tab_strip = tab_strip || {};
 tab_strip.mojom = tab_strip.mojom || {};
@@ -210,7 +205,7 @@ tab_strip.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -911,7 +906,7 @@ tab_strip.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1602,7 +1597,7 @@ tab_strip.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

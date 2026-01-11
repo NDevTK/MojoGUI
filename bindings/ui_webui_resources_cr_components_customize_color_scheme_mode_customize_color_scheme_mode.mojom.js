@@ -2,11 +2,6 @@
 // Source: chromium_src/ui/webui/resources/cr_components/customize_color_scheme_mode/customize_color_scheme_mode.mojom
 // Module: customize_color_scheme_mode.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var customize_color_scheme_mode = customize_color_scheme_mode || {};
 customize_color_scheme_mode.mojom = customize_color_scheme_mode.mojom || {};
@@ -148,7 +143,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryReceiver
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -307,7 +302,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerReceiver = clas
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -434,7 +429,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientReceiver = class
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

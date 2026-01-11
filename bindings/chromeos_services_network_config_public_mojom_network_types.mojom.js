@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/services/network_config/public/mojom/network_types.mojom
 // Module: chromeos.network_config.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.network_config = chromeos.network_config || {};

@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/services/tts/public/mojom/tts_service.mojom
 // Module: chromeos.tts.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.tts = chromeos.tts || {};
@@ -221,7 +216,7 @@ chromeos.tts.mojom.TtsServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -581,7 +576,7 @@ chromeos.tts.mojom.GoogleTtsStreamReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -883,7 +878,7 @@ chromeos.tts.mojom.PlaybackTtsStreamReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1106,7 +1101,7 @@ chromeos.tts.mojom.TtsEventObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

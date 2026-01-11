@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/watermark/watermark.mojom
 // Module: watermark.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var watermark = watermark || {};
 watermark.mojom = watermark.mojom || {};
@@ -146,7 +141,7 @@ watermark.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -305,7 +300,7 @@ watermark.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

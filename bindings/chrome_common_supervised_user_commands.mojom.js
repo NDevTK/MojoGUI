@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/common/supervised_user_commands.mojom
 // Module: supervised_user.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var supervised_user = supervised_user || {};
 supervised_user.mojom = supervised_user.mojom || {};
@@ -268,7 +263,7 @@ supervised_user.mojom.SupervisedUserCommandsReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

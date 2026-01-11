@@ -2,11 +2,6 @@
 // Source: chromium_src/media/capture/video/chromeos/mojom/camera3.mojom
 // Module: cros.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var cros = cros || {};
 cros.mojom = cros.mojom || {};
@@ -563,7 +558,7 @@ cros.mojom.Camera3CallbackOpsReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1170,7 +1165,7 @@ cros.mojom.Camera3DeviceOpsReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

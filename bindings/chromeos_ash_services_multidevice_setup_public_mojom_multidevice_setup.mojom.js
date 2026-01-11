@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/multidevice_setup/public/mojom/multidevice_setup.mojom
 // Module: ash.multidevice_setup.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.multidevice_setup = ash.multidevice_setup || {};
@@ -367,7 +362,7 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegateReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -495,7 +490,7 @@ ash.multidevice_setup.mojom.HostStatusObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -622,7 +617,7 @@ ash.multidevice_setup.mojom.FeatureStateObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1283,7 +1278,7 @@ ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1422,7 +1417,7 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

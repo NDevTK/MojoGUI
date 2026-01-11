@@ -2,11 +2,6 @@
 // Source: chromium_src/components/dom_distiller/core/mojom/distilled_page_prefs.mojom
 // Module: dom_distiller.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var dom_distiller = dom_distiller || {};
 dom_distiller.mojom = dom_distiller.mojom || {};

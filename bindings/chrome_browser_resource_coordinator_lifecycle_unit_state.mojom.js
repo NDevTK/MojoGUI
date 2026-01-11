@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/resource_coordinator/lifecycle_unit_state.mojom
 // Module: mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var mojom = mojom || {};
 

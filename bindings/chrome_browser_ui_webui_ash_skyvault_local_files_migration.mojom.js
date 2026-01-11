@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/skyvault/local_files_migration.mojom
 // Module: policy.local_user_files.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var policy = policy || {};
 policy.local_user_files = policy.local_user_files || {};
@@ -167,7 +162,7 @@ policy.local_user_files.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -371,7 +366,7 @@ policy.local_user_files.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -498,7 +493,7 @@ policy.local_user_files.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

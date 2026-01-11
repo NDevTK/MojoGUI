@@ -2,11 +2,6 @@
 // Source: chromium_src/ios/web/shell/web_usage_controller.mojom
 // Module: web.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var web = web || {};
 web.mojom = web.mojom || {};
@@ -144,7 +139,7 @@ web.mojom.WebUsageControllerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

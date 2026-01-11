@@ -2,11 +2,6 @@
 // Source: chromium_src/components/webapps/common/web_page_metadata_agent.mojom
 // Module: webapps.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var webapps = webapps || {};
 webapps.mojom = webapps.mojom || {};
@@ -144,7 +139,7 @@ webapps.mojom.WebPageMetadataAgentReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

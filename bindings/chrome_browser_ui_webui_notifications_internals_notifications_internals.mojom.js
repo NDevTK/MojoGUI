@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/notifications_internals/notifications_internals.mojom
 // Module: notifications_internals.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var notifications_internals = notifications_internals || {};
 notifications_internals.mojom = notifications_internals.mojom || {};
@@ -132,7 +127,7 @@ notifications_internals.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

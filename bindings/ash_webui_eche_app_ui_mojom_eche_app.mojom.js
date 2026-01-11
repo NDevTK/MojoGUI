@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/eche_app_ui/mojom/eche_app.mojom
 // Module: ash.eche_app.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.eche_app = ash.eche_app || {};
@@ -317,7 +312,7 @@ ash.eche_app.mojom.SignalingMessageExchangerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -444,7 +439,7 @@ ash.eche_app.mojom.SignalingMessageObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -615,7 +610,7 @@ ash.eche_app.mojom.SystemInfoProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -809,7 +804,7 @@ ash.eche_app.mojom.SystemInfoObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1013,7 +1008,7 @@ ash.eche_app.mojom.AccessibilityProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1263,7 +1258,7 @@ ash.eche_app.mojom.AccessibilityObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1401,7 +1396,7 @@ ash.eche_app.mojom.UidGeneratorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1563,7 +1558,7 @@ ash.eche_app.mojom.NotificationGeneratorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1755,7 +1750,7 @@ ash.eche_app.mojom.DisplayStreamHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1882,7 +1877,7 @@ ash.eche_app.mojom.StreamActionObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2009,7 +2004,7 @@ ash.eche_app.mojom.StreamOrientationObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2136,7 +2131,7 @@ ash.eche_app.mojom.ConnectionStatusObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2295,7 +2290,7 @@ ash.eche_app.mojom.KeyboardLayoutHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2425,7 +2420,7 @@ ash.eche_app.mojom.KeyboardLayoutObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

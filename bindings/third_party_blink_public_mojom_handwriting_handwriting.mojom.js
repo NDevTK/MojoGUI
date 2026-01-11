@@ -2,11 +2,6 @@
 // Source: chromium_src/third_party/blink/public/mojom/handwriting/handwriting.mojom
 // Module: handwriting.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var handwriting = handwriting || {};
 handwriting.mojom = handwriting.mojom || {};
@@ -263,7 +258,7 @@ handwriting.mojom.HandwritingRecognizerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -448,7 +443,7 @@ handwriting.mojom.HandwritingRecognitionServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

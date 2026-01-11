@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/services/removable_storage_writer/public/mojom/removable_storage_writer.mojom
 // Module: chrome.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
@@ -188,7 +183,7 @@ chrome.mojom.RemovableStorageWriterReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -348,7 +343,7 @@ chrome.mojom.RemovableStorageWriterClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

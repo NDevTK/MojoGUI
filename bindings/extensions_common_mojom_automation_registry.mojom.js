@@ -2,11 +2,6 @@
 // Source: chromium_src/extensions/common/mojom/automation_registry.mojom
 // Module: extensions.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
@@ -133,7 +128,7 @@ extensions.mojom.RendererAutomationRegistryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

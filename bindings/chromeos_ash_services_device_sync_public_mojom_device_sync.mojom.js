@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/device_sync/public/mojom/device_sync.mojom
 // Module: ash.device_sync.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.device_sync = ash.device_sync || {};
@@ -291,7 +286,7 @@ ash.device_sync.mojom.DeviceSyncObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -970,7 +965,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

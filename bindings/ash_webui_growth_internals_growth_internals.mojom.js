@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/growth_internals/growth_internals.mojom
 // Module: ash.growth.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.growth = ash.growth || {};
@@ -178,7 +173,7 @@ ash.growth.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

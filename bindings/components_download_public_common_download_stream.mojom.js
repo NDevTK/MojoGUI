@@ -2,11 +2,6 @@
 // Source: chromium_src/components/download/public/common/download_stream.mojom
 // Module: download.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var download = download || {};
 download.mojom = download.mojom || {};
@@ -156,7 +151,7 @@ download.mojom.DownloadStreamClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

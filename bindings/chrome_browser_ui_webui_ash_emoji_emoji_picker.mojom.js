@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/emoji/emoji_picker.mojom
 // Module: emoji_picker.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var emoji_picker = emoji_picker || {};
 emoji_picker.mojom = emoji_picker.mojom || {};
@@ -198,7 +193,7 @@ emoji_picker.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -896,7 +891,7 @@ emoji_picker.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

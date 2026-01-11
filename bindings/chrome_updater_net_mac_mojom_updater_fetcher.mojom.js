@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/updater/net/mac/mojom/updater_fetcher.mojom
 // Module: updater.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var updater = updater || {};
 updater.mojom = updater.mojom || {};
@@ -230,7 +225,7 @@ updater.mojom.PostRequestObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -427,7 +422,7 @@ updater.mojom.FileDownloadObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -615,7 +610,7 @@ updater.mojom.FetchServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

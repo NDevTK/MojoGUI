@@ -2,11 +2,6 @@
 // Source: chromium_src/content/services/auction_worklet/public/mojom/auction_network_events_handler.mojom
 // Module: auction_worklet.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var auction_worklet = auction_worklet || {};
 auction_worklet.mojom = auction_worklet.mojom || {};
@@ -242,7 +237,7 @@ auction_worklet.mojom.AuctionNetworkEventsHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

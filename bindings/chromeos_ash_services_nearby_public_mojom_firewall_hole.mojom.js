@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/nearby/public/mojom/firewall_hole.mojom
 // Module: sharing.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var sharing = sharing || {};
 sharing.mojom = sharing.mojom || {};
@@ -102,7 +97,7 @@ sharing.mojom.FirewallHoleReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -241,7 +236,7 @@ sharing.mojom.FirewallHoleFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

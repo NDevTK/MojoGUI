@@ -2,11 +2,6 @@
 // Source: chromium_src/components/translate/content/common/translate.mojom
 // Module: translate.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var translate = translate || {};
 translate.mojom = translate.mojom || {};
@@ -224,7 +219,7 @@ translate.mojom.TranslateAgentReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -353,7 +348,7 @@ translate.mojom.ContentTranslateDriverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

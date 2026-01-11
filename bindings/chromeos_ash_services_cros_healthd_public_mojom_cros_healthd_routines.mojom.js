@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/cros_healthd/public/mojom/cros_healthd_routines.mojom
 // Module: ash.cros_healthd.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.cros_healthd = ash.cros_healthd || {};
@@ -1119,7 +1114,7 @@ ash.cros_healthd.mojom.CrosHealthdRoutinesServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1322,7 +1317,7 @@ ash.cros_healthd.mojom.RoutineControlReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1449,7 +1444,7 @@ ash.cros_healthd.mojom.RoutineObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

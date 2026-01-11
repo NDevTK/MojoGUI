@@ -2,11 +2,6 @@
 // Source: chromium_src/media/mojo/mojom/audio_output_stream.mojom
 // Module: media.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
@@ -255,7 +250,7 @@ media.mojom.AudioOutputStreamReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -446,7 +441,7 @@ media.mojom.AudioOutputStreamObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -574,7 +569,7 @@ media.mojom.AudioOutputStreamProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -702,7 +697,7 @@ media.mojom.AudioOutputStreamProviderClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -829,7 +824,7 @@ media.mojom.DeviceSwitchInterfaceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/components/drivefs/mojom/drivefs.mojom
 // Module: drivefs.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var drivefs = drivefs || {};
 drivefs.mojom = drivefs.mojom || {};
@@ -763,7 +758,7 @@ drivefs.mojom.DriveFsBootstrapReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2385,7 +2380,7 @@ drivefs.mojom.DriveFsReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -3206,7 +3201,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -3345,7 +3340,7 @@ drivefs.mojom.SearchQueryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -3571,7 +3566,7 @@ drivefs.mojom.HttpDelegateReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

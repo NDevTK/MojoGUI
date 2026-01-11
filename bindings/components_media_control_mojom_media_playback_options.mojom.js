@@ -2,11 +2,6 @@
 // Source: chromium_src/components/media_control/mojom/media_playback_options.mojom
 // Module: components.media_control.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var components = components || {};
 components.media_control = components.media_control || {};
@@ -202,7 +197,7 @@ components.media_control.mojom.MediaPlaybackOptionsReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

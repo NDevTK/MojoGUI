@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/diagnostics_ui/mojom/network_health_provider.mojom
 // Module: ash.diagnostics.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.diagnostics = ash.diagnostics || {};
@@ -276,7 +271,7 @@ ash.diagnostics.mojom.NetworkListObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -403,7 +398,7 @@ ash.diagnostics.mojom.NetworkStateObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -564,7 +559,7 @@ ash.diagnostics.mojom.NetworkHealthProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

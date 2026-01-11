@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/focus_mode/mojom/focus_mode.mojom
 // Module: ash.focus_mode.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.focus_mode = ash.focus_mode || {};
@@ -181,7 +176,7 @@ ash.focus_mode.mojom.MediaClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -417,7 +412,7 @@ ash.focus_mode.mojom.TrackProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

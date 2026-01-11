@@ -2,11 +2,6 @@
 // Source: chromium_src/fuchsia_web/webengine/mojom/web_engine_media_resource_provider.mojom
 // Module: mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var mojom = mojom || {};
 
@@ -185,7 +180,7 @@ mojom.WebEngineMediaResourceProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/crostini_installer/crostini_installer.mojom
 // Module: ash.crostini_installer.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.crostini_installer = ash.crostini_installer || {};
@@ -149,7 +144,7 @@ ash.crostini_installer.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -419,7 +414,7 @@ ash.crostini_installer.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -644,7 +639,7 @@ ash.crostini_installer.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

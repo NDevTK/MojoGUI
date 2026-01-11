@@ -2,11 +2,6 @@
 // Source: chromium_src/third_party/blink/public/mojom/unhandled_tap_notifier/unhandled_tap_notifier.mojom
 // Module: blink.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
@@ -141,7 +136,7 @@ blink.mojom.UnhandledTapNotifierReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

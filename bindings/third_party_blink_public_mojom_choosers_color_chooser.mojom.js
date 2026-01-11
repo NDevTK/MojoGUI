@@ -2,11 +2,6 @@
 // Source: chromium_src/third_party/blink/public/mojom/choosers/color_chooser.mojom
 // Module: blink.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
@@ -154,7 +149,7 @@ blink.mojom.ColorChooserFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -281,7 +276,7 @@ blink.mojom.ColorChooserReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -408,7 +403,7 @@ blink.mojom.ColorChooserClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -547,7 +542,7 @@ blink.mojom.EyeDropperChooserReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

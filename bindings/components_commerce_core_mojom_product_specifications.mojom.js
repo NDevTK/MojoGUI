@@ -2,11 +2,6 @@
 // Source: chromium_src/components/commerce/core/mojom/product_specifications.mojom
 // Module: commerce.product_specifications.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var commerce = commerce || {};
 commerce.product_specifications = commerce.product_specifications || {};
@@ -471,7 +466,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerReceiver = cla
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -696,7 +691,7 @@ commerce.product_specifications.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -824,7 +819,7 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryReceive
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

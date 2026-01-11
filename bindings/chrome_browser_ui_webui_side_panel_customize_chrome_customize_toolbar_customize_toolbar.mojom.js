@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/side_panel/customize_chrome/customize_toolbar/customize_toolbar.mojom
 // Module: side_panel.customize_chrome.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var side_panel = side_panel || {};
 side_panel.customize_chrome = side_panel.customize_chrome || {};
@@ -210,7 +205,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryReceiver = class
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -502,7 +497,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -662,7 +657,7 @@ side_panel.customize_chrome.mojom.CustomizeToolbarClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

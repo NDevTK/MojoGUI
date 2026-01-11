@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/services/mac_notifications/public/mojom/mac_notifications.mojom
 // Module: mac_notifications.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var mac_notifications = mac_notifications || {};
 mac_notifications.mojom = mac_notifications.mojom || {};
@@ -428,7 +423,7 @@ mac_notifications.mojom.MacNotificationServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -555,7 +550,7 @@ mac_notifications.mojom.MacNotificationActionHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -683,7 +678,7 @@ mac_notifications.mojom.MacNotificationProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

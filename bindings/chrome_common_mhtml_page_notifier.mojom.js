@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/common/mhtml_page_notifier.mojom
 // Module: offline_pages.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var offline_pages = offline_pages || {};
 offline_pages.mojom = offline_pages.mojom || {};
@@ -137,7 +132,7 @@ offline_pages.mojom.MhtmlPageNotifierReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

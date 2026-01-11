@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/updater/updater_ui.mojom
 // Module: updater_ui.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var updater_ui = updater_ui || {};
 updater_ui.mojom = updater_ui.mojom || {};
@@ -139,7 +134,7 @@ updater_ui.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -277,7 +272,7 @@ updater_ui.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -371,7 +366,7 @@ updater_ui.mojom.PageReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

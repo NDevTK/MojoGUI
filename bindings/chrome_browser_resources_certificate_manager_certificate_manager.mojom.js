@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/resources/certificate_manager/certificate_manager.mojom
 // Module: certificate_manager.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var certificate_manager = certificate_manager || {};
 certificate_manager.mojom = certificate_manager.mojom || {};
@@ -220,7 +215,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -672,7 +667,7 @@ certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -921,7 +916,7 @@ certificate_manager.mojom.CertificateManagerPageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/components/remote_cocoa/common/application.mojom
 // Module: remote_cocoa.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var remote_cocoa = remote_cocoa || {};
 remote_cocoa.mojom = remote_cocoa.mojom || {};
@@ -115,7 +110,7 @@ remote_cocoa.mojom.StubInterfaceReceiver = class {
       switch (dispatchId) {
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -415,7 +410,7 @@ remote_cocoa.mojom.ApplicationReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

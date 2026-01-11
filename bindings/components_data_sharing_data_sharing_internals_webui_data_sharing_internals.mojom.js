@@ -2,11 +2,6 @@
 // Source: chromium_src/components/data_sharing/data_sharing_internals/webui/data_sharing_internals.mojom
 // Module: data_sharing_internals.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var data_sharing_internals = data_sharing_internals || {};
 data_sharing_internals.mojom = data_sharing_internals.mojom || {};
@@ -145,7 +140,7 @@ data_sharing_internals.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -328,7 +323,7 @@ data_sharing_internals.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -459,7 +454,7 @@ data_sharing_internals.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

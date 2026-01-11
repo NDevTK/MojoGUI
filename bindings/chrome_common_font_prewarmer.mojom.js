@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/common/font_prewarmer.mojom
 // Module: chrome.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
@@ -136,7 +131,7 @@ chrome.mojom.FontPrewarmerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -274,7 +269,7 @@ chrome.mojom.RenderFrameFontFamilyAccessorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

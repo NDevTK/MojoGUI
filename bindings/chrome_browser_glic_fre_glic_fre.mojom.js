@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/glic/fre/glic_fre.mojom
 // Module: glic.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var glic = glic || {};
 glic.mojom = glic.mojom || {};
@@ -159,7 +154,7 @@ glic.mojom.FrePageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -556,7 +551,7 @@ glic.mojom.FrePageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

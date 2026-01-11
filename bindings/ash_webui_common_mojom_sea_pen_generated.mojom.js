@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/common/mojom/sea_pen_generated.mojom
 // Module: ash.personalization_app.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.personalization_app = ash.personalization_app || {};

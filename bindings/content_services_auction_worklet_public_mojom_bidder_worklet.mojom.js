@@ -2,11 +2,6 @@
 // Source: chromium_src/content/services/auction_worklet/public/mojom/bidder_worklet.mojom
 // Module: auction_worklet.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var auction_worklet = auction_worklet || {};
 auction_worklet.mojom = auction_worklet.mojom || {};
@@ -334,7 +329,7 @@ auction_worklet.mojom.GenerateBidClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -468,7 +463,7 @@ auction_worklet.mojom.GenerateBidFinalizerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -760,7 +755,7 @@ auction_worklet.mojom.BidderWorkletReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

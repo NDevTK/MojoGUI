@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/common/mojom/accessibility_features.mojom
 // Module: ash.common.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.common = ash.common || {};
@@ -137,7 +132,7 @@ ash.common.mojom.ForceHiddenElementsVisibleObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -276,7 +271,7 @@ ash.common.mojom.AccessibilityFeaturesReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

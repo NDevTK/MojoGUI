@@ -2,11 +2,6 @@
 // Source: chromium_src/ui/ozone/platform/wayland/mojom/wayland_buffer_manager.mojom
 // Module: ui.ozone.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ui = ui || {};
 ui.ozone = ui.ozone || {};
@@ -329,7 +324,7 @@ ui.ozone.mojom.WaylandBufferManagerHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -533,7 +528,7 @@ ui.ozone.mojom.WaylandBufferManagerGpuReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

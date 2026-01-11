@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/emoji/new_window_proxy.mojom
 // Module: new_window_proxy.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var new_window_proxy = new_window_proxy || {};
 new_window_proxy.mojom = new_window_proxy.mojom || {};
@@ -133,7 +128,7 @@ new_window_proxy.mojom.NewWindowProxyReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

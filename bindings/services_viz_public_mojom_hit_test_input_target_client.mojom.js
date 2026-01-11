@@ -2,11 +2,6 @@
 // Source: chromium_src/services/viz/public/mojom/hit_test/input_target_client.mojom
 // Module: viz.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
@@ -148,7 +143,7 @@ viz.mojom.InputTargetClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

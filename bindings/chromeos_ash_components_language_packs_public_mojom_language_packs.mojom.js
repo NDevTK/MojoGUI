@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/components/language_packs/public/mojom/language_packs.mojom
 // Module: ash.language.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.language = ash.language || {};
@@ -196,7 +191,7 @@ ash.language.mojom.LanguagePacksObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -505,7 +500,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

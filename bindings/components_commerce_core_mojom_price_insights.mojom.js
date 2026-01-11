@@ -2,11 +2,6 @@
 // Source: chromium_src/components/commerce/core/mojom/price_insights.mojom
 // Module: commerce.price_insights.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var commerce = commerce || {};
 commerce.price_insights = commerce.price_insights || {};
@@ -168,7 +163,7 @@ commerce.price_insights.mojom.PriceInsightsHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -295,7 +290,7 @@ commerce.price_insights.mojom.PriceInsightsHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/vm/vm.mojom
 // Module: ash.vm.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.vm = ash.vm || {};
@@ -146,7 +141,7 @@ ash.vm.mojom.VmDiagnosticsProviderReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

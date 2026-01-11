@@ -2,11 +2,6 @@
 // Source: chromium_src/services/accessibility/android/public/mojom/accessibility_helper.mojom
 // Module: ax.android.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ax = ax || {};
 ax.android = ax.android || {};
@@ -702,7 +697,7 @@ ax.android.mojom.AccessibilityHelperHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1074,7 +1069,7 @@ ax.android.mojom.AccessibilityHelperInstanceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

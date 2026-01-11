@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/cros_healthd/private/mojom/cros_healthd_internal.mojom
 // Module: ash.cros_healthd.internal.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.cros_healthd = ash.cros_healthd || {};
@@ -316,7 +311,7 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

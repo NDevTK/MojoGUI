@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/components/mahi/public/mojom/content_extraction.mojom
 // Module: mahi.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var mahi = mahi || {};
 mahi.mojom = mahi.mojom || {};
@@ -247,7 +242,7 @@ mahi.mojom.ContentExtractionServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -407,7 +402,7 @@ mahi.mojom.ContentExtractionServiceFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/usb_internals/usb_internals.mojom
 // Module: mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var mojom = mojom || {};
 var device = device || {};
@@ -166,7 +161,7 @@ mojom.UsbInternalsPageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

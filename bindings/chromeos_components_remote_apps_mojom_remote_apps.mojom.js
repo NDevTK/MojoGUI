@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/components/remote_apps/mojom/remote_apps.mojom
 // Module: chromeos.remote_apps.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chromeos = chromeos || {};
 chromeos.remote_apps = chromeos.remote_apps || {};
@@ -377,7 +372,7 @@ chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -506,7 +501,7 @@ chromeos.remote_apps.mojom.RemoteAppsFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -634,7 +629,7 @@ chromeos.remote_apps.mojom.RemoteAppLaunchObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

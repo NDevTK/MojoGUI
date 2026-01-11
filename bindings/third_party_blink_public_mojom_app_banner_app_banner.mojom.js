@@ -2,11 +2,6 @@
 // Source: chromium_src/third_party/blink/public/mojom/app_banner/app_banner.mojom
 // Module: blink.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
@@ -161,7 +156,7 @@ blink.mojom.AppBannerControllerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -320,7 +315,7 @@ blink.mojom.AppBannerEventReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -446,7 +441,7 @@ blink.mojom.AppBannerServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

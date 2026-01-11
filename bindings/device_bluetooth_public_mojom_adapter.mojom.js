@@ -2,11 +2,6 @@
 // Source: chromium_src/device/bluetooth/public/mojom/adapter.mojom
 // Module: bluetooth.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var bluetooth = bluetooth || {};
 bluetooth.mojom = bluetooth.mojom || {};
@@ -286,7 +281,7 @@ bluetooth.mojom.AdvertisementReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -468,7 +463,7 @@ bluetooth.mojom.DiscoverySessionReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -605,7 +600,7 @@ bluetooth.mojom.SocketReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -786,7 +781,7 @@ bluetooth.mojom.ServerSocketReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -971,7 +966,7 @@ bluetooth.mojom.GattServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1113,7 +1108,7 @@ bluetooth.mojom.GattServiceObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1751,7 +1746,7 @@ bluetooth.mojom.AdapterReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -2076,7 +2071,7 @@ bluetooth.mojom.AdapterObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

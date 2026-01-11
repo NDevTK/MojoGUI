@@ -2,11 +2,6 @@
 // Source: chromium_src/sandbox/mac/mojom/seatbelt_extension_token.mojom
 // Module: sandbox.mac.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var sandbox = sandbox || {};
 sandbox.mac = sandbox.mac || {};

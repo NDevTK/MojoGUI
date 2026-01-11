@@ -2,11 +2,6 @@
 // Source: chromium_src/components/safe_browsing/core/common/safe_browsing_url_checker.mojom
 // Module: safe_browsing.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var safe_browsing = safe_browsing || {};
 safe_browsing.mojom = safe_browsing.mojom || {};
@@ -148,7 +143,7 @@ safe_browsing.mojom.SafeBrowsingUrlCheckerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

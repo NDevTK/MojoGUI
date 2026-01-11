@@ -2,11 +2,6 @@
 // Source: chromium_src/ash/webui/common/mojom/webui_syslog_emitter.mojom
 // Module: ash.common.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.common = ash.common || {};
@@ -134,7 +129,7 @@ ash.common.mojom.WebUiSyslogEmitterReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/services/network/public/mojom/tcp_socket.mojom
 // Module: network.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
@@ -251,7 +246,7 @@ network.mojom.TCPBoundSocketReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -578,7 +573,7 @@ network.mojom.TCPConnectedSocketReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -738,7 +733,7 @@ network.mojom.SocketObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -881,7 +876,7 @@ network.mojom.TCPServerSocketReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

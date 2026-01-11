@@ -2,11 +2,6 @@
 // Source: chromium_src/ui/webui/examples/browser/ui/web/browser.mojom
 // Module: webui_examples.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var webui_examples = webui_examples || {};
 webui_examples.mojom = webui_examples.mojom || {};
@@ -139,7 +134,7 @@ webui_examples.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -333,7 +328,7 @@ webui_examples.mojom.PageHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

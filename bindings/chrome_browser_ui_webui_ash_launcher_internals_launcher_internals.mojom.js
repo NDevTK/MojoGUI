@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/browser/ui/webui/ash/launcher_internals/launcher_internals.mojom
 // Module: launcher_internals.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var launcher_internals = launcher_internals || {};
 launcher_internals.mojom = launcher_internals.mojom || {};
@@ -150,7 +145,7 @@ launcher_internals.mojom.PageHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -279,7 +274,7 @@ launcher_internals.mojom.PageReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

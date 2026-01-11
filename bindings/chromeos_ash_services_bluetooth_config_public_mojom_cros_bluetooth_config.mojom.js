@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/bluetooth_config/public/mojom/cros_bluetooth_config.mojom
 // Module: ash.bluetooth_config.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.bluetooth_config = ash.bluetooth_config || {};
@@ -315,7 +310,7 @@ ash.bluetooth_config.mojom.SystemPropertiesObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -508,7 +503,7 @@ ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -635,7 +630,7 @@ ash.bluetooth_config.mojom.DiscoverySessionStatusObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -762,7 +757,7 @@ ash.bluetooth_config.mojom.KeyEnteredHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1101,7 +1096,7 @@ ash.bluetooth_config.mojom.DevicePairingDelegateReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1286,7 +1281,7 @@ ash.bluetooth_config.mojom.DevicePairingHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1478,7 +1473,7 @@ ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1971,7 +1966,7 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

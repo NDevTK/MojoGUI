@@ -2,11 +2,6 @@
 // Source: chromium_src/third_party/blink/public/mojom/frame/frame.mojom
 // Module: blink.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
@@ -3287,7 +3282,7 @@ blink.mojom.LocalFrameHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -3414,7 +3409,7 @@ blink.mojom.NonAssociatedLocalFrameHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -5546,7 +5541,7 @@ blink.mojom.LocalFrameReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -6072,7 +6067,7 @@ blink.mojom.LocalMainFrameReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -6756,7 +6751,7 @@ blink.mojom.LocalMainFrameHostReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/cc/mojom/layer_type.mojom
 // Module: cc.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var cc = cc || {};
 cc.mojom = cc.mojom || {};

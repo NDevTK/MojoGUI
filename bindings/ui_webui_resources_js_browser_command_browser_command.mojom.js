@@ -2,11 +2,6 @@
 // Source: chromium_src/ui/webui/resources/js/browser_command/browser_command.mojom
 // Module: browser_command.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var browser_command = browser_command || {};
 browser_command.mojom = browser_command.mojom || {};
@@ -175,7 +170,7 @@ browser_command.mojom.CommandHandlerFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -360,7 +355,7 @@ browser_command.mojom.CommandHandlerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

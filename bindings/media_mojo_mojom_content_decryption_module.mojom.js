@@ -2,11 +2,6 @@
 // Source: chromium_src/media/mojo/mojom/content_decryption_module.mojom
 // Module: media.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
@@ -535,7 +530,7 @@ media.mojom.ContentDecryptionModuleReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -767,7 +762,7 @@ media.mojom.ContentDecryptionModuleClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -908,7 +903,7 @@ media.mojom.CdmFactoryReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

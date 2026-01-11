@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/auth_factor_config/public/mojom/auth_factor_config.mojom
 // Module: ash.auth.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.auth = ash.auth || {};
@@ -235,7 +230,7 @@ ash.auth.mojom.FactorObserverReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -579,7 +574,7 @@ ash.auth.mojom.AuthFactorConfigReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -719,7 +714,7 @@ ash.auth.mojom.RecoveryFactorEditorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1041,7 +1036,7 @@ ash.auth.mojom.PinFactorEditorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -1409,7 +1404,7 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

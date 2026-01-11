@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/ash/services/cros_healthd/public/mojom/nullable_primitives.mojom
 // Module: ash.cros_healthd.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.cros_healthd = ash.cros_healthd || {};

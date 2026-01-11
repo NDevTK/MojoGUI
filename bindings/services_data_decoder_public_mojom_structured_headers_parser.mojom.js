@@ -2,11 +2,6 @@
 // Source: chromium_src/services/data_decoder/public/mojom/structured_headers_parser.mojom
 // Module: data_decoder.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var data_decoder = data_decoder || {};
 data_decoder.mojom = data_decoder.mojom || {};
@@ -240,7 +235,7 @@ data_decoder.mojom.StructuredHeadersParserReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

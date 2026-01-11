@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/services/file_util/public/mojom/file_util_service.mojom
 // Module: chrome.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
@@ -235,7 +230,7 @@ chrome.mojom.FileUtilServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

@@ -2,11 +2,6 @@
 // Source: chromium_src/ios/chrome/browser/optimization_guide/mojom/enhanced_calendar_service.mojom
 // Module: ai.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ai = ai || {};
 ai.mojom = ai.mojom || {};
@@ -172,7 +167,7 @@ ai.mojom.EnhancedCalendarServiceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

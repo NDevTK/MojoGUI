@@ -2,11 +2,6 @@
 // Source: chromium_src/chromeos/services/chromebox_for_meetings/public/mojom/meet_devices_data_aggregator.mojom
 // Module: ash.cfm.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var ash = ash || {};
 ash.cfm = ash.cfm || {};
@@ -163,7 +158,7 @@ ash.cfm.mojom.DataWatchDogReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -379,7 +374,7 @@ ash.cfm.mojom.DataSourceReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -610,7 +605,7 @@ ash.cfm.mojom.DataAggregatorReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

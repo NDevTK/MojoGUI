@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/services/printing/public/mojom/pdf_to_pwg_raster_converter.mojom
 // Module: printing.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var printing = printing || {};
 printing.mojom = printing.mojom || {};
@@ -208,7 +203,7 @@ printing.mojom.PdfToPwgRasterConverterReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

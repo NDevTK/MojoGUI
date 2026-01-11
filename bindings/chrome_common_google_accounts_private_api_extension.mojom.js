@@ -2,11 +2,6 @@
 // Source: chromium_src/chrome/common/google_accounts_private_api_extension.mojom
 // Module: chrome.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
@@ -132,7 +127,7 @@ chrome.mojom.GoogleAccountsPrivateApiExtensionReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

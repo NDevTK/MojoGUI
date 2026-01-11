@@ -2,11 +2,6 @@
 // Source: chromium_src/components/services/unzip/public/mojom/unzipper.mojom
 // Module: unzip.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var unzip = unzip || {};
 unzip.mojom = unzip.mojom || {};
@@ -181,7 +176,7 @@ unzip.mojom.UnzipFilterReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -308,7 +303,7 @@ unzip.mojom.UnzipListenerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -587,7 +582,7 @@ unzip.mojom.UnzipperReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 

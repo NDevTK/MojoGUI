@@ -2,11 +2,6 @@
 // Source: chromium_src/services/network/public/mojom/p2p.mojom
 // Module: network.mojom
 
-'use strict';
-(function() {
-  // Note: Hashing and Scrambling logic is provided centrally by bindings/support.js
-})();
-
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
@@ -181,7 +176,7 @@ network.mojom.P2PNetworkNotificationClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -395,7 +390,7 @@ network.mojom.P2PSocketManagerReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -590,7 +585,7 @@ network.mojom.P2PSocketReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
@@ -817,7 +812,7 @@ network.mojom.P2PSocketClientReceiver = class {
         }
       }
       } catch (err) {}
-    });
+    }});
   }
 };
 
