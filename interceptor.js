@@ -306,7 +306,21 @@
             if (mode === 'LOG') {
                 // Pass-through without pausing
                 try {
-                    const result = await this.realRemote[methodName](...args);
+                    // Fix: Unbind any Mojo Remotes/Receivers to release their handles for forwarding
+                    // If we pass a bound Remote, the serializer cannot extract the handle, causing BAD_MESSAGE
+                    const forwardedArgs = args.map(arg => {
+                        if (arg && typeof arg === 'object') {
+                            if (arg.proxy && typeof arg.proxy.unbind === 'function') {
+                                return arg.proxy.unbind();
+                            }
+                            if (typeof arg.unbind === 'function') {
+                                return arg.unbind();
+                            }
+                        }
+                        return arg;
+                    });
+
+                    const result = await this.realRemote[methodName](...forwardedArgs);
 
                     window.dispatchEvent(new CustomEvent('mojo-response', {
                         detail: {
@@ -364,7 +378,20 @@
                     console.log(`[MojoProxy] Resuming ${callId} with`, argsToUse);
                     console.log(`[MojoProxy] Calling realRemote.${methodName}`);
 
-                    let result = await this.realRemote[methodName](...argsToUse);
+                    // Fix: Unbind any Mojo Remotes/Receivers to release their handles for forwarding
+                    const forwardedArgs = argsToUse.map(arg => {
+                        if (arg && typeof arg === 'object') {
+                            if (arg.proxy && typeof arg.proxy.unbind === 'function') {
+                                return arg.proxy.unbind();
+                            }
+                            if (typeof arg.unbind === 'function') {
+                                return arg.unbind();
+                            }
+                        }
+                        return arg;
+                    });
+
+                    let result = await this.realRemote[methodName](...forwardedArgs);
 
                     console.log(`[MojoProxy] realRemote.${methodName} resolved in ${Date.now() - startTime}ms`, result);
 
@@ -455,28 +482,6 @@
             try {
                 if (comps.Receiver) {
                     const receiver = new comps.Receiver(proxyImpl);
-
-                    // EXPERIMENTAL: Sync discovered ordinals from Receiver to Remote
-                    // If the Receiver discovers that ordinal 0 maps to Method A, force the Remote
-                    // to use ordinal 0 for Method A as well.
-                    if (receiver.ordinalMap && proxyImpl.realRemote && proxyImpl.realRemote.$ && proxyImpl.realRemote.$.ordinals) {
-                        const remoteOrdinals = proxyImpl.realRemote.$.ordinals;
-
-                        // We need to hook into the receiver's mapOrdinal or poll it
-                        // Since GeneratedReceiver has mapOrdinal, let's monkey-patch it specific to this instance
-                        const originalMapOrdinal = receiver.mapOrdinal.bind(receiver);
-                        receiver.mapOrdinal = function (hash, id) {
-                            originalMapOrdinal(hash, id);
-                            // Hash is the wire-ordinal (e.g. 0), id is the method index (e.g. 0)
-                            // If we discovered a mapping, update the Remote to use this wire-ordinal
-                            // The Remote stores ordinals in `this.ordinals` array where index = method index
-                            if (remoteOrdinals[id] !== undefined) {
-                                console.log(`[MojoProxy] Syncing discovered ordinal for method ${id}: ${hash}`);
-                                remoteOrdinals[id] = hash;
-                            }
-                        };
-                    }
-
                     receiver.bind(handle);
                 } else if (typeof mojo !== 'undefined' && mojo.Binding) {
                     // Fallback to generic mojo.Binding for standard/old bindings
