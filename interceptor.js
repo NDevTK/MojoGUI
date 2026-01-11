@@ -326,8 +326,16 @@
                         unbind: () => {
                             console.log('[MojoProxy] Test: Unbinding FAKE remote');
                             return handle1;
+                        },
+                        proxy: {
+                            unbind: () => {
+                                console.log('[MojoProxy] Test: Unbinding FAKE proxy');
+                                return handle1;
+                            }
                         }
                     };
+                    // Circular reference to satisfy strict bindings checks
+                    fakeRemote.proxy.proxy = fakeRemote.proxy;
 
                     // We need to match the signature: addVoiceListObserver(pending_remote<SpeechSynthesisVoiceListObserver>)
                     // passing 'fakeRemote' to realRemote.addVoiceListObserver should work if it calls .unbind()
