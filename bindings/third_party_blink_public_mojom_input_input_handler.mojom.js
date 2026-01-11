@@ -2433,14 +2433,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WidgetInputHandler_AttachSynchronousCompositor_ParamsSpec, 'blink.mojom.WidgetInputHandler_AttachSynchronousCompositor_Params', [
       mojo.internal.StructField('arg_control_host', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_compositor_request', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.SynchronousCompositorHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_compositor_request', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.SynchronousCompositorRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec, 'blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_Params', [
-      mojo.internal.StructField('arg_interface_request', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_interface_request', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.FrameWidgetInputHandlerSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -140,7 +140,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec, 'content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_Params', [
-      mojo.internal.StructField('arg_agent_scheduling_group', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_agent_scheduling_group', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.content.mojom.AgentSchedulingGroupRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

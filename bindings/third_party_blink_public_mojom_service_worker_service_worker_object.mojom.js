@@ -88,8 +88,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_version_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerStateSpec.$, 0, false, 0, undefined),
       mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_host_remote', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 24, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 32, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerObjectSpec), null, false, 0, undefined),
     ],
     [[0, 48]]);
 

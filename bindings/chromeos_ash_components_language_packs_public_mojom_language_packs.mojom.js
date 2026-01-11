@@ -343,7 +343,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec, 'ash.language.mojom.LanguagePacks_AddObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ash.language.mojom.LanguagePacksObserverSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

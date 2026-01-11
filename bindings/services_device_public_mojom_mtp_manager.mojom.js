@@ -294,7 +294,7 @@ mojo.internal.bindings.device.mojom.MtpManagerClientRequest = mojo.internal.bind
 // Interface: MtpManager
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec, 'device.mojom.MtpManager_EnumerateStoragesAndSetClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.MtpManagerClientSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

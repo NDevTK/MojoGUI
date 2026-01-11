@@ -224,7 +224,7 @@ mojo.internal.bindings.blink.mojom.LockHandleRequest = mojo.internal.bindings.bl
 // Interface: LockRequest
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LockRequest_Granted_ParamsSpec, 'blink.mojom.LockRequest_Granted_Params', [
-      mojo.internal.StructField('arg_lock_handle', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_lock_handle', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.LockHandleSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -415,7 +415,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_mode', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.LockModeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_wait', 16, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.WaitModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 24, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.LockRequestSpec), null, false, 0, undefined),
     ],
     [[0, 40]]);
 

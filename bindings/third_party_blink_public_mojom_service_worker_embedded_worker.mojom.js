@@ -112,7 +112,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_interface_provider', 96, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.service_manager.mojom.InterfaceProviderRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_controller_receiver', 104, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ControllerServiceWorkerRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_installed_scripts_info', 112, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_instance_host', 120, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_instance_host', 120, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_provider_info', 128, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerProviderInfoForStartWorkerSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_content_settings_proxy', 136, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_preference_watcher_receiver', 144, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.RendererPreferenceWatcherRemote), null, false, 0, undefined),

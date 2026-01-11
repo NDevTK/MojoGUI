@@ -545,7 +545,7 @@ mojo.internal.Struct(
 // Struct: IDBDatabaseOpenCursorValue
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.IDBDatabaseOpenCursorValueSpec, 'blink.mojom.IDBDatabaseOpenCursorValue', [
-      mojo.internal.StructField('arg_cursor', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cursor', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.IDBCursorSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_key', 8, 0, mojo.internal.bindings.blink.mojom.IDBKeySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_primary_key', 16, 0, mojo.internal.bindings.blink.mojom.IDBKeySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_value', 24, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.IDBValueSpec.$, null, true, 0, undefined),
@@ -568,7 +568,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.IDBFactoryClient_UpgradeNeeded_ParamsSpec, 'blink.mojom.IDBFactoryClient_UpgradeNeeded_Params', [
-      mojo.internal.StructField('arg_pending_database', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pending_database', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.IDBDatabaseSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_old_version', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_data_loss', 16, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.IDBDataLossSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_data_loss_message', 24, 0, mojo.internal.String, null, false, 0, undefined),
@@ -578,7 +578,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.IDBFactoryClient_OpenSuccess_ParamsSpec, 'blink.mojom.IDBFactoryClient_OpenSuccess_Params', [
-      mojo.internal.StructField('arg_pending_database', 0, 0, mojo.internal.Pointer, null, true, 0, undefined),
+      mojo.internal.StructField('arg_pending_database', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.IDBDatabaseSpec), null, true, 0, undefined),
       mojo.internal.StructField('arg_metadata', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.IDBDatabaseMetadataSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -2000,7 +2000,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.IDBDatabase_CreateTransaction_ParamsSpec, 'blink.mojom.IDBDatabase_CreateTransaction_Params', [
-      mojo.internal.StructField('arg_transaction_receiver', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_transaction_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.IDBTransactionSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_transaction_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_object_store_ids', 16, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_mode', 24, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.IDBTransactionModeSpec.$, null, false, 0, undefined),
@@ -2043,7 +2043,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.IDBDatabase_GetAll_ResponseParamsSpec, 'blink.mojom.IDBDatabase_GetAll_ResponseParams', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSinkSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2859,11 +2859,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.IDBFactory_Open_ParamsSpec, 'blink.mojom.IDBFactory_Open_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_database_callbacks', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.IDBFactoryClientSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_database_callbacks', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacksSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_version', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_version_change_transaction_receiver', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_version_change_transaction_receiver', 32, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.IDBTransactionSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_transaction_id', 40, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_priority', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -2871,7 +2871,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.IDBFactory_DeleteDatabase_ParamsSpec, 'blink.mojom.IDBFactory_DeleteDatabase_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.IDBFactoryClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_force_close', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],

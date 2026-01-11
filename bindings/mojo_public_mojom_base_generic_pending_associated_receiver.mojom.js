@@ -79,7 +79,7 @@ mojo.internal.bindings.mojo_base.mojom.GenericAssociatedInterface.$interfaceName
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.GenericPendingAssociatedReceiverSpec, 'mojo_base.mojom.GenericPendingAssociatedReceiver', [
       mojo.internal.StructField('arg_interface_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.mojo_base.mojom.GenericAssociatedInterfaceSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -474,7 +474,7 @@ mojo.internal.Struct(
 // Struct: BeginFileReadSuccess
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.BeginFileReadSuccessSpec, 'remoting.mojom.BeginFileReadSuccess', [
-      mojo.internal.StructField('arg_file_reader', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_reader', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remoting.mojom.FileReaderSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_filename', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_size', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
@@ -483,7 +483,7 @@ mojo.internal.Struct(
 // Struct: BeginFileWriteSuccess
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.BeginFileWriteSuccessSpec, 'remoting.mojom.BeginFileWriteSuccess', [
-      mojo.internal.StructField('arg_file_writer', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_writer', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remoting.mojom.FileWriterSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -991,7 +991,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec, 'remoting.mojom.DesktopSessionAgent_Start_ResponseParams', [
-      mojo.internal.StructField('arg_desktop_session_control', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_desktop_session_control', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remoting.mojom.DesktopSessionControlSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

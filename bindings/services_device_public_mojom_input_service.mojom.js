@@ -310,7 +310,7 @@ mojo.internal.bindings.device.mojom.InputDeviceManagerClientRequest = mojo.inter
 // Interface: InputDeviceManager
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec, 'device.mojom.InputDeviceManager_GetDevicesAndSetClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.InputDeviceManagerClientSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

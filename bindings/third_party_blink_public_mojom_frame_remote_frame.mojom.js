@@ -152,24 +152,24 @@ mojo.internal.bindings.blink.mojom.RemoteMainFrameHost_RouteCloseEvent_ParamsSpe
 // Struct: RemoteMainFrameInterfaces
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RemoteMainFrameInterfacesSpec, 'blink.mojom.RemoteMainFrameInterfaces', [
-      mojo.internal.StructField('arg_main_frame_host', 0, 0, mojo.internal.bindings.pending_associated_remote<blink.mojom.RemoteMainFrameHost>Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_main_frame', 8, 0, mojo.internal.bindings.pending_associated_receiver<blink.mojom.RemoteMainFrame>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_main_frame_host', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.RemoteMainFrameHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_main_frame', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.RemoteMainFrameRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: RemoteFrameInterfacesFromRenderer
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RemoteFrameInterfacesFromRendererSpec, 'blink.mojom.RemoteFrameInterfacesFromRenderer', [
-      mojo.internal.StructField('arg_frame', 0, 0, mojo.internal.bindings.pending_associated_remote<blink.mojom.RemoteFrame>Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_host_receiver', 8, 0, mojo.internal.bindings.pending_associated_receiver<blink.mojom.RemoteFrameHost>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.RemoteFrameRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_host_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.RemoteFrameHostRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: RemoteFrameInterfacesFromBrowser
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RemoteFrameInterfacesFromBrowserSpec, 'blink.mojom.RemoteFrameInterfacesFromBrowser', [
-      mojo.internal.StructField('arg_frame_receiver', 0, 0, mojo.internal.bindings.pending_associated_receiver<blink.mojom.RemoteFrame>Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_host', 8, 0, mojo.internal.bindings.pending_associated_remote<blink.mojom.RemoteFrameHost>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.RemoteFrameRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_host', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.RemoteFrameHostRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

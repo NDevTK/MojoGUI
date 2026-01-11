@@ -375,7 +375,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_credentials_mode', 24, 0, mojo.internal.bindings.network.mojom.CredentialsModeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_creation_method', 32, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SharedStorageWorkletCreationMethodSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_origin_trial_features', 40, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.OriginTrialFeatureSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_worklet_host', 48, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_worklet_host', 48, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.SharedStorageWorkletHostSpec), null, false, 0, undefined),
     ],
     [[0, 64]]);
 

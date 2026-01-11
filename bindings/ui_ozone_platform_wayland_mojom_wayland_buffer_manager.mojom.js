@@ -94,7 +94,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_Par
 // Interface: WaylandBufferManagerHost
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_Params', [
-      mojo.internal.StructField('arg_buffer_manager_gpu_associated', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_manager_gpu_associated', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

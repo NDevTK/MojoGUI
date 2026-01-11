@@ -714,7 +714,7 @@ mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderFactoryRequest 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec, 'media.mojom.VideoEncodeAccelerator_Initialize_Params', [
       mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorConfigSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_media_log', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.MediaLogRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);

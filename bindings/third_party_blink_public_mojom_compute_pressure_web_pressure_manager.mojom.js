@@ -84,7 +84,7 @@ mojo.internal.bindings.blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpe
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ParamsSpec, 'blink.mojom.WebPressureManager_AddClient_Params', [
       mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.device.mojom.PressureSourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.bindings.pending_associated_remote<blink.mojom.WebPressureClient>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.WebPressureClientRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

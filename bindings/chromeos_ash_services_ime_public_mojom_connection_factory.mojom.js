@@ -83,8 +83,8 @@ mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_Unused_ResponseParamsSpec
 mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ParamsSpec, 'ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_Params', [
       mojo.internal.StructField('arg_ime_spec', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_input_method', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_input_method_host', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_method', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.ash.ime.mojom.InputMethodRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_method_host', 16, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_settings', 24, 0, mojo.internal.bindings.ash.ime.mojom.InputMethodSettingsSpec.$, null, true, 2, undefined),
     ],
     [[0, 32], [2, 40]]);
@@ -97,7 +97,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_Unused_ParamsSpec, 'ash.ime.mojom.ConnectionFactory_Unused_Params', [
-      mojo.internal.StructField('arg_unused', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_unused', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.ash.ime.mojom.JpUnusedRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

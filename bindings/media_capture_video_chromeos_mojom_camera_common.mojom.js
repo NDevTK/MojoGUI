@@ -817,7 +817,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacksAssociated_ParamsSpec, 'cros.mojom.CameraModule_SetCallbacksAssociated_Params', [
-      mojo.internal.StructField('arg_callbacks', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_callbacks', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.cros.mojom.CameraModuleCallbacksSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

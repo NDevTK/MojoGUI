@@ -891,7 +891,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientRequest = mo
 // Interface: SharedStorageWorkletService
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_Initialize_ParamsSpec, 'blink.mojom.SharedStorageWorkletService_Initialize_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_permissions_policy_state', 8, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.SharedStorageWorkletPermissionsPolicyStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_embedder_context', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
     ],

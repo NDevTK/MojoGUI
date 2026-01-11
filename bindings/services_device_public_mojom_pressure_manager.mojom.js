@@ -145,7 +145,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.PressureManager_AddClient_ParamsSpec, 'device.mojom.PressureManager_AddClient_Params', [
       mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.device.mojom.PressureSourceSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_token', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('arg_client', 16, 0, mojo.internal.bindings.pending_associated_remote<device.mojom.PressureClient>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 16, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.PressureClientRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

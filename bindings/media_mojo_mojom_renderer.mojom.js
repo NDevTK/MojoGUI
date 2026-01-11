@@ -103,7 +103,7 @@ mojo.internal.bindings.media.mojom.RendererClient_OnWaiting_ParamsSpec = { $: {}
 // Interface: Renderer
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.Renderer_Initialize_ParamsSpec, 'media.mojom.Renderer_Initialize_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.RendererClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_streams', 8, 0, mojo.internal.Array(mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.DemuxerStreamRemote), false), null, true, 0, undefined),
     ],
     [[0, 24]]);

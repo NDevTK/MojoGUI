@@ -300,7 +300,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoDecoder_Construct_ParamsSpec, 'media.mojom.VideoDecoder_Construct_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.VideoDecoderClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_media_log', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.MediaLogRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_video_frame_handle_releaser', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoFrameHandleReleaserSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_decoder_buffer_pipe', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),

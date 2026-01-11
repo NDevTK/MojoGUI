@@ -259,7 +259,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec, 'ax.mojom.AccessibilityService_ConnectDevToolsAgent_Params', [
-      mojo.internal.StructField('arg_agent', 0, 0, mojo.internal.bindings.pending_associated_receiver<blink.mojom.DevToolsAgent>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_agent', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsAgentRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.ax.mojom.AssistiveTechnologyTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -475,7 +475,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceRequest = mojo.internal.bind
 // Interface: AccessibilityServiceClient
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec, 'ax.mojom.AccessibilityServiceClient_BindAutomation_Params', [
-      mojo.internal.StructField('arg_automation', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_automation', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ax.mojom.AutomationRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

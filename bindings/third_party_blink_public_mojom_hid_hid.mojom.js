@@ -137,7 +137,7 @@ mojo.internal.Struct(
 // Interface: HidService
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.HidService_RegisterClient_ParamsSpec, 'blink.mojom.HidService_RegisterClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.bindings.pending_associated_remote<device.mojom.HidManagerClient>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.HidManagerClientRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

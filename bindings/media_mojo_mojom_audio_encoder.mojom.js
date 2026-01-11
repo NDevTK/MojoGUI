@@ -125,7 +125,7 @@ mojo.internal.Struct(
 // Interface: AudioEncoder
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioEncoder_Initialize_ParamsSpec, 'media.mojom.AudioEncoder_Initialize_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.AudioEncoderClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_config', 8, 0, mojo.internal.bindings.mojo.internal.bindings.media.mojom.AudioEncoderConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);

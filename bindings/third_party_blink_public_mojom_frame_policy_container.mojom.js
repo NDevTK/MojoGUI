@@ -98,14 +98,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PolicyContainerSpec, 'blink.mojom.PolicyContainer', [
       mojo.internal.StructField('arg_policies', 0, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.PolicyContainerPoliciesSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_remote', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.PolicyContainerHostSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: PolicyContainerBindParams
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PolicyContainerBindParamsSpec, 'blink.mojom.PolicyContainerBindParams', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.PolicyContainerHostSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

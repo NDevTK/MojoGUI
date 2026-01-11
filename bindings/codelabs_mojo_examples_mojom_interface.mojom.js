@@ -660,7 +660,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec, 'codelabs.mojom.Process_GetAssociatedInterface_Params', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.codelabs.mojom.GenericInterfaceSpec), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

@@ -198,7 +198,7 @@ mojo.internal.Struct(
 // Interface: AppShim
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec, 'chrome.mojom.AppShim_CreateRemoteCocoaApplication_Params', [
-      mojo.internal.StructField('arg_application', 0, 0, mojo.internal.bindings.pending_associated_receiver<remote_cocoa.mojom.Application>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_application', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.ApplicationRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

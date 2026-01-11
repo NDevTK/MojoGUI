@@ -314,7 +314,7 @@ mojo.internal.Union(
     mojo.internal.bindings.device.mojom.SmartCardTransactionResultSpec, 'device.mojom.SmartCardTransactionResult', {
       'arg_transaction': {
         'ordinal': 0,
-        'type': mojo.internal.Pointer,
+        'type': mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.SmartCardTransactionSpec),
         'nullable': false,
       },
       'arg_error': {

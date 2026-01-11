@@ -102,7 +102,7 @@ mojo.internal.Union(
 // Struct: CreateTensorSuccess
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.CreateTensorSuccessSpec, 'webnn.mojom.CreateTensorSuccess', [
-      mojo.internal.StructField('arg_tensor_remote', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tensor_remote', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.webnn.mojom.WebNNTensorRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_tensor_handle', 8, 0, mojo.internal.bindings.blink.mojom.WebNNTensorTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -110,7 +110,7 @@ mojo.internal.Struct(
 // Interface: WebNNContext
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec, 'webnn.mojom.WebNNContext_CreateGraphBuilder_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderRemote), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

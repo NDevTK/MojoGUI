@@ -121,8 +121,8 @@ mojo.internal.Struct(
 // Interface: DevToolsAgent
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec, 'blink.mojom.DevToolsAgent_AttachDevToolsSession_Params', [
-      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.DevToolsSessionHostSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_session', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsSessionSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_io_session', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsSessionSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_reattach_session_state', 24, 0, mojo.internal.bindings.mojo.internal.bindings.blink.mojom.DevToolsSessionStateSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('arg_script_to_evaluate_on_load', 32, 0, mojo.internal.String, null, false, 0, undefined),

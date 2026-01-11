@@ -538,8 +538,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.GpuChannel_CreateCommandBuffer_ParamsSpec, 'gpu.mojom.GpuChannel_CreateCommandBuffer_Params', [
       mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mojo.internal.bindings.gpu.mojom.CreateCommandBufferParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_shared_state', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.gpu.mojom.CommandBufferSpec), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 24, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.gpu.mojom.CommandBufferClientSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_routing_id', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 48]]);
@@ -586,7 +586,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec, 'gpu.mojom.GpuChannel_CreateDCOMPTexture_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.gpu.mojom.DCOMPTextureSpec), null, false, 0, undefined),
       mojo.internal.StructField('arg_route_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -2062,7 +2062,7 @@ mojo.internal.bindings.gpu.mojom.CommandBufferClientRequest = mojo.internal.bind
 // Interface: DCOMPTexture
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.DCOMPTexture_StartListening_ParamsSpec, 'gpu.mojom.DCOMPTexture_StartListening_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.gpu.mojom.DCOMPTextureClientSpec), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

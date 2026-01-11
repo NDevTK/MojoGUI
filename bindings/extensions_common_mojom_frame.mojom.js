@@ -215,8 +215,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_channel_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_tab_info', 24, 0, mojo.internal.bindings.extensions.mojom.TabConnectionInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_external_connection_info', 32, 0, mojo.internal.bindings.extensions.mojom.ExternalConnectionInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_port', 40, 0, mojo.internal.bindings.pending_associated_receiver<extensions.mojom.MessagePort>Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_port_host', 48, 0, mojo.internal.bindings.pending_associated_remote<extensions.mojom.MessagePortHost>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_port', 40, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.extensions.mojom.MessagePortRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_port_host', 48, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.extensions.mojom.MessagePortHostRemote), null, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -765,8 +765,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_channel_type', 8, 0, mojo.internal.bindings.extensions.mojom.ChannelTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_channel_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_port_id', 24, 0, mojo.internal.bindings.extensions.mojom.PortIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_port', 32, 0, mojo.internal.bindings.pending_associated_remote<extensions.mojom.MessagePort>Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_port_host', 40, 0, mojo.internal.bindings.pending_associated_receiver<extensions.mojom.MessagePortHost>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_port', 32, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.extensions.mojom.MessagePortRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_port_host', 40, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.extensions.mojom.MessagePortHostRemote), null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -774,8 +774,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToNativeApp_ParamsSpec, 'extensions.mojom.LocalFrameHost_OpenChannelToNativeApp_Params', [
       mojo.internal.StructField('arg_native_app_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_port_id', 8, 0, mojo.internal.bindings.extensions.mojom.PortIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_port', 16, 0, mojo.internal.bindings.pending_associated_remote<extensions.mojom.MessagePort>Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_port_host', 24, 0, mojo.internal.bindings.pending_associated_receiver<extensions.mojom.MessagePortHost>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_port', 16, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.extensions.mojom.MessagePortRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_port_host', 24, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.extensions.mojom.MessagePortHostRemote), null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -785,8 +785,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_channel_type', 8, 0, mojo.internal.bindings.extensions.mojom.ChannelTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('arg_channel_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_port_id', 24, 0, mojo.internal.bindings.extensions.mojom.PortIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_port', 32, 0, mojo.internal.bindings.pending_associated_remote<extensions.mojom.MessagePort>Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('arg_port_host', 40, 0, mojo.internal.bindings.pending_associated_receiver<extensions.mojom.MessagePortHost>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('arg_port', 32, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.extensions.mojom.MessagePortRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_port_host', 40, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.extensions.mojom.MessagePortHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_tab_id', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_frame_id', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
