@@ -80,6 +80,7 @@ mojo.internal.bindings.content.mojom.NavigationGestureSpec = { $: mojo.internal.
 mojo.internal.bindings.content.mojom.PageTransitionSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.content.mojom.NavigationClientDisconnectReasonSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.content.mojom.PageStateSpec = { $: {} };
+mojo.internal.bindings.content.mojom.PageStateSpec = { $: {} };
 mojo.internal.bindings.content.mojom.DidCommitSameDocumentNavigationParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.CookieManagerInfoSpec = { $: {} };
 mojo.internal.bindings.content.mojom.StorageInfoSpec = { $: {} };
@@ -107,6 +108,12 @@ mojo.internal.bindings.content.mojom.NavigationClientDisconnectReason = {
   kResetForNewNavigation: 3,
   kResetForDuplicateNavigation: 4,
 };
+
+// Struct: PageState
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.PageStateSpec, 'content.mojom.PageState', [
+    ],
+    [[0, 8]]);
 
 // Struct: PageState
 mojo.internal.Struct(

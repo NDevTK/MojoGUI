@@ -76,6 +76,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
 mojo.internal.bindings.media.mojom.CdmSpec = { $: {} };
+mojo.internal.bindings.media.mojom.OverlayInfoSpec = { $: {} };
 mojo.internal.bindings.media.mojom.SupportedVideoDecoderConfigSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CommandBufferIdSpec = { $: {} };
 mojo.internal.bindings.media.mojom.OverlayInfoSpec = { $: {} };
@@ -117,6 +118,12 @@ mojo.internal.Union(
         'nullable': false,
       },
     });
+
+// Struct: OverlayInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.OverlayInfoSpec, 'media.mojom.OverlayInfo', [
+    ],
+    [[0, 8]]);
 
 // Struct: SupportedVideoDecoderConfig
 mojo.internal.Struct(

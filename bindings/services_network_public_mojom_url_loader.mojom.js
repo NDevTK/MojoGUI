@@ -75,6 +75,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec = { $: {} };
+mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec = { $: {} };
 mojo.internal.bindings.network.mojom.URLLoaderClientEndpointsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.URLLoader = {};
 mojo.internal.bindings.network.mojom.URLLoaderSpec = { $ : {} };
@@ -93,6 +94,12 @@ mojo.internal.bindings.network.mojom.URLLoaderClient_OnTransferSizeUpdated_Param
 mojo.internal.bindings.network.mojom.URLLoaderClient_OnComplete_ParamsSpec = { $: {} };
 
 mojo.internal.bindings.network.mojom.kClientDisconnectReason = 1;
+
+// Struct: URLRequestRedirectInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec, 'network.mojom.URLRequestRedirectInfo', [
+    ],
+    [[0, 8]]);
 
 // Struct: URLRequestRedirectInfo
 mojo.internal.Struct(

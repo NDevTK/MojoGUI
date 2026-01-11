@@ -73,6 +73,7 @@
 mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
+mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ObfuscatedFileUtilHeaderDataSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer = {};
 mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerSpec = { $ : {} };
@@ -94,6 +95,12 @@ mojo.internal.bindings.chrome.mojom.TemporaryFileGetterSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.TemporaryFileGetter.$interfaceName = 'chrome.mojom.TemporaryFileGetter';
 mojo.internal.bindings.chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec = { $: {} };
+
+// Struct: SafeArchiveAnalyzerResults
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec, 'chrome.mojom.SafeArchiveAnalyzerResults', [
+    ],
+    [[0, 8]]);
 
 // Struct: ObfuscatedFileUtilHeaderData
 mojo.internal.Struct(

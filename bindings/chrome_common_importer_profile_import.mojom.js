@@ -78,6 +78,13 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.chrome.mojom.ImportItemSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.chrome.mojom.SchemeSpec = { $: mojo.internal.Enum() };
 mojo.internal.bindings.chrome.mojom.ImportedBookmarkEntrySpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.ImporterAutofillFormDataEntrySpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.SearchEngineInfoSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.ImporterURLRowSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.SourceProfileSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.FaviconUsageDataListSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.ImporterIE7PasswordInfoSpec = { $: {} };
+mojo.internal.bindings.chrome.mojom.ImportedBookmarkEntrySpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.ProfileImportObserver = {};
 mojo.internal.bindings.chrome.mojom.ProfileImportObserverSpec = { $ : {} };
 mojo.internal.bindings.chrome.mojom.ProfileImportObserver.$interfaceName = 'chrome.mojom.ProfileImportObserver';
@@ -112,6 +119,48 @@ mojo.internal.bindings.chrome.mojom.Scheme = {
   kHtml: 0,
   kBasic: 1,
 };
+
+// Struct: ImportedBookmarkEntry
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.ImportedBookmarkEntrySpec, 'chrome.mojom.ImportedBookmarkEntry', [
+    ],
+    [[0, 8]]);
+
+// Struct: ImporterAutofillFormDataEntry
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.ImporterAutofillFormDataEntrySpec, 'chrome.mojom.ImporterAutofillFormDataEntry', [
+    ],
+    [[0, 8]]);
+
+// Struct: SearchEngineInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.SearchEngineInfoSpec, 'chrome.mojom.SearchEngineInfo', [
+    ],
+    [[0, 8]]);
+
+// Struct: ImporterURLRow
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.ImporterURLRowSpec, 'chrome.mojom.ImporterURLRow', [
+    ],
+    [[0, 8]]);
+
+// Struct: SourceProfile
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.SourceProfileSpec, 'chrome.mojom.SourceProfile', [
+    ],
+    [[0, 8]]);
+
+// Struct: FaviconUsageDataList
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.FaviconUsageDataListSpec, 'chrome.mojom.FaviconUsageDataList', [
+    ],
+    [[0, 8]]);
+
+// Struct: ImporterIE7PasswordInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.ImporterIE7PasswordInfoSpec, 'chrome.mojom.ImporterIE7PasswordInfo', [
+    ],
+    [[0, 8]]);
 
 // Struct: ImportedBookmarkEntry
 mojo.internal.Struct(
